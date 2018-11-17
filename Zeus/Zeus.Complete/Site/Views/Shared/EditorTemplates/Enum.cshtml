@@ -1,0 +1,48 @@
+﻿@using System.ComponentModel
+@using Employment.Web.Mvc.Infrastructure.Types
+@using Employment.Web.Mvc.Infrastructure.Extensions
+
+
+@model object
+
+@{
+    var htmlAttributes = Html.GetHtmlAttributes("disabled");
+
+    DefaultValueAttribute defaultValueAttribute;
+
+    bool isRadioButtonGroup = !ViewData.ModelMetadata.ModelType.IsEnumerableType() && (ViewData.ModelMetadata.DataTypeName == CustomDataType.RadioButtonGroupVertical || ViewData.ModelMetadata.DataTypeName == CustomDataType.RadioButtonGroupHorizontal);
+
+    if (isRadioButtonGroup)
+    {
+        // If defined, use the default value from View Model
+        if ((Model == null || ((int)Model == 0)) && (defaultValueAttribute = ViewData.ModelMetadata.GetAttribute<DefaultValueAttribute>()) != null)
+        {
+            @Html.ZeusEnumRadioButtonGroupFor(m => m, defaultValueAttribute.Value as Enum, htmlAttributes)
+        }
+        else
+        {
+            @Html.ZeusEnumRadioButtonGroupFor(m => m, htmlAttributes)
+        }
+    }
+    else
+    {
+        if (ViewData.ModelMetadata.ModelType.IsEnumerableType())
+        {
+            // TODO: Handle default value (should allow for array)
+            @Html.ZeusEnumDropDownListFor(m => m, htmlAttributes)
+        }
+        else
+        {
+            // If defined, use the default value from View Model
+            if ((Model == null || ((int)Model == 0)) && (defaultValueAttribute = ViewData.ModelMetadata.GetAttribute<DefaultValueAttribute>()) != null)
+            {
+                @Html.ZeusEnumDropDownListFor(m => m, defaultValueAttribute.Value as Enum, htmlAttributes)
+            }
+            else
+            {
+                @Html.ZeusEnumDropDownListFor(m => m, htmlAttributes)
+            }
+        }
+    }
+}
+

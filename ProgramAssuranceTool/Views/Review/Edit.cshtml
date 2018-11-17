@@ -1,0 +1,157 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.ViewModels.Review.ReviewDetailsViewModel
+
+@{
+    ViewBag.Title = "Update Review Outcome";
+}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+        <li>@Html.ActionLink("Sample list", "Details", "Project", new { id = Model.ProjectId, tabNo = CommonConstants.ProjectTab_Samples }, "")</li>
+        <li>@Html.ActionLink("Review List", "Details", "Upload", new { id = Model.Review.UploadId }, "")</li>
+        <li class="active">Review Details</li>
+    </ol>        
+    <h1>Project - @Model.ProjectId -  @Model.ProjectName</h1>
+</div>
+
+<div class="col-lg-12 col-md-12">
+    <div class="col-lg-4 col-md-4">
+
+        @Html.Hidden("unloadMessage", "Changes have not been saved. If you proceed you will lose current changes.")
+
+        @using (Html.BeginForm("Edit", "Review", FormMethod.Post, new { id = "reviewEditForm", name = "reviewEditForm" }))
+        {
+            @Html.ValidationMessageSummary()
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Review.AssessmentCode)
+                @Html.ValidationMessageFor(model => model.Review.AssessmentCode)
+                @Html.EditorFor(model => model.Review.AssessmentCode, new { AdditionalCode = @ViewBag.OldAssessmentOutcomeList as SelectListItem })
+            </div>    
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Review.RecoveryReason)
+                @Html.ValidationMessageFor(model => model.Review.RecoveryReason)
+                @Html.EditorFor(model => model.Review.RecoveryReason, new { AdditionalCode = @ViewBag.OldRecoveryReasonList as SelectListItem })
+            </div>   
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Review.AssessmentAction)
+                @Html.ValidationMessageFor(model => model.Review.AssessmentAction)
+                @Html.EditorFor(model => model.Review.AssessmentAction, new { AdditionalCode = @ViewBag.OldAssessmentActionList as SelectListItem })
+            </div>   
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Review.OutcomeCode)
+                @Html.ValidationMessageFor(model => model.Review.OutcomeCode)
+                @Html.EditorFor(model => model.Review.OutcomeCode, new { AdditionalCode = @ViewBag.OldFinalOutcomeList as SelectListItem })
+            </div>           
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Review.ClaimRecoveryAmount)
+                @Html.ValidationMessageFor(model => model.Review.ClaimRecoveryAmount)
+                @Html.EditorFor(model => model.Review.ClaimRecoveryAmount)
+            </div>     
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Review.Comments)
+                @Html.ValidationMessageFor(model => model.Review.Comments)
+                @Html.TextAreaFor(model => model.Review.Comments, 4, 100, new { @class = "form-control", @maxlength = "3000" })
+            </div>
+            
+            <div class="form-group h5">
+                 <span>@Html.DisplayFor(model => model.UploadName )</span>
+            </div>
+
+            <fieldset><legend>Upload Type</legend><br/>            
+                <div class="form-group indented">
+                    <label for="OutOfScopeFlag">
+                        @Html.CheckBoxFor(model => model.OutOfScopeFlag, new { @id="OutOfScopeFlag", @onclick="return false;"}) Out of Scope
+                    </label>
+                </div>
+                <div class="form-group indented">
+                    <label for ="AdditionalFlag">
+                        @Html.CheckBoxFor(model => model.AdditionalFlag, new { @id="AdditionalFlag", @onclick="return false;"}) Additional Review
+                    </label>
+                </div>
+            </fieldset>
+                        
+            <br />            
+
+            <div id="buttons">
+                
+                <div class="row">
+                    @if (Model.CanDelete)
+                    {
+                        <button id="delete-button" type="submit" name="button" value="delete" class="btn btn-lg btn-primary">Delete</button>
+                    }
+
+                    <button id="save-button" type="submit" name="button" value="save" class="btn btn-lg btn-primary" onclick="dontShowWarning=true">Save</button>
+
+                    @if (!ViewBag.IsProjectContractMonitoringOrContractSiteVisit && ViewBag.AnyQuestionsAndAnswers)
+                    {
+                        @Html.ActionLink("Review Questions & Answers", "Edit", "Questionnaire", new { id = Model.Review.ReviewId }, new { @class="btn btn-lg btn-primary" })
+                    }
+
+                    @if (ViewBag.IsProjectContractMonitoringOrContractSiteVisit && ViewBag.CanEditCheckList)
+                    {
+                        @Html.ActionLink("Checklist", "Edit", "CheckList", new { id = Model.Review.ReviewId, special = true}, new { @class="btn btn-lg btn-primary"})
+                    }
+
+
+                </div>
+
+            </div>              
+            
+            @Html.HiddenFor(model => model.ProjectId)    
+            @Html.HiddenFor(model => model.ProjectName)        
+            
+            @Html.HiddenFor(model => model.UploadName) 
+            @Html.HiddenFor(model => model.Additional)                                                          
+            @Html.HiddenFor(model => model.OutOfScope)                                                          
+
+            @Html.HiddenFor(model => model.Review.ReviewId)         
+            @Html.HiddenFor(model => model.Review.UploadId)   
+            @Html.HiddenFor(model => model.Review.ProjectId)    
+            @Html.HiddenFor(model => model.Review.ClaimId)                                                            
+            @Html.HiddenFor(model => model.Review.ClaimSequenceNumber)  
+            @Html.HiddenFor(model => model.Review.ClaimType)                     
+            @Html.HiddenFor(model => model.Review.ClaimAmount)                     
+            @Html.HiddenFor(model => model.Review.ClaimCreationDate)                     
+            @Html.HiddenFor(model => model.Review.ActivityId)       
+            @Html.HiddenFor(model => model.Review.SiteCode)                                                            
+            @Html.HiddenFor(model => model.Review.SiteName)                                                            
+            @Html.HiddenFor(model => model.Review.OrgCode)                                                            
+            @Html.HiddenFor(model => model.Review.OrgName)    
+            @Html.HiddenFor(model => model.Review.ESACode)  
+            @Html.HiddenFor(model => model.Review.StateCode)                                                                                        
+            @Html.HiddenFor(model => model.Review.ManagedBy)     
+            @Html.HiddenFor(model => model.Review.JobseekerId)    
+            @Html.HiddenFor(model => model.Review.JobSeekerGivenName)    
+            @Html.HiddenFor(model => model.Review.JobSeekerSurname)
+            @Html.HiddenFor(model => model.Review.IsAdditionalReview)         
+            @Html.HiddenFor(model => model.Review.IsOutOfScope)
+            @Html.HiddenFor(model => model.Review.AutoSpecialClaim)                              
+            @Html.HiddenFor(model => model.Review.ManualSpecialClaim)  
+            
+            @Html.HiddenFor(model => model.Review.AssessmentDate)                                        
+            @Html.HiddenFor(model => model.Review.RecoveryReasonDate)
+            
+            @Html.HiddenFor(model => model.OldAssessmentOutcome)                                      
+            @Html.HiddenFor(model => model.OldRecoveryReason)                                      
+            @Html.HiddenFor(model => model.OldOutcomeCode)                              
+            
+        }
+
+    </div>
+
+    <div class="col-lg-4 col-md-4">
+        @Html.Raw(ViewData["review-details"])
+    </div>
+
+    <div class="col-lg-4 col-md-4">
+        @Html.Raw(ViewData["related-data"])
+    </div>
+</div>
+<div class="hide" id="review-delete-message">@Model.DeleteMessage</div>

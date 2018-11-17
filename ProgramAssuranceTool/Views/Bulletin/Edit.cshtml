@@ -1,0 +1,100 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.Models.Bulletin
+
+@{
+    // default to FAQ
+    var subTitle = "Edit FAQ";
+    var backText = "Back to FAQ List";
+    var bulletinType = DataConstants.FaqBulletinType;
+    
+    if (Model != null)
+    {
+        if (Model.IsBulletin)
+        {
+            subTitle = "Edit Bulletin";
+            backText = "Back to Bulletin List";
+            bulletinType = DataConstants.StandardBulletinType;
+        }
+    }
+}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Bulletins/FAQs", "Index", "Home")</li>
+        <li class="active">@subTitle</li>
+    </ol>      
+    <h1>@subTitle</h1>
+</div>
+
+<div class="panel panel-default">
+    @*
+    <div class="panel-heading">
+        <h2 class="panel-title pull-right clearfix">
+            <span>&nbsp;</span>
+        </h2>
+        <div class="clear-fix"></div>
+    </div>
+    *@
+    @using (Html.BeginForm("Edit", "Bulletin", FormMethod.Post, new { @role = "form", id = "bulletinEditForm", name = "bulletinEditForm" }))
+    {
+        <div class="panel-body">
+            @Html.Partial("RequiredFieldMessage")<br/>
+            @Html.ValidationSummary("Please correct the errors and try again.")
+
+            <div class="row">
+                @Html.HiddenFor(b => b.BulletinId, new {@readonly = "readonly", @class = "form-control"})
+
+                <div class="col-xs-12">
+                    @Html.LabelForRequired(b => b.BulletinType)
+                    @Html.ValidationMessageFor(b => b.BulletinType)
+                    @Html.EditorFor(b => b.BulletinType)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(b => b.ProjectField)
+                    @Html.TextBoxFor(b => b.ProjectField, new {@class = "form-control", @placeholder = "Please specify the Project"})
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelForRequired(b => b.BulletinTitle)
+                    @Html.ValidationMessageFor(b => b.BulletinTitle)
+                    @Html.TextAreaFor(b => b.BulletinTitle, new {@class = "form-control", @placeholder = "Please specify the Title", @maxlength = "200" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelForRequired(b => b.Description)
+                    @Html.ValidationMessageFor(b => b.Description)
+                    @Html.TextAreaFor(b => b.Description, new {@class = "form-control", @placeholder = "Please specify the Description", @maxlength = "5000", @rows = "10" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    @Html.LabelForRequired(b => b.StartDate)
+                    @Html.ValidationMessageFor(b => b.StartDate)
+                    @Html.EditorFor(b => b.StartDate)
+                </div>
+
+                <div class="col-xs-6">
+                    @Html.LabelForRequired(b => b.EndDate)
+                    @Html.ValidationMessageFor(b => b.EndDate)
+                    @Html.EditorFor(b => b.EndDate)
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer clearfix">
+                <button type="submit" id="btnDelete" name="command" value="@CommonConstants.ButtonDelete" class="hidden"></button>
+                <button type="button" id="btnDeletePrompt" class="btn btn-lg btn-primary">Delete</button>
+                <button type="submit" id="btnSave" name="command" value="@CommonConstants.ButtonSave" class="btn btn-lg btn-primary" @ViewBag.CanSave>Save Changes</button>
+        </div>
+    }
+</div>
+
+@*@Html.ActionLink(backText, "Index", "Home", new { bulletinType }, null)*@

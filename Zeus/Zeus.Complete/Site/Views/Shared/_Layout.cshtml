@@ -1,0 +1,206 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using System.Text.RegularExpressions
+@using System.Web.Optimization
+@using Employment.Web.Mvc.Infrastructure.DataAnnotations
+@using Employment.Web.Mvc.Infrastructure.Types
+@using Employment.Web.Mvc.Infrastructure.Extensions
+@using Employment.Web.Mvc.Zeus.Extensions
+@using Employment.Web.Mvc.Infrastructure.ViewModels
+@using StackExchange.Profiling
+@using StackExchange.Profiling.Mvc
+@using AreaRegistration = Employment.Web.Mvc.Infrastructure.Registrations.AreaRegistration
+
+@functions{
+
+    public string ToSentenceCase(string str)
+    {
+        if (string.IsNullOrEmpty(str))
+        {
+            return string.Empty;
+        }
+        return Regex.Replace(str, "[a-z][A-Z]", m => m.Value[0] + " " + char.ToLower(m.Value[1]));
+    }
+
+
+
+}
+@{
+    if (IsAjax)
+    {
+        @RenderBody()
+        return;
+    }
+
+    var isDebug = Html.IsDebug();
+    var useHighContrast = Html.GetUserService().UseHighContrast;
+    var highContrastDisplayName = string.Format("{0} High Contrast", useHighContrast ? "Disable" : "Enable");
+    var imagePath = useHighContrast ? "~/Content/layout/hc/" : "~/Content/layout/";
+    string workflowHeading = string.Empty;
+
+    var area = ViewContext.RouteData.GetArea();
+    area = string.IsNullOrEmpty(area) ? "Home" : area;
+    var areaName = Html.GetCurrentAreaName().ToString();
+    var controller = ViewContext.RouteData.GetController();
+    var action = ViewContext.RouteData.GetAction();
+    var actionName = Html.GetCurrentActionName(ViewData.ModelMetadata.GetDisplayName()).ToString();
+
+    // Allow override of page title on Content View Model
+    if (ViewData.ModelMetadata.ModelType == typeof(ContentViewModel))
+    {
+        var contentViewModel = ViewData.Model as ContentViewModel;
+
+        if (contentViewModel != null && !string.IsNullOrEmpty(contentViewModel.PageTitle))
+        {
+            actionName = contentViewModel.PageTitle;
+        }
+    }
+
+    // Final override of page title
+    if (!string.IsNullOrEmpty(ViewBag.PageTitle))
+    {
+        actionName = ViewBag.PageTitle;
+    }
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    @if (isDebug)
+    {
+        @Html.Raw(this.InitClientTimings())
+    }
+    
+    <title>ESS Web | @areaName@{ if (!string.IsNullOrEmpty(areaName))
+         { @(string.Format(" | {0} {1}", actionName, workflowHeading)) }
+         else
+         { @actionName @workflowHeading } }
+    </title>
+
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+
+    @if (isDebug)
+    {
+        @Html.Raw(this.TimeScript("Styles.Render: ~/content/1-base", @Styles.Render("~/content/1")))
+        @Html.Raw(this.TimeScript("Styles.Render: ~/content/areas", @Styles.Render("~/content/areas")))
+        @Html.Raw(this.TimeScript("Styles.Render: ~/content/calendar", @Styles.Render("~/content/calendar")))
+    }
+    else
+    {
+        @Styles.Render("~/content/1")
+        @Styles.Render("~/content/areas")
+        @Styles.Render("~/content/calendar")
+    }
+    @if (useHighContrast)
+    {
+        if (isDebug)
+        {
+            @Html.Raw(this.TimeScript("Styles.Render: ~/content/highcontrast", @Styles.Render("~/content/highcontrast")))
+        }
+        else
+        {
+            @Styles.Render("~/content/highcontrast")
+        }
+    }
+</head>
+<body>
+<noscript><div id="msgNojs"><a href="http://enable-javascript.com/" target="_blank" title="This site requires JavaScript. Click here for instructions on enabling it in your browser. (opens in a new window)">This site requires JavaScript. Click here for instructions on enabling it in your browser.</a></div></noscript>
+<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+<div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-with-two-sidebar">
+<div id="skipLinks" class="readers"><ul>@{
+                    var skipToContentLink = "<li><a href=\"#content\">skip to content</a></li>";
+                    @Html.Raw(skipToContentLink)
+                    var navigationSkipLink = "<li><a href=\"#pagenav\">skip to section navigation</a></li>";
+                    @Html.Raw(navigationSkipLink)
+                }</ul></div>
+<div id="header" class="header navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="@Url.Action("Index","Default", new  {Area = ""})" title="Home"><span class="navbar-logo"></span> Employment</a>
+            <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @* @Html.ShowAreaQuicklinks() *@
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <p class="navbar-text">  
+                        Org: @Html.GetUserOrganisationCode()
+                 
+                        Site: @Html.GetUserSiteCode()
+                    </p>
+                </li>
+                <li class="dropdown navbar-user">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                        @*<img src="assets/img/user-13.jpg" alt="@Html.GetUserFullName() (@Html.GetUsername())" />*@
+                        <span class="hidden-xs">@Html.GetUserFullName() (@Html.GetUsername())</span> <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInLeft">
+                        <li class="arrow"></li>
+                        <li>@Html.ActionLink(highContrastDisplayName, "HighContrast", "Default", new { Area = "" }, new { title = highContrastDisplayName })</li>
+                        <li>@Html.ActionLink("Accessibility", "Accessibility", "Default", new { Area = "" }, new { target = "_blank", title = "Accessibility (opens in a new window)" })</li>
+                        <li>@Html.ActionLink("Privacy", "Privacy", "Default", new { Area = "" }, new { target = "_blank", title = "Privacy (opens in a new window)" })</li>
+                        <li>@Html.ActionLink("ESS Web System Support", "Support", "Default", new { Area = "" }, new { target = "_blank", title = "ESS Web System Support (opens in a new window)" })</li>
+                        <li><a href="https://ecsnaccess.gov.au/sites/securesiteportal/" target="_blank" title="Provider Portal (opens in a new window)">Provider Portal</a></li>
+                        <li class="divider"></li>
+                        <li>System Date: <span id="system_date">@Html.GetUserService().DateTime.Date.ToString("dd/MM/yyyy")</span></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Logout","Default", new { Area = string.Empty })">Log Out</a></li>
+                    </ul>
+                </li>
+                <li class="hidden-xs">
+                    <a href="javascript:;" data-click="right-sidebar-toggled" class="f-s-14">
+                        <i class="fa fa-th"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@RenderBody()
+@if (ViewData.ContainsKey(HistoryAttribute.ViewDataKey))
+{
+foreach (var historyType in ViewData[HistoryAttribute.ViewDataKey] as List<HistoryType>)
+{ 
+<div class="theme-panel">
+    <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn ui-sortable"><i class="fa @historyType.GetIconClass()"></i><span class="readers">@historyType.GetDescription() records</span></a>
+    <div class="theme-panel-content">@Html.ShowHistory(historyType)</div>
+</div>
+}
+}
+
+<a class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade in" data-click="scroll-top" href="javascript:;"><i class="fa fa-angle-up"></i></a>
+</div>
+<div id="msgLegacy"><a href="http://windows.microsoft.com/en-us/internet-explorer/products/ie/home" target="_blank" title="Your internet browser is not supported. Click here for update info. (opens in a new window)">Your internet browser is not supported. Click here for update info.</a></div>
+@Html.Partial("_GoogleAnalytics")
+@Html.Partial("_AjaxRoutesPartial")
+@if (isDebug)
+{
+    @Html.Raw(this.TimeScript("Scripts.Render: ~/scripts/1-base", @Scripts.Render("~/scripts/1")))
+    @Html.Raw(this.TimeScript("Scripts.Render: ~/scripts/calendar", @Scripts.Render("~/scripts/calendar")))
+    <!--[if lt IE 9]>@Html.Raw(this.TimeScript("Scripts.Render: ~/scripts/2-ie8", @Scripts.Render("~/scripts/2")))<![endif]-->
+    @Html.Raw(this.TimeScript("Scripts.Render: ~/scripts/3-base", @Scripts.Render("~/scripts/3")))
+    @Html.Raw(this.TimeScript("Scripts.Render: ~/scripts/areas", @Scripts.Render("~/scripts/areas")))
+        
+    @MiniProfiler.RenderIncludes()
+}
+else
+{
+    @Scripts.Render("~/scripts/1")
+    @Scripts.Render("~/scripts/calendar")
+    <!--[if lt IE 9]>@Scripts.Render("~/scripts/2")<![endif]-->
+    @Scripts.Render("~/scripts/3")
+    @Scripts.Render("~/scripts/areas")
+    
+}
+@Html.Alerts()
+</body>
+</html>

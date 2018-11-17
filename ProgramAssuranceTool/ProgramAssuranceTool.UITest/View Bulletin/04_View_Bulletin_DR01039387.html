@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:6491/" />
+<title>DR01039387 </title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">DR01039387 </td></tr>
+</thead><tbody>
+<!--This hyperlink will open an email client, populate the email address with 'programassurance@deewr.gov.au' as well as the Bulletin Title within the subject of the email.-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=td[title=&quot;w/ project&quot;] &gt; a &gt; span.wrap</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=BulletinId</td>
+	<td>bulletinID</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${bulletinID}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{'#projectBulletin_' + ${bulletinID} + ' &gt; p &gt; a'}</td>
+	<td>projectBulletinLink</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${projectBulletinLink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=btnDetail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=${bulletinID}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=${projectBulletinLink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='${bulletinID}']/p[2]/a/span</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

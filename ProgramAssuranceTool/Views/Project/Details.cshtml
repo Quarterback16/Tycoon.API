@@ -1,0 +1,194 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.ViewModels.Project.ProjectDetailsViewModel
+
+@{
+    ViewBag.Title = "Project Details";
+}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+        <li class="active">Project Details</li>
+    </ol>       
+    <h1>Project - @Model.Project.ProjectId -  @Model.Project.ProjectName</h1>
+</div>
+
+<div id="projectDetailsDiv">
+    
+    <ul class="nav nav-tabs nav-justified">
+        <li id="tabLink1"><a href="#tab1" data-toggle="tab">Details</a></li>
+        <li id="tabLink2"><a href="#tab2" data-toggle="tab">Samples</a></li>
+        <li id="tabLink3"><a href="#tab3" data-toggle="tab">Reviews</a></li>
+        <li id="tabLink4"><a href="#tab4" data-toggle="tab">Contracts</a></li>
+        <li id="tabLink5"><a href="#tab5" data-toggle="tab">Documents</a></li>
+        @if (! Model.Project.IsContractMonitoringOrContractSiteVisit())
+        {
+            <li id="tabLink6"><a href="#tab6" data-toggle="tab">Questions</a></li>
+        }
+    </ul>
+
+    <div class="tab-content" id="tabs">
+ 
+        <div class="well tab-pane" id="tab1">
+        
+            @if (!string.IsNullOrEmpty( Model.Project.Organisation ))
+            {
+                <label for="Organisation" class="control-label">
+                    @Html.GetDisplayName( model => model.Project.Organisation )
+                </label>
+                <div class="indented">
+                    @Html.DisplayFor( model => model.Project.Organisation )
+                </div>
+                <br/>
+            }
+        
+            <label for="ProjectType" class="control-label">
+                @Html.GetDisplayName( model => model.Project.ProjectType )
+            </label>
+            <div class="indented">
+                @Html.DisplayFor( model => model.Project.ProjectType )
+            </div>
+            <br/>
+
+            <label for="Coordinator" class="control-label">
+                @Html.GetDisplayName( model => model.Project.Coordinator )
+            </label>
+            <div class="indented">
+                @Html.DisplayFor( model => model.Project.Coordinator )
+            </div>
+            <br/>
+
+            <label for="Resources" class="control-label">Resources</label>
+            <div class="indented">
+                @Model.ResourceSet
+            </div>
+            <br/>
+   
+            <label for="Comments" class="control-label">
+                @Html.GetDisplayName( model => model.Project.Comments )
+            </label>
+            <div class="indented">
+                @Html.DisplayFor( model => model.Project.Comments )
+            </div>
+            <br/><br/>
+            <div class="row">
+                @if ( Model.Project.CanEdit( Model.UserId, Model.UserIsAdmin ) )
+                {
+                    @Html.ActionLink( "Edit Project", "Edit", new { id = Model.Project.ProjectId }, new { @class = "btn btn-primary btn-lg" } )
+                }
+                @if ( Model.Project.CanDelete( Model.UserIsAdmin ) )
+                {
+                    <a class="btn btn-primary btn-lg" href="javascript:pat.projectDetails_OpenDeleteDialog();">Delete Project</a>
+                }
+            </div>
+        </div>
+
+        <div class="well tab-pane" id="tab2">
+            <!--  Samples -->
+            <div id="sample-list">
+                @Html.Raw( ViewData[ "samples" ] )
+            </div>
+            <br/>
+            <div class="row">                
+                @if ( Model.Project.CanAddSample( Model.UserId, Model.ContractCount ) )
+                {
+                    @Html.ActionLink( "Add Sample", "Create", "Sample", new { id = Model.Project.ProjectId }, new { @class = "btn btn-primary btn-lg" } )
+                }
+                @if ( Model.Project.CanAddUpload( Model.UserId, Model.ContractCount ) )
+                {
+                    @Html.ActionLink( "Add Upload", "Create", "Upload", new { id = Model.Project.ProjectId }, new { @class = "btn btn-primary btn-lg" } )
+                }
+            </div>
+        </div>
+
+        <div class="well tab-pane" id="tab3">
+            <!--  Reviews -->
+            <div id="review-list">
+                @if (ViewData[ "reviews" ] != null)
+                {
+                    @Html.Raw( ViewData[ "reviews" ].ToString() )
+                }
+            </div>
+            <br/>
+            <div class="row">
+                @if ( Model.ReviewCount > 0 && Model.Project.CanExport( Model.UserId ) )
+                {
+                    using ( Html.BeginForm( "ExportReviews", "Project", FormMethod.Post, new { id = "exportForm", name = "exportForm" } ) )
+                    {
+                        <div class="row indented">
+                            <button id="export-button" type="submit" class="btn btn-lg btn-primary" onclick="pat.projectDetails_ExportReviews();return false;">Export to CSV</button>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    
+        <div class="well tab-pane" id="tab4">
+            <!--  Contracts -->
+            <div id="contracts-list">
+                @Html.Raw( ViewData[ "contracts" ] )
+            </div>
+            <div class="row">
+                @if ( Model.Project.CanEdit( Model.UserId, Model.UserIsAdmin ) )
+                {
+                   <button id="submit-contract-changes" type="submit" name="button" value="submit" class="btn btn-lg btn-primary">Save Changes</button>
+                }
+            </div>
+        </div>
+    
+        <div class="well tab-pane" id="tab5">
+            <!--  Documents -->
+            <div id="document-list">
+                @Html.Raw( ViewData[ "attachments" ] )
+            </div>
+            <br/>
+            @{
+                if (ViewBag.CanEditAttachment)
+                {
+                    <div class="row">
+                        @Html.ActionLink("New Attachment", "Edit", "Attachment", new {id = 0}, new {@class = "btn btn-primary btn-lg", @enabled="true"})
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        @Html.ActionLink("New Attachment", "Edit", "Attachment", new {id = 0}, new {@class = "btn btn-primary btn-lg", @enabled="false", @disabled="disabled"})
+                    </div>
+                }
+            }
+        </div>
+    
+        @if ( !Model.Project.IsContractMonitoringOrContractSiteVisit() )
+        {
+            <div class="well tab-pane" id="tab6">
+                <!--  Questions -->
+                <div id="question-list">
+                    @Html.Raw( ViewData[ "questions" ] )
+                </div>
+                <br/>
+                <!-- Upload option not required as questions are determined by Carmenza  -->
+                @*                <div class="row">
+                    @if ( Model.Project.CanEdit( Model.UserId, Model.UserIsAdmin ) )
+                    {
+                        @Html.ActionLink( "Upload Questions", "Questions", new { id = Model.Project.ProjectId }, new { @class = "btn btn-primary btn-lg" } )
+                    }
+                </div>*@
+            </div>
+        }
+
+    </div>
+
+    <div class="hide" id="tabNo">@ViewBag.TabNo</div>  
+    <div class="hide" id="projectId">@Model.Project.ProjectId</div>  
+
+@*    @Html.ActionLink( "Back to Project List", "Index", "Project" )*@
+
+    <div id="dialog-confirm" title="Delete Project?" style="display: none;">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>@ViewData[ "DeleteMsg" ]
+        </p>
+    </div>
+
+</div>
+
+<div class="hide" id="contract-selections">@ViewBag.Selections</div>

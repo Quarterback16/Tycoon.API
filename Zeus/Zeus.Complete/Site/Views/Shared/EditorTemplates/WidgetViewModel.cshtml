@@ -1,0 +1,50 @@
+﻿@using Employment.Web.Mvc.Infrastructure.Types;
+
+@model Employment.Web.Mvc.Infrastructure.ViewModels.WidgetViewModel
+
+@{
+    string columns = "";
+    switch(Model.PreferredRowType) {
+        case GroupRowType.Full:
+            columns = "col-md-12";
+            break;
+        case GroupRowType.Half:
+            columns = "col-md-6";
+            break;
+        case GroupRowType.OneThird:
+            columns = "col-md-4";
+            break;
+        case GroupRowType.TwoThird:
+            columns = "col-md-8";
+            break;
+    }
+    
+    RouteValueDictionary routeValues = new RouteValueDictionary();
+    if (Model.Area != null) { routeValues.Add("Area", Model.Area); }
+    
+    string url;
+    if (Model.Controller == null) {
+        url = Url.Action(Model.Action, routeValues);
+    }
+    else {
+        url = Url.Action(Model.Action, Model.Controller, routeValues);
+    }
+
+}
+<div class="@columns">
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <div class="panel-heading-btn">
+                <a href="javascript:;" class="btn btn-sm btn-icon btn-circle btn-default" @HtmlDataType.Click="moveup" title=""><i class="fa fa-sort-asc"></i></a>
+                <a href="javascript:;" class="btn btn-sm btn-icon btn-circle btn-default" @HtmlDataType.Click="movedown" title=""><i class="fa fa-sort-desc"></i></a>
+                <a href="javascript:;" class="btn btn-sm btn-icon btn-circle btn-default" @HtmlDataType.Click="expand" title=""><i class="fa fa-expand"></i></a>
+                <a href="javascript:;" class="btn btn-sm btn-icon btn-circle btn-success" @HtmlDataType.Click="reload" title=""><i class="fa fa-repeat"></i></a>
+                <a href="javascript:;" class="btn btn-sm btn-icon btn-circle btn-warning" @HtmlDataType.Click="collapse" title=""><i class="fa fa-minus"></i></a>
+                <a href="javascript:;" class="btn btn-sm btn-icon btn-circle btn-danger" @HtmlDataType.Click="remove" title=""><i class="fa fa-times"></i></a>
+            </div>
+            <h4 class="panel-title">@Model.UniqueName</h4>
+        </div>
+        <div class="panel-body" @HtmlDataType.Url="@Html.Encode(url)" @HtmlDataType.WidgetContext="@ViewData["WidgetContext"]">
+        </div>
+    </div>
+</div>

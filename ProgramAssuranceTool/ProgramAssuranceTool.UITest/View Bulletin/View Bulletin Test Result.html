@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-suite">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>.failed {color: red; background-color: #ffcccc;}.passed {color: black; background-color: #ccffcc;}.done {color: black; background-color: #eeffee;}</style>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite Results</b></td></tr>
+<tr class="done"><td><a href="#test0">DR01037599 Tab Order</a></td></tr>
+<tr class="done"><td><a href="#test1">DR01039386 </a></td></tr>
+<tr class="passed"><td><a href="#test2">DR01042860 </a></td></tr>
+<tr class="passed"><td><a href="#test3">DR01042861 </a></td></tr>
+<tr class="passed"><td><a href="#test4">DR01039387 </a></td></tr>
+<tr class="done"><td><a href="#test5">DR01039388 </a></td></tr>
+
+</tbody></table>
+<a name="test0" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01037599 Tab Order</td></tr></thead><tbody><!--The tab order for this screen is left to right, top to bottom as per the ESG User Interface Design Guidelines. -->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>waitForPageToLoad</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=td[title=&quot;w/o project&quot;] &gt; a &gt; span.wrap</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnDetail</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+<a name="test1" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039386 </td></tr></thead><tbody><!--All date fields will have the display format 'Date (dd/mm/yyyy)'-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>waitForPageToLoad</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=td[title=&quot;w/o project&quot;] &gt; a &gt; span.wrap</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnDetail</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+<a name="test2" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01042860 </td></tr></thead><tbody><!--Related project filed will hyperlink to the project related to Bulletin/FAQ-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=td[title=&quot;w/ project&quot;] &gt; a &gt; span.wrap</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeValue</td>
+	<td>id=BulletinId</td>
+	<td>bulletinID</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${bulletinID}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeEval</td>
+	<td>{'#projectBulletin_' + ${bulletinID} + ' &gt; p &gt; a'}</td>
+	<td>projectBulletinLink</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${projectBulletinLink}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnDetail</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>id=${bulletinID}</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>css=${projectBulletinLink}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=#projectBulletin_52 &gt; p &gt; a</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>css=h1</td>
+	<td>Project - *</td>
+</tr>
+
+</tbody></table>
+<a name="test3" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01042861 </td></tr></thead><tbody><!--Related project filed only displays if related project was entered on create or edit bulletin screen -->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=td[title=&quot;w/ project&quot;] &gt; a &gt; span.wrap</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeValue</td>
+	<td>id=BulletinId</td>
+	<td>bulletinID</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${bulletinID}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeEval</td>
+	<td>{'#projectBulletin_' + ${bulletinID} + ' &gt; p &gt; a'}</td>
+	<td>projectBulletinLink</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${projectBulletinLink}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnDetail</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>id=${bulletinID}</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>css=${projectBulletinLink}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnBack</td>
+	<td></td>
+</tr>
+<!--// now test for bulletin without related project-->
+<tr class="done">
+	<td>waitForPageToLoad</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=td[title=&quot;w/o project&quot;] &gt; a &gt; span.wrap</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeValue</td>
+	<td>id=BulletinId</td>
+	<td>bulletinID</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${bulletinID}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeEval</td>
+	<td>{'#projectBulletin_' + ${bulletinID} + ' &gt; p &gt; a'}</td>
+	<td>projectBulletinLink</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${projectBulletinLink}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnDetail</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>id=${bulletinID}</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementNotPresent</td>
+	<td>css=${projectBulletinLink}</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+<a name="test4" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039387 </td></tr></thead><tbody><!--This hyperlink will open an email client, populate the email address with 'programassurance@deewr.gov.au' as well as the Bulletin Title within the subject of the email.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=td[title=&quot;w/ project&quot;] &gt; a &gt; span.wrap</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeValue</td>
+	<td>id=BulletinId</td>
+	<td>bulletinID</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${bulletinID}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeEval</td>
+	<td>{'#projectBulletin_' + ${bulletinID} + ' &gt; p &gt; a'}</td>
+	<td>projectBulletinLink</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${projectBulletinLink}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnDetail</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>id=${bulletinID}</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>css=${projectBulletinLink}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>//div[@id='${bulletinID}']/p[2]/a/span</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+<a name="test5" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039388 </td></tr></thead><tbody><!--Users will be navigated to the 'UI_PRA_PA_PA_PA Home (Bulletins list)'-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=td[title=&quot;w/ project&quot;] &gt; a &gt; span.wrap</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeValue</td>
+	<td>id=BulletinId</td>
+	<td>bulletinID</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${bulletinID}</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeEval</td>
+	<td>{'#projectBulletin_' + ${bulletinID} + ' &gt; p &gt; a'}</td>
+	<td>projectBulletinLink</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${projectBulletinLink}</td>
+	<td></td>
+</tr>
+<tr class="">
+	<td>clickAndWait</td>
+	<td>id=btnDetail</td>
+	<td></td>
+</tr>
+<tr class="">
+	<td>assertElementPresent</td>
+	<td>id=${bulletinID}</td>
+	<td></td>
+</tr>
+<tr class="">
+	<td>assertElementPresent</td>
+	<td>css=${projectBulletinLink}</td>
+	<td></td>
+</tr>
+<tr class="">
+	<td>clickAndWait</td>
+	<td>id=btnBack</td>
+	<td></td>
+</tr>
+<tr class="">
+	<td>assertElementPresent</td>
+	<td>link=Bulletin List</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+</body></html>

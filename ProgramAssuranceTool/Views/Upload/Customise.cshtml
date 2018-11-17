@@ -1,0 +1,303 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.ViewModels.CustomiseReviewGridViewModel
+
+@{
+    ViewBag.Title = "Customise Your Review List";
+}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+        <li>@Html.ActionLink("Project Samples", "Details", "Project", new { id = Model.ProjectId, tabNo = CommonConstants.ProjectTab_Samples }, "")</li>
+        <li>@Html.ActionLink( "Review List", "Details", "Upload", new { id = Model.UploadId }, "" )</li>
+        <li class="active">Customise</li>
+    </ol>    
+    <h1>Customise Your Review List</h1>
+</div>
+
+<div class="panel panel-default col-lg-12 row">
+    @Html.Hidden("unloadMessage", "Data has not been saved. If you proceed you will lose current changes.")
+
+    @using (Html.BeginForm("Customise", "Upload", FormMethod.Post, new { id = "uploadCustomiseForm", name = "uploadCustomiseForm" }))
+    {
+        <div class="panel-body">
+            @Html.ValidationMessageSummary()  
+            
+            <p>
+                @Html.Partial("RequiredFieldMessage")
+            </p>
+                        
+            <div class="col-lg-4 col-md-4">
+                <table class='table table-striped table-bordered table-hover table-condensed'>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col01, new SelectList(Model.ColumnNames(), Model.Col01 ) )                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col02, new SelectList(Model.ColumnNames(), Model.Col02 ) )                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col03, new SelectList(Model.ColumnNames(), Model.Col03 ) )                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col04, new SelectList(Model.ColumnNames(), Model.Col04 ) )                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col05, new SelectList(Model.ColumnNames(), Model.Col05 ) )                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col06, new SelectList(Model.ColumnNames(), Model.Col06 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>7</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col07, new SelectList(Model.ColumnNames(), Model.Col07 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>8</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col08, new SelectList(Model.ColumnNames(), Model.Col08 ) )                            
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                
+                <table class='table table-striped table-bordered table-hover table-condensed'>
+                    <tr>
+                        <td>9</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col09, new SelectList(Model.ColumnNames(), Model.Col09 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>10</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col10, new SelectList(Model.ColumnNames(), Model.Col10 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>11</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col11, new SelectList(Model.ColumnNames(), Model.Col11 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>12</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col12, new SelectList(Model.ColumnNames(), Model.Col12 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>13</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col13, new SelectList(Model.ColumnNames(), Model.Col13 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>14</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col14, new SelectList(Model.ColumnNames(), Model.Col14 ) )                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col15, new SelectList(Model.ColumnNames(), Model.Col15 ) )                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col16, new SelectList(Model.ColumnNames(), Model.Col16 ) )                            
+                        </td>
+                    </tr>
+
+
+                </table>
+                
+            </div>
+                       
+            <div class="col-lg-4 col-md-4">
+                
+                <table class='table table-striped table-bordered table-hover table-condensed'>
+
+                    <tr>
+                        <td>17</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col17, new SelectList(Model.ColumnNames(), Model.Col17 ) )                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col18, new SelectList(Model.ColumnNames(), Model.Col18 ) )                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col19, new SelectList(Model.ColumnNames(), Model.Col19 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>20</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col20, new SelectList(Model.ColumnNames(), Model.Col20 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>21</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col21, new SelectList(Model.ColumnNames(), Model.Col21 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col22, new SelectList(Model.ColumnNames(), Model.Col22 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>23</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col23, new SelectList(Model.ColumnNames(), Model.Col23 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>24</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col24, new SelectList(Model.ColumnNames(), Model.Col24 ) )                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>25</td>
+                        <td>
+                            @Html.DropDownListFor( model => model.Col25, new SelectList(Model.ColumnNames(), Model.Col25 ) )                            
+                        </td>
+                    </tr>
+
+                </table>
+            
+            </div>
+            
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelForRequired( model => model.SortOrder)
+                    @Html.ValidationMessageFor( model => model.SortOrder )
+                    @Html.DropDownListFor( model => model.SortOrder, new SelectList(Model.ColumnNames(), Model.SortOrder ) )
+                </div> 
+
+            </div>
+            
+                @if (Model.ChangeGridWidth)
+                {
+                    <div class="form-group">
+                        @Html.LabelForRequired( model => model.GridWidth )
+                        @Html.ValidationMessageFor( model => model.GridWidth )
+                        @Html.EditorFor( model => model.GridWidth )
+                    </div>
+                }
+                else
+                {
+                    @Html.HiddenFor( model => model.GridWidth )
+                }
+
+            <div class="col-lg-4 col-md-4">
+
+                <div class="form-group">
+                    @Html.LabelForRequired( model => model.AscOrDescending )
+                    @Html.ValidationMessageFor( model => model.AscOrDescending )
+                    @Html.DropDownListFor( model => model.AscOrDescending, new SelectList(Model.SortDirections(), Model.AscOrDescending ) )
+                </div>    
+
+
+                @if (Model.ChangeMargin)
+                {
+                    <div class="form-group">
+                        @Html.LabelForRequired( model => model.Margin )
+                        @Html.ValidationMessageFor( model => model.Margin )                                             
+                        @Html.EditorFor( model => model.Margin )   
+                    </div>
+                }
+                else
+                {
+                    @Html.HiddenFor( model => model.Margin )
+                }
+              
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    @Html.LabelForRequired( model => model.PageSize )
+                    @Html.DropDownListFor( model => model.PageSize, new SelectList(Model.RowsPerPage(), Model.PageSize ) )            
+                </div>   
+
+                
+                @if (Model.ChangeDepth)
+                {
+                    <div class="form-group">
+                        @Html.LabelForRequired( model => model.Depth )
+                        @Html.ValidationMessageFor( model => model.Depth )                                             
+                        @Html.EditorFor( model => model.Depth )   
+                    </div>
+                }
+                else
+                {
+                    @Html.HiddenFor( model => model.Depth )
+                }
+            </div>
+            
+        </div>
+
+        <div class="panel-footer">
+            <div class="row indented">
+                <button id="submit-button" type="submit" name="button" value="submit" class="btn btn-lg btn-primary" >Submit</button>
+                <button id="refresh-button" type="submit" name="button" value="refresh" class="btn btn-lg btn-primary">Reorganise list</button>
+                <button id="reset-button" type="submit" name="button" value="reset" class="btn btn-lg btn-primary">Reset</button>
+            </div>
+                        
+            <br/>
+
+        </div>
+        
+        @Html.HiddenFor( model => model.UserId )                
+        @Html.HiddenFor( model => model.UploadId )                
+    }
+
+      
+</div>
+

@@ -1,0 +1,50 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#"  #>
+<#@ output extension=".cs" #>
+<#@ assembly name="%ESG_SDK%\Tools\Employment.TextTemplating.dll" #>
+<#@ import namespace="Employment.TextTemplating" #>
+<#    // Import the assemblies and namespaces for the types you are generating mappings for. #> 
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)\Site\bin\Employment.Web.Mvc.Infrastructure.dll" #>
+<#@ assembly name="$(SolutionDir)\Site\bin\Employment.Web.Mvc.Area.Admin.dll" #>
+<#@ assembly name="$(SolutionDir)\Site\bin\Employment.Web.Mvc.Service.Interfaces.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>  
+<#@ import namespace="Employment.Web.Mvc.Area.Admin.ViewModels" #>
+<#@ import namespace="Employment.Web.Mvc.Area.Admin.ViewModels.User" #>
+<#@ import namespace="Employment.Web.Mvc.Area.Admin.ViewModels.AdwLookup" #> 
+<#@ import namespace="Employment.Web.Mvc.Infrastructure.Types" #>
+<#@ import namespace="Employment.Web.Mvc.Infrastructure.Models" #> 
+<#@ import namespace="Employment.Web.Mvc.Infrastructure.ValueResolvers" #> 
+<#@ import namespace="System.Security.Claims" #>  
+<#@ import namespace="System" #>  
+
+/*
+Generated code. Do not edit manually.
+Admin Mapper.cs
+*/
+using Employment.Web.Mvc.Area.Admin.ViewModels.User;
+using Employment.Web.Mvc.Area.Admin.ViewModels.AdwLookup; 
+using Employment.Web.Mvc.Infrastructure.Types;
+using Employment.Web.Mvc.Infrastructure.ValueResolvers;
+using System.Security.Claims; 
+using System; 
+using Employment.Web.Mvc.Infrastructure.Models; 
+using Employment.Web.Mvc.Infrastructure.Interfaces;
+
+    <#    var codeTypeModelToCodeTypeViewModel = new StaticMapping<CodeTypeModel, CodeTypeViewModel>(); 
+    
+    #>
+
+
+namespace Employment.Web.Mvc.Area.Admin.Mappers
+{
+
+    /// <summary>
+    /// Represents a mapper for Admin area that is used to map between View Models and Domain Models.
+    /// </summary>
+    public partial class AdminMapper
+    {
+        <#=        codeTypeModelToCodeTypeViewModel.GenerateMapping() #>
+    }
+}

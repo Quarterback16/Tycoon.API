@@ -1,0 +1,1219 @@
+﻿@media screen
+{
+    /* General Styles
+    	---------------------------------------*/
+    body
+    {
+        background-color: #000000 !important;
+        background-image: url(layout/hc/body-bg.png) !important;
+    }
+
+
+
+    #userDetails .small
+    {
+        color: #ffffff !important;
+    }
+
+    #header
+    {
+        color: #80D2F5 !important;
+    }
+
+    #logout
+    {
+        background-color: #282828 !important;
+        border-color: #717171 !important;
+        color: #FFFFFF !important;
+        background-image: url(layout/hc/logout-bg.gif) !important;
+    }
+
+    #logout:hover, #logout:focus, #logout:active
+    {
+        color: #000 !important;
+        background-color: #5F8E3F !important;
+        border-color: #5F8E3F !important;
+        background-image: url(layout/hc/logout-bg-hover.gif) !important;
+    }
+
+    .jobSeekerActions #jsClose a:focus
+    {
+        background-color: #446c86 !important;
+    }
+
+    header.jobSeeker
+    {
+        color: #80D2F5 !important;
+    }
+
+    #homeBulletins
+    {
+        color: #FFFFFF !important;
+        background-color: #282828 !important;
+    }
+
+    #homeBulletins a
+    {
+        color: #80D2F5 !important;
+    }
+
+    #homeBulletins a.button
+    {
+        background-color: #246D98 !important;
+        color: #FFFFFF !important;
+    }
+    #homeBulletins a.button:hover, #homeBulletins a.button:focus, #homeBulletins a.button:active
+    {
+        background-color: #5E8E3F !important;
+        color: #000000 !important;
+    }
+
+    #homeBulletins a:hover, #homeBulletins a:focus, #homeBulletins a:active
+    {
+        color: #B7D433 !important;
+    }
+
+
+    .homeNav li
+    {
+        background-color: #236F99 !important;
+    }
+    .homeNav li a
+    {
+        background-color: #236F99 !important;
+        color: #ffffff !important;
+    }
+
+    .homeNav li a:hover, .homeNav li a:focus, .homeNav li a:active
+    {
+        background-color: #5F8E3F !important;
+        color: #000 !important;
+    }
+
+    .sideNav a
+    { 
+        background-color: #282828 !important;
+        color: #ffffff !important;
+    }
+    .sideNav a:hover, .sideNav a:focus, .sideNav a:active, .sideNav > .active > a
+    { 
+        background-color: #246D98 !important;
+        color: #FFFFFF !important;
+    }
+    .sideNav li .close
+    {
+        background-image: url(layout/hc/menu-close.png);
+        background-position:left; 
+    }
+    .sideNav li a.close:hover, 
+    .sideNav li a.close:focus, 
+    .sideNav li a.close:active
+    {
+        background-image: url(layout/hc/menu-close-focus.png); 
+        background-position:left; 
+    }
+    .sideNav li .open
+    {
+        background-image: url(layout/hc/menu-open.png);
+        background-position:left; 
+    } 
+    .sideNav li a.open:hover, 
+    .sideNav li a.open:focus, 
+    .sideNav li a.open:active
+    {
+        background-image: url(layout/hc/menu-open-focus.png);
+        background-position:left; 
+    }
+    .sideNav .active .close 
+    {
+        background-image: url(layout/hc/menu-close-focus.png); 
+        background-position:left; 
+    }
+    .sideNav .active .open 
+    {
+        background-image: url(layout/hc/menu-open-focus.png); 
+        background-position:left; 
+    }
+    
+    .sideNav li ul
+    {
+        border-left-color: #3D3D3D !important;
+    }
+    .sideNav li ul a
+    { 
+        border-bottom-color: #3D3D3D !important;
+        background-color: #1c1c1c !important;
+    }
+
+    .sideNav li ul li.active a
+    {
+        background-color: #246D98 !important;
+        color: #FFFFFF !important;
+    }
+
+    #actionsMenu
+    {
+        background-color: #282828 !important;
+    }
+
+    .jobSeekerActions li a
+    {
+        background-color: #5E8E3F !important;
+        color: #000 !important;
+    }
+    .jobSeekerActions li a:hover, .jobSeekerActions li a:focus, .jobSeekerActions li a:active
+    {
+        background-color: #F59C2D !important;
+    }
+
+    .jobSeekerActions li a .toolTip, #calendarActions a .toolTip, #actionsMenu .close .toolTip
+    {
+        color: #000 !important;
+        background-image: url(layout/hc/jobseekeractions-bg.gif) !important;
+    }
+
+    .history
+    {
+        background-color: #1C191A !important;
+    }
+    .history li
+    {
+        border-top-color: #3D3D3D !important;
+    }
+    .history a
+    {
+        color: #80D2F5 !important;
+    }
+    .history h2
+    {
+        color: #80D2F5 !important;
+    }
+    .history .pinned a
+    {
+        /*background-image: url(layout/hc/history-pin.png) !important;*/
+    }
+    .history a:focus, .history a:active, .history a:hover
+    {
+        background-color: #246D98 !important;
+        color: #ffffff !important;
+    }
+    .history .pinned a:focus, .history .pinned a:active, .history .pinned a:hover
+    {
+        /*background-image: url(layout/hc/history-pin-hover.png) !important;*/
+    }
+
+
+    .wizard li, .wizard li
+    {
+        background-color: #282828 !important;
+    }
+    .wizard a, .content .wizard a
+    {
+        color: #ffffff !important;
+        background-color: #282828 !important;
+    }
+
+    .wizard a:hover, .wizard a:focus, .wizard a:active, .wizard .active a, .content .wizard a:hover, .content .wizard a:focus, .content .wizard a:active, .content .wizard .active a
+    {
+        background-color: #5E8E3F !important;
+        color: #000000 !important;
+    }
+
+    .multiselect
+    {
+        background-color: #3D3E3D !important;
+        color: #fff !important;
+        border-color: transparent !important;
+        border-top-color: #949494 !important;
+        border-bottom-color: #949494 !important;
+    }
+
+    .wizard a .arrow
+    {
+        background-image: url(layout/hc/jobseekernav-bg-on.png) !important;
+    }
+    .wizard a:hover .arrow, .wizard a:focus .arrow, .wizard a:active .arrow, .wizard .active .arrow
+    {
+        background-image: url(layout/hc/jobseekernav-bg.png) !important;
+    }
+
+    .wizard ul li.note a
+    {
+        
+    }
+    .wizard ul li.note a:hover, .wizard ul li.note a:focus, .wizard ul li.note a:active, .wizard ul li.note.active a
+    {
+         
+    }
+
+    .wizard ul li.done a
+    {
+         
+    }
+    .wizard ul li.done a:hover, .wizard ul li.done a:focus, .wizard ul li.done a:active, .wizard ul li.done.active a
+    {
+         
+    }
+
+    
+
+    table.results a
+    {
+        color: #80D2F5 !important;
+    }
+    table.results a:hover, .results a:focus, .results a:active
+    {
+        color: #B7D433 !important;
+    }
+    table.results td
+    {
+        border-bottom: solid 1px #1D1D1D;
+        border-top: solid 1px #1D1D1D;
+    }
+    
+    
+    /* sortTable styles     */
+    /*
+	th[data-sort] a:hover,
+	th[data-sort] a:focus,
+	th[data-sort] a:active{
+	    cursor: pointer;
+	    border: thin solid tomato;
+	}
+    8/
+
+
+    /* Area Identity
+    	---------------------------------------*/
+    #areaIdentity
+    {
+        background-color: #246D98 !important;
+        color: #FFFFFF !important;
+    }
+    #areaIdentity a
+    {
+        color: #ffffff !important;
+    }
+    #areaIdentity .arrow
+    {
+        background-image: url(layout/hc/areaidentity-arrow.png) !important;
+    }
+
+    /* Content Area Styles
+    	---------------------------------------*/
+    .content
+    {
+        color: #FFFFFF !important;
+    }
+
+    .content fieldset
+    {
+        border-color: #939393 !important;
+    }
+    .content legend
+    {
+        color: #80D2F5 !important;
+    }
+    .content label
+    {
+        color: #80D2F5 !important;
+    }
+    .content .req
+    {
+        color: #D08080 !important;
+    }
+
+    .content input[type=text], .content input[type=date], .content input[type=phone], .content input[type=email], .content input[type=file], .content input[type=number], .content input[type=url], .content input[type=password], .content input[type=tel], .content select, .content textarea
+    {
+        background-color: #3D3E3D !important;
+        border-top-color: #949494 !important;
+        border-bottom-color: #949494 !important;
+        color: #ffffff !important;
+    }
+
+    .content input[type=file]:focus, .content input[type=url]:focus, .content input[type=password]:focus, .content input[type=tel]:focus, .content input[type=text]:focus, .content input[type=phone]:focus, .content input[type=email]:focus, .content input[type=number]:focus, .content textarea:focus, .content select:focus, .content .whiteFields select:focus
+    {
+        border-color: #B7D433 !important;
+    }
+
+    .content .whiteFields select:focus
+    {
+        background-color: #3D3E3D !important;
+        border-top-color: #949494 !important;
+        border-bottom-color: #949494 !important;
+    }
+
+    .hintTip
+    {
+        background-color: #236F99 !important;
+        background-image: url(layout/hc/hinttip-bg.png) !important;
+    }
+    .hintTip span
+    {
+        background-color: #236F99 !important;
+        color: #FFFFFF !important;
+    }
+
+    .errorTip
+    {
+        background-color: #A00100 !important;
+        background-image: url(layout/hc/errortip-bg.png) !important;
+    }
+    .errorTip span
+    {
+        background-color: #A00100 !important;
+        color: #FFFFFF !important;
+    }
+
+    .content .error select, .content .error input, .content .error textarea
+    {
+        border-color: #A00100 !important;
+    }
+
+    .content button, .content input[type=reset]
+    {
+        background-color: #282828 !important;
+        border-color: #494949 !important;
+        color: #ffffff !important;
+    }
+
+    .content button:hover, .content button:focus, .content input[type=reset]:hover, .content input[type=reset]:focus
+    {
+        background-color: #5E8E3F !important;
+        border-color: #494949 !important;
+        color: #000000 !important;
+    }
+
+    .content input[type=submit]
+    {
+        border-color: #F59C2D !important;
+        color: #000000 !important;
+        background-color: #F59C2D !important;
+        background-image: url(layout/hc/submit-bg.png) !important;
+    }
+
+    /* Footer
+    	---------------------------------------*/
+    footer
+    {
+        background-color: #282828 !important;
+        color: #ffffff !important;
+    }
+
+    footer a
+    {
+        color: #80D2F5 !important;
+    }
+
+
+
+
+
+
+
+
+
+    #header nav li
+    {
+        border-left-color: #1d1d1d !important;
+    }
+    #header nav li a
+    {
+        color: #335469 !important;
+        background-color: #236F99 !important;
+    }
+    #header nav li a:hover, #header nav li a:focus, #header nav li a:active
+    {
+        background-color: #5F8E3F !important;
+    }
+
+
+    #header nav .home
+    {
+        background-image: url(layout/hc/ql-home.png);
+    }
+    #header nav .bulletins
+    {
+        background-image: url(layout/hc/ql-bulletins.png);
+    }
+    #header nav .notification
+    {
+        background-image: url(layout/hc/ql-notification.png);
+    }
+    #header nav .admin
+    {
+        background-image: url(layout/hc/ql-admin.png);
+    }
+    #header nav .transition
+    {
+        background-image: url(layout/hc/ql-transition.png);
+    }
+    #header nav .participation
+    {
+        background-image: url(layout/hc/ql-participation.png);
+    }
+    #header nav .participantregistration
+    {
+        background-image: url(layout/hc/ql-participantregistration.png);
+    }
+    #header nav .diary
+    {
+        background-image: url(layout/hc/ql-diary.png);
+    }
+    #header nav .participationaccount
+    {
+        background-image: url(layout/hc/ql-participationaccount.png);
+    }
+    #header nav .activity
+    {
+        background-image: url(layout/hc/ql-activity.png);
+    }
+    #header nav .payments
+    {
+        background-image: url(layout/hc/ql-payments.png);
+    }
+    #header nav .employer
+    {
+        background-image: url(layout/hc/ql-employer.png);
+    }
+    #header nav .servicesadministration
+    {
+        background-image: url(layout/hc/ql-servicesadministration.png);
+    }
+    #header nav .notification
+    {
+        background-image: url(layout/hc/ql-notification.png);
+    }
+    #header nav .overrides
+    {
+        background-image: url(layout/hc/ql-overrides.png);
+    }
+
+    /* Area tiles */
+    .homeNav .admin
+    {
+        background-image: url(layout/hc/home-icon-admin.png);
+    }
+    .homeNav .transition
+    {
+        background-image: url(layout/hc/home-icon-transition.png);
+    }
+    .homeNav .participation
+    {
+        background-image: url(layout/hc/home-icon-participation.png);
+    }
+    .homeNav .participantregistration
+    {
+        background-image: url(layout/hc/home-icon-participantregistration.png);
+    }
+    .homeNav .diary
+    {
+        background-image: url(layout/hc/home-icon-diary.png);
+    }
+    .homeNav .participationaccount
+    {
+        background-image: url(layout/hc/home-icon-participationaccount.png);
+    }
+    .homeNav .activity
+    {
+        background-image: url(layout/hc/home-icon-activity.png);
+    }
+    .homeNav .payments
+    {
+        background-image: url(layout/hc/home-icon-payments.png);
+    }
+    .homeNav .employer
+    {
+        background-image: url(layout/hc/home-icon-employer.png);
+    }
+    .homeNav .servicesadministration
+    {
+        background-image: url(layout/hc/home-icon-servicesadministration.png);
+    }
+    .homeNav .notification
+    {
+        background-image: url(layout/hc/home-icon-notification.png);
+    }
+    .homeNav .overrides
+    {
+        background-image: url(layout/hc/home-icon-overrides.png);
+    }
+
+    /* Area landing page link icons */
+    .areaLinkIcon-ActivityAdd a
+    {
+        background-image: url(layout/hc/area-activity-add.png);
+    }
+    .areaLinkIcon-ActivityAddHost a
+    {
+        background-image: url(layout/hc/area-activity-add-host.png);
+    }
+    .areaLinkIcon-ActivityAddPlacement a
+    {
+        background-image: url(layout/hc/area-activity-add-placement.png);
+    }
+    .areaLinkIcon-ActivitySearch a
+    {
+        background-image: url(layout/hc/area-activity-search.png);
+    }
+    .areaLinkIcon-ActivitySearchHost a
+    {
+        background-image: url(layout/hc/area-activity-search-host.png);
+    }
+    .areaLinkIcon-ActivitySearchPlacement a
+    {
+        background-image: url(layout/hc/area-activity-search-placement.png);
+    }
+    .areaLinkIcon-ActivitySearchDiary a
+    {
+        background-image: url(layout/hc/area-activity-search-diary.png);
+    }
+    .areaLinkIcon-ParticipationAccountAddExpenditure a
+    {
+        background-image: url(layout/hc/area-participationaccount-add-expenditure.png);
+    }
+    .areaLinkIcon-ParticipationAccountSearchExpenditure a
+    {
+        background-image: url(layout/hc/area-participationaccount-search-expenditure.png);
+    }
+    .areaLinkIcon-ParticipationAccountAdjustmentRequest a
+    {
+        background-image: url(layout/hc/area-participationaccount-adjustment-request.png);
+    }
+    .areaLinkIcon-ParticipationAccountDataRecovery a
+    {
+        background-image: url(layout/hc/area-participationaccount-data-recovery.png);
+    }
+    .areaLinkIcon-ParticipationAccountPartialRecovery a
+    {
+        background-image: url(layout/hc/area-participationaccount-partial-recovery.png);
+    }
+    .areaLinkIcon-ParticipationAccountJobSeekerHistory a
+    {
+        background-image: url(layout/hc/area-participationaccount-jobseeker-history.png);
+    }
+    .areaLinkIcon-ParticipationAccountRequestHistory a
+    {
+        background-image: url(layout/hc/area-participationaccount-request-history.png);
+    }
+    .areaLinkIcon-ParticipationAccountRequestTransfer a
+    {
+        background-image: url(layout/hc/area-participationaccount-request-transfer.png);
+    }
+    .areaLinkIcon-ParticipationAccountMaintainCredits a
+    {
+        background-image: url(layout/hc/area-participationaccount-maintain-credits.png);
+    }
+    .areaLinkIcon-ParticipationAccountViewSummary a
+    {
+        background-image: url(layout/hc/area-participationaccount-view-summary.png);
+    }
+    .areaLinkIcon-PaymentsAddGeneral a
+    {
+        background-image: url(layout/hc/area-payments-add-general.png);
+    }
+    .areaLinkIcon-PaymentsAddOverride a
+    {
+        background-image: url(layout/hc/area-payments-add-override.png);
+    }
+    .areaLinkIcon-PaymentsJobSeekerHistory a
+    {
+        background-image: url(layout/hc/area-payments-jobseeker-history.png);
+    }
+    .areaLinkIcon-PaymentsSearchAvailable a
+    {
+        background-image: url(layout/hc/area-payments-search-available.png);
+    }
+    .areaLinkIcon-PaymentsSearchClaimed a
+    {
+        background-image: url(layout/hc/area-payments-search-claimed.png);
+    }
+    .areaLinkIcon-PaymentsSearchEarningReduction a
+    {
+        background-image: url(layout/hc/area-payments-search-earning-reduction.png);
+    }
+    .areaLinkIcon-ServicesAdministrationSearchContract a
+    {
+        background-image: url(layout/hc/area-servicesadministration-search-contract.png);
+    }
+    .areaLinkIcon-ServicesAdministrationSearchOutlet a
+    {
+        background-image: url(layout/hc/area-servicesadministration-search-outlet.png);
+    }
+    .areaLinkIcon-ServicesAdministrationSearchSite a
+    {
+        background-image: url(layout/hc/area-servicesadministration-search-site.png);
+    }
+    .areaLinkIcon-EmployerAddEmployer a
+    {
+        background-image: url(layout/hc/area-employer-add-employer.png);
+    }
+    .areaLinkIcon-EmployerAddVacancy a
+    {
+        background-image: url(layout/hc/area-employer-add-vacancy.png);
+    }
+    .areaLinkIcon-EmployerAddPlacement a
+    {
+        background-image: url(layout/hc/area-employer-add-placement.png);
+    }
+    .areaLinkIcon-EmployerSearchEmployer a
+    {
+        background-image: url(layout/hc/area-employer-search-employer.png);
+    }
+    .areaLinkIcon-EmployerSearchVacancy a
+    {
+        background-image: url(layout/hc/area-employer-search-vacancy.png);
+    }
+    .areaLinkIcon-EmployerSearchPlacement a
+    {
+        background-image: url(layout/hc/area-employer-search-placement.png);
+    }
+    .areaLinkIcon-EmployerFindStaff a 
+    {
+        background-image: url(layout/hc/area-employer-findstaff.png);
+    }
+    
+    .errorTip:focus,
+    .errorTip:active,
+    .hintTip:active,
+    .hintTip:focus 
+    { 
+        border: medium solid whitesmoke;
+    }
+
+    /* Context bar */
+    #jsDiary a
+    {
+        /*background-image: url(layout/hc/jobseekeractions-diary.png);*/
+    }
+    #jsComments a
+    {
+        /*background-image: url(layout/hc/jobseekeractions-comment.png);*/
+    }
+    #jsCaseSummary a
+    {
+        /*background-image: url(layout/hc/jobseekeractions-casesummary.png);*/
+    }
+    #jsSms a
+    {
+        /*background-image: url(layout/hc/jobseekeractions-sms.png);*/
+    }
+
+    #jsPin a.pinned
+    {
+        /*background-image: url(layout/hc/jobseekeractions-pinned.png) !important;*/
+    }
+    #jsPin a.unpinned
+    {
+        /*background-image: url(layout/hc/jobseekeractions-unpinned.png) !important;*/
+    }
+
+    #jsHelp a
+    {
+        /*background-image: url(layout/hc/jobseekeractions-help.png);*/
+    }
+
+
+    a.requestMore
+    {
+        border-top-color: #80d2f5 !important;
+        color: #80d2f5 !important;
+    }
+    a.requestMore:hover, a.requestMore:focus, a.requestMore:active
+    {
+        border-top-color: #80d2f5 !important;
+        color: #80d2f5 !important;
+    }
+    a.requestMore span
+    {
+        background-image: url(layout/hc/requestmore-bg.gif) !important;
+    }
+
+
+    .homeNav li
+    {
+        background-color: #236F99 !important;
+    }
+
+    #header nav li a .toolTip
+    {
+        color: #000000 !important;
+        background-image: url(layout/hc/jobseekeractions-bgo.gif) !important;
+    }
+
+    /* Last login details */
+    #headerForLastLoginDetails
+    {
+        color: #ffffff !important;
+    }
+    #userDetailsForLastLoginDetails .small
+    {
+        color: #ffffff !important;
+    }
+
+
+    .content label a:hover, .content label a:focus, .content label a:active
+    {
+        color: #B7D433 !important;
+    }
+
+    /* Noticeboard */
+    #homeNoticeboard a
+    {
+        color: #7ED3F6 !important;
+    }
+    #homeNoticeboard a:hover, #homeNoticeboard a:focus, #homeNoticeboard a:active
+    {
+        color: #B7D433 !important;
+    }
+
+    #homeNoticeboard a.button
+    {
+        background-color: #246D98 !important;
+        border-color: #246D98 !important;
+        color: #FFFFFF !important;
+    }
+
+    #homeNoticeboard a.button:hover, #homeNoticeboard a.button:focus, #homeNoticeboard a.button:active
+    {
+        background-color: #5E8E3F !important;
+        border-color: #5E8E3F !important;
+        color: #000 !important;
+    }
+
+    #homeNoticeboard
+    {
+        color: #fff !important;
+        border-left-color: #1d1d1d;
+        background-color: #4D4D4E !important;
+    }
+    #homeNoticeboard h2
+    {
+        color: #ffffff !important;
+    }
+
+
+    .content .button a
+    {
+        background-color: #5E8E3F !important;
+        border-color: #5E8E3F !important;
+        color: #000 !important;
+    }
+    .content .button a:hover, .content .button a:focus, .content .button a:active
+    {
+        background-color: #F59C2D !important;
+        color: #000 !important;
+        border-color: #F59C2D !important;
+    }
+
+    /* Inline buttons on properties styled similar to links on properties */
+    .content .button button
+    {
+        background-color: #5E8E3F !important;
+        border-color: #5E8E3F !important;
+        color: #000 !important;
+    }
+    .content .button button:hover, .content .button button:focus, .content .button button:active
+    {
+        background-color: #F59C2D !important;
+        color: #000 !important;
+        border-color: #F59C2D !important;
+    }
+
+    .content input[type=reset]
+    {
+        background-image: url(layout/hc/reset-bg.gif) !important;
+    }
+    .content input[type=reset]:hover, .content input[type=reset]:focus
+    {
+        background-image: url(layout/hc/reset-bg-on.gif) !important;
+    }
+
+    .content input[type=reset]:disabled
+    {
+        background-image: url(layout/hc/reset-bg-off.gif) !important;
+    }
+    .content input[type=submit]:disabled
+    {
+        background-image: url(layout/hc/submit-bg-off.gif) !important;
+    }
+
+    /* Fix background behind fieldset legend */
+    .content legend
+    {
+        background-color: #000000 !important;
+    }
+
+
+
+    .content .error .select2-container .select2-choice, .content .error .select2-container .select2-choices
+    {
+        border-color: #A00100 !important;
+    }
+
+    .content .validation-summary-errors, .content .msgError
+    {
+        background-color: #A00100 !important;
+        color: #FFFFFF !important;
+        background-image: url(layout/hc/msgerror-bg.png) !important;
+    }
+
+    .content .validation-summary-valid, .content .msgGood
+    {
+        background-color: #5E8E3F !important;
+        color: #000000 !important;
+        background-image: url(layout/hc/msggood-bg.gif) !important;
+    }
+
+    .content .msgWarn
+    {
+        background-color: #F49B2C !important;
+        color: #000000 !important;
+        background-image: url(layout/hc/msgwarn-bg.png) !important;
+        border-color: #f08a5e !important;
+    }
+    .content .msgInfo
+    {
+        background-color: #246D98 !important;
+        background-image: url(layout/hc/msginfo-bg.png) !important;
+        border-color: #246D98 !important;
+        color: #FFFFFF !important;
+    }
+
+
+    .content .validation-summary-errors a, .content .validation-summary-errors h2, .content .msgError a, .content .msgError h2
+    {
+        color: #FFFFFF !important;
+    }
+    .content .msgWarn a, .content .msgWarn h2
+    {
+        color: #000000 !important;
+    }
+    .content .msgGood a, .content .msgGood h2
+    {
+        color: #000000 !important;
+    }
+    .content .msgInfo a, .content .msgInfo h2
+    {
+        color: #FFFFFF !important;
+    }
+
+    /* Zebra row */
+    table.results tr:nth-child(even)
+    {
+        background: #282828 !important;
+    }
+
+
+    .content a
+    {
+        color: #80D2F5 !important;
+    }
+    table.results a
+    {
+        color: #80D2F5 !important;
+    }
+
+    /* Revert line-height for headers back to original */
+    .content h1, .content h2, .content h3, .content h4
+    {
+        color: #80D2F5 !important;
+    }
+
+    /* Disabled/read only style changes */
+    .content input[type=text]:disabled, .content input[type=date]:disabled, .content input[type=phone]:disabled, .content input[type=email]:disabled, .content input[type=file]:disabled, .content input[type=number]:disabled, .content input[type=url]:disabled, .content input[type=password]:disabled, .content input[type=tel]:disabled, .content textarea:disabled, .content select:disabled, .content input[readonly], .content textarea[readonly], .content select[readonly]
+    {
+        color: #FFFFFF !important;
+        border-color: #949494 !important;
+        background-color: #282828 !important;
+    }
+
+    /* Non-inline links styled similar to non-inline buttons */
+    .content .input-button-disabled, .content .input-button a, .content .input-button a[target^='_blank']
+    {
+        background-color: #282828 !important;
+        border-color: #494949 !important;
+        color: #FFFFFF !important;
+    }
+
+    .content .input-button a:hover, .content .input-button a:focus, .content .input-button a:active,
+    .content .input-button a[target^='_blank']:hover, .content .input-button a[target^='_blank']:focus, .content .input-button a[target^='_blank']:active
+    {
+        background-color: #5E8E3F !important;
+        border-color: #446C86 !important;
+        color: #000000 !important;
+    }
+    .content .input-button-disabled
+    {
+        background-color: #282828 !important;
+        border-color: #494949 !important;
+        color: #FFFFFF !important;
+    }
+
+    /* Primary button styled like input[type=submit] */
+    .content button.primary
+    {
+        border-color: #446c86 !important;
+        color: #FFFFFF !important;
+        background-color: #246D98 !important;
+        background-image: url(layout/hc/submit-bg.png) !important;
+    }
+    .content button.primary:hover, .content button.primary:focus, .content button.primary:active
+    {
+        background-color: #5E8E3F !important;
+        border-color: #5E8E3F !important;
+        color: #000000 !important;
+        background-image: url(layout/hc/submit-bg-on.png) !important;
+    }
+
+
+    /* Area landing page links */
+    .areaNav li
+    {
+        background-color: #f7f8f8 !important;
+    }
+
+    .areaNav li a
+    {
+        background-color: #5E8E3F !important;
+        border-color: #5E8E3F !important;
+        color: #000000 !important;
+    }
+    .areaNav li a:hover, .areaNav li a:focus, .areaNav li a:active
+    {
+        background-color: #246D98 !important;
+        color: #FFFFFF !important;
+        border-color: #246D98 !important;
+    }
+
+    .areaNav li.None a
+    {
+        background-image: url(layout/hc/home-icon-admin.png) !important;
+    }
+
+
+    /* added background image to Clear button */
+	.content button[rhea-button-clear=true]{padding:0.45em 2.6em 0.7em 1.3em; background-image: url(layout/hc/reset-bg.gif);background-repeat: no-repeat;background-position: right center;}
+	.content button[rhea-button-clear=true]:hover,
+	.content button[rhea-button-clear=true]:focus{background-image: url(layout/hc/reset-bg-on.gif);background-repeat: no-repeat;background-position: right center;}
+
+
+
+
+    .select2-container .select2-choice
+    {
+        color: #ffffff !important;
+        background-color: #3D3E3D !important;
+        border-color: #949494 !important;
+    }
+
+
+
+    /* RHEA: Dropdown backdrop */
+    .select2-results .select2-highlighted
+    {
+        background: #246d98 !important;
+        color: #fff !important;
+    }
+
+    .select2-drop
+    {
+        background: #000 !important;
+        color: #fff !important;
+        border-color: #B7D433 !important;
+    }
+    .select2-drop.select2-drop-above
+    {
+        border-top-color: #B7D433 !important;
+    }
+
+
+    .select2-search input
+    {
+        border-color: #B7D433 !important;
+        background-color: #3D3E3D !important;
+        color: #fff !important;
+        background-image: url(layout/hc/select2.png) !important;
+    }
+
+    .select2-search-choice-close
+    {
+        background-image: url(layout/hc/select2.png) !important; /* Cross */
+    }
+
+    .select2-search input.select2-active
+    {
+        background-color: #3D3E3D !important;
+        background-image: url(layout/hc/spinner.png) !important;
+        color: #fff !important;
+    }
+
+    .select2-container-active .select2-choice, .select2-container-active .select2-choices
+    {
+        border-color: #B7D433 !important;
+        background-color: #3D3E3D !important;
+        border-top-color: #B7D433 !important;
+        border-bottom-color: #B7D433 !important;
+    }
+
+    .select2-dropdown-open .select2-choice
+    {
+        background-color: #000 !important;
+    }
+
+
+
+    .select2-container .select2-choice div b
+    {
+        background-image: url(layout/hc/actions-bg.gif) !important;
+    }
+
+    .select2-dropdown-open .select2-choice div b
+    {
+        background-image: url(layout/hc/actions-bg-up.gif) !important;
+    }
+    .select2-results .select2-highlighted ul
+    {
+        background: #000 !important;
+        color: #fff !important;
+    }
+
+    .select2-search input.select2-active, .select2-more-results.select2-active, .select2-container-multi .select2-choices .select2-search-field input.select2-active
+    {
+        background-color: #3D3E3D !important;
+        background-image: url('layout/hc/spinner.gif') !important;
+    }
+
+    .select2-more-results.select2-active
+    {
+        background-color: #000 !important;
+    }
+
+    .select2-results .select2-no-results, .select2-results .select2-searching, .select2-results .select2-selection-limit
+    {
+        background-color: #000 !important;
+    }
+
+    .select2-more-results
+    {
+        background-color: #000 !important;
+    }
+
+}
+
+
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)
+{
+    .select2-search input, .select2-search-choice-close, .select2-container .select2-choice abbr, .select2-container .select2-choice div b
+    {
+        background-image: url('layout/hc/select2x2.png') !important;
+    }
+}
+
+.content ul.check-box-list
+{
+    background-color: #3D3E3D !important;
+    border-top: solid 1px #949494 !important;
+    border-bottom: solid 1px #949494 !important;
+    color: #FFFFFF !important;
+}
+
+::-moz-selection, ::selection
+{
+    background-color: #3399FF !important;
+    color: #FFF !important;
+}
+
+#calendar
+{
+    border-color: #282828 !important;
+    background-color: #000 !important;
+}
+#calendar td.times
+{
+    background-color: #246d98 !important;
+}
+#calendar td.times li
+{
+    color: #FFFFFF !important;
+    border-bottom: solid 1px #CCCCCC !important;
+}
+
+#calendar th
+{
+    color: #fff !important;
+    border-right-color: #B2B2B2 !important;
+    background-color: #246d98 !important;
+}
+#calendar #today
+{
+    background-color: #4D4D4E !important;
+}
+#calendar td.done
+{
+    background-color: #1d1d1d !important;
+}
+
+
+#calendar td
+{
+    border-right-color: #CCC !important;
+    background-color: #2D2D2D !important;
+}
+
+#calendar .outOfOffice
+{
+    background-color: #3D3E3D !important;
+    color: #ffffff;
+    border-bottom: solid 1px #999999;
+}
+
+
+#calendar .sessionItem
+{
+    color: #fff !important;
+    border-bottom-color: #999 !important;
+    background-color: #282828;
+}
+#calendar .SessionContainer .active a
+{
+    color: #fff !important;
+    background-color: #246d98 !important;
+}
+
+
+#calendar .SessionContainer.active a:hover
+{
+    background-color: #5E8E3F !important;
+}
+
+#calendar .SessionContainer a:hover,
+#calendar .SessionContainer a:focus
+{
+    background-color: #5E8E3F !important;
+    color: #000 !important;
+}
+
+#calendar .sessionGroup td
+{
+    border-color:transparent !important;
+}
+
+#calSearch a
+{
+    background-image: url(../Areas/Diary/Content/calendaractions-search_hc.png);
+}
+#calLoadFromTodayDate a
+{
+    background-image: url(../Areas/Diary/Content/calendaractions-today_hc.png);
+}
+#calPrev a
+{
+    background-image: url(../Areas/Diary/Content/calendaractions-prev_hc.gif);
+}
+#calNext a
+{
+    background-image: url(../Areas/Diary/Content/calendaractions-next_hc.gif);
+}

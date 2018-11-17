@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD1BAB1E-1676-40B1-BC64-4C701D5271DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Employment.Web.Mvc.Service.Tests</RootNamespace>
+    <AssemblyName>Employment.Web.Mvc.Service.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Integration|AnyCPU'">
+    <OutputPath>bin\Integration\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Employment.Web.Mvc.Service.Tests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DevFix|AnyCPU'">
+    <OutputPath>bin\DevFix\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Employment.Web.Mvc.Service.Tests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestRelease|AnyCPU'">
+    <OutputPath>bin\TestRelease\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Employment.Web.Mvc.Service.Tests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestFix|AnyCPU'">
+    <OutputPath>bin\TestFix\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Employment.Web.Mvc.Service.Tests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DevRelease|AnyCPU'">
+    <OutputPath>bin\DevRelease\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Employment.Web.Mvc.Service.Tests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ActiveReports6, Version=6.2.3164.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\Dependencies\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Employment.Esc.ActivityManagement.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.ActivityManagement.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Adw.Contracts">
+      <HintPath>..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.Adw.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.CaseloadSearch.Contracts, Version=1307.8.20.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.CaseloadSearch.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.ComplianceReports.Contracts, Version=1306.3.22.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.ComplianceReports.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Diary.Contracts, Version=2012.6.29.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.Diary.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.EligibilityDeterminator.Contracts, Version=1203.11.28.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Employment.Esc.Employer.Contracts, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.Employer.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.EmploymentPathwayPlan.Contracts, Version=1306.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Employment.Esc.Framework.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=eff588e3aa0dd97c, processorArchitecture=MSIL" />
+    <Reference Include="Employment.Esc.GenericComments.Contracts, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Employment.Esc.HelpDeskNotification.Contracts, Version=1.0.0.1, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.HelpDeskNotification.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.IESContracts.Contracts, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.IESContracts.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.JCAAssessment.Contracts, Version=1306.3.24.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.JCAAssessment.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.JCAAssessment.Reports, Version=1306.3.24.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Release\Web\Mvc\Rhea\Rhea\bin\Employment.Esc.JCAAssessment.Reports.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.JobMatchProfile.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.JobMatchProfile.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.JobseekerCaseDetails.Contracts, Version=1212.11.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.JobseekerCaseDetails.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.JobSeekerDisadvantages.Contracts, Version=1002.8.31.1, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF_Main\bin\Employment.Esc.JobSeekerDisadvantages.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.JobSeekerIncidentReport.Contracts, Version=1207.2.23.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Employment.Esc.JSCI.Contracts, Version=1107.5.27.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.JSCI.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.MatchData.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.MatchData.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Noticeboard.Contracts, Version=2012.8.13.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.Noticeboard.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Notification.Contracts, Version=2012.3.7.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.Notification.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.ParticipationAccount.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Employment.Esc.ParticipationProfile.Contracts, Version=1107.4.4.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Employment.Esc.Payments.Contracts, Version=1206.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.Payments.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Provider.Contracts, Version=2013.4.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF_Main\bin\Employment.Esc.Provider.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.ReferralHistory.Contracts, Version=2012.4.16.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.ReferralHistory.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Registration.Contracts, Version=1207.5.9.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.Registration.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.ResumeRtf.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.ResumeRtf.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Shared.Contracts">
+      <HintPath>..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.Shared.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.SmartClient.Provisioner.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.SmartClient.Provisioner.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.SpecialPlacementHistory.Contracts, Version=2011.6.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\ESG SDK\SDK\Stream\ESC Release\References\Employment.Esc.SpecialPlacementHistory.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Suspensions.Contracts, Version=2012.8.10.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.Suspensions.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.SystemOverrides.Contracts, Version=1207.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\AppData\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.SystemOverrides.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Transition.Contracts, Version=2013.2.18.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Fix\DeveloperWCF\bin\Employment.Esc.Transition.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\Dependencies\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityDiary\ActivityDiaryServiceTest.cs" />
+    <Compile Include="Activity\ActivityAttendanceTest.cs" />
+    <Compile Include="Activity\ActivityMapperTest.cs" />
+    <Compile Include="Activity\ActivityServiceTest.cs" />
+    <Compile Include="Activity\ActivityTestDataHelper.cs" />
+    <Compile Include="Activity\ActivityLocationServiceTest.cs" />
+    <Compile Include="Activity\ActivityHostServiceTest.cs" />
+    <Compile Include="Case\CaseLoadMapperTest.cs" />
+    <Compile Include="Case\CaseLoadServiceTest.cs" />
+    <Compile Include="Case\CaseSummaryMapperTest.cs" />
+    <Compile Include="Case\CaseSummaryServiceTest.cs" />
+    <Compile Include="MatchData\MatchDataMapperTest.cs" />
+    <Compile Include="MatchData\MatchDataServiceTest.cs" />
+    <Compile Include="JobMatchProfile\JobMatchProfileMapperTest.cs" />
+    <Compile Include="JobMatchProfile\JobMatchProfileServiceTest.cs" />
+    <Compile Include="Diary\DiaryAddressServiceTest.cs" />
+    <Compile Include="Diary\DiaryAppointmentServiceTest.cs" />
+    <Compile Include="Diary\DiaryConsultantServiceTest.cs" />
+    <Compile Include="Diary\DiaryMapperTest.cs" />
+    <Compile Include="Diary\DiaryPhoneServiceTest.cs" />
+    <Compile Include="Diary\DiarySessionServiceTest.cs" />
+    <Compile Include="HelpDesk\HelpDeskMapperTest.cs" />
+    <Compile Include="HelpDesk\HelpDeskServiceTest.cs" />
+    <Compile Include="IPP\IndividualParticipationPlanMapperTest.cs" />
+    <Compile Include="IPP\IndividualParticipationPlanServiceTest.cs" />
+    <Compile Include="JSCI\JsciMapperTest.cs" />
+    <Compile Include="JSCI\JsciServiceTest.cs" />
+    <Compile Include="Noticeboard\NoticeboardMapperTest.cs" />
+    <Compile Include="Noticeboard\NoticeboardServiceTest.cs" />
+    <Compile Include="Notification\NotificationMapperTest.cs" />
+    <Compile Include="Notification\NotificationServiceTest.cs" />
+    <Compile Include="ParticipantCompliance\ParticipantComplianceMapperTest.cs" />
+    <Compile Include="ParticipantCompliance\ParticipantComplianceServiceTest.cs" />
+    <Compile Include="ParticipationAccount\ExpenditureServiceTest.cs" />
+    <Compile Include="Payments\JobseekerPaymentsServiceTest.cs" />
+    <Compile Include="Payments\OverridesMapperTest.cs" />
+    <Compile Include="Payments\OverridesServiceTest.cs" />
+    <Compile Include="Payments\PaymentsListAndLodgeServiceTest.cs" />
+    <Compile Include="Payments\PaymentsMapperTest.cs" />
+    <Compile Include="Payments\PaymentsServiceTest.cs" />
+    <Compile Include="Payments\RateReductionsMapperTest.cs" />
+    <Compile Include="Payments\RateReductionsServiceTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provisioner\ProvisionerServiceTest.cs" />
+    <Compile Include="Referrals\ReferralHistoryItemTypeExtensionTest.cs" />
+    <Compile Include="Referrals\ReferralHistoryMapperTest.cs" />
+    <Compile Include="Referrals\ReferralHistoryServiceTest.cs" />
+    <Compile Include="Referrals\ReferralMapperTest.cs" />
+    <Compile Include="Referrals\ReferralServiceTest.cs" />
+    <Compile Include="Registration\EligibilityTest.cs" />
+    <Compile Include="Registration\IncidentReportMapperTest.cs" />
+    <Compile Include="Registration\IncidentReportServiceTest.cs" />
+    <Compile Include="Registration\JobseekerAddressTest.cs" />
+    <Compile Include="Registration\JobseekerDuplicateTest.cs" />
+    <Compile Include="Registration\JobseekerESLTest.cs" />
+    <Compile Include="Registration\JobseekerModelTest.cs" />
+    <Compile Include="Registration\ParticipantProfileTest.cs" />
+    <Compile Include="Registration\RegistrationCommentMapperTest.cs" />
+    <Compile Include="Registration\RegistrationCommentServiceTest.cs" />
+    <Compile Include="Registration\RegistrationModelTest.cs" />
+    <Compile Include="Registration\RegistrationServiceSearchTest.cs" />
+    <Compile Include="Registration\RegistrationServiceTest.cs" />
+    <Compile Include="Resume\ResumeMapperTest.cs" />
+    <Compile Include="Resume\ResumeServiceTest.cs" />
+    <Compile Include="ServicesAdministration\IesContractMapperTest.cs" />
+    <Compile Include="ServicesAdministration\IesContractServiceTest.cs" />
+    <Compile Include="ServicesAdministration\IesContractTestDataHelper.cs" />
+    <Compile Include="Suspensions\SuspensionsMapperTest.cs" />
+    <Compile Include="Suspensions\SuspensionsServiceTest.cs" />
+    <Compile Include="Transition\TransitionMapperTest.cs" />
+    <Compile Include="Transition\TransitionServiceTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastructure\Infrastructure\Infrastructure.csproj">
+      <Project>{48738AA7-C01E-4606-B96D-ABB70DBA3995}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Implementation\Service.Implementation.csproj">
+      <Project>{8D5E834E-D186-4DC6-BDE5-665AF8DB8A9A}</Project>
+      <Name>Service.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Service.Interfaces.csproj">
+      <Project>{811FA3E9-2C73-41F6-96BD-F92F9554E883}</Project>
+      <Name>Service.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Employer\" />
+    <Folder Include="ParticipantJCA\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

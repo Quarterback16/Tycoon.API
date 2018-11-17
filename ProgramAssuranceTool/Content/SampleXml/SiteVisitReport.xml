@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfSiteVisit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SiteVisit>
+    <OrgCode>BOYT</OrgCode>
+    <OrgName>BoysTown Ltd</OrgName>
+    <ESACode>4SOB</ESACode>
+    <ESAName>South Brisbane QLD</ESAName>
+    <SiteCode>Q067</SiteCode>
+    <SiteName>BoysTown Capalaba</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:50.607</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.973</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2011-06-01T14:37:42</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>BOYT</OrgCode>
+    <OrgName>BoysTown Ltd</OrgName>
+    <ESACode>4SOB</ESACode>
+    <ESAName>South Brisbane QLD</ESAName>
+    <SiteCode>Q067</SiteCode>
+    <SiteName>BoysTown Capalaba</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:50.607</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.973</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2012-08-20T16:02:36.477</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>BOYT</OrgCode>
+    <OrgName>BoysTown Ltd</OrgName>
+    <ESACode>4SOB</ESACode>
+    <ESAName>South Brisbane QLD</ESAName>
+    <SiteCode>Q067</SiteCode>
+    <SiteName>BoysTown Capalaba</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:50.607</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.973</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-26T16:52:52.243</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>BOYT</OrgCode>
+    <OrgName>BoysTown Ltd</OrgName>
+    <ESACode>4SOB</ESACode>
+    <ESAName>South Brisbane QLD</ESAName>
+    <SiteCode>Q067</SiteCode>
+    <SiteName>BoysTown Capalaba</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:50.607</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.973</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-27T08:23:04.743</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>BOYT</OrgCode>
+    <OrgName>BoysTown Ltd</OrgName>
+    <ESACode>4SOB</ESACode>
+    <ESAName>South Brisbane QLD</ESAName>
+    <SiteCode>Q067</SiteCode>
+    <SiteName>BoysTown Capalaba</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:40.967</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.873</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2011-06-01T14:37:42</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>BOYT</OrgCode>
+    <OrgName>BoysTown Ltd</OrgName>
+    <ESACode>4SOB</ESACode>
+    <ESAName>South Brisbane QLD</ESAName>
+    <SiteCode>Q067</SiteCode>
+    <SiteName>BoysTown Capalaba</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:40.967</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.873</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2012-08-20T16:02:36.477</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>BOYT</OrgCode>
+    <OrgName>BoysTown Ltd</OrgName>
+    <ESACode>4SOB</ESACode>
+    <ESAName>South Brisbane QLD</ESAName>
+    <SiteCode>Q067</SiteCode>
+    <SiteName>BoysTown Capalaba</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:40.967</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.873</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-26T16:52:52.243</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>BOYT</OrgCode>
+    <OrgName>BoysTown Ltd</OrgName>
+    <ESACode>4SOB</ESACode>
+    <ESAName>South Brisbane QLD</ESAName>
+    <SiteCode>Q067</SiteCode>
+    <SiteName>BoysTown Capalaba</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:40.967</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.873</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-27T08:23:04.743</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CCGL</OrgCode>
+    <OrgName>CatholicCare (Sydney)</OrgName>
+    <ESACode>4FAI</ESACode>
+    <ESAName>Fairfield NSW</ESAName>
+    <SiteCode>IO50</SiteCode>
+    <SiteName>CatholicCare Frfield</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JP22</ClaimType>
+    <ClaimTypeDescription>Stream 2 50+ Hours</ClaimTypeDescription>
+    <ClaimAmount>550.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:40.293</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.573</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2011-06-01T14:37:42</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CCGL</OrgCode>
+    <OrgName>CatholicCare (Sydney)</OrgName>
+    <ESACode>4FAI</ESACode>
+    <ESAName>Fairfield NSW</ESAName>
+    <SiteCode>IO50</SiteCode>
+    <SiteName>CatholicCare Frfield</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JP22</ClaimType>
+    <ClaimTypeDescription>Stream 2 50+ Hours</ClaimTypeDescription>
+    <ClaimAmount>550.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:40.293</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.573</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2012-08-20T16:02:36.477</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CCGL</OrgCode>
+    <OrgName>CatholicCare (Sydney)</OrgName>
+    <ESACode>4FAI</ESACode>
+    <ESAName>Fairfield NSW</ESAName>
+    <SiteCode>IO50</SiteCode>
+    <SiteName>CatholicCare Frfield</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JP22</ClaimType>
+    <ClaimTypeDescription>Stream 2 50+ Hours</ClaimTypeDescription>
+    <ClaimAmount>550.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:40.293</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.573</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-26T16:52:52.243</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CCGL</OrgCode>
+    <OrgName>CatholicCare (Sydney)</OrgName>
+    <ESACode>4FAI</ESACode>
+    <ESAName>Fairfield NSW</ESAName>
+    <SiteCode>IO50</SiteCode>
+    <SiteName>CatholicCare Frfield</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JP22</ClaimType>
+    <ClaimTypeDescription>Stream 2 50+ Hours</ClaimTypeDescription>
+    <ClaimAmount>550.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:40.293</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.573</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-27T08:23:04.743</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CCGL</OrgCode>
+    <OrgName>CatholicCare (Sydney)</OrgName>
+    <ESACode>4FAI</ESACode>
+    <ESAName>Fairfield NSW</ESAName>
+    <SiteCode>IO50</SiteCode>
+    <SiteName>CatholicCare Frfield</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JP22</ClaimType>
+    <ClaimTypeDescription>Stream 2 50+ Hours</ClaimTypeDescription>
+    <ClaimAmount>550.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:25.07</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.68</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2011-06-01T14:37:42</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CCGL</OrgCode>
+    <OrgName>CatholicCare (Sydney)</OrgName>
+    <ESACode>4FAI</ESACode>
+    <ESAName>Fairfield NSW</ESAName>
+    <SiteCode>IO50</SiteCode>
+    <SiteName>CatholicCare Frfield</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JP22</ClaimType>
+    <ClaimTypeDescription>Stream 2 50+ Hours</ClaimTypeDescription>
+    <ClaimAmount>550.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:25.07</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.68</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2012-08-20T16:02:36.477</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CCGL</OrgCode>
+    <OrgName>CatholicCare (Sydney)</OrgName>
+    <ESACode>4FAI</ESACode>
+    <ESAName>Fairfield NSW</ESAName>
+    <SiteCode>IO50</SiteCode>
+    <SiteName>CatholicCare Frfield</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JP22</ClaimType>
+    <ClaimTypeDescription>Stream 2 50+ Hours</ClaimTypeDescription>
+    <ClaimAmount>550.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:25.07</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.68</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-26T16:52:52.243</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CCGL</OrgCode>
+    <OrgName>CatholicCare (Sydney)</OrgName>
+    <ESACode>4FAI</ESACode>
+    <ESAName>Fairfield NSW</ESAName>
+    <SiteCode>IO50</SiteCode>
+    <SiteName>CatholicCare Frfield</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JP22</ClaimType>
+    <ClaimTypeDescription>Stream 2 50+ Hours</ClaimTypeDescription>
+    <ClaimAmount>550.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:25.07</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>VLQ</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.68</LastUpdateDate>
+    <RecoveryReason>V</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-27T08:23:04.743</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CNTC</OrgCode>
+    <OrgName>VERTO</OrgName>
+    <ESACode>4HAS</ESACode>
+    <ESAName>Hastings NSW</ESAName>
+    <SiteCode>H320</SiteCode>
+    <SiteName>VERTO Port Macquarie</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:07.297</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentAction>FRFP</AssessmentAction>
+    <AssessmentOutcome>INV</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-03-20T08:50:19.31</LastUpdateDate>
+    <RecoveryReason>P2</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2011-06-01T14:37:42</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CNTC</OrgCode>
+    <OrgName>VERTO</OrgName>
+    <ESACode>4HAS</ESACode>
+    <ESAName>Hastings NSW</ESAName>
+    <SiteCode>H320</SiteCode>
+    <SiteName>VERTO Port Macquarie</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:07.297</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentAction>FRFP</AssessmentAction>
+    <AssessmentOutcome>INV</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-03-20T08:50:19.31</LastUpdateDate>
+    <RecoveryReason>P2</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2012-08-20T16:02:36.477</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CNTC</OrgCode>
+    <OrgName>VERTO</OrgName>
+    <ESACode>4HAS</ESACode>
+    <ESAName>Hastings NSW</ESAName>
+    <SiteCode>H320</SiteCode>
+    <SiteName>VERTO Port Macquarie</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:07.297</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentAction>FRFP</AssessmentAction>
+    <AssessmentOutcome>INV</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-03-20T08:50:19.31</LastUpdateDate>
+    <RecoveryReason>P2</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-26T16:52:52.243</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CNTC</OrgCode>
+    <OrgName>VERTO</OrgName>
+    <ESACode>4HAS</ESACode>
+    <ESAName>Hastings NSW</ESAName>
+    <SiteCode>H320</SiteCode>
+    <SiteName>VERTO Port Macquarie</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-26T16:54:07.297</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentAction>FRFP</AssessmentAction>
+    <AssessmentOutcome>INV</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-03-20T08:50:19.31</LastUpdateDate>
+    <RecoveryReason>P2</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-27T08:23:04.743</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CNTC</OrgCode>
+    <OrgName>VERTO</OrgName>
+    <ESACode>4HAS</ESACode>
+    <ESAName>Hastings NSW</ESAName>
+    <SiteCode>H320</SiteCode>
+    <SiteName>VERTO Port Macquarie</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:39.747</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentAction>FRFP</AssessmentAction>
+    <AssessmentOutcome>INV</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.273</LastUpdateDate>
+    <RecoveryReason>P2</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2011-06-01T14:37:42</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CNTC</OrgCode>
+    <OrgName>VERTO</OrgName>
+    <ESACode>4HAS</ESACode>
+    <ESAName>Hastings NSW</ESAName>
+    <SiteCode>H320</SiteCode>
+    <SiteName>VERTO Port Macquarie</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:39.747</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentAction>FRFP</AssessmentAction>
+    <AssessmentOutcome>INV</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.273</LastUpdateDate>
+    <RecoveryReason>P2</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2012-08-20T16:02:36.477</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CNTC</OrgCode>
+    <OrgName>VERTO</OrgName>
+    <ESACode>4HAS</ESACode>
+    <ESAName>Hastings NSW</ESAName>
+    <SiteCode>H320</SiteCode>
+    <SiteName>VERTO Port Macquarie</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:39.747</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentAction>FRFP</AssessmentAction>
+    <AssessmentOutcome>INV</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.273</LastUpdateDate>
+    <RecoveryReason>P2</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-26T16:52:52.243</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>CNTC</OrgCode>
+    <OrgName>VERTO</OrgName>
+    <ESACode>4HAS</ESACode>
+    <ESAName>Hastings NSW</ESAName>
+    <SiteCode>H320</SiteCode>
+    <SiteName>VERTO Port Macquarie</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimType>JPW1</ClaimType>
+    <ClaimTypeDescription>WE Phase 15-49 Hours</ClaimTypeDescription>
+    <ClaimAmount>385.0000</ClaimAmount>
+    <ClaimCreationDate>2013-09-27T08:23:39.747</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentAction>FRFP</AssessmentAction>
+    <AssessmentOutcome>INV</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:37.273</LastUpdateDate>
+    <RecoveryReason>P2</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-27T08:23:04.743</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>PPTY</OrgCode>
+    <OrgName>NOW Employment Services/Peedac Pty Ltd</OrgName>
+    <ESACode>4NOM</ESACode>
+    <ESAName>North Metro WA</ESAName>
+    <SiteCode>FQ40</SiteCode>
+    <SiteName>PEEDAC Midland</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimAmount>12.1200</ClaimAmount>
+    <ClaimCreationDate>2011-06-01T14:38:37.63</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>SDI</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:35.643</LastUpdateDate>
+    <RecoveryReason>L</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2011-06-01T14:37:42</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>PPTY</OrgCode>
+    <OrgName>NOW Employment Services/Peedac Pty Ltd</OrgName>
+    <ESACode>4NOM</ESACode>
+    <ESAName>North Metro WA</ESAName>
+    <SiteCode>FQ40</SiteCode>
+    <SiteName>PEEDAC Midland</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimAmount>12.1200</ClaimAmount>
+    <ClaimCreationDate>2011-06-01T14:38:37.63</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>SDI</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:35.643</LastUpdateDate>
+    <RecoveryReason>L</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2012-08-20T16:02:36.477</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>PPTY</OrgCode>
+    <OrgName>NOW Employment Services/Peedac Pty Ltd</OrgName>
+    <ESACode>4NOM</ESACode>
+    <ESAName>North Metro WA</ESAName>
+    <SiteCode>FQ40</SiteCode>
+    <SiteName>PEEDAC Midland</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimAmount>12.1200</ClaimAmount>
+    <ClaimCreationDate>2011-06-01T14:38:37.63</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>SDI</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:35.643</LastUpdateDate>
+    <RecoveryReason>L</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-26T16:52:52.243</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>PPTY</OrgCode>
+    <OrgName>NOW Employment Services/Peedac Pty Ltd</OrgName>
+    <ESACode>4NOM</ESACode>
+    <ESAName>North Metro WA</ESAName>
+    <SiteCode>FQ40</SiteCode>
+    <SiteName>PEEDAC Midland</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName />
+    <JobSeekerFirstName />
+    <JobSeekerName> </JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimAmount>12.1200</ClaimAmount>
+    <ClaimCreationDate>2011-06-01T14:38:37.63</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>SDI</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:35.643</LastUpdateDate>
+    <RecoveryReason>L</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-27T08:23:04.743</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>PPTY</OrgCode>
+    <OrgName>NOW Employment Services/Peedac Pty Ltd</OrgName>
+    <ESACode>4NOM</ESACode>
+    <ESAName>North Metro WA</ESAName>
+    <SiteCode>FQ40</SiteCode>
+    <SiteName>PEEDAC Midland</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName>HARRISON</JobSeekerFamilyName>
+    <JobSeekerFirstName>MICHAEL</JobSeekerFirstName>
+    <JobSeekerName>MICHAEL HARRISON</JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimAmount>12.1200</ClaimAmount>
+    <ClaimCreationDate>2012-08-20T16:03:00.07</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>AIR</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.083</LastUpdateDate>
+    <RecoveryReason>CE</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2011-06-01T14:37:42</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>PPTY</OrgCode>
+    <OrgName>NOW Employment Services/Peedac Pty Ltd</OrgName>
+    <ESACode>4NOM</ESACode>
+    <ESAName>North Metro WA</ESAName>
+    <SiteCode>FQ40</SiteCode>
+    <SiteName>PEEDAC Midland</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName>HARRISON</JobSeekerFamilyName>
+    <JobSeekerFirstName>MICHAEL</JobSeekerFirstName>
+    <JobSeekerName>MICHAEL HARRISON</JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimAmount>12.1200</ClaimAmount>
+    <ClaimCreationDate>2012-08-20T16:03:00.07</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>AIR</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.083</LastUpdateDate>
+    <RecoveryReason>CE</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2012-08-20T16:02:36.477</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>PPTY</OrgCode>
+    <OrgName>NOW Employment Services/Peedac Pty Ltd</OrgName>
+    <ESACode>4NOM</ESACode>
+    <ESAName>North Metro WA</ESAName>
+    <SiteCode>FQ40</SiteCode>
+    <SiteName>PEEDAC Midland</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName>HARRISON</JobSeekerFamilyName>
+    <JobSeekerFirstName>MICHAEL</JobSeekerFirstName>
+    <JobSeekerName>MICHAEL HARRISON</JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimAmount>12.1200</ClaimAmount>
+    <ClaimCreationDate>2012-08-20T16:03:00.07</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>AIR</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.083</LastUpdateDate>
+    <RecoveryReason>CE</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-26T16:52:52.243</UploadDate>
+  </SiteVisit>
+  <SiteVisit>
+    <OrgCode>PPTY</OrgCode>
+    <OrgName>NOW Employment Services/Peedac Pty Ltd</OrgName>
+    <ESACode>4NOM</ESACode>
+    <ESAName>North Metro WA</ESAName>
+    <SiteCode>FQ40</SiteCode>
+    <SiteName>PEEDAC Midland</SiteName>
+    <ProjectID>13</ProjectID>
+    <ProjectName>MITE - Australian Vietnamese Women's Welfare Association - Program Assurance State</ProjectName>
+    <JobSeekerID>0</JobSeekerID>
+    <JobSeekerFamilyName>HARRISON</JobSeekerFamilyName>
+    <JobSeekerFirstName>MICHAEL</JobSeekerFirstName>
+    <JobSeekerName>MICHAEL HARRISON</JobSeekerName>
+    <ClaimID>0</ClaimID>
+    <ClaimAmount>12.1200</ClaimAmount>
+    <ClaimCreationDate>2012-08-20T16:03:00.07</ClaimCreationDate>
+    <DaysOverdue>0</DaysOverdue>
+    <AssessmentOutcome>AIR</AssessmentOutcome>
+    <FinalOutcome>0</FinalOutcome>
+    <LastUpdateDate>2014-02-20T14:09:36.083</LastUpdateDate>
+    <RecoveryReason>CE</RecoveryReason>
+    <ReviewStatus>In Progress</ReviewStatus>
+    <UploadDate>2013-09-27T08:23:04.743</UploadDate>
+  </SiteVisit>
+</ArrayOfSiteVisit>

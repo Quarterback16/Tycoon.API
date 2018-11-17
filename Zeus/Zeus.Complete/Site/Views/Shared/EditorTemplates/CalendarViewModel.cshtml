@@ -1,0 +1,121 @@
+﻿@using Employment.Web.Mvc.Infrastructure.ViewModels.Calendar
+@using Employment.Web.Mvc.Infrastructure.Types
+@using System.Web.Mvc
+@model Employment.Web.Mvc.Infrastructure.ViewModels.Calendar.CalendarViewModel
+
+
+
+
+
+
+
+<div class="vertical-box" @HtmlDataType.CalendarRendered="false" @HtmlDataType.CalendarDefaultView="@Model.DefaultView.ToString().ToLower()">
+    <div class="vertical-box-column p-15 bg-silver width-sm">
+        @if (Model.Categories != null && Model.Categories.Any())
+        {
+            <div id="external-events" class="calendar-event">
+
+                @foreach (var category in Model.Categories)
+                {
+                    var categoryName = category.CategoryName.Trim().Replace(" ", string.Empty);
+                    if (string.IsNullOrEmpty(category.CategoryName))
+                    {
+                        throw new ArgumentNullException("CategoryName", "Cannot be null.");
+                    }
+
+                    // TODO: form data-zeus-url suggesting the GET action to be called from [AjaxOnly] method.
+                    var url = UrlHelper.GenerateUrl(category.RouteName, category.Action, category.Controller, new System.Web.Routing.RouteValueDictionary() { { "Area", category.Area } }, Html.RouteCollection, Html.ViewContext.RequestContext, includeImplicitMvcValues: true);
+                    var dragResizeUrl = UrlHelper.GenerateUrl(category.RouteName, category.DragResizeAction, category.Controller, new System.Web.Routing.RouteValueDictionary() { { "Area", category.Area } }, Html.RouteCollection, Html.ViewContext.RequestContext, includeImplicitMvcValues: true);
+                    var iconString = "<i class='fa " + category.IconType + "'></i>";
+                    var dragResizeEventAction = string.IsNullOrEmpty(category.DragResizeAction) ? string.Empty :( HtmlDataType.CalendarDragResizeAction + "=" + dragResizeUrl );
+                    <div @dragResizeEventAction @HtmlDataType.CalendarCategory="@categoryName" @HtmlDataType.Url="@url" class="external-event bg-@category.Color.ToString().ToLower() ui-draggable" data-bg="bg-@category.Color.ToString().ToLower()" data-title="@category.CategoryName" data-media="@iconString"
+                         data-desc="@Html.EditorFor(m => category.Description)">
+                        <h5><i class="fa @category.IconType fa-lg fa-fw"></i>@category.CategoryName</h5>
+
+                        <p>@Html.EditorFor(m => category.Description)</p>
+                    </div>
+
+                }
+
+                
+            </div>
+        }
+    </div>
+    <div id="calendar" class="vertical-box-column p-15 calendar">
+
+
+
+
+        @if (Model.Categories != null && Model.Categories.Any())
+        {
+
+
+
+            <div class="tab-pane fade" @HtmlDataType.CalendarData="@Model.CalendarName">
+                @foreach (var category in Model.Categories)
+                {
+                    if (category.Items != null && category.Items.Any())
+                    {
+                        if (string.IsNullOrEmpty(category.CategoryName))
+                        {
+                            throw new ArgumentNullException("CategoryName", "Cannot be null.");
+                        }
+                        else
+                        {
+                            
+                            foreach(var item in category.Items)
+                            {
+                                item.EventDescriptionHtml = Html.Raw(Html.EditorFor(m => item.EventDescription)).ToString();//.ToHtmlString()
+                                if(item.HoverDescription == null)
+                                {
+                                    item.HoverDescriptionHtml = item.EventDescriptionHtml;
+                                }
+                                else
+                                {
+                                    item.HoverDescriptionHtml = Html.Raw(Html.EditorFor(m => item.HoverDescription)).ToString();
+                                }
+                            }/**/
+                            
+                            var categoryName = category.CategoryName.Trim().Replace(" ", string.Empty);
+                            <p @HtmlDataType.CalendarCategoryEventList="@categoryName">
+                                @Html.Raw(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(category.Items))
+                            </p>
+                        }
+                    }
+                }
+            </div>
+        }
+
+
+
+
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal-dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Modal Dialog</h4>
+            </div>
+            <div class="modal-body">
+                Modal body content here...
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                <a href="javascript:;" class="btn btn-sm btn-success">Action</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@Scripts.Render("~/scripts/calendar")*@
+
+@functions
+{
+ 
+}
+

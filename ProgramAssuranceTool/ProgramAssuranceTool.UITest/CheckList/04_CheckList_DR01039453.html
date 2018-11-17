@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:6491/" />
+<title>DR01039453 </title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">DR01039453 </td></tr>
+</thead><tbody>
+<!--All date fields must follow the date format (dd/mm/yyyy).-->
+<tr>
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Project</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ACES - Contract Monitoring</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Upload 639 - WRKW - 4LSC - E500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=jqg_reviews_175047</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=jqg_reviews_175048</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=jqg_reviews_175049</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=h2.panel-title.pull-left</td>
+	<td>Review Assessment Checklist</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.col-xs-3 &gt; label</td>
+	<td>*dd/mm/yyyy*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//form[@id='checkListEditForm']/div/div[4]/div[6]/label</td>
+	<td>*dd/mm/yyyy*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//form[@id='checkListEditForm']/div/div[5]/div[2]/label</td>
+	<td>*dd/mm/yyyy*</td>
+</tr>
+</tbody></table>
+</body>
+</html>

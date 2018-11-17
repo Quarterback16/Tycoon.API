@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:6491/" />
+<title>DR01040521 </title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">DR01040521 </td></tr>
+</thead><tbody>
+<!--[New Attachment] Button only enabled if user is  admin or user belongs to a state that have been set as a resource to the project-->
+<tr>
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//div[@id='page']/footer/div/p</td>
+	<td>footer</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${footer}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>javascript:{storedVars['footer'].contains('*')}</td>
+	<td>isAdmin</td>
+</tr>
+<tr>
+	<td>assertExpression</td>
+	<td>${isAdmin}</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Project</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Job seeker Details - Program Assurance National</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Documents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=New Attachment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>link=New Attachment@enabled</td>
+	<td>true</td>
+</tr>
+</tbody></table>
+</body>
+</html>

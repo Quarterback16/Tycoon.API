@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Shuttle.Core.StructureMap" Version="10.0.4" />
+    <PackageReference Include="Shuttle.Esb.Msmq" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shuttle.PublishSubscribe.Messages\Shuttle.PublishSubscribe.Messages.csproj" />
+  </ItemGroup>
+
+</Project>

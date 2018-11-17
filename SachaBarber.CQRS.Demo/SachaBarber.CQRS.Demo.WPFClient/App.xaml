@@ -1,0 +1,22 @@
+﻿<Application x:Class="SachaBarber.CQRS.Demo.WPFClient.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="pack://application:,,,/SachaBarber.CQRS.Demo.WPFClient;component/Resources/Styles.Threading.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SachaBarber.CQRS.Demo.WPFClient;component/Resources/Styles.Dialogs.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SachaBarber.CQRS.Demo.WPFClient;component/Resources/Styles.Common.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SachaBarber.CQRS.Demo.WPFClient;component/Resources/Styles.ScrollViewer.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SachaBarber.CQRS.Demo.WPFClient;component/Resources/Styles.GrowlNotifications.xaml"/>
+                
+                <!-- Get around a bug in .NET 4.0 : http://wpftutorial.net/MergedDictionaryPerformance.html -->
+                <ResourceDictionary>
+                    <Style TargetType="{x:Type Rectangle}" />
+                </ResourceDictionary>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

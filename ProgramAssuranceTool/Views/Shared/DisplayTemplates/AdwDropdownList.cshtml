@@ -1,0 +1,14 @@
+﻿@{
+    if (ViewData.ModelMetadata.AdditionalValues != null && ViewData.ModelMetadata.AdditionalValues.Count > 0)
+    {
+        var list = (List<SelectListItem>) ViewData.ModelMetadata.AdditionalValues["AdwCodeList"];
+        if (Model != null && Model.ToString().Length > 0)
+        {
+            var selItem = list.Find(m => m.Value == (string) Model);
+            if (selItem != null)
+            {
+                @selItem.Text
+            }
+        }
+    }
+}

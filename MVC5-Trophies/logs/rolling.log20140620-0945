@@ -1,0 +1,2 @@
+2014-06-20 09:45:55,153 [11] INFO  MVC5_Trophies.Infrastructure.Log4NetStorage [(null)] - User<NATION\SC0779>: http://localhost:59457/Competition (102.2 ms)
+2014-06-20 09:45:55,530 [11] INFO  MVC5_Trophies.Infrastructure.Log4NetStorage [(null)] - User<NATION\SC0779>: http://localhost:59457/Competition (102.2 ms)

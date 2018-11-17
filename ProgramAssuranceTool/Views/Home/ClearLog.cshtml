@@ -1,0 +1,52 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.ViewModels.System.ClearLogViewModel
+
+@{
+    ViewBag.Title = "ClearLog";
+}
+
+<div class="page-header">  
+    <h1>Clear the Audit log</h1>
+</div>
+
+<div class="col-md-12">
+<br/>
+
+<p>
+Removes log items prior to a certain date to keep the log from getting too big.
+</p>
+
+
+@using ( Html.BeginForm() )
+{
+	<div class="col-md-12 col-md-offset-1 ">    
+		@Html.ValidationMessageSummary()
+	</div>
+    
+    <fieldset>
+
+    <legend>Parameter</legend>
+
+    <p></p>
+    <div class="form-group">
+        @Html.LabelForRequired( model => model.PriorToDate )
+        @Html.EditorFor( model => model.PriorToDate )
+        @Html.ValidationMessageFor( model => model.PriorToDate )
+    </div>
+    <br />
+
+
+    </fieldset>
+
+    <div id="clear-button">    
+        <div class="row">
+            <button type="submit" class="btn btn-lg btn-primary">Clear</button>
+        </div>
+        <br/>
+        <div class="row">
+            @Html.ActionLink( "Back to System options", "System", "Home" )
+        </div>
+    </div> 
+}
+
+</div>

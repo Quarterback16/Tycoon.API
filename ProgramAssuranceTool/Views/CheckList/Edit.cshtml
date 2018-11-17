@@ -1,0 +1,237 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.Models.CheckList
+
+@{
+    ViewBag.Title = string.Format("Project - {0} - {1}", Model.ProjectID, Model.ProjectName);
+    var hasChanges = ViewBag.HasChanges as bool? ?? default(bool);
+}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+        <li>@Html.ActionLink("Project Samples", "Details", "Project", new { id = @Model.ProjectID, tabNo = CommonConstants.ProjectTab_Samples }, "")</li>
+        <li>@Html.ActionLink("Review List", "Details", "Upload", new { Id = @Model.UploadID }, null)</li>
+        <li class="active">Review Assessment Checklist</li>
+    </ol>      
+    <h1>@ViewBag.Title</h1>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title pull-left">Review Assessment Checklist</h2>
+        <div class="clear-fix"></div>
+    </div>
+
+    @using (Html.BeginForm("Edit", "CheckList", FormMethod.Post, new { @role = "form", id = "checkListEditForm", name = "checkListEditForm" }))
+    {
+        <div class="panel-body">
+            @Html.ValidationSummary("Please correct the errors and try again.")
+
+            @Html.HiddenFor(b => b.ReviewID)
+            @Html.HiddenFor(b => b.UploadID)
+            @Html.HiddenFor(b => b.ProjectID)
+            @Html.HiddenFor(b => b.ProjectName)
+            @Html.HiddenFor(b => b.CheckListID)
+
+            <div class="row">
+                <div class="col-xs-2">
+                    @Html.LabelFor(b => b.ReviewID)
+                    @Html.TextBoxFor(b => b.ReviewID, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+                <div class="col-xs-2">
+                    @Html.LabelFor(b => b.Status)
+                    @Html.TextBoxFor(b => b.Status, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+
+                <div class="col-xs-2">
+                    @Html.LabelFor(b => b.JobSeekerID)
+                    @Html.TextBoxFor(b => b.JobSeekerID, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+
+                <div class="col-xs-6">
+                    @Html.LabelFor(b => b.JobSeekerName)
+                    @Html.TextBoxFor(b => b.JobSeekerName, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-2">
+                    @Html.LabelFor(b => b.ClaimID)
+                    @Html.TextBoxFor(b => b.ClaimID, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+
+                <div class="col-xs-2">
+                    @Html.LabelFor(b => b.ClaimType)
+                    @Html.TextBoxFor(b => b.ClaimType, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+
+                <div class="col-xs-6">
+                    @Html.LabelFor(b => b.ClaimTypeDescription)
+                    @Html.TextBoxFor(b => b.ClaimTypeDescription, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+
+                <div class="col-xs-2">
+                    @Html.LabelFor(b => b.ClaimAmount)
+                    @Html.TextBoxFor(b => b.ClaimAmount, new { @readonly = "readonly", @class = "form-control", @Value = @Model.ClaimAmount.ToString("#,##0.00") })
+                </div>
+
+                <div class="col-xs-3">
+                    @Html.LabelFor(b => b.ClaimStartDate)
+                    @Html.TextBoxFor(b => b.ClaimStartDate, new { @readonly = "readonly", @class = "form-control", @Value = @Model.ClaimStartDate.ToShortDateString() })
+                </div>
+
+                <div class="col-xs-3">
+                    @Html.LabelFor(b => b.ClaimEndDate)
+                    @Html.TextBoxFor(b => b.ClaimEndDate, new { @readonly = "readonly", @class = "form-control", @Value = @Model.ClaimEndDate.ToShortDateString() })
+                </div>
+
+                <div class="col-xs-6">
+                    @Html.LabelFor(b => b.ClaimIs)
+                    @Html.TextBoxFor(b => b.ClaimIs, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    @Html.LabelFor(b => b.AssessorName)
+                    @Html.TextBoxFor(b => b.AssessorName, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+
+                <div class="col-xs-3">
+                    @Html.LabelFor(b => b.UpdatedOn)
+                    @Html.TextBoxFor(b => b.UpdatedOn, new { @readonly = "readonly", @class = "form-control", @Value = @Model.UpdatedOn.ToShortDateString() })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(b => b.IsClaimDuplicateOverlapping, new { @style = "float:left; margin: 5px;width:75%" })
+                    @{
+                        if (Model.CanEdit)
+                        {
+                            <div class="col-xs-2">
+                                @Html.EditorFor(b => b.IsClaimDuplicateOverlapping)
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-xs-2">
+                                @Html.TextBox("IsClaimDuplicateOverlapping_ReadOnly", @Model.IsClaimDuplicateOverlapping, new { @readonly = "readonly", @class = "form-control" })
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(b => b.IsClaimIncludedInDeedNonPayableOutcomeList, new { @style = "float:left; margin: 5px;width:75%" })
+                    @{
+                        if (Model.CanEdit)
+                        {
+                            <div class="col-xs-2">
+                                @Html.EditorFor(b => b.IsClaimIncludedInDeedNonPayableOutcomeList)
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-xs-2">
+                                @Html.TextBox("IsClaimIncludedInDeedNonPayableOutcomeList_ReadOnly", @Model.IsClaimIncludedInDeedNonPayableOutcomeList, new { @readonly = "readonly", @class = "form-control" })
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(b => b.DoesDocEvidenceMeetGuidelineRequirement, new { @style = "float:left; margin: 5px;width:75%" })
+                    @{
+                        if (Model.CanEdit)
+                        {
+                            <div class="col-xs-2">
+                                @Html.EditorFor(b => b.DoesDocEvidenceMeetGuidelineRequirement)
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-xs-2">
+                                @Html.TextBox("DoesDocEvidenceMeetGuidelineRequirement_ReadOnly", @Model.DoesDocEvidenceMeetGuidelineRequirement, new { @readonly = "readonly", @class = "form-control" })
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(b => b.IsDocEvidenceConsistentWithESS, new { @style = "float:left; margin: 5px;width:75%" })
+                    @{
+                        if (Model.CanEdit)
+                        {
+                            <div class="col-xs-2">
+                                @Html.EditorFor(b => b.IsDocEvidenceConsistentWithESS)
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-xs-2">
+                                @Html.TextBox("IsDocEvidenceConsistentWithESS_ReadOnly", @Model.IsDocEvidenceConsistentWithESS, new { @readonly = "readonly", @class = "form-control" })
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(b => b.IsDocEvidenceSufficientToSupportPaymentType, new { @style = "float:left; margin: 5px;width:75%" })
+                    @{
+                        if (Model.CanEdit)
+                        {
+                            <div class="col-xs-2">
+                                @Html.EditorFor(b => b.IsDocEvidenceSufficientToSupportPaymentType)
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-xs-2">
+                                @Html.TextBox("IsDocEvidenceSufficientToSupportPaymentType_ReadOnly", @Model.IsDocEvidenceSufficientToSupportPaymentType, new { @readonly = "readonly", @class = "form-control" })
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(b => b.Comment)
+                    @{
+                        if (Model.CanEdit)
+                        {
+                            @Html.TextAreaFor(b => b.Comment, new { @placeholder = "Please enter comment here...", @class = "form-control", @maxlength = "3000", @rows = "5", @enabled = "true" })
+                        }
+                        else
+                        {
+                            @Html.TextAreaFor(b => b.Comment, new { @placeholder = "Please enter comment here...", @class = "form-control", @maxlength = "3000", @rows = "5", @enabled = "false", @disabled = "disabled" })
+                        }
+                    }
+                </div>
+            </div>
+
+            <div tabindex='0' class="text-center"><span>Record: @ViewBag.PageFooter</span></div>
+        </div>
+
+        <div class="hidden">Has Changes: @Html.CheckBox("hasChanges", hasChanges)</div>
+        
+        <div class="panel-footer clearfix">
+                <button type="submit" id="btnPrevious" name="command" value="@CommonConstants.ButtonPrevious" class="btn btn-lg btn-primary" @Model.PreviousButtonEnabled>Previous</button>
+                <button type="submit" id="btnSave" name="command" value="@CommonConstants.ButtonSave" class="btn btn-lg btn-primary" @Model.SaveButtonEnabled >Save</button>
+                <button type="submit" id="btnNext" name="command" value="@CommonConstants.ButtonNext" class="btn btn-lg btn-primary" @Model.NextButtonEnabled>Next</button>
+        </div>
+        
+    }
+
+</div>
+
+@*@Html.ActionLink("Back to Review Item List", "Details", "Upload", new { Id = @Model.UploadID }, null)*@

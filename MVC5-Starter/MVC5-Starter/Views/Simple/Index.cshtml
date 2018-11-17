@@ -1,0 +1,14 @@
+﻿@model MVC5_Starter.Models.Person
+
+@{
+    ViewBag.Title = "Index";
+    var likesMusic = Model.LikesMusic ? "active" : null;
+    var notAMusicFan = !Model.LikesMusic ? "active" : null;    
+}
+
+@Html.DisplayForModel(Model)
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

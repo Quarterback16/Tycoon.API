@@ -1,0 +1,10 @@
+﻿@using Employment.Web.Mvc.Infrastructure.Extensions
+
+@model object
+
+@{
+    var htmlAttributes = Html.GetHtmlAttributes("readonly");
+
+    htmlAttributes.MergeCssClass("form-control");
+}
+@Html.TextAreaFor(model => model, htmlAttributes)

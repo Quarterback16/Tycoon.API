@@ -1,0 +1,17 @@
+﻿@using Employment.Web.Mvc.Infrastructure.Types
+@{
+    var routes = new Dictionary<string, string>();
+
+    routes.Add("SetWidgetLayout", Url.Action("SetWidgetLayout", "Ajax", new RouteValueDictionary {{"Area", string.Empty}}));
+    routes.Add("AddWidget", Url.Action("AddWidget", "Ajax", new RouteValueDictionary {{"Area", string.Empty}}));
+    routes.Add("SetWidgetDataContext", Url.Action("SetWidgetDataContext", "Ajax", new RouteValueDictionary {{"Area", string.Empty}}));
+
+    var routeData = Json.Encode(routes);
+
+    var div = new TagBuilder("div");
+    
+    div.MergeAttribute("id", "zeus-ajax-routes");
+    div.MergeAttribute(HtmlDataType.AjaxRoutes, routeData);
+
+    @MvcHtmlString.Create(div.ToString(TagRenderMode.Normal))
+}

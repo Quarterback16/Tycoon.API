@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSLiteDemo.Domain", "CQRSLiteDemo.Domain\CQRSLiteDemo.Domain.csproj", "{67DFFA95-476C-4842-848F-40AA3D7D9F89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSLiteDemo.Web.Commands", "CQRSLiteDemo.Web.Commands\CQRSLiteDemo.Web.Commands.csproj", "{936CCF5B-38E0-46FA-B150-5501F0A6A273}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSLiteDemo.Web.Queries", "CQRSLiteDemo.Web.Queries\CQRSLiteDemo.Web.Queries.csproj", "{E4F4EC77-4EEA-42A6-B7FB-18D38A7D3FCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRSLiteDemo.Initializer", "CQRSLiteDemo.Initializer\CQRSLiteDemo.Initializer.csproj", "{46FD7AFE-EF1B-44EC-A403-3A084C0530FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0AD8C118-109C-4A5B-8371-94428DA5F5CB}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67DFFA95-476C-4842-848F-40AA3D7D9F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67DFFA95-476C-4842-848F-40AA3D7D9F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67DFFA95-476C-4842-848F-40AA3D7D9F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67DFFA95-476C-4842-848F-40AA3D7D9F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{936CCF5B-38E0-46FA-B150-5501F0A6A273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{936CCF5B-38E0-46FA-B150-5501F0A6A273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{936CCF5B-38E0-46FA-B150-5501F0A6A273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{936CCF5B-38E0-46FA-B150-5501F0A6A273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4F4EC77-4EEA-42A6-B7FB-18D38A7D3FCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F4EC77-4EEA-42A6-B7FB-18D38A7D3FCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F4EC77-4EEA-42A6-B7FB-18D38A7D3FCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F4EC77-4EEA-42A6-B7FB-18D38A7D3FCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46FD7AFE-EF1B-44EC-A403-3A084C0530FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46FD7AFE-EF1B-44EC-A403-3A084C0530FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46FD7AFE-EF1B-44EC-A403-3A084C0530FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46FD7AFE-EF1B-44EC-A403-3A084C0530FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

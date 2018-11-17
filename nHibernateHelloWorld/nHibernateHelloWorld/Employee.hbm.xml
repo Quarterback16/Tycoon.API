@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="nHibernateHelloWorld"
+                   namespace="nHibernateHelloWorld">
+  <class name="nHibernateHelloWorld.Employee, nHibernateHelloWorld" lazy="false">
+    <id name="id" access="field">
+      <generator class="native" />
+    </id>
+    <property name="name" access="field" column="name"/>
+    <many-to-one access="field" name="manager" column="manager" cascade="all"/>
+  </class>
+</hibernate-mapping>
+

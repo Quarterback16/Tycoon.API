@@ -1,0 +1,94 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using System.Data.Linq
+@using System.Globalization
+@using Employment.Web.Mvc.Infrastructure.DataAnnotations
+@using Employment.Web.Mvc.Infrastructure.Extensions
+@using Employment.Web.Mvc.Infrastructure.Types
+
+@model object
+@functions {
+    public long? GetDateTimeParseString(object model)
+    {
+        var dateTime = (DateTime?)model;
+        var unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+        return dateTime != null ? (long)(dateTime.Value.ToUniversalTime() - unixEpoch).TotalSeconds : new long?();
+    }
+}
+@{
+    if (!ViewData.ModelMetadata.HideSurroundingHtml)
+    {
+        @Html.Encode(ViewData.TemplateInfo.FormattedModelValue)
+    }
+
+    if (Model is Binary)
+    {
+        @Html.Hidden("", Convert.ToBase64String(((Binary)Model).ToArray()));
+    }
+    else if (Model is byte[])
+    {
+        @Html.Hidden("", Convert.ToBase64String((byte[])Model));
+    }
+    else if (ViewData.ModelMetadata.IsComplexType)
+    {
+        if (ViewData.ModelMetadata.GetAttribute<SerializedAttribute>() != null)
+        {
+            @Html.Hidden("", Model.Serialize())
+        }
+        else
+        {
+            foreach (ModelMetadata property in ViewData.ModelMetadata.Properties)
+            {
+                if (property.ModelType.GetNonNullableType() == typeof(DateTime))
+                {
+                    var dataTypeAttribute = property.GetAttribute<DataTypeAttribute>();
+                    var dataType = (dataTypeAttribute != null) ? dataTypeAttribute.DataType : DataType.DateTime;
+                    string format = string.Empty;
+                    switch (dataType)
+                    {
+
+                        case DataType.Date: format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern; break;
+                        case DataType.Time: format = CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern; break;
+                        default: format = string.Format("{0} {1}", CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern, CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern); break;
+                    }
+
+                    var dt = (DateTime?)property.Model;
+
+                    var val = dt != null ? dt.Value.ToString(format) : string.Empty;
+
+                    @Html.Hidden(property.PropertyName, val, new RouteValueDictionary { { HtmlDataType.DateTimeTicks, GetDateTimeParseString(property.Model) }, { HtmlDataType.DateTimeType, dataType.ToString().ToLower() } })
+                }
+                else
+                {
+                    @Html.Hidden(property.PropertyName, property.Model)
+                }
+            }
+        }
+    }
+    else
+    {
+        if (ViewData.ModelMetadata.ModelType == typeof(DateTime?) || ViewData.ModelMetadata.ModelType == typeof(DateTime))
+        {
+            var dataTypeAttribute = ViewData.ModelMetadata.GetAttribute<DataTypeAttribute>();
+            var dataType = (dataTypeAttribute != null) ? dataTypeAttribute.DataType : DataType.DateTime;
+            string format = string.Empty;
+            switch (dataType)
+            {
+
+                case DataType.Date: format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern; break;
+                case DataType.Time: format = CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern; break;
+                default: format = string.Format("{0} {1}", CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern, CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern); break;
+            }
+
+            var dt = (DateTime?)Model;
+
+            var val = dt != null ? dt.Value.ToString(format) : string.Empty;
+
+            @Html.Hidden("", val, new RouteValueDictionary { { HtmlDataType.DateTimeTicks, GetDateTimeParseString(Model) }, { HtmlDataType.DateTimeType, dataType.ToString().ToLower() } })
+        }
+        else
+        {
+            @Html.Hidden("", Model)
+        }
+    }
+}

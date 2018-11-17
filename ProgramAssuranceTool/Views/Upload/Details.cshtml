@@ -1,0 +1,77 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.ViewModels.Sample.UploadReviewListViewModel
+
+@{
+    ViewBag.Title = "Review Item List";
+}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+        <li>@Html.ActionLink("Project Samples", "Details", "Project", new { id = Model.Project.ProjectId, tabNo = CommonConstants.ProjectTab_Samples }, "")</li>
+        <li class="active">Upload Details</li>
+    </ol>    
+    <h1>Project - @Model.Project.ProjectId -  @Model.Project.ProjectName</h1>
+</div>
+
+<div id="uploadDetailsDiv" class="panel panel-default col-lg-12 col-md-12">
+    <div class="panel-heading">
+        <div class="panel-title pull-left">@Model.Upload.Name</div>
+        <div class="pull-right">
+            @Html.ActionLink("Customise", "Customise", "Upload", new { id = Model.Upload.UploadId }, "")
+        </div>
+        <br />
+    </div>
+
+    <div class="panel-body">
+        <div id="review-list">
+            @Html.Raw(ViewData["reviews"])
+        </div>
+    </div>
+
+    <div class="panel-footer">
+
+        @if (Model.CanEdit)
+        {
+            <div class="row indented">
+                @if (Model.Project.IsContractMonitoringOrContractSiteVisit() && Model.Project.CanEditCheckList(User.Identity.Name.RemoveDomain()))
+                {
+                    <button id="edit-checklist" type="submit" name="button" value="submit" class="btn btn-lg btn-primary pull-left">Bulk Checklist</button>
+                }
+
+                <button id="bulk-update" type="submit" name="button" value="submit" class="btn btn-lg btn-primary pull-left">Bulk Outcome</button>
+
+                @if (!Model.Project.IsContractMonitoringOrContractSiteVisit())
+                {
+                    @Html.ActionLink("View Questionnaire Data", "ReviewQuestionnaire", "Questionnaire", new { id = @Model.Upload.UploadId, projectId = @Model.Project.ProjectId }, new { @class="btn btn-lg btn-primary pull-left" })
+                }
+
+                @using (Html.BeginForm("ExportReviews", "Upload", FormMethod.Post, new { id = "exportForm", name = "exportForm" }))
+                {
+                    <button id="export-reviews" type="submit" name="button" value="submit" class="btn btn-lg btn-primary pull-left">Export</button>
+                }
+
+                @if (!Model.Project.IsContractMonitoringOrContractSiteVisit())
+                {
+                    @Html.ActionLink("Append", "Append", "Upload", new { id = @Model.Upload.UploadId }, new { @class = "btn btn-lg btn-primary pull-left" })
+                }
+                
+                @Html.ActionLink("Edit Sample Details", "Edit", "Upload", new { id = @Model.Upload.UploadId }, new { @class = "btn btn-lg btn-primary pull-left" })
+                <button id="delete-sample" type="submit" name="button" value="submit" class="btn btn-lg btn-primary pull-left">Delete Upload/Sample</button>
+            </div>
+        }
+        else
+        {
+            <div class="row indented">
+                @Html.ActionLink("Sample Details", "Edit", "Upload", new { id = @Model.Upload.UploadId }, new { @class = "btn btn-lg btn-primary pull-left" })
+            </div>
+        }
+
+        <br />
+    </div>
+
+    <div class="hide" id="uploadId">@Model.Upload.UploadId</div>
+    <div class="hide" id="myMargin">@Model.Margin</div>
+    <div class="hide" id="myWidth">@Model.Width</div>
+</div>
+

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Shuttle.Core.Unity" Version="10.0.5" />
+    <PackageReference Include="Shuttle.Esb.Msmq" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shuttle.Distribution.Messages\Shuttle.Distribution.Messages.csproj" />
+  </ItemGroup>
+
+</Project>

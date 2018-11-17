@@ -1,0 +1,19 @@
+﻿
+@*
+    <div class="box">
+        <h2>
+            <a href="#" id="toggle-search1">Knowledge Base Search</a>
+        </h2>
+        <div class="block" id="search1">
+
+            @using (@Html.BeginForm("Index", "Search", FormMethod.Post, new { @class = "search"}))
+            {
+                <p>
+                    @Html.TextBox("SearchData", string.Empty, new { @class = "search text" })
+                    <span class="inline-button">@Html.Button("Search", Employment.Web.Mvc.Infrastructure.Extensions.HtmlHelperExtension.HtmlButtonType.Search)</span>
+                </p>
+            }
+        </div>
+    </div>
+
+*@

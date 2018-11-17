@@ -1,0 +1,119 @@
+﻿@using ProgramAssuranceTool.Helpers
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <!-- Force latest IE rendering engine or ChromeFrame if installed -->
+        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+
+        <title>@ViewBag.Title - Programme Assurance Tool</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        
+        <!-- must be first to allow the menu to display properly -->
+        <link href="@AppHelper.CssUrl("bootstrap.css")" rel="stylesheet" type="text/css" />
+        
+        @Styles.Render("~/Content/css")
+
+        <script src="@AppHelper.JScriptUrl("jquery-1.9.0.js")" ></script>
+        <script src="@AppHelper.JScriptUrl("jquery.browser.min.js")"></script>
+
+        <script src="@AppHelper.JScriptUrl("grid.locale-en.js")"></script>
+        <script src="@AppHelper.JScriptUrl("jquery.jqGrid.src.js")"></script>
+
+        <link href="@AppHelper.CssUrl("jquery-ui-1.10.0.custom.min.css?1")" rel="stylesheet" type="text/css" />  
+        <script src="@AppHelper.JScriptUrl("jquery-ui-1.10.0.custom.min.js")"></script>
+
+        <script src="@AppHelper.JScriptUrl("json2.js")" type="text/javascript"></script>
+        <script src="@AppHelper.JScriptUrl("_references.js")" type="text/javascript"></script>
+        <script src="@AppHelper.JScriptUrl("bootbox.min.js")" type="text/javascript"></script>
+        <script src="@AppHelper.JScriptUrl("jquery.blockUI.js")" type="text/javascript"></script>
+        <script src="@AppHelper.JScriptUrl("jquery-textrange.js")" type="text/javascript"></script>
+
+        @Scripts.Render("~/bundles/PAT")
+        @Scripts.Render("~/bundles/modernizr")
+        
+    </head>
+    <body>
+        <noscript>
+            <div id="msgNojs"class="text-center">
+                <a href="http://enable-javascript.com/" target="_blank" title="This site requires JavaScript. Click here for instructions on enabling it in your browser. (opens in a new window)">
+                    This site requires JavaScript. Click here for instructions on enabling it in your browser.
+                </a>
+            </div>
+        </noscript>
+        
+        <div id="page">            
+            <header class="container">
+                
+                <div id="skipLinks" class="readers">
+                    <ul>
+                        <li><a href="#body">skip to content</a></li>
+                        <li><a href="#menu">skip to section navigation</a></li>
+                    </ul>
+                </div>
+
+                <div id="menu" class="navbar navbar-inverse">
+                    <div class="navbar-header">
+                        <div class="site-title">
+                            <img class="img-responsive" alt="Programme Assurance Tool" width="1080" height="65" src="@AppHelper.ImageUrl("PatBanner3.png")"  />
+                        </div>
+                    </div>
+
+                    <div class="navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="nav">@Html.ActionLink("Bulletins/FAQs", "Index", "Home")</li>
+                            <li class="nav">@Html.ActionLink("Projects", "Index", "Project")</li>
+
+                            <li class="nav dropdown">
+                                <a href="#" class="dropdown-toggle navbar-inverse" data-toggle="dropdown">Reports <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav">@Html.ActionLink("Compliance Risk Indicator", "Compliance", "Report")</li>
+                                    <li class="nav">@Html.ActionLink("Site Visit", "SiteVisit", "Report")</li>
+                                    <li class="nav">@Html.ActionLink("Finding Summary", "FindingSummary", "Report")</li>
+                                    <li class="nav divider"></li>
+                                    <li class="nav">@Html.ActionLink("Progress", "Progress", "Report")</li>
+                                    <li class="nav">@Html.ActionLink("Dashboard", "Dashboard", "Report")</li>
+                                    <li class="nav">@Html.ActionLink("Provider Summary", "ProviderSummary", "Report")</li>
+                                    <li class="nav divider"></li>
+                                    <li class="nav">@Html.ActionLink("Project Type", "ProjectType", "Report")</li>
+                                </ul>
+                            </li>
+
+                            <li class="nav">@Html.ActionLink("About", "About", "Home")</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </header>
+
+            <section id="body" class="container">
+
+                @RenderSection("featured", required: false)
+                
+                <div id="mvc-view-content" class="col-md-12">
+                    <div id="flash" style="cursor: pointer" class="alert collapse" >
+                        <img alt="Press enter to close the message" class="close" id="close-image" title="Press enter to close the message" src="/Content/Images/close.png" tabindex="0" /> @*set the tab index to zero so the focus is here and user can press enter to close it*@
+                        <p id="message">&nbsp;</p>
+                        <p class="screenreader">Press enter to close the message</p>
+                    </div>
+                    @RenderBody()
+                </div>
+
+            </section>
+
+            <footer>
+                <div class="col-md-5 col-md-offset-4">
+                    <p> Programme Assurance Tool @AppHelper.VersionNumber() - @User.Identity.Name.RemoveDomain()@AppHelper.AdminOrNot(@User.Identity.Name.RemoveDomain(), Session) - @DateTime.Now </p>
+                </div>
+            </footer>
+
+            <script src="@AppHelper.JScriptUrl("bootstrap.min.js")" type="text/javascript"></script>
+
+            @RenderSection("scripts", required: false)
+            @Html.Flash()
+        </div>
+    </body>
+</html>

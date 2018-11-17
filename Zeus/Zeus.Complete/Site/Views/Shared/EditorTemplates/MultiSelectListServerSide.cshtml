@@ -1,0 +1,36 @@
+﻿@using System
+@using System.Linq
+@using System.Web.Mvc
+@using Employment.Web.Mvc.Infrastructure.Extensions
+@using Employment.Web.Mvc.Infrastructure.Types
+
+@model System.Web.Mvc.MultiSelectList
+
+@{
+    var htmlAttributes = Html.GetHtmlAttributes("readonly");
+
+    if (htmlAttributes != null)
+    {
+        if (htmlAttributes.ContainsKey("class"))
+        {
+            htmlAttributes["class"] += " form-control";
+        }
+        else
+        {
+            htmlAttributes.Add("class", "form-control");
+        }
+    }
+    if (Model != null) {
+        List<object> existingData = new List<object>();
+        foreach (System.Web.Mvc.SelectListItem item in Model.Items)
+        {
+            if (item.Selected) {
+                existingData.Add(new { Value = item.Value, Text = item.Text });
+            }
+        }
+        htmlAttributes.Add(HtmlDataType.MultiSelect, Json.Encode(existingData));
+    }
+}
+@Html.TextBox("", null, htmlAttributes)
+
+

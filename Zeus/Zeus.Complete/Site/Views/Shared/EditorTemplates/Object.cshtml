@@ -1,0 +1,998 @@
+﻿@using System
+@using System.Collections
+@using System.Collections.Generic
+@using System.ComponentModel.DataAnnotations
+@using System.Diagnostics.SymbolStore
+@using System.Linq
+@using System.Text
+@using System.Text.RegularExpressions
+@using System.Web.Mvc
+@using Employment.Web.Mvc.Infrastructure.Controllers
+@using Employment.Web.Mvc.Infrastructure.DataAnnotations
+@using Employment.Web.Mvc.Infrastructure.Extensions
+@using Employment.Web.Mvc.Infrastructure.Types
+@using Employment.Web.Mvc.Infrastructure.Interfaces
+@using Employment.Web.Mvc.Infrastructure.ViewModels
+@using Employment.Web.Mvc.Zeus.Extensions
+@using Employment.Web.Mvc.Zeus.Types;
+@helper AjaxObject() {
+    @Object()
+}
+@helper Object()
+{
+    if (ViewData.Model == null)
+    {
+        @ViewData.ModelMetadata.NullDisplayText
+    }
+    else
+    {
+        var listOfGroupsRendered = new Dictionary<string, List<GroupAttribute>>();
+        var propertyGroups = ViewData.GetGroupedAndOrderedMetadataAsList();
+        var groupContainers = 0;
+
+        var groupRowDivTag = new TagBuilder("div");
+        
+        foreach (var propertyGroup in propertyGroups)
+        {
+            IEnumerable<GroupAttribute> otherGroupsInSameRow = null;
+
+            ViewData["otherGroupsInSameRow"] = otherGroupsInSameRow;
+            
+            @ObjectBeginGroup(propertyGroups, propertyGroup.Key, propertyGroup.Value, listOfGroupsRendered, groupContainers, groupRowDivTag)
+
+            @ObjectProperties(propertyGroups, propertyGroup.Key, propertyGroup.Value, listOfGroupsRendered, groupContainers)
+    
+            @ObjectEndGroup(propertyGroups, propertyGroup.Key, propertyGroup.Value, listOfGroupsRendered, groupContainers, groupRowDivTag)
+        }
+    }
+}
+@helper ObjectProperties(Dictionary<string, List<ModelMetadata>> propertyGroups, string propertyGroupKey, List<ModelMetadata> propertyGroup, Dictionary<string, List<GroupAttribute>> listOfGroupsRendered, int groupContainers)
+{
+        var groups = ViewData.ModelMetadata.GetAttributes<GroupAttribute>().ToList();
+        var propertiesShownInRow = new List<string>();
+        int currentPropertyIndex = 0;
+        int totalProperties = propertyGroup.Count();
+        
+        foreach (var property in propertyGroup)
+        {
+            if (property.PropertyName == "ParentType" || property.PropertyName == "PropertyNameInParent")
+            {
+                var parentModel = ViewData.ModelMetadata.GetParentModel();
+
+                if (parentModel != null)
+                {
+                    string value = string.Empty;
+
+                    // Check for ParentType in an InheritanceViewModel
+                    if (property.PropertyName == "ParentType")
+                    {
+                        var parentType = parentModel.GetType();
+
+                        value = string.Format("{0}, {1}", parentType.FullName, parentType.Assembly.FullName.Substring(0, parentType.Assembly.FullName.IndexOf(',')));
+                    }
+                    else
+                    {
+                        // Property name in parent
+                        value = ViewData.ModelMetadata.PropertyName;
+                    }
+
+                    @Html.Hidden(property.PropertyName, value)
+    
+                    continue;
+                }
+            }
+
+            var hiddenAttribute = property.GetAttribute<HiddenAttribute>();
+            var containerForID = string.Format("ContainerFor-{0}", Html.ViewData.TemplateInfo.GetFullHtmlFieldId(property.PropertyName));
+            var visible = property.IsVisible() && (hiddenAttribute == null || (hiddenAttribute != null && hiddenAttribute.LabelOnly));
+            bool isNestedViewModel = property.IsViewModel();
+            bool isGrid = property.DataTypeName == CustomDataType.Grid || property.DataTypeName == CustomDataType.GridEditable;
+            bool isCheckBox = property.ModelType == typeof(bool) && (string.IsNullOrEmpty(property.TemplateHint) || string.Equals(property.TemplateHint, "Boolean", StringComparison.Ordinal));
+            bool isReadOnlyHyperlink = property.IsReadOnlyHyperlink();
+            bool isContentViewModel = property.ModelType == typeof(Employment.Web.Mvc.Infrastructure.ViewModels.ContentViewModel);
+            
+            
+            // Check if the property is to be excluded from the view entirely
+            if (hiddenAttribute != null && hiddenAttribute.ExcludeFromView)
+            {
+                continue;
+            }
+            if (property.ModelType == typeof(Employment.Web.Mvc.Infrastructure.ViewModels.Calendar.CalendarViewModel) || property.Model is Employment.Web.Mvc.Infrastructure.ViewModels.Calendar.CalendarViewModel)
+            {
+                ViewData["IsCalendar"] = true;
+            }
+            
+            if (currentPropertyIndex == 0 && (!isNestedViewModel || isContentViewModel) && !string.IsNullOrEmpty(propertyGroupKey))
+            {
+                @:<div class="form-horizontal"> 
+            }
+
+            if (property.ModelType == typeof(IndicatorType?) || property.ModelType == typeof(IEnumerable<LayoutType>))
+            {
+                continue;
+            }
+
+            var selector = property.GetAttribute<SelectorAttribute>();
+
+            if (selector != null)
+            {
+                continue;
+            }
+
+            var row = property.GetAttribute<RowAttribute>();
+            IEnumerable<ModelMetadata> otherPropertiesInSameRow = null;
+
+            // Get other properties within the current property group that are in the same row
+            if (row != null)
+            {
+                otherPropertiesInSameRow = propertyGroup.Where(m =>
+                {
+                    // Ignore current property
+                    if (string.Equals(m.PropertyName, property.PropertyName, StringComparison.Ordinal))
+                    {
+                        return false;
+                    }
+
+                    var r = m.GetAttribute<RowAttribute>();
+
+                    return (r != null && string.Equals(r.Name, row.Name, StringComparison.Ordinal));
+                });
+
+                if (otherPropertiesInSameRow != null)
+                {
+                    if (!propertiesShownInRow.Any() && (!isNestedViewModel || isContentViewModel)) // Dont show row div if this is a nested view model
+                    {
+                        @:<div class="form-group">@*row*@
+                    }
+
+                    propertiesShownInRow.Add(property.PropertyName);
+                }
+            }
+            else if (!isNestedViewModel || isContentViewModel) // Dont show row div if this is a nested view model
+            {
+                @:<div class="form-group">@*row*@
+            }
+
+            var containerDivTag = new TagBuilder("div"); // div for ContainerFor- id (the container div needs to contain both the label and input in order to hide/show both correctly)
+            containerDivTag.Attributes.Add("id", containerForID);
+            //containerDivTag.AddCssClass(rowStyleForGroup);
+
+            var divTag = new TagBuilder("div"); // col size div tag for property
+            divTag.Attributes.Add("id", string.Format("Inner{0}", containerForID));
+
+            int cols = 12; //10
+            int defaultLabelCols = 0; //2
+
+            if (row != null)
+            {
+                var otherPropCount = otherPropertiesInSameRow.Count();
+                switch (row.RowType)
+                {
+                    case RowType.Default:
+                        if (otherPropertiesInSameRow != null && otherPropCount == 1)
+                        {
+                            cols = 4 + 2; // total properties in same group = 2
+                        }
+                        else if (otherPropertiesInSameRow != null && otherPropCount == 2)
+                        {
+                            cols = 2 + 2; // total properties in same group = 3
+                        }
+                        else if (otherPropertiesInSameRow != null && otherPropCount == 3)
+                        {
+                            cols = 2 + 1; // total properties in same group = 4 RowType.Quarter
+                        }
+                        break;
+                    case RowType.Dynamic:
+                        if (otherPropertiesInSameRow != null && otherPropCount == 0)
+                        {
+                            cols = 6 + 6; // because label type dynamic also has cols =6.
+                        }
+                        else if (otherPropertiesInSameRow != null && otherPropCount == 1)
+                        {
+                            cols = 4 + 2; // total properties in same group = 2
+                        }
+                        else if (otherPropertiesInSameRow != null && otherPropCount == 2)
+                        {
+                            cols = 2 + 1; // total properties in same group = 3
+                        }
+                        break;
+                    case RowType.Half:
+                        cols = 4 + 2;
+                        break;
+                    case RowType.Third:
+                        cols = 2 + 2;
+                        break;
+                    case RowType.Quarter:
+                        cols = 2 + 1;   // Label cols are set to 1 when RowType is Quarter.
+                        break;
+
+                }
+
+            }
+            if ((property.ModelType != null && isContentViewModel) || isGrid)
+            {
+                cols += defaultLabelCols;
+            }
+            string colSize = "col-md-" + cols;
+
+            // Don't need to apply 'colB' formatting to nested view model
+            if (!isNestedViewModel || isContentViewModel)
+            {
+
+                if (row == null || row != null && row.RowType != RowType.Dynamic)  // Don't include 'colB' if row type is dynamic
+                {
+                    divTag.AddCssClass("colB");
+                }
+
+                containerDivTag.AddCssClass(colSize);
+                //divTag.AddCssClass(colSize);
+            }
+            else
+            {
+                // Apply contingent html attributes to nested view model
+                var htmlAttributes = Html.GetHtmlAttributes("readonly", property);
+
+                // Remove readonly setting when applying to DIV to validate against W3C
+                htmlAttributes.Remove("readonly");
+                htmlAttributes.Remove(HtmlDataType.ReadOnlyType);
+                // Add col size to div
+                //if(htmlAttributes.ContainsKey("class"))
+                //{
+                //    htmlAttributes["class"] += " " + colSize;
+                //}
+                //else
+                //{
+                //    htmlAttributes.Add("class", colSize);
+                //}
+                divTag.MergeAttributes(htmlAttributes);
+            }
+
+            if (!visible)
+            {
+                containerDivTag.AddCssClass("hidden");
+            }
+
+            if (row != null && row.RowType != RowType.Flow)
+            {
+                //divTag.AddCssClass(row.RowType.ToString().ToLower());
+            }
+
+            if (Html.ViewData.ModelState != null && Html.ViewData.ModelState.ContainsKey(property.PropertyName) && Html.ViewData.ModelState[property.PropertyName].Errors.Any())
+            {
+                divTag.AddCssClass("error");
+            }
+
+            // Div must start before label so the ContainerFor- includes the label and form control ([VisibleIf] hides/shows the ContainerFor- so we need the label inside to hide/show it as well)
+            @Html.Raw(containerDivTag.ToString(TagRenderMode.StartTag))
+            
+            if (property.HideSurroundingHtml)
+            {
+                @Html.Raw(divTag.ToString(TagRenderMode.StartTag))
+                @Html.Editor(property.PropertyName, new { ParentModel = Model })
+            @:</div>
+            }
+            else
+            {
+                // Get property level links and buttons
+                var propertyLinksAndButtons = Html.GetPropertyLinksAndButtons(property, false);
+
+                // Just need to make it so if not nested view model or grid, still output buttons/links, just not inside the label
+                if (!isNestedViewModel && !isGrid)
+                {
+                    if (!isCheckBox)
+                    {
+                        @Html.GetLabel(property, ViewData.ModelMetadata)
+                    }
+
+                    if (propertyLinksAndButtons.Any())
+                    {
+                    @*@:<br>*@
+                    }
+                }
+
+                // Render label after control for checkboxes
+                if (isCheckBox)
+                {
+                    @Html.GetLabel(property, ViewData.ModelMetadata)
+                }
+                
+                @Html.Raw(divTag.ToString(TagRenderMode.StartTag))
+    
+             
+                // This div must appear before the form control in order for the float right to interact properly with the BFC.
+                if (!isNestedViewModel && !isGrid && !isReadOnlyHyperlink)
+                {
+                    foreach (var linkOrButton in Html.GetPropertyLinksAndButtons(property, true))
+                    {
+                        <div class="form-control-appendix">@linkOrButton</div>
+                    }
+                }
+
+                if (propertyLinksAndButtons.Any())
+                {
+                    @:<div class="form-control-with-appendix">
+                }
+
+                @Html.Editor(property.PropertyName, new { ParentModel = Model, PropertyNameInParentModel = property.PropertyName })
+
+                if (propertyLinksAndButtons.Any())
+                {
+                    @:</div>
+                }
+
+                if (isNestedViewModel && !isGrid)
+                {
+                    foreach (var l in propertyLinksAndButtons)
+                    {
+                    @l
+                    }
+                }
+            @Html.Raw(divTag.ToString(TagRenderMode.EndTag));<!--column size div tag for property-->
+            }
+            
+            @Html.Raw(containerDivTag.ToString(TagRenderMode.EndTag))
+            
+            if (!isNestedViewModel || isContentViewModel)
+            {
+                if (row != null)
+                {
+                    if (otherPropertiesInSameRow != null && (otherPropertiesInSameRow.Count() + 1) == propertiesShownInRow.Count())
+                    {
+                        propertiesShownInRow.Clear();
+                        @:</div> <!--form-group div for property (with RowType) is closed here-->
+                }
+                }
+                else
+                {
+                    propertiesShownInRow.Clear();
+                    @:</div>  <!--form-group div for property (without RowType) is closed here-->
+                }
+            }
+
+
+            // Buttons assigned to a group should go at end of group
+
+            currentPropertyIndex++;
+
+            if (currentPropertyIndex == totalProperties && (!isNestedViewModel || isContentViewModel) && !string.IsNullOrEmpty(propertyGroupKey))
+            {
+                @:</div> <!--div class="form-horizontal"-->
+            }
+        }
+}
+@helper ObjectBeginGroup(Dictionary<string, List<ModelMetadata>> propertyGroups, string propertyGroupKey, List<ModelMetadata> propertyGroup, Dictionary<string, List<GroupAttribute>> listOfGroupsRendered, int groupContainers, TagBuilder groupRowDivTag)
+{
+    var otherGroupsInSameRow = ViewData["otherGroupsInSameRow"] as IEnumerable<GroupAttribute>;
+    
+    var groups = ViewData.ModelMetadata.GetAttributes<GroupAttribute>().ToList();
+    var rowStyleForGroup = string.Empty;
+
+        // Remove "row" class for groupRowDivTag
+    groupRowDivTag.Attributes.Remove("class");
+        // Get current group
+        var group = groups.SingleOrDefault(a => string.Equals(a.Name, propertyGroupKey, StringComparison.Ordinal));
+        var groupConditionMet = group != null ? group.IsConditionMet(Model) : true;
+        
+
+
+        var pG = propertyGroup; // Prevent access to modified closure
+
+        // Get type of current group
+        GroupType? groupType = groups.Where(g => string.Equals(g.Name, propertyGroupKey, StringComparison.Ordinal)).Select(g => g.GroupType).FirstOrDefault();
+        GroupRowType? groupRowType = null;
+
+        if (group != null)
+        {
+            // Get row type for current group
+            groupRowType = group.RowType;     // groups.Where(grp => grp.Name == pG.Key).Select(grp => grp.RowType).FirstOrDefault();
+            // Get rowName
+            string groupRowName = group.RowName;            //groups.Where(grp => grp.Name == pG.Key).Select(grp => grp.RowName).FirstOrDefault();
+            //otherGroupsInSameRow = string.IsNullOrEmpty(groupRowName) ? null : Enumerable.Empty<GroupAttribute>();
+
+
+            // Find other groups in same row
+            otherGroupsInSameRow = groups.Where(m =>
+            {
+                // Ignore current property
+                if (string.Equals(m.Name, propertyGroupKey, StringComparison.Ordinal))
+                {
+                    return false;
+                }
+
+                return (!string.IsNullOrEmpty(groupRowName) && m.RowName == groupRowName);
+            }).ToList();
+
+
+
+            if (otherGroupsInSameRow.Any())
+            {
+                // if this is the first group being rendered, then add the 'row' class.
+                if (string.IsNullOrEmpty(groupRowName) || (!string.IsNullOrEmpty(groupRowName) && !listOfGroupsRendered.ContainsKey(groupRowName)))
+                {
+                    groupRowDivTag.AddCssClass("row");
+                    @Html.Raw(groupRowDivTag.ToString(TagRenderMode.StartTag))
+                }
+
+            }
+            else
+            {
+                groupRowDivTag.AddCssClass("row");
+                @Html.Raw(groupRowDivTag.ToString(TagRenderMode.StartTag))
+            }
+            if (!string.IsNullOrEmpty(groupRowName))
+            {
+                if (listOfGroupsRendered.ContainsKey(groupRowName))
+                {
+                    listOfGroupsRendered[groupRowName].Add(group);
+                }
+                else
+                {
+                    listOfGroupsRendered.Add(groupRowName, new List<GroupAttribute>() { group });
+                }
+            }
+        }
+
+
+
+        if (!groupType.HasValue)
+        {
+            groupType = GroupType.Default;
+        }
+
+        // Process FieldSet and Logical group types and group has at least one property that has HideSurroundingHtml set to false.
+        if ((groupType == GroupType.FieldSet || groupType == GroupType.Logical) && propertyGroup.Any(g =>
+        {
+            // Only render group container if it contains a visible property
+            var a = g.GetAttribute<DataTypeAttribute>();
+
+            if (a != null && string.Equals(a.CustomDataType, CustomDataType.Grid, StringComparison.Ordinal))
+            {
+                // Only display grid if there are results
+                var enumerable = g.Model as IEnumerable<dynamic>;
+
+                return (enumerable != null && enumerable.Any());
+            }
+
+            return !g.HideSurroundingHtml;
+        }))
+        {
+            // Only add to FieldSet if it is an actual FieldSet item (will have key name)
+            if (!string.IsNullOrEmpty(propertyGroupKey))
+            {
+                var divTag = new TagBuilder("div");
+                var groupName = propertyGroupKey;
+
+                // Apply settings from [Group]
+                if (group != null)
+                {
+                    // Check for group name override
+                    if (!string.IsNullOrEmpty(group.OverrideNameWithPropertyValue))
+                    {
+                        var overrideProperty = propertyGroups.SelectMany(g => g.Value).FirstOrDefault(p => string.Equals(p.PropertyName, group.OverrideNameWithPropertyValue, StringComparison.Ordinal));
+
+                        // Use override if set with a string value
+                        if (overrideProperty != null && overrideProperty.Model is string && !string.IsNullOrEmpty(overrideProperty.Model as string))
+                        {
+                            groupName = overrideProperty.Model as string;
+                        }
+                    }
+
+                    // Hide group and apply ContainerFor if the condition requires it be visible/hidden
+                    if (group.DependencyType == ActionForDependencyType.Visible || group.DependencyType == ActionForDependencyType.Hidden)
+                    {
+                        if ((group.DependencyType == ActionForDependencyType.Visible && !groupConditionMet)
+                            || (group.DependencyType == ActionForDependencyType.Hidden && groupConditionMet))
+                        {
+                            divTag.AddCssClass("hidden");
+                        }
+
+                        divTag.AddCssClass("rhea-visibleif");
+
+                        var htmlAttributes = new Dictionary<string, object>();
+
+                        htmlAttributes.Add(HtmlDataType.DependentPropertyVisibleIf, group.DependentProperty);
+                        htmlAttributes.Add(HtmlDataType.ComparisonTypeVisibleIf, group.ComparisonType);
+                        htmlAttributes.Add(HtmlDataType.PassOnNullVisibleIf, group.PassOnNull.ToString().ToLowerInvariant());
+                        htmlAttributes.Add(HtmlDataType.FailOnNullVisibleIf, group.FailOnNull.ToString().ToLowerInvariant());
+
+                        var values = group.DependentValue as object[];
+
+                        if (values != null)
+                        {
+                            htmlAttributes.Add(HtmlDataType.DependentValueVisibleIf, string.Format("[\"{0}\"]", string.Join("\",\"", values)));
+                        }
+                        else
+                        {
+                            htmlAttributes.Add(HtmlDataType.DependentValueVisibleIf, group.DependentValue);
+                        }
+
+                        divTag.MergeAttributes(htmlAttributes);
+
+                        divTag.Attributes.Add("id", string.Format("ContainerFor-{0}Group{1}", Html.ViewData.TemplateInfo.GetFullHtmlFieldId(Regex.Replace(group.Name, "[^a-zA-Z0-9]", string.Empty)), ++groupContainers));
+                    }
+                }
+
+                //var rowStyleForGroup = string.Empty;
+                if (groupRowType != null && groupRowType != GroupRowType.Default)
+                {
+                    switch (groupRowType)
+                    {
+                        case GroupRowType.Full:
+                            rowStyleForGroup = "col-md-12";
+                            break;
+                        case GroupRowType.Default:
+                            //rowStyleForGroup = "col-md-12";
+                            break;
+                        case GroupRowType.Half:
+                            rowStyleForGroup = "col-md-6";
+                            break;
+                        case GroupRowType.OneThird:
+                            rowStyleForGroup = "col-md-4";
+                            break;
+                        case GroupRowType.TwoThird:
+                            rowStyleForGroup = "col-md-8";
+                            break;
+                    }
+
+                }
+                else if (groupRowType != null && groupRowType == GroupRowType.Default)
+                {
+                    // TODO: look for the groups that are in the same row (with same row-name) and find their row types.
+                    if (otherGroupsInSameRow != null) //&& otherGroupsWithSameRowName.Count() <= 2
+                    {
+                        int totalColsOccupiedByOtherGroups = otherGroupsInSameRow.Sum(m => (int)m.RowType);
+
+                        switch (totalColsOccupiedByOtherGroups)
+                        {
+                            case 0:
+                                // no other groups with same name.
+                                rowStyleForGroup = "col-md-12";
+                                break;
+                            case 4:
+                                rowStyleForGroup = "col-md-8";
+                                break;
+                            case 6:
+                                rowStyleForGroup = "col-md-6";
+                                break;
+                            case 8:
+                                rowStyleForGroup = "col-md-4";
+                                break;
+                            case 12:
+                                break;
+                        }
+
+                    }
+                }
+
+
+                if (divTag.Attributes.ContainsKey("class"))
+                {
+                    divTag.Attributes["class"] += " " + rowStyleForGroup;
+                }
+                else
+                {
+                    divTag.Attributes.Add("class", rowStyleForGroup);
+                }
+
+                // Opening DIV tag for Visible/Hidden group fieldset
+                @Html.Raw(divTag.ToString(TagRenderMode.StartTag))
+
+                // Render FieldSet if appropriate
+                if (groupType == GroupType.FieldSet)
+                {  
+                    @*@:<div class="@rowStyleForGroup">*@
+                    @:<div class="panel panel-inverse">
+                    @:<div class="panel-heading"><h4 class="panel-title">@groupName</h4> </div>
+                    var groupNameID = groupName.Replace(" ", "_");
+                    @:<div class="panel-body" id="group-@groupNameID">
+                    @Html.ValidationMessageSummary(groupName)
+                }
+
+                // Render FieldSet if appropriate
+                else if (groupType == GroupType.Logical && ViewData.ModelMetadata.ModelType == typeof(InheritanceViewModel) && (ViewData.Model == null || ViewData.Model.GetType() == typeof(InheritanceViewModel)))
+                {  
+                    @:<div class="panel panel-inverse">
+                    @:<div class="panel-heading">&nbsp;</div>
+                    var groupNameID = groupName.Replace(" ", "_");
+                    @:<div class="panel-body" id="group-@groupNameID">
+                }
+            }
+        }
+    ViewData["otherGroupsInSameRow"] = otherGroupsInSameRow;
+
+}
+@helper ObjectEndGroup(Dictionary<string, List<ModelMetadata>> propertyGroups, string propertyGroupKey, List<ModelMetadata> propertyGroup, Dictionary<string, List<GroupAttribute>> listOfGroupsRendered, int groupContainers, TagBuilder groupRowDivTag)
+{
+    var otherGroupsInSameRow = ViewData["otherGroupsInSameRow"] as IEnumerable<GroupAttribute>;
+    var groupType = Html.GetGroupType(propertyGroupKey);
+    var groups = ViewData.ModelMetadata.GetAttributes<GroupAttribute>().ToList();
+    var group = groups.SingleOrDefault(a => string.Equals(a.Name, propertyGroupKey, StringComparison.Ordinal));
+    
+    if ((groupType == GroupType.FieldSet || groupType == GroupType.Logical) && propertyGroup.Any(g =>
+        {
+            var a = g.GetAttribute<DataTypeAttribute>();
+
+            if (a != null && string.Equals(a.CustomDataType, CustomDataType.Grid, StringComparison.Ordinal))
+            {
+                // Only display grid if there are results
+                var enumerable = g.Model as IEnumerable<dynamic>;
+
+                return (enumerable != null && enumerable.Any());
+
+            }
+
+            return !g.HideSurroundingHtml;
+        }))
+        {
+            Type typeToUse = Model != null ? Model.GetType() : ViewData.ModelMetadata.ModelType;
+            // Get buttons for current group
+            var groupButtons = typeToUse.GetAttributes<ButtonAttribute>(b => !string.IsNullOrEmpty(b.GroupName) && string.Equals(b.GroupName, propertyGroupKey, StringComparison.Ordinal));
+
+            // Get links for current group
+            var groupLinks = typeToUse.GetAttributes<LinkAttribute>(l => !string.IsNullOrEmpty(l.GroupName) && string.Equals(l.GroupName, propertyGroupKey, StringComparison.Ordinal));
+            var groupExternalLinks = typeToUse.GetAttributes<ExternalLinkAttribute>(e => !string.IsNullOrEmpty(e.GroupName) && string.Equals(e.GroupName, propertyGroupKey, StringComparison.Ordinal));
+            IEnumerable<ISplitButtonChild> allActions = groupButtons.Cast<ISplitButtonChild>().Concat(groupLinks.Cast<ISplitButtonChild>()).Concat(groupExternalLinks.Cast<ISplitButtonChild>());
+            List<MvcHtmlString> actionsToRender = Html.GetButtonArea(allActions);
+
+            //if ((groupType == GroupType.FieldSet || groupType == GroupType.Logical) && !string.IsNullOrEmpty(propertyGroup.Key))
+            if ((groupType == GroupType.FieldSet) && !string.IsNullOrEmpty(propertyGroupKey))
+            { 
+                @: </div> <!--panel-body -->   
+            }
+            if (actionsToRender.Any())
+            {
+                @: <div class="panel-footer"> <div class="form-group"> 
+                @:<div class="colB txtR noPad nestedButtons">
+
+                foreach (var item in actionsToRender)
+                {
+                    // buttons and links are rendered here.
+                @Html.Raw(item)
+                }
+
+                @:</div>
+                @:</div> 
+                @:</div><!--panel-footer -->   
+            }
+
+            // Only add to fieldset if an actual field set item (will have key name)
+            if (!string.IsNullOrEmpty(propertyGroupKey))
+            {
+                //if (groupType == GroupType.FieldSet || groupType == GroupType.Logical)
+                if (groupType == GroupType.FieldSet)
+                {
+                    @*@:</fieldset>*@
+                         
+                @:</div> <!--panel-inverse-->
+                 
+                }
+                else if ((groupType == GroupType.Logical && ViewData.ModelMetadata.ModelType == typeof (InheritanceViewModel) && (ViewData.Model == null || ViewData.Model.GetType() == typeof (InheritanceViewModel))))
+                {
+                
+                    @:</div> <!--panel-inverse-->    
+                }
+             
+                
+            
+            @:</div> <!--Closing DIV for Visible/Hidden for group fieldset-->
+            
+            
+            }
+        }
+        if (group != null)
+        {
+            // if no other groups in this row, then close Row.
+            if (string.IsNullOrEmpty(group.RowName) || (otherGroupsInSameRow == null) || (otherGroupsInSameRow != null && !otherGroupsInSameRow.Any()))
+            {
+                @Html.Raw(groupRowDivTag.ToString(TagRenderMode.EndTag)) <!--Row Div-->
+                
+            }
+            else if (otherGroupsInSameRow != null && !string.IsNullOrEmpty(group.RowName) && listOfGroupsRendered[group.RowName] != null && (otherGroupsInSameRow.Count() + 1) == listOfGroupsRendered[group.RowName].Count)
+            {
+                // Close the Row div tag only when the number of groups rendered exceeds the number of groups in same row. 
+                @Html.Raw(groupRowDivTag.ToString(TagRenderMode.EndTag)) <!--Row Div-->
+                listOfGroupsRendered[group.RowName].Clear();
+            }
+        }
+        TagBuilder workflowDivTag = null;
+        if (workflowDivTag != null)
+        {
+            @Html.Raw(workflowDivTag.ToString(TagRenderMode.EndTag))
+        }
+}
+@helper ObjectBeginForm()
+{
+    var html = Html;
+    if (html.ViewData.TemplateInfo.TemplateDepth > 1)
+    {
+        return;
+    }
+
+    var area = html.ViewContext.RouteData.GetArea();
+    area = string.IsNullOrEmpty(area) ? "Home" : area;
+    var areaName = html.GetCurrentAreaName().ToString();
+    var actionName = html.GetActionDisplayName();
+    
+    // Allow override of page title on Content View Model
+    if (ViewData.ModelMetadata.ModelType == typeof(Employment.Web.Mvc.Infrastructure.ViewModels.ContentViewModel))
+    {
+        var contentViewModel = ViewData.Model as Employment.Web.Mvc.Infrastructure.ViewModels.ContentViewModel;
+
+        if (contentViewModel != null && !string.IsNullOrEmpty(contentViewModel.PageTitle))
+        {
+            actionName = contentViewModel.PageTitle;
+        }
+    }
+
+    // Final override of page title
+    if (!string.IsNullOrEmpty(ViewBag.PageTitle))
+    {
+        actionName = ViewBag.PageTitle;
+    }
+    
+    
+    
+    
+    
+    var layoutOverrideSet = ViewData.ModelMetadata.Model as ILayoutOverride;
+    var layoutOverrideHiddens = (layoutOverrideSet != null && layoutOverrideSet.Hidden != null) ? layoutOverrideSet.Hidden : new List<LayoutType>() as IEnumerable<LayoutType>;
+    
+    
+    bool isAjaxStep = false;
+        if (!IsAjax)
+        {
+            var contentSection = new TagBuilder("div");
+
+            contentSection.MergeAttribute("id", "content");
+            contentSection.AddCssClass("content");
+
+            if (ViewData.ModelMetadata.SkipClientSideUnsavedChanges())
+            {
+                contentSection.MergeAttribute(HtmlDataType.SkipUnsavedChanges, "true");
+
+            }
+
+            if (ViewData.ModelMetadata.SkipClientSideValidation())
+            {
+                contentSection.MergeAttribute(HtmlDataType.SkipValidation, "true");
+            }
+
+            var menu = Html.ShowMenu();
+
+            if (MvcHtmlString.IsNullOrEmpty(menu) || layoutOverrideHiddens.Contains(LayoutType.LeftHandNavigation))
+            {
+                @Html.Raw(contentSection.ToString(TagRenderMode.StartTag))
+                <!--anchor for readers--><a id="pagenav"></a>
+            }
+            else
+            {
+                <!-- begin #sidebar -->
+                <div id="sidebar" class="sidebar">
+                    <div data-scrollbar="true" data-height="100%">
+                        <!-- begin sidebar user -->
+                            @*<nav class="leftCol">class="NavScrollDiv"data-height="100%"*@
+                            <!--anchor for readers--><a id="pagenav"></a>
+                            @Html.Raw(menu)
+                            @*</nav>*@
+                        <!-- end sidebar user --> 
+                    </div> <!-- end sidebar scrollbar -->
+                </div> <!-- end #sidebar -->
+                <div class="sidebar-bg"></div>
+                <!-- begin #sidebar-right -->
+                <div id="sidebar-right" class="sidebar sidebar-right">
+                    <div data-scrollbar="true" data-height="100%">
+                        @Html.RenderRightSidebar()
+                    </div>
+                </div>
+                <!-- end #sidebar-right -->
+
+                //contentSection.AddCssClass("rightCol");
+                @Html.Raw(contentSection.ToString(TagRenderMode.StartTag))
+            }
+        }
+
+        if (!isAjaxStep)
+        {
+            if (!layoutOverrideHiddens.Contains(LayoutType.TitleAndBreadcrumbs))
+            { 
+                @*<section class="header-group">*@
+                    <ol class="breadcrumb pull-right">
+                        @*id="areaIdentity" group*@
+
+                        <li class="areaIcon floatLeft">
+                            @*<img src="@Url.Content(imagePath + "section-sml-" + (area == "Home" && action.ToLower().StartsWith("bulletin") ? "bulletin" : area.ToLower()) + ".png")" alt="" />*@
+
+                            @*<span class="arrow">&nbsp;</span>*@
+                            @{
+                if (area != "Home")
+                {
+                    //var paragraphTag = new TagBuilder("p");
+                    //paragraphTag.AddCssClass("floatLeft");
+
+                    //var spanTag = new TagBuilder("span");
+                    //spanTag.AddCssClass("sectionTitle floatLeft");
+
+                    var hiddenTextTag = new TagBuilder("span");
+                    hiddenTextTag.AddCssClass("readers");
+                    hiddenTextTag.SetInnerText("Parent page:");
+                                    @(new MvcHtmlString(hiddenTextTag.ToString()))
+
+                    var areaLinkTag = new TagBuilder("a");
+                    var areaTile = Html.GetAllAreaTiles().FirstOrDefault(t => t.AreaName == area);
+                    var routeName = (areaTile != null && !string.IsNullOrEmpty(areaTile.RouteName)) ? areaTile.RouteName : string.Format("{0}_default", area);
+                    var areaHref = new UrlHelper(new RequestContext(Url.RequestContext.HttpContext, new RouteData())).RouteUrl(routeName, new { });
+                    areaLinkTag.Attributes.Add("href", areaHref);
+                    areaLinkTag.SetInnerText(areaName);
+
+                    //spanTag.InnerHtml += areaLinkTag.ToString();
+                    //paragraphTag.InnerHtml = spanTag.ToString();
+                                    @(new MvcHtmlString(areaLinkTag.ToString(TagRenderMode.Normal)))
+                }
+                            }
+                        </li>
+                        <li class="active">
+                            @actionName 
+                        </li>
+                        <!--floatLeft-->
+                        @*
+                        @if (Html.ViewContext.Controller is IQuickfind)
+                        {
+                            var quickfindUrl = UrlHelper.GenerateUrl(Html.ViewContext.RouteData.GetRouteName(), "Quickfind", Html.ViewContext.RouteData.GetController(), new RouteValueDictionary { { "Area", Html.ViewContext.RouteData.Values["area"].ToString() } }, Html.RouteCollection, Html.ViewContext.RequestContext, false);
+
+                            var formTag = new TagBuilder("form");
+                            formTag.AddCssClass("floatRight");
+                            formTag.AddCssClass("content");
+                            formTag.Attributes.Add("id", "quickfind");
+                            formTag.Attributes.Add("method", "post");
+                            formTag.Attributes.Add("action", quickfindUrl);
+
+                            @Html.Raw(formTag.ToString(TagRenderMode.StartTag))
+                            @Html.AntiForgeryToken()
+
+                                @Html.TextBox("QuickfindData", string.Empty, new { @class = "search text" })
+                                @Html.Button("Search", "Search", false, false, false, true, new { @class = "hidden" })
+
+                            @Html.Raw(formTag.ToString(TagRenderMode.EndTag))
+                        }<!--floatRight-->
+                        *@
+                    </ol>
+
+                    <h1 class="page-header">
+                        @actionName
+                        @*<span class="pageTitle floatLeft"></span>*@
+                    </h1>
+                @*</section>*@
+            }
+            @Html.BeginMainForm()
+   
+            if (!layoutOverrideHiddens.Contains(LayoutType.RequiredFieldsMessage))
+            {
+                <div id="actionsMenu" class="group row">
+                    <strong>Note:</strong> Required fields are marked with an asterisk <abbr class="req" title="required">*</abbr>
+        
+                    @*<a href="#skipnav" class="skip readers">skip page actions</a>*@
+                    <!--anchor for readers--><a id="skipnav">&nbsp;</a>    
+                </div>
+                <!--actionsMenu-->
+            }
+        }
+}
+@helper ObjectEndForm()
+{
+    if (Html.ViewData.TemplateInfo.TemplateDepth > 1)
+    {
+        return;
+    }
+    
+    Type typeToUse = Model != null ? Model.GetType() : ViewData.ModelMetadata.ModelType;
+    // Ungrouped buttons
+    var buttons = typeToUse.GetAttributes<ButtonAttribute>(b => string.IsNullOrEmpty(b.GroupName));
+    var links = typeToUse.GetAttributes<LinkAttribute>(l => string.IsNullOrEmpty(l.GroupName));
+    var externalLinks = typeToUse.GetAttributes<ExternalLinkAttribute>(e => string.IsNullOrEmpty(e.GroupName));
+
+    IEnumerable<ISplitButtonChild> allActions = buttons.Cast<ISplitButtonChild>().Concat(links.Cast<ISplitButtonChild>()).Concat(externalLinks.Cast<ISplitButtonChild>());
+    List<MvcHtmlString> actionsToRender = Html.GetButtonArea(allActions);
+
+    if (actionsToRender.Any())
+    {
+        @:<div class="form-group">@*row*@
+        @:<div class="colB txtR noPad nestedButtons">
+
+        foreach (var item in actionsToRender)
+        {
+            @Html.Raw(item)
+        }
+
+        @:</div>
+        @:</div> <!--Form-group-->
+    }
+    
+    Html.EndForm();
+
+   
+    bool isCalendar;
+    if (ViewData["IsCalendar"] != null && bool.TryParse(ViewData["IsCalendar"].ToString(), out isCalendar) && isCalendar)
+    {
+        @Html.Partial("_CalendarGridPartial")
+    }
+
+    // Load any currently selected widgets for this View Model
+    @Html.RenderWidgets()
+
+    
+    
+    if (!IsAjax)
+    {
+        @:</div> <!--contentSection-->
+    }
+}
+@{
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    bool zeusAjax = false;
+    if (Html.ViewContext.HttpContext.Request.Headers["Zeus-Ajax"] != null)
+    {
+        bool.TryParse(Html.ViewContext.HttpContext.Request.Headers["Zeus-Ajax"].ToString(), out zeusAjax);
+    }
+    
+    bool isAjaxStep = false;
+    Type ajaxStepParentType = null;
+    string ajaxStepPropertyName = null;
+
+    if (ViewData.ContainsKey("AjaxStepView") && ViewData["AjaxStepView"] != null)
+    {
+        if (bool.TryParse(ViewData["AjaxStepView"].ToString(), out isAjaxStep) && isAjaxStep)
+        {
+            ajaxStepParentType = ViewData["AjaxStepViewParentType"] as Type;
+            ajaxStepPropertyName = ViewData["AjaxStepViewPropertyName"] as string;
+        }
+    }
+
+    if (isAjaxStep)
+    {
+        var parentModel = ViewData.ModelMetadata.GetParentModel();
+
+        if (parentModel != null)
+        {
+            if (parentModel.GetType() != ajaxStepParentType)
+            {
+                return;
+            }
+            //if (parentModel.GetType() == ajaxStepParentType && ViewData.ModelMetadata.PropertyName != ajaxStepPropertyName)
+            //{
+            //    return;
+            //}
+        }
+        else if (ViewData.ModelMetadata.ModelType == ajaxStepParentType)
+        {
+            var next = ViewData.ModelMetadata.Properties.FirstOrDefault(m => m.PropertyName == ajaxStepPropertyName);
+
+            if (next != null)
+            {
+                @Html.Editor(next.PropertyName, new { ParentModel = Model, PropertyNameInParentModel = next.PropertyName })
+                return;
+            }
+        }
+    }
+    
+    if (IsAjax && zeusAjax)
+    {
+        @AjaxObject()
+    }
+    else
+    {
+        @ObjectBeginForm()
+
+        @Object()
+
+        @ObjectEndForm()
+    }
+}

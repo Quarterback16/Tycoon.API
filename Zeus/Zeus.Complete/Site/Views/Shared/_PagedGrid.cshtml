@@ -1,0 +1,353 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using System.Globalization
+@using System.Text
+@using Employment.Web.Mvc.Infrastructure.DataAnnotations
+@using Employment.Web.Mvc.Infrastructure.Helpers
+@using Employment.Web.Mvc.Infrastructure.Interfaces
+@using Employment.Web.Mvc.Infrastructure.Types
+@using Employment.Web.Mvc.Infrastructure.Extensions
+
+@model IEnumerable<dynamic>
+
+@if (ViewData.Model == null)
+{
+    @ViewData.ModelMetadata.NullDisplayText
+    return;
+}
+
+@{
+    // Get paged metadata
+    var pagedMetadata = ViewData["PagedMetadata"] as PageMetadata;
+
+    if (pagedMetadata == null)
+    {
+        return;
+    }
+
+    Func<object> parentModelAccessor = () => ViewData["ParentModel"];
+    var parentModelMetadata = (ModelMetadata)ModelMetadataProviders.Current.GetMetadataForType(parentModelAccessor, ViewData["ParentModel"].GetType());
+
+    var parentModel = parentModelMetadata.Model;
+    var fullPropertyNameInParentModel = pagedMetadata.PropertyName;
+    var propertyNameInParentModel = fullPropertyNameInParentModel.Contains('.') ? fullPropertyNameInParentModel.Split('.').Last() : fullPropertyNameInParentModel;
+
+    var parentModelPropertiesMetadata = ((IEnumerable<ModelMetadata>)ModelMetadataProviders.Current.GetMetadataForProperties(parentModel, parentModel.GetType()));
+    var parentModelPropertyMetadata = parentModelPropertiesMetadata.FirstOrDefault(m => m.PropertyName == propertyNameInParentModel);
+
+    // Default paging based on paged metadata
+    int page = pagedMetadata.PageNumber;
+    int pageSize = pagedMetadata.PageSize;
+
+    // Page model if it has more items than the allowed page size
+    var models = Model.Count() > pageSize ? Model.AsEnumerable().Skip((page - 1) * pageSize).Take(pageSize) : Model;
+
+    // Starting row number
+    int row = (page - 1) * pageSize;
+    SelectionType? selectionType = null;
+
+    // Loop through each model and output as a row in the table
+    foreach (dynamic model in models)
+    {
+        // Get copy of current model to resolve access to modified closure
+        var modelCopy = model;
+        Func<object> modelAccessor = () => modelCopy;
+
+        // Get current model metadata
+        var modelMetadata = (ModelMetadata)ModelMetadataProviders.Current.GetMetadataForType(modelAccessor, model.GetType());
+
+        // Get metadata of current model properties ordered by Display attribute order
+        var modelPropertiesMetadata = ((IEnumerable<ModelMetadata>)ModelMetadataProviders.Current.GetMetadataForProperties(model, model.GetType()))
+            .OrderBy(m =>
+            {
+                var displayAttribute = m.GetAttribute<DisplayAttribute>();
+
+                if (displayAttribute != null && displayAttribute.GetOrder() != null)
+                {
+                    return displayAttribute.GetOrder();
+                }
+
+                return int.MaxValue;
+            });
+
+        // Check if model is serializable
+        if (modelMetadata.GetAttribute<SerializableAttribute>() == null)
+        {
+            throw new InvalidOperationException(string.Format("'{0}' must be serializable. Add the [Serializable] attribute to the '{0}' class.", modelMetadata.ModelType.FullName));
+        }
+
+        // Get selection type if not already determined
+        if (!selectionType.HasValue)
+        {
+            selectionType = GridHelper.GetSelectionType(modelMetadata, parentModelPropertyMetadata);
+        }
+
+        // Get selector metadata (property holding user's selected row(s))
+        var selectorMetadata = selectionType != SelectionType.None ? GridHelper.GetSelectorMetadata(modelMetadata, modelPropertiesMetadata, parentModelPropertyMetadata, parentModelPropertiesMetadata) : null;
+
+        // Get links for end of current row
+        var rowLinks = string.Empty;
+        var links = modelMetadata.GetAttributes<LinkAttribute>();
+        var externalLinks = modelMetadata.GetAttributes<ExternalLinkAttribute>();
+        var mergedLinks = new List<KeyValuePair<int, string>>();
+
+        if (links != null)
+        {
+            links.ForEach(l => mergedLinks.Add(new KeyValuePair<int, string>(l.Order, string.Format("<span class=\"button\">{0}</span>", Html.RenderLink(l, modelPropertiesMetadata, (object)model, false)))));
+        }
+
+        if (externalLinks != null)
+        {
+            externalLinks.ForEach(e => mergedLinks.Add(new KeyValuePair<int, string>(e.Order, string.Format("<span class=\"button\">{0}</span>", Html.RenderExternalLink(e, modelPropertiesMetadata, (object)model)))));
+        }
+
+        if (mergedLinks != null)
+        {
+            var sb = new StringBuilder();
+
+            foreach (var link in mergedLinks.OrderBy(p => p.Key).ThenBy(p => p.Value).Select(p => p.Value))
+            {
+                sb.Append(link);
+            }
+
+            if (sb.Length > 0)
+            {
+                rowLinks = "<div class=\"ffFix\">" + sb + "</div>";
+            }
+        }
+
+        @:<tr>
+
+        var descriptionKeyDisplayName = string.Empty;
+        var descriptionKeyValue = string.Empty;
+
+        if (selectionType.Value != SelectionType.None)
+        {
+            var descriptionKeyProperty = modelPropertiesMetadata.FirstOrDefault(p => p.GetAttribute<DescriptionKeyAttribute>() != null);
+
+            descriptionKeyDisplayName = descriptionKeyProperty.GetDisplayName();
+
+            if (descriptionKeyProperty != null)
+            {
+                descriptionKeyValue = descriptionKeyProperty.Model != null ? descriptionKeyProperty.Model.ToString() : string.Empty;
+            }
+        }
+
+        // Setup selection column
+        switch (selectionType.Value)
+        {
+            case SelectionType.Single:
+                @:<td>
+                var keyProperty = GridHelper.GetKeyMetadata(modelPropertiesMetadata);
+                var fieldName = fullPropertyNameInParentModel.Contains('.') ? fullPropertyNameInParentModel.Substring(0, fullPropertyNameInParentModel.LastIndexOf('.')) : string.Empty;
+                fieldName += "." + selectorMetadata.PropertyName;
+                
+                var r = row;
+                var singleIdLabel = TagBuilder.CreateSanitizedId(string.Format("{0}[{1}].{2}", fullPropertyNameInParentModel, r, selectorMetadata.PropertyName), HtmlHelper.IdAttributeDotReplacement);
+                var singleIdRadioButton = TagBuilder.CreateSanitizedId(Html.ExecuteUpOneLevel(() => Html.ViewData.TemplateInfo.GetFullHtmlFieldName(string.Format("{0}[{1}].{2}", fullPropertyNameInParentModel, r, selectorMetadata.PropertyName))), HtmlHelper.IdAttributeDotReplacement);
+
+                // Include hidden label with descriptor key value for accessibility
+                @Html.ExecuteUpOneLevel(() => Html.Label(singleIdLabel, string.Format("{0} {1}", descriptionKeyDisplayName, descriptionKeyValue), new { @class = "readers" }))
+
+                // Single select radio
+                @Html.ExecuteUpOneLevel(() => Html.RadioButton(fieldName, keyProperty.Model, keyProperty.Model == selectorMetadata.Model, new { id = singleIdRadioButton }))
+                @:</td>
+                break;
+
+            case SelectionType.Multiple:
+                @:<td>
+                var multipleFieldName = string.Format("{0}[{1}].{2}", fullPropertyNameInParentModel, row, selectorMetadata.PropertyName);
+                var multipleId = TagBuilder.CreateSanitizedId(Html.ExecuteUpOneLevel(() => Html.ViewData.TemplateInfo.GetFullHtmlFieldName(multipleFieldName)), HtmlHelper.IdAttributeDotReplacement);
+
+                // Include hidden label with descriptor key value for accessibility
+                @Html.ExecuteUpOneLevel(() => Html.Label(multipleFieldName, string.Format("{0} {1}", descriptionKeyDisplayName, descriptionKeyValue), new { @class = "readers" }))
+
+           // Multiple select checkbox
+                @Html.ExecuteUpOneLevel(() => Html.CheckBox(multipleFieldName, (bool)selectorMetadata.Model, new { @value = true, id = multipleId }))
+                @:</td>
+                break;
+        }
+
+        // Loop through each property in the current model and output as data for the current row
+        foreach (ModelMetadata property in modelPropertiesMetadata)
+        {
+            var hiddenAttribute = property.GetAttribute<HiddenAttribute>();
+
+            // Exclude column if not visible
+            if (!property.IsVisible() || (hiddenAttribute != null && !hiddenAttribute.LabelOnly))
+            {
+                continue;
+            }
+
+            var nonNullableType = property.ModelType.GetNonNullableType();
+            var isNumeric = nonNullableType.IsNumeric();
+            var isID = property.GetAttribute<IdAttribute>() != null;
+            var isCurrency = false;
+            var isDecimal = false;
+
+            if (isNumeric && !isID)
+            {
+                isCurrency = (property.DataTypeName == DataType.Currency.ToString());
+                isDecimal = (nonNullableType == typeof(double) || nonNullableType == typeof(decimal) || nonNullableType == typeof(float));
+                if (isCurrency)
+                {
+                    object valueToAdd  = 0;
+					if(property.Model != null)
+                    {
+                        valueToAdd = property.Model;
+                    }
+                    @:<td  class="txtR"  data-sort-value="@valueToAdd" >
+                }
+                else
+                {
+                    @:<td class="txtR">
+                }
+            }
+			else if (nonNullableType == typeof(DateTime))
+            {
+                // if property is of DateTime type, then convert this time unix time stamp and provide this value in form of attribute 'data-sort-value' for each row.
+                DateTime dateTime;
+				double timestamp;
+					if(property != null && property.Model != null)
+                    {
+                        DateTime.TryParse(property.Model.ToString(), out dateTime);
+                        DateTime specifiedDate;
+                        if (property.DataTypeName == DataType.Date.ToString())
+                        {
+                            // If [DataType.Date], reset Time portion.
+                            specifiedDate = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 0, 0, 0);
+                        }
+                        else if (property.DataTypeName == DataType.Time.ToString())
+                        {
+                            // if [DataType.Time], reset Date portion.
+                            specifiedDate = new DateTime(1970, 1, 1, dateTime.Hour, dateTime.Minute, dateTime.Second);
+                        }
+                        else
+                        {
+                            specifiedDate = dateTime;
+                        }
+
+                        var unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc); // minimum date.
+
+                        timestamp = (specifiedDate.ToUniversalTime() - unixEpoch).TotalSeconds;
+                    }
+                    else
+                    {
+                        timestamp = 0;
+                    }
+                @:<td data-sort-value="@timestamp">
+            }
+            else
+            {
+                @:<td>
+            }
+
+            // Get formatted value of property
+            var stringValue = property.Model != null ? property.Model.ToString() : string.Empty;
+            var formattedModelValue = stringValue;
+
+            if (property.ConvertEmptyStringToNull && string.Empty.Equals(property.Model))
+            {
+                property.Model = null;
+            }
+
+            if (property.Model == null)
+            {
+                formattedModelValue = property.NullDisplayText;
+            }
+
+            if (property.Model != null && !string.IsNullOrEmpty(property.EditFormatString))
+            {
+                formattedModelValue = string.Format(CultureInfo.CurrentCulture, property.EditFormatString, new[] { property.Model });
+            }
+
+            var adwAttribute = property.GetAttribute<AdwSelectionAttribute>();
+
+            if (adwAttribute != null)
+            {
+                SelectListItem match = ((IEnumerable<SelectListItem>)adwAttribute.GetSelectListItems(model)).FirstOrDefault(m => m.Value == stringValue);
+
+                if (match != null)
+                {
+                    formattedModelValue = match.Text;
+                }
+            }
+
+            if (isNumeric && property.Model != null)
+            {
+                if (isCurrency)
+                {
+                    formattedModelValue = string.Format(CultureInfo.CurrentCulture, "{0:C}", new[] { property.Model });
+                }
+                else if (isDecimal)
+                {
+                    formattedModelValue = string.Format(CultureInfo.CurrentCulture, "{0:0.00}", new[] { property.Model });
+                }
+            }
+
+            if (property.ModelType == typeof(bool) || (property.ModelType == typeof(bool?) && property.Model != null))
+            {
+                formattedModelValue = (bool)property.Model ? "Yes" : "No";
+            }
+            
+            var link = property.GetAttribute<LinkAttribute>();
+            var externalLink = property.GetAttribute<ExternalLinkAttribute>();
+            if (link != null)
+            {
+                // Display as link
+                link.Name = formattedModelValue;
+
+                link.Action = !string.IsNullOrEmpty(link.Action) ? link.Action : ViewContext.RouteData.GetAction();
+                link.Controller = !string.IsNullOrEmpty(link.Controller) ? link.Controller : ViewContext.RouteData.GetController();
+                link.Area = !string.IsNullOrEmpty(link.Area) ? link.Area : ViewContext.RouteData.GetArea();
+
+                @Html.RenderLink(link, modelPropertiesMetadata, (object)model, property.PropertyName, property.Model, false)
+            }
+            else if (externalLink != null)
+            {
+                // Display as external link
+                externalLink.Name = formattedModelValue;
+
+                @Html.RenderExternalLink(externalLink, modelPropertiesMetadata, (object)model, property.PropertyName, property.Model) 
+            }
+            else
+            {
+                // Display as plain text
+                @formattedModelValue
+            }
+
+            @:</td>
+        }
+
+        // Show row links
+        if (!string.IsNullOrEmpty(rowLinks))
+        {
+            @:<td>
+            @(new MvcHtmlString(rowLinks))
+            @:</td>
+        }
+
+        // Include all row data as a single serialized hidden input
+        @:<td class="hidden">
+        var rowAccessor = row;
+        var serializedModel = ((object)model).Serialize();
+        @Html.ExecuteUpOneLevel(() => Html.Hidden(string.Format("{0}[{1}]", fullPropertyNameInParentModel, rowAccessor), serializedModel))
+        @:</td>
+        
+        @:</tr>
+
+        row++;
+    }
+
+    // Update paged metadata of next page
+    pagedMetadata.PageNumber = page + 1; // Next page
+
+    // Include paged metadata in hidden row
+    var metadataTag = new TagBuilder("tr");
+    metadataTag.AddCssClass("rhea-metadata");
+    metadataTag.AddCssClass("hidden");
+
+    metadataTag.MergeAttribute(HtmlDataType.PagedMetadata, pagedMetadata.Serialize());
+    metadataTag.MergeAttribute(HtmlDataType.PagedHasMore, pagedMetadata.HasMorePages().ToString());
+    
+    @(new MvcHtmlString(metadataTag.ToString(TagRenderMode.Normal)))
+}

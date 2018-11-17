@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39E5A208-023D-438F-9AD5-4C1DA2CB6F71}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Employment.Web.Mvc.Area.Example</RootNamespace>
+    <AssemblyName>Employment.Web.Mvc.Area.Example</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabases>false</PublishDatabases>
+    <DeployIisAppPath>Default Web Site/Rhea/Areas/Example</DeployIisAppPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DeployIisAppPath>Default Web Site/Rhea/Areas/Example</DeployIisAppPath>
+    <PublishDatabases>false</PublishDatabases>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Integration|AnyCPU'">
+    <OutputPath>bin\Integration\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Area.Example.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <DeployIisAppPath>Default Web Site/Rhea/Areas/Example</DeployIisAppPath>
+    <PublishDatabases>false</PublishDatabases>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DevFix|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Area.Example.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestRelease|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Area.Example.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestFix|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Area.Example.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DevRelease|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Area.Example.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Department.AddressValidation">
+      <HintPath>..\..\..\..\Dependencies\Department.AddressValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Framework.Reporting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Dependencies\Employment.Esc.Framework.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Shared.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Dependencies\Employment.Esc.Shared.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Shared.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Dependencies\Employment.Esc.Shared.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Dependencies\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>True</SpecificVersion>
+      <HintPath>..\..\..\..\Dependencies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Dependencies\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\Images\aust-gov.jpg" />
+    <EmbeddedResource Include="Content\Images\sample.png" />
+    <Content Include="Tempates\TextTemplateMapping.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextTemplateMapping.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Mappers\ExampleMapper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ExampleMapper.cs</LastGenOutput>
+    </Content>
+    <None Include="Parameters.xml" />
+    <Content Include="Views\Report\Basics.cshtml" />
+    <Content Include="Views\Report\Helpers.cshtml" />
+    <Content Include="Views\Report\MockLayout.cshtml" />
+    <Content Include="Views\Report\StyleView.cshtml" />
+    <Content Include="Views\Report\ReportTypes.cshtml" />
+    <Content Include="Views\Report\NewAutocomplete.cshtml" />
+    <Content Include="Tempates\TextTemplateMapping.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TextTemplateMapping.txt</LastGenOutput>
+    </Content>
+    <Content Include="Views\DataAccess\CaGen.cshtml" />
+    <Content Include="Views\DataAccess\Index.cshtml" />
+    <Content Include="Views\DataAccess\SqlServer.cshtml" />
+    <Content Include="Views\Tables\Index.cshtml" />
+    <Content Include="Views\Tables\Footable.cshtml" />
+    <Content Include="Views\BasicFormElements\TextBoxes.cshtml" />
+    <Content Include="Views\BasicFormElements\Booleans.cshtml" />
+    <Content Include="Views\BasicFormElements\DateTimes.cshtml" />
+    <Content Include="Views\BasicFormElements\SingleSelects.cshtml" />
+    <Content Include="Views\BasicFormElements\MultiSelects.cshtml" />
+    <Content Include="Views\BasicFormElements\Links.cshtml" />
+    <Content Include="Views\BasicFormElements\SubmitButtons.cshtml" />
+    <Content Include="Views\BasicFormElements\SplitButtons.cshtml" />
+    <Content Include="Views\ServerSideElements\AdwSelection.cshtml" />
+    <Content Include="Views\ServerSideElements\HierarchicalAdwSelection.cshtml" />
+    <Content Include="Views\ServerSideElements\AjaxSelection.cshtml" />
+    <Content Include="Views\ServerSideElements\AddressSelection.cshtml" />
+    <Content Include="Views\Tables\SimpleTable.cshtml" />
+    <Content Include="Views\Tables\FootableEditable.cshtml" />
+    <Content Include="Views\Tables\SimpleTableEditable.cshtml" />
+    <Content Include="Views\ServerSideElements\FileDownload.cshtml" />
+    <Content Include="Views\Layout\Groups.cshtml" />
+    <Content Include="Views\Layout\Rows.cshtml" />
+    <Content Include="Views\Layout\DynamicDisplay.cshtml" />
+    <Content Include="Views\Layout\RoleDynamicDisplay.cshtml" />
+    <Content Include="Views\ServerSideElements\Index.cshtml" />
+    <Content Include="Views\BasicFormElements\Index.cshtml" />
+    <Content Include="Views\Layout\Index.cshtml" />
+    <Content Include="Views\Layout\TriggeringDynamicChange.cshtml" />
+    <Content Include="Views\Validation\Restrictions.cshtml" />
+    <Content Include="Views\ServerSideElements\JobSeekerSearch.cshtml" />
+    <Content Include="Views\PowerComponents\GraphTypes.cshtml" />
+    <Content Include="Views\PowerComponents\RefreshAndDrillDown.cshtml" />
+    <Content Include="Views\Grid\Index.cshtml" />
+    <Content Include="Views\Validation\Index.cshtml" />
+    <Content Include="Views\Validation\ValidationMessages.cshtml" />
+    <Content Include="Views\PowerComponents\Widgets.cshtml" />
+    <Content Include="Views\PowerComponents\Dashboard.cshtml" />
+    <Content Include="Views\StaticMapping\Index.cshtml" />
+    <Content Include="Views\PowerComponents\CalendarIndex.cshtml" />
+    <Content Include="Views\PowerComponents\RightSidebar.cshtml" />
+    <Content Include="Views\PowerComponents\History.cshtml" />
+    <Content Include="Views\Workflow\Step1.cshtml" />
+    <Content Include="Views\Workflow\Step2.cshtml" />
+    <Content Include="Views\Workflow\Workflow.cshtml" />
+    <Content Include="Views\Workflow\StepInfo.cshtml" />
+    <Content Include="Views\PagedGrid\WithoutPRG.cshtml" />
+    <Content Include="Views\PagedGrid\WithPRG.cshtml" />
+    <Content Include="Views\PagedGrid\WithPRGandTempData.cshtml" />
+    <Content Include="Views\PowerComponents\DateBasedContent.cshtml" />
+    <Content Include="Views\Tables\FootableEditableExp.cshtml" />
+    <Content Include="Views\BasicFormElements\ExampleContent.cshtml" />
+    <Content Include="Views\DataAccess\StaticMapping.cshtml" />
+    <Content Include="Views\PowerComponents\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\BasicFormElementsController.cs" />
+    <Compile Include="Controllers\DataAccessController.cs" />
+    <Compile Include="Controllers\LayoutController.cs" />
+    <Compile Include="Controllers\TablesController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\ServerSideElementsController.cs" />
+    <Compile Include="Controllers\ValidationController.cs" />
+    <Compile Include="Controllers\PowerComponentsController.cs" />
+    <Compile Include="Controllers\WorkflowController.cs" />
+    <Compile Include="Controllers\PagedGridController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\GridController.cs" />
+    <Compile Include="ExampleAreaRegistration.cs" />
+    <Compile Include="Mappers\ExampleMapper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExampleMapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mappers\ExampleMapperPartial.cs" />
+    <Compile Include="Mappers\ExampleMapper_old.cs" />
+    <Compile Include="Models\AppointmentSlipModel.cs" />
+    <Compile Include="Models\JobSeekerModelList.cs" />
+    <Compile Include="Models\JSCIHistoryModel.cs" />
+    <Compile Include="Models\JSCIReportModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Implementation\DummyService.cs" />
+    <Compile Include="Service\Implementation\DataAccessService.cs" />
+    <Compile Include="Service\Interfaces\DataAccessSqlServerModel.cs" />
+    <Compile Include="Service\Interfaces\DummiesModel.cs" />
+    <Compile Include="Service\Interfaces\DummyModel.cs" />
+    <Compile Include="Service\Interfaces\DataAccessCaGenModel.cs" />
+    <Compile Include="Service\Interfaces\IDummyService.cs" />
+    <Compile Include="Service\Interfaces\IDataAccessService.cs" />
+    <Compile Include="Service\Interfaces\SortModel.cs" />
+    <Compile Include="Types\BasicSubmitType.cs" />
+    <Compile Include="Types\EnumType.cs" />
+    <Compile Include="Types\ReportSubmitType.cs" />
+    <Compile Include="Types\SampleData.cs" />
+    <Compile Include="ViewModels\BasicFormElements\ExampleContentViewModel.cs" />
+    <Compile Include="ViewModels\PowerComponents\Calendar\AppointmentViewModel.cs" />
+    <Compile Include="ViewModels\PowerComponents\Calendar\CalendarIndexViewModel.cs" />
+    <Compile Include="ViewModels\PowerComponents\Calendar\EventViewModel.cs" />
+    <Compile Include="ViewModels\PowerComponents\Calendar\QAViewModel.cs" />
+    <Compile Include="ViewModels\DataAccess\StaticMappingViewModel.cs" />
+    <Compile Include="ViewModels\PagedGrid\PRGViewModel.cs" />
+    <Compile Include="ViewModels\PowerComponents\DateBasedContentViewModel.cs" />
+    <Compile Include="ViewModels\Tables\Country.cs" />
+    <Compile Include="ViewModels\Tables\FootableDemoRowExp.cs" />
+    <Compile Include="ViewModels\Tables\FootableEditableDemoRowExp.cs" />
+    <Compile Include="ViewModels\Tables\FootableEditableDemoRow.cs" />
+    <Compile Include="ViewModels\Tables\FootableEditableViewModelExp.cs" />
+    <Compile Include="ViewModels\Tables\FootableEditableViewModelDoc.cs" />
+    <Compile Include="ViewModels\Tables\FootableViewModelDoc.cs" />
+    <Compile Include="ViewModels\Tables\FootableDemoRowDoc.cs" />
+    <Compile Include="ViewModels\PowerComponents\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\PowerComponents\RefreshAndDrillDownViewModel.cs" />
+    <Compile Include="ViewModels\PowerComponents\GraphTypesViewModel.cs" />
+    <Compile Include="ViewModels\PowerComponents\HistoryViewModel.cs" />
+    <Compile Include="ViewModels\PowerComponents\RightSidebarViewModel.cs" />
+    <Compile Include="ViewModels\PowerComponents\WidgetsViewModel.cs" />
+    <Compile Include="ViewModels\Layout\RowsViewModel.cs" />
+    <Compile Include="ViewModels\ServerSideElements\AddressSelectionViewModel.cs" />
+    <Compile Include="ViewModels\BasicFormElements\BooleansViewModel.cs" />
+    <Compile Include="ViewModels\BasicFormElements\DateTimesViewModel.cs" />
+    <Compile Include="ViewModels\BasicFormElements\LinksViewModel.cs" />
+    <Compile Include="ViewModels\BasicFormElements\MultiSelectsViewModel.cs" />
+    <Compile Include="ViewModels\BasicFormElements\SingleSelectsViewModel.cs" />
+    <Compile Include="ViewModels\BasicFormElements\SplitButtonsViewModel.cs" />
+    <Compile Include="ViewModels\BasicFormElements\SubmitButtonsViewModel.cs" />
+    <Compile Include="ViewModels\BasicFormElements\TextBoxesViewModel.cs" />
+    <Compile Include="ViewModels\ServerSideElements\FileDownloadViewModel.cs" />
+    <Compile Include="ViewModels\ServerSideElements\JobSeekerSearchExampleViewModel.cs" />
+    <Compile Include="ViewModels\Tables\PersonRow.cs" />
+    <Compile Include="ViewModels\Tables\PersonRowEditable.cs" />
+    <Compile Include="ViewModels\Tables\TableTestData.cs" />
+    <Compile Include="ViewModels\DataAccess\SqlServerViewModel.cs" />
+    <Compile Include="ViewModels\DataAccess\CaGenViewModel.cs" />
+    <Compile Include="ViewModels\Tables\FootableViewModel.cs" />
+    <Compile Include="ViewModels\Tables\FootableEditableViewModel.cs" />
+    <Compile Include="ViewModels\Tables\SimpleTableEditableViewModel.cs" />
+    <Compile Include="ViewModels\Tables\SimpleTableViewModel.cs" />
+    <Compile Include="ViewModels\Layout\TriggeringDynamicChangeViewModel.cs" />
+    <Compile Include="ViewModels\Layout\GroupsViewModel.cs" />
+    <Compile Include="ViewModels\PagedGrid\DummiesMainframePageMetadata.cs" />
+    <Compile Include="ViewModels\PagedGrid\DummiesMainframeViewModel.cs" />
+    <Compile Include="ViewModels\PagedGrid\DummiesAllPageMetadata.cs" />
+    <Compile Include="ViewModels\PagedGrid\DummyViewModel.cs" />
+    <Compile Include="ViewModels\PagedGrid\DummiesAllViewModel.cs" />
+    <Compile Include="ViewModels\PagedGrid\GridSortingViewModel.cs" />
+    <Compile Include="ViewModels\PagedGrid\SortingGridMetadata.cs" />
+    <Compile Include="ViewModels\PagedGrid\SortingViewModel.cs" />
+    <Compile Include="ViewModels\Grid\MoreViewModel.cs" />
+    <Compile Include="ViewModels\Report\BasicsViewModel.cs" />
+    <Compile Include="ViewModels\Report\HelperMethodsViewModel.cs" />
+    <Compile Include="ViewModels\Report\LayoutViewModel.cs" />
+    <Compile Include="ViewModels\Report\ReportTypesViewModel.cs" />
+    <Compile Include="ViewModels\Report\ReportViewModel.cs" />
+    <Compile Include="ViewModels\Report\SmartAutocompleteViewModel.cs" />
+    <Compile Include="ViewModels\Report\StylesheetViewModel.cs" />
+    <Compile Include="ViewModels\Layout\RoleDynamicDisplayViewModel.cs" />
+    <Compile Include="ViewModels\Grid\CombinationViewModel.cs" />
+    <Compile Include="ViewModels\Grid\ClaimWithButtonsViewModel.cs" />
+    <Compile Include="ViewModels\Grid\ButtonViewModel.cs" />
+    <Compile Include="ViewModels\Grid\ButtonEditViewModel.cs" />
+    <Compile Include="ViewModels\Grid\ClaimViewModel.cs" />
+    <Compile Include="ViewModels\Grid\DisplayViewModel.cs" />
+    <Compile Include="ViewModels\Grid\MultipleViewModel.cs" />
+    <Compile Include="ViewModels\Grid\SingleViewModel.cs" />
+    <Compile Include="ViewModels\Layout\DynamicDisplayViewModel.cs" />
+    <Compile Include="ViewModels\ServerSideElements\AdwSelectionViewModel.cs" />
+    <Compile Include="ViewModels\ServerSideElements\AjaxSelectionViewModel.cs" />
+    <Compile Include="ViewModels\ServerSideElements\HierarchicalAdwSelectionViewModel.cs" />
+    <Compile Include="ViewModels\Validation\RestrictionsViewModel.cs" />
+    <Compile Include="ViewModels\Validation\ValidationMessagesViewModel.cs" />
+    <Compile Include="ViewModels\Workflow\Step2AlternativeViewModel.cs" />
+    <Compile Include="ViewModels\Workflow\Step1ViewModel.cs" />
+    <Compile Include="ViewModels\Workflow\Step2ViewModel.cs" />
+    <Compile Include="ViewModels\Workflow\Step3ViewModel.cs" />
+    <Compile Include="ViewModels\Workflow\StepInfoViewModel.cs" />
+    <Compile Include="ViewModels\Workflow\StepViewModel.cs" />
+    <Compile Include="ViewModels\Workflow\WorkflowViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
+    <Folder Include="ViewModels\Graphs\" />
+    <Folder Include="ViewModels\Tab\" />
+    <Folder Include="Views\Calendar\" />
+    <Folder Include="Views\Graphs\" />
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grid\Single.cshtml" />
+    <Content Include="Views\Grid\Multiple.cshtml" />
+    <Content Include="Views\Grid\Display.cshtml" />
+    <Content Include="Views\Grid\Combination.cshtml" />
+    <Content Include="Views\Grid\Button.cshtml" />
+    <Content Include="Views\Grid\ButtonEdit.cshtml" />
+    <Content Include="Views\Grid\PagedFullSet.cshtml" />
+    <Content Include="Views\Default\FakeArea.cshtml" />
+    <Content Include="Views\PagedGrid\DummiesAll.cshtml" />
+    <Content Include="Views\PagedGrid\DummiesMainframe.cshtml" />
+    <Content Include="Views\PagedGrid\GridSorting.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Report\ShowReportTypes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Default\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Infrastructure\Infrastructure\Infrastructure.csproj">
+      <Project>{48738aa7-c01e-4606-b96d-abb70dba3995}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Services\Interfaces\Service.Interfaces.csproj">
+      <Project>{811FA3E9-2C73-41F6-96BD-F92F9554E883}</Project>
+      <Name>Service.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="CustomExcludeFiles" BeforeTargets="ExcludeFilesFromPackage">
+    <ItemGroup>
+      <ExcludeFromPackageFolders Include="bin">
+        <FromTarget>Project</FromTarget>
+      </ExcludeFromPackageFolders>
+    </ItemGroup>
+    <Message Text="ExcludeFromPackageFolders: @(ExcludeFromPackageFolders)" Importance="high" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>8000</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8000/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://localhost:8000/</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.dll" "$(ProjectDir)..\..\bin" /D /Y /I /F</PostBuildEvent>
+  </PropertyGroup>
+</Project>

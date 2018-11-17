@@ -1,0 +1,1147 @@
+﻿@media screen {
+
+ 
+    /* Matching copies of bg- colours for use in foreground */
+    .fg-white { color: #ffffff !important; }
+    .fg-silver { color: #f0f3f4 !important; }
+
+    .fg-black { color: #2d353c !important; }
+    .fg-black-darker { color: #242a30 !important; }
+    .fg-black-lighter { color: #575d63 !important; }
+
+    .fg-grey { color: #b6c2c9 !important; }
+    .fg-grey-darker { color: #929ba1 !important; }
+    .fg-grey-lighter { color: #c5ced4 !important; }
+
+    .fg-red { color: #ff5b57 !important; }
+    .fg-red-darker { color: #cc4946 !important; }
+    .fg-red-lighter { color: #ff7c79 !important; }
+
+    .fg-orange { color: #f59c1a !important; }
+    .fg-orange-darker { color: #c47d15 !important; }
+    .fg-orange-lighter { color: #f7b048 !important; }
+
+    .fg-yellow { color: #e3fa3e !important; }
+    .fg-yellow-darker { color: #b6c832 !important; }
+    .fg-yellow-lighter { color: #e9fb65 !important; }
+
+    .fg-green { color: #00acac !important; }
+    .fg-green-darker { color: #008a8a !important; }
+    .fg-green-lighter { color: #33bdbd !important; }
+
+    .fg-blue { color: #348fe2 !important; }
+    .fg-blue-darker { color: #2a72b5 !important; }
+    .fg-blue-lighter { color: #5da5e8 !important; }
+
+    .fg-aqua { color: #49b6d6 !important; }
+    .fg-aqua-darker { color: #3a92ab !important; }
+    .fg-aqua-lighter { color: #6dc5de !important; }
+
+    .fg-purple { color: #727cb6 !important; }
+    .fg-purple-darker { color: #5b6392 !important; }
+    .fg-purple-lighter { color: #8e96c5 !important; }
+
+    /* Same styles as gritter-title */
+    .gritter-with-image h2,
+    .gritter-without-image h2 {
+        font-size: 12px !important;
+        line-height: 16px !important;
+        padding-bottom: 2px !important;
+        font-weight: 400 !important;
+        color: #fff !important;
+        text-shadow: none !important;
+        margin: 0 !important;
+    }
+
+    .gritter-with-image span.fa-stack,
+    .gritter-without-image span.fa-stack {
+        float: left;
+        margin-right: 5px;
+    }
+
+    body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+
+    /* Set padding to keep content from hitting the edges */
+    .body-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    ul
+    {
+        list-style-type:none;
+    }
+
+  
+    .content ul.check-box-list 
+    {
+        /*background-color:#f5f5f5; 
+        border:1px solid #ccc;
+        font-family:Arial, Helvetica, sans-serif;
+        color:#333333;
+        margin: 0;
+        height:150px; 
+        overflow-x:hidden;
+        overflow-y:scroll;
+        list-style-type:none;*/
+    }
+
+    .slimScrollDiv
+    {
+        margin-top: 3em;
+    }
+
+    /* start: styles specific to area icons*/
+
+    #pagenav .row,
+    .areaNav .row
+    {
+        padding: 1em;
+    }
+
+    .areaNav ul
+    {
+        list-style: none;
+    }
+
+    #pagenav .row div,
+    .areaNav .row div
+    {  
+        padding: 10px !important;
+    }
+        #pagenav .row a,
+        .areaNav .row a{
+            background-color:lightgray;
+            min-width: 5em;
+            width: 100%;
+            height: 5em;
+            border: 0.11px outset rgba(27, 130, 108, 0.76);        
+            border-radius: 13px 14px;
+        }
+    .areaNav .row a {
+        background-color: #ffead0;
+    }
+        #pagenav .row a span,
+        .areaNav .row a span { 
+            word-wrap:break-word; 
+            white-space:pre-wrap;
+             
+            line-height:1em;
+            width:100%;
+            height: 100%;
+            text-align:center;
+            vertical-align:middle;
+            margin:5% auto;
+        }
+
+        #pagenav .row a span {
+            width:60%;
+        }
+        
+
+    #pagenav .row i
+    {
+        padding-left: 1em;
+    }
+
+    #pagenav .row i.example:before
+    {
+      content: "\f083";
+    }
+
+    #pagenav .row i.fake:before {
+      content: "\f084";
+    }
+     
+    #pagenav .row i.admin:before {
+      content: "\f085";
+    }
+
+    #pagenav .row i.transition:before
+    {
+        content: "\f090";
+    }
+
+    #pagenav .row i.employer:before
+    {
+        content: "\f091";
+    }
+
+    .fa-comments:before {
+      content: "\f086";
+    }
+    .fa-thumbs-o-up:before {
+      content: "\f087";
+    }
+    .fa-thumbs-o-down:before {
+      content: "\f088";
+    }
+    .fa-star-half:before {
+      content: "\f089";
+    }
+
+
+    /* end: styles specific to area icons*/
+
+
+  
+
+    .input-button {
+        padding-left: 2px;
+    }
+
+    .txtM {
+        text-align: center;
+    }
+
+    .txtR {
+        text-align: right;
+    }
+
+    form .noPad {
+        padding: 0;
+    }
+
+    .content button, .content input[type="submit"], .content input[type="reset"], .content .input-button-disabled, .content .input-button a {
+        vertical-align: middle;
+        margin: 5px 0px 5px 4px;
+    }
+
+
+    #actionsMenu {
+        background-color: rgb(243, 243, 244);
+        margin-bottom: 15px;
+        padding: 6px;
+    }
+
+    .content .req {
+        color: rgb(163, 71, 31) !important;
+    }
+
+    .content .req {
+        color: rgb(192, 83, 36);
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    
+
+    .multiselect {
+        width: 25% !important;
+        padding: 7px 8px !important;
+        box-sizing: border-box !important;
+        background-color: #f2f2f2 !important;
+        border-left: solid 1px #f2f2f2 !important;
+        border-right: solid 1px #f2f2f2 !important;
+        border-top: solid 1px #f2f2f2 !important;
+        border-bottom: solid 1px #717171 !important;
+        height: 150px !important;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        margin-left: 1.5em;
+        margin-right: 0.5em;
+    }
+
+    input[type="radio"] {
+        margin-left: 1.5em;
+        margin-right: 0.5em;
+        vertical-align: middle;
+    }
+
+    input[type="checkbox"] {
+        vertical-align: bottom;
+    }
+
+    input[type="radio"] + label {
+        vertical-align: sub; /*-webkit-baseline-middle;*/
+    }
+
+    .rhea-ajax-geospatial-address,
+    .rhea-ajax-jsk-search {
+        min-width: 350px;
+    }
+
+
+    input[type=file],
+    input[type=number],
+    input[type=url],
+    input[type=password],
+    input[type=tel] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        background-color: #f2f2f2;
+        border: none;
+        border-top: solid 1px #f2f2f2;
+        border-bottom: solid 1px #717171;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #333333;
+    }
+
+        input[type=file]:disabled,
+        input[type=number]:disabled,
+        input[type=url]:disabled,
+        input[type=password]:disabled,
+        input[type=tel]:disabled {
+            background-color: #FAFAFA;
+            border-bottom: dashed 1px #CACACA;
+            color: #333333;
+            border-top: dashed 1px #CACACA;
+        }
+
+        input[type=file]:focus,
+        input[type=number]:focus,
+        input[type=url]:focus,
+        input[type=password]:focus,
+        input[type=tel]:focus {
+            background-color: #FAFAFB;
+            outline: none;
+            border-top: solid 1px #eeeeee;
+            border-bottom: solid 1px #197F96;
+        }
+
+        /* Focus style changes */
+        input[type=file]:focus,
+        input[type=url]:focus,
+        input[type=password]:focus,
+        input[type=tel]:focus,
+        input[type=text]:focus,
+        input[type=phone]:focus,
+        input[type=email]:focus,
+        input[type=number]:focus,
+        textarea:focus,
+        select:focus,
+        .whiteFields select:focus {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #197F96 !important;
+        }
+
+    .error select,
+    .error input,
+    .error textarea {
+        border: solid #C05324 1px;
+    }
+
+
+    input[type=file]:disabled,
+    input[type=url]:disabled,
+    input[type=password]:disabled,
+    input[type=tel]:disabled,
+    input[type=text]:disabled,
+    input[type=phone]:disabled,
+    input[type=email]:disabled,
+    input[type=number]:disabled,
+    textarea:disabled,
+    select:disabled,
+    input[readonly],
+    textarea[readonly],
+    select[readonly] {
+        border-width: 1px;
+        border-bottom-style: dashed;
+        border-top-style: dashed;
+        border-left-style: none;
+        border-right-style: none;
+        border-color: #CACACA;
+        background-color: #FAFAFA !important;
+    }
+
+        textarea[readonly]:focus,
+        textarea[readonly]:active,
+        textarea:disabled:focus,
+        textarea:disabled:active,
+        input[readonly]:focus,
+        input[readonly]:active {
+            border-width: 1px;
+            border-style: solid;
+        }
+
+    /*Styles for text area as form-control*/
+
+    #userDetails {
+        top: 0;
+        display: inline;
+        white-space: nowrap;
+    }
+
+    #userDetails {
+        color: #ffffff !important;
+    }
+
+    .fullRow {
+        display: block;
+        clear: left;
+    }
+
+    .hidden-xs {
+        padding-right: 10px;
+    }
+
+    .padddingRight {
+        padding-top: 10px;
+        padding-right: 10px;
+    }
+
+    #enviroWks {
+        width: 100%;
+        z-index: 10;
+        position: fixed;
+        background-color: rgb(151, 200, 204);
+        padding-top: 13px;
+        text-align: center;
+        font-weight: bold; 
+    }
+
+    .navbar-header {
+        float: none !important;
+        width: 100%;
+    }
+
+    .wrapperDiv {
+        position: relative;
+    }
+
+    /* Correct compatibility message anchor styles */
+    #msgLegacy {
+        display: none;
+    }
+
+        #msgLegacy a, #msgNojs a {
+            color: #fff;
+        }
+
+    #msgLegacy, #msgNojs {
+        font-family: Arial, Helvetica, sans-serif;
+        display: block;
+        background-color: #C05324;
+        width: 100%;
+        text-align: center;
+        color: #FFFFFF;
+        text-decoration: none;
+        font-size: 13px;
+        line-height: 20px;
+        border-bottom: solid 1px #9d3e15;
+    }
+
+        #msgLegacy:hover, #msgNojs:hover {
+            background-color: #666666;
+            border-bottom: solid 1px #000000;
+        }
+
+    #msgLegacy {
+        display: none;
+    }
+
+    .ieLegacy {
+        padding-top: 21px;
+    }
+
+        .ieLegacy #msgLegacy {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .ieLegacy #calendar {
+            display: none;
+        }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .preload,
+    .hide {
+        display: none;
+    }
+
+    /* Hidden element for readers*/
+    .readers {
+        height: 1px;
+        left: -999em;/*-10000px;*/
+        overflow: hidden;
+        position: absolute;
+        top: auto;
+        width: 1px;
+    }
+
+    #skipLinks {
+        position: absolute;
+        z-index: 1500;
+        top: 0;
+        left: 0;
+        font-size: 0.9em;
+    }
+        /*background-color:#DCE3E7;*/
+        #skipLinks li {
+            display: inline-block;
+            padding: 4px 8px;
+        }
+
+            #skipLinks li a {
+                color: #f4f7a9;
+                text-decoration: none;
+            }
+
+                #skipLinks li a:active,
+                #skipLinks li a:focus {
+                    font-weight: bold;
+                    text-decoration: ActiveBorder;
+                    border: #ffffff 1px dotted;
+                }
+
+    /* Generic float class */
+    .floatLeft {
+        float: left;
+    }
+
+    .floatRight {
+        float: right;
+    }
+ 
+    .cancel {
+        float: left;
+    }
+
+    /*.error label:before{content:"!"; background:#C25425; padding:1px 6px; font-size:0.75em; color:#FFFFFF; margin-right:4px}*/
+    .errorTip {
+        cursor: help;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        background-color: #C25425;
+        position: relative;
+        margin-right: 0.1em;
+        background-image: url(layout/errortip-bg.gif);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+        .errorTip span {
+            height: 1px;
+            left: -10000px;
+            overflow: hidden;
+            position: absolute;
+            top: auto;
+            width: 1px;
+            background-color: #C25425;
+            color: #FFFFFF;
+            line-height: 1.2em;
+            z-index: 99;
+        }
+        /*.errorTip:hover span,
+	.errorTip:focus span,*/
+        .errorTip .visible,
+        .errorTip:active span {
+            width: 200px;
+            left: -100px;
+            top: 15px;
+            padding: 8px 10px;
+            height: auto;
+        }
+
+    .hintTip {
+        cursor: help;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        background-color: #446C86;
+        position: relative;
+        margin-right: 0.1em;
+        background-image: url(layout/hinttip-bg.gif);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+        .hintTip span {
+            height: 1px;
+            left: -10000px;
+            overflow: hidden;
+            position: absolute;
+            top: auto;
+            width: 1px;
+            background-color: #446C86;
+            color: #FFFFFF;
+            line-height: 1.2em;
+            z-index: 99;
+        }
+        /*	.hintTip:hover span,
+	.hintTip:focus span,*/
+        .hintTip .visible,
+        .hintTip:active span {
+            width: 200px;
+            left: -100px;
+            top: 15px;
+            padding: 8px 10px;
+            height: auto;
+        }
+
+    .error input,
+    .error textarea {
+        border-bottom: solid #C05324 1px;
+    }
+
+    .errorTip:focus,
+    .errorTip:active,
+    .hintTip:active,
+    .hintTip:focus {
+        /*box-shadow: 0 -1px 0 rgba(19, 29, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 0 10px rgba(255, 255, 255, 0.9) !important;
+        border-width: 20px;*/
+        border: medium solid black;
+    }
+
+    .errorTip span {
+        visibility: hidden;
+    }
+    /* .errorTip:hover span,
+	.errorTip:focus span,*/
+    .errorTip .visible,
+    .errorTip:active span {
+        left: 0px;
+    }
+
+
+    .hintTip span {
+        visibility: hidden;
+    }
+    /* .hintTip:hover span,
+	.hintTip:focus span, */
+    .hintTip .visible,
+    .hintTip:active span {
+        left: 0px;
+    }
+
+    .visible {
+        visibility: visible !important;
+    }
+
+
+    /*Workflow styles*/
+
+    .wizard ul {
+        width: 100%;
+        height: 100%;
+        display: table;
+    }
+
+    .wizard ul {
+        list-style: none;
+        table-layout: fixed;
+    }
+
+    .wizard li {
+        display: table-cell;
+    }
+
+    .wizard a {
+        padding-right: 8px; /*changed from 38 to 8px so as to accommodate JobSeeker nav images*/
+        
+    }
+
+    .wizard ul li a {
+        background-position: right 5px;
+        height: 100%;
+    }
+    /*background-repeat: no-repeat;*/
+
+
+    .btn
+    {
+        margin-left: 1em;
+    }
+
+    
+    /* Non-inline links styled similar to non-inline buttons */
+    .input-button-disabled,
+    .input-button a
+    {
+        background-color:#E0E5E9;
+        border:solid 1px #dce3e7;
+        text-decoration:none;
+	    color: #335469;
+	    padding:0.6em 1.3em 0.6em 1.3em ;
+    }
+    .input-button-disabled {background-color:#ffffff !important; border:dashed 1px #717171; color:#717171 !important;}
+    .input-button-disabled,
+    .input-button a {vertical-align:middle; margin: 0 0 0 4px}
+
+
+    /* Styles for error messages.*/
+
+    .validation-summary-errors {
+        color: #a94442;
+        background-color: #f2dede;
+        background: #f8b2b2;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+        .validation-summary-errors hr {
+            border-top-color: #e4b9c0;
+        }
+        .validation-summary-errors a {
+              color: #843534;
+        } 
+
+        section.alert h3
+        {
+            display:inline;
+        }
+
+        
+    .validation-summary-valid,
+    section.noErrors {
+        display: none;
+    }
+
+    .field-validation-valid {
+        display: none;
+    }
+
+
+    /* Fixes for perceived deficiencies in bootstrap/color-admin combination */
+    /* Ensure buttons have consistent margins*/
+    .btn-group, .btn {
+        margin: 5px;
+    }
+    
+    /* Make sure graphs don't overlap graph tab buttons */
+    .tab-content {
+        clear: both;
+        padding: 0;
+    }
+
+    /* Make sure buttons are properly aligned in panel headings */
+    .panel-heading-btn {
+        margin-top: -5px;
+    }
+
+    /* correct panel being too small */
+    .theme-panel {
+        width: 20em;
+        right: -20em;
+    }
+
+    /* correct tab being too high and moving with content size */
+    .theme-panel .theme-collapse-btn {
+        margin-top: 0;
+        top: 20px;
+    }
+
+    /* Add a focus colour */
+    .theme-panel .theme-collapse-btn:focus,
+    .theme-panel .theme-collapse-btn:hover {
+        background-color: #cccccc;
+    }
+
+    /* Correct full width inputs preventing inline buttons and links */
+    .form-control-with-appendix {
+        overflow: hidden; /* Trigger a Block Formatting Context (BFC), that will prevent floated elements from intruding on this elements space */
+    }
+    .form-control-appendix {
+        float: right;
+        margin-left: 5px;
+    }
+
+    /* Correct tiny labels */
+    .label {
+        font-size: 100% !important;
+        margin: 2px;
+        display: inline-block;
+    }
+
+    /* END deficiency fixes */
+
+    /* Style fix to allow inserting submit buttons into split button groups*/
+    .content a > button {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0);
+        width: 100%;
+        text-align: left;
+    }
+
+    /* Boolean 'Switcher' styles. (e.g. On/Off slider buttons */
+    div.switcher {
+        width: 85px;
+        overflow: hidden;
+    }
+
+    div.switcher-focus {
+        outline: thin dotted black;
+    }
+
+    div.switcher > div {
+        width: 170px;
+        position: relative;
+    }
+
+    div.switcher span {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        min-height: 20px;
+        vertical-align: middle;
+    }
+
+    div.switcher span.left {
+        color: #ffffff;
+        background-color: #000000;
+        border: 2px 0 2px 2px groove #000000;
+        border-radius: 25px 0 0 25px;
+        width : 55px;
+    }
+
+    div.switcher span.left-addition {
+        background-color: #000000;
+        border: 2px 2px 2px 0 groove #000000;
+        width : 15px;
+    }
+    
+    div.switcher span.right-addition {
+        background-color: #b6c2c9;
+        border: 2px 0 2px 2px groove #b6c2c9;
+        width : 15px;
+    }
+
+    div.switcher span.right {
+        color: #000000;
+        background-color: #b6c2c9;
+        border: 2px 2px 2px 0 groove #b6c2c9;
+        border-radius: 0 25px 25px 0 ;
+        width : 55px;
+    }
+
+    div.switcher span.centre {
+        background-color: grey;
+        min-height: 30px;
+        border: 2px outset grey;
+        border-radius: 25px;
+        width : 30px;
+        left: -85px;
+        z-index: 1;
+    }
+    /* End switcher styles */
+
+    /* COPY of Bootstrap and Color Admin btn and btn-inverse styles intended for styling links as buttons when they appear at the bottom of a page */
+    /* The direct descendant '>' is used to make sure the rules don't hit further decendants such as split button children */
+    .nestedButtons > a {
+      display: inline-block;
+      padding: 6px 12px;
+      margin: 5px;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.42857143;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      background-image: none;
+      border: 1px solid #2d353c;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color: #fff;
+        background: #2d353c;
+    }
+    .nestedButtons > a:focus, 
+    .nestedButtons > a:active:focus {
+        outline: none;
+    }
+    .nestedButtons > a:active{
+        background-image: none;
+        outline: 0;
+        -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
+    } 
+    .nestedButtons > a:hover, 
+    .nestedButtons > a:focus, 
+    .nestedButtons > a:active {
+        text-decoration: none;
+        background: #242a30;
+        border-color: #242a30;
+    }
+    .nestedButtons > a.disabled,
+    .nestedButtons > a[disabled],
+    fieldset[disabled] .nestedButtons > a {
+      pointer-events: none;
+      cursor: not-allowed;
+      filter: alpha(opacity=65);
+      -webkit-box-shadow: none;
+              box-shadow: none;
+      opacity: .65;
+    }
+
+    /* End Copy of Bootstrap button stlye for links*/
+
+    /* Flot graph styles */
+    .zeus-graph-caption {
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+    }
+
+    .zeus-graph-tooltip {
+        position:fixed;
+        display: none;
+        font-size:small;
+        text-align:center;
+        padding:2px;
+        color:#000000;
+        background-color:#ffffff;
+        border: thick solid black;
+        border-radius: 5px;
+        z-index: 5;
+    }
+
+    .zeus-graph-choice-container{
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .zeus-graph-choice-container input {
+        vertical-align: top;
+        cursor: pointer;
+        margin-right: 0;
+    }
+
+    .zeus-graph-choice-container label {
+        cursor: pointer;
+        padding-left: 0.5em;
+    }
+
+    /* END Flot graph styles */
+
+    /* Right hand sidebar styles */
+    .sidebar-right h3 {
+        color: #c1c3c4;
+        margin-left: 5px;
+    }
+    /* END Right hand sidebar styles */
+
+    /* Widget selection styles */
+    ul.zeus-widget-data-context-list li {
+        display: inline-block;
+    }
+
+    ul.zeus-widget-data-context-list li button{
+        border-radius: 3px;
+        padding: 2px;
+        margin-left: 4px;
+    }
+
+    ul.zeus-widget-selection-list {
+        margin: auto;
+        width: 80%;
+        padding: 0;
+    }
+
+
+    ul.zeus-widget-selection-list li {
+        padding: 10px 4px 10px 4px;
+    }
+
+    ul.zeus-widget-selection-list li button{
+        border-radius: 3px;
+        width: 100%;
+    }
+
+    ul.zeus-widget-selection-list li button .fa {
+        vertical-align: middle;
+    }
+
+    ul.zeus-widget-selection-list li button td {
+        padding: 0 2px 0 2px;
+    }
+
+    /* END Widget selection styles */
+
+    /* HISTORY Styles  */
+    .history ul {
+        padding: 0;
+        border: thin solid #dddddd;
+    }
+
+    .history li {
+        padding: 5px;
+    }
+
+    .history li:nth-child(2n+0) {
+        background-color: #dddddd;
+    }
+
+    .history .history-pin {
+        float: right;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .history .history-pin:hover, .history .history-pin:focus {
+        background-color: #428bca;
+        color: #ffffff;
+    }
+
+    /* End history styles */
+        /*Calendar related styles*/
+    div.datepicker.datepicker-dropdown {
+        z-index: 1050 !important;
+    }
+
+    table[data-cal-info-table] {
+        display: table;
+    }
+
+    #calendarCategory-dialog-form {
+        display: none;
+    }
+
+    .radio-button-list {
+        height: 50px;
+        max-height: 250px;
+    }
+
+    .ui-dialog-titlebar-close {
+        background-image: url(layout/actions-close-bg.gif);
+        background-size: cover;
+    }
+
+    button[class=close][data-dismiss=modal] {
+        opacity: 0.8;
+    }
+
+    a .event-mouseover {
+        display: none;
+        background-color: black;
+        border-radius: 4px;
+        box-shadow: 5px 5px 8px #CCC;
+    }
+     
+}
+
+
+a.addEvent {
+    display: inline-block;
+    border-radius: 4px 4px;
+    margin-left: 10px;
+    float: right;
+    color: #a8acb1;
+}
+    a.addEvent:hover,
+    a.addEvent:active,
+    a.addEvent:focus {
+        color: #a8acb1;
+        background: #232a2f;
+    }
+
+/*span of calendar top buttons*/ 
+
+table.fc-header  span.fc-button.fc-state-active:active,
+.fc-state-active:focus
+{
+    border: 2px solid #8BADE4 !important; 
+}
+
+.modal-message .modal-header,
+.modal-message .modal-body,
+.modal-message .modal-footer {
+    width: 100%;
+}
+/*End of Calendar related styels*/
+
+    
+
+}
+ 
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and   (min-width : 480px)  and (max-width: 768px)                           /*(min-device-width: 320px) and (max-device-width : 480px)*/
+{ 
+    .footer-bootstrap ul li a {
+         
+        margin-left: 50px;
+    }
+
+
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (min-width : 320px) and (max-width: 479px) {
+ .footer-bootstrap { 
+        height: 55px; 
+    }
+ .footer-bootstrap ul li a {
+        margin-left: 20px;
+
+    }
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+    
+  
+
+}
+
+@media (min-width: 768px)
+{
+      .modal-message .modal-dialog{
+        width: 60%;
+    }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+
+
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+
+
+}
+
+
+/*tbody > tr > td.footable-visible.footable-first-column > .footable-toggle {
+    float: left;
+}*/
+
+/*table .footable-loaded tbody tr td .form-control {*/
+/*tbody > tr > td.footable-visible.footable-first-column > .form-control {
+    width: 80%;
+    float: left;
+}*/
+/*#FootableRows-grid > tr.footable-detail-show > td.footable-visible.footable-first-column > label*/

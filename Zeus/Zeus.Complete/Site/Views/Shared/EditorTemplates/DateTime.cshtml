@@ -1,0 +1,71 @@
+﻿@using Employment.Web.Mvc.Infrastructure.Extensions
+@using Employment.Web.Mvc.Infrastructure.Types
+
+@model DateTime?
+@{
+    // Get all HTML attributes
+    var htmlAttributes = Html.GetHtmlAttributes("readonly");
+    
+    var datePart = string.Empty;
+    var timePart = string.Empty;
+
+    var value = (Model.HasValue ? Model.Value.ToString("d/MM/yyyy hh:mm tt") : string.Empty);
+    var values = value.Split(' ');
+    if (values.Length == 3)
+    {
+        datePart = values[0];
+        timePart = string.Format("{0} {1}", values[1], values[2]);
+    }
+    
+    //htmlAttributes.MergeCssClass("form-control");
+
+    // Move data validation attributes to input
+    var inputHtmlAttributes = htmlAttributes.Where(a => a.Key.StartsWith("data-val")).ToDictionary(a => a.Key, a => a.Value);
+
+    foreach (var kvp in inputHtmlAttributes)
+    {
+        htmlAttributes.Remove(kvp.Key);
+    }
+
+    inputHtmlAttributes.Add(HtmlDataType.DisplayName, htmlAttributes[HtmlDataType.DisplayName]);
+    
+    inputHtmlAttributes.MergeCssClass("form-control");
+
+
+    inputHtmlAttributes.Add(HtmlDataType.DateTimePicker, true);
+    
+    var dateInput = Html.ExecuteUpOneLevel(() => Html.TextBox(string.Format("{0}.Date", Html.ViewData.ModelMetadata.PropertyName), datePart, inputHtmlAttributes));
+
+    var timeInput = Html.ExecuteUpOneLevel(() => Html.TextBox(string.Format("{0}.Time", Html.ViewData.ModelMetadata.PropertyName), timePart, inputHtmlAttributes));
+
+    var timeLabel = Html.Label("Time", Html.ViewData.ModelMetadata.GetDisplayName(), new { @class = "hidden" }).ToString().Replace("</label>", " <span class=\"readers\">(Time)</span></label>");
+    
+    <div class="input-group datetime">
+        @Html.Raw(dateInput)
+        <span class="input-group-addon fordate">
+            <i class="fa fa-calendar"></i>
+        </span>
+        @Html.Raw(timeLabel)
+        @Html.Raw(timeInput)
+        <span class="input-group-addon fortime">
+            <i class="fa fa-clock-o"></i>
+        </span>
+        @{
+            var hiddenValue = Html.Hidden("", value, htmlAttributes).ToHtmlString();
+            
+            // WORK-AROUND: Sometimes the above contains 'seconds' part in date field which we will remove.
+            // extract date from above
+            string valueAttribute = " value=";
+            var date = System.Text.RegularExpressions.Regex.Match(hiddenValue.Substring(hiddenValue.IndexOf(valueAttribute) + valueAttribute.Length), "\"[^\"]*\"").ToString(); //Get value inside of quotes.
+            // if date contains seconds part then remove it
+            var datePattern = "(([0-9]{2})|([0-9]{1}))/(([0-9]{2})|([0-9]{1}))/[0-9]{4}( (([0-9]{1})|([0-9]{2})):[0-9]{2}:[0-9]{2})";// simple date pattern for dd/mm/yyyy h:mm:ss
+            var dateMatch = System.Text.RegularExpressions.Regex.Match(date, datePattern);
+            if(dateMatch.Success)
+            {
+                hiddenValue = hiddenValue.Replace(":00 AM", " AM").Replace(":00 PM", " PM"); // replace seconds.*@
+            }
+            @Html.Raw(hiddenValue)
+          }
+    </div>
+
+}

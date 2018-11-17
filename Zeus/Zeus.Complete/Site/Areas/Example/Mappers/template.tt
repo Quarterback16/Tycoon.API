@@ -1,0 +1,59 @@
+<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="%ESG_SDK%\Tools\Employment.TextTemplating.dll" #>
+<#@ import namespace="Employment.TextTemplating" #>
+<# // Import the assemblies and namespaces for the types you are generating mappings for. #> 
+   
+<#@ assembly name="$(TargetPath)" #>  
+
+ 
+<#@ import namespace = "System.Collections.Generic" #>
+<#@ import namespace = "Employment.Web.Mvc.Area.Example.Models" #>
+<#@ import namespace = "Employment.Web.Mvc.Area.Example.Service.Interfaces" #>
+<#@ import namespace = "Employment.Web.Mvc.Area.Example.ViewModels" #>
+<#@ import namespace = "Employment.Web.Mvc.Area.Example.ViewModels.Grid" #>
+<#@ import namespace = "Employment.Web.Mvc.Area.Example.ViewModels.PagedGrid" #>
+<#@ import namespace = "Employment.Web.Mvc.Area.Example.ViewModels.Workflow" #>
+<#@ import namespace = "Employment.Web.Mvc.Infrastructure.Types" #>
+<#@ import namespace = "Employment.Web.Mvc.Infrastructure.ValueResolvers" #>
+<#@ import namespace = "System.Security.Claims" #>
+
+
+
+/*
+Generated code. Do not edit manually.
+*/
+using System;
+using System.Collections.Generic;
+using Employment.Web.Mvc.Area.Example.Models;
+using Employment.Web.Mvc.Area.Example.Service.Interfaces;
+using Employment.Web.Mvc.Area.Example.ViewModels;
+using Employment.Web.Mvc.Area.Example.ViewModels.Grid;
+using Employment.Web.Mvc.Area.Example.ViewModels.PagedGrid;
+using Employment.Web.Mvc.Area.Example.ViewModels.Workflow;
+using Employment.Web.Mvc.Infrastructure.Types;
+using Employment.Web.Mvc.Infrastructure.ValueResolvers;
+using System.Security.Claims;
+
+namespace Example
+{
+<#
+var dummiesAllPageMetadataToDummiesAllViewModelMapping = new StaticMapping<DummiesAllPageMetadata, DummiesAllViewModel>();
+var dummiesAllViewModelToDummiesAllPageMetadataMapping = new StaticMapping<DummiesAllViewModel, DummiesAllPageMetadata>();
+
+dummiesAllViewModelToDummiesAllPageMetadataMapping.IgnoreMember("Z");
+#>
+	public class Mapper
+	{
+		<#= dummiesAllPageMetadataToDummiesAllViewModelMapping.GenerateMapping() #>	
+
+		<#= dummiesAllViewModelToDummiesAllPageMetadataMapping.MapNewMethod() #>
+
+		<#= dummiesAllViewModelToDummiesAllPageMetadataMapping.BeginMapExistingMethod() #>
+
+			// target.Z = String.IsNullOrEmpty(source.Z) ? "(empty)" : source.Z;
+
+		<#= dummiesAllViewModelToDummiesAllPageMetadataMapping.EndMapExistingMethod() #>
+	}
+
+}

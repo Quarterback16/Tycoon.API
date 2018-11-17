@@ -1,0 +1,23 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<div class="page-header">  
+    <h2>Sorry, an error occurred while processing your request.</h2>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-condensed">  
+                <tr><td>Time</td><td>@string.Format( "{0}", DateTime.Now )</td></tr>
+                <tr><td>Controller</td><td>@Html.DisplayFor( m => m.ControllerName  )</td></tr>
+                <tr><td>Action</td><td>@Html.DisplayFor( m => m.ActionName )</td></tr>
+                <tr><td><a href="\elmah">Exception Message</a></td><td><strong>@Html.DisplayFor( m => m.Exception.Message )</strong></td></tr>
+            </table>
+        </div>
+    </div>
+</div>

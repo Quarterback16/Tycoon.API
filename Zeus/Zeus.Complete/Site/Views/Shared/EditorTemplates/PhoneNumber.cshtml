@@ -1,0 +1,9 @@
+﻿@using Employment.Web.Mvc.Infrastructure.Extensions
+@model object
+@{
+    var htmlAttributes = Html.GetHtmlAttributes("readonly");
+
+    htmlAttributes.Add("type", "tel");
+}
+<abbr title="Phone">P:</abbr>
+@Html.TextBoxFor(model => model, htmlAttributes)

@@ -1,0 +1,13 @@
+﻿@using Employment.Web.Mvc.Infrastructure.Interfaces
+@using Employment.Web.Mvc.Infrastructure.Models
+@using Employment.Web.Mvc.Infrastructure.Types
+@using Employment.Web.Mvc.Infrastructure.Extensions
+
+@model IPageable<HistoryModel>
+
+@if (Model.Metadata.HasMorePages())
+{
+    @Html.GetHistoryItems(((HistoryPageMetadata)Model.Metadata).HistoryType, Model)
+    Model.Metadata.PageNumber++;
+    @:<li class="hidden" @HtmlDataType.PagedMetadata="@Model.Metadata.Serialize()" @HtmlDataType.PagedHasMore="@Model.Metadata.HasMorePages()"></li>
+}

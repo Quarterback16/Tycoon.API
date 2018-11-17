@@ -1,0 +1,93 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model IList<ProgramAssuranceTool.Models.Bulletin> 
+
+@{
+    var isBulletin = ViewData["BulletinType"] != null && 
+        ViewData["BulletinType"].ToString().Equals(DataConstants.StandardBulletinType, StringComparison.OrdinalIgnoreCase);
+
+    var buttonLabel = "Create New FAQ";
+    var bulletinType = DataConstants.FaqBulletinType;
+    var backLabel = "Back to FAQ List";
+        
+    if (isBulletin)
+    {
+        buttonLabel = "Create New Bulletin";
+        bulletinType = DataConstants.StandardBulletinType;
+        backLabel = "Back to Bulletin List";
+    }
+} 
+
+<div class="page-header">
+    <h1>@(isBulletin ? "Bulletin Detail List" : "FAQ Detail List" )</h1>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title pull-right clearfix">
+             @{
+                if (isBulletin)
+                {
+                    @Html.ActionLink("Switch to FAQ Detail List", "Details", new { Id = "0", bulletinType = "FAQ" }, new { Title = "Click here to switch to FAQ Detail List"})
+                }
+                else
+                {
+                    @Html.ActionLink("Switch to Bulletin Detail List", "Details", new { Id = "0", bulletinType = "STD" }, new { Title = "Click here to switch to Bulletin Detail List" })
+                }
+            }
+        </h2>
+        <div class="clear-fix"></div>
+    </div>
+    
+    <div id="bulletinDetailsDiv" class="panel-body">
+        
+        <div class="panel-group" id="accordion">
+            @foreach (var bulletin in Model)
+            {
+                var bulletinTypeLabel = bulletin.BulletinType.Equals(DataConstants.StandardBulletinType) ? "Bulletin" : "FAQ";
+                
+                <div tabindex="0" id="@bulletin.BulletinId" class="bulletinDetail">
+                    @bulletinTypeLabel: <b class="wrap">@bulletin.BulletinTitle (@bulletin.BulletinId)</b>
+                    
+                    @Html.ActionLink("Edit", "Edit", "Bulletin", new { id = bulletin.BulletinId }, null)
+                    <span class="glyphicon glyphicon-edit"></span>
+
+                    <br/>
+                    
+                    @*this extra div here can be used to help the auto web ui testing script.*@
+                    <div id="projectBulletin_@bulletin.BulletinId">
+                    @{
+                        if (bulletin.ProjectId > 0)
+                        {
+                            <p>
+                                Project: @Html.ActionLink(bulletin.ProjectField, "Details", "Project", new {Id = bulletin.ProjectId, tabNo = 2}, null)<br/>   @* default to tabNo = 2 *@
+                            </p>
+                        }
+                    }
+                    </div>
+                    <p>
+                        Description: <span class='wrap'>@bulletin.Description</span><br/>
+                        Start Date: @bulletin.StartDate.ToString("dd/MM/yyyy") End Date: @bulletin.EndDate.ToString("dd/MM/yyyy")<br/>
+                    </p>
+
+                    <p>Ask Question: 
+                        <a href="mailto:ProgramAssurance@Employment.gov.au?Subject=@bulletin.BulletinTitle"><span class="glyphicon glyphicon-pencil">&nbsp;ProgramAssurance@Employment.gov.au</span></a>
+                    </p>
+
+                    <hr/>
+                </div>
+            }
+        </div>
+
+    </div>
+
+    <div class="panel-footer clearfix">
+        <button id="btnBack" type="reset" class="btn btn-lg btn-primary pull-left" onclick="location.href='/'">
+            <span class="glyphicon glyphicon-backward"></span>&nbsp;@Html.ActionLink(backLabel, "Index", "Home", new {bulletinType }, new { Title = backLabel })
+        </button>
+        
+        <button id="btnCreate" type="button" class="btn btn-lg btn-primary pull-right" onclick="location.href='/Bulletin/Create/?bulletinType=@bulletinType'">
+            <span class="glyphicon glyphicon-pencil"></span>&nbsp;@Html.ActionLink(buttonLabel, "Create", "Bulletin", new { bulletinType }, null)
+        </button>
+
+    </div>
+</div>

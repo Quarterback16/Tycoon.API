@@ -1,0 +1,10 @@
+﻿ 0. NFL.exe Team Sheets to update unit rankings
+ 1. UnitPredictorTests.TestSeasonProjection2013()
+ 2. Yahoo xml update
+ 3. EspnPerformanceTests.TestAllPositionsCurrentWeek()
+ 4. Assign Roles
+ 5. Depth chart integrity
+ 6. PlayerProjectionGenerator.TestWeeklyProjection
+ 7. FantasyProjectionReportTests.TestRenderAllFantasyProjections
+ 8. DefensiveScorerTests.TestDefensivePatsyReport
+

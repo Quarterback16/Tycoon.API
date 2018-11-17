@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{48738AA7-C01E-4606-B96D-ABB70DBA3995}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Employment.Web.Mvc.Infrastructure</RootNamespace>
+    <AssemblyName>Employment.Web.Mvc.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Employment.Web.Mvc.Infrastructure.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Integration|AnyCPU'">
+    <OutputPath>bin\Integration\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Infrastructure.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DevFix|AnyCPU'">
+    <OutputPath>bin\DevFix\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Infrastructure.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestRelease|AnyCPU'">
+    <OutputPath>bin\TestRelease\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Infrastructure.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestFix|AnyCPU'">
+    <OutputPath>bin\TestFix\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Infrastructure.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DevRelease|AnyCPU'">
+    <OutputPath>bin\DevRelease\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Infrastructure.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Department.AddressValidation, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Department.AddressValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\..\Dependencies\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Adw.Contracts">
+      <HintPath>..\..\Dependencies\Employment.Esc.Adw.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Employment.Esc.Shared.Contracts">
+      <HintPath>..\..\Dependencies\Employment.Esc.Shared.Contracts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Employment.Esc.Shared.Security">
+      <HintPath>..\..\Dependencies\Employment.Esc.Shared.Security.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ClaimsToDepartmentPrincipal">
+      <HintPath>..\..\Dependencies\ClaimsToDepartmentPrincipal.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Intech.Search, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Intech.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler.Mvc, Version=3.0.11.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\MiniProfiler.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\..\Dependencies\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Employment.Esc.Framework.Reporting">
+      <HintPath>..\..\Dependencies\Employment.Esc.Framework.Reporting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc">
+      <HintPath>..\..\Dependencies\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.ApplicationServer.Caching.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.ApplicationServer.Caching.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MiniProfiler, Version=2.0.2.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>True</SpecificVersion>
+      <HintPath>..\..\Dependencies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrapper\Bootstrapper.cs" />
+    <Compile Include="Configuration\ContractsCollection.cs" />
+    <Compile Include="Configuration\IoCType.cs" />
+    <Compile Include="Configuration\IoCSection.cs" />
+    <Compile Include="Configuration\IoCTypes.cs" />
+    <Compile Include="Configuration\MenuTile.cs" />
+    <Compile Include="Configuration\MenuTiles.cs" />
+    <Compile Include="Configuration\MenuSection.cs" />
+    <Compile Include="Configuration\OrgCodesCollection.cs" />
+    <Compile Include="Configuration\Role.cs" />
+    <Compile Include="Configuration\RolesCollection.cs" />
+    <Compile Include="Configuration\SecurityTypes.cs" />
+    <Compile Include="Configuration\SecuritySettingsSection.cs" />
+    <Compile Include="Configuration\SecuritySection.cs" />
+    <Compile Include="Configuration\UsersCollection.cs" />
+    <Compile Include="Csv\Configuration\CsvClassMap.cs" />
+    <Compile Include="Csv\Configuration\CsvClassMap`1.cs" />
+    <Compile Include="Csv\Configuration\CsvConfiguration.cs" />
+    <Compile Include="Csv\Configuration\CsvConfigurationException.cs" />
+    <Compile Include="Csv\Configuration\CsvFieldAttribute.cs" />
+    <Compile Include="Csv\Configuration\CsvPropertyMap.cs" />
+    <Compile Include="Csv\Configuration\CsvPropertyMapCollection.cs" />
+    <Compile Include="Csv\Configuration\CsvPropertyMapComparer.cs" />
+    <Compile Include="Csv\Configuration\CsvPropertyReferenceMap.cs" />
+    <Compile Include="Csv\Configuration\CsvPropertyReferenceMap`1.cs" />
+    <Compile Include="Csv\CsvBadDataException.cs" />
+    <Compile Include="Csv\CsvHelperException.cs" />
+    <Compile Include="Csv\CsvMissingFieldException.cs" />
+    <Compile Include="Csv\CsvParser.cs" />
+    <Compile Include="Csv\CsvParserException.cs" />
+    <Compile Include="Csv\CsvReader.cs" />
+    <Compile Include="Csv\CsvReaderException.cs" />
+    <Compile Include="Csv\CsvWriter.cs" />
+    <Compile Include="Csv\CsvWriterException.cs" />
+    <Compile Include="Csv\ExceptionHelper.cs" />
+    <Compile Include="Csv\ICsvParser.cs" />
+    <Compile Include="Csv\ICsvParserExceptionInfo.cs" />
+    <Compile Include="Csv\ICsvReader.cs" />
+    <Compile Include="Csv\ICsvReaderExceptionInfo.cs" />
+    <Compile Include="Csv\ICsvReaderRow.cs" />
+    <Compile Include="Csv\ICsvWriter.cs" />
+    <Compile Include="Csv\ReflectionHelper.cs" />
+    <Compile Include="Csv\StringExtensions.cs" />
+    <Compile Include="Csv\TypeConversion\BooleanConverter.cs" />
+    <Compile Include="Csv\TypeConversion\ByteConverter.cs" />
+    <Compile Include="Csv\TypeConversion\CharConverter.cs" />
+    <Compile Include="Csv\TypeConversion\DateTimeConverter.cs" />
+    <Compile Include="Csv\TypeConversion\DecimalConverter.cs" />
+    <Compile Include="Csv\TypeConversion\DefaultTypeConverter.cs" />
+    <Compile Include="Csv\TypeConversion\DoubleConverter.cs" />
+    <Compile Include="Csv\TypeConversion\EnumConverter.cs" />
+    <Compile Include="Csv\TypeConversion\GuidConverter.cs" />
+    <Compile Include="Csv\TypeConversion\Int16Converter.cs" />
+    <Compile Include="Csv\TypeConversion\Int32Converter.cs" />
+    <Compile Include="Csv\TypeConversion\Int64Converter.cs" />
+    <Compile Include="Csv\TypeConversion\ITypeConverter.cs" />
+    <Compile Include="Csv\TypeConversion\NullableConverter.cs" />
+    <Compile Include="Csv\TypeConversion\SByteConverter.cs" />
+    <Compile Include="Csv\TypeConversion\SingleConverter.cs" />
+    <Compile Include="Csv\TypeConversion\StringConverter.cs" />
+    <Compile Include="Csv\TypeConversion\TypeConverterAttribute.cs" />
+    <Compile Include="Csv\TypeConversion\TypeConverterFactory.cs" />
+    <Compile Include="Csv\TypeConversion\UInt16Converter.cs" />
+    <Compile Include="Csv\TypeConversion\UInt32Converter.cs" />
+    <Compile Include="Csv\TypeConversion\UInt64Converter.cs" />
+    <Compile Include="DataAnnotations\AdwSelectionAttribute.cs" />
+    <Compile Include="DataAnnotations\DateBasedContentAttribute.cs" />
+    <Compile Include="DataAnnotations\ReferenceListAttribute.cs" />
+    <Compile Include="DataAnnotations\GridFilterAttribute.cs" />
+    <Compile Include="DataAnnotations\AjaxGridAttribute.cs" />
+    <Compile Include="DataAnnotations\AjaxOnlyAttribute.cs" />
+    <Compile Include="DataAnnotations\AliasAttribute.cs" />
+    <Compile Include="DataAnnotations\AllowFileUploadAttribute.cs" />
+    <Compile Include="DataAnnotations\ButtonHandlerAttribute.cs" />
+    <Compile Include="DataAnnotations\ContextAttribute.cs" />
+    <Compile Include="DataAnnotations\ContextComponentAttribute.cs" />
+    <Compile Include="DataAnnotations\ContingentValidationAttribute.cs" />
+    <Compile Include="DataAnnotations\AbnAttribute.cs" />
+    <Compile Include="DataAnnotations\AjaxSelectionAttribute.cs" />
+    <Compile Include="DataAnnotations\ClearIfAttribute.cs" />
+    <Compile Include="DataAnnotations\ClearIfEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\ClearIfFalseAttribute.cs" />
+    <Compile Include="DataAnnotations\ClearIfNotAttribute.cs" />
+    <Compile Include="DataAnnotations\ClearIfNotEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\ClearIfNotRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\ClearIfRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\ClearIfTrueAttribute.cs" />
+    <Compile Include="DataAnnotations\ClearAttribute.cs" />
+    <Compile Include="DataAnnotations\AccessKeyAttribute.cs" />
+    <Compile Include="DataAnnotations\BlueWordAttribute.cs" />
+    <Compile Include="DataAnnotations\BindableIfAttribute.cs" />
+    <Compile Include="DataAnnotations\BindableIfFalseAttribute.cs" />
+    <Compile Include="DataAnnotations\BindableIfTrueAttribute.cs" />
+    <Compile Include="DataAnnotations\BindableIfNotAttribute.cs" />
+    <Compile Include="DataAnnotations\BindableIfRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\BindableIfNotRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\BindableIfEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\BindableIfNotEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\AgeAttribute.cs" />
+    <Compile Include="DataAnnotations\ChartAttribute.cs" />
+    <Compile Include="DataAnnotations\ViewFormatAttribute.cs" />
+    <Compile Include="DataAnnotations\AjaxLoadAttribute.cs" />
+    <Compile Include="DataAnnotations\EditableTypeAttribute.cs" />
+    <Compile Include="DataAnnotations\ExcludeSortAttribute.cs" />
+    <Compile Include="DataAnnotations\FooTableColumnAttribute.cs" />
+    <Compile Include="DataAnnotations\FooTableAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAnnotations\GridColumnAttribute.cs" />
+    <Compile Include="DataAnnotations\SkipLinkAttribute.cs" />
+    <Compile Include="DataAnnotations\SmartAutocompleteAttribute.cs" />
+    <Compile Include="DataAnnotations\SwitcherAttribute.cs" />
+    <Compile Include="DataAnnotations\ValidateAntiDuplicateSubmitTokenAttribute.cs" />
+    <Compile Include="DataAnnotations\NumericLengthAttribute.cs" />
+    <Compile Include="DataAnnotations\HttpHeaderAttribute.cs" />
+    <Compile Include="DataAnnotations\CountdownAttribute.cs" />
+    <Compile Include="DataAnnotations\SkipClientSideAttribute.cs" />
+    <Compile Include="DataAnnotations\SpecialCharactersAttribute.cs" />
+    <Compile Include="DataAnnotations\ViewModelAttribute.cs" />
+    <Compile Include="DataAnnotations\FileAttribute.cs" />
+    <Compile Include="DataAnnotations\ExternalLinkAttribute.cs" />
+    <Compile Include="DataAnnotations\OverrideDisplayNameAttribute.cs" />
+    <Compile Include="DataAnnotations\IdAttribute.cs" />
+    <Compile Include="DataAnnotations\HandleAllErrorsAttribute.cs" />
+    <Compile Include="DataAnnotations\DescriptionKeyAttribute.cs" />
+    <Compile Include="DataAnnotations\RememberPreviousActionAttribute.cs" />
+    <Compile Include="DataAnnotations\PersistModelStateAttribute.cs" />
+    <Compile Include="DataAnnotations\HistoryAttribute.cs" />
+    <Compile Include="DataAnnotations\CopyAttribute.cs" />
+    <Compile Include="DataAnnotations\GstAttribute.cs" />
+    <Compile Include="DataAnnotations\RequiredParameterAttribute.cs" />
+    <Compile Include="DataAnnotations\RowAttribute.cs" />
+    <Compile Include="DataAnnotations\SerializedAttribute.cs" />
+    <Compile Include="DataAnnotations\CrnAttribute.cs" />
+    <Compile Include="DataAnnotations\PagedAttribute.cs" />
+    <Compile Include="DataAnnotations\WidgetsAttribute.cs" />
+    <Compile Include="Extensions\ComparisonTypeExtension.cs" />
+    <Compile Include="Extensions\CodeModelExtension.cs" />
+    <Compile Include="Extensions\ByteExtension.cs" />
+    <Compile Include="Extensions\HistoryTypeExtension.cs" />
+    <Compile Include="Extensions\MessageTypeExtension.cs" />
+    <Compile Include="Extensions\ViewDataExtension.cs" />
+    <Compile Include="Extensions\HttpContextExtension.cs" />
+    <Compile Include="Extensions\HttpPostedFileBaseExtension.cs" />
+    <Compile Include="Extensions\DateTimeExtension.cs" />
+    <Compile Include="Extensions\MvcHtmlStringExtension.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="Extensions\DictionaryExtension.cs" />
+    <Compile Include="Extensions\TempDataExtension.cs" />
+    <Compile Include="Http\InternalHttpHandler.cs" />
+    <Compile Include="Extensions\MappingEngineExtension.cs" />
+    <Compile Include="Extensions\RouteExtension.cs" />
+    <Compile Include="Extensions\SerializeExtension.cs" />
+    <Compile Include="Extensions\RelatedCodeModelExtension.cs" />
+    <Compile Include="Extensions\DataRecordExtension.cs" />
+    <Compile Include="Helpers\GridHelper.cs" />
+    <Compile Include="Helpers\DelegateHelper.cs" />
+    <Compile Include="Interfaces\Calendar\ICategoryItemViewModel.cs" />
+    <Compile Include="Interfaces\IBaseReportTemplate.cs" />
+    <Compile Include="Interfaces\IDashboardService.cs" />
+    <Compile Include="Interfaces\IHtmlReportService.cs" />
+    <Compile Include="Interfaces\IDocumentReportService.cs" />
+    <Compile Include="Interfaces\IRouteRegistrationService.cs" />
+    <Compile Include="Interfaces\IMenuService.cs" />
+    <Compile Include="Interfaces\Geospatial\IAddressService.cs" />
+    <Compile Include="Interfaces\IBulletinService.cs" />
+    <Compile Include="Interfaces\ILayoutOverride.cs" />
+    <Compile Include="Interfaces\ISplitButtonChild.cs" />
+    <Compile Include="Interfaces\IWorkflow.cs" />
+    <Compile Include="Interfaces\IObjectViewModel.cs" />
+    <Compile Include="Interfaces\IHistoryService.cs" />
+    <Compile Include="Interfaces\IPageable.cs" />
+    <Compile Include="Interfaces\ISqlService.cs" />
+    <Compile Include="Interfaces\JobSeeker\IJobseekerSearchService.cs" />
+    <Compile Include="Ioc\Simple\FilterAttributeFilterProvider\SimpleInjectorFilterAttributeFilterProvider.cs" />
+    <Compile Include="Ioc\Simple\Registrations\FilterAttributeFilterProviderRegistration.cs" />
+    <Compile Include="Ioc\Simple\SimpleInjectorBootstrapper.cs" />
+    <Compile Include="Ioc\Simple\SimpleInjectorContainerProvider.cs" />
+    <Compile Include="Ioc\Simple\SimpleInjectorControllerActivator.cs" />
+    <Compile Include="Ioc\Simple\SimpleInjectorMvcApplication.cs" />
+    <Compile Include="Mappers\BulletinMapper.cs" />
+    <Compile Include="Mappers\JobSeekerSearchMapper.cs" />
+    <Compile Include="Mappers\MenuMapper.cs" />
+    <Compile Include="Mappers\PageableMapper.cs" />
+    <Compile Include="Mappers\GeospatialMapper.cs" />
+    <Compile Include="ModelMetadataProviders\InfrastructureCachedModelMetadataProvider.cs" />
+    <Compile Include="Models\AdwLookup\DeltaModel.cs" />
+    <Compile Include="Models\ChartAxisModel.cs" />
+    <Compile Include="Models\ChartModel.cs" />
+    <Compile Include="Models\AdwLookup\CodeTypeModel.cs" />
+    <Compile Include="Models\JobSeeker\JobSeekerSearchModel.cs" />
+    <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\AdwLookup\RelatedCodeTypeModel.cs" />
+    <Compile Include="Models\SecurityModel.cs" />
+    <Compile Include="ModelValidators\InfrastructureRequiredAttributeAdapter.cs" />
+    <Compile Include="ModelBinders\InheritanceModelBinder.cs" />
+    <Compile Include="Models\BulletinModel.cs" />
+    <Compile Include="Models\BulletinExtensionData.cs" />
+    <Compile Include="Models\FileModel.cs" />
+    <Compile Include="Models\FileSignatureModel.cs" />
+    <Compile Include="Models\Geospatial\AddressModel.cs" />
+    <Compile Include="Models\Geospatial\AttributeModel.cs" />
+    <Compile Include="Registrations\ModelValidatorProviderRegistration.cs" />
+    <Compile Include="Services\DashboardService.cs" />
+    <Compile Include="Services\HtmlReportService.cs" />
+    <Compile Include="Services\DocumentReportService.cs" />
+    <Compile Include="Services\JobSeeker\JobSeekerSearchService.cs" />
+    <Compile Include="Services\RouteRegistrationService.cs" />
+    <Compile Include="Services\MenuService.cs" />
+    <Compile Include="Services\Profiled\AdwService.cs" />
+    <Compile Include="Services\Profiled\MenuService.cs" />
+    <Compile Include="Services\Profiled\ProfilerBehaviorExtensionElement.cs" />
+    <Compile Include="Services\Profiled\ProfilerEndpointBehavior.cs" />
+    <Compile Include="Services\Profiled\ProfilerMessageInspector.cs" />
+    <Compile Include="Services\Profiled\SqlService.cs" />
+    <Compile Include="Services\Profiled\SessionService.cs" />
+    <Compile Include="Services\Geospatial\AddressService.cs" />
+    <Compile Include="TypeConverters\QueryStringTypeConverter.cs" />
+    <Compile Include="Types\Calendar\DefaultView.cs" />
+    <Compile Include="Types\ColourType.cs" />
+    <Compile Include="Types\HtmlClassType.cs" />
+    <Compile Include="Types\HtmlDataType.cs" />
+    <Compile Include="Types\FileType.cs" />
+    <Compile Include="Types\Geospatial\AddressReliability.cs" />
+    <Compile Include="Serialization\SelectListItemSerializationSurrogate.cs" />
+    <Compile Include="Models\PropertyModel.cs" />
+    <Compile Include="Models\HistoryModel.cs" />
+    <Compile Include="Registrations\AntiForgeryClaimRegistration.cs" />
+    <Compile Include="Services\AppFabricCacheService.cs" />
+    <Compile Include="Services\BulletinService.cs" />
+    <Compile Include="Services\CacheClientCredentials.cs" />
+    <Compile Include="Services\CacheClientCredentialsSecurityTokenManager.cs" />
+    <Compile Include="Services\CacheSecurityTokenProvider.cs" />
+    <Compile Include="Services\CallerContextBehavior.cs" />
+    <Compile Include="Services\DisconnectedHistoryService.cs" />
+    <Compile Include="Services\HistoryService.cs" />
+    <Compile Include="Services\ServerClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\SqlService.cs" />
+    <Compile Include="Services\TokenCacheHelper.cs" />
+    <Compile Include="TypeConverters\BoolTypeConverter.cs" />
+    <Compile Include="TypeConverters\FloatTypeConverter.cs" />
+    <Compile Include="TypeConverters\NullFloatTypeConverter.cs" />
+    <Compile Include="TypeConverters\DecimalTypeConverter.cs" />
+    <Compile Include="TypeConverters\NullDecimalTypeConverter.cs" />
+    <Compile Include="TypeConverters\DoubleTypeConverter.cs" />
+    <Compile Include="TypeConverters\NullDoubleTypeConverter.cs" />
+    <Compile Include="TypeConverters\NullBoolTypeConverter.cs" />
+    <Compile Include="TypeConverters\LongTypeConverter.cs" />
+    <Compile Include="TypeConverters\NullLongTypeConverter.cs" />
+    <Compile Include="TypeConverters\IntTypeConverter.cs" />
+    <Compile Include="TypeConverters\NullIntTypeConverter.cs" />
+    <Compile Include="TypeConverters\DateTimeTypeConverter.cs" />
+    <Compile Include="TypeConverters\NullDateTimeTypeConverter.cs" />
+    <Compile Include="Types\BulletinType.cs" />
+    <Compile Include="Types\ComparisonType.cs" />
+    <Compile Include="DataAnnotations\MaxAttribute.cs" />
+    <Compile Include="DataAnnotations\MinAttribute.cs" />
+    <Compile Include="DataAnnotations\TriggerAttribute.cs" />
+    <Compile Include="DataAnnotations\SelectionAttribute.cs" />
+    <Compile Include="DataAnnotations\SelectionTypeAttribute.cs" />
+    <Compile Include="DataAnnotations\SelectorAttribute.cs" />
+    <Compile Include="Exceptions\SelectorException.cs" />
+    <Compile Include="Extensions\EnumExtension.cs" />
+    <Compile Include="Extensions\ModelMetadataExtension.cs" />
+    <Compile Include="Helpers\TestHelper.cs" />
+    <Compile Include="Interfaces\ISessionService.cs" />
+    <Compile Include="Interfaces\IAdwAdminService.cs" />
+    <Compile Include="Interfaces\IReport.cs" />
+    <Compile Include="Models\CodeModel.cs" />
+    <Compile Include="Models\KeyModel.cs" />
+    <Compile Include="Models\RelatedCodeModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Properties\DataAnnotationsResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAnnotationsResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AdwAdminService.cs" />
+    <Compile Include="Services\SessionService.cs" />
+    <Compile Include="TypeConverters\ProfileExpressionTypeConverter.cs" />
+    <Compile Include="TypeConverters\MappingEngineTypeConverter.cs" />
+    <Compile Include="TypeConverters\NullStringTypeConverter.cs" />
+    <Compile Include="Types\AdwOrderType.cs" />
+    <Compile Include="Types\CacheType.cs" />
+    <Compile Include="Configuration\HistorySection.cs" />
+    <Compile Include="Types\ContextType.cs" />
+    <Compile Include="Types\AreaLinkIconType.cs" />
+    <Compile Include="Types\Geospatial\GroupNames.cs" />
+    <Compile Include="Types\GroupRowType.cs" />
+    <Compile Include="Types\IconType.cs" />
+    <Compile Include="Types\LayoutType.cs" />
+    <Compile Include="Types\IndicatorType.cs" />
+    <Compile Include="Types\HistoryPageMetadata.cs" />
+    <Compile Include="Types\HistoryType.cs" />
+    <Compile Include="Types\LifetimeType.cs" />
+    <Compile Include="Types\MessageType.cs" />
+    <Compile Include="Types\Pageable.cs" />
+    <Compile Include="Types\PageMetadata.cs" />
+    <Compile Include="Types\RowType.cs" />
+    <Compile Include="Types\GroupType.cs" />
+    <Compile Include="Controllers\InfrastructureController.cs" />
+    <Compile Include="DataAnnotations\ContingentAttribute.cs" />
+    <Compile Include="DataAnnotations\HiddenAttribute.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfTrueAttribute.cs" />
+    <Compile Include="DataAnnotations\EditableIfTrueAttribute.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\EditableIfRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfNotRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\EditableIfNotRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfNotEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\EditableIfNotEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfNotAttribute.cs" />
+    <Compile Include="DataAnnotations\EditableIfNotAttribute.cs" />
+    <Compile Include="DataAnnotations\EditableIfFalseAttribute.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfFalseAttribute.cs" />
+    <Compile Include="DataAnnotations\EditableIfEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\VisibleIfRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\VisibleIfNotRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\VisibleIfNotEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\VisibleIfNotAttribute.cs" />
+    <Compile Include="DataAnnotations\VisibleIfTrueAttribute.cs" />
+    <Compile Include="DataAnnotations\VisibleIfFalseAttribute.cs" />
+    <Compile Include="DataAnnotations\VisibleIfEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\EditableIfAttribute.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfAttribute.cs" />
+    <Compile Include="DataAnnotations\SecurityAttribute.cs" />
+    <Compile Include="DataAnnotations\LinkAttribute.cs" />
+    <Compile Include="DataAnnotations\GroupAttribute.cs" />
+    <Compile Include="DataAnnotations\ButtonAttribute.cs" />
+    <Compile Include="DataAnnotations\VisibleIfAttribute.cs" />
+    <Compile Include="Exceptions\TypeMismatchException.cs" />
+    <Compile Include="Exceptions\ServiceValidationException.cs" />
+    <Compile Include="Interfaces\IAdwService.cs" />
+    <Compile Include="Mappers\AdwMapper.cs" />
+    <Compile Include="Services\AdwService.cs" />
+    <Compile Include="Types\AdwType.cs" />
+    <Compile Include="Types\ContentType.cs" />
+    <Compile Include="Types\AdwDisplayType.cs" />
+    <Compile Include="Types\ActionForDependencyType.cs" />
+    <Compile Include="Types\PriorityType.cs" />
+    <Compile Include="Types\RegistrationType.cs" />
+    <Compile Include="Types\CustomDataType.cs" />
+    <Compile Include="Types\SelectionType.cs" />
+    <Compile Include="DataAnnotations\EqualToAttribute.cs" />
+    <Compile Include="DataAnnotations\GreaterThanAttribute.cs" />
+    <Compile Include="DataAnnotations\GreaterThanOrEqualToAttribute.cs" />
+    <Compile Include="DataAnnotations\IsAttribute.cs" />
+    <Compile Include="DataAnnotations\LessThanAttribute.cs" />
+    <Compile Include="DataAnnotations\LessThanOrEqualToAttribute.cs" />
+    <Compile Include="DataAnnotations\NotEqualToAttribute.cs" />
+    <Compile Include="DataAnnotations\RequiredIfAttribute.cs" />
+    <Compile Include="DataAnnotations\RequiredIfEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\RequiredIfFalseAttribute.cs" />
+    <Compile Include="DataAnnotations\RequiredIfNotAttribute.cs" />
+    <Compile Include="DataAnnotations\RequiredIfNotEmptyAttribute.cs" />
+    <Compile Include="DataAnnotations\RequiredIfNotRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\RequiredIfRegExMatchAttribute.cs" />
+    <Compile Include="DataAnnotations\RequiredIfTrueAttribute.cs" />
+    <Compile Include="Extensions\AssemblyExtension.cs" />
+    <Compile Include="Extensions\ClaimsIdentityExtension.cs" />
+    <Compile Include="Extensions\ModelStateDictionaryExtension.cs" />
+    <Compile Include="Interfaces\IBootstrapper.cs" />
+    <Compile Include="Interfaces\IBuildManager.cs" />
+    <Compile Include="Interfaces\ICacheService.cs" />
+    <Compile Include="Interfaces\IClient.cs" />
+    <Compile Include="Interfaces\IPerRequestTask.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="DataAnnotations\OrderAttribute.cs" />
+    <Compile Include="Extensions\EnumerableExtension.cs" />
+    <Compile Include="Extensions\RegistrationExtension.cs" />
+    <Compile Include="Interfaces\IConfigurationManager.cs" />
+    <Compile Include="Interfaces\IContainerProvider.cs" />
+    <Compile Include="Interfaces\IFluent.cs" />
+    <Compile Include="Interfaces\IQuickfind.cs" />
+    <Compile Include="Interfaces\IRegistration.cs" />
+    <Compile Include="DataAnnotations\BindableAttribute.cs" />
+    <Compile Include="DataAnnotations\MenuAttribute.cs" />
+    <Compile Include="Extensions\HtmlHelperExtension.cs" />
+    <Compile Include="Extensions\TypeExtension.cs" />
+    <Compile Include="FilterProviders\ConditionalFilterProvider.cs" />
+    <Compile Include="Interfaces\IMapper.cs" />
+    <Compile Include="Ioc\ContainerProvider.cs" />
+    <Compile Include="Mappers\StringMapper.cs" />
+    <Compile Include="ModelMetadataProviders\InfrastructureModelMetadataProvider.cs" />
+    <Compile Include="MvcApplication.cs" />
+    <Compile Include="Registrations\AreaRegistration.cs" />
+    <Compile Include="Registrations\ModelMetadataProviderRegistration.cs" />
+    <Compile Include="Registrations\FilterProviderRegistration.cs" />
+    <Compile Include="Registrations\GlobalFilterRegistration.cs" />
+    <Compile Include="Registrations\ModelBinderRegistration.cs" />
+    <Compile Include="ModelBinders\InfrastructureModelBinder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrations\ViewEngineRegistration.cs" />
+    <Compile Include="Services\HttpCacheService.cs" />
+    <Compile Include="Types\ClaimType.cs" />
+    <Compile Include="Services\LocalClient.cs" />
+    <Compile Include="Services\Service.cs" />
+    <Compile Include="Extensions\ServiceExtension.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Profilers\UsernameUserProfiler.cs" />
+    <Compile Include="ValueResolvers\BoolToFlagValueResolver.cs" />
+    <Compile Include="ValueResolvers\AddressModelToSingleLineValueResolver.cs" />
+    <Compile Include="ValueResolvers\DateTimeToNullableDateTimeValueResolver.cs" />
+    <Compile Include="ValueResolvers\JobseekerSearchModelToSingleLineValueResolver.cs" />
+    <Compile Include="ValueResolvers\NullableBoolToFlagValueResolver.cs" />
+    <Compile Include="ValueResolvers\FlagToNullableBoolValueResolver.cs" />
+    <Compile Include="ValueResolvers\FlagToBoolValueResolver.cs" />
+    <Compile Include="ValueResolvers\IsInRoleValueResolver.cs" />
+    <Compile Include="ValueResolvers\SecurityAttributeToModelValueResolver.cs" />
+    <Compile Include="ViewEngines\CsRazorViewEngine.cs" />
+    <Compile Include="ViewModels\BulletinsPageMetadata.cs" />
+    <Compile Include="ViewModels\BulletinViewModel.cs" />
+    <Compile Include="ViewModels\BulletinsViewModel.cs" />
+    <Compile Include="ViewModels\Calendar\CalendarViewModel.cs" />
+    <Compile Include="ViewModels\Calendar\CategoryItemViewModel.cs" />
+    <Compile Include="ViewModels\Calendar\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Content.cs" />
+    <Compile Include="ViewModels\ContentViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\DoubleViewModel.cs" />
+    <Compile Include="ViewModels\GraphViewModel.cs" />
+    <Compile Include="ViewModels\InheritanceViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\BoolViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\ObjectViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\LongViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\DateTimeViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\DateViewModel.cs" />
+    <Compile Include="ViewModels\DynamicViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\IntViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\LabelViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\MultilineStringViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\MultiSelectListViewModel.cs" />
+    <Compile Include="ViewModels\Geospatial\AddressViewModel.cs" />
+    <Compile Include="ViewModels\Geospatial\AjaxAddressViewModel.cs" />
+    <Compile Include="ViewModels\JobSeeker\AjaxJobseekerSearchViewModel.cs" />
+    <Compile Include="ViewModels\JobSeeker\JobseekerSearchViewModel.cs" />
+    <Compile Include="ViewModels\PagedViewModel.cs" />
+    <Compile Include="ViewModels\OrganisationSiteViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\SelectlistViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\StringViewModel.cs" />
+    <Compile Include="ViewModels\Dynamic\TimeViewModel.cs" />
+    <Compile Include="ViewModels\WidgetSelectorViewModel.cs" />
+    <Compile Include="ViewModels\WidgetViewModel.cs" />
+    <Compile Include="Wrappers\BuildManagerWrapper.cs" />
+    <Compile Include="Wrappers\CacheServiceWrapper.cs" />
+    <Compile Include="Wrappers\ConfigurationManagerWrapper.cs" />
+    <Compile Include="Wrappers\MappingEngineWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\DataAnnotationsResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DataAnnotationsResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.dll" "$(ProjectDir)..\..\Zeus.Complete\Site\bin" /D /Y /I</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

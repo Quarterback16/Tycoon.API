@@ -1,0 +1,91 @@
+﻿@using Employment.Web.Mvc.Infrastructure.Extensions
+ 
+@model Employment.Web.Mvc.Zeus.ViewModels.IndexViewModel
+<section id="content">
+    
+    @{
+        var lastLogon = Html.GetUserService().LastLogon;
+
+        if (lastLogon != null)
+        {
+            <header id="headerForLastLoginDetails" class="group">
+                <section id="userDetailsForLastLoginDetails" class="floatRight">
+                    @{ var aestTime = lastLogon.Value;
+                     if (lastLogon.Value.IsDaylightSavingTime())
+                     { aestTime = lastLogon.Value.Subtract(new TimeSpan(1, 0, 0)); }
+                    }
+                    <p class="floatRight"><span class="small">Last logged on: @lastLogon.Value.ToShortDateString() @aestTime.ToShortTimeString() AEST</span></p>
+                </section><!--userDetails-->
+            </header><!--#header-->
+        }
+    }
+    <div class="row">
+       @* <div id="homeBulletins" class="colT well">
+    @*<h2>Bulletins</h2>
+         @Html.ShowBulletins()
+
+            @Html.ActionLink("View All Bulletins", "Bulletins", "Default", null, new { @class = "button" })
+        </div>
+        <!--homeBulletins-->
+        @if (Model.ShowNoticeboardMessages)
+        {
+        <div id="homeNoticeboard" class="colT">
+            <h2>Noticeboard</h2>
+
+            @if (Model != null && Model.NoticeboardMessages != null && Model.NoticeboardMessages.Any())
+            {
+                <dl>
+                    @foreach (var message in Model.NoticeboardMessages)
+                    {
+                        <dt>@Html.RouteLink(message.Description, "Notification_noticeboard", new RouteValueDictionary { { "action", "ListMessages" }, { "controller", "Noticeboard" }, { "MessageGroupLevel1Code", message.Type } }, new Dictionary<string, object> { { "title", string.Format("{0} ({1})", message.Description, message.Count) } })</dt>
+                        <dd>@message.Count</dd>
+                    }
+                </dl>
+            }
+
+            @Html.RouteLink("View Noticeboard", "Notification_noticeboard", null, new { @class = "button" })
+        </div>
+    <!--homeNoticeboard-->
+    }*@
+    </div>
+</section><!--#content-->
+
+<nav id="pagenav" class="homeNav">
+    @{
+        
+
+        const int TotalCols = 12;
+        int perRow = 3;
+        var areas = Html.GetVisibleAreaTiles();
+        int totalShown = 0;
+        while (totalShown < areas.Count())
+        {
+            var areasInRow = areas.Skip(totalShown).Take(perRow);
+
+            @:<div class="row">
+           
+            
+            foreach (var area in areasInRow)
+            {               
+                @:<div class ="col-md-@(TotalCols/perRow)">
+                 
+                var linkTag = new TagBuilder("a");
+                linkTag.AddCssClass(area.AreaName.ToLower());
+                linkTag.AddCssClass("btn btn-lg fa-2x "); //btn-inverse
+                var urlHelper = new UrlHelper(new RequestContext(Url.RequestContext.HttpContext, new RouteData()));
+                var routeName = string.IsNullOrEmpty(area.RouteName) ? string.Format("{0}_default", area.AreaName) : area.RouteName;
+                var href = urlHelper.RouteUrl(routeName, new { });
+                linkTag.Attributes.Add("href", href);
+                linkTag.InnerHtml = string.Format("<i class=\"{0} fa  fa-2x pull-left \"></i><span class=\"pull-left\">{1}</span>", area.AreaName.ToLower(), area.DisplayName);
+                @Html.Raw(linkTag.ToString(TagRenderMode.Normal));
+       
+                @:</div> 
+
+                totalShown++;
+            }
+            
+            @:</div>
+        }       
+    
+    }
+</nav>

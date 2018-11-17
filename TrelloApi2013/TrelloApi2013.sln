@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrelloApi2013", "TrelloApi2013\TrelloApi2013.csproj", "{FE9EA3AA-F479-41D8-A505-855CDD274390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrelloApi2013.Tests", "TrelloApi2013.Tests\TrelloApi2013.Tests.csproj", "{AA4B0C9E-DB32-4A3D-AA11-0577612B8404}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE9EA3AA-F479-41D8-A505-855CDD274390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE9EA3AA-F479-41D8-A505-855CDD274390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE9EA3AA-F479-41D8-A505-855CDD274390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE9EA3AA-F479-41D8-A505-855CDD274390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA4B0C9E-DB32-4A3D-AA11-0577612B8404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA4B0C9E-DB32-4A3D-AA11-0577612B8404}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA4B0C9E-DB32-4A3D-AA11-0577612B8404}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA4B0C9E-DB32-4A3D-AA11-0577612B8404}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

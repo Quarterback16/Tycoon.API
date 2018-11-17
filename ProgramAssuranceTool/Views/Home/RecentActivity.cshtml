@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Recent Activity";
+}
+
+<div class="page-header"> 
+    <h1>Recent Activity</h1>
+</div>
+
+<div class="col-lg-12">
+   @Html.Raw( ViewData["grid"].ToString() )
+</div>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:6491/" />
+<title>DR01039367 </title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">DR01039367 </td></tr>
+</thead><tbody>
+<!--When submitting a bulletin, if Description is blank then error message.-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ProjectField</td>
+	<td>129</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=BulletinTitle</td>
+	<td>asdfasdfdsaf</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=StartDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; var nextWeek = new Date(today.getFullYear(), month, today.getDate() - 7); var month2 = nextWeek.getMonth(); nextWeek.getDate() + '/' + month2 + '/' + nextWeek.getFullYear()}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=EndDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; today.getDate() + '/' + month + '/' + today.getFullYear() }</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=btnSave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>Description is mandatory and cannot be blank</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

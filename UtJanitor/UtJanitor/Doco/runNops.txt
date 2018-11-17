@@ -1,0 +1,6 @@
+﻿Purpose
+-------
+Utility to be run after each ut download
+
+Will save time by copying files to the media server
+

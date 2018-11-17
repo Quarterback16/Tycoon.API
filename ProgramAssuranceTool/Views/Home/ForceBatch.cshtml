@@ -1,0 +1,44 @@
+﻿@model ProgramAssuranceTool.ViewModels.System.SystemViewModel
+
+<div class="page-header"> 
+    <h1>@ViewBag.Title</h1>
+</div>
+
+<div class="ui-widget-content">
+<br/>
+Are you sure you want to Force the batch jobs to run?
+<br/>
+This will cause 
+    <ul>
+        <li>the system to update review outcomes from questionaire data</li>
+        <li>the system to update the Compliance Indicators</li>
+    </ul>
+
+<br/>
+
+<fieldset>
+    <legend>Environment</legend>
+
+    <div>
+    @Html.LabelFor(model => model.SystemName)
+    </div>
+    <div>
+    @Html.DisplayFor( model => model.SystemName )
+    </div>
+
+    <div>
+    @Html.LabelFor(model => model.CurrentTime)
+    </div>
+    <div>
+    @Html.DisplayFor(model => model.CurrentTime)
+    </div>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Force the Batch Process to Run" />
+    </p>
+}
+
+</div>
+

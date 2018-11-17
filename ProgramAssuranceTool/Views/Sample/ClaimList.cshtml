@@ -1,0 +1,77 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.ViewModels.Sample.ClaimListViewModel
+
+@{
+    ViewBag.Title = "Claim List";
+}
+
+<div class="page-header">  
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+        <li>@Html.ActionLink("Sample list", "Details", "Project", new { id = Model.ProjectId, tabNo = CommonConstants.ProjectTab_Samples }, "")</li>
+        <li class="active">Claim List</li>
+    </ol>        
+    <h1>Project - @Model.ProjectId -  @Model.ProjectName</h1>
+</div>
+
+<div id ="sampleClaimListDiv" class="panel panel-default col-lg-12 row">
+    
+    <div class="panel-heading">
+        <h2 class="panel-title clearfix">
+            <span>Claim List</span>
+        </h2>
+        <div class="clear-fix"></div>
+    </div>
+    
+    <div class="panel-body">
+        <div id="grid">
+            @Html.Raw(ViewData["grid"])
+        </div>
+        <div id="selection-count"></div>
+    </div>
+ 
+    @using (Html.BeginForm("ClaimList", "Sample", FormMethod.Post, new { id = "claimListForm", name = "claimListForm" }))
+    {
+        <div>
+            @Html.ValidationMessageSummary()   
+        </div>
+           
+        <div class="form-group" id="options">
+            <label for="Define Sample Set" class="control-label">Define Sample Set</label>
+            <div class="col-lg-2">
+                &nbsp;
+            </div>
+            <div class="col-lg-2">
+                @Html.CheckBoxFor(model => model.Additional)&nbsp;&nbsp;&nbsp;Additional Review   
+            </div>
+            <div class="col-lg-2">
+                @Html.CheckBoxFor(model => model.OutOfScope)&nbsp;&nbsp;&nbsp;Out of Scope
+            </div>
+            <div class="col-lg-6">
+                &nbsp;
+            </div>
+        </div>
+        <br/>
+
+        @Html.HiddenFor(model => model.SessionKey)
+        @Html.HiddenFor(model => model.ProjectId)                                          
+    
+        <div id="submit-button" class="panel-footer indented row">    
+            <button id="submit-sample" type="submit" name="button" value="submit" class="btn btn-lg btn-primary">Submit Sample</button>
+            <button id="addmore-button"type="submit" name="button" value="more" class="btn btn-lg btn-primary" >Add more claims</button>
+        </div>
+
+    }
+
+        <div class="hide" id="selections">@ViewBag.Selections</div>
+        <div class="hide" id="projectId">@Model.ProjectId</div>
+        <div class="hide" id="DueDate">@Model.DueDate</div>
+</div>
+
+@*
+<div class="row">
+    @{
+        @Html.Raw(AppHelper.ProjectDetailsLink(Model.ProjectId, "Back to Project"))
+    }
+</div>
+*@

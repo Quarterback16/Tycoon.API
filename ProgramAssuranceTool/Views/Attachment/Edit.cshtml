@@ -1,0 +1,103 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.Models.ProjectAttachment
+
+@{
+    ViewBag.Title = string.Format("Project - {0} - {1}", Model.ProjectId, Model.ProjectName);
+
+    var submitLabel = "Upload Document";
+    if (Model.Id > 0)
+    {
+        submitLabel = "Save Changes";
+    }
+
+}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+        <li>@Html.ActionLink("Project Documents", "Details", "Project", new { id = Model.ProjectId, tabNo = CommonConstants.ProjectTab_Documents }, "")</li>
+        <li class="active">Attachment Details</li>
+    </ol>         
+    <h1>@ViewBag.Title</h1>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title clearfix">
+            <span>Project Document</span>
+        </h2>
+        <div class="clear-fix"></div>
+    </div>
+
+    @using (Html.BeginForm("Edit", "Attachment", FormMethod.Post, new { @role = "form", id = "attachmentEditForm", name = "attachmentEditForm", enctype = "multipart/form-data" }))
+    {
+        <div class="panel-body">
+            @Html.Partial("RequiredFieldMessage")<br />
+            @Html.ValidationMessageSummary()
+
+            @Html.HiddenFor(a => a.ProjectId)
+            @Html.HiddenFor(a => a.ProjectName)
+
+            <div class="row">
+                <div class="col-xs-2">
+                    @Html.LabelFor(a => a.Id)
+                    @Html.TextBoxFor(a => a.Id, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelForRequired(a => a.DocumentName)
+                    @Html.ValidationMessageFor(a => a.DocumentName)
+                    @Html.TextBoxFor(a => a.DocumentName, new { @class = "form-control", @placeholder = "Please specify the Document name", @maxlength = "250" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(a => a.Description)
+                    @Html.TextAreaFor(a => a.Description, new { @class = "form-control", @placeholder = "Please specify the Document description", @maxlength = "250" })
+                </div>
+            </div>
+
+            @{
+        if (Model.Id < 1)
+        {
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label for="Attachment">Please choose a File to upload (this is not amendable.)</label>
+                        <input type="file" name="Attachment" id="Attachment" />
+                    </div>
+                </div>
+        }
+        else
+        {
+                <div class="row">
+                    <div class="col-xs-12">
+                        @Html.LabelFor(a => a.Url)
+                        @Html.TextBoxFor(a => a.Url, new { @readonly = "readonly", @class = "form-control" })
+                    </div>
+                </div>
+        }
+            }
+
+        </div>
+
+        <div class="panel-footer clearfix">
+            @{
+                if (Model.Id > 0)
+                {
+                    <div class="pull-left">
+                        <button type="submit" id="btnDelete" name="command" value="@CommonConstants.ButtonDelete" class="hidden" @ViewBag.Disabled></button>
+                        <button type="button" id="btnDeletePrompt" class="btn btn-lg btn-primary" @ViewBag.Disabled>Delete</button>
+                        @Html.ActionLink("Download", "Download", "Attachment", new {Model.Id, Model.ProjectId}, new {@class = "btn btn-lg btn-primary"})
+                    </div>
+                }
+            }
+            <button type="submit" id="btnSave" name="command" value="@CommonConstants.ButtonSave" class="btn btn-lg btn-primary" @ViewBag.Disabled>@submitLabel</button>
+        </div>
+    }
+
+</div>
+
+@*@Html.ActionLink("Back to Documents", "Details", "Project", new { Id = Model.ProjectId, tabNo = 5 }, null)*@

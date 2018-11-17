@@ -1,0 +1,201 @@
+﻿@using System.Web.Mvc.Html
+@using MvcJqGrid
+@using MvcJqGrid.Enums
+@using ProgramAssuranceTool.Helpers
+@using ProgramAssuranceTool.ViewModels.Report
+@model SearchCriteriaViewModel 
+
+@{
+    ViewBag.Title = "Site Visit Report";
+}
+
+<div class="page-header">
+    <h1>Site Visit Report</h1>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Search Criteria</h2>
+    </div>
+    @using (Html.BeginForm("SiteVisit", "Report", FormMethod.Post, new { @id = "reportSearchForm", @class = "form-inline" }))
+    {
+        <div class="panel-body">
+            
+            @Html.Partial("RequiredFieldMessage")<br/>
+            @Html.ValidationMessageSummary()
+            @Html.HiddenFor(r => r.TotalRecords)            
+
+             <div class="row">
+                <div class="col-xs-4">
+                    <fieldset>
+                        <legend>Search Type</legend>
+                        <label for="AdvanceSearchType" class="pull-right">
+                            <span>&nbsp;&nbsp;</span>
+                            @Html.RadioButtonFor(r => r.IsAdvanceSearchType, true, new { @style = "width:30px;", @id = "AdvanceSearchType" })Advanced
+                        </label>
+                        <label for="BasicSearchType" class="pull-right">
+                            @Html.RadioButtonFor(r => r.IsAdvanceSearchType, false, new { @style = "width:30px;", @id = "BasicSearchType" })Basic
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-6">
+                    @Html.LabelForRequired(r => r.OrgCode, null, true)
+                    @Html.TextBoxFor(r => r.OrgCode, new { @class = "form-control", @placeholder = "Please specify the Organisation" })
+                </div>
+                
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.ESACode)
+                    @Html.TextBoxFor(r => r.ESACode, new { @class = "form-control", @placeholder = "Select All ESAs" })
+                </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelForRequired(r => r.ProjectID, null, true)
+                    @Html.TextBoxFor(r => r.ProjectID, new { @class = "form-control", @placeholder = "Please specify the Project" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.SiteCode)
+                    @Html.TextBoxFor(r => r.SiteCode, new { @class = "form-control", @placeholder = "Select All Sites" })
+                </div>
+
+                <div class="col-xs-6">
+                    @Html.LabelForRequired(r => r.ProjectType, null, true)
+                    @Html.EditorFor(r => r.ProjectType)
+                </div>
+
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.ContractType)
+                    @Html.EditorFor(r => r.ContractType)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.UploadDateFrom)
+                    @Html.EditorFor(r => r.UploadDateFrom)
+                </div>
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.UploadDateTo)
+                    @Html.EditorFor(r => r.UploadDateTo)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.SortColumn)
+                    @Html.DropDownList("SortColumn", ViewBag.SortColumnList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                </div>
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.SortBy)
+                    @Html.DropDownList("SortBy", ViewBag.SortByList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer clearfix">
+            <div class="pull-left">
+                @Html.ActionLink("Reset", "SiteVisit", "Report", new { @class = "btn btn-lg btn-primary" })
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary">Search</button>
+        </div>
+    }
+</div>
+
+@{
+    if (ViewBag.ModelIsValid && HttpContext.Current.Request.HttpMethod == "POST")
+    {
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Search Result</h2>
+    </div>
+
+    <div id="gridResult">
+        
+        <div class="panel-body">
+            @{
+                var g = Html.Grid("SiteVisitGrid");
+                g.SetCaption("Site Visit Report");
+                g.AddColumn(new Column("OrgCode").SetLabel("Org Code").SetWidth(40).SetFixedWidth(true).SetAlign(Align.Center));
+                g.AddColumn(new Column("OrgName").SetLabel("Org Name").SetWidth(150).SetFixedWidth(true));
+                g.AddColumn(new Column("ESACode").SetLabel("ESA Code").SetWidth(40).SetFixedWidth(true).SetAlign(Align.Center));
+                g.AddColumn(new Column("ESAName").SetLabel("ESA Name").SetWidth(150).SetFixedWidth(true));
+                g.AddColumn(new Column("SiteCode").SetLabel("Site Code").SetWidth(40).SetFixedWidth(true).SetAlign(Align.Center));
+                g.AddColumn(new Column("SiteName").SetLabel("Site Name").SetWidth(150).SetFixedWidth(true));
+                g.AddColumn(new Column("ProjectID").SetLabel("Project ID").SetWidth(55).SetFixedWidth(true));
+                g.AddColumn(new Column("ProjectName").SetLabel("Project Name").SetWidth(150).SetFixedWidth(true));
+                g.AddColumn(new Column("JobSeekerID").SetLabel("JobSeeker ID").SetWidth(100).SetFixedWidth(true));
+                g.AddColumn(new Column("FirstName").SetLabel("First Name").SetWidth(100).SetFixedWidth(true));
+                g.AddColumn(new Column("Surname").SetLabel("Surname").SetWidth(100).SetFixedWidth(true));
+                g.AddColumn(new Column("Claim ID").SetLabel("Claim ID").SetWidth(80).SetFixedWidth(true));
+                g.AddColumn(new Column("Claim Type").SetLabel("Claim Type").SetWidth(50).SetFixedWidth(true).SetAlign(Align.Center));
+                g.AddColumn(new Column("Claim Type Description").SetLabel("Claim Type Description").SetWidth(155).SetFixedWidth(true));
+                g.AddColumn(new Column("Claim Amount").SetLabel("Claim Amount").SetWidth(60).SetFormatter(Formatters.Currency).SetAlign(Align.Right).SetFixedWidth(true));
+                g.AddColumn(new Column("Claim Creation Date").SetLabel("Claim Creation Date").SetWidth(100).SetAlign(Align.Right).SetFixedWidth(true));
+                g.AddColumn(new Column("Contract Type").SetLabel("Contract Type").SetWidth(80).SetFixedWidth(true).SetAlign(Align.Center));
+                g.AddColumn(new Column("Days Overdue").SetLabel("Days Overdue").SetWidth(40).SetAlign(Align.Right).SetFixedWidth(true));
+                g.AddColumn(new Column("Assessment Action").SetLabel("Assessment Action").SetWidth(80).SetFixedWidth(true).SetAlign(Align.Center));
+                g.AddColumn(new Column("Assessment Outcome").SetLabel("Assessment Outcome").SetWidth(80).SetFixedWidth(true).SetAlign(Align.Center));
+                g.AddColumn(new Column("Final Outcome").SetLabel("Final Outcome").SetWidth(100).SetAlign(Align.Right).SetFixedWidth(true));
+                g.AddColumn(new Column("Last Update Date").SetLabel("Last Update Date").SetWidth(85).SetAlign(Align.Right).SetFixedWidth(true));
+                g.AddColumn(new Column("Recovery Reason").SetLabel("Recovery Reason").SetWidth(70).SetFixedWidth(true).SetAlign(Align.Center));
+                g.AddColumn(new Column("Review Status").SetLabel("Review Status").SetWidth(100).SetFixedWidth(true));
+                g.AddColumn(new Column("Upload Date").SetLabel("Upload Date").SetWidth(90).SetAlign(Align.Right).SetFixedWidth(true));
+                g.SetUrl(Url.Action("SiteVisitGetData", "Report", new {Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy, Model.TotalRecords}));
+                g.SetHeight(CommonConstants.GridStandardHeight); // set this tall enough and you won't see the scroll bar
+                g.SetWidth(CommonConstants.GridStandardWidth);
+                g.SetAutoWidth(false); // force the grid to fit the width of the parent element
+                g.SetRowNum(CommonConstants.GridStandardDoubleRows); // set the number of rows displayed initially
+                g.SetRowList(new[] {20, 50, 100, 200}); // DR01039126 
+                g.SetViewRecords(true); // display the total number of rows in the dataset
+                g.SetPager("pager");
+                g.SetHeaderTitles(true);
+                g.SetSearchToolbar(false); // disable toolbar searching
+                g.SetSearchOnEnter(false);
+                g.SetSortOnHeaderClick(false);
+                g.OnLoadComplete("pat.reportGridOnLoadComplete('SiteVisitGrid')");
+
+                var gridString = AppHelper.WcagFixGrid(g, "SiteVisitGrid", "Site Visit Report");
+                @Html.Raw(gridString)
+            }
+        </div>
+
+        <div class="panel-footer clearfix">
+            <div class="pull-left">
+                <h3>Generate Printable Report</h3>
+                @{
+        if (Model.TotalRecords < CommonConstants.GridMaxRecordToDownload)
+        {
+                        @Html.ActionLink("PDF", "SiteVisitDownload", "Report", new { reportType = CommonConstants.Pdf, Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy }, new { @class = "btn btn-sm btn-default" })
+                        @Html.ActionLink("Word", "SiteVisitDownload", "Report", new { reportType = CommonConstants.Word, Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy }, new { @class = "btn btn-sm btn-default" })
+                        @Html.ActionLink("CSV", "SiteVisitDownload", "Report", new { reportType = CommonConstants.Csv, Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy }, new { @class = "btn btn-sm btn-default" })
+        }
+        else
+        {
+                        @Html.Partial("TooManyRecordsMessage")
+        }
+                }
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="gridNoResult" class="hidden">
+        <div class="panel-body">
+            <div class="validation-summary-errors">
+                <p>Data not found ! Please try again.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    }
+} 

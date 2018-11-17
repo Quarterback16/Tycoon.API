@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:6491/" />
+<title>Basic mode</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Basic mode</td></tr>
+</thead><tbody>
+<tr>
+	<td>click</td>
+	<td>link=Report</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Compliance Risk Indicator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<!--Validate the screen for Basic mode-->
+<tr>
+	<td>assertText</td>
+	<td>css=h1</td>
+	<td>Compliance Risk Indicator Report</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=BasicSearchType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>id=AdvanceSearchType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//form[@id='reportSearchForm']/div/div[3]/div/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//form[@id='reportSearchForm']/div/div[3]/div[2]/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//form[@id='reportSearchForm']/div/div[5]/div/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//form[@id='reportSearchForm']/div/div[5]/div[3]/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//form[@id='reportSearchForm']/div/div[6]/div/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//form[@id='reportSearchForm']/div/div[6]/div[2]/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//form[@id='reportSearchForm']/div/div[7]/div/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>//form[@id='reportSearchForm']/div/div[7]/div[2]/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>id=OrgCode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>id=ESACode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>id=SiteCode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>id=ContractType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>id=UploadDateFrom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>id=UploadDateTo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>id=SortColumn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>id=SortBy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//form[@id='reportSearchForm']/div/div[3]/div/label</td>
+	<td>regex:^.*(?:\*.*)$</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//form[@id='reportSearchForm']/div/div[6]/div/label</td>
+	<td>regex:.*dd/mm/yyyy.*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//form[@id='reportSearchForm']/div/div[6]/div[2]/label</td>
+	<td>regex:.*dd/mm/yyyy.*</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=option[value=&quot;COI&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=option[value=&quot;COR&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=option[value=&quot;IPR&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=option[value=&quot;ORG&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=option[value=&quot;TOR&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=option[value=&quot;ASC&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=option[value=&quot;DESC&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>Organisation is mandatory, Please choose organisation.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=OrgCode</td>
+	<td>MISN - Mission Australia</td>
+</tr>
+<!--ensure that the result are empty before searching-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=gbox_ComplianceGrid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=PDF</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Word</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=CSV</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<!--ensure that the result exist before searching-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=gbox_ComplianceGrid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=PDF</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Word</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=CSV</td>
+	<td></td>
+</tr>
+<!--check if the table columns doest exist-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_OrgCode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_ESACode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_SiteCode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_ComplianceIndicator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_InProgressReviewCount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_CompletedReviewCount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_TotalReviewCount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_TotalRecoveryAmount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_ValidCount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_ValidAdminCount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_InvalidRecovery</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_InvalidNoRecovery</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=jqgh_ComplianceGrid_InvalidAdminCount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@type='reset']</td>
+	<td></td>
+</tr>
+<!--ensure that the result are empty after reset-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=gbox_ComplianceGrid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=PDF</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=Word</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>link=CSV</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

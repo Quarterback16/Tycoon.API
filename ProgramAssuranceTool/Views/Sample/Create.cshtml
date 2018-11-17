@@ -1,0 +1,130 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.ViewModels.Sample.CreateSampleViewModel
+@{
+    ViewBag.Title = "Create a new Sample";
+}
+
+<div class="page-header">
+        <ol class="breadcrumb">
+        <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+        <li>@Html.ActionLink("Project Samples", "Details", "Project", new { id = Model.ProjectId, tabNo = CommonConstants.ProjectTab_Samples }, "")</li>
+        <li class="active">Add Sample</li>
+    </ol>       
+    <h1>Create a new Sample for Project @Model.ProjectId - @Model.ProjectName</h1>
+</div>
+
+<div class="row">
+    <div class="panel panel-default col-lg-12">
+        <div class="panel-heading">
+            @Model.SampleMessage
+        </div>
+                
+ 
+            @using (Html.BeginForm("Create", "Sample", FormMethod.Post, new { id = "sampleCreateForm", name = "sampleCreateForm" }))
+            {
+                <div class="panel-body">
+           
+                    @Html.ValidationMessageSummary()
+                    
+                    <p>
+                        @Html.Partial("RequiredFieldMessage")
+                    </p>
+
+                    <div class="form-group">
+                        @Html.LabelForRequired( model => model.Criteria.Organisation )
+                        @Html.ValidationMessageFor( model => model.Criteria.Organisation )
+                        @Html.EditorFor( model => model.Criteria.Organisation )
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelForRequired( model => model.Criteria.Esa )
+                        @Html.ValidationMessageFor( model => model.Criteria.Esa )
+                        @Html.EditorFor( model => model.Criteria.Esa )
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor( model => model.Criteria.Site )
+                        @Html.ValidationMessageFor( model => model.Criteria.Site )
+                        @Html.EditorFor( model => model.Criteria.Site )
+                    </div>
+        
+                    <div class="form-group">
+                        @Html.LabelFor( model => model.Criteria.ClaimTypeDescription )
+                        @Html.ValidationMessageFor( model => model.Criteria.ClaimTypeDescription )
+                        @Html.EditorFor( model => model.Criteria.ClaimTypeDescription )
+                    </div>
+                    <div class="row">     
+                        <div class="col-xs-6">
+                            @Html.LabelFor( model => model.Criteria.FromClaimDate )
+                            @Html.ValidationMessageFor( model => model.Criteria.FromClaimDate )
+                            @Html.EditorFor( model => model.Criteria.FromClaimDate )
+                        </div>
+        
+                        <div class="col-xs-6">
+                            @Html.LabelFor( model => model.Criteria.ToClaimDate )
+                            @Html.ValidationMessageFor( model => model.Criteria.ToClaimDate )
+                            @Html.EditorFor( model => model.Criteria.ToClaimDate )
+                        </div>
+                    </div>
+                    @if (Model.ContractMonitoringOrContractSiteVisitProject)
+                    {
+                        <div class="row">     
+                            <div class="col-xs-6">
+                                @Html.LabelFor( model => model.SampleStartDate )                                
+                                <input id="SampleStartDate" name="SampleStartDate" type="text" value="@AppHelper.ShortDate(Model.SampleStartDate)" disabled/> 
+                            </div>
+                            @if (Model.IsAdministrator)
+                            {
+                                <div class="col-xs-6">
+                                    @Html.LabelFor( model => model.SampleDueDate )
+                                    @Html.ValidationMessageFor( model => model.SampleDueDate )
+                                    @Html.EditorFor( model => model.SampleDueDate )
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-xs-6">
+                                    @Html.LabelFor( model => model.SampleDueDate )
+                                    <input id="SampleDueDate" name="SampleDueDate" type="text" value="@AppHelper.ShortDate(Model.SampleDueDate)" disabled/> 
+                                </div>
+                                @Html.HiddenFor( model => model.SampleDueDate )                                
+                            }
+                        </div>
+                    }
+                    
+                    <div class="row">     
+                        <div class="col-xs-6">
+                            @Html.LabelFor( model => model.Criteria.MaxSampleSize )
+                            @Html.ValidationMessageFor( model => model.Criteria.MaxSampleSize )
+                            @Html.EditorFor( model => model.Criteria.MaxSampleSize )
+                        </div>
+        
+                        <div class="col-xs-6">
+                            <br/>
+                            <p style="font-size:larger" >@Html.CheckBoxFor( model => model.Criteria.IncludeSpecialClaims ) &nbsp;&nbsp; Include Auto and Manual Special Claims</p>
+                        </div>
+                    </div>
+
+                    @Html.HiddenFor( model => model.SessionKey )
+                    @Html.HiddenFor( model => model.ProjectId )
+                    @Html.HiddenFor( model => model.ProjectName )
+
+                    @Html.HiddenFor( model => model.ContractMonitoringOrContractSiteVisitProject )
+                    @Html.HiddenFor( model => model.IsAdministrator )
+                    @Html.HiddenFor( model => model.SampleStartDate )
+                    
+                    @Html.HiddenFor( model => model.Criteria.RequestingUser )
+    
+                </div>
+    
+                <div class="panel-footer clearfix">
+                    <div class="pull-left">
+                        <button id="submit-button" type="submit" class="btn btn-lg btn-primary">Extract</button>
+                    </div>
+                    <br/>
+                </div>
+    
+            }
+
+        </div>
+</div>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Domain" namespace="Domain">
+  <class name="Employee">
+    <id name="Id" generator="hilo" />
+    <property name="EmployeeNumber" />
+    <property name="Firstname" />
+    <property name="Lastname" />
+    <property name="EmailAddress" />
+    <property name="DateOfBirth" />
+    <property name="DateOfJoining" />
+    <property name="IsAdmin" />
+    <property name="Password" />
+    <one-to-one name = "ResidentialAddress" class = "Address" property-ref= "Employee" cascade = "all" />
+    <many-to-one name="Employee" class="Employee" column="Employee_Id" unique="true" />
+    <set name="Benefits" cascade="all-delete-orphan">
+      <key column="Employee_Id" />
+      <one-to-many class="Benefit"/>
+    </set>
+    <set name="Communities" table="Employee_Community" cascade="alldelete-orphan">
+      <key>
+        <column name="Employee_Id" />
+      </key>
+      <many-to-many class="Community">
+        <column name="Community_Id" />
+      </many-to-many>
+    </set>
+    <set name="Members" table="Employee_Community" cascade="all-deleteorphan" inverse="true">
+      <key>
+        <column name="Community_Id"/>
+      </key>
+      <many-to-many class="Employee">
+        <column name="Employee_Id" />
+      </many-to-many>
+    </set>    
+  </class>
+</hibernate-mapping>

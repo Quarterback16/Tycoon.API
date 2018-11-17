@@ -1,0 +1,19 @@
+﻿@using Kendo.Mvc.UI;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/kendo/common/css")
+    @Styles.Render("~/bundles/kendo/default/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/kendo/web/js")
+    @Scripts.Render("~/bundles/kendo/mvc/js")
+</head>
+<body>
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+</body>
+</html>

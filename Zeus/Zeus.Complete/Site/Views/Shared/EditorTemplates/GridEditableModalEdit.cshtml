@@ -1,0 +1,931 @@
+﻿@using System.Collections.Generic
+@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+@using System.Globalization
+@using System.Text
+@using System
+@using System.Linq
+@using Employment.Web.Mvc.Infrastructure.DataAnnotations
+@using Employment.Web.Mvc.Infrastructure.Helpers
+@using Employment.Web.Mvc.Infrastructure.Interfaces
+@using Employment.Web.Mvc.Infrastructure.Types
+@using Employment.Web.Mvc.Infrastructure.Extensions
+@using Employment.Web.Mvc.Zeus.Extensions
+
+@model System.Collections.Generic.IEnumerable<dynamic>
+@if (ViewData.Model == null || !ViewData.Model.Any())
+{
+    return;
+}
+
+@{
+    // Get parent model metadata
+    var parentModel = ViewData.ModelMetadata.AdditionalValues["ParentModel"];
+    var propertyNameInParentModel = ViewData.ModelMetadata.PropertyName;
+    var fullPropertyIdInParentModel = Html.ExecuteUpOneLevel(() => ViewData.TemplateInfo.GetFullHtmlFieldId(propertyNameInParentModel));
+    var fullPropertyNameInParentModel = Html.ExecuteUpOneLevel(() => ViewData.TemplateInfo.GetFullHtmlFieldName(propertyNameInParentModel));
+    var parentModelPropertiesMetadata = ModelMetadataProviders.Current.GetMetadataForProperties(parentModel, parentModel.GetType());
+    var propertyInParentModel = parentModelPropertiesMetadata != null ? parentModelPropertiesMetadata.FirstOrDefault(p => string.Equals(p.PropertyName, propertyNameInParentModel, StringComparison.Ordinal)) : null;
+    var models = Model;
+
+    var routeDataAction = ViewContext.RouteData.GetAction();
+    var routeDataController = ViewContext.RouteData.GetController();
+    var routeDataArea = ViewContext.RouteData.GetArea();
+
+    var currencyDataType = DataType.Currency.ToString();
+    var dateDataType = DataType.Date.ToString();
+    var timeDataType = DataType.Time.ToString();
+
+    // Default paging
+    int page = 1;
+    int pageSize = 50;
+
+    // Use query string page number if supplied (only used when javascript is off)
+    string pageParameter = string.Format("{0}-page", propertyNameInParentModel);
+    if (ViewContext.HttpContext.Request.QueryString[pageParameter] != null)
+    {
+        if (!int.TryParse(ViewContext.HttpContext.Request.QueryString[pageParameter], out page))
+        {
+            page = 1;
+        }
+    }
+
+    // Determine Skip-link attribute
+
+    bool hasSkipLinkAttribute = true;// ViewData.ModelMetadata.GetAttributes<SkipLinkAttribute>().Any();
+    bool hasFooTableAttribute = ViewData.ModelMetadata.GetAttributes<FooTableAttribute>().Any();
+
+    bool isEditable = false;
+    var editableAttribute = ViewData.ModelMetadata.GetAttributes<EditableAttribute>().FirstOrDefault();
+    if (editableAttribute != null)
+    {
+        isEditable = editableAttribute.AllowEdit;
+    }
+
+    
+   
+@*@:<script type="text/javascript">
+@:    $(document).ready(function() {
+@:        viewModel.rows = @Html.Raw(Json.Encode(Model));
+@:        ko.applyBindings(viewModel);
+@:        viewModel.rows.push();
+@:    });
+@:    
+@:    viewModel = {
+@:        rows : ko.observableArray()
+@:    
+@:    };
+@:
+@:    function TheViewModel() {
+@:        this.rows = JSON.parse($("#vmJSON").val());
+@:
+@:        this.addRow = function() {
+@:            this.rows.push("","","");
+@:        }
+@:
+@:    }
+@:
+@:
+@:</script>*@
+
+    
+    var modalPopupFieldsDefinitions = new System.Collections.Generic.List<Tuple<string, Type>>();
+    
+
+    
+    // Determine paging metadata
+    PageMetadata pagedMetadata = null;
+    var pagedAttribute = ViewData.ModelMetadata.GetAttribute<PagedAttribute>();
+    if (pagedAttribute != null)
+    {
+        //check if PagedAttribute.Size property is string based
+        if (pagedAttribute.Size is string)
+        {
+            //check if property exists in the model
+            var property = parentModelPropertiesMetadata.FirstOrDefault(x => x.PropertyName == pagedAttribute.Size as string);
+            if (property == null)
+            {
+                throw new InvalidOperationException(string.Format("Dependent Page Size property {0} does not exist.", pagedAttribute.Size as string));
+            }
+            if (property.Model is int)
+            {
+                // Set the pageSize according to the value of property.Model, so number of results can change every time dependent property changes and thereon remaining consistent with PagedAttribute.Size property's Value.
+                pageSize = ((int)property.Model) > 0 ? (int)property.Model : pageSize;
+            }
+            else
+            {
+                throw new InvalidOperationException(string.Format("Dependent Page Size property {0} must be type of integer.", pagedAttribute.Size as string));
+            }
+        }
+
+        // Use paged attribute size if set
+        pageSize = (pagedAttribute.Size is int && (int)pagedAttribute.Size > 0) ? (int)pagedAttribute.Size : pageSize;
+
+
+        var pageable = Model as IPageable;
+
+        if (pageable == null)
+        {
+            throw new InvalidOperationException("Pageable collection must be type of IPageable.");
+        }
+
+        pagedMetadata = pageable.Metadata;
+
+        if (pagedMetadata == null)
+        {
+            pagedMetadata = new PageMetadata();
+        }
+
+        // Use model count for total if the paged metadata does not have a total
+        if (pagedMetadata.Total == 0 && Model.Count() > pagedMetadata.Total)
+        {
+            pagedMetadata.Total = Model.Count();
+        }
+
+        // Use page number from paged metadata if set
+        if (pagedMetadata.PageNumber > 1)
+        {
+            // Minus one as paged metadata are the details for the next page, not the current page
+            page = pagedMetadata.PageNumber - 1;
+        }
+        else
+        {
+            // Page model if it has more items than the allowed page size
+            models = Model.Count() > pageSize ? Model.AsEnumerable().Skip((page - 1) * pageSize).Take(pageSize) : Model;
+        }
+    }
+    else
+    {
+        // No paging if no paged attribute
+        page = 1;
+        pageSize = Model.Count();
+    }
+
+    var caption = "Search results";
+
+    // Caption override from Description attribute
+    var descriptionAttribute = ViewData.ModelMetadata.GetAttribute<DescriptionAttribute>();
+    if (descriptionAttribute != null)
+    {
+        caption = descriptionAttribute.Description;
+    }
+    
+} @* End of the @{ block  *@
+
+    @{
+        // Starting row number
+        int row = 0;
+        SelectionType? selectionType = null;
+        bool headerSetup = false;
+
+
+
+        // Loop through each model and output as a row in the table
+        //foreach (var model in models)
+        var model = models.First();
+        if (model != null)
+        {
+            // Get copy of current model to resolve access to modified closure
+            var modelCopy = model;
+            Func<object> modelAccessor = () => modelCopy;
+
+            // Get current model metadata
+            var modelMetadata = (ModelMetadata)ModelMetadataProviders.Current.GetMetadataForType(modelAccessor, model.GetType());
+
+            // Get metadata of current model properties ordered by Display attribute order
+            var modelPropertiesMetadata = ((IEnumerable<ModelMetadata>)ModelMetadataProviders.Current.GetMetadataForProperties(model, model.GetType()))
+                .OrderBy(m =>
+                {
+                    var displayAttribute = m.GetAttribute<DisplayAttribute>();
+
+                    if (displayAttribute != null && displayAttribute.GetOrder() != null)
+                    {
+                        return displayAttribute.GetOrder();
+                    }
+
+                    return int.MaxValue;
+                });
+
+            ModelMetadata keyProperty = GridHelper.GetKeyMetadata(modelPropertiesMetadata);
+
+            // Check if model is serializable
+            if (modelMetadata.GetAttribute<SerializableAttribute>() == null)
+            {
+                throw new InvalidOperationException(string.Format("'{0}' must be serializable. Add the [Serializable] attribute to the '{0}' class.", modelMetadata.ModelType.FullName));
+            }
+            var descriptionKeyDisplayName = string.Empty;
+            var descriptionKeyValue = string.Empty;
+
+
+            // Get selection type if not already determined
+            if (!selectionType.HasValue)
+            {
+                selectionType = GridHelper.GetSelectionType(modelMetadata, ViewData.ModelMetadata);
+            }
+            if (selectionType.Value != SelectionType.None)
+            {
+                var descriptionKeyProperty = modelPropertiesMetadata.FirstOrDefault(p => p.GetAttribute<DescriptionKeyAttribute>() != null);
+
+
+
+                if (descriptionKeyProperty != null)
+                {
+                    descriptionKeyDisplayName = descriptionKeyProperty.GetDisplayName();
+                    descriptionKeyValue = descriptionKeyProperty.Model != null ? descriptionKeyProperty.Model.ToString() : string.Empty;
+                }
+            }
+            // Get selector metadata (property holding user's selected row(s))
+            var selectorMetadata = selectionType != SelectionType.None ? GridHelper.GetSelectorMetadata(modelMetadata, modelPropertiesMetadata, ViewData.ModelMetadata, parentModelPropertiesMetadata) : null;
+
+            // Get links for end of current row
+            var rowLinks = string.Empty;
+
+            var links = modelMetadata.GetAttributes<LinkAttribute>();
+            var externalLinks = modelMetadata.GetAttributes<ExternalLinkAttribute>();
+            var mergedLinks = new List<KeyValuePair<int, string>>();
+
+            if (links != null)
+            {
+                links.ForEach(l => mergedLinks.Add(new KeyValuePair<int, string>(l.Order, string.Format("<span class=\"button\">{0}</span>", Html.RenderLink(l, modelPropertiesMetadata, (object)model, false)))));
+            }
+
+            if (externalLinks != null)
+            {
+                externalLinks.ForEach(e => mergedLinks.Add(new KeyValuePair<int, string>(e.Order, string.Format("<span class=\"button\">{0}</span>", Html.RenderExternalLink(e, modelPropertiesMetadata, (object)model)))));
+            }
+
+            if (mergedLinks != null)
+            {
+                var sb = new StringBuilder();
+
+                foreach (var link in mergedLinks.OrderBy(p => p.Key).ThenBy(p => p.Value).Select(p => p.Value))
+                {
+                    sb.Append(link);
+                }
+
+                if (sb.Length > 0)
+                {
+                    rowLinks = string.Format("<div class=\"ffFix\">{0}</div>", sb);
+                }
+            }
+
+            // Setup table header if not already done
+            if (!headerSetup)
+            {
+                var summary = string.Empty;
+                if (selectionType.Value == SelectionType.Multiple)
+                {
+                    summary = string.Format("Selecting a check box will select the corresponding row. Check boxes are announced using the {0}.", descriptionKeyDisplayName);
+                }
+                else if (selectionType.Value == SelectionType.Single)
+                {
+                    summary = string.Format("Selecting a radio button will select the corresponding row. Radio buttons are announced using the {0}.", descriptionKeyDisplayName);
+                }
+
+                @:<div class="panel-body">
+                    @:<div class="table-responsive editable-table">
+
+                string tableId = fullPropertyNameInParentModel + "Table";
+                string clsString = string.Empty;
+                if (hasSkipLinkAttribute)
+                {
+
+                    clsString = "results table table-bordered";
+                }
+                else
+                {
+                    clsString = "results table table-bordered";
+                }
+
+                if (hasFooTableAttribute)
+                {
+                    clsString = string.Concat(clsString, " footable");
+
+                }
+                
+                
+                var modelArrStr = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
+                // need to addthis array called 'rows' of the JSON object for KO binding with isDirty flags to work for the table.
+                var modelStr = string.Format("{{\"rows\":{0}}}", modelArrStr);
+                
+                
+                @:<table id="@tableId" class="@clsString" summary="@summary" data-rhea-ko-data="@modelStr">
+
+        
+                @:<caption class="readers">@caption</caption>
+
+                if (row == 0)
+                {
+                    @:<thead >
+                    }
+                @:<tr>
+
+                // This is the edit button co lumn
+                @:<th></th> 
+        
+                // Include start column for selection
+                if (selectionType.Value != SelectionType.None)
+                {
+                    // Get description key property
+                    var descriptionKeyProperty = modelPropertiesMetadata.FirstOrDefault(p => p.GetAttribute<DescriptionKeyAttribute>() != null);
+                    if (descriptionKeyProperty == null)
+                    {
+                        throw new InvalidOperationException(string.Format("'{0}' with single or multiple selection and does not have a property decorated with the [DescriptionKey] attribute. Grid View Models with single or multiple selection must have a property decorated with the [DescriptionKey] attribute for accessibility requirements. That property must be visible by the user.", modelMetadata.ModelType.FullName));
+                    }
+
+                    // Ensure there is only one descriptor key property
+                    if (modelPropertiesMetadata.Count(p => p.GetAttribute<DescriptionKeyAttribute>() != null) > 1)
+                    {
+                        throw new InvalidOperationException(string.Format("'{0}' contains multiple properties decorated with the [DescriptionKey] attribute. There can be only one.", modelMetadata.ModelType.FullName));
+                    }
+
+                    // Make sure descriptor key property is visible
+                    var descriptorKeyHiddenAttribute = descriptionKeyProperty.GetAttribute<HiddenAttribute>();
+
+                    if (!descriptionKeyProperty.IsVisible() || (descriptorKeyHiddenAttribute != null && !descriptorKeyHiddenAttribute.LabelOnly))
+                    {
+                        throw new InvalidOperationException(string.Format("'{0}' has a description key property which is not visible. Properties decorated with the [DescriptionKey] attribute must be visible.", modelMetadata.ModelType.FullName));
+                    }
+
+                    if (selectionType.Value == SelectionType.Multiple)
+                    {
+                        @:<th>
+
+
+
+
+
+                        var idAll = fullPropertyIdInParentModel + "-grid-multiple-all";
+                        var htmlAttributes = new Dictionary<string, object>();
+                        htmlAttributes.Add("class", "rhea-multiple-select-grid hidden");
+                        htmlAttributes.Add(HtmlDataType.PropertyIdGrid, fullPropertyIdInParentModel + "-grid");
+
+                        // Default display name from Grid View Model class
+                        var displayName = ViewData.ModelMetadata.GetDisplayName();
+
+                        // But use [Display(Name)] in from Grid View Model property in parent model if it exists
+                        if (propertyInParentModel != null)
+                        {
+                            var displayAttribute = propertyInParentModel.GetAttribute<DisplayAttribute>();
+
+                            if (displayAttribute != null && !string.IsNullOrEmpty(displayAttribute.Name))
+                            {
+                                displayName = displayAttribute.Name;
+                            }
+                        }
+
+                        // Include hidden label with descriptor key value for accessibility
+    @Html.ExecuteUpOneLevel(() => Html.Label(idAll, string.Format("Select or deselect all {0} rows", displayName), new { @class = "hidden" }))
+    @Html.ExecuteUpOneLevel(() => Html.CheckBox(idAll, false, htmlAttributes))
+
+
+
+    @:</th>
+                    }
+                    else
+                    {
+    @:<th data-toggle="true">&nbsp;</th>
+                    }
+                }
+
+
+
+
+
+
+
+                // Include column for each property in model
+                foreach (ModelMetadata property in modelPropertiesMetadata)
+                {
+                    var hiddenAttribute = property.GetAttribute<HiddenAttribute>();
+
+                    // Exclude column if not visible
+                    if (!property.IsVisible() || (hiddenAttribute != null && !hiddenAttribute.LabelOnly))
+                    {
+                        continue;
+                    }
+
+                    var gridColumn = property.GetAttribute<GridColumnAttribute>();
+                    var width = (gridColumn != null) ? string.Format(" style=\"width:{0}%\"", gridColumn.Width) : string.Empty;
+                    var alignment = (string.Equals(property.DataTypeName, currencyDataType, StringComparison.Ordinal)) ? " class=\"txtM\"" : string.Empty;
+
+
+                    var tabIndexAttribute = string.Empty;
+                    var dataSortAttributeValue = string.Empty;
+
+                    // TODO: determine dataType for each column header and add relevant attribute to <th> tag.
+                    // data-sort="string" data-sort="int" data-sort="date"
+                    tabIndexAttribute = "tabIndex = '0'";
+                    dataSortAttributeValue = "data-sort={0}";
+                    switch (property.ModelType.GetNonNullableType().Name.ToLowerInvariant())
+                    {
+                        case "int":
+                        case "int16":
+                        case "int32":
+                        case "int64":
+                        case "uint":
+                        case "long":
+                            dataSortAttributeValue = string.Format(dataSortAttributeValue, "int");
+                            break;
+                        case "string":
+                            dataSortAttributeValue = string.Format(dataSortAttributeValue, "string");
+                            break;
+                        case "double":
+                        case "float":
+                            dataSortAttributeValue = string.Format(dataSortAttributeValue, "float");
+                            break;
+                        case "datetime":
+                        case "date":
+                        case "time":
+                            dataSortAttributeValue = string.Format(dataSortAttributeValue, "int");//time
+                            break;
+                        default:
+
+                            // check for nullable types.
+                            if ((property.Model is int) || (property.Model is Int16) || (property.Model is Int32) || (property.Model is Int64) || (property.Model is uint) || (property.Model is long))
+                            {
+                                dataSortAttributeValue = string.Format(dataSortAttributeValue, "int");
+                            }
+                            else if (property.Model is DateTime)
+                            {
+                                dataSortAttributeValue = string.Format(dataSortAttributeValue, "int");
+                            }
+                            else if ((property.Model is float) || (property.Model is double))
+                            {
+                                dataSortAttributeValue = string.Format(dataSortAttributeValue, "float");
+                            }
+                            else
+                            {
+                                dataSortAttributeValue = string.Format(dataSortAttributeValue, "string");
+                            }
+                            break;
+                    }
+
+
+
+                    // Show column		tabIndexAttribute
+
+
+                    // check if the property is decorated with [ExcludeSort] attribute, if so do not add anchor tag and other attributes to table header.
+                    var disableColumnSorting = property.GetAttributes<ExcludeSortAttribute>().Any();
+
+                    string fooTableDataHideClassString = string.Empty;
+                    if (property.GetAttributes<FooTableColumnAttribute>().Any())
+                    {
+                        var foolTableColAttr = property.GetAttributes<FooTableColumnAttribute>().First();
+                        fooTableDataHideClassString = string.Format(" data-hide=\"{0}\"", ((FooTableColumnAttribute)foolTableColAttr).DataHideClassString);
+                    }
+
+                    if (disableColumnSorting)
+                    {
+					    @Html.Raw(string.Format("<th{0}{1}{2}>", alignment, width, fooTableDataHideClassString))
+                        var propertyDisplayName = property.GetDisplayName();
+					    @propertyDisplayName
+                        @:</th>
+                    }
+                    else
+                    {
+                        @*@Html.Raw(string.Format("<th{0}{1} {2} {3} data-toggle=\"true\">", alignment, width, dataSortAttributeValue, fooTableDataHideClassString))*@  @*ToDo: Steve York - Put this back*@
+                     @Html.Raw(string.Format("<th{0}{1} {2} {3}>", alignment, width, dataSortAttributeValue, fooTableDataHideClassString))
+                        var propertyDisplayName = property.GetDisplayName();
+                        var defaultSortingText = "No sort order set. Select to change sort order.";
+                        // render anchor tag within table headers for accessibility to contain hidden text.
+                        <a href="javascript:;" title="@defaultSortingText"> @propertyDisplayName
+                                <span class="readers">@defaultSortingText</span>
+                            </a>
+                        @:</th>
+                    }
+                    
+                    
+                    // Add to the fields definition list for the modal popup
+                    modalPopupFieldsDefinitions.Add(new Tuple<string, Type>(property.PropertyName, property.ModelType.GetNonNullableType()));
+                    
+                    
+                } // End of foreach
+
+                // Include end column for links
+                if (!string.IsNullOrEmpty(rowLinks))
+                {
+    @:<th>&nbsp;</th>
+                }
+
+                // Include hidden column for serialized data
+    @:<th class="hidden"></th>
+
+    @:</tr>
+
+                // Header is setup
+                headerSetup = true;
+            }
+
+
+            if (row == 0)
+            {
+                @:</thead><tbody id="@fullPropertyIdInParentModel-grid" data-bind="foreach: rows">
+                @*if (isEditable)
+                {
+                    @:<tbody id="@fullPropertyIdInParentModel-grid" data-bind="foreach: rows">
+                }
+                else
+                {
+                    @:<tbody id="@fullPropertyIdInParentModel-grid">
+                }*@
+            }
+
+        @:<tr>
+
+            // Setup selection column
+            switch (selectionType.Value)
+            {
+                case SelectionType.Single:
+    @:<td>
+                        var fieldName = selectorMetadata.PropertyName;
+                        var r = row;
+                        var singleIdLabel = TagBuilder.CreateSanitizedId(string.Format("{0}[{1}].{2}", propertyNameInParentModel, r, selectorMetadata.PropertyName), HtmlHelper.IdAttributeDotReplacement);
+                        var singleIdRadioButton = TagBuilder.CreateSanitizedId(Html.ExecuteUpOneLevel(() => Html.ViewData.TemplateInfo.GetFullHtmlFieldName(string.Format("{0}[{1}].{2}", propertyNameInParentModel, r, selectorMetadata.PropertyName))), HtmlHelper.IdAttributeDotReplacement);
+
+                        // Include hidden label with descriptor key value for accessibility
+    @Html.ExecuteUpOneLevel(() => Html.Label(singleIdLabel, string.Format("{0} {1}", descriptionKeyDisplayName, descriptionKeyValue), new { @class = "readers" }))
+
+                        // Single select radio
+    @Html.ExecuteUpOneLevel(() => Html.RadioButton(fieldName, keyProperty.Model, keyProperty.Model.Equals(selectorMetadata.Model), new { id = singleIdRadioButton }))
+    @:</td>
+                        break;
+
+                case SelectionType.Multiple:
+    @:<td>
+                        var multipleFieldName = string.Format("{0}[{1}].{2}", propertyNameInParentModel, row, selectorMetadata.PropertyName);
+                        var multipleId = TagBuilder.CreateSanitizedId(Html.ExecuteUpOneLevel(() => Html.ViewData.TemplateInfo.GetFullHtmlFieldName(multipleFieldName)), HtmlHelper.IdAttributeDotReplacement);
+
+                        // Include hidden label with descriptor key value for accessibility
+    @Html.ExecuteUpOneLevel(() => Html.Label(multipleFieldName, string.Format("{0} {1}", descriptionKeyDisplayName, descriptionKeyValue), new { @class = "readers" }))
+
+                        // Multiple select checkbox
+    @Html.ExecuteUpOneLevel(() => Html.CheckBox(multipleFieldName, (bool)selectorMetadata.Model, new { @value = true, id = multipleId }))
+    @:</td>
+                                                    break;
+            }
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////////
+            @*@Html.ShowEditableGrid(models, modelPropertiesMetadata)*@
+            
+            
+            //var editableType = property.GetAttribute<EditableTypeAttribute>();
+            // Add a Knockout MVVM control
+            @*if (editableType != null && editableType.AllowEdit)
+            {
+                if (editableType.DataType == DataType.Text || editableType.DataType == DataType.PhoneNumber)
+                {
+                    @:<input data-bind="value: @property.PropertyName" />
+                }
+            }*@
+
+            //////////////////////////////////////////////////////////////////////////////////////////////
+
+            
+            <td><a href="#" class="gridEditModalButton"><span class="glyphicon glyphicon-pencil"></span></a></td>
+        
+            // Loop through each property in the current model and output as data for the current row
+            foreach (ModelMetadata colProperty in modelPropertiesMetadata)
+            //var colProperty = modelPropertiesMetadata.First();
+            //if (colProperty != null)
+            {
+                var hiddenAttribute = colProperty.GetAttribute<HiddenAttribute>();
+                var editableType = colProperty.GetAttribute<EditableTypeAttribute>();
+
+                // Exclude column if not visible
+                if (!(!colProperty.IsVisible() || (hiddenAttribute != null && !hiddenAttribute.LabelOnly))) // TODO - Steve: Reverse logic in the expression rather than just invertin the whole thing with the preceeding !
+                {
+
+                    var nonNullableType = colProperty.ModelType.GetNonNullableType();
+                    var isNumeric = nonNullableType.IsNumeric();
+                    var isID = colProperty.GetAttribute<IdAttribute>() != null;
+                    var isCurrency = false;
+                    var isDecimal = false;
+
+                    if (isNumeric && !isID)
+                    {
+                        isCurrency = (string.Equals(colProperty.DataTypeName, currencyDataType, StringComparison.Ordinal));
+                        isDecimal = (nonNullableType == typeof(double) || nonNullableType == typeof(decimal) || nonNullableType == typeof(float));
+
+                        if (isCurrency)
+                        {
+                            object valueToAdd = 0;
+                            if (colProperty.Model != null)
+                            {
+                                valueToAdd = colProperty.Model;
+                            }
+						    @:<td class="txtR" data-sort-value="@valueToAdd">
+                        }
+                        else
+                        {
+                            @:<td class="txtR">
+                        }
+                    }
+
+
+                    else if (nonNullableType == typeof(DateTime))
+                    {
+                        // if property is of DateTime type, then convert this time unix time stamp and provide this value in form of attribute 'data-sort-value' for each row.
+                        double timestamp;
+                        if (colProperty != null && colProperty.Model != null)
+                        {
+                            DateTime dateTime;
+                            DateTime.TryParse(colProperty.Model.ToString(), out dateTime);
+                            DateTime specifiedDate;
+                            if (string.Equals(colProperty.DataTypeName, dateDataType, StringComparison.Ordinal))
+                            {
+                                // If [DataType.Date], reset Time portion.
+                                specifiedDate = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 0, 0, 0);
+                            }
+                            else if (string.Equals(colProperty.DataTypeName, timeDataType, StringComparison.Ordinal))
+                            {
+                                // if [DataType.Time], reset Date portion.
+                                specifiedDate = new DateTime(1970, 1, 1, dateTime.Hour, dateTime.Minute, dateTime.Second);
+                            }
+                            else
+                            {
+                                specifiedDate = dateTime;
+                            }
+
+                            var unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc); // minimum date.
+
+                            timestamp = (specifiedDate.ToUniversalTime() - unixEpoch).TotalSeconds;
+
+
+                        }
+                        else
+                        {
+                            timestamp = 0;
+                        }
+					    @:<td data-sort-value="@timestamp">
+                    }
+
+                    else
+                    {
+
+        @:<td>
+                    }
+
+                    // Get formatted value of property
+                    var stringValue = colProperty.Model != null ? colProperty.Model.ToString() : string.Empty;
+                    var formattedModelValue = stringValue;
+
+                    if (colProperty.ConvertEmptyStringToNull && string.Empty.Equals(colProperty.Model))
+                    {
+                        colProperty.Model = null;
+                    }
+
+                    if (colProperty.Model == null)
+                    {
+                        formattedModelValue = colProperty.NullDisplayText;
+                    }
+
+                    if (colProperty.Model != null && !string.IsNullOrEmpty(colProperty.EditFormatString))
+                    {
+                        formattedModelValue = string.Format(CultureInfo.CurrentCulture, colProperty.EditFormatString, new[] { colProperty.Model });
+                    }
+
+                    var adwAttribute = colProperty.GetAttribute<AdwSelectionAttribute>();
+
+                    if (adwAttribute != null)
+                    {
+                        SelectListItem match = ((IEnumerable<SelectListItem>)adwAttribute.GetSelectListItems(model)).FirstOrDefault(m => m.Value == stringValue);
+
+                        if (match != null)
+                        {
+                            formattedModelValue = match.Text;
+                        }
+                    }
+
+                    if (isNumeric && colProperty.Model != null)
+                    {
+                        if (isCurrency)
+                        {
+                            formattedModelValue = string.Format(CultureInfo.CurrentCulture, "{0:C}", new[] { colProperty.Model });
+                        }
+                        else if (isDecimal)
+                        {
+                            formattedModelValue = string.Format(CultureInfo.CurrentCulture, "{0:0.00}", new[] { colProperty.Model });
+                        }
+                    }
+
+                    if (colProperty.ModelType == typeof(bool) || (colProperty.ModelType == typeof(bool?) && colProperty.Model != null))
+                    {
+                        
+                        if (editableType != null && editableType.AllowEdit)
+                        {
+                            if (editableType.DataType == DataType.Text || editableType.DataType == DataType.PhoneNumber)
+                            {
+                            @:<label data-bind="text: @colProperty.PropertyName, attr: {name:'@colProperty.PropertyName'}" />
+                            }
+                        }
+                        else
+                        {
+                            @:<label data-bind="text: @colProperty.PropertyName, attr: {name:'@colProperty.PropertyName'}" />
+                                   //formattedModelValue = (bool)colProperty.Model ? "Yes" : "No";  // TODO - Steve:  Look at formatting the value correctly on the JS view model instead of here. 
+                        }
+                    }
+
+                    var link = colProperty.GetAttribute<LinkAttribute>();
+                    var externalLink = colProperty.GetAttribute<ExternalLinkAttribute>();
+                    if (link != null)
+                    {
+                        // Display as link
+                        link.Name = formattedModelValue;
+
+                        link.Action = !string.IsNullOrEmpty(link.Action) ? link.Action : routeDataAction;
+                        link.Controller = !string.IsNullOrEmpty(link.Controller) ? link.Controller : routeDataController;
+                        link.Area = !string.IsNullOrEmpty(link.Area) ? link.Area : routeDataArea;
+
+        @Html.RenderLink(link, modelPropertiesMetadata, (object)model, colProperty.PropertyName, colProperty.Model, false)
+                    }
+                    else if (externalLink != null)
+                    {
+                        // Display as external link
+                        externalLink.Name = formattedModelValue;
+
+        @Html.RenderExternalLink(externalLink, modelPropertiesMetadata, (object)model, colProperty.PropertyName, colProperty.Model)
+                    }
+                    else
+                    {
+                        // Display as plain text
+
+                        // Add a Knockout MVVM control
+                        if (editableType != null && editableType.AllowEdit)
+                        {
+                            if (editableType.DataType == DataType.Text || editableType.DataType == DataType.PhoneNumber)
+                            {
+                            @:<label data-bind="text: @colProperty.PropertyName, attr: {name:'@colProperty.PropertyName'}" />
+                            }
+                        }
+                        else
+                        {
+                            @:<label data-bind="text: @colProperty.PropertyName, attr: {name:'@colProperty.PropertyName'}" />
+                                   //@formattedModelValue  // TODO - Steve:  Look at formatting the value correctly on the JS view model instead of here. 
+                        }
+                    }
+                } 
+                @:</td>
+                
+        
+            } // End of foreach - all columns done
+            @*<td><input type="checkbox" disabled="disabled" data-bind="checked: dirtyFlag.isDirty()" /><button data-bind="visible: dirtyFlag.isDirty()">Save</button></td>*@
+            
+        
+            // Show row links
+            if (!string.IsNullOrEmpty(rowLinks))
+            {
+    @:<td>
+                    @Html.Raw(rowLinks)
+    @:</td>
+            }
+
+            // Include all row data as a single serialized hidden input
+    //@:<td class="hidden">
+            //var rowAccessor = row;
+            //var serializedModel = ((object)model).Serialize();
+            //@Html.ExecuteUpOneLevel(() => Html.Hidden(string.Format("{0}[{1}]", ViewData.ModelMetadata.PropertyName, rowAccessor), serializedModel))
+
+            
+    //@:</td>
+
+    @:</tr>
+
+        
+                // Onto next row
+                row++;
+        }
+        /////////////////////////////////////////////////////////////////////
+}
+    </tbody></table>
+
+    @{
+        var ajaxGridAttr = ViewData.ModelMetadata.GetAttributes<AjaxGridAttribute>().FirstOrDefault();
+        if (ajaxGridAttr != null)
+        {
+            //modalPopupFieldsDefinitions.Add(new Tuple<string, Type>("JobseekerId", typeof(string)));
+            //modalPopupFieldsDefinitions.Add(new Tuple<string, Type>("Name",  typeof(string)));
+            //modalPopupFieldsDefinitions.Add(new Tuple<string, Type>("Gender",  typeof(string)));
+            
+            // Setup a div for the modal popup
+            @:<div class="modal fade">
+            @:    <div class="modal-dialog">
+                      Html.RenderPartial("_GridModalDataEntry", modalPopupFieldsDefinitions);
+            @:    </div><!-- /.modal-dialog -->
+            @:</div><!-- /.modal -->
+            
+            string areaPrefix = string.IsNullOrEmpty(ajaxGridAttr.AreaName) ? string.Empty : "/" + ajaxGridAttr.AreaName;
+            @*@:<a href="#" class="btn btn-inverse gridSaveButton" data-saveurl="@string.Format("{0}/{1}/{2}", areaPrefix, ajaxGridAttr.ControllerName, ajaxGridAttr.ActionName)" data-bind="visible: isDirty()">Save Changes</a>*@
+            @:<button class="btn btn-inverse gridSaveButton" data-saveurl="@string.Format("{0}/{1}/{2}", areaPrefix, ajaxGridAttr.ControllerName, ajaxGridAttr.ActionName)" data-bind="enable: isDirty()">Save Changes</button>
+            
+        }
+}
+    
+
+    @Html.Hidden("", "")
+    @if (pagedMetadata != null)
+    {
+        // Setup paged metadata of next page
+        pagedMetadata.ModelType = parentModel.GetType();
+        pagedMetadata.PropertyName = fullPropertyNameInParentModel;
+        pagedMetadata.PageNumber = page + 1; // Next page
+        pagedMetadata.PageSize = pageSize;
+
+        // Include hidden paged metadata
+                                  @Html.ExecuteUpOneLevel(() => Html.Hidden(string.Format("{0}.Metadata", ViewData.ModelMetadata.PropertyName), pagedMetadata.Serialize()))
+
+        // Show load more link if there are more pages
+        if (pagedMetadata.HasMorePages())
+        {
+            var pagedLink = new TagBuilder("a");
+
+            pagedLink.AddCssClass("requestMore");
+            pagedLink.AddCssClass("rhea-paged");
+            pagedLink.AddCssClass("hidden");
+
+            var htmlAttributes = new Dictionary<string, object>();
+
+            htmlAttributes.Add(HtmlDataType.PropertyIdGrid, string.Format("{0}-grid", Html.ExecuteUpOneLevel(() => ViewData.TemplateInfo.GetFullHtmlFieldId(propertyNameInParentModel))));
+            htmlAttributes.Add(HtmlDataType.PagedMetadataPropertyId, Html.ExecuteUpOneLevel(() => ViewData.TemplateInfo.GetFullHtmlFieldId(propertyNameInParentModel + ".Metadata")));
+
+            var routes = new RouteValueDictionary();
+
+            if (!string.IsNullOrEmpty(pagedAttribute.Area))
+            {
+                routes.Add("Area", pagedAttribute.Area);
+            }
+            else
+            {
+                routes.Add("Area", Html.ViewContext.RouteData.DataTokens["area"] != null ? Html.ViewContext.RouteData.DataTokens["area"].ToString() : routeDataArea);
+            }
+
+            htmlAttributes.Add(HtmlDataType.Url, Url.Action(pagedAttribute.Action, pagedAttribute.Controller ?? routeDataController, routes));
+
+            pagedLink.MergeAttributes(htmlAttributes);
+
+            pagedLink.InnerHtml = string.Format("<span>Load More <span class=\"readers\">{0}</span></span>", ViewData.ModelMetadata.GetDisplayName());
+
+            // Default action for when javascript is off
+            pagedLink.MergeAttribute("href", string.Format("?{0}={1}", pageParameter, (page + 1)));
+
+            // Output link
+                                  @Html.Raw(pagedLink.ToString(TagRenderMode.Normal))
+        }
+    }
+</div> </div>
+    @{
+        // Ungrouped buttons
+        var ungroupedButtons = ViewData.ModelMetadata.GetAttributes<ButtonAttribute>(b => string.IsNullOrEmpty(b.GroupName));
+        var ungroupedLinks = ViewData.ModelMetadata.GetAttributes<LinkAttribute>(l => string.IsNullOrEmpty(l.GroupName));
+        var ungroupedExternalLinks = ViewData.ModelMetadata.GetAttributes<ExternalLinkAttribute>(e => string.IsNullOrEmpty(e.GroupName));
+
+        var mergedItems = new List<KeyValuePair<int, string>>();
+
+        if (ungroupedButtons != null)
+        {
+            ungroupedButtons.ForEach(b =>
+            {
+                var buttonAccessor = b;
+                var renderedButton = Html.ExecuteUpOneLevel(() => buttonAccessor.Render(Html, parentModel)).ToString();
+                mergedItems.Add(new KeyValuePair<int, string>(b.Order, renderedButton));
+            });
+        }
+
+        if (ungroupedLinks != null)
+        {
+            ungroupedLinks.ForEach(l =>
+            {
+                var parentMetadata = ModelMetadataProviders.Current.GetMetadataForType(() => parentModel, parentModel.GetType());
+                var linkAccessor = l;
+                var renderedLink = Html.ExecuteUpOneLevel(() => Html.RenderLink(linkAccessor, parentMetadata.Properties, (object)parentModel, true));
+
+                mergedItems.Add(new KeyValuePair<int, string>(l.Order, string.Format("{0}{1}{2}", "<span class=\"input-button\">", renderedLink, "</span>")));
+            });
+        }
+
+        if (ungroupedExternalLinks != null)
+        {
+            ungroupedExternalLinks.ForEach(e =>
+            {
+                var parentMetadata = ModelMetadataProviders.Current.GetMetadataForType(() => parentModel, parentModel.GetType());
+                var externalLinkAccessor = e;
+                var renderedExternalLink = Html.ExecuteUpOneLevel(() => Html.RenderExternalLink(externalLinkAccessor, parentMetadata.Properties, (object)parentModel));
+
+                mergedItems.Add(new KeyValuePair<int, string>(e.Order, string.Format("{0}{1}{2}", "<span class=\"input-button\">", renderedExternalLink, "</span>")));
+            });
+        }
+
+        if (mergedItems != null && mergedItems.Any())
+        {
+    @:<br>
+            @:<div class="row">
+            @:<div class="colB txtR noPad">
+            foreach (var item in mergedItems.OrderBy(p => p.Key).ThenBy(p => p.Value).Select(p => p.Value))
+            { @(new MvcHtmlString(item));
+            }
+        @:</div>
+            @:</div>
+                    }
+}

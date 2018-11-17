@@ -1,0 +1,50 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.ViewModels.Project.UploadQuestionsViewModel
+
+@{
+    ViewBag.Title = "Upload Questions";
+}
+
+<div class="page-header">  
+    <h1>New Upload - @Model.ProjectName </h1>
+</div>
+
+<p></p>
+Select an Excel spreadsheet <b>CSV</b> file containing Questionaire Question metadata with the 3 standard columns, then hit the Submit Questions button.
+<p></p>
+
+<div class="panel panel-default col-lg-12 row">
+    
+    @Html.Hidden("unloadMessage", "Data has not been uploaded. If you proceed you will lose current changes")
+
+    @using ( Html.BeginForm( "Questions", "Project", FormMethod.Post, new { id = "projectQuestionsForm", name = "projectQuestionsForm", enctype = "multipart/form-data" } ) )
+    {
+        <div class="panel-body">
+            
+            @Html.ValidationMessageSummary()   
+
+            <div class="form-group">
+                @Html.LabelFor( model => model.SourceFile )
+                <input type="file" name="Upload.SourceFile" id="source-file" />
+            </div>
+            
+        </div>
+
+        @Html.HiddenFor( model => model.ProjectId )
+
+        <div class="panel-footer">
+            <div class="row indented">
+                <button id="submit-questions-button" type="submit" class="btn btn-lg btn-primary">Submit Questions</button>
+            </div>
+            <br/>
+        </div>
+
+    }
+
+</div>		
+
+
+<div class="row">
+    @Html.ActionLink( "Back to Project", "Details", "Project", new { id= Model.ProjectId, tabNo = CommonConstants.ProjectTab_Questions }, "" )
+</div>
+

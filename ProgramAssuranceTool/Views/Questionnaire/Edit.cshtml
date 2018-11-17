@@ -1,0 +1,115 @@
+﻿@using MvcJqGrid
+@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.Models.ReviewQuestionnaire
+
+@{
+    ViewBag.Title = string.Format("Project - {0} - {1}", Model.ProjectID, Model.ProjectName);
+}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+        <li>@Html.ActionLink("Sample list", "Details", "Project", new { id = Model.ProjectID, tabNo = CommonConstants.ProjectTab_Samples }, "")</li>
+        <li>@Html.ActionLink("Review List", "Details", "Upload", new { id = Model.UploadID }, "")</li>
+        <li>@Html.ActionLink("Review Details", "Edit", "Review", new { Id = @Model.ReviewID }, null)</li>
+        <li class="active">Review Questions and Answers</li>
+    </ol>         
+    <h1>@ViewBag.Title</h1>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title pull-left">Review Questions and Answers</h2>
+        <div class="clear-fix"></div>
+    </div>
+
+    @using (Html.BeginForm("Edit", "Questionnaire", FormMethod.Post, new { @role = "form", id = "questionnaireEditForm", name = "questionnaireEditForm" }))
+    {
+        <div class="panel-body">
+            
+            @*
+            <div class="row">
+                <div class="col-xs-2">
+                    @Html.LabelFor(b => b.ReviewID)
+                    @Html.TextBoxFor(b => b.ReviewID, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+
+                <div class="col-xs-2">
+                    @Html.LabelFor(b => b.QuestionnaireID)
+                    @Html.TextBoxFor(b => b.QuestionnaireID, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+
+                <div class="col-xs-2">
+                    @Html.LabelFor(b => b.ReferenceID)
+                    @Html.TextBoxFor(b => b.ReferenceID, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+        
+                <div class="col-xs-2">
+                    @Html.LabelFor(b => b.UserID)
+                    @Html.TextBoxFor(b => b.UserID, new { @readonly = "readonly", @class = "form-control" })
+                </div>
+
+                <div class="col-xs-2">
+                    @Html.LabelFor(b => b.Date)
+                    @Html.TextBoxFor(b => b.Date, new { @readonly = "readonly", @class = "form-control", @Value = @Model.Date.ToShortDateString() })
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-3">
+                    @Html.LabelFor(b => b.AssessmentOutcomeCode)
+                    @Html.TextBoxFor(b => b.AssessmentOutcomeCode, new { @readonly = "readonly", @class = "form-control", @Value = string.Format("{0} ({1})", @Model.AssessmentOutcomeDescription, @Model.AssessmentOutcomeCode) })
+                </div>
+
+                <div class="col-xs-3">
+                    @Html.LabelFor(b => b.RecoveryReasonCode)
+                    @Html.TextBoxFor(b => b.RecoveryReasonCode, new { @readonly = "readonly", @class = "form-control", @Value = string.Format("{0} ({1})", @Model.RecoveryReasonDescription, @Model.RecoveryReasonCode) })
+                </div>
+
+                <div class="col-xs-3">
+                    @Html.LabelFor(b => b.RecoveryActionCode)
+                    @Html.TextBoxFor(b => b.RecoveryActionCode, new { @readonly = "readonly", @class = "form-control", @Value = string.Format("{0} ({1})", @Model.RecoveryActionDescription, @Model.RecoveryActionCode) })
+                </div>
+
+                <div class="col-xs-3">
+                    @Html.LabelFor(b => b.FinalOutcomeCode)
+                    @Html.TextBoxFor(b => b.FinalOutcomeCode, new { @readonly = "readonly", @class = "form-control", @Value = string.Format("{0} ({1})", @Model.FinalOutcomeDescription, @Model.FinalOutcomeCode) })
+                </div>
+
+            </div>
+            *@
+
+            <div class="row">
+                @{ 
+                    var g = Html.Grid("QuestionnaireGrid");
+                    //g.SetCaption("Review Question and Answers");
+                    g.AddColumn(new Column("QuestionId").SetLabel("Question Id").SetWidth(100).SetHidden(true));
+                    g.AddColumn(new Column("QuestionCode").SetLabel("Code").SetWidth(100).SetHidden(true));
+                    g.AddColumn(new Column("QuestionText").SetLabel("Question").SetWidth(100));
+                    g.AddColumn(new Column("AnswerText").SetLabel("Answer").SetWidth(100));
+                    g.SetUrl(Url.Action("QuestionAnswerGetData", "Questionnaire", new {id = Model.ReviewID}));
+                    g.SetHeight(580); // set this tall enough and you won't see the scroll bar
+                    g.SetAutoWidth(true); // force the grid to fit the width of the parent element
+                    g.SetRowNum(CommonConstants.GridStandardDoubleRows); // set the number of rows displayed initially
+                    g.SetRowList(new[] {20, 50, 100, 200}); // DR01039126 
+                    g.SetViewRecords(true); // display the total number of rows in the dataset
+                    g.SetPager("pager");
+                    g.SetHeaderTitles(true);
+                    g.SetSearchToolbar(false); // disable toolbar searching
+                    g.SetSearchOnEnter(false);
+                    g.OnGridComplete("pat.grid_OnGridComplete()");
+
+                    var gridString = AppHelper.WcagFixGrid(g, "QuestionnaireGrid", "Review Questions and Answers");
+                    @Html.Raw(gridString)
+                }
+            </div>
+
+            @*<label class="text-center">@ViewBag.PageFooter</label>*@
+
+        </div>
+    
+    }
+
+</div>
+
+@*@Html.ActionLink("Back to Review Item", "Edit", "Review", new { Id = @Model.ReviewID }, null)*@

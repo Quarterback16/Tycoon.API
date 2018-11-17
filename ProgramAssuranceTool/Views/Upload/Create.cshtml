@@ -1,0 +1,74 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.ViewModels.Sample.UploadViewModel
+
+@{
+    ViewBag.Title = "New Upload - " + @Model.ProjectName;
+}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+        <li>@Html.ActionLink("Project Samples", "Details", "Project", new { id = Model.ProjectId, tabNo = CommonConstants.ProjectTab_Samples }, "")</li>
+        <li class="active">Add Upload</li>
+    </ol>       
+    <h1>New Upload - @Model.ProjectName </h1>
+</div>
+
+<p></p>
+Select an Excel spreadsheet <b>CSV</b> file containing Review data with the standard columns, enter upload details and then hit the Submit button.
+<p></p>
+
+<div class="panel panel-default col-lg-12 row">
+    
+    @Html.Hidden("unloadMessage", "Data has not been uploaded. If you proceed you will lose current changes.")
+
+    @using (Html.BeginForm("Create", "upload", FormMethod.Post, new { id = "uploadCreateForm", name = "uploadCreateForm", enctype = "multipart/form-data" }))
+    {
+        <div class="panel-body">
+            
+            @Html.ValidationMessageSummary()   
+
+            <div class="form-group">
+                @Html.LabelFor( model => model.SourceFile )
+                <input type="file" name="Upload.SourceFile" id="source-file" />
+            </div>
+            
+            <fieldset><legend>Upload Type</legend><br/>
+                <div class="form-group indented">
+                    @Html.CheckBoxFor( model => model.IncludesOutcomes ) &nbsp;&nbsp; Includes Outcomes 
+                </div>
+                <div class="form-group indented">
+                    @Html.CheckBoxFor( model => model.AdditionalReview ) &nbsp;&nbsp; Additional Review            
+                </div>    
+                <div class="form-group indented">
+                    @Html.CheckBoxFor( model => model.OutOfScope ) &nbsp;&nbsp; Out of Scope                 
+                </div>    
+
+                @if (Model.IsAdminUser)
+                {
+                    <div class="form-group indented">
+                        @Html.CheckBoxFor( model => model.IsRandom ) &nbsp;&nbsp; Random            
+                    </div>
+                    <div class="form-group indented">
+                        @Html.CheckBoxFor( model => model.IsNational ) &nbsp;&nbsp; National            
+                    </div>                
+                }
+
+            </fieldset> 
+        </div>
+        
+        @Html.HiddenFor( model => model.ProjectId )
+        @Html.HiddenFor( model => model.ProjectName )
+        @Html.HiddenFor( model => model.IsAdminUser )
+
+        <div class="panel-footer">
+            <div class="row indented">
+                <button id="submit-button" type="submit" class="btn btn-lg btn-primary">Submit Upload</button>
+            </div>
+            <br/>
+        </div>
+
+    }
+
+</div>		
+

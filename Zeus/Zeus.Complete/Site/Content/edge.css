@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+@media screen, print
+{
+
+    /*
+    Title:	Modern styles for screen/print media
+    Author:	http://voodoocreative.com.au/
+
+    This file is primarily for non-valid properties:
+    - Vendor specific CSS properties
+    - Draft CSS properties
+    - Workarounds & Fixes
+    */
+
+
+    /* Anti Mac fat text */				html {-webkit-font-smoothing: antialiased;}
+    /* Contrast ratio for placeholder*/ ::-webkit-input-placeholder{color:#6F6F6F;}
+									    :-moz-placeholder {color:#6F6F6F;}
+
+    input[type=text]:invalid,
+    input[type=phone]:invalid,
+    input[type=email]:invalid,
+    input[type=text]:focus:invalid{border-bottom:solid #C05324 1px;}
+
+    .jobSeekerActions li a .toolTip,
+    #calendarActions a .toolTip,
+    #actionsMenu .close .toolTip{
+	    -webkit-transition: bottom 0.25s ease;
+	    -moz-transition: bottom 0.25s ease;
+	    -ms-transition: bottom 0.25s ease;
+	    -o-transition: bottom 0.25s ease;
+    }
+    #jobSeekerNav li ul,
+    #actionsMenu ul ul{
+	    -webkit-transition: top 0.25s ease;
+	    -moz-transition: top 0.25s ease;
+	    -ms-transition: top 0.25s ease;
+	    -o-transition: top 0.25s ease;
+    }
+    .collapsible h2 a,.content .collapsible h2 a{
+	    -webkit-transition: width 0.25s ease;
+	    -moz-transition: width 0.25s ease;
+	    -ms-transition: width 0.25s ease;
+	    -o-transition: width 0.25s ease;
+    }
+
+    #loginPage #info,
+    #login input.text,
+    #login input.text,
+    .content textarea,
+    .content select,
+    .content input[type=text],
+    .content input[type=phone],
+    .content input[type=email],
+    .content input[type=date],
+    #calendar,
+    #calendar header,
+    #calendar td.times li,
+    #calendar ol li a{
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+    }
+
+} /* Media Screen, Print */
+
+/* Print
+---------------------------------------*/
+@media print
+{
+	input[type=text]:invalid,
+	input[type=text]:focus:invalid{border-bottom:solid black 1px; text-decoration:line-through}
+}

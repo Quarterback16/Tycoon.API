@@ -1,0 +1,162 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using System.Data.Linq
+@using System.Globalization
+@using Employment.Web.Mvc.Infrastructure.DataAnnotations
+@using Employment.Web.Mvc.Infrastructure.Extensions
+@using Employment.Web.Mvc.Infrastructure.Types
+
+@model object
+@functions {
+    public long? GetDateTimeParseString(object model)
+    {
+        var dateTime = (DateTime?)model;
+        var unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+        return dateTime != null ? (long)(dateTime.Value.ToUniversalTime() - unixEpoch).TotalSeconds : new long?();
+    }
+}
+@{
+    var parentModel = ViewData.ModelMetadata.AdditionalValues["ParentModel"];
+    string modelValue = ViewData.TemplateInfo.FormattedModelValue != null ? ViewData.TemplateInfo.FormattedModelValue.ToString() : string.Empty;
+
+    var selection = ViewData.ModelMetadata.GetAttribute<AdwSelectionAttribute>();
+    IEnumerable<SelectListItem> selectList;
+
+    if (selection != null)
+    {
+        selectList = selection.GetSelectListItems(parentModel, Model);
+    }
+    else
+    {
+        selectList = Model as IEnumerable<SelectListItem>;
+    }
+
+    if (selectList != null)
+    {
+        // Use Text of selected item for its display value
+        var selections = selectList.Where(p => p.Selected).Select(p => p.Text).ToList();
+
+        if (selections.Count > 1)
+        {
+            modelValue = string.Join(", ", selections.ToArray());
+        }
+        else
+        {
+            modelValue = selections.FirstOrDefault();
+        }
+    }
+
+    if (ViewData.ModelMetadata.HasLink())
+    {
+        @:<div class="property-button">
+        var l = ViewData.ModelMetadata.GetAttribute<LinkAttribute>();
+        l.Name = modelValue;
+        if (string.IsNullOrEmpty(l.Name))
+        {
+            @:&nbsp;
+        }
+        else
+        {
+            var parentModelPropertiesMetadata = ModelMetadataProviders.Current.GetMetadataForProperties(parentModel, parentModel.GetType());
+            var link = Employment.Web.Mvc.Infrastructure.Extensions.HtmlHelperExtension.RenderLink(Html, l, parentModelPropertiesMetadata, Model, ViewData.ModelMetadata.PropertyName, Model, true).ToString();
+            var anchorStart = "<a ";
+
+            // Include label in link title
+            if (!link.Contains("title=") && link.Contains(anchorStart))
+            {
+                link = link.Insert(link.IndexOf(anchorStart) + anchorStart.Length, string.Format("title=\"{0}\" ", ViewData.ModelMetadata.GetDisplayName()));
+            }
+
+            @Html.Raw(link)
+        }
+        @:     </div>
+    }
+    else if (ViewData.ModelMetadata.HasExternalLink())
+    {
+        @:<div class="property-button">
+        var e = ViewData.ModelMetadata.GetAttribute<ExternalLinkAttribute>();
+        e.Name = modelValue;
+        if (string.IsNullOrEmpty(e.Name))
+        {
+            @:&nbsp;
+        }
+        else
+        {
+            var overrideTitle = ViewData.ModelMetadata.GetDisplayName();
+            var externalLink = Employment.Web.Mvc.Infrastructure.Extensions.HtmlHelperExtension.RenderExternalLink(Html, e, Html.ViewData.ModelMetadata.Properties, Model, ViewData.ModelMetadata.PropertyName, Model, ViewData.TemplateInfo.HtmlFieldPrefix, overrideTitle).ToString();
+            @Html.Raw(externalLink)
+        }
+        @:     </div>
+    }
+
+    if (Model is Binary)
+    {
+        @Html.Hidden("", Convert.ToBase64String(((Binary)Model).ToArray()));
+    }
+    else if (Model is byte[])
+    {
+        @Html.Hidden("", Convert.ToBase64String((byte[])Model));
+    }
+    else if (ViewData.ModelMetadata.IsComplexType)
+    {
+        if (ViewData.ModelMetadata.GetAttribute<SerializedAttribute>() != null)
+        {
+            @Html.Hidden("", Model.Serialize())
+        }
+        else
+        {
+            foreach (ModelMetadata property in ViewData.ModelMetadata.Properties)
+            {
+                if (property.ModelType.GetNonNullableType() == typeof(DateTime))
+                {
+                    var dataTypeAttribute = property.GetAttribute<DataTypeAttribute>();
+                    var dataType = (dataTypeAttribute != null) ? dataTypeAttribute.DataType : DataType.DateTime;
+                    string format = string.Empty;
+                    switch (dataType)
+                    {
+
+                        case DataType.Date: format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern; break;
+                        case DataType.Time: format = CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern; break;
+                        default: format = string.Format("{0} {1}", CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern, CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern); break;
+                    }
+
+                    var dt = (DateTime?)property.Model;
+
+                    var val = dt != null ? dt.Value.ToString(format) : string.Empty;
+
+                    @Html.Hidden(property.PropertyName, val, new RouteValueDictionary { { HtmlDataType.DateTimeTicks, GetDateTimeParseString(property.Model) }, { HtmlDataType.DateTimeType, dataType.ToString().ToLower() } })
+                }
+                else
+                {
+                    @Html.Hidden(property.PropertyName, property.Model)
+                }
+            }
+        }
+    }
+    else
+    {
+        if (ViewData.ModelMetadata.ModelType == typeof(DateTime?) || ViewData.ModelMetadata.ModelType == typeof(DateTime))
+        {
+            var dataTypeAttribute = ViewData.ModelMetadata.GetAttribute<DataTypeAttribute>();
+            var dataType = (dataTypeAttribute != null) ? dataTypeAttribute.DataType : DataType.DateTime;
+            string format = string.Empty;
+            switch (dataType)
+            {
+
+                case DataType.Date: format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern; break;
+                case DataType.Time: format = CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern; break;
+                default: format = string.Format("{0} {1}", CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern, CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern); break;
+            }
+
+            var dt = (DateTime?)Model;
+
+            var val = dt != null ? dt.Value.ToString(format) : string.Empty;
+
+            @Html.Hidden("", val, new RouteValueDictionary { { HtmlDataType.DateTimeTicks, GetDateTimeParseString(Model) }, { HtmlDataType.DateTimeType, dataType.ToString().ToLower() } })
+        }
+        else
+        {
+            @Html.Hidden("", Model)
+        }
+    }
+}

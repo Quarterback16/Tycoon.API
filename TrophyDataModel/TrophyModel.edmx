@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TrophyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="TrophyModelStoreContainer">
+          <EntitySet Name="Competition" EntityType="TrophyModel.Store.Competition" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Winner" EntityType="TrophyModel.Store.Winner" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Competition_Competition" Association="TrophyModel.Store.FK_Competition_Competition">
+            <End Role="Competition" EntitySet="Competition" />
+            <End Role="Competition1" EntitySet="Competition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Winner_Competition" Association="TrophyModel.Store.FK_Winner_Competition">
+            <End Role="Competition" EntitySet="Competition" />
+            <End Role="Winner" EntitySet="Winner" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Competition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Frequency" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Winner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="When" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Sequence" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CompetitionId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Competition_Competition">
+          <End Role="Competition" Type="TrophyModel.Store.Competition" Multiplicity="1" />
+          <End Role="Competition1" Type="TrophyModel.Store.Competition" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Competition1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Winner_Competition">
+          <End Role="Competition" Type="TrophyModel.Store.Competition" Multiplicity="1" />
+          <End Role="Winner" Type="TrophyModel.Store.Winner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Winner">
+              <PropertyRef Name="CompetitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TrophyModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TrophyEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Competitions" EntityType="TrophyModel.Competition" />
+          <EntitySet Name="Winners" EntityType="TrophyModel.Winner" />
+          <AssociationSet Name="FK_Competition_Competition" Association="TrophyModel.FK_Competition_Competition">
+            <End Role="Competition" EntitySet="Competitions" />
+            <End Role="Competition1" EntitySet="Competitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Winner_Competition" Association="TrophyModel.FK_Winner_Competition">
+            <End Role="Competition" EntitySet="Competitions" />
+            <End Role="Winner" EntitySet="Winners" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Competition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Frequency" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Competition1" Relationship="TrophyModel.FK_Competition_Competition" FromRole="Competition" ToRole="Competition1" />
+          <NavigationProperty Name="Competition2" Relationship="TrophyModel.FK_Competition_Competition" FromRole="Competition1" ToRole="Competition" />
+          <NavigationProperty Name="Winners" Relationship="TrophyModel.FK_Winner_Competition" FromRole="Competition" ToRole="Winner" />
+        </EntityType>
+        <EntityType Name="Winner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="When" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Sequence" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CompetitionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Competition" Relationship="TrophyModel.FK_Winner_Competition" FromRole="Winner" ToRole="Competition" />
+        </EntityType>
+        <Association Name="FK_Competition_Competition">
+          <End Role="Competition" Type="TrophyModel.Competition" Multiplicity="1" />
+          <End Role="Competition1" Type="TrophyModel.Competition" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Competition1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Winner_Competition">
+          <End Role="Competition" Type="TrophyModel.Competition" Multiplicity="1" />
+          <End Role="Winner" Type="TrophyModel.Winner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Winner">
+              <PropertyRef Name="CompetitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TrophyModelStoreContainer" CdmEntityContainer="TrophyEntities">
+          <EntitySetMapping Name="Competitions">
+            <EntityTypeMapping TypeName="TrophyModel.Competition">
+              <MappingFragment StoreEntitySet="Competition">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Winners">
+            <EntityTypeMapping TypeName="TrophyModel.Winner">
+              <MappingFragment StoreEntitySet="Winner">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="When" ColumnName="When" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CompetitionId" ColumnName="CompetitionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

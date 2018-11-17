@@ -1,0 +1,106 @@
+﻿/*
+    CustomSmartAutocomplete.css    
+
+    Style changes for SmartAutocomplete.
+    Autocomplete
+    Menu
+    Button
+    drop-mask
+
+
+    NOTE: style changes to the textbox are  applied in this file.
+*/
+
+.ui-autocomplete
+{
+    max-height: 100px;
+    overflow-y: auto; /* prevent horizontal scrollbar */
+    overflow-x: hidden; /* add padding to account for vertical scrollbar */
+    padding-right: 20px;
+}
+/* IE 6 doesn't support max-height
+	 * we use height instead, but this forces the menu to always be this tall
+	 */
+* html .ui-autocomplete
+{
+    height: 100px;
+}
+
+
+.ui-autocomplete-loading-s
+{
+    background: url('layout/spinnerSmartAutocomplete_WhiteBG.gif') no-repeat right Top !important; /*spinner*/
+}
+
+.autocompleteButton
+{
+    background: url('layout/actions-bg.gif') no-repeat center transparent;
+    height: 100%;
+    display: inline !important;
+    border: 0;
+    margin-bottom: 30px !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    
+}
+
+/*
+.open {
+    background: url('/Content/actions-bg-up.gif') no-repeat center transparent; 
+}
+*/
+
+
+.textBoxAutocomplete-drop-mask
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1903px !important;
+    height: 768px !important;
+    z-index: 9990;
+    filter: alpha(opacity=00);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    background-color: #FFF;
+}
+
+
+.ui-menu
+{ 
+    border: 1px solid rgb(25, 127, 150);
+    margin-top: 1px;
+    background: none repeat scroll 0% 0% rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+/*#textBoxAutocomplete,
+#inp,*/
+.textBoxAutocomplete
+{
+    width: 405px !important;
+    box-sizing: border-box;
+    font-family: Arial,Helvetica,sans-serif;
+    border: 0;
+    horizontal-align: left;
+    vertical-align: 10px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-decoration: none;
+    line-height: 1.7em;
+    font-size: 100%;
+    padding: 7px 8px;
+    margin: 0;
+}
+
+.wrapperDiv
+{
+    height: 34px;
+    border: 1px solid #000;
+    display: inline-block;
+    background-color: white; /* z-index: 10000;*/
+}
+
+.waitCursor
+{
+    cursor: wait;
+}

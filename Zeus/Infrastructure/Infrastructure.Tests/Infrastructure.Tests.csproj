@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C7AAADCF-A28F-4E9B-8F22-2D9B65E37254}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Employment.Web.Mvc.Infrastructure.Tests</RootNamespace>
+    <AssemblyName>Employment.Web.Mvc.Infrastructure.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Integration|AnyCPU'">
+    <OutputPath>bin\Integration\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Infrastructure.Tests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DevFix|AnyCPU'">
+    <OutputPath>bin\DevFix\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Infrastructure.Tests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestRelease|AnyCPU'">
+    <OutputPath>bin\TestRelease\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Infrastructure.Tests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestFix|AnyCPU'">
+    <OutputPath>bin\TestFix\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Infrastructure.Tests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DevRelease|AnyCPU'">
+    <OutputPath>bin\DevRelease\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Employment.Web.Mvc.Infrastructure.Tests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Department.AddressValidation, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Employment.Esc.Adw.Contracts">
+      <HintPath>..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.Adw.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Shared.Contracts">
+      <HintPath>..\..\..\..\..\..\..\ESG SDK\SDK\Stream\ESC Release\DeveloperWCF\bin\Employment.Esc.Shared.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Employment.Esc.Shared.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ApplicationServer.Caching.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MiniProfiler, Version=2.0.2.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler.Mvc, Version=3.0.11.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL" />
+    <Reference Include="Moq">
+      <HintPath>..\..\Dependencies\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Csv\CsvClassMappingTests.cs" />
+    <Compile Include="Csv\CsvConfigurationTests.cs" />
+    <Compile Include="Csv\CsvFieldAttributeMappingTests.cs" />
+    <Compile Include="Csv\CsvParserConstructorTests.cs" />
+    <Compile Include="Csv\CsvParserExcelCompatibleTests.cs" />
+    <Compile Include="Csv\CsvParserTests.cs" />
+    <Compile Include="Csv\CsvReaderConstructorTests.cs" />
+    <Compile Include="Csv\CsvReaderErrorMessageTests.cs" />
+    <Compile Include="Csv\CsvReaderMappingTests.cs" />
+    <Compile Include="Csv\CsvReaderSubClassingTests.cs" />
+    <Compile Include="Csv\CsvReaderTests.cs" />
+    <Compile Include="Csv\CsvWriterConstructorTests.cs" />
+    <Compile Include="Csv\CsvWriterFormatTests.cs" />
+    <Compile Include="Csv\CsvWriterMappingTests.cs" />
+    <Compile Include="Csv\CsvWriterSubClassingTests.cs" />
+    <Compile Include="Csv\CsvWriterTests.cs" />
+    <Compile Include="Csv\LocalCultureTests.cs" />
+    <Compile Include="Csv\Mocks\ParserMock.cs" />
+    <Compile Include="Csv\ReferenceMappingAttributeTests.cs" />
+    <Compile Include="Csv\ReferenceMappingClassMapTests.cs" />
+    <Compile Include="Csv\StringExtensionTests.cs" />
+    <Compile Include="Csv\TypeConversion\BooleanConverterTests.cs" />
+    <Compile Include="Csv\TypeConversion\ByteConverterTests.cs" />
+    <Compile Include="Csv\TypeConversion\CharConverterTests.cs" />
+    <Compile Include="Csv\TypeConversion\DateTimeConverterTests.cs" />
+    <Compile Include="Csv\TypeConversion\EnumConverterTests.cs" />
+    <Compile Include="Csv\TypeConversion\TypeConverterFactoryTests.cs" />
+    <Compile Include="DataAnnotations\ClearIfAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ClearIfEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ClearIfFalseAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ClearIfNotAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ClearIfNotEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ClearIfNotRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ClearIfRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ClearIfTrueAttributeTest.cs" />
+    <Compile Include="DataAnnotations\BlueWordAttributeTest.cs" />
+    <Compile Include="DataAnnotations\BindableIfAttributeTest.cs" />
+    <Compile Include="DataAnnotations\BindableIfEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\BindableIfFalseAttributeTest.cs" />
+    <Compile Include="DataAnnotations\BindableIfNotAttributeTest.cs" />
+    <Compile Include="DataAnnotations\BindableIfNotEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\BindableIfNotRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\BindableIfRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\BindableIfTrueAttributeTest.cs" />
+    <Compile Include="DataAnnotations\AccessKeyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\CopyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\GridColumnAttributeTest.cs" />
+    <Compile Include="DataAnnotations\PagedAttributeTest.cs" />
+    <Compile Include="DataAnnotations\FileAttributeTest.cs" />
+    <Compile Include="DataAnnotations\SpecialCharactersAttributeTest.cs" />
+    <Compile Include="DataAnnotations\SwitcherAttributeTest.cs" />
+    <Compile Include="Extensions\ByteExtensionTest.cs" />
+    <Compile Include="Extensions\ModelStateDictionaryExtensionTest.cs" />
+    <Compile Include="Extensions\MappingEngineExtensionTest.cs" />
+    <Compile Include="FileResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Ioc\Simple\SimpleInjectorMvcApplicationTest.cs" />
+    <Compile Include="Mappers\BulletinMapperTest.cs" />
+    <Compile Include="Mappers\MenuMapperTest.cs" />
+    <Compile Include="Mappers\GeospatialMapperTest.cs" />
+    <Compile Include="Models\MenuModelTest.cs" />
+    <Compile Include="Performance\StringTests.cs" />
+    <Compile Include="Serialization\SelectListItemSerializationSurrogateTest.cs" />
+    <Compile Include="Services\RouteRegistrationServiceTest.cs" />
+    <Compile Include="TypeConverters\QueryStringTypeConverterTest.cs" />
+    <Compile Include="Types\HtmlDataTypeTest.cs" />
+    <Compile Include="ViewModels\DynamicViewModelTest.cs" />
+    <Compile Include="Extensions\SerializeExtensionTest.cs" />
+    <Compile Include="Configuration\MenuTilesTest.cs" />
+    <Compile Include="Configuration\MenuTileTest.cs" />
+    <Compile Include="Configuration\MenuSectionTest.cs" />
+    <Compile Include="Configuration\HistorySectionTest.cs" />
+    <Compile Include="Extensions\RouteExtensionTest.cs" />
+    <Compile Include="Services\HistoryServiceTest.cs" />
+    <Compile Include="Services\TokenCacheHelperTest.cs" />
+    <Compile Include="ViewModels\Geospatial\AddressViewModelTest.cs" />
+    <Compile Include="ViewModels\PagedViewModelTest.cs" />
+    <Compile Include="Wrappers\CacheServiceWrapperTest.cs" />
+    <Compile Include="DataAnnotations\AbnAttributeTest.cs" />
+    <Compile Include="DataAnnotations\CrnAttributeTest.cs" />
+    <Compile Include="Extensions\DataRecordExtensionTest.cs" />
+    <Compile Include="Services\UserServiceTest.cs" />
+    <Compile Include="Types\PageMetadataTest.cs" />
+    <Compile Include="Registrations\AreaRegistrationTest.cs" />
+    <Compile Include="Extensions\EnumExtensionTest.cs" />
+    <Compile Include="MvcApplicationTest.cs" />
+    <Compile Include="DataAnnotations\ButtonHandlerAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ButtonAttributeTest.cs" />
+    <Compile Include="DataAnnotations\LinkAttributeTest.cs" />
+    <Compile Include="DataAnnotations\OrderAttributeTest.cs" />
+    <Compile Include="DataAnnotations\MenuAttributeTest.cs" />
+    <Compile Include="DataAnnotations\MaxAttributeTest.cs" />
+    <Compile Include="DataAnnotations\MinAttributeTest.cs" />
+    <Compile Include="DataAnnotations\GroupAttributeTest.cs" />
+    <Compile Include="DataAnnotations\SecurityAttributeTest.cs" />
+    <Compile Include="Extensions\ComparisonTypeExtensionTest.cs" />
+    <Compile Include="Extensions\ClaimsIdentityExtensionTest.cs" />
+    <Compile Include="Extensions\ClaimTypesTest.cs" />
+    <Compile Include="Extensions\AssemblyExtensionTest.cs" />
+    <Compile Include="FilterProviders\ConditionalFilterProviderTest.cs" />
+    <Compile Include="Helpers\GridHelperTest.cs" />
+    <Compile Include="Controllers\InfrastructureControllerTest.cs" />
+    <Compile Include="Extensions\ModelMetadataExtensionTest.cs" />
+    <Compile Include="Ioc\ContainerProviderTest.cs" />
+    <Compile Include="ModelBinders\InfrastructureModelBinderTest.cs" />
+    <Compile Include="ModelMetadataProviders\InfrastructureModelMetadataProviderTest.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensionTest.cs" />
+    <Compile Include="Models\CodeModelTest.cs" />
+    <Compile Include="Models\KeyModelTest.cs" />
+    <Compile Include="Models\RelatedCodeModelTest.cs" />
+    <Compile Include="Exceptions\SelectorExceptionTest.cs" />
+    <Compile Include="Registrations\ViewEngineRegistrationTest.cs" />
+    <Compile Include="Registrations\ModelMetadataProviderRegistrationTest.cs" />
+    <Compile Include="Registrations\ModelBinderRegistrationTest.cs" />
+    <Compile Include="Registrations\GlobalFilterRegistrationTest.cs" />
+    <Compile Include="Registrations\FilterProviderRegistrationTest.cs" />
+    <Compile Include="Extensions\ServiceExtensionTest.cs" />
+    <Compile Include="Services\AdwServiceTest.cs" />
+    <Compile Include="Base\ContingentModel.cs" />
+    <Compile Include="Base\ContingentValidationModel.cs" />
+    <Compile Include="Bootstrapper\BootstrapperTest.cs" />
+    <Compile Include="DataAnnotations\AdwSelectionAttributeTest.cs" />
+    <Compile Include="DataAnnotations\BindableAttributeTest.cs" />
+    <Compile Include="DataAnnotations\SelectionAttributeTest.cs" />
+    <Compile Include="DataAnnotations\SelectionTypeAttributeTest.cs" />
+    <Compile Include="DataAnnotations\TriggerAttributeTest.cs" />
+    <Compile Include="Services\HttpCacheServiceTest.cs" />
+    <Compile Include="Services\ServiceTest.cs" />
+    <Compile Include="Exceptions\ServiceValidationExceptionTest.cs" />
+    <Compile Include="TypeConverters\BoolTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\NullBoolTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\FloatTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\NullFloatTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\DecimalTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\NullDecimalTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\DoubleTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\NullDoubleTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\LongTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\NullLongTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\IntTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\NullIntTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\NullDateTimeTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\DateTimeTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\MappingEngineTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\NullStringTypeConverterTest.cs" />
+    <Compile Include="TypeConverters\ProfileExpressionTypeConverterTest.cs" />
+    <Compile Include="Exceptions\TypeMismatchExceptionTest.cs" />
+    <Compile Include="Extensions\TypeExtensionTest.cs" />
+    <Compile Include="Types\ClaimTypesTest.cs" />
+    <Compile Include="Types\CustomDataTypeTest.cs" />
+    <Compile Include="Models\UserModelTest.cs" />
+    <Compile Include="ValueResolvers\BoolToFlagValueResolverTest.cs" />
+    <Compile Include="ValueResolvers\DateTimeToNullableDateTimeValueResolverTest.cs" />
+    <Compile Include="ValueResolvers\IsInRoleValueResolverTest.cs" />
+    <Compile Include="ValueResolvers\NullableBoolToFlagValueResolverTest.cs" />
+    <Compile Include="ValueResolvers\FlagToNullableBoolValueResolverTest.cs" />
+    <Compile Include="ValueResolvers\FlagToBoolValueResolverTest.cs" />
+    <Compile Include="ViewEngines\CsRazorViewEngineTest.cs" />
+    <Compile Include="Wrappers\BuildManagerWrapperTest.cs" />
+    <Compile Include="Wrappers\ConfigurationManagerWrapperTest.cs" />
+    <Compile Include="ViewModels\ContentTest.cs" />
+    <Compile Include="ViewModels\ContentViewModelTest.cs" />
+    <Compile Include="DataAnnotations\EditableIfAttributeTest.cs" />
+    <Compile Include="DataAnnotations\EditableIfEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\EditableIfFalseAttributeTest.cs" />
+    <Compile Include="DataAnnotations\EditableIfNotAttributeTest.cs" />
+    <Compile Include="DataAnnotations\EditableIfNotEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\EditableIfNotRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\EditableIfRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\EditableIfTrueAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfFalseAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfNotAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfNotEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfNotRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\ReadOnlyIfTrueAttributeTest.cs" />
+    <Compile Include="DataAnnotations\VisibleIfNotRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\VisibleIfRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\VisibleIfNotAttributeTest.cs" />
+    <Compile Include="DataAnnotations\VisibleIfNotEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\VisibleIfTrueAttributeTest.cs" />
+    <Compile Include="DataAnnotations\VisibleIfFalseAttributeTest.cs" />
+    <Compile Include="DataAnnotations\VisibleIfEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\VisibleIfAttributeTest.cs" />
+    <Compile Include="DataAnnotations\EqualToAttributeTest.cs" />
+    <Compile Include="DataAnnotations\GreaterThanAttributeTest.cs" />
+    <Compile Include="DataAnnotations\GreaterThanOrEqualToAttributeTest.cs" />
+    <Compile Include="DataAnnotations\LessThanAttributeTest.cs" />
+    <Compile Include="DataAnnotations\LessThanOrEqualToAttributeTest.cs" />
+    <Compile Include="DataAnnotations\NotEqualToAttributeTest.cs" />
+    <Compile Include="DataAnnotations\RequiredIfAttributeTest.cs" />
+    <Compile Include="DataAnnotations\RequiredIfEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\RequiredIfFalseAttributeTest.cs" />
+    <Compile Include="DataAnnotations\RequiredIfNotAttributeTest.cs" />
+    <Compile Include="DataAnnotations\RequiredIfNotEmptyAttributeTest.cs" />
+    <Compile Include="DataAnnotations\RequiredIfNotRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\RequiredIfRegExMatchAttributeTest.cs" />
+    <Compile Include="DataAnnotations\RequiredIfTrueAttributeTest.cs" />
+    <Compile Include="Extensions\RegistrationExtensionTest.cs" />
+    <Compile Include="Extensions\EnumerableExtensionTest.cs" />
+    <Compile Include="Mappers\AdwMapperTest.cs" />
+    <Compile Include="Mappers\NullStringMapperTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Resources\RTF.rtf" />
+    <None Include="Resources\RTF_Drawing.rtf" />
+    <None Include="Resources\RTF_Image.rtf" />
+    <None Include="Unity.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FileResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FileResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\GIF.gif" />
+    <Content Include="Resources\JPG.jpg" />
+    <Content Include="Resources\PNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{48738aa7-c01e-4606-b96d-abb70dba3995}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

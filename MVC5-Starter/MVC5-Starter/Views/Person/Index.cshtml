@@ -1,0 +1,23 @@
+﻿
+@model IEnumerable<MVC5_Starter.Models.Person>
+
+@{ Html.RenderPartial("_PersonSearchForm"); }
+
+<div id="people-data">
+    @Html.DisplayForModel(Model)
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $("#search-btn").click(function () {
+                var searchTerm = $("#search-text").val();
+                $.get("SearchPeople", { searchText: searchTerm })
+                    .success(function (data) {
+                        $("#people-data").html(data);
+                    });
+            });
+        });
+    </script>
+}

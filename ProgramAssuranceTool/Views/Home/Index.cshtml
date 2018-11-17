@@ -1,0 +1,80 @@
+﻿@using MvcJqGrid
+@using MvcJqGrid.Enums
+@using ProgramAssuranceTool.Helpers
+
+@{
+    var isBulletin = ViewData["BulletinType"] != null  && 
+        ViewData["BulletinType"].ToString().Equals(DataConstants.StandardBulletinType, StringComparison.OrdinalIgnoreCase); 
+    
+    // default to FAQ
+    var buttonLabel = "Create New FAQ";
+    var bulletinType = DataConstants.FaqBulletinType;
+
+    var bulletinActive = "";
+    var faqActive = "active";
+    var gridCaption = "FAQ List";
+
+    if (isBulletin )
+    {
+        buttonLabel = "Create New Bulletin";
+        bulletinType = DataConstants.StandardBulletinType;
+
+        bulletinActive = "active";
+        faqActive = "";
+
+        gridCaption = "Bulletin List";
+    }
+}
+<div class="page-header">
+    <h1>Bulletin/ FAQ </h1>
+</div>
+
+<ul class="nav nav-tabs">
+    <li class="@bulletinActive">
+        @Html.ActionLink("Bulletin List", "Index", new { bulletinType = DataConstants.StandardBulletinType}, null)
+    </li>
+    <li class="@faqActive">
+        @Html.ActionLink("FAQ List", "Index", new { bulletinType = DataConstants.FaqBulletinType }, null)
+    </li>
+</ul>
+
+<div class="panel panel-default">
+    
+    <div class="panel-body">
+        @{ 
+            var g = Html.Grid("BulletinGrid");
+            g.SetCaption(gridCaption);
+            g.AddColumn(new Column("BulletinID").SetLabel("Bulletin ID").SetHidden(true));
+            g.AddColumn(new Column("EndDate").SetLabel("End Date")
+                                             .SetSortable(true)
+                                             .SetWidth(100)
+                                             .SetAlign(Align.Center)
+                                             .SetSearchType(Searchtype.Datepicker)
+                                             .SetSearchDateFormat("dd/mm/yy"));
+            g.AddColumn(new Column("Title").SetLabel("Title").SetWidth(500).SetSearch(true));
+
+            g.SetUrl(Url.Action("GridDataBulletin", "Home", new {BulletinType = bulletinType}));
+            g.SetHeight(CommonConstants.GridStandardHeight); // set this tall enough and you won't see the scroll bar
+            g.SetAutoWidth(true); // force the grid to fit the width of the parent element
+            g.SetRowNum(CommonConstants.GridStandardNoOfRows); // set the number of rows displayed initially
+            g.SetViewRecords(true); // display the total number of rows in the dataset
+            g.SetPager("bulletinPager");
+            g.SetSearchToolbar(true); // enable toolbar searching
+            g.SetSearchOnEnter(false);
+            g.OnLoadComplete("pat.bulletinGridOn_EmptyCheck()");
+            g.OnGridComplete("pat.grid_OnGridComplete()");
+
+            var gridString = AppHelper.WcagFixGrid(g, "BulletinGrid", gridCaption);
+            @Html.Raw(gridString)
+            }
+    </div>
+    
+    <div class="panel-footer clearfix">
+        @{
+            if (ViewBag.CanEdit)
+            {
+                @Html.ActionLink(buttonLabel, "Create", "Bulletin", new { bulletinType }, new { @class = "btn btn-lg btn-primary" })
+            }
+        }
+    </div>
+</div>

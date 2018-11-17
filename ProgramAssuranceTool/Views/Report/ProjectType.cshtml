@@ -1,0 +1,270 @@
+﻿@using System.Web.Mvc.Html
+@using MvcJqGrid
+@using MvcJqGrid.Enums
+@using ProgramAssuranceTool.Helpers
+@using ProgramAssuranceTool.ViewModels.Report
+@model SearchCriteriaViewModel 
+
+@{
+    ViewBag.Title = "Project Type Report";
+}
+
+<div class="page-header">
+    <h1>Project Type Report</h1>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Search Criteria</h2>
+    </div>
+    @using (Html.BeginForm("ProjectType", "Report", FormMethod.Post, new { @id = "reportSearchForm", @class = "form-inline" }))
+    {
+        <div class="panel-body">
+            
+            @Html.Partial("RequiredFieldMessage")<br/>
+            @Html.ValidationMessageSummary()
+
+            <div class="row">
+                <div class="col-xs-4">
+                    <fieldset>
+                        <legend>Search Type</legend>
+                        <label for="AdvanceSearchType" class="pull-right">
+                            <span>&nbsp;&nbsp;</span>
+                            @Html.RadioButtonFor(r => r.IsAdvanceSearchType, true, new { @style = "width:30px;", @id = "AdvanceSearchType" })Advanced
+                        </label>
+                        <label for="BasicSearchType" class="pull-right">
+                            @Html.RadioButtonFor(r => r.IsAdvanceSearchType, false, new { @style = "width:30px;", @id = "BasicSearchType" })Basic
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-6">
+                    @Html.LabelForRequired(r => r.OrgCode, null, true)
+                    @Html.TextBoxFor(r => r.OrgCode, new { @class = "form-control", @placeholder = "Please specify the Organisation" })
+                </div>
+                
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.ESACode)
+                    @Html.TextBoxFor(r => r.ESACode, new { @class = "form-control", @placeholder = "Select All ESAs" })
+                </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelForRequired(r => r.ProjectID, null, true)
+                    @Html.TextBoxFor(r => r.ProjectID, new { @class = "form-control", @placeholder = "Please specify the Project" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.SiteCode)
+                    @Html.TextBoxFor(r => r.SiteCode, new { @class = "form-control", @placeholder = "Select All Sites" })
+                </div>
+
+                <div class="col-xs-6">
+                    @Html.LabelForRequired(r => r.ProjectType, null, true)
+                    @Html.EditorFor(r => r.ProjectType)
+                </div>
+
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.ContractType)
+                    @Html.EditorFor(r => r.ContractType)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.UploadDateFrom)
+                    @Html.EditorFor(r => r.UploadDateFrom)
+                </div>
+                <div class="col-xs-6">
+                    @Html.LabelFor(r => r.UploadDateTo)
+                    @Html.EditorFor(r => r.UploadDateTo)
+                </div>
+            </div>
+          
+        </div>
+        <div class="panel-footer clearfix">
+            <div class="pull-left">
+                @Html.ActionLink("Reset", "ProjectType", "Report", new { @class = "btn btn-lg btn-primary" })
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary">Search</button>
+        </div>
+    }
+</div>
+
+@{
+    if (ViewBag.ModelIsValid && HttpContext.Current.Request.HttpMethod == "POST")
+    {
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Search Result</h2>
+            </div>
+    
+            @{
+
+        if (ViewBag.HaveData)
+        {
+
+                    <div id="gridResult">
+
+                        <div class="panel-body">
+                            <div>
+                                @{
+                                    var gByOrg = Html.Grid("ProjectByOrgGrid");
+                                    gByOrg.SetCaption("Projects by Organisation");
+                                    gByOrg.AddColumn(new Column("Type").SetLabel("Type").SetWidth(100).SetHidden(true).SetAlign(Align.Center));
+                                    gByOrg.AddColumn(new Column("Code").SetLabel("Code").SetSortable(true).SetWidth(100).SetAlign(Align.Center));
+                                    gByOrg.AddColumn(new Column("Description").SetLabel("Description").SetSortable(true).SetWidth(100));
+                                    gByOrg.AddColumn(new Column("ProjectCount").SetLabel("Project Count").SetWidth(100).SetAlign(Align.Right).SetFormatter(Formatters.Integer));
+                                    gByOrg.AddColumn(new Column("ReviewsCount").SetLabel("Review Count").SetWidth(100).SetAlign(Align.Right).SetFormatter(Formatters.Integer));
+                                    gByOrg.SetUrl(Url.Action("ProjectTypeGetData", "Report", new {projectTypeBy = DataConstants.ProjectByOrg, Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy}));
+                                    gByOrg.SetAutoWidth(true); // force the grid to fit the width of the parent element
+                                    gByOrg.SetHeight(120); // set this tall enough and you won't see the scroll bar
+                                    gByOrg.SetRowNum(CommonConstants.GridStandardDoubleRows); // set the number of rows displayed initially
+                                    gByOrg.SetRowList(new[] {20, 50, 100, 200}); // DR01039126 
+                                    gByOrg.SetViewRecords(true); // display the total number of rows in the dataset
+                                    //.SetPager("pagerByOrg")
+                                    gByOrg.SetHeaderTitles(true);
+                                    gByOrg.SetSearchToolbar(false); // disable toolbar searching
+                                    gByOrg.SetSortOnHeaderClick(false);
+                                    gByOrg.SetSearchOnEnter(false);
+                                    gByOrg.OnLoadComplete("pat.grid_OnGridComplete()");
+
+                                    var gridString = AppHelper.WcagFixGrid(gByOrg, "ProjectByOrgGrid", "Project by Organisation");
+                                    @Html.Raw(gridString)
+                                }
+                            </div>
+                            <br/>
+                            <div>
+                                @{ 
+                                    var gByType = Html.Grid("ProjectByTypeGrid");
+                                    gByType.SetCaption("Projects by Type");
+                                    gByType.AddColumn(new Column("Type").SetLabel("Type").SetWidth(100).SetHidden(true).SetAlign(Align.Center));
+                                    gByType.AddColumn(new Column("Code").SetLabel("Code").SetSortable(true).SetWidth(100).SetAlign(Align.Center));
+                                    gByType.AddColumn(new Column("Description").SetLabel("Description").SetSortable(true).SetWidth(100));
+                                    gByType.AddColumn(new Column("ProjectCount").SetLabel("Project Count").SetWidth(100).SetAlign(Align.Right).SetFormatter(Formatters.Integer));
+                                    gByType.AddColumn(new Column("ReviewsCount").SetLabel("Review Count").SetWidth(100).SetAlign(Align.Right).SetFormatter(Formatters.Integer));
+                                    gByType.SetUrl(Url.Action("ProjectTypeGetData", "Report", new {projectTypeBy = DataConstants.ProjectByType, Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy}));
+                                    gByType.SetAutoWidth(true); // force the grid to fit the width of the parent element
+                                    gByType.SetHeight(120); // set this tall enough and you won't see the scroll bar
+                                    gByType.SetRowNum(CommonConstants.GridStandardDoubleRows); // set the number of rows displayed initially
+                                    gByType.SetRowList(new[] {20, 50, 100, 200}); // DR01039126 
+                                    gByType.SetViewRecords(true); // display the total number of rows in the dataset
+                                    //.SetPager("pagerByType")
+                                    gByType.SetHeaderTitles(true);
+                                    gByType.SetSearchToolbar(false); // disable toolbar searching
+                                    gByType.SetSortOnHeaderClick(false);
+                                    gByType.SetSearchOnEnter(false);
+                                    gByType.OnLoadComplete("pat.grid_OnGridComplete()");
+
+                                    gridString = AppHelper.WcagFixGrid(gByType, "ProjectByTypeGrid", "Project by Type");
+                                    @Html.Raw(gridString)
+                                    }
+                            </div>
+                            <br/>
+                            <div>
+                                @{ 
+                                    var gByESA = Html.Grid("ProjectByESAGrid");
+                                    gByESA.SetCaption("ESA Projects");
+                                    gByESA.AddColumn(new Column("Type").SetLabel("Type").SetWidth(100).SetHidden(true).SetAlign(Align.Center));
+                                    gByESA.AddColumn(new Column("Code").SetLabel("Code").SetSortable(true).SetWidth(100).SetAlign(Align.Center));
+                                    gByESA.AddColumn(new Column("Description").SetLabel("Description").SetSortable(true).SetWidth(100));
+                                    gByESA.AddColumn(new Column("ProjectCount").SetLabel("Project Count").SetWidth(100).SetAlign(Align.Right).SetFormatter(Formatters.Integer));
+                                    gByESA.AddColumn(new Column("ReviewsCount").SetLabel("Review Count").SetWidth(100).SetAlign(Align.Right).SetFormatter(Formatters.Integer));
+                                    gByESA.SetUrl(Url.Action("ProjectTypeGetData", "Report", new { projectTypeBy = DataConstants.ProjectByESA, Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy }));
+                                    gByESA.SetAutoWidth(true); // force the grid to fit the width of the parent element
+                                    gByESA.SetHeight(120); // set this tall enough and you won't see the scroll bar
+                                    gByESA.SetRowNum(CommonConstants.GridMaxRecordToDownload); // set the number of rows displayed initially
+                                    //.SetRowList(new[] { 20, 50, 100, 200 }) // DR01039126 
+                                    gByESA.SetViewRecords(true); // display the total number of rows in the dataset
+                                    //.SetPager("pagerByEsa")
+                                    gByESA.SetHeaderTitles(true);
+                                    gByESA.SetSearchToolbar(false); // disable toolbar searching
+                                    gByESA.SetSortOnHeaderClick(false);
+                                    gByESA.SetSearchOnEnter(false);
+                                    gByESA.OnLoadComplete("pat.grid_OnGridComplete()");
+
+                                    gridString = AppHelper.WcagFixGrid(gByESA, "ProjectByESAGrid", "ESA Project");
+                                    @Html.Raw(gridString)
+                                }
+                            </div>
+                            <br/>
+                            <div>
+                                @{ 
+                                    var gByState = Html.Grid("ProjectByStateGrid");
+                                    gByState.SetCaption("State Projects");
+                                    gByState.AddColumn(new Column("Type").SetLabel("Type").SetWidth(100).SetHidden(true).SetAlign(Align.Center));
+                                    gByState.AddColumn(new Column("Code").SetLabel("Code").SetSortable(true).SetWidth(100).SetAlign(Align.Center));
+                                    gByState.AddColumn(new Column("Description").SetLabel("Description").SetSortable(true).SetWidth(100));
+                                    gByState.AddColumn(new Column("ProjectCount").SetLabel("Project Count").SetWidth(100).SetAlign(Align.Right).SetFormatter(Formatters.Integer));
+                                    gByState.AddColumn(new Column("ReviewsCount").SetLabel("Review Count").SetWidth(100).SetAlign(Align.Right).SetFormatter(Formatters.Integer));
+                                    gByState.SetUrl(Url.Action("ProjectTypeGetData", "Report", new {projectTypeBy = DataConstants.ProjectByState, Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy}));
+                                    gByState.SetHeight(150); // set this tall enough and you won't see the scroll bar
+                                    gByState.SetAutoWidth(true); // force the grid to fit the width of the parent element
+                                    gByState.SetHeaderTitles(true);
+                                    gByState.SetSearchToolbar(false); // disable toolbar searching
+                                    gByState.SetSortOnHeaderClick(false);
+                                    gByState.SetSearchOnEnter(false);
+                                    gByState.OnLoadComplete("pat.grid_OnGridComplete()");
+
+                                    gridString = AppHelper.WcagFixGrid(gByState, "ProjectByStateGrid", "State Project");
+                                    @Html.Raw(gridString)
+                                 }
+                            </div>
+                            <br/>
+                            <div>
+                                @{ 
+                                    var gByNational = Html.Grid("ProjectByNationalGrid");
+                                    gByNational.SetCaption("National Projects");
+                                    gByNational.AddColumn(new Column("Type").SetLabel("Type").SetWidth(100).SetHidden(true).SetAlign(Align.Center));
+                                    gByNational.AddColumn(new Column("Code").SetLabel("Code").SetSortable(true).SetWidth(100).SetAlign(Align.Center));
+                                    gByNational.AddColumn(new Column("Description").SetLabel("Description").SetSortable(true).SetWidth(100));
+                                    gByNational.AddColumn(new Column("ProjectCount").SetLabel("Project Count").SetWidth(100).SetAlign(Align.Right).SetFormatter(Formatters.Integer));
+                                    gByNational.AddColumn(new Column("ReviewsCount").SetLabel("Review Count").SetWidth(100).SetAlign(Align.Right).SetFormatter(Formatters.Integer));
+                                    gByNational.SetUrl(Url.Action("ProjectTypeGetData", "Report", new {projectTypeBy = DataConstants.ProjectByNational, Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy}));
+                                    gByNational.SetHeight(50); // set this tall enough and you won't see the scroll bar
+                                    gByNational.SetAutoWidth(true); // force the grid to fit the width of the parent element
+                                    gByNational.SetHeaderTitles(true);
+                                    gByNational.SetSearchToolbar(false); // disable toolbar searching
+                                    gByNational.SetSortOnHeaderClick(false);
+                                    gByNational.SetSearchOnEnter(false);
+                                    //gByNational.OnLoadComplete("pat.grid_OnGridComplete()");
+
+                                    gridString = AppHelper.WcagFixGrid(gByNational, "ProjectByNationalGrid", "National Project");
+                                    @Html.Raw(gridString)
+                                }
+                            </div>
+                        </div>
+
+                        <div class="panel-footer clearfix">
+                            <div class="pull-left">
+                                <h3>Generate Printable Report</h3>
+                                @Html.ActionLink("PDF", "ProjectTypeDownload", "Report", new { reportType = CommonConstants.Pdf, Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy }, new { @class = "btn btn-sm btn-default" })
+                                @Html.ActionLink("Word", "ProjectTypeDownload", "Report", new { reportType = CommonConstants.Word, Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy }, new { @class = "btn btn-sm btn-default" })
+                                @Html.ActionLink("CSV", "ProjectTypeDownload", "Report", new { reportType = CommonConstants.Csv, Model.IsAdvanceSearchType, Model.OrgCode, Model.ESACode, Model.SiteCode, Model.ContractType, Model.UploadDateFrom, Model.UploadDateTo, Model.ProjectID, Model.ProjectType, Model.SortColumn, Model.SortBy }, new { @class = "btn btn-sm btn-default" })
+                            </div>
+                        </div>
+        
+                    </div>
+
+        }
+        else
+        {
+                    <div id="gridNoResult">
+                        <div class="panel-body">
+                            <div class="validation-summary-errors">
+                                <p>Data not found ! Please try again.</p>
+                            </div>
+                        </div>
+                    </div>
+        }
+            }
+        </div>
+
+    }
+} 

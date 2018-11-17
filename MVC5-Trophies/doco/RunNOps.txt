@@ -1,0 +1,10 @@
+﻿This is a simple bare bones MVC5 app.
+
+Featuring:-
+
+  - BaseController with Alert system
+  - tweaks to remove Response Header bloat
+  - minified JS libaries and CSS
+  - default cache settings
+
+2014-10-17 : Adding Web API - failed NuGet not co-operating - unable to connect to the remote server

@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSDC", "HSDC\HSDC.csproj", "{1006819D-A9FF-4DF4-A1DF-B1331561866A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardScraper", "CardScraper\CardScraper.csproj", "{22A786ED-C9E4-4DF7-82EE-138599FF40D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardImageCreator", "CardImageCreator\CardImageCreator.csproj", "{567B3DE2-A2D9-4417-915D-F3F6735AAD01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeckReader", "DeckReader\DeckReader.csproj", "{782AFD47-7254-4056-BA7D-0EBEFEF4F808}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryReader", "MemoryReader\MemoryReader.csproj", "{DDF3088F-221A-421E-BCDF-323AE4CFBEC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSniffer", "NetSniffer\NetSniffer.csproj", "{400636A6-4D85-4FD6-9CB7-97AC749374B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1006819D-A9FF-4DF4-A1DF-B1331561866A}.Debug|x86.ActiveCfg = Debug|x86
+		{1006819D-A9FF-4DF4-A1DF-B1331561866A}.Debug|x86.Build.0 = Debug|x86
+		{1006819D-A9FF-4DF4-A1DF-B1331561866A}.Release|x86.ActiveCfg = Release|x86
+		{1006819D-A9FF-4DF4-A1DF-B1331561866A}.Release|x86.Build.0 = Release|x86
+		{22A786ED-C9E4-4DF7-82EE-138599FF40D2}.Debug|x86.ActiveCfg = Debug|x86
+		{22A786ED-C9E4-4DF7-82EE-138599FF40D2}.Debug|x86.Build.0 = Debug|x86
+		{22A786ED-C9E4-4DF7-82EE-138599FF40D2}.Release|x86.ActiveCfg = Release|x86
+		{22A786ED-C9E4-4DF7-82EE-138599FF40D2}.Release|x86.Build.0 = Release|x86
+		{567B3DE2-A2D9-4417-915D-F3F6735AAD01}.Debug|x86.ActiveCfg = Debug|x86
+		{567B3DE2-A2D9-4417-915D-F3F6735AAD01}.Debug|x86.Build.0 = Debug|x86
+		{567B3DE2-A2D9-4417-915D-F3F6735AAD01}.Release|x86.ActiveCfg = Release|x86
+		{567B3DE2-A2D9-4417-915D-F3F6735AAD01}.Release|x86.Build.0 = Release|x86
+		{782AFD47-7254-4056-BA7D-0EBEFEF4F808}.Debug|x86.ActiveCfg = Debug|x86
+		{782AFD47-7254-4056-BA7D-0EBEFEF4F808}.Debug|x86.Build.0 = Debug|x86
+		{782AFD47-7254-4056-BA7D-0EBEFEF4F808}.Release|x86.ActiveCfg = Release|x86
+		{782AFD47-7254-4056-BA7D-0EBEFEF4F808}.Release|x86.Build.0 = Release|x86
+		{DDF3088F-221A-421E-BCDF-323AE4CFBEC1}.Debug|x86.ActiveCfg = Debug|x86
+		{DDF3088F-221A-421E-BCDF-323AE4CFBEC1}.Debug|x86.Build.0 = Debug|x86
+		{DDF3088F-221A-421E-BCDF-323AE4CFBEC1}.Release|x86.ActiveCfg = Release|x86
+		{DDF3088F-221A-421E-BCDF-323AE4CFBEC1}.Release|x86.Build.0 = Release|x86
+		{400636A6-4D85-4FD6-9CB7-97AC749374B0}.Debug|x86.ActiveCfg = Debug|x86
+		{400636A6-4D85-4FD6-9CB7-97AC749374B0}.Debug|x86.Build.0 = Debug|x86
+		{400636A6-4D85-4FD6-9CB7-97AC749374B0}.Release|x86.ActiveCfg = Release|x86
+		{400636A6-4D85-4FD6-9CB7-97AC749374B0}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

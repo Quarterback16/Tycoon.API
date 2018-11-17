@@ -1,0 +1,33 @@
+﻿{
+    /* Click to learn more about project.json  http://go.microsoft.com/fwlink/?LinkID=517074 */
+    "webroot": "wwwroot",
+    "version": "1.0.0-*",
+    "dependencies": {
+        "Microsoft.AspNet.Server.IIS": "1.0.0-beta3",
+        "Microsoft.AspNet.Mvc": "6.0.0-beta3",
+        "Microsoft.AspNet.StaticFiles": "1.0.0-beta3",
+        "Microsoft.AspNet.Diagnostics": "1.0.0-beta3",
+        "Microsoft.AspNet.Server.WebListener": "1.0.0-beta3",
+        "Moq": "4.2.1502.0911",
+        "TrelloNet": "0.6.2"
+    },
+    "frameworks": {
+        "aspnet50": { },
+        "aspnetcore50": { }
+    },
+    "exclude": [
+        "wwwroot",
+        "node_modules",
+        "bower_components"
+    ],
+    "bundleExclude": [
+        "node_modules",
+        "bower_components",
+        "**.kproj",
+        "**.user",
+        "**.vspscc"
+    ],
+    "commands": {
+        "web ": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:12841"
+    }
+}

@@ -1,0 +1,67 @@
+﻿@using System.Collections
+@using System.Runtime.Serialization
+@using System.Xml.Serialization
+
+@{
+#if DEBUG
+}
+<h3>Runtime cache</h3>
+@{
+
+
+	@Html.Raw("<table border=1 style='border-collapse:collapse'>");
+	foreach (System.Collections.DictionaryEntry t in HttpRuntime.Cache)
+	{
+		@Html.Raw("<tr>");
+		string key = string.Format("{0}", t.Key);
+		object item = t.Value;
+		if (item != null && (item is string || item.GetType().IsPrimitive))
+		{
+			@Html.Raw(string.Format("<td valign=top>{0}<td valign=top> {1}", key, item));
+		}
+		else if (item != null && item is ISerializable && item is IDictionary)
+		{
+			@Html.Raw(string.Format("<td valign=top>{0}<td valign=top>", key));
+			var dic = item as IDictionary;
+			foreach (DictionaryEntry dictionaryEntry in dic)
+			{
+				XmlSerializer xmlSerializer = new XmlSerializer(dictionaryEntry.Value.GetType());
+				string serializedXML = string.Empty;
+				if (dictionaryEntry.Value != null)
+				{
+					using (StringWriter stringWriter = new StringWriter())
+					{
+						xmlSerializer.Serialize(stringWriter, dictionaryEntry.Value);
+						serializedXML = stringWriter.ToString();
+					}
+				}
+				@Html.Raw(string.Format("{0}: {1}<br>", dictionaryEntry.Key, Server.HtmlEncode(serializedXML)));
+			}
+
+		}
+		else
+		{
+			try
+			{
+				XmlSerializer xmlSerializer = new XmlSerializer(item.GetType());
+				string serializedXML;
+				using (StringWriter stringWriter = new StringWriter())
+				{
+					xmlSerializer.Serialize(stringWriter, item);
+					serializedXML = stringWriter.ToString();
+				}
+				@Html.Raw(string.Format("<td valign=top>{0}<td valign=top>{1}", key, Server.HtmlEncode(serializedXML)));
+			}
+			catch
+			{
+				@Html.Raw(string.Format("<td valign=top>{0}<td valign=top> {1}", key, System.Web.HttpRuntime.Cache[key]));
+			}
+		}
+		@Html.Raw("</tr>");
+	}
+	@Html.Raw("</table>");
+
+}
+@{
+#endif
+}

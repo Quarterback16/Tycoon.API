@@ -1,0 +1,43 @@
+﻿@{
+    var list = (List<SelectListItem>) ViewData.ModelMetadata.AdditionalValues["AdwCodeList"];
+    if (Model != null && Model.ToString().Length > 0)
+    {
+        var selItem = list.Find(m => m.Value == (string) Model);
+        if (selItem != null)
+        {
+            selItem.Selected = true;
+        }
+    }
+    
+    // if there is any additional list then merge it with the list
+    // e.g. @Html.EditorFor(model => model.Review.AssessmentCode, new { AdditionalList = @ViewBag.AdditionalAssessmentOutcome as IList<SelectListItem> })
+    var additionalList = ViewData["AdditionalList"] as List<SelectListItem>;
+    if (additionalList != null && additionalList.Any())
+    {
+        // if the code does not exist in the existing list then add 
+        foreach (var item in additionalList)
+        {
+            var exist = list.Any(a => a.Value.Equals(item.Value));
+            if (!exist)
+            {
+                list.Add(item);
+            }
+
+        }
+    }
+
+    // if there is any additional code then merge it with the list
+    // e.g. @Html.EditorFor(model => model.Review.AssessmentCode, new { AdditionalCode = @ViewBag.AdditionalAssessmentOutcome as SelectListItem })
+    var additionalCode = ViewData["AdditionalCode"] as SelectListItem;
+    if (additionalCode != null)
+    {
+        // if the code does not exist in the existing list then add 
+        var exist = list.Any(a => a.Value.Equals(additionalCode.Value, StringComparison.OrdinalIgnoreCase));
+        if (!exist)
+        {
+            list.Add(additionalCode);
+        }
+    }
+
+}
+@Html.DropDownList("", list, new { @class="form-control" })

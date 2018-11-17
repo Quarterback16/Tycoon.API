@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-suite">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>.failed {color: red; background-color: #ffcccc;}.passed {color: black; background-color: #ccffcc;}.done {color: black; background-color: #eeffee;}</style>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite Results</b></td></tr>
+<tr class="passed"><td><a href="#test0">DR01037588</a></td></tr>
+<tr class="passed"><td><a href="#test1">DR01037589 </a></td></tr>
+<tr class=""><td><a href="#test2">DR01037590 Tab Order</a></td></tr>
+<tr class=""><td><a href="#test3">DR01039362 </a></td></tr>
+<tr class="done"><td><a href="#test4">DR01042858 </a></td></tr>
+<tr class="passed"><td><a href="#test5">DR01037591 </a></td></tr>
+<tr class="passed"><td><a href="#test6">DR01037592 </a></td></tr>
+<tr class="passed"><td><a href="#test7">DR01039363 </a></td></tr>
+<tr class="passed"><td><a href="#test8">DR01039364 </a></td></tr>
+<tr class="passed"><td><a href="#test9">DR01039365 </a></td></tr>
+<tr class="passed"><td><a href="#test10">DR01039391 </a></td></tr>
+<tr class="passed"><td><a href="#test11">DR01039366 </a></td></tr>
+<tr class="passed"><td><a href="#test12">DR01039367 </a></td></tr>
+<tr class="passed"><td><a href="#test13">DR01039368 </a></td></tr>
+<tr class="passed"><td><a href="#test14">DR01039369 </a></td></tr>
+<tr class="passed"><td><a href="#test15">DR01039370 </a></td></tr>
+<tr class="passed"><td><a href="#test16">DR01039371 </a></td></tr>
+<tr class="passed"><td><a href="#test17">DR01039372 </a></td></tr>
+
+</tbody></table>
+<a name="test0" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01037588</td></tr></thead><tbody><!--The Add Bulletins screen can only be viewed for Program Assurance Admin.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>id=btnCreate</td>
+	<td>Create New Bulletin</td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>//div[@id='page']/footer/div/p</td>
+	<td>regexp:^.*(?:\*.*)$</td>
+</tr>
+
+</tbody></table>
+<a name="test1" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01037589 </td></tr></thead><tbody><!--Either Bulletins or FAQs (Radio Buttons) must be selected before submitting a bulletin/faq, but both cannot be selected.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Bulletin List</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>//div[@id='gview_BulletinGrid']/div/span</td>
+	<td>Bulletin List</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=FAQ List</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>//div[@id='gview_BulletinGrid']/div/span</td>
+	<td>FAQ List</td>
+</tr>
+
+</tbody></table>
+<a name="test2" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01037590 Tab Order</td></tr></thead><tbody><!--The tab order for this screen is left to right, top to bottom as per the ESG User Interface Design Guidelines. -->
+
+</tbody></table>
+<a name="test3" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039362 </td></tr></thead><tbody><!--All date fields will have the display format 'Date (dd/mm/yyyy)'-->
+
+</tbody></table>
+<a name="test4" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01042858 </td></tr></thead><tbody><!--Displays all project names currently stored in dbo.Project.ProjectName-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>sendKeys</td>
+	<td>id=ProjectField</td>
+	<td>a</td>
+</tr>
+<tr class="done">
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=btnBack</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=button.btn.btn-succes</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+<a name="test5" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01037591 </td></tr></thead><tbody><!--Start Date will populate with the current date-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertValue</td>
+	<td>id=StartDate</td>
+	<td>javascript{var today = new Date(); var month = today.getMonth() + 1;&nbsp;&nbsp;today.getDate() + '/' + (month &lt; 10 ? '0' + month: month) + '/' + today.getFullYear() }</td>
+</tr>
+
+</tbody></table>
+<a name="test6" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01037592 </td></tr></thead><tbody><!--The Bulletin End Date will default 4 week from the Bulletin Start Date-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertValue</td>
+	<td>id=EndDate</td>
+	<td>javascript{ var today = new Date(); var week4 = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 28); var month = week4.getMonth() + 1; week4.getDate() + '/' + (month &lt; 10 ? '0' + month : month) + '/' + week4.getFullYear() }</td>
+</tr>
+
+</tbody></table>
+<a name="test7" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039363 </td></tr></thead><tbody><!--Start Date must be equal to or less than the End Date, otherwise message.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=ProjectField</td>
+	<td>129</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=BulletinTitle</td>
+	<td>javascript{ 'Bulletin title: ' + new Date().getMilliseconds();}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Description</td>
+	<td>javascript{'bulletin description: ' + new Date().getMilliseconds()}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=StartDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; var nextWeek = new Date(today.getFullYear(), month, today.getDate() + 7); var month2 = nextWeek.getMonth(); nextWeek.getDate() + '/' + month2 + '/' + nextWeek.getFullYear()}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=EndDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; today.getDate() + '/' + month + '/' + today.getFullYear() }</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnSave</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>Start Date must be equal to or less than the End Date</td>
+</tr>
+
+</tbody></table>
+<a name="test8" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039364 </td></tr></thead><tbody><!--Start Date must be equal to or greater than the current date, otherwise message.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=ProjectField</td>
+	<td>129</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=BulletinTitle</td>
+	<td>javascript{ 'Bulletin title: ' + new Date().getMilliseconds();}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Description</td>
+	<td>javascript{'bulletin description: ' + new Date().getMilliseconds()}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=StartDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; var nextWeek = new Date(today.getFullYear(), month, today.getDate() - 7); var month2 = nextWeek.getMonth(); nextWeek.getDate() + '/' + month2 + '/' + nextWeek.getFullYear()}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=EndDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; today.getDate() + '/' + month + '/' + today.getFullYear() }</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnSave</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>Start Date must be equal to or greater than the current date</td>
+</tr>
+
+</tbody></table>
+<a name="test9" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039365 </td></tr></thead><tbody><!--End Date must be greater than the Start Date, otherwise message.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=ProjectField</td>
+	<td>129</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=BulletinTitle</td>
+	<td>javascript{ 'Bulletin title: ' + new Date().getMilliseconds();}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Description</td>
+	<td>javascript{'bulletin description: ' + new Date().getMilliseconds()}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=StartDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; var nextWeek = new Date(today.getFullYear(), month, today.getDate() - 7); var month2 = nextWeek.getMonth(); nextWeek.getDate() + '/' + month2 + '/' + nextWeek.getFullYear()}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=EndDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; today.getDate() + '/' + month + '/' + today.getFullYear() }</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnSave</td>
+	<td></td>
+</tr>
+<!--End Date must be greater than the Start Date-->
+<tr class="passed">
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>Start Date must be equal to or greater than the current date</td>
+</tr>
+
+</tbody></table>
+<a name="test10" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039391 </td></tr></thead><tbody><!--Once a successful Bulletin/FAQs has been submitted. The user will be navigated back to the Bulletin/FAQs (Homepage) List screen with a successfully message displayed.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=ProjectField</td>
+	<td>129</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=BulletinTitle</td>
+	<td>javascript{ 'Bulletin title: ' + new Date().getMilliseconds();}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Description</td>
+	<td>javascript{'bulletin description: ' + new Date().getMilliseconds()}</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnSave</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>id=flash</td>
+	<td>The Bulletin/ FAQ has been successfully submitted*</td>
+</tr>
+
+</tbody></table>
+<a name="test11" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039366 </td></tr></thead><tbody><!--When submitting a bulletin, if Title is blank then error message.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=ProjectField</td>
+	<td>129</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=BulletinTitle</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Description</td>
+	<td>javascript{'bulletin description: ' + new Date().getMilliseconds()}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=StartDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; var nextWeek = new Date(today.getFullYear(), month, today.getDate() - 7); var month2 = nextWeek.getMonth(); nextWeek.getDate() + '/' + month2 + '/' + nextWeek.getFullYear()}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=EndDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; today.getDate() + '/' + month + '/' + today.getFullYear() }</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnSave</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>Title is mandatory and cannot be blank</td>
+</tr>
+
+</tbody></table>
+<a name="test12" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039367 </td></tr></thead><tbody><!--When submitting a bulletin, if Description is blank then error message.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=ProjectField</td>
+	<td>129</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=BulletinTitle</td>
+	<td>asdfasdfdsaf</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Description</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=StartDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; var nextWeek = new Date(today.getFullYear(), month, today.getDate() - 7); var month2 = nextWeek.getMonth(); nextWeek.getDate() + '/' + month2 + '/' + nextWeek.getFullYear()}</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=EndDate</td>
+	<td>javascript{ var today = new Date(); var month = today.getMonth() + 1; today.getDate() + '/' + month + '/' + today.getFullYear() }</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnSave</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>Description is mandatory and cannot be blank</td>
+</tr>
+
+</tbody></table>
+<a name="test13" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039368 </td></tr></thead><tbody><!--When submitting a bulletin, if Start Date is blank then error message.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=ProjectField</td>
+	<td>129</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=BulletinTitle</td>
+	<td>asdfasdfdsaf</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Description</td>
+	<td>asdfasdfsadf</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=StartDate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnSave</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>Start Date is mandatory and cannot be blank</td>
+</tr>
+
+</tbody></table>
+<a name="test14" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039369 </td></tr></thead><tbody><!--When submitting a bulletin, if End Date is blank then error message.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=ProjectField</td>
+	<td>129</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=BulletinTitle</td>
+	<td>asdfasdfdsaf</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Description</td>
+	<td>asdfasdfsadf</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=EndDate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnSave</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>//form[@id='bulletinCreateForm']/div/div/ul/li[2]</td>
+	<td>End Date is mandatory and cannot be blank</td>
+</tr>
+
+</tbody></table>
+<a name="test15" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039370 </td></tr></thead><tbody><!--Once a Bulletin has successfully saved, users will be navigated to the 'UI_PRA_PA_PA_PA Home (Bulletins list)'-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=ProjectField</td>
+	<td>129</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=BulletinTitle</td>
+	<td>asdfasdfdsaf</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Description</td>
+	<td>asdfasdfsadf</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnSave</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>id=flash</td>
+	<td>The Bulletin/ FAQ has been successfully submitted*</td>
+</tr>
+
+</tbody></table>
+<a name="test16" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039371 </td></tr></thead><tbody><!--If data is entered in any fields, user will be prompted with a message.-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=ProjectField</td>
+	<td>129</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=BulletinTitle</td>
+	<td>asdfasdfdsaf</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Description</td>
+	<td>asdfasdfsadf</td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=btnBack</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>css=h4.modal-title</td>
+	<td>Page Navigation Warning</td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>css=button.btn.btn-succes</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+<a name="test17" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039372 </td></tr></thead><tbody><!--Users will be navigated to the 'UI_PRA_PA_PA_PA Home (Bulletins list)'-->
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnCreate</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnBack</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>link=Bulletin List</td>
+	<td>Bulletin List</td>
+</tr>
+<!---->
+
+</tbody></table>
+
+</body></html>

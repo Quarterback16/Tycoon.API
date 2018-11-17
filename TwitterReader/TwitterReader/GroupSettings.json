@@ -1,0 +1,25 @@
+[
+    {
+        "Name": "Tech",
+        "ScreenNameList": [
+            "MicrosoftIoT",
+            "dotnet",
+            "Azure",
+            "xamarinhq"
+        ]
+    },
+    {
+        "Name": "Entertainment",
+        "ScreenNameList": [
+            "ATPWorldTour",
+            "RottenTomatoes"
+        ]
+    },
+    {
+        "Name": "Default",
+        "ScreenNameList": [
+            "ch9",
+            "pluralsight"
+        ]
+    }
+]

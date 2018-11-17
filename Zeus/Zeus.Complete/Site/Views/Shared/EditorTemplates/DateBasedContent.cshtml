@@ -1,0 +1,28 @@
+﻿@using Employment.Web.Mvc.Infrastructure.DataAnnotations
+@using Employment.Web.Mvc.Infrastructure.Extensions
+@using Employment.Web.Mvc.Infrastructure.Types
+
+@model DateTime?
+
+@{
+    var dbcAttribute = ViewData.ModelMetadata.GetAttribute<DateBasedContentAttribute>();
+    if (dbcAttribute == null || dbcAttribute.Action == null) { return; }
+
+    string selector = (Model == null) ? "" : Model.Value.ToString("yyyy-MM-dd");
+    
+    RouteValueDictionary routeValues = new RouteValueDictionary();
+    if (dbcAttribute.Area != null) { routeValues.Add("Area", dbcAttribute.Area); }
+    
+    string url;
+    if (dbcAttribute.Controller == null) {
+        url = Url.Action(dbcAttribute.Action, routeValues);
+    }
+    else {
+        url = Url.Action(dbcAttribute.Action, dbcAttribute.Controller, routeValues);
+    }
+}
+
+<div class="zeus-date-based-content">
+    <div class="zeus-date-part" @HtmlDataType.Url="@url" @HtmlDataType.DateTime="@selector"></div>
+    <div class="zeus-content-part"></div>
+</div>

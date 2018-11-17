@@ -1,0 +1,8 @@
+﻿  1. Run the Self console app
+  2. Run Postman
+  3. enter the url> http://localhost:5000/api/card/1
+  4. in the console app hit Enter to stop listening
+
+
+  Deployed to Vesuvius however you get the generic "Error executing program".  Assume
+  that a 4.5 app wont work on the 2003 based OS.

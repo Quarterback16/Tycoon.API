@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters>
+  <parameter name="IIS Web Application Name"
+         description="Web application"
+         defaultValue="Default Web Site/ESS/Areas/Example"
+         tags="Web application">
+  </parameter>
+
+  <parameter name="Application Path"
+             description="Full site path where application will be created."
+             defaultValue="$(DeployIisAppPath)"
+             tags="IisApp">
+    <parameterEntry kind="ProviderPath"
+                    scope="iisApp"
+                    match="$(DeployIisAppPath)"/>
+  </parameter>
+  <parameter name="Application Physical Path"
+             description="Physical path where files for this Web application will be deployed."
+             defaultValue="c:\inetpub\wwwroot\$(DeployIisAppPath)"
+             tags="PhysicalPath">
+    <parameterEntry kind="DestinationVirtualDirectory"
+                   scope="$(DeployIisAppPath)"
+                   match="" />
+  </parameter>
+</parameters>

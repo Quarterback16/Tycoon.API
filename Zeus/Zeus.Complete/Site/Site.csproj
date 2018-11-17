@@ -1,0 +1,846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{82CB72FD-7992-44DE-8229-0551E230757E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Employment.Web.Mvc.Zeus</RootNamespace>
+    <AssemblyName>Employment.Web.Mvc.Zeus</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\..\Dependencies\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Department.AddressValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Department.AddressValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Employment.Esc.Adw.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Employment.Esc.Adw.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Employment.Esc.Framework.DataTransport">
+      <HintPath>..\..\Dependencies\Employment.Esc.Framework.DataTransport.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Dependencies\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\Dependencies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.40211.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Dependencies\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Dependencies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Dependencies\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Dependencies\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Dependencies\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Dependencies\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AjaxController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="DataAnnotations\TestGlobalFilterAttribute.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Mappers\NoticeboardMapper.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrations\BundleRegistration.cs" />
+    <Compile Include="Registrations\RouteRegistration.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Types\Constants.cs" />
+    <Compile Include="ViewModels\CustomReportErrorViewModel.cs" />
+    <Compile Include="ViewModels\IndexViewModel.cs" />
+    <Compile Include="ViewModels\MessageViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\WebDeployTransformConfig.txt" />
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-datepaginator.css" />
+    <Content Include="Content\bootstrap-timepicker.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\CustomSmartAutocomplete.css" />
+    <Content Include="Content\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker3.css" />
+    <Content Include="Content\edge.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\fonts.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\footable.core.css" />
+    <Content Include="Content\footable.standalone.css" />
+    <Content Include="Content\foo\footable.core.css" />
+    <Content Include="Content\foo\footable.core.min.css" />
+    <Content Include="Content\foo\footable.metro.css" />
+    <Content Include="Content\foo\footable.metro.min.css" />
+    <Content Include="Content\foo\footable.standalone.css" />
+    <Content Include="Content\foo\footable.standalone.min.css" />
+    <Content Include="Content\fullcalendar.css" />
+    <Content Include="Content\highcontrast.css" />
+    <Content Include="Content\jquery-jvectormap-1.2.2.css" />
+    <Content Include="Content\jquery.gritter.css" />
+    <Content Include="Content\jquery.timepicker.css" />
+    <Content Include="Content\layout\actions-bg-up.gif" />
+    <Content Include="Content\layout\actions-bg.gif" />
+    <Content Include="Content\layout\actions-close-bg-on.gif" />
+    <Content Include="Content\layout\actions-close-bg.gif" />
+    <Content Include="Content\layout\anti-ie.gif" />
+    <Content Include="Content\layout\apple-touch-icon-precomposed.png" />
+    <Content Include="Content\layout\area-activity-add-host.png" />
+    <Content Include="Content\layout\area-activity-add-placement.png" />
+    <Content Include="Content\layout\area-activity-add.png" />
+    <Content Include="Content\layout\area-activity-search-diary.png" />
+    <Content Include="Content\layout\area-activity-search-host.png" />
+    <Content Include="Content\layout\area-activity-search-placement.png" />
+    <Content Include="Content\layout\area-activity-search.png" />
+    <Content Include="Content\layout\area-employer-add-employer.png" />
+    <Content Include="Content\layout\area-employer-add-placement.png" />
+    <Content Include="Content\layout\area-employer-add-vacancy.png" />
+    <Content Include="Content\layout\area-employer-findstaff.png" />
+    <Content Include="Content\layout\area-employer-search-employer.png" />
+    <Content Include="Content\layout\area-employer-search-placement.png" />
+    <Content Include="Content\layout\area-employer-search-vacancy.png" />
+    <Content Include="Content\layout\area-participationaccount-add-expenditure.png" />
+    <Content Include="Content\layout\area-participationaccount-adjustment-request.png" />
+    <Content Include="Content\layout\area-participationaccount-data-recovery.png" />
+    <Content Include="Content\layout\area-participationaccount-jobseeker-history.png" />
+    <Content Include="Content\layout\area-participationaccount-maintain-credits.png" />
+    <Content Include="Content\layout\area-participationaccount-partial-recovery.png" />
+    <Content Include="Content\layout\area-participationaccount-request-history.png" />
+    <Content Include="Content\layout\area-participationaccount-request-transfer.png" />
+    <Content Include="Content\layout\area-participationaccount-search-expenditure.png" />
+    <Content Include="Content\layout\area-participationaccount-view-summary.png" />
+    <Content Include="Content\layout\area-payments-add-general.png" />
+    <Content Include="Content\layout\area-payments-add-override.png" />
+    <Content Include="Content\layout\area-payments-jobseeker-history.png" />
+    <Content Include="Content\layout\area-payments-search-available.png" />
+    <Content Include="Content\layout\area-payments-search-claimed.png" />
+    <Content Include="Content\layout\area-payments-search-earning-reduction.png" />
+    <Content Include="Content\layout\area-servicesadministration-search-contract.png" />
+    <Content Include="Content\layout\area-servicesadministration-search-outlet.png" />
+    <Content Include="Content\layout\area-servicesadministration-search-site.png" />
+    <Content Include="Content\layout\areaidentity-arrow.gif" />
+    <Content Include="Content\layout\aust-gov-b-sml.png" />
+    <Content Include="Content\layout\aust-gov-b.png" />
+    <Content Include="Content\layout\aust-gov-w.png" />
+    <Content Include="Content\layout\aust-gov.jpg" />
+    <Content Include="Content\layout\aust-gov.png" />
+    <Content Include="Content\layout\body-bg.gif" />
+    <Content Include="Content\layout\collapsible-close.gif" />
+    <Content Include="Content\layout\collapsible-open.gif" />
+    <Content Include="Content\layout\Dual-list-add.png" />
+    <Content Include="Content\layout\Dual-list-addall.png" />
+    <Content Include="Content\layout\dual-list-remove.png" />
+    <Content Include="Content\layout\Dual-list-removeall.png" />
+    <Content Include="Content\layout\errortip-bg.gif" />
+    <Content Include="Content\layout\favicon.gif" />
+    <Content Include="Content\layout\hc\actions-bg-up.gif" />
+    <Content Include="Content\layout\hc\actions-bg.gif" />
+    <Content Include="Content\layout\hc\Actions-close-bg-on-high-contrast.png" />
+    <Content Include="Content\layout\hc\actions-close-bg-on.gif" />
+    <Content Include="Content\layout\hc\area-activity-add-host.png" />
+    <Content Include="Content\layout\hc\area-activity-add-placement.png" />
+    <Content Include="Content\layout\hc\area-activity-add.png" />
+    <Content Include="Content\layout\hc\area-activity-search-diary.png" />
+    <Content Include="Content\layout\hc\area-activity-search-host.png" />
+    <Content Include="Content\layout\hc\area-activity-search-placement.png" />
+    <Content Include="Content\layout\hc\area-activity-search.png" />
+    <Content Include="Content\layout\hc\area-employer-add-employer.png" />
+    <Content Include="Content\layout\hc\area-employer-add-placement.png" />
+    <Content Include="Content\layout\hc\area-employer-add-vacancy.png" />
+    <Content Include="Content\layout\hc\area-employer-findstaff.png" />
+    <Content Include="Content\layout\hc\area-employer-search-employer.png" />
+    <Content Include="Content\layout\hc\area-employer-search-placement.png" />
+    <Content Include="Content\layout\hc\area-employer-search-vacancy.png" />
+    <Content Include="Content\layout\hc\area-participationaccount-add-expenditure.png" />
+    <Content Include="Content\layout\hc\area-participationaccount-adjustment-request.png" />
+    <Content Include="Content\layout\hc\area-participationaccount-jobseeker-history.png" />
+    <Content Include="Content\layout\hc\area-participationaccount-maintain-credits.png" />
+    <Content Include="Content\layout\hc\area-participationaccount-partial-recovery.png" />
+    <Content Include="Content\layout\hc\area-participationaccount-request-history.png" />
+    <Content Include="Content\layout\hc\area-participationaccount-request-transfer.png" />
+    <Content Include="Content\layout\hc\area-participationaccount-search-expenditure.png" />
+    <Content Include="Content\layout\hc\area-participationaccount-view-summary.png" />
+    <Content Include="Content\layout\hc\area-payments-add-general.png" />
+    <Content Include="Content\layout\hc\area-payments-jobseeker-history.png" />
+    <Content Include="Content\layout\hc\area-payments-search-available.png" />
+    <Content Include="Content\layout\hc\area-payments-search-claimed.png" />
+    <Content Include="Content\layout\hc\area-payments-search-earning-reduction.png" />
+    <Content Include="Content\layout\hc\area-servicesadministration-search-contract.png" />
+    <Content Include="Content\layout\hc\area-servicesadministration-search-outlet.png" />
+    <Content Include="Content\layout\hc\area-servicesadministration-search-site.png" />
+    <Content Include="Content\layout\hc\areaidentity-arrow.png" />
+    <Content Include="Content\layout\hc\aust-gov.png" />
+    <Content Include="Content\layout\hc\body-bg.png" />
+    <Content Include="Content\layout\hc\dual-list-add.png" />
+    <Content Include="Content\layout\hc\Dual-list-addall.png" />
+    <Content Include="Content\layout\hc\dual-list-remove.png" />
+    <Content Include="Content\layout\hc\Dual-list-removeall.png" />
+    <Content Include="Content\layout\hc\errortip-bg.png" />
+    <Content Include="Content\layout\hc\hinttip-bg.png" />
+    <Content Include="Content\layout\hc\history-pin.png" />
+    <Content Include="Content\layout\hc\home-icon-activity.png" />
+    <Content Include="Content\layout\hc\home-icon-admin.png" />
+    <Content Include="Content\layout\hc\home-icon-diary.png" />
+    <Content Include="Content\layout\hc\home-icon-employer.png" />
+    <Content Include="Content\layout\hc\home-icon-overrides.png" />
+    <Content Include="Content\layout\hc\home-icon-participantregistration.png" />
+    <Content Include="Content\layout\hc\home-icon-participation.png" />
+    <Content Include="Content\layout\hc\home-icon-participationaccount.png" />
+    <Content Include="Content\layout\hc\home-icon-payments.png" />
+    <Content Include="Content\layout\hc\home-icon-servicesadministration.png" />
+    <Content Include="Content\layout\hc\jobseekeractions-bg.gif" />
+    <Content Include="Content\layout\hc\jobseekeractions-bgo.gif" />
+    <Content Include="Content\layout\hc\jobseekeractions-casesummary.png" />
+    <Content Include="Content\layout\hc\jobseekeractions-comment.png" />
+    <Content Include="Content\layout\hc\jobseekeractions-diary.png" />
+    <Content Include="Content\layout\hc\jobseekeractions-help.png" />
+    <Content Include="Content\layout\hc\jobseekeractions-pinned.png" />
+    <Content Include="Content\layout\hc\jobseekeractions-sms.png" />
+    <Content Include="Content\layout\hc\jobseekeractions-unpinned.png" />
+    <Content Include="Content\layout\hc\jobseekernav-bg-on.png" />
+    <Content Include="Content\layout\hc\jobseekernav-bg.png" />
+    <Content Include="Content\layout\hc\jobseekernav-done-hover-sml.png" />
+    <Content Include="Content\layout\hc\jobseekernav-done-hover.gif" />
+    <Content Include="Content\layout\hc\jobseekernav-done-hover.png" />
+    <Content Include="Content\layout\hc\jobseekernav-done-sml-hover.gif" />
+    <Content Include="Content\layout\hc\jobseekernav-done-sml.gif" />
+    <Content Include="Content\layout\hc\jobseekernav-done-sml.png" />
+    <Content Include="Content\layout\hc\jobseekernav-done.gif" />
+    <Content Include="Content\layout\hc\jobseekernav-done.png" />
+    <Content Include="Content\layout\hc\jobseekernav-note-hover.png" />
+    <Content Include="Content\layout\hc\jobseekernav-note-sml-hover.gif" />
+    <Content Include="Content\layout\hc\jobseekernav-note.png" />
+    <Content Include="Content\layout\hc\logout-bg-hover.gif" />
+    <Content Include="Content\layout\hc\logout-bg.gif" />
+    <Content Include="Content\layout\hc\menu-close-focus.png" />
+    <Content Include="Content\layout\hc\menu-close.png" />
+    <Content Include="Content\layout\hc\menu-open-focus.png" />
+    <Content Include="Content\layout\hc\menu-open.png" />
+    <Content Include="Content\layout\hc\msgerror-bg.png" />
+    <Content Include="Content\layout\hc\msggood-bg.gif" />
+    <Content Include="Content\layout\hc\msginfo-bg.png" />
+    <Content Include="Content\layout\hc\msgwarn-bg.png" />
+    <Content Include="Content\layout\hc\ql-activity.png" />
+    <Content Include="Content\layout\hc\ql-admin.png" />
+    <Content Include="Content\layout\hc\ql-bulletins.png" />
+    <Content Include="Content\layout\hc\ql-diary.png" />
+    <Content Include="Content\layout\hc\ql-employer.png" />
+    <Content Include="Content\layout\hc\ql-home.png" />
+    <Content Include="Content\layout\hc\ql-notification.png" />
+    <Content Include="Content\layout\hc\ql-overrides.png" />
+    <Content Include="Content\layout\hc\ql-participantregistration.png" />
+    <Content Include="Content\layout\hc\ql-participation.png" />
+    <Content Include="Content\layout\hc\ql-participationaccount.png" />
+    <Content Include="Content\layout\hc\ql-payments.png" />
+    <Content Include="Content\layout\hc\ql-servicesadministration.png" />
+    <Content Include="Content\layout\hc\requestmore-bg.gif" />
+    <Content Include="Content\layout\hc\reset-bg-off.gif" />
+    <Content Include="Content\layout\hc\reset-bg-on.gif" />
+    <Content Include="Content\layout\hc\reset-bg.gif" />
+    <Content Include="Content\layout\hc\rjcp.png" />
+    <Content Include="Content\layout\hc\section-sml-activity.png" />
+    <Content Include="Content\layout\hc\section-sml-admin.png" />
+    <Content Include="Content\layout\hc\section-sml-bulletin.png" />
+    <Content Include="Content\layout\hc\section-sml-diary.png" />
+    <Content Include="Content\layout\hc\section-sml-employer.png" />
+    <Content Include="Content\layout\hc\section-sml-home.png" />
+    <Content Include="Content\layout\hc\section-sml-notification.png" />
+    <Content Include="Content\layout\hc\section-sml-overrides.png" />
+    <Content Include="Content\layout\hc\section-sml-participantregistration.png" />
+    <Content Include="Content\layout\hc\section-sml-participation.png" />
+    <Content Include="Content\layout\hc\section-sml-participationaccount.png" />
+    <Content Include="Content\layout\hc\section-sml-payments.png" />
+    <Content Include="Content\layout\hc\section-sml-servicesadministration.png" />
+    <Content Include="Content\layout\hc\select2.png" />
+    <Content Include="Content\layout\hc\select2x2.png" />
+    <Content Include="Content\layout\hc\spinner.gif" />
+    <Content Include="Content\layout\hc\submit-bg-on.png" />
+    <Content Include="Content\layout\hinttip-bg.gif" />
+    <Content Include="Content\layout\history-pin-hover.gif" />
+    <Content Include="Content\layout\history-pin.gif" />
+    <Content Include="Content\layout\history-pin.png" />
+    <Content Include="Content\layout\home-icon-activity.png" />
+    <Content Include="Content\layout\home-icon-admin.png" />
+    <Content Include="Content\layout\home-icon-diary.png" />
+    <Content Include="Content\layout\home-icon-employer.png" />
+    <Content Include="Content\layout\home-icon-notification.png" />
+    <Content Include="Content\layout\home-icon-overrides.png" />
+    <Content Include="Content\layout\home-icon-participantregistration.png" />
+    <Content Include="Content\layout\home-icon-participation.png" />
+    <Content Include="Content\layout\home-icon-participationaccount.png" />
+    <Content Include="Content\layout\home-icon-payments.png" />
+    <Content Include="Content\layout\home-icon-servicesadministration.png" />
+    <Content Include="Content\layout\home-icon-transition.png" />
+    <Content Include="Content\layout\icon-mailto.gif" />
+    <Content Include="Content\layout\icon-newwindow.gif" />
+    <Content Include="Content\layout\jobseekeractions-bg.gif" />
+    <Content Include="Content\layout\jobseekeractions-bgo.gif" />
+    <Content Include="Content\layout\jobseekeractions-casesummary.png" />
+    <Content Include="Content\layout\jobseekeractions-close.gif" />
+    <Content Include="Content\layout\jobseekeractions-comment.gif" />
+    <Content Include="Content\layout\jobseekeractions-comment.png" />
+    <Content Include="Content\layout\jobseekeractions-diary.gif" />
+    <Content Include="Content\layout\jobseekeractions-diary.png" />
+    <Content Include="Content\layout\jobseekeractions-help.png" />
+    <Content Include="Content\layout\jobseekeractions-pin.gif" />
+    <Content Include="Content\layout\jobseekeractions-pinned.png" />
+    <Content Include="Content\layout\jobseekeractions-resume.gif" />
+    <Content Include="Content\layout\jobseekeractions-sms.png" />
+    <Content Include="Content\layout\jobseekeractions-unpinned.png" />
+    <Content Include="Content\layout\jobseekernav-bg-on.png" />
+    <Content Include="Content\layout\jobseekernav-bg.png" />
+    <Content Include="Content\layout\jobseekernav-done-hover.gif" />
+    <Content Include="Content\layout\jobseekernav-done-hover.png" />
+    <Content Include="Content\layout\jobseekernav-done-sml-hover.gif" />
+    <Content Include="Content\layout\jobseekernav-done-sml.gif" />
+    <Content Include="Content\layout\jobseekernav-done.gif" />
+    <Content Include="Content\layout\jobseekernav-done.png" />
+    <Content Include="Content\layout\jobseekernav-note-hover.gif" />
+    <Content Include="Content\layout\jobseekernav-note-hover.png" />
+    <Content Include="Content\layout\jobseekernav-note-sml-hover.gif" />
+    <Content Include="Content\layout\jobseekernav-note-sml.gif" />
+    <Content Include="Content\layout\jobseekernav-note.gif" />
+    <Content Include="Content\layout\jobseekernav-note.png" />
+    <Content Include="Content\layout\login-arrow.gif" />
+    <Content Include="Content\layout\login-header.gif" />
+    <Content Include="Content\layout\logout-bg-hover.gif" />
+    <Content Include="Content\layout\logout-bg.gif" />
+    <Content Include="Content\layout\menu-close-focus.png" />
+    <Content Include="Content\layout\menu-close.png" />
+    <Content Include="Content\layout\menu-open-focus.png" />
+    <Content Include="Content\layout\menu-open.png" />
+    <Content Include="Content\layout\msgerror-bg.gif" />
+    <Content Include="Content\layout\msggood-bg.gif" />
+    <Content Include="Content\layout\msginfo-bg.gif" />
+    <Content Include="Content\layout\msgwarn-bg.gif" />
+    <Content Include="Content\layout\pin-bg.png" />
+    <Content Include="Content\layout\ql-activity.png" />
+    <Content Include="Content\layout\ql-admin.png" />
+    <Content Include="Content\layout\ql-bulletins.png" />
+    <Content Include="Content\layout\ql-diary.png" />
+    <Content Include="Content\layout\ql-employer.png" />
+    <Content Include="Content\layout\ql-home.png" />
+    <Content Include="Content\layout\ql-notification.png" />
+    <Content Include="Content\layout\ql-overrides.png" />
+    <Content Include="Content\layout\ql-participantregistration.png" />
+    <Content Include="Content\layout\ql-participation.png" />
+    <Content Include="Content\layout\ql-participationaccount.png" />
+    <Content Include="Content\layout\ql-payments.png" />
+    <Content Include="Content\layout\ql-servicesadministration.png" />
+    <Content Include="Content\layout\register-off.gif" />
+    <Content Include="Content\layout\register.gif" />
+    <Content Include="Content\layout\requestmore-bg.gif" />
+    <Content Include="Content\layout\reset-bg-off.gif" />
+    <Content Include="Content\layout\reset-bg-on.gif" />
+    <Content Include="Content\layout\reset-bg.gif" />
+    <Content Include="Content\layout\rjcp.png" />
+    <Content Include="Content\layout\section-sml-activity.png" />
+    <Content Include="Content\layout\section-sml-admin.png" />
+    <Content Include="Content\layout\section-sml-bulletin.png" />
+    <Content Include="Content\layout\section-sml-diary.png" />
+    <Content Include="Content\layout\section-sml-employer.png" />
+    <Content Include="Content\layout\section-sml-home.png" />
+    <Content Include="Content\layout\section-sml-notification.png" />
+    <Content Include="Content\layout\section-sml-overrides.png" />
+    <Content Include="Content\layout\section-sml-participantregistration.png" />
+    <Content Include="Content\layout\section-sml-participation.png" />
+    <Content Include="Content\layout\section-sml-participationaccount.png" />
+    <Content Include="Content\layout\section-sml-payments.png" />
+    <Content Include="Content\layout\section-sml-servicesadministration.png" />
+    <Content Include="Content\layout\section-sml-transition.png" />
+    <Content Include="Content\layout\select2.png" />
+    <Content Include="Content\layout\select2x2.png" />
+    <Content Include="Content\layout\site-icon.gif" />
+    <Content Include="Content\layout\spinner.gif" />
+    <Content Include="Content\layout\spinnerSmartAutocomplete_whiteBG.gif" />
+    <Content Include="Content\layout\submit-bg-off.gif" />
+    <Content Include="Content\layout\submit-bg.png" />
+    <Content Include="Content\layout\transparent.png" />
+    <Content Include="Content\print.css" />
+    <Content Include="Content\screen.css" />
+    <Content Include="Content\select2-bootstrap.css" />
+    <Content Include="Content\select2.css" />
+    <Content Include="Content\style-responsive.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\default.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\apps.js" />
+    <Content Include="Scripts\bootstrap-datepaginator.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-maxlength.js" />
+    <Content Include="Scripts\bootstrap-timepicker.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="History.config" />
+    <Content Include="Menu.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="IoC.config" />
+    <Content Include="Content\foo\fonts\footable.eot" />
+    <Content Include="Content\foo\fonts\footable.svg" />
+    <Content Include="Content\foo\fonts\footable.ttf" />
+    <Content Include="Content\foo\fonts\footable.woff" />
+    <Content Include="fonts\open-sans-bold.woff" />
+    <Content Include="fonts\open-sans-light.woff" />
+    <Content Include="fonts\open-sans-semibold.woff" />
+    <Content Include="fonts\open-sans.woff" />
+    <Content Include="Scripts\date.js" />
+    <Content Include="Scripts\equalize.js" />
+    <Content Include="Scripts\excanvas.min.js" />
+    <Content Include="Scripts\footable.js" />
+    <Content Include="Scripts\foo\footable.bookmarkable.js" />
+    <Content Include="Scripts\foo\footable.filter.js" />
+    <Content Include="Scripts\foo\footable.grid.js" />
+    <Content Include="Scripts\foo\footable.js" />
+    <Content Include="Scripts\foo\footable.memory.js" />
+    <Content Include="Scripts\foo\footable.paginate.js" />
+    <Content Include="Scripts\foo\footable.plugin.template.js" />
+    <Content Include="Scripts\foo\footable.sort.js" />
+    <Content Include="Scripts\foo\footable.striping.js" />
+    <Content Include="Scripts\fullcalendar.js" />
+    <Content Include="Scripts\html5.js" />
+    <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Scripts\interface.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-auto-numeric-1.7.5.js" />
+    <Content Include="Scripts\jquery-blockUI.js" />
+    <Content Include="Scripts\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="Scripts\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Scripts\jquery-textrange.js" />
+    <Content Include="Scripts\jquery-ui-1.8.22.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.flot.js" />
+    <Content Include="Scripts\jquery.flot.orderBars.js" />
+    <Content Include="Scripts\jquery.flot.pie.js" />
+    <Content Include="Scripts\jquery.flot.resize.js" />
+    <Content Include="Scripts\jquery.flot.time.js" />
+    <Content Include="Scripts\jquery.gritter.js" />
+    <Content Include="Scripts\jquery.slimscroll.js" />
+    <Content Include="Scripts\jquery.sparkline.js" />
+    <Content Include="Scripts\jquery.timepicker.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout.mapping.js" />
+    <Content Include="Scripts\knockout.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\zeus-1.0.js" />
+    <Content Include="Scripts\zeus.validate-1.0.js" />
+    <Content Include="Scripts\zeus.validate.unobtrusive-1.0.js" />
+    <Content Include="Scripts\select2-3.5.1.js" />
+    <Content Include="Scripts\smartautcompleteSelect.js" />
+    <Content Include="Scripts\sortTable.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_CalendarGridPartial.cshtml" />
+    <Content Include="Views\Ajax\HistoryNextPage.cshtml" />
+    <Content Include="Views\Default\Accessibility.cshtml" />
+    <Content Include="Views\Default\Bulletin.cshtml" />
+    <Content Include="Views\Default\Bulletins.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Default\Privacy.cshtml" />
+    <Content Include="Views\Default\Support.cshtml" />
+    <Content Include="Views\Error\CustomError.cshtml" />
+    <Content Include="Views\Error\Http401.cshtml" />
+    <Content Include="Views\Error\Http404.cshtml" />
+    <Content Include="Views\Error\Http403.cshtml" />
+    <Content Include="Views\Error\Http500.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AddressEditor.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Hyperlink.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DynamicViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ContentViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SelectList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SelectionMultiple.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SelectionSingle.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\PhoneNumber.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Object.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultiSelectList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultilineText.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\HiddenInput.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Grid.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\File.cshtml" />
+    <Content Include="Views\Shared\_GoogleAnalytics.cshtml" />
+    <Content Include="Views\Shared\_KnowledgeBaseSearchPartial.cshtml" />
+    <Content Include="Views\Shared\_PagedBulletins.cshtml" />
+    <Content Include="Views\Shared\_PagedGrid.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultiSelectListServerSide.cshtml" />
+    <Content Include="Security.config" />
+    <Content Include="Views\Shared\EditorTemplates\AdwSelectionSingle.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AdwSelectionMultiple.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GridEditable.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GraphViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\JobseekerSearchEditor.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\WidgetViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CalendarViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\WidgetSelectorViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GridEditableModalEdit.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateBasedContent.cshtml" />
+    <Content Include="Views\Shared\_AjaxRoutesPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Project_Readme.html" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj">
+      <Project>{48738aa7-c01e-4606-b96d-abb70dba3995}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Implementation\Service.Implementation.csproj">
+      <Project>{8d5e834e-d186-4dc6-bde5-665af8db8a9a}</Project>
+      <Name>Service.Implementation</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Interfaces\Service.Interfaces.csproj">
+      <Project>{811fa3e9-2c73-41f6-96bd-f92f9554e883}</Project>
+      <Name>Service.Interfaces</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestRelease|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestFix|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Integration|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DevRelease|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DevFix|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63468</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8000/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:8000/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.dll" "$(ProjectDir)bin/" /D  /I /F</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

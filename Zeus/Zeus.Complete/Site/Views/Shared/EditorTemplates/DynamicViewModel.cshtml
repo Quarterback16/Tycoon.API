@@ -1,0 +1,319 @@
+﻿@using System.ComponentModel
+@using Employment.Web.Mvc.Infrastructure.ViewModels.Dynamic
+@using Employment.Web.Mvc.Infrastructure.Extensions
+@using Employment.Web.Mvc.Infrastructure.Types
+@using Employment.Web.Mvc.Zeus.Extensions;
+
+@model Employment.Web.Mvc.Infrastructure.ViewModels.DynamicViewModel
+
+@if (!IsAjax && ViewData.TemplateInfo.TemplateDepth <= 1)
+{
+                    <!-- begin #sidebar -->
+    <div id="sidebar" class="sidebar">
+        <div class="slimScrollDiv">
+            <div class="NavScrollDiv" data-scrollbar="true" data-height="100%">
+                @*<nav class="leftCol">*@
+                <!--anchor for readers--><a id="pagenav"></a>
+                @Html.ShowMenu()
+                @*</nav>*@
+            </div>
+
+            <div class="slimScrollBar ui-draggable CustomSlimScrollBar"></div>
+            <div class="slimScrollRail CustomSlimScrollRail"></div>
+        </div>
+    </div>
+    <div class="sidebar-bg"></div>
+    @:<section id="content" class="content rightCol">
+}
+
+@{
+    if (ViewData.Model == null)
+    {
+        @ViewData.ModelMetadata.NullDisplayText
+        return;
+    }
+
+    @:<div class="dynamic">
+
+
+    // Determine actual property name of ForProperty target
+
+    var forTargets = new Dictionary<string, string>();
+
+    int i = 0;
+    foreach (var m in Model.Values)
+    {
+        var propertyName = string.Format("{0}[{1}].Value", ViewData.ModelMetadata.PropertyName, i);
+
+        var type = m.GetType();
+
+        if (type != typeof(LabelViewModel) && type != typeof(string))
+        {
+            var properties = TypeDescriptor.GetProperties(m).Cast<PropertyDescriptor>();
+
+            var name = properties.FirstOrDefault(p => p.Name == "Name");
+
+            // Datetime requires slightly different naming due to output of Telerik control
+            if (properties.FirstOrDefault(p => p.Name == "Value" && p.PropertyType == typeof(DateTime)) != null)
+            {
+                propertyName = propertyName.Replace(".", "_");
+            }
+            else
+            {
+                propertyName = Html.ExecuteUpOneLevel(() => Html.ViewData.TemplateInfo.GetFullHtmlFieldId(Html.ViewData.TemplateInfo.GetFullHtmlFieldId(propertyName)));
+            }
+
+            forTargets.Add(name.GetValue(m) as string, propertyName);
+            i++;
+        }
+    }
+
+    var openGroups = new List<string>();
+    var serializedModel = Model.Serialize();
+    @Html.ExecuteUpOneLevel(() => Html.Hidden(ViewData.ModelMetadata.PropertyName, serializedModel))
+
+    i = 0;
+    foreach (var m in Model.Values)
+    {
+        var propertyName = string.Format("{0}[{1}].Value", ViewData.ModelMetadata.PropertyName, i);
+
+        var type = m.GetType();
+
+        if (type == typeof(string))
+        {
+            var groupName = m as string;
+
+            if (!string.IsNullOrEmpty(groupName))
+            {
+                if (!openGroups.Contains(groupName))
+                {
+                    openGroups.Add(groupName);
+                    @:<div class="panel panel-inverse">
+                    @:<div class="panel-heading"><h4 class="panel-title">@groupName</h4></div>
+                    @:<div class="panel-body">
+                    @*@:<fieldset>
+                    @:<legend>
+                    @groupName
+                    @:</legend>*@
+                }
+                else
+                {
+                    openGroups.Remove(groupName);
+                    @*@:               </fieldset>*@
+                    @: </div> </div>
+                }
+            }
+
+            continue;
+        }
+
+        if (type != typeof(LabelViewModel))
+        {
+            i++;
+        }
+
+        if (type == typeof(LabelViewModel))
+        {
+            var o = m as LabelViewModel;
+
+            if (o != null)
+            {
+                if (!string.IsNullOrEmpty(o.ForProperty))
+                {
+                    var forTarget = string.Empty;
+
+                    var labelTag = new TagBuilder("label");
+
+                    if (forTargets.TryGetValue(o.ForProperty, out forTarget))
+                    {
+                        labelTag.Attributes.Add("for", forTarget);
+                    }
+
+                    labelTag.SetInnerText(o.Value);
+
+                    if (o.Hidden)
+                    {
+                        labelTag.AddCssClass("hidden");
+                    }
+
+                    @Html.Raw(labelTag.ToString(TagRenderMode.Normal))
+                }
+                else
+                {
+                    @Html.Encode(o.Value)
+                }
+            }
+        }
+        else if (type == typeof(BoolViewModel))
+        {
+            var o = m as BoolViewModel;
+
+            if (o != null)
+            {
+                @Html.ExecuteUpOneLevel(() => Html.CheckBox(propertyName, o.Value, Html.GetHtmlAttributes("disabled")))
+            }
+        }
+        @* TODO: Match Date/Time pickers with Date/Time/DateTime.cshtml approach *@
+        else if (type == typeof(DateTimeViewModel))
+        {
+            var o = m as DateTimeViewModel;
+
+            if (o != null)
+            {
+                @:<div class="input-group">
+                @Html.TextBox(Html.ExecuteUpOneLevel(() => Html.ViewData.TemplateInfo.GetFullHtmlFieldName(propertyName)), o.Value, new {@class = "form-control form_datetime" })
+                @:<span class="input-group-addon"> </span>
+                @:</div> 
+            }
+        }
+        else if (type == typeof(DateViewModel))
+        {
+            var o = m as DateViewModel;
+
+            if (o != null)
+            {
+                @:<div class="input-group">
+                @Html.TextBox(Html.ExecuteUpOneLevel(() => Html.ViewData.TemplateInfo.GetFullHtmlFieldName(propertyName)), o.Value, new {@class = "form-control form_date" })
+                @:<span class="input-group-addon"> </span>
+                @:</div> 
+            }
+        }
+        else if (type == typeof(TimeViewModel))
+        {
+            var o = m as TimeViewModel;
+
+            if (o != null)
+            {
+                @:<div class="input-group">
+                @Html.TextBox(Html.ExecuteUpOneLevel(() => Html.ViewData.TemplateInfo.GetFullHtmlFieldName(propertyName)), o.Value, new {@class = "form-control form_time" })
+                @:<span class="input-group-addon"> </span>
+                @:</div> 
+            }
+        }
+        else if (type == typeof(IntViewModel))
+        {
+            var o = m as IntViewModel;
+
+            if (o != null)
+            {
+                @Html.ExecuteUpOneLevel(() => Html.TextBox(propertyName, o.Value, Html.GetHtmlAttributes("readonly")))
+            }
+        }
+        else if (type == typeof(LongViewModel))
+        {
+            var o = m as LongViewModel;
+
+            if (o != null)
+            {
+                @Html.ExecuteUpOneLevel(() => Html.TextBox(propertyName, o.Value, Html.GetHtmlAttributes("readonly")))
+            }
+        }
+        else if (type == typeof(DoubleViewModel))
+        {
+            var o = m as DoubleViewModel;
+
+            if (o != null)
+            {
+                @Html.ExecuteUpOneLevel(() => Html.TextBox(propertyName, o.Value, Html.GetHtmlAttributes("readonly")))
+            }
+        }
+        else if (type == typeof(StringViewModel))
+        {
+            var o = m as StringViewModel;
+
+            if (o != null)
+            {
+                @Html.ExecuteUpOneLevel(() => Html.TextBox(propertyName, o.Value, Html.GetHtmlAttributes("readonly")))
+            }
+        }
+        else if (type == typeof(MultilineStringViewModel))
+        {
+            var o = m as MultilineStringViewModel;
+
+            if (o != null)
+            {
+                @Html.ExecuteUpOneLevel(() => Html.TextArea(propertyName, o.Value, Html.GetHtmlAttributes("readonly")))
+            }
+        }
+        else if (type == typeof(SelectListViewModel))
+        {
+            var o = m as SelectListViewModel;
+
+            if (o != null)
+            {
+                var emptyMessage = " ";
+                var htmlAttributes = new Dictionary<string, object>();
+
+                htmlAttributes.Add(HtmlDataType.EmptyMessage, emptyMessage);
+
+                var emptySelection = new SelectListItem { Value = string.Empty, Text = emptyMessage };
+                var selectionItems = new List<SelectListItem>();
+
+                selectionItems.Add(emptySelection);
+
+                int rowNumber = 0;
+                foreach (var item in o.Value)
+                {
+                    string name = string.Format("{0}[{1}]", propertyName, rowNumber);
+
+                    var itemAccessor = item;
+                    @Html.ExecuteUpOneLevel(() => Html.Hidden(string.Format("{0}.Value", name), itemAccessor.Value))
+                    @Html.ExecuteUpOneLevel(() => Html.Hidden(string.Format("{0}.Text", name), itemAccessor.Text))
+
+                    rowNumber++;
+                }
+
+                selectionItems.AddRange(o.Value);
+
+                @Html.ExecuteUpOneLevel(() => Html.DropDownList(propertyName, selectionItems))
+            }
+        }
+        else if (type == typeof(MultiSelectListViewModel))
+        {
+            var o = m as MultiSelectListViewModel;
+
+            if (o != null)
+            {
+                int rowNumber = 0;
+                foreach (var item in o.Value)
+                {
+                    string name = string.Format("{0}[{1}]", propertyName, rowNumber);
+
+                    var itemAccessor = item;
+                    @Html.ExecuteUpOneLevel(() => Html.Hidden(string.Format("{0}.Value", name), itemAccessor.Value))
+                    @Html.ExecuteUpOneLevel(() => Html.Hidden(string.Format("{0}.Text", name), itemAccessor.Text))
+
+                    rowNumber++;
+                }
+
+                var htmlAttributes = Html.GetHtmlAttributes("disabled");
+
+                if (!o.Value.Any() && !htmlAttributes.ContainsKey("disabled"))
+                {
+                    htmlAttributes.Add("disabled", "disabled");
+                }
+
+                
+                if (ViewData.ModelMetadata.DataTypeName == Employment.Web.Mvc.Infrastructure.Types.CustomDataType.CheckBoxList)
+                {
+                    @Html.CheckBoxList(o.Value, htmlAttributes, propertyName)
+                }
+                else                
+                {
+                    @Html.ShowSelectList(o.Value, ViewData.ModelMetadata, htmlAttributes)
+                }
+                
+                
+            }
+        }
+
+        @Html.Raw(" ")
+    }
+
+    @:</div>
+}
+
+@if (!IsAjax && ViewData.TemplateInfo.TemplateDepth <= 1)
+{
+    @:</section><!-- #content-->
+}

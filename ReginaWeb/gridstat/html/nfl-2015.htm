@@ -1,0 +1,1779 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<!-- <link rel="stylesheet" type="text/css" href="handheld.css"> -->
+
+<head>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- JQuery UI -->
+    <link type="text/css" href="../css/jquery-ui-1.10.0.custom.min.css" rel="stylesheet" />
+
+    <link href="../css/base.css" rel="stylesheet" type="text/css" />
+    <!--<link href="../css/panes.css" rel="stylesheet" type="text/css" />-->
+    <link href="../css/tablet.css" rel="stylesheet" type="text/css" />
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui-1.10.0.custom.min.js"></script>
+
+    <title>2015 Season reports</title>
+
+    <style type="text/css">
+        .class1 A:link {
+            text-decoration: yellow;
+        }
+        /* Specific pane configuration */
+
+        .left.col {
+            width: 250px;
+        }
+
+        .right.col {
+            left: 250px;
+            right: 0;
+        }
+
+        .header.row {
+            height: 75px;
+            background: #333;
+        }
+
+        .body.row {
+            top: 75px;
+            bottom: 50px;
+            background: #000;
+            padding: 1em;
+        }
+
+        .footer.row {
+            height: 75px;
+            top: 20px;
+            bottom: 0;
+            background: #333;
+        }
+
+        body {
+            color: White;
+            background: #000;
+            font-family: Segoe UI, Helvetica, Arial, Sans-Serif;
+        }
+
+        .header, .footer {
+            padding: 0 1em;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            $('#myAccordian').accordion({
+                header: "h3",
+                activate: false,
+                heightStyle: "fill",
+                collapsible: true,
+                autoHeight: false
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="header row">
+        <h2>Season <a href="..\tfl-out\currstnd.txt">2015</a></h2>
+    </div>
+
+    <div id="myAccordian">
+
+        <div>
+
+            <h3><a href="#">Preseason Reports - 2015</a></h3>
+            <ol>
+                <li><a href="..\2013\Balance.htm">Balance Report </a></li>
+                <li><a href="..\2015\FreeAgentMarket\faMarket.htm">Free Agent Analysis </a></li>
+                <li><a href="..\2015\StrengthOfSchedule.htm">Strength of Schedule </a></li>
+                <li><a href="..\2015\Projections\Proj-Spread-2015.htm">2015 Win Projections</a></li>
+            </ol>
+        </div>
+
+        <div>
+            <h3><a href="#">NFL Team and Unit Reports</a></h3>
+
+            <table border="1">
+                <tr>
+                    <td colspan="24" align="center"><b>NFC</b></td>
+                </tr>
+                <tr>
+                    <td colspan="6" align="center">North</td>
+                    <td colspan="6" align="center">South</td>
+                    <td colspan="6" align="center">East</td>
+                    <td colspan="6" align="center">West</td>
+                </tr>
+
+                <tr>
+                    <td align="center"><a href="..\tfl-out\zrepCH13.txt"><</a></td>
+                    <td colspan="4" align="center">
+                        <a href="..\2015\TeamCards\TeamCard_CH.htm">CH</a>
+                        <a href="..\2015\DepthCharts\CH.htm">depth</a>
+                    </td>
+                    <td align="center"><a href="..\tfl-out\zrepCH14.txt">></a></td>
+                    <td align="center"><a href="..\tfl-out\zrepAF13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_AF.htm">AF</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepAF14.txt">></a></td>
+                    <td align="center"><a href="..\tfl-out\zrepDC13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_DC.htm">DC</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepDC14.txt">></a></td>
+                    <td align="center"><a href="..\tfl-out\zrepAC13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_AC.htm">AC</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepAC14.txt">></a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="..\Units\PassOff\PO-CH.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-CH.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-CH.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-CH.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-CH.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-CH.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-AF.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-AF.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-AF.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-AF.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-AF.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-AF.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-DC.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-DC.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-DC.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-DC.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-DC.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-DC.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-AC.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-AC.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-AC.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-AC.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-AC.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-AC.htm">PD</a></td>
+                </tr>
+
+                <tr>
+                    <td align="center"><a href="..\tfl-out\zrepDL13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_DL.htm">DL</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepDL14.txt">></a></td>
+                    <td align="center"><a href="..\tfl-out\zrepCP13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_CP.htm">CP</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepCP14.txt">></a></td>
+                    <td align="center"><a href="..\tfl-out\zrepNG13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_NG.htm">NG</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepNG14.txt">></a></td>
+                    <td align="center"><a href="..\tfl-out\zrepSF13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_SF.htm">SF</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepSF14.txt">></a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="..\Units\PassOff\PO-DL.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-CH.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-CH.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-CH.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-CH.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-CH.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-CP.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-CP.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-CP.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-CP.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-CP.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-CP.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-NG.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-NG.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-NG.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-NG.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-NG.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-NG.htm">PD</a></td>
+
+                    <td><a href="..\2011\Units\PassOff\PO-SF.htm">PO</a></td>
+                    <td><a href="..\2011\Units\RunOff\RO-SF.htm">RO</a></td>
+                    <td><a href="..\2011\Units\Prot\PP-SF.htm">PP</a></td>
+                    <td><a href="..\2011\Units\PassRush\PR-SF.htm">PR</a></td>
+                    <td><a href="..\2011\Units\RunDef\RD-SF.htm">RD</a></td>
+                    <td><a href="..\2011\Units\PassDef\PD-SF.htm">PD</a></td>
+                </tr>
+
+                <tr>
+                    <td align="center"><a href="..\tfl-out\zrepGB13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_GB.htm">GB</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepGB14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepNO13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_NO.htm">NO</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepNO14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepPE13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_PE.htm">PE</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepPE14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepSL13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_sl.htm">SL</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepSL14.txt">></a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="..\Units\PassOff\PO-GB.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-GB.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-GB.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-GB.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-GB.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-GB.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-NO.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-NO.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-NO.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-NO.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-NO.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-NO.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-PE.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-PE.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-PE.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-PE.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-PE.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-PE.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-SL.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-SL.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-SL.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-SL.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-SL.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-SL.htm">PD</a></td>
+                </tr>
+                <tr>
+                    <td align="center"><a href="..\tfl-out\zrepMV13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_MV.htm">MV</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepMV14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepTB13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_TB.htm">TB</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepTB14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepWR13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_wr.htm">WR</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepWR14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepSS13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_SS.htm">SS</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepSS14.txt">></a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="..\Units\PassOff\PO-MV.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-MV.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-MV.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-MV.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-MV.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-MV.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-TB.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-TB.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-TB.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-TB.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-TB.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-TB.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-WR.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-WR.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-WR.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-WR.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-WR.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-WR.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-SS.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-SS.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-SS.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-SS.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-SS.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-SS.htm">PD</a></td>
+                </tr>
+
+                <tr>
+                    <td colspan="24" align="center"><b>AFC</b></td>
+                </tr>
+                <tr>
+                    <td colspan="6" align="center">North</td>
+                    <td colspan="6" align="center">South</td>
+                    <td colspan="6" align="center">East</td>
+                    <td colspan="6" align="center">West</td>
+                </tr>
+                <tr>
+                    <td align="center"><a href="..\tfl-out\zrepBR13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_br.htm">BR</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepBR14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepHT13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_ht.htm">HT</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepHT14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepBB13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_bb.htm">BB</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepBB14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepDB13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_db.htm">DB</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepDB14.txt">></a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="..\Units\PassOff\PO-BR.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-BR.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-BR.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-BR.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-BR.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-BR.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-HT.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-HT.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-HT.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-HT.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-HT.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-HT.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-BB.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-BB.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-BB.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-BB.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-BB.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-BB.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-DB.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-DB.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-DB.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-DB.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-DB.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-DB.htm">PD</a></td>
+                </tr>
+
+                <tr>
+                    <td align="center"><a href="..\tfl-out\zrepCI13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_ci.htm">CI</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepCI14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepIC13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_ic.htm">IC</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepIC14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepMD13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_md.htm">MD</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepMD14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepKC13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_kc.htm">KC</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepKC14.txt">></a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="..\Units\PassOff\PO-CI.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-CI.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-CI.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-CI.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-CI.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-CI.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-IC.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-IC.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-IC.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-IC.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-IC.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-IC.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-MD.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-MD.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-MD.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-MD.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-MD.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-MD.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-KC.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-KC.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-KC.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-KC.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-KC.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-KC.htm">PD</a></td>
+                </tr>
+
+                <tr>
+                    <td align="center"><a href="..\tfl-out\zrepCL13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_cl.htm">CL</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepCL14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepJJ13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_jj.htm">JJ</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepJJ14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepNE13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_ne.htm">NE</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepNE14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepOR13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_or.htm">OR</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepOR14.txt">></a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="..\Units\PassOff\PO-CL.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-CL.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-CL.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-CL.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-CL.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-CL.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-JJ.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-JJ.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-JJ.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-JJ.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-JJ.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-JJ.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-NE.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-NE.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-NE.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-NE.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-NE.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-NE.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-OR.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-OR.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-OR.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-OR.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-OR.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-OR.htm">PD</a></td>
+                </tr>
+
+                <tr>
+                    <td align="center"><a href="..\tfl-out\zrepPS13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_ps.htm">PS</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepPS14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepTT13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_tt.htm">TT</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepTT14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepNJ13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_nj.htm">NJ</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepNJ14.txt">></a></td>
+
+                    <td align="center"><a href="..\tfl-out\zrepSD13.txt"><</a></td>
+                    <td colspan="4" align="center"><a href="..\2015\TeamCards\TeamCard_sd.htm">SD</a></td>
+                    <td align="center"><a href="..\tfl-out\zrepSD14.txt">></a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="..\Units\PassOff\PO-PS.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-PS.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-PS.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-PS.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-PS.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-PS.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-TT.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-TT.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-TT.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-TT.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-TT.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-TT.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-NJ.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-NJ.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-NJ.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-NJ.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-NJ.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-NJ.htm">PD</a></td>
+
+                    <td><a href="..\Units\PassOff\PO-SD.htm">PO</a></td>
+                    <td><a href="..\Units\RunOff\RO-SD.htm">RO</a></td>
+                    <td><a href="..\Units\Prot\PP-SD.htm">PP</a></td>
+                    <td><a href="..\Units\PassRush\PR-SD.htm">PR</a></td>
+                    <td><a href="..\Units\RunDef\RD-SD.htm">RD</a></td>
+                    <td><a href="..\Units\PassDef\PD-SD.htm">PD</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="ui-widget-content">
+            <h3><a href="#">Rosters By Pos</a></h3>
+
+            <table border="1" class="ui-widget ui-widget-content">
+                <thead>
+                    <tr>
+                        <th>Scope</th>
+                        <th>QB</th>
+                        <th>RB</th>
+                        <th>WR</th>
+                        <th>TE</th>
+                        <th>PK</th>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <td>G1-Hotlist</td>
+                    <td><a href="..\2015\Hotlists\HotList-G1-QB.htm">QB</a></td>
+                    <td><a href="..\2015\Hotlists\HotList-G1-RB.htm">RB</a></td>
+                    <td><a href="..\2015\Hotlists\HotList-G1-WR.htm">WR</a></td>
+                    <td><a href="..\2015\Hotlists\HotList-G1-TE.htm">TE</a></td>
+                    <td><a href="..\2015\Hotlists\HotList-G1-PK.htm">PK</a></td>
+                </tr>
+
+                <tr>
+                    <td>G1-2015</td>
+                    <td><a href="..\2015\Rosters\G1\Roster-QB.htm">QB</a></td>
+                    <td><a href="..\2015\Rosters\G1\Roster-RB.htm">RB</a></td>
+                    <td><a href="..\2015\Rosters\G1\Roster-WR.htm">WR</a></td>
+                    <td><a href="..\2015\Rosters\G1\Roster-TE.htm">TE</a></td>
+                    <td><a href="..\2015\Rosters\G1\Roster-K.htm">PK</a></td>
+                </tr>
+
+                <tr>
+                    <td>TN-2015</td>
+                    <td><a href="..\2015\Rosters\tn\Roster-QB.htm">QB</a></td>
+                    <td><a href="..\2015\Rosters\tn\Roster-RB.htm">RB</a></td>
+                    <td><a href="..\2015\Rosters\tn\Roster-WR.htm">WR</a></td>
+                    <td><a href="..\2015\Rosters\tn\Roster-TE.htm">TE</a></td>
+                    <td><a href="..\2015\Rosters\tn\Roster-K.htm">PK</a></td>
+                </tr>
+
+                <tr>
+                    <td>YH-2015</td>
+                    <td><a href="..\2015\Rosters\YH\Roster-QB.htm">QB</a></td>
+                    <td><a href="..\2015\Rosters\YH\Roster-RB.htm">RB</a></td>
+                    <td><a href="..\2015\Rosters\YH\Roster-WR.htm">WR</a></td>
+                    <td><a href="..\2015\Rosters\YH\Roster-TE.htm">TE</a></td>
+                    <td><a href="..\2015\Rosters\YH\Roster-K.htm">PK</a></td>
+                </tr>
+
+                <tr>
+                    <td>G1-Starters</td>
+                    <td><a href="..\2015\Starters\G1-Starters-QB.htm">QB</a></td>
+                    <td><a href="..\2015\Starters\G1-Starters-RB.htm">RB</a></td>
+                    <td><a href="..\2015\Starters\G1-Starters-WR.htm">WR</a></td>
+                    <td><a href="..\2015\Starters\G1-Starters-TE.htm">TE</a></td>
+                    <td><a href="..\2015\Starters\G1-Starters-K.htm">PK</a></td>
+                </tr>
+
+                <tr>
+                    <td>G1-Rookies</td>
+                    <td><a href="..\2015\Rookies\G1-Rookies-QB.htm">QB</a></td>
+                    <td><a href="..\2015\Rookies\G1-Rookies-RB.htm">RB</a></td>
+                    <td><a href="..\2015\Rookies\G1-Rookies-WR.htm">WR</a></td>
+                    <td><a href="..\2015\Rookies\G1-Rookies-TE.htm">TE</a></td>
+                    <td><a href="..\2015\Rookies\G1-Rookies-K.htm">PK</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h3><a href="#">Weekly Reports</a></h3>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th width="100">Scope</th>
+                        <th>0</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+                        <th>16</th>
+                        <th>17</th>
+                        <th>18</th>
+                        <th>19</th>
+                        <th>20</th>
+                        <th>21</th>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <td>Nibble tips</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ZTIPS01.TXT">01</a></td>
+                    <td><a href="..\tfl-out\ZTIPS02.TXT">02</a></td>
+                    <td><a href="..\tfl-out\ZTIPS03.TXT">03</a></td>
+                    <td><a href="..\tfl-out\ZTIPS04.TXT">04</a></td>
+                    <td><a href="..\tfl-out\ZTIPS05.TXT">05</a></td>
+                    <td><a href="..\tfl-out\ZTIPS06.TXT">06</a></td>
+                    <td><a href="..\tfl-out\ZTIPS07.TXT">07</a></td>
+                    <td><a href="..\tfl-out\ZTIPS08.TXT">08</a></td>
+                    <td><a href="..\tfl-out\ZTIPS09.TXT">09</a></td>
+                    <td><a href="..\tfl-out\ZTIPS10.TXT">10</a></td>
+                    <td><a href="..\tfl-out\ZTIPS11.txt">11</a></td>
+                    <td><a href="..\tfl-out\ZTIPS13.txt">12</a></td>
+                    <td><a href="..\tfl-out\ZTIPS14.txt">13</a></td>
+                    <td><a href="..\tfl-out\ZTIPS14.TXT">14</a></td>
+                    <td><a href="..\tfl-out\ZTIPS15.TXT">15</a></td>
+                    <td><a href="..\tfl-out\ZTIPS16.TXT">16</a></td>
+                    <td><a href="..\tfl-out\ZTIPS17.TXT">17</a></td>
+                    <td><a href="..\tfl-out\ZTIPS18.TXT">18</a></td>
+                    <td><a href="..\tfl-out\ZTIPS19.TXT">19</a></td>
+                    <td><a href="..\tfl-out\ZTIPS20.TXT">20</a></td>
+                    <td><a href="..\tfl-out\ZTIPS21.TXT">21</a></td>
+                </tr>
+
+                <tr>
+                    <td>Projected FP - Yahoo all </td>
+                    <td></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK01.htm">01</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK02.htm">02</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK03.htm">03</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK04.htm">04</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK05.htm">05</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK06.htm">06</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK07.htm">07</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK08.htm">08</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK09.htm">09</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK10.htm">10</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK11.htm">11</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK12.htm">12</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK13.htm">13</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK14.htm">14</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK15.htm">15</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK16.htm">16</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK17.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Projected FP - Yahoo - QB</td>
+                    <td></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK01-1.htm">01</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK02-1.htm">02</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK03-1.htm">03</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK04-1.htm">04</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK05-1.htm">05</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK06-1.htm">06</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK07-1.htm">07</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK08-1.htm">08</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK09-1.htm">09</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK10-1.htm">10</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK11-1.htm">11</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK12-1.htm">12</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK13-1.htm">13</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK14-1.htm">14</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK15-1.htm">15</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK16-1.htm">16</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK17-1.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Projected FP - Yahoo - RB</td>
+                    <td></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK01-2.htm">01</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK02-2.htm">02</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK03-2.htm">03</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK04-2.htm">04</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK05-2.htm">05</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK06-2.htm">06</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK07-2.htm">07</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK08-2.htm">08</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK09-2.htm">09</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK10-2.htm">10</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK11-2.htm">11</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK12-2.htm">12</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK13-2.htm">13</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK14-2.htm">14</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK15-2.htm">15</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK16-2.htm">16</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK17-2.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Projected FP - Yahoo - Rec</td>
+                    <td></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK01-3.htm">01</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK02-3.htm">02</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK03-3.htm">03</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK04-3.htm">04</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK05-3.htm">05</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK06-3.htm">06</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK07-3.htm">07</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK08-3.htm">08</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK09-3.htm">09</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK10-3.htm">10</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK11-3.htm">11</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK12-3.htm">12</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK13-3.htm">13</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK14-3.htm">14</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK15-3.htm">15</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK16-3.htm">16</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK17-3.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Projected FP - Yahoo - PK</td>
+                    <td></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK01-4.htm">01</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK02-4.htm">02</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK03-4.htm">03</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK04-4.htm">04</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK05-4.htm">05</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK06-4.htm">06</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK07-4.htm">07</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK08-4.htm">08</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK09-4.htm">09</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK10-4.htm">10</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK11-4.htm">11</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK12-4.htm">12</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK13-4.htm">13</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK14-4.htm">14</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK15-4.htm">15</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK16-4.htm">16</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-YH-WK17-4.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Projected FP - G1 - QB</td>
+                    <td></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK01-1.htm">01</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK02-1.htm">02</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK03-1.htm">03</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK04-1.htm">04</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK05-1.htm">05</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK06-1.htm">06</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK07-1.htm">07</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK08-1.htm">08</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK09-1.htm">09</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK10-1.htm">10</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK11-1.htm">11</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK12-1.htm">12</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK13-1.htm">13</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK14-1.htm">14</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK15-1.htm">15</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK16-1.htm">16</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK17-1.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Projected FP - G1 - RB</td>
+                    <td></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK01-2.htm">01</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK02-2.htm">02</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK03-2.htm">03</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK04-2.htm">04</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK05-2.htm">05</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK06-2.htm">06</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK07-2.htm">07</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK08-2.htm">08</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK09-2.htm">09</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK10-2.htm">10</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK11-2.htm">11</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK12-2.htm">12</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK13-2.htm">13</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK14-2.htm">14</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK15-2.htm">15</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK16-2.htm">16</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK17-2.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Projected FP - G1 - Rec</td>
+                    <td></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK01-3.htm">01</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK02-3.htm">02</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK03-3.htm">03</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK04-3.htm">04</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK05-3.htm">05</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK06-3.htm">06</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK07-3.htm">07</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK08-3.htm">08</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK09-3.htm">09</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK10-3.htm">10</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK11-3.htm">11</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK12-3.htm">12</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK13-3.htm">13</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK14-3.htm">14</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK15-3.htm">15</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK16-3.htm">16</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK17-3.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Projected FP - G1 - PK</td>
+                    <td></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK01-4.htm">01</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK02-4.htm">02</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK03-4.htm">03</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK04-4.htm">04</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK05-4.htm">05</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK06-4.htm">06</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK07-4.htm">07</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK08-4.htm">08</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK09-4.htm">09</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK10-4.htm">10</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK11-4.htm">11</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK12-4.htm">12</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK13-4.htm">13</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK14-4.htm">14</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK15-4.htm">15</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK16-4.htm">16</a></td>
+                    <td><a href="..\2015\Projections\Projected-FP-G1-WK17-4.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Projections</td>
+                    <td><a href="..\2015\Projections\Proj-Spread_2015-00.htm">00</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-01.htm">01</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-02.htm">02</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-03.htm">03</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-04.htm">04</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-05.htm">05</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-06.htm">06</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-07.htm">07</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-08.htm">08</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-09.htm">09</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-10.htm">10</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-11.htm">11</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-12.htm">12</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-13.htm">13</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-14.htm">14</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-15.htm">15</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-16.htm">16</a></td>
+                    <td><a href="..\2015\Projections\Proj-Spread-2015-17.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Hillen Tips</td>
+                    <td></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-01.htm">01</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-02.htm">02</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-03.htm">03</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-04.htm">04</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-05.htm">05</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-06.htm">06</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-07.htm">07</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-08.htm">08</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-09.htm">09</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-10.htm">10</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-11.htm">11</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-12.htm">12</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-13.htm">13</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-14.htm">14</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-15.htm">15</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-16.htm">16</a></td>
+                    <td><a href="..\2015\Tips\Hillen\Tips-17.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Victory Points</td>
+                    <td></td>
+                    <td><a href="..\2015\victory\vp-01.htm">01</a></td>
+                    <td><a href="..\2015\victory\vp-02.htm">02</a></td>
+                    <td><a href="..\2015\victory\vp-03.htm">03</a></td>
+                    <td><a href="..\2015\victory\vp-04.htm">04</a></td>
+                    <td><a href="..\2015\victory\vp-05.htm">05</a></td>
+                    <td><a href="..\2015\victory\vp-06.htm">06</a></td>
+                    <td><a href="..\2015\victory\vp-07.htm">07</a></td>
+                    <td><a href="..\2015\victory\vp-08.htm">08</a></td>
+                    <td><a href="..\2015\victory\vp-09.htm">09</a></td>
+                    <td><a href="..\2015\victory\vp-10.htm">10</a></td>
+                    <td><a href="..\2015\victory\vp-11.htm">11</a></td>
+                    <td><a href="..\2015\victory\vp-12.htm">12</a></td>
+                    <td><a href="..\2015\victory\vp-13.htm">13</a></td>
+                    <td><a href="..\2015\victory\vp-14.htm">14</a></td>
+                    <td><a href="..\2015\victory\vp-15.htm">15</a></td>
+                    <td><a href="..\2015\victory\vp-16.htm">16</a></td>
+                    <td><a href="..\2015\victory\vp-17.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>YH Projected - QB</td>
+                    <td></td>
+                    <td></td>
+                    <td><a href="..\Starters\Yahoo\Yahoo QB Projection 2011-02.htm">02</a></td>
+                    <td><a href="..\Starters\Yahoo\Yahoo QB Projection 2011-03.htm">03</a></td>
+                    <td><a href="..\Starters\Yahoo\Yahoo QB Projection 2011-12.htm">12</a></td>
+                    <td><a href="..\Starters\Yahoo\Yahoo QB Projection 2011-13.htm">13</a></td>
+                </tr>
+
+                <tr>
+                    <td>GS Perf - QB</td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-17.htm">00</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-01.htm">01</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-02.htm">02</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-03.htm">03</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-04.htm">04</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-05.htm">05</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\GS QB Performance 2015-07.htm">07</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-08.htm">08</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-09.htm">09</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-10.htm">10</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-11.htm">11</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-12.htm">12</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-13.htm">13</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-14.htm">14</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-15.htm">15</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-16.htm">16</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-17.htm">17</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-18.htm">18</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-19.htm">19</a></td>
+                    <td><a href="..\Performance\2015\Quarterback\GS QB Performance 2015-20.htm">20</a></td>
+                </tr>
+                <tr>
+                    <td>GS Perf - RB</td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-17.htm">00</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-01.htm">01</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-02.htm">02</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-03.htm">03</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-04.htm">04</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-05.htm">05</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-06.htm">06</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-07.htm">07</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-08.htm">08</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-09.htm">09</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-10.htm">10</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-11.htm">11</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-12.htm">12</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-13.htm">13</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-14.htm">14</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-15.htm">15</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-16.htm">16</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-17.htm">17</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-18.htm">18</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-19.htm">19</a></td>
+                    <td><a href="..\Performance\2015\Runningback\GS RB Performance 2015-20.htm">20</a></td>
+                </tr>
+                <tr>
+                    <td>GS Perf - WR</td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-17.htm">00</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-01.htm">01</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-02.htm">02</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-03.htm">03</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-04.htm">04</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-05.htm">05</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS Receiver Performance 2015-06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\Receiver\GS WR Performance 2015-07.htm">07</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-08.htm">08</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-09.htm">09</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-10.htm">10</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-11.htm">11</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-12.htm">12</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-13.htm">13</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-14.htm">14</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-15.htm">15</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-16.htm">16</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-17.htm">17</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-18.htm">18</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-19.htm">19</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS WR Performance 2015-20.htm">20</a></td>
+                </tr>
+                <tr>
+                    <td>GS Perf - TE</td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-17.htm">00</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-01.htm">01</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-02.htm">02</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-03.htm">03</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-04.htm">04</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-05.htm">05</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-06.htm">06</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-07.htm">07</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-08.htm">08</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-09.htm">09</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-10.htm">10</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-11.htm">11</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-12.htm">12</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-13.htm">13</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-14.htm">14</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-15.htm">15</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-16.htm">16</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-17.htm">17</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-18.htm">18</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-19.htm">19</a></td>
+                    <td><a href="..\Performance\2015\Receiver\GS TE Performance 2015-20.htm">20</a></td>
+                </tr>
+                <tr>
+                    <td>GS Perf - PK</td>
+                    <td><a href="..\2011\Performance\GS Kicker Performance 2011-17.htm">00</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-01.htm">01</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-02.htm">02</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-03.htm">03</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-04.htm">04</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-05.htm">05</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-07.htm">07</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-08.htm">08</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-09.htm">09</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-10.htm">10</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-11.htm">11</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-12.htm">12</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-13.htm">13</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-14.htm">14</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-15.htm">15</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-16.htm">16</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-17.htm">17</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-18.htm">18</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-19.htm">19</a></td>
+                    <td><a href="..\2015\Performance\GS Kicker Performance 2015-20.htm">20</a></td>
+                </tr>
+
+                <tr>
+                    <td>YH Perf - QB</td>
+                    <td></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 01.htm">01</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 02.htm">02</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 03.htm">03</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 04.htm">04</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 05.htm">05</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 07.htm">07</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 08.htm">08</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 09.htm">09</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 10.htm">10</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 11.htm">11</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 12.htm">12</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 13.htm">13</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 14.htm">14</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 15.htm">15</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 16.htm">16</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 17.htm">17</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo QB Performance upto Week 18.htm">18</a></td>
+                </tr>
+
+                <tr>
+                    <td>YH Perf - RB</td>
+                    <td></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 01.htm">01</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 02.htm">02</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 03.htm">03</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 04.htm">04</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 05.htm">05</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 07.htm">07</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 08.htm">08</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 09.htm">09</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 10.htm">10</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 11.htm">11</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 12.htm">12</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 13.htm">13</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 14.htm">14</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 15.htm">15</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 16.htm">16</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 17.htm">17</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo RB Performance upto Week 18.htm">18</a></td>
+                </tr>
+
+                <tr>
+                    <td>YH Perf - WR</td>
+                    <td></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 01.htm">01</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 02.htm">02</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 03.htm">03</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 04.htm">04</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 05.htm">05</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 07.htm">07</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 08.htm">08</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 09.htm">09</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 10.htm">10</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 11.htm">11</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 12.htm">12</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 13.htm">13</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 14.htm">14</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 15.htm">15</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 16.htm">16</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 17.htm">17</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo WR Performance upto Week 18.htm">18</a></td>
+                </tr>
+
+                <tr>
+                    <td>YH Perf - TE</td>
+                    <td></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 01.htm">01</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 02.htm">02</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 03.htm">03</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 04.htm">04</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 05.htm">05</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 07.htm">07</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 08.htm">08</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 09.htm">09</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 10.htm">10</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 11.htm">11</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 12.htm">12</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 13.htm">13</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 14.htm">14</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 15.htm">15</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 16.htm">16</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 17.htm">17</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo TE Performance upto Week 18.htm">18</a></td>
+                </tr>
+
+                <tr>
+                    <td>YH Perf - PK</td>
+                    <td></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 01.htm">01</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 02.htm">02</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 03.htm">03</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 04.htm">04</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 05.htm">05</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 07.htm">07</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 08.htm">08</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 09.htm">09</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 10.htm">10</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 11.htm">11</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 12.htm">12</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 13.htm">13</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 14.htm">14</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 15.htm">15</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 16.htm">16</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 17.htm">17</a></td>
+                    <td><a href="..\2015\Performance\YH-Yahoo PK Performance upto Week 18.htm">18</a></td>
+                </tr>
+
+                <tr>
+                    <td>RR Perf - QB</td>
+                    <td></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 01.htm">01</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 02.htm">02</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 03.htm">03</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 04.htm">04</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 05.htm">05</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 07.htm">07</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 08.htm">08</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 09.htm">09</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 10.htm">10</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 11.htm">11</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 12.htm">12</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 13.htm">13</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 14.htm">14</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 15.htm">15</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 16.htm">16</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 17.htm">17</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo QB Performance upto Week 18.htm">18</a></td>
+                </tr>
+
+                <tr>
+                    <td>RR Perf - RB</td>
+                    <td></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 01.htm">01</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 02.htm">02</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 03.htm">03</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 04.htm">04</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 05.htm">05</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 07.htm">07</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 08.htm">08</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 09.htm">09</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 10.htm">10</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 11.htm">11</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 12.htm">12</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 13.htm">13</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 14.htm">14</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 15.htm">15</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 16.htm">16</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 17.htm">17</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo RB Performance upto Week 18.htm">18</a></td>
+                </tr>
+
+                <tr>
+                    <td>RR Perf - WR</td>
+                    <td></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 01.htm">01</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 02.htm">02</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 03.htm">03</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 04.htm">04</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 05.htm">05</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 07.htm">07</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 08.htm">08</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 09.htm">09</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 10.htm">10</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 11.htm">11</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 12.htm">12</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 13.htm">13</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 14.htm">14</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 15.htm">15</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 16.htm">16</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 17.htm">17</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo WR Performance upto Week 18.htm">18</a></td>
+                </tr>
+
+                <tr>
+                    <td>RR Perf - TE</td>
+                    <td></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 01.htm">01</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 02.htm">02</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 03.htm">03</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 04.htm">04</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 05.htm">05</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 07.htm">07</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 08.htm">08</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 09.htm">09</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 10.htm">10</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 11.htm">11</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 12.htm">12</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 13.htm">13</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 14.htm">14</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 15.htm">15</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 16.htm">16</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 17.htm">17</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo TE Performance upto Week 18.htm">18</a></td>
+                </tr>
+
+                <tr>
+                    <td>RR Perf - PK</td>
+                    <td></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 01.htm">01</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 02.htm">02</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 03.htm">03</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 04.htm">04</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 05.htm">05</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 06.htm">06</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 07.htm">07</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 08.htm">08</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 09.htm">09</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 10.htm">10</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 11.htm">11</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 12.htm">12</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 13.htm">13</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 14.htm">14</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 15.htm">15</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 16.htm">16</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 17.htm">17</a></td>
+                    <td><a href="..\2015\Performance\RR-Yahoo PK Performance upto Week 18.htm">18</a></td>
+                </tr>
+
+                <tr>
+                    <td>Suggested GS lineup</td>
+                    <td></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-01.htm">01</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-02.htm">02</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-03.htm">03</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-04.htm">04</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-05.htm">05</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-06.htm">06</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-07.htm">07</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-08.htm">08</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-09.htm">09</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-10.htm">10</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-11.htm">11</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-12.htm">12</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-13.htm">13</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-14.htm">14</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-15.htm">15</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-16.htm">16</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-17.htm">17</a></td>
+                    <td><a href="..\2015\Lineups\G1\Suggested-O001-18.htm">18</a></td>
+                </tr>
+
+                <tr>
+                    <td>Suggested YH lineup</td>
+                    <td></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-01.htm">01</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-02.htm">02</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-03.htm">03</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-04.htm">04</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-05.htm">05</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-06.htm">06</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-07.htm">07</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-08.htm">08</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-09.htm">09</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-10.htm">10</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-11.htm">11</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-12.htm">12</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-13.htm">13</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-14.htm">14</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-15.htm">15</a></td>
+                    <td><a href="..\2015\Lineups\YH\Suggested-O001-16.htm">16</a></td>
+                </tr>
+
+                <tr>
+                    <td>In form D</td>
+                    <td></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-01.htm">01</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-02.htm">02</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-03.htm">03</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-04.htm">04</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-05.htm">05</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-06.htm">06</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-07.htm">07</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-08.htm">08</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-09.htm">09</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-10.htm">10</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-11.htm">11</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-12.htm">12</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-13.htm">13</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-14.htm">14</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-15.htm">15</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-16.htm">16</a></td>
+                    <td><a href="..\2015\defense\Defensive Scoring-17.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Patsies</td>
+                    <td></td>
+                    <td><a href="..\2015\defense\Team to beat-01.htm">01</a></td>
+                    <td><a href="..\2015\defense\Team to beat-02.htm">02</a></td>
+                    <td><a href="..\2015\defense\Team to beat-03.htm">03</a></td>
+                    <td><a href="..\2015\defense\Team to beat-04.htm">04</a></td>
+                    <td><a href="..\2015\defense\Team to beat-05.htm">05</a></td>
+                    <td><a href="..\2015\defense\Team to beat-06.htm">06</a></td>
+                    <td><a href="..\2015\defense\Team to beat-07.htm">07</a></td>
+                    <td><a href="..\2015\defense\Team to beat-08.htm">08</a></td>
+                    <td><a href="..\2015\defense\Team to beat-09.htm">09</a></td>
+                    <td><a href="..\2015\defense\Team to beat-10.htm">10</a></td>
+                    <td><a href="..\2015\defense\Team to beat-11.htm">11</a></td>
+                    <td><a href="..\2015\defense\Team to beat-12.htm">12</a></td>
+                    <td><a href="..\2015\defense\Team to beat-13.htm">13</a></td>
+                    <td><a href="..\2015\defense\Team to beat-14.htm">14</a></td>
+                    <td><a href="..\2015\defense\Team to beat-15.htm">15</a></td>
+                    <td><a href="..\2015\defense\Team to beat-16.htm">16</a></td>
+                    <td><a href="..\2015\defense\Team to beat-17.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>G1 Team Summaries</td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-00.htm">00</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-01.htm">01</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-02.htm">02</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-03.htm">03</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-04.htm">04</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-05.htm">05</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-06.htm">06</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-07.htm">07</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-08.htm">08</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-09.htm">09</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-10.htm">10</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-11.htm">11</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-12.htm">12</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-13.htm">13</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-14.htm">14</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-15.htm">15</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-16.htm">16</a></td>
+                    <td><a href="..\2015\RosterSummary\G1\RosterSummary-17.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Yahoo Team Summaries</td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-00.htm">00</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-01.htm">01</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-02.htm">02</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-03.htm">03</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-04.htm">04</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-05.htm">05</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-06.htm">06</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-07.htm">07</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-08.htm">08</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-09.htm">09</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-10.htm">10</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-11.htm">11</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-12.htm">12</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-13.htm">13</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-14.htm">14</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-15.htm">15</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-16.htm">16</a></td>
+                    <td><a href="..\2015\RosterSummary\YH\RosterSummary-17.htm">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Carries</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztR1401.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztR1402.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztR1403.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztR1404.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztR1405.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztR1406.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztR1407.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztR1408.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztR1409.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztR1410.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztR1413.txt">11</a></td>
+                    <td><a href="..\tfl-out\ztR1414.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztR1414.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztR1414.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztR1415.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztR1416.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztR1417.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Carries - YTD</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztR1401Y.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztR1402Y.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztR1403Y.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztR1404Y.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztR1405Y.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztR1406Y.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztR1407Y.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztR1408Y.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztR1409Y.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztR1410Y.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztR1411Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztR1412Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztR1413Y.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztR1414Y.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztR1415Y.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztR1416Y.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztR1417Y.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Rushing Yards</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztY1401.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztY1402.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztY1403.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztY1404.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztY1405.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztY1406.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztY1407.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztY1408.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztY1409.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztY1410.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztY1411.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztY1413.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztY1414.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztY1414.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztY1415.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztY1416.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztY1417.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Rushing Yards - YTD</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztY1401Y.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztY1402Y.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztY1403Y.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztY1404Y.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztY1405Y.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztY1406Y.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztY1407Y.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztY1408Y.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztY1409Y.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztY1410Y.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztY1411Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztY1412Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztY1413Y.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztY1414Y.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztY1415Y.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztY1416Y.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztY1417Y.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Passing Yards</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztS1401.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztS1402.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztS1403.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztS1404.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztS1405.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztS1406.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztS1407.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztS1408.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztS1409.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztS1410.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztS1411.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztS1413.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztS1414.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztS1414.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztS1415.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztS1416.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztS1417.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Passing Yards - YTD</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztS1401Y.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztS1402Y.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztS1403Y.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztS1404Y.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztS1405Y.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztS1406Y.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztS1407Y.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztS1408Y.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztS1409Y.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztS1410Y.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztS1411Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztS1412Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztS1413Y.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztS1414Y.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztS1415Y.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztS1416Y.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztS1417Y.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Passes Caught</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztP1401.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztP1402.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztP1403.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztP1404.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztP1405.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztP1406.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztP1407.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztP1408.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztP1409.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztP1410.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztP1411.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztP1413.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztP1414.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztP1414.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztP1415.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztP1416.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztP1417.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Passes Caught - YTD</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztP1401Y.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztP1402Y.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztP1403Y.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztP1404Y.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztP1405Y.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztP1406Y.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztP1407Y.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztP1408Y.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztP1409Y.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztP1410Y.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztP1411Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztP1412Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztP1413Y.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztP1414Y.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztP1415Y.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztP1416Y.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztP1417Y.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Reception Yds</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztG1401.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztG1402.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztG1403.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztG1404.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztG1405.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztG1406.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztG1407.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztG1408.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztG1409.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztG1410.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztG1411.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztG1413.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztG1414.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztG1414.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztG1415.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztG1416.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztG1417.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Reception Yds - YTD</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztG1401Y.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztG1402Y.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztG1403Y.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztG1404Y.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztG1405Y.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztG1406Y.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztG1407Y.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztG1408Y.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztG1409Y.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztG1410Y.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztG1411Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztG1412Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztG1413Y.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztG1414Y.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztG1415Y.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztG1416Y.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztG1417Y.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Interceptions</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztM1401.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztM1402.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztM1403.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztM1404.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztM1405.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztM1406.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztM1407.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztM1408.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztM1409.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztM1410.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztM1411.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztM1413.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztM1414.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztM1414.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztM1415.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztM1416.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztM1417.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Interceptions - YTD</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztM1401Y.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztM1402Y.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztM1403Y.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztM1404Y.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztM1405Y.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztM1406Y.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztM1407Y.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztM1408Y.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztM1409Y.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztM1410Y.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztM1411Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztM1412Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztM1413Y.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztM1414Y.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztM1415Y.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztM1416Y.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztM1417Y.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Sacks</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztQ1401.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztQ1402.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztQ1403.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztQ1404.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztQ1405.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztQ1406.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztQ1407.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztQ1408.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztQ1409.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztQ1410.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztQ1411.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztQ1413.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztQ1414.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztQ1414.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztQ1415.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztQ1416.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztQ1417.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Sacks - YTD</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ztQ1401Y.txt">01</a></td>
+                    <td><a href="..\tfl-out\ztQ1402Y.txt">02</a></td>
+                    <td><a href="..\tfl-out\ztQ1403Y.txt">03</a></td>
+                    <td><a href="..\tfl-out\ztQ1404Y.txt">04</a></td>
+                    <td><a href="..\tfl-out\ztQ1405Y.txt">05</a></td>
+                    <td><a href="..\tfl-out\ztQ1406Y.txt">06</a></td>
+                    <td><a href="..\tfl-out\ztQ1407Y.txt">07</a></td>
+                    <td><a href="..\tfl-out\ztQ1408Y.txt">08</a></td>
+                    <td><a href="..\tfl-out\ztQ1409Y.txt">09</a></td>
+                    <td><a href="..\tfl-out\ztQ1410Y.txt">10</a></td>
+                    <td><a href="..\tfl-out\ztQ1411Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztQ1412Y.txt">12</a></td>
+                    <td><a href="..\tfl-out\ztQ1413Y.txt">13</a></td>
+                    <td><a href="..\tfl-out\ztQ1414Y.txt">14</a></td>
+                    <td><a href="..\tfl-out\ztQ1415Y.txt">15</a></td>
+                    <td><a href="..\tfl-out\ztQ1416Y.txt">16</a></td>
+                    <td><a href="..\tfl-out\ztQ1417Y.txt">17</a></td>
+                </tr>
+
+                <tr>
+                    <td>Standings</td>
+                    <td></td>
+                    <td><a href="..\tfl-out\ZSTD1401.TXT">01</a></td>
+                    <td><a href="..\tfl-out\ZSTD1402.TXT">02</a></td>
+                    <td><a href="..\tfl-out\ZSTD1403.TXT">03</a></td>
+                    <td><a href="..\tfl-out\ZSTD1404.TXT">04</a></td>
+                    <td><a href="..\tfl-out\ZSTD1405.TXT">05</a></td>
+                    <td><a href="..\tfl-out\ZSTD1406.TXT">06</a></td>
+                    <td><a href="..\tfl-out\ZSTD1407.TXT">07</a></td>
+                    <td><a href="..\tfl-out\ZSTD1408.TXT">08</a></td>
+                    <td><a href="..\tfl-out\ZSTD1409.TXT">09</a></td>
+                    <td><a href="..\tfl-out\ZSTD1410.TXT">10</a></td>
+                    <td><a href="..\tfl-out\ZSTD1411.txt">12</a></td>
+                    <td><a href="..\tfl-out\ZSTD1413.txt">12</a></td>
+                    <td><a href="..\tfl-out\ZSTD1414.txt">13</a></td>
+                    <td><a href="..\tfl-out\ZSTD1414.TXT">14</a></td>
+                    <td><a href="..\tfl-out\ZSTD1415.TXT">15</a></td>
+                    <td><a href="..\tfl-out\ZSTD1416.TXT">15</a></td>
+                    <td><a href="..\tfl-out\ZSTD1417.TXT">15</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h3><a href="#">The End</a></h3>
+
+            <ul>
+                <li><a href="perenial.htm">Perenial</a></li>
+                <li><a href="..\logs\rostergrid.log">Rostergrid Log</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3><a href="#">GS1 Teams</a></h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th width="100">Scope</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+                        <th>16</th>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <td>GS1</td>
+                    <td><a href="..\tfl-out\FLAMES.TXT">CC</a></td>
+                    <td><a href="..\tfl-out\VIPERS.TXT">HV</a></td>
+                    <td><a href="..\tfl-out\SHARKS.TXT">SS</a></td>
+                    <td><a href="..\tfl-out\PIRATES.TXT">PP</a></td>
+                    <td><a href="..\tfl-out\legendS.TXT">LL</a></td>
+                    <td><a href="..\tfl-out\montana.TXT">MG</a></td>
+                    <td><a href="..\tfl-out\hampton.TXT">HH</a></td>
+                    <td><a href="..\tfl-out\TIPNER.TXT">TS</a></td>
+                    <td><a href="..\tfl-out\BHAWKS.TXT">BH</a></td>
+                    <td><a href="..\tfl-out\SONICS.TXT">SO</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+﻿@using MvcJqGrid
+@using MvcJqGrid.Enums
+@using ProgramAssuranceTool.Helpers
+@using ProgramAssuranceTool.Models
+@model List<ReviewQuestionnaire>
+
+@{
+    ViewBag.Title = string.Format("Project - {0} - {1}", ViewBag.ProjectId, ViewBag.ProjectName);
+}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+        <li>@Html.ActionLink("Project Samples", "Details", "Project", new { id = ViewBag.ProjectId, tabNo = CommonConstants.ProjectTab_Samples }, "")</li>
+        <li>@Html.ActionLink("Review List", "Details", "Upload", new { Id = @ViewBag.UploadId }, null)</li>
+        <li class="active">View Questionnaire Data</li>
+    </ol>
+    <h1>@ViewBag.Title</h1>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title pull-left">View Questionnaire Data</h2>
+        <div class="clear-fix"></div>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="row">
+            @{
+                var g = Html.Grid("ReviewQuestionnaireGrid");
+                g.SetCaption("Review Questionnaire Data");
+                g.AddColumn(new Column("QuestionnaireID").SetLabel("Questionnaire ID").SetWidth(100).SetSortable(false).SetAlign(Align.Center));
+                g.AddColumn(new Column("ReviewID").SetLabel("Review ID").SetWidth(100).SetAlign(Align.Right));
+                g.AddColumn(new Column("UserID").SetLabel("User ID").SetWidth(100).SetAlign(Align.Center));
+                g.AddColumn(new Column("AssessmentOutcomeCode").SetLabel("Assessment Outcome Code").SetWidth(100).SetAlign(Align.Center));
+                g.AddColumn(new Column("RecoveryReasonCode").SetLabel("Recovery Reason Code").SetWidth(100).SetAlign(Align.Center));
+                g.AddColumn(new Column("RecoveryActionCode").SetLabel("Recovery Action Code").SetWidth(100).SetAlign(Align.Center));
+                g.AddColumn(new Column("FinalOutcomeCode").SetLabel("Final Outcome Code").SetWidth(100).SetAlign(Align.Center));
+                g.AddColumn(new Column("Date").SetLabel("Date").SetWidth(100));
+                g.AddColumns(ViewBag.ExtraColumnHeaders);
+                g.SetUrl(Url.Action("QuestionnaireGetData", "Questionnaire", new { id = ViewBag.UploadId }));
+                g.SetHeight(CommonConstants.GridStandardHeight); // set this tall enough and you won't see the scroll bar
+                g.SetAutoWidth(false); // force the grid to fit the width of the parent element
+                g.SetRowNum(CommonConstants.GridStandardDoubleRows); // set the number of rows displayed initially
+                g.SetRowList(new[] { 20, 50, 100, 200 }); // DR01039126 
+                g.SetViewRecords(true); // display the total number of rows in the dataset
+                g.SetPager("pager");
+                g.SetHeaderTitles(true);
+                g.SetSearchToolbar(false); // disable toolbar searching
+                g.SetSearchOnEnter(false);
+                g.OnGridComplete("pat.grid_OnGridComplete()");
+
+                var gridString = AppHelper.WcagFixGrid(g, "ReviewQuestionnaireGrid", "View Questionnaire Data");
+                @Html.Raw(gridString)
+            }
+        </div>
+    </div>
+
+    <div class="panel-footer clearfix">
+        @Html.ActionLink("Export to CSV", "ExportQuestionnaireData", "Questionnaire", new { Id = @ViewBag.UploadId }, new { @class = "btn btn-lg btn-primary" })
+    </div>
+
+</div>
+
+@*@Html.ActionLink("Back to Review Item List", "Details", "Upload", new { Id = @ViewBag.UploadId }, null)*@

@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-suite">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>.failed {color: red; background-color: #ffcccc;}.passed {color: black; background-color: #ccffcc;}.done {color: black; background-color: #eeffee;}</style>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite Results</b></td></tr>
+<tr class=""><td><a href="#test0">DR01039053 Tab Order</a></td></tr>
+<tr class="passed"><td><a href="#test1">DR01039453 </a></td></tr>
+<tr class="passed"><td><a href="#test2">DR01039460 </a></td></tr>
+<tr class="passed"><td><a href="#test3">DR01039473 </a></td></tr>
+<tr class=""><td><a href="#test4">DR01039454 </a></td></tr>
+<tr class=""><td><a href="#test5">DR01039455 </a></td></tr>
+<tr class=""><td><a href="#test6">DR01039475 </a></td></tr>
+<tr class=""><td><a href="#test7">DR01039561 </a></td></tr>
+<tr class=""><td><a href="#test8">DR01039562 </a></td></tr>
+<tr class=""><td><a href="#test9">DR01039563 </a></td></tr>
+<tr class="passed"><td><a href="#test10">DR01039564 </a></td></tr>
+<tr class="passed"><td><a href="#test11">DR01039565 </a></td></tr>
+<tr class="passed"><td><a href="#test12">DR01039462 </a></td></tr>
+<tr class="passed"><td><a href="#test13">DR01039463 </a></td></tr>
+<tr class="passed"><td><a href="#test14">BR-PAPRJ-0051</a></td></tr>
+
+</tbody></table>
+<a name="test0" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039053 Tab Order</td></tr></thead><tbody><!--The tab order for this screen is left to right, top to bottom as per the ESG User Interface Design Guidelines. -->
+
+</tbody></table>
+<a name="test1" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039453 </td></tr></thead><tbody><!--All date fields must follow the date format (dd/mm/yyyy).-->
+<tr class="done">
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Project</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=ACES - Contract Monitoring</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>waitForPageToLoad</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Upload 639 - WRKW - 4LSC - E500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175047</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175048</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175049</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>css=h2.panel-title.pull-left</td>
+	<td>Review Assessment Checklist</td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>css=div.col-xs-3 &gt; label</td>
+	<td>*dd/mm/yyyy*</td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>//form[@id='checkListEditForm']/div/div[4]/div[6]/label</td>
+	<td>*dd/mm/yyyy*</td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>//form[@id='checkListEditForm']/div/div[5]/div[2]/label</td>
+	<td>*dd/mm/yyyy*</td>
+</tr>
+
+</tbody></table>
+<a name="test2" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039460 </td></tr></thead><tbody><!--All fields and submit button are only enabled for Program Assurance Administrators and Program Assurance users that have been set a resource on the Project.-->
+<tr class="done">
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Project</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=ACES - Contract Monitoring</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>waitForPageToLoad</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Upload 639 - WRKW - 4LSC - E500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175047</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175048</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175049</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>id=IsClaimDuplicateOverlapping</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>id=IsClaimIncludedInDeedNonPayableOutcomeList</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>id=DoesDocEvidenceMeetGuidelineRequirement</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>id=IsDocEvidenceConsistentWithESS</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>id=IsDocEvidenceSufficientToSupportPaymentType</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=Comment@enabled</td>
+	<td>true</td>
+</tr>
+
+</tbody></table>
+<a name="test3" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039473 </td></tr></thead><tbody><!--If user cancels and changes have been made without saving there will be a confirmation message-->
+<tr class="done">
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Project</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=ACES - Contract Monitoring</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>waitForPageToLoad</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Upload 639 - WRKW - 4LSC - E500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175047</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnBack</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>waitForPageToLoad</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175047</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Comment</td>
+	<td>javascript{var today = new Date(); 'new comment: ' + today.getMilliseconds()}</td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=btnBack</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>css=h4.modal-title</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=button.btn.btn-succes</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+<a name="test4" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039454 </td></tr></thead><tbody><!--The Job seeker name will be concatenated 'Given name' and 'Surname'-->
+
+</tbody></table>
+<a name="test5" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039455 </td></tr></thead><tbody><!--This field will dynamically display if the claim type is a 'Auto special Claim' or a Manual Special Claim'-->
+<!--if dbo.Review.AutoSpecialClaimFlag  = Y then display 'The Claim is a Auto Special Claim'-->
+<!-- or if dbo.Review.ManualSpecialClaimFlag  = Y then display 'The Claim is a Manual Special Claim'-->
+
+</tbody></table>
+<a name="test6" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039475 </td></tr></thead><tbody><!--The Assessor name will be concatenated 'Given name' and 'Surname' from active directory-->
+
+</tbody></table>
+<a name="test7" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039561 </td></tr></thead><tbody><!--Assessor name will be derived from windows users id in active directory-->
+
+</tbody></table>
+<a name="test8" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039562 </td></tr></thead><tbody><!--Field will be populated with system date then display dbo.review.UpdatedOn date once data has been submitted -->
+
+</tbody></table>
+<a name="test9" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039563 </td></tr></thead><tbody><!--New comments append to existing comments-->
+
+</tbody></table>
+<a name="test10" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039564 </td></tr></thead><tbody><!--maximum of 3000 characters can be entered into comments, application will not allowed user to enter more than 3000 chars-->
+<tr class="done">
+	<td>setSpeed</td>
+	<td>900</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Project</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=ACES - Contract Monitoring</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>waitForPageToLoad</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Upload 639 - WRKW - 4LSC - E500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175052</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Comment</td>
+	<td>javascript{Array(4000).join(&quot;A&quot;)}</td>
+</tr>
+<tr class="done">
+	<td>storeValue</td>
+	<td>id=Comment</td>
+	<td>comment</td>
+</tr>
+<tr class="done">
+	<td>storeEval</td>
+	<td>javascript{storedVars['comment'].length}</td>
+	<td>commentLength</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${commentLength}</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertExpression</td>
+	<td>javascript{storedVars['commentLength'] &lt;= 3000}</td>
+	<td>true</td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=btnBack</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>css=button.btn.btn-succes</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+<a name="test11" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039565 </td></tr></thead><tbody><!--On successful update display message-->
+<tr class="done">
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Project</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=ACES - Contract Monitoring</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>waitForPageToLoad</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Upload 639 - WRKW - 4LSC - E500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175047</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>select</td>
+	<td>id=IsClaimDuplicateOverlapping</td>
+	<td>label=True</td>
+</tr>
+<tr class="done">
+	<td>type</td>
+	<td>id=Comment</td>
+	<td>javascript{var today= new Date(); 'Comment: ' + today.getMilliseconds()}</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnSave</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertText</td>
+	<td>id=flash</td>
+	<td>*saved*</td>
+</tr>
+
+</tbody></table>
+<a name="test12" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039462 </td></tr></thead><tbody><!--Next review button only enabled when more than 1 review is selected and the first review isn't being currently viewed-->
+<tr class="done">
+	<td>setSpeed</td>
+	<td>900</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Project</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=ACES - Contract Monitoring</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>waitForPageToLoad</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Upload 639 - WRKW - 4LSC - E500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175047</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnPrevious@enabled</td>
+	<td>false</td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnNext@enabled</td>
+	<td>false</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnBack</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175047</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175048</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175049</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnPrevious@enabled</td>
+	<td>false</td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnNext@enabled</td>
+	<td>true</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnNext</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnPrevious@enabled</td>
+	<td>true</td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnNext@enabled</td>
+	<td>true</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnNext</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnPrevious@enabled</td>
+	<td>true</td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnNext@enabled</td>
+	<td>false</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnPrevious</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnPrevious@enabled</td>
+	<td>true</td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnNext@enabled</td>
+	<td>true</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnPrevious</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnPrevious@enabled</td>
+	<td>false</td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnNext@enabled</td>
+	<td>true</td>
+</tr>
+
+</tbody></table>
+<a name="test13" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">DR01039463 </td></tr></thead><tbody><!--Previous review button only shows when more than 1 review is selected and the last review is not currently being viewed. -->
+<tr class="done">
+	<td>setSpeed</td>
+	<td>900</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Project</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=ACES - Contract Monitoring</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>waitForPageToLoad</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Upload 639 - WRKW - 4LSC - E500</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175052</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175053</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnPrevious@enabled</td>
+	<td>false</td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnNext@enabled</td>
+	<td>true</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnNext</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnPrevious@enabled</td>
+	<td>true</td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnNext@enabled</td>
+	<td>false</td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=btnBack</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>id=jqg_reviews_175051</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnPrevious@enabled</td>
+	<td>false</td>
+</tr>
+<tr class="passed">
+	<td>assertAttribute</td>
+	<td>id=btnNext@enabled</td>
+	<td>false</td>
+</tr>
+
+</tbody></table>
+<a name="test14" /><table cellpadding="1" cellspacing="1" border="1"><thead><tr><td rowspan="1" colspan="3">BR-PAPRJ-0051</td></tr></thead><tbody><!--Only Project types of 'Contract Monitoring' & 'Site Monitoring' can have a review checklist.-->
+<tr class="done">
+	<td>setSpeed</td>
+	<td>900</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Project</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Job seeker Details - Program Assurance National</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>link=Details</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeText</td>
+	<td>css=div.indented</td>
+	<td>ProjectType</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${ProjectType}</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertExpression</td>
+	<td>javascript{storedVars[&quot;ProjectType&quot;].contains(&quot;monitoring&quot;)}</td>
+	<td>false</td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>link=Samples</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Upload 599 - ORSR - 4EAM - FQ40 by Steve C</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementNotPresent</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Project</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAndWait</td>
+	<td>link=Heaven - Contract Monitoring</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>link=Details</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>storeText</td>
+	<td>css=div.indented</td>
+	<td>ProjectType</td>
+</tr>
+<tr class="done">
+	<td>echo</td>
+	<td>${ProjectType}</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertExpression</td>
+	<td>javascript{storedVars[&quot;ProjectType&quot;].contains(&quot;onitoring&quot;)}</td>
+	<td>true</td>
+</tr>
+<tr class="done">
+	<td>click</td>
+	<td>link=Samples</td>
+	<td></td>
+</tr>
+<tr class="done">
+	<td>clickAtAndWait</td>
+	<td>//td/a</td>
+	<td></td>
+</tr>
+<tr class="passed">
+	<td>assertElementPresent</td>
+	<td>id=edit-checklist</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+
+</body></html>

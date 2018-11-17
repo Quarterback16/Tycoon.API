@@ -1,0 +1,121 @@
+﻿@using ProgramAssuranceTool.Helpers
+@model ProgramAssuranceTool.Models.Bulletin
+
+@{
+    // default to FAQ
+    var subTitle = "View FAQ";
+    var backText = "Back to FAQ List";
+    var bulletinType = DataConstants.FaqBulletinType;
+    var projectId = 0;
+    var bulletinTitle = "";
+    var startDate = "";
+    var endDate = "";
+    var bulletinId = 0;
+    
+    if (Model != null)
+    {
+        if (Model.IsBulletin)
+        {
+            subTitle = "View Bulletin";
+            backText = "Back to Bulletin List";
+            bulletinType = DataConstants.StandardBulletinType;
+        }
+        projectId = Model.ProjectId;
+        bulletinTitle = Model.BulletinTitle;
+        startDate = AppHelper.ShortDate(Model.StartDate);
+        endDate = AppHelper.ShortDate(Model.EndDate);
+        bulletinId = Model.BulletinId;
+    }
+}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Bulletins/FAQs", "Index", "Home")</li>
+        <li class="active">@subTitle</li>
+    </ol>        
+    <h1>@subTitle</h1>
+</div>
+
+
+<div class="panel panel-default">
+    @*
+    <div class="panel-heading">
+        <h2 class="panel-title pull-right clearfix">
+            <span>&nbsp;</span>
+        </h2>
+        <div class="clear-fix"></div>
+    </div>
+    *@
+    @using (Html.BeginForm("View", "Bulletin", FormMethod.Post, new { @role = "form", id = "bulletinViewForm", name = "bulletinViewForm" }))
+    {
+        <div class="panel-body">
+
+            <div class="row">
+                @Html.HiddenFor(b => b.BulletinId, new { @readonly = "readonly", @class = "form-control" })
+
+                <div class="col-xs-12">
+                    @Html.LabelFor(b => b.BulletinType)
+                    @Html.TextBoxFor(b => b.BulletinType, new { @readonly = "readonly", @class = "form-control", @Value = ViewBag.BulletinTypeDescription })
+                </div>
+            </div>
+            
+            @{
+                if (projectId > 0)
+                {
+                    <div class="row">
+                        <div class="col-xs-12">
+                            @Html.LabelFor(b => b.ProjectField)
+                            @Html.TextBoxFor(b => b.ProjectField, new {@readonly = "readonly", @class = "form-control"})
+                        </div>
+                    </div>
+                }
+            }
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(b => b.BulletinTitle)
+                    @Html.TextAreaFor(b => b.BulletinTitle, new {@readonly = "readonly", @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(b => b.Description)
+                    @Html.TextAreaFor(b => b.Description, new {@readonly = "readonly", @class = "form-control", @rows = "10" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    @Html.LabelFor(b => b.StartDate)
+                    @Html.TextBoxFor(b => b.StartDate, new {@readonly = "readonly", @class = "form-control", @Value=@startDate })
+
+                </div>
+
+                <div class="col-xs-6">
+                    @Html.LabelFor(b => b.EndDate)
+                    @Html.TextBoxFor(b => b.EndDate, new {@readonly = "readonly", @class = "form-control", @Value= @endDate })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    <p>Ask Question: 
+                        <a href="mailto:ProgramAssurance@Employment.gov.au?Subject=@bulletinTitle">ProgramAssurance@Employment.gov.au</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        if (ViewBag.CanEdit)
+        {
+            <div class="panel-footer clearfix">
+                @Html.ActionLink("Edit", "Edit", "Bulletin", new {Id = bulletinId}, new {@class = "btn btn-sm btn-primary pull-left"})
+            </div>
+        }
+        
+    }
+</div>
+
+@*@Html.ActionLink(backText, "Index", "Home", new { bulletinType }, null)*@

@@ -1,0 +1,351 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Employment.Web.Mvc.Infrastructure.Extensions
+@using Employment.Web.Mvc.Infrastructure.ViewModels
+@using Employment.Web.Mvc.Infrastructure.Interfaces
+@using Employment.Web.Mvc.Infrastructure.Types
+@using Employment.Web.Mvc.Zeus.Extensions
+
+@model ContentViewModel
+
+@if (!IsAjax && ViewData.TemplateInfo.TemplateDepth <= 1)
+{
+    var layoutOverride = ViewData.ModelMetadata.Model as ILayoutOverride;
+
+    var menu = Html.ShowMenu();
+
+    if (MvcHtmlString.IsNullOrEmpty(menu) || (layoutOverride != null && layoutOverride.Hidden != null && layoutOverride.Hidden.Contains(LayoutType.LeftHandNavigation)))
+    {
+                @:<section id="content" class="content">
+                <!--anchor for readers--><a id="pagenav"></a>
+    }
+    else
+    {
+         
+        
+                 <!-- begin #sidebar -->
+                <div id="sidebar" class="sidebar">
+                    <div data-scrollbar="true" data-height="100%">
+                        <!-- begin sidebar user -->
+                            @*<nav class="leftCol">class="NavScrollDiv"data-height="100%"*@
+                            <!--anchor for readers--><a id="pagenav"></a>
+                            @Html.Raw(menu)
+                             
+                            @*</nav>*@
+                        <!-- end sidebar user --> 
+                    </div> <!-- end sidebar scrollbar -->
+                </div> <!-- end #sidebar -->
+                <div class="sidebar-bg"></div>
+             @:<section id="content" class="content rightCol">
+    }
+}
+
+@{
+    if (ViewData.Model == null)
+    {
+        @ViewData.ModelMetadata.NullDisplayText
+        return;
+    }
+    
+    @Html.ShowContent(Model)
+    
+    @*ContentType? lastContentType = null;
+    List<Content> areaLinks = null;
+    var contents = Model.GetContent();
+    var processed = 0;
+
+    foreach (var content in contents)
+    {
+        // Starting to add area links
+        if (lastContentType != ContentType.AreaLink && content.Type == ContentType.AreaLink)
+        {
+            areaLinks = new List<Content>();
+        }
+
+        // Add area link to collection
+        if (content.Type == ContentType.AreaLink && areaLinks != null)
+        {
+            areaLinks.Add(content);
+
+            lastContentType = content.Type;
+            processed++;
+
+            if (processed != contents.Count)
+            {
+                continue;
+            }
+        }
+
+        // Finished adding area links
+        if (lastContentType == ContentType.AreaLink && (content.Type != ContentType.AreaLink || processed == contents.Count) && areaLinks != null && areaLinks.Any())
+        {
+            @:<nav class="areaNav ">
+            @:<ul>
+
+            foreach (var areaLink in areaLinks)
+            {
+                if (string.IsNullOrEmpty(areaLink.Controller))
+                {
+                    areaLink.Controller = Html.ViewContext.RouteData.GetController();
+                }
+
+                areaLink.Area = Html.ViewContext.RouteData.DataTokens["area"] != null ? Html.ViewContext.RouteData.DataTokens["area"].ToString() : Html.ViewContext.RouteData.GetArea();
+
+                if (areaLink.AreaLinkIcon.HasValue && areaLink.AreaLinkIcon != AreaLinkIconType.None)
+                {
+                    @:<li class="areaLinkIcon-@areaLink.AreaLinkIcon">
+                }
+                else
+                {
+                    @:<li>
+                }
+
+                var routeValues = new RouteValueDictionary { { "Area", areaLink.Area } };
+
+                if (areaLink.RouteValues != null)
+                {
+                    routeValues = new RouteValueDictionary(routeValues.Concat(areaLink.RouteValues).ToDictionary(r => r.Key, r => r.Value));
+                }
+
+                var linkTag = new TagBuilder("a");
+                var href = UrlHelper.GenerateUrl(content.RouteName, areaLink.Action, areaLink.Controller, routeValues, Html.RouteCollection, Html.ViewContext.RequestContext, false);
+                linkTag.Attributes.Add("href", href);
+                linkTag.InnerHtml = string.Format("<span>{0}</span>", areaLink.Text);
+                @(new MvcHtmlString(linkTag.ToString(TagRenderMode.Normal)))
+
+                @:</li>
+            }
+            
+            @:</ul>
+            @:</nav>
+            @:<div class="clearBoth"></div>
+        }
+
+        switch (content.Type)
+        {
+            case ContentType.Title:
+                @:<h2>@content.Text</h2>
+                break;
+
+            case ContentType.BeginTitle:
+                @:<h2>
+                break;
+
+            case ContentType.EndTitle:
+                @:</h2>
+                break;
+                
+            case ContentType.SubTitle:
+                @:<h3>@content.Text</h3>
+                break;
+
+            case ContentType.BeginSubTitle:
+                @:<h3>
+                break;
+
+            case ContentType.EndSubTitle:
+                @:</h3>
+                break;
+                
+            case ContentType.Text:
+                @content.Text
+                break;
+
+            case ContentType.EmphasisText:
+                @:<em>@content.Text</em>
+                break;
+
+            case ContentType.StrongText:
+                @:<strong>@content.Text</strong>
+                break;
+
+            case ContentType.UnderlinedText:
+                @:<u>@content.Text</u>
+                break;
+            
+            case ContentType.SubscriptText:
+                @:<sub>@content.Text</sub>
+                break;
+            
+            case ContentType.SuperscriptText:
+                @:<sup>@content.Text</sup>
+                break;
+            
+            case ContentType.ObsoleteText:
+                @:<s>@content.Text</s>
+                break;
+                
+            case ContentType.ScreenReaderText:
+                @:<span class="readers">@content.Text</<span>
+                break;
+
+            case ContentType.Abbreviation:
+                @:<abbr title="@content.Value">@content.Text</abbr>
+                break;
+
+            case ContentType.LineBreak:
+                @:<br />
+                break;
+
+            case ContentType.Paragraph:
+                @:<p>@content.Text</p>
+                break;
+
+            case ContentType.BeginParagraph:
+                @:<p>
+                break;
+
+            case ContentType.EndParagraph:
+                @:</p>
+                break;
+
+            case ContentType.Preformatted:
+                @:<pre>@content.Text</pre>
+                break;
+
+            case ContentType.BeginOrderedList:
+                @:<ol>
+                break;
+
+            case ContentType.EndOrderedList:
+                @:</ol>
+                break;
+
+            case ContentType.BeginUnorderedList:
+                @:<ul>
+                break;
+
+            case ContentType.EndUnorderedList:
+                @:</ul>
+                break;
+
+            case ContentType.ListItem:
+                @:<li>@content.Text</li>
+                break;
+
+            case ContentType.BeginListItem:
+                @:<li>
+                break;
+
+            case ContentType.EndListItem:
+                @:</li>
+                break;
+
+            case ContentType.ExternalLink:
+
+                var externalLinkTag = new TagBuilder("a");
+                externalLinkTag.Attributes.Add("href", content.Value);
+                externalLinkTag.Attributes.Add("target", "_blank");
+                externalLinkTag.Attributes.Add("title", string.Format("{0} (opens in a new window)", content.Text));
+                externalLinkTag.SetInnerText(content.Text);
+                @(new MvcHtmlString(externalLinkTag.ToString(TagRenderMode.Normal)))
+                break;
+
+            case ContentType.EmailLink:
+                var emailLinkTag = new TagBuilder("a");
+                emailLinkTag.Attributes.Add("href", string.Format("mailto:{0}", content.Text));
+                emailLinkTag.SetInnerText(content.Text);
+                @(new MvcHtmlString(emailLinkTag.ToString(TagRenderMode.Normal)))
+                break;
+
+            case ContentType.Link:
+
+                if (string.IsNullOrEmpty(content.Controller))
+                {
+                    content.Controller = Html.ViewContext.RouteData.GetController();
+                }
+
+                if (string.IsNullOrEmpty(content.Area))
+                {
+                    content.Area = Html.ViewContext.RouteData.DataTokens["area"] != null ? Html.ViewContext.RouteData.DataTokens["area"].ToString() : Html.ViewContext.RouteData.GetArea();
+                }
+                
+                var routeValues = new RouteValueDictionary { { "Area", content.Area } };
+                
+                if (content.RouteValues != null)
+                {
+                    routeValues = new RouteValueDictionary(routeValues.Concat(content.RouteValues).ToDictionary(r => r.Key, r => r.Value));
+                }
+
+                var linkTag = new TagBuilder("a");
+                var href = UrlHelper.GenerateUrl(content.RouteName, content.Action, content.Controller, routeValues, Html.RouteCollection, Html.ViewContext.RequestContext, false);
+                linkTag.Attributes.Add("href", href);
+                linkTag.SetInnerText(content.Text);
+                @(new MvcHtmlString(linkTag.ToString(TagRenderMode.Normal)))
+
+                break;
+                
+            case ContentType.BeginLink:
+
+                if (string.IsNullOrEmpty(content.Controller))
+                {
+                    content.Controller = Html.ViewContext.RouteData.GetController();
+                }
+
+                if (string.IsNullOrEmpty(content.Area))
+                {
+                    content.Area = Html.ViewContext.RouteData.DataTokens["area"] != null ? Html.ViewContext.RouteData.DataTokens["area"].ToString() : Html.ViewContext.RouteData.GetArea();
+                }
+
+                var beginLinkTag = new TagBuilder("a");
+                var beginHref = UrlHelper.GenerateUrl(content.RouteName, content.Action, content.Controller, new RouteValueDictionary { { "Area", content.Area } }, Html.RouteCollection, Html.ViewContext.RequestContext, false);
+                beginLinkTag.Attributes.Add("href", beginHref);
+                @(new MvcHtmlString(beginLinkTag.ToString(TagRenderMode.StartTag)))
+
+                break;
+                
+            case ContentType.EndLink:
+                @:</a>
+                break;
+                
+            case ContentType.Image:
+                var imageTag = new TagBuilder("img");
+                imageTag.Attributes.Add("alt", content.Text);
+                var imagePath = UrlHelper.GenerateContentUrl(content.Value, ViewContext.HttpContext);
+                imageTag.Attributes.Add("src", imagePath);
+                @(new MvcHtmlString(imageTag.ToString(TagRenderMode.SelfClosing)))
+            
+                break;
+                
+            case ContentType.BeginDescriptionList:
+                @:<dl>
+                break;
+
+            case ContentType.EndDescriptionList:
+                @:</dl>
+                break;
+
+            case ContentType.DescriptionName:
+                @:<dt>@content.Text</dt>
+                break;
+
+            case ContentType.BeginDescriptionName:
+                @:<dt>
+                break;
+
+            case ContentType.EndDescriptionName:
+                @:</dt>
+                break;
+                
+            case ContentType.DescriptionValue:
+                @:<dd>@content.Text</dd>
+                break;
+
+            case ContentType.BeginDescriptionValue:
+                @:<dd>
+                break;
+
+            case ContentType.EndDescriptionValue:
+                @:</dd>
+                break;
+        }
+
+        lastContentType = content.Type;
+        processed++;
+    }*@
+}
+
+@if (!IsAjax && ViewData.TemplateInfo.TemplateDepth <= 1)
+{
+    @:</section><!-- #content-->
+}

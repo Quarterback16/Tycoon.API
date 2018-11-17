@@ -1,0 +1,14 @@
+﻿MsBuild command to perform a web.config transform. Run from Visual Studio command prompt.
+msbuild rhea.csproj /t:TransformWebConfig /p:Configuration=Integration;Platform=AnyCPU
+
+Find the transformed web.config at this relative location
+obj\Integration\TransformWebConfig\transformed
+
+See http://msdn.microsoft.com/en-us/library/dd465326.aspx for more info about xdt:Transform and xdt:Locator
+
+SlowCheetah - XML Transforms
+Install the VSIX from here
+http://visualstudiogallery.msdn.microsoft.com/69023d00-a4f9-4a34-a6cd-7e854ba318b5
+
+Provides preview support of transform straight into the difference tool
+Used to transform Unity.configs

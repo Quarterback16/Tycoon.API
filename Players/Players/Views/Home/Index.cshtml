@@ -1,0 +1,44 @@
+﻿<table id="PlayerGrid"></table>
+<div id="pager"></div>
+
+@section scripts {
+
+    <script type="text/javascript">
+
+        $(document).ready(
+            function() {
+
+                jQuery('#PlayerGrid').jqGrid({
+                    autowidth: true,
+                    caption: 'Players',
+                    datatype: 'json',
+                    height: 440,
+                    rowNum: 20,
+                    url: '/Home/GridDataPlayers',
+                    viewrecords: true,
+                    colModel: [
+                    {
+                        name: 'PlayerId',
+                        label: 'Player ID',
+                        index: 'PlayerId'
+                    }, {
+                        name: 'First Name',
+                        label: 'FirstName',
+                        width: 100,
+                        index: 'FirstName'
+                    }, {
+                        name: 'Surname',
+                        label: 'Surname',
+                        search: true,
+                        width: 100,
+                        index: 'Surname'
+                    }
+                    ]
+                });
+            }
+        );
+
+        
+    </script>
+
+}

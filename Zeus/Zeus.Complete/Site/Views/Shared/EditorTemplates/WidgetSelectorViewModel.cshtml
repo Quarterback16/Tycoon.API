@@ -1,0 +1,22 @@
+﻿@using Employment.Web.Mvc.Infrastructure.Types;
+
+@model Employment.Web.Mvc.Infrastructure.ViewModels.WidgetSelectorViewModel
+
+<div><h3>Data</h3>
+    <ul class="zeus-widget-data-context-list">
+    @foreach (string dataContext in Model.WidgetDataContexts)
+    {
+        var classSpec = dataContext == Model.CurrentWidgetDataContext ? "active" : "";
+        @:<li class="@classSpec"><button @HtmlDataType.WidgetDataContext="@dataContext" @HtmlDataType.WidgetContext="@Model.WidgetContext">@dataContext</button></li>
+    }
+    </ul>
+</div>
+<div><h3>Add widget</h3>
+    <ul class="zeus-widget-selection-list">
+    @{Model.AvailableWidgetNames.Sort();}
+    @foreach (string name in Model.AvailableWidgetNames)
+    {
+        @:<li><button @HtmlDataType.WidgetContext="@Model.WidgetContext"><table><tbody><tr><td><i class="fa fa-plus-circle fa-2x"></i></td><td>@name</td></tr></tbody></table></button></li>
+    }
+    </ul>
+</div>

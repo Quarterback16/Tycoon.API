@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramAssuranceTool.Tests", "ProgramAssuranceTool.Tests\ProgramAssuranceTool.Tests.csproj", "{0F8D937C-A19B-479A-906B-6DBCC76A7814}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramAssuranceTool.Tests.Integration", "Tests.Integration\ProgramAssuranceTool.Tests.Integration.csproj", "{7547F4C3-5C82-4990-BC5E-A3CBF9B71F3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{73B3D97D-2816-4540-A525-4AB4795DAD5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{84FD4E90-4897-4CBE-85E6-7D593BFBBC5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{DABB9C36-1D24-4622-AF5F-04376CAD5D96}"
+	ProjectSection(SolutionItems) = preProject
+		Build\build-coverage.cmd = Build\build-coverage.cmd
+		Build\build.cmd = Build\build.cmd
+		Build\clean.cmd = Build\clean.cmd
+		Build\compile.cmd = Build\compile.cmd
+		Build\unit-tests-coverage.cmd = Build\unit-tests-coverage.cmd
+		Build\unit-tests.cmd = Build\unit-tests.cmd
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramAssuranceTool", "ProgramAssuranceTool.csproj", "{5E1D6986-DC83-4CA9-A99E-094EB7E5F483}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://esg-tfsserver:8080/tfs/esgcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ProgramAssuranceTool.Tests\\ProgramAssuranceTool.Tests.csproj
+		SccProjectTopLevelParentUniqueName1 = Build\u0020ProgramAssuranceTool.sln
+		SccProjectName1 = ProgramAssuranceTool.Tests
+		SccLocalPath1 = ProgramAssuranceTool.Tests
+		SccProjectUniqueName2 = Tests.Integration\\ProgramAssuranceTool.Tests.Integration.csproj
+		SccProjectTopLevelParentUniqueName2 = Build\u0020ProgramAssuranceTool.sln
+		SccProjectName2 = Tests.Integration
+		SccLocalPath2 = Tests.Integration
+		SccProjectUniqueName3 = ProgramAssuranceTool.csproj
+		SccLocalPath3 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F8D937C-A19B-479A-906B-6DBCC76A7814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F8D937C-A19B-479A-906B-6DBCC76A7814}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F8D937C-A19B-479A-906B-6DBCC76A7814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F8D937C-A19B-479A-906B-6DBCC76A7814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7547F4C3-5C82-4990-BC5E-A3CBF9B71F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7547F4C3-5C82-4990-BC5E-A3CBF9B71F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7547F4C3-5C82-4990-BC5E-A3CBF9B71F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7547F4C3-5C82-4990-BC5E-A3CBF9B71F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E1D6986-DC83-4CA9-A99E-094EB7E5F483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E1D6986-DC83-4CA9-A99E-094EB7E5F483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E1D6986-DC83-4CA9-A99E-094EB7E5F483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E1D6986-DC83-4CA9-A99E-094EB7E5F483}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7547F4C3-5C82-4990-BC5E-A3CBF9B71F3F} = {73B3D97D-2816-4540-A525-4AB4795DAD5C}
+		{0F8D937C-A19B-479A-906B-6DBCC76A7814} = {73B3D97D-2816-4540-A525-4AB4795DAD5C}
+		{DABB9C36-1D24-4622-AF5F-04376CAD5D96} = {84FD4E90-4897-4CBE-85E6-7D593BFBBC5F}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArrayOfProgress xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Progress>
+        <SampleName>Upload 306 - PPTY - 4NOM - FQ40</SampleName>
+        <ProjectType>PAS</ProjectType>
+        <InProgressReviewCount>8</InProgressReviewCount>
+        <CompletedReviewCount>0</CompletedReviewCount>
+        <TotalReviewCount>8</TotalReviewCount>
+        <PercentCompleted>0</PercentCompleted>
+        <LastUpdateDate>2014-03-20T08:50:19.31</LastUpdateDate>
+    </Progress>
+    <Progress>
+        <SampleName>Upload 356 - PPTY - 4NOM - FQ40</SampleName>
+        <ProjectType>PAS</ProjectType>
+        <InProgressReviewCount>8</InProgressReviewCount>
+        <CompletedReviewCount>0</CompletedReviewCount>
+        <TotalReviewCount>8</TotalReviewCount>
+        <PercentCompleted>0</PercentCompleted>
+        <LastUpdateDate>2014-03-20T08:50:19.31</LastUpdateDate>
+    </Progress>
+    <Progress>
+        <SampleName>Upload 369 - CNTC - 4HAS - H320</SampleName>
+        <ProjectType>PAS</ProjectType>
+        <InProgressReviewCount>8</InProgressReviewCount>
+        <CompletedReviewCount>0</CompletedReviewCount>
+        <TotalReviewCount>8</TotalReviewCount>
+        <PercentCompleted>0</PercentCompleted>
+        <LastUpdateDate>2014-03-20T08:50:19.31</LastUpdateDate>
+    </Progress>
+    <Progress>
+        <SampleName>Upload 370 - CNTC - 4HAS - H320</SampleName>
+        <ProjectType>PAS</ProjectType>
+        <InProgressReviewCount>8</InProgressReviewCount>
+        <CompletedReviewCount>0</CompletedReviewCount>
+        <TotalReviewCount>8</TotalReviewCount>
+        <PercentCompleted>0</PercentCompleted>
+        <LastUpdateDate>2014-03-20T08:50:19.31</LastUpdateDate>
+    </Progress>
+</ArrayOfProgress>

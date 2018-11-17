@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE8278EC-E745-45A9-8990-318A778E7FD9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Example.AdventureWorks2008ObjectContext_Dal</RootNamespace>
+    <AssemblyName>Example.AdventureWorks2008_Dal.40</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>UnsecuredKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\NET 4.5\Example.AdventureWorks2008_Dal.45\Addresses.cs">
+      <Link>Addresses.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Example.AdventureWorks2008_Dal.45\Ado.net\AwDataSet.cs">
+      <Link>Ado.net\AwDataSet.cs</Link>
+      <DependentUpon>AwDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Example.AdventureWorks2008_Dal.45\Ado.net\AwDataSet.Designer.cs">
+      <Link>Ado.net\AwDataSet.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AwDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Example.AdventureWorks2008_Dal.45\Customers.cs">
+      <Link>Customers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Example.AdventureWorks2008_Dal.45\GlobalSuppressions.cs">
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Example.AdventureWorks2008_Dal.45\Properties\Settings.Designer.cs">
+      <Link>Settings.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Example.AdventureWorks2008_Dal.45\Runtime.cs">
+      <Link>Runtime.cs</Link>
+    </Compile>
+    <Compile Include="DbCtx\Address.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\AdventureWorksLT2008R2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorksLT2008R2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\AdventureWorksLT2008R2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\AdventureWorksLT2008R2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorksLT2008R2.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\BuildVersion.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\Customer.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\CustomerAddress.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\ErrorLog.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\Product.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\ProductCategory.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\ProductDescription.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\ProductModel.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\ProductModelProductDescription.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\SalesOrderDetail.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\SalesOrderHeader.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\vGetAllCategory.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\vProductAndDescription.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbCtx\vProductModelCatalogDescription.cs">
+      <DependentUpon>AdventureWorksLT2008R2.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\NET 4.5\Example.AdventureWorks2008_Dal.45\Ado.net\AwDataSet.xsc">
+      <Link>Ado.net\AwDataSet.xsc</Link>
+      <DependentUpon>AwDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="..\..\NET 4.5\Example.AdventureWorks2008_Dal.45\Ado.net\AwDataSet.xsd">
+      <Link>Ado.net\AwDataSet.xsd</Link>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AwDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\..\NET 4.5\Example.AdventureWorks2008_Dal.45\Ado.net\AwDataSet.xss">
+      <Link>Ado.net\AwDataSet.xss</Link>
+      <DependentUpon>AwDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="..\..\NET 4.5\Example.AdventureWorks2008_Dal.45\Properties\Settings.settings">
+      <Link>Settings.settings</Link>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <EntityDeploy Include="DbCtx\AdventureWorksLT2008R2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdventureWorksLT2008R2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DbCtx\AdventureWorksLT2008R2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdventureWorksLT2008R2.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorksLT2008R2.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DbCtx\AdventureWorksLT2008R2.edmx.diagram">
+      <DependentUpon>AdventureWorksLT2008R2.edmx</DependentUpon>
+    </None>
+    <None Include="DbCtx\AdventureWorksLT2008R2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdventureWorksLT2008R2.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorksLT2008R2.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="UnsecuredKey.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aspectacular.Framework.Core.40\Aspectacular.Framework.Core.40.csproj">
+      <Project>{c08753dd-60a8-4fab-9118-232a23b8a8cb}</Project>
+      <Name>Aspectacular.Framework.Core.40</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aspectacular.Framework.EntityFramework.40\Aspectacular.Framework.EntityFramework.40.csproj">
+      <Project>{bdef966c-e582-4cd8-8b35-43110a41df09}</Project>
+      <Name>Aspectacular.Framework.EntityFramework.40</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aspectacular.Framework.Main.40\Aspectacular.Framework.Main.40.csproj">
+      <Project>{da93101c-b550-439f-8b99-54f28f8b2f00}</Project>
+      <Name>Aspectacular.Framework.Main.40</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

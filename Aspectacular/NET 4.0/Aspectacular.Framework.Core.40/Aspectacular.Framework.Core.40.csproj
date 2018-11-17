@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C08753DD-60A8-4FAB-9118-232A23B8A8CB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Aspectacular</RootNamespace>
+    <AssemblyName>Aspectacular.Framework.Core.40</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Aspectacular.Framework.Core.40.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Aspectacular.Framework.Core.40.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>UnsecuredKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\AdoNetExtensions.cs">
+      <Link>AdoNetExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\BlockingPoll.cs">
+      <Link>BlockingPoll.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\Caching.cs">
+      <Link>Caching.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\CollectionExtensions.cs">
+      <Link>CollectionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\DateTimeExtensions.cs">
+      <Link>DateTimeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\Disposer.cs">
+      <Link>Disposer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\Email.cs">
+      <Link>Email.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\ExceptionExtensions.cs">
+      <Link>ExceptionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\FastDynamicActivator.cs">
+      <Link>FastDynamicActivator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\FullOuterJoin.cs">
+      <Link>FullOuterJoin.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\GlobalSuppressions.cs">
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\Lazier.cs">
+      <Link>Lazier.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\ModifiedString.cs">
+      <Link>ModifiedString.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\PredicateBuilder.cs">
+      <Link>PredicateBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\Properties\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\QueryableExtensions.cs">
+      <Link>QueryableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\QueryModifiers.cs">
+      <Link>QueryModifiers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\Range.cs">
+      <Link>Range.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\RelativeTimeSpan.cs">
+      <Link>RelativeTimeSpan.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\SqlConnAttribs.cs">
+      <Link>SqlConnAttribs.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\StringExtensions.cs">
+      <Link>StringExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\SvcLocator.cs">
+      <Link>SvcLocator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\Threading.cs">
+      <Link>Threading.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\TypeAndReflectionExtensions.cs">
+      <Link>TypeAndReflectionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NET 4.5\Aspectacular.Framework.Core.45\XmlSerializationHelpers.cs">
+      <Link>XmlSerializationHelpers.cs</Link>
+    </Compile>
+    <Compile Include="NET 4.0 Shims\ReflectionExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnsecuredKey.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

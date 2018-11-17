@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosterGrid", "RosterGrid\RosterGrid.csproj", "{63EFBE02-9E90-4562-B204-01928B9F62D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosterLib", "RosterLib\RosterLib.csproj", "{051BE714-C3BC-42BB-B0A7-0C6C80295BFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosterGridTests", "UnitTestProject1\RosterGridTests.csproj", "{8400D4E3-37DE-4879-8EC4-D291C063258E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFLLib", "..\..\GerardGui\TFLLib\TFLLib.csproj", "{A3A068EE-3471-4F63-AA69-3B5F57705283}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63EFBE02-9E90-4562-B204-01928B9F62D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63EFBE02-9E90-4562-B204-01928B9F62D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63EFBE02-9E90-4562-B204-01928B9F62D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63EFBE02-9E90-4562-B204-01928B9F62D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{051BE714-C3BC-42BB-B0A7-0C6C80295BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{051BE714-C3BC-42BB-B0A7-0C6C80295BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{051BE714-C3BC-42BB-B0A7-0C6C80295BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{051BE714-C3BC-42BB-B0A7-0C6C80295BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8400D4E3-37DE-4879-8EC4-D291C063258E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8400D4E3-37DE-4879-8EC4-D291C063258E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8400D4E3-37DE-4879-8EC4-D291C063258E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8400D4E3-37DE-4879-8EC4-D291C063258E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3A068EE-3471-4F63-AA69-3B5F57705283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3A068EE-3471-4F63-AA69-3B5F57705283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3A068EE-3471-4F63-AA69-3B5F57705283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3A068EE-3471-4F63-AA69-3B5F57705283}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

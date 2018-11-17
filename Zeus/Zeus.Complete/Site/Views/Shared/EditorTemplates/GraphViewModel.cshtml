@@ -1,0 +1,111 @@
+﻿@using System.Linq
+@using Employment.Web.Mvc.Infrastructure.ViewModels
+@using Employment.Web.Mvc.Infrastructure.Types
+
+@model Employment.Web.Mvc.Infrastructure.ViewModels.GraphViewModel
+
+@{
+    string uniqueId = GraphViewModel.GetUniqueId();
+    string graphId = uniqueId + "-graph-";
+    string graphPaneId = uniqueId + "-graph-pane-";
+    string tableId = uniqueId + "-table";
+    string tablePaneId = uniqueId + "-table-pane";
+    string keyboardClickFixerGraphId = uniqueId + "-graph-cfix-";
+    string keyboardClickFixerTableId = uniqueId + "-table-cfix";
+    string tooltipId = uniqueId + "-overlay-";
+    string graphType = Html.Encode(Model.GraphType);
+
+    bool isMultiPie = Model.GraphType == GraphViewModel.PIE && Model.Values.Keys.Count > 1;
+    IEnumerable<string> graphNames = isMultiPie ? Model.Values.Keys.Select((Func<object, string>)(o => o.ToString())) as IEnumerable<string> : new List<string>(new [] {"Chart"});
+    int counter;
+}
+
+<div class="btn-group pull-right" data-toggle="buttons">
+    <ul class="nav nav-pills pull-right">
+@{
+    counter = 0;
+    foreach (string key in graphNames)
+    {
+        string salt = counter.ToString();
+        string active = counter == 0 ? "active" : "";
+@:        <li class="@active">
+@:            <a href="#@(graphPaneId + salt)" data-toggle="tab" id="@(keyboardClickFixerGraphId + salt)" style="display: none"></a>
+@:            <a href="#" onclick="$('#@(keyboardClickFixerGraphId + salt)').click();"><i class="fa fa-bar-chart-o"></i> <span class="hidden-xs">@Html.Encode(key)</span></a>
+@:        </li>
+        counter++;
+    }
+}
+        <li class="">
+            <a href="#@tablePaneId" data-toggle="tab" id="@(keyboardClickFixerTableId)" style="display: none"></a>
+            <a href="#" onclick ="$('#@(keyboardClickFixerTableId)').click();"><i class="fa fa-table"></i> <span class="hidden-xs">Table</span></a>
+        </li>
+    @if (Model.TopLevelUrl != null) { 
+        <li class="">
+            <a href="#" @HtmlDataType.GraphTopLevelUrl="@Model.TopLevelUrl"><i class="fa fa-arrow-up"></i> <span class="hidden-xs">Top level</span></a>
+        </li>
+    }
+    </ul>
+</div>
+<div class="tab-content" @HtmlDataType.GraphDrillDownUrl="@Model.DrillDownUrl">
+@{
+    counter = 0;
+    foreach (string key in graphNames)
+    {
+        string salt = counter.ToString();
+        string active = counter == 0  ? "active in" : "";
+@:    <div class="tab-pane fade @active" id="@(graphPaneId + salt)">
+@:        <div id="@(graphId+salt)" @HtmlDataType.GraphType="@graphType" style="min-height: 300px; margin: 0 auto"></div>
+        if (!string.IsNullOrEmpty(Model.Title)) {
+@:        <div class="zeus-graph-caption">@Model.Title</div>
+        }
+@:        <div id="@(tooltipId+salt)" class="zeus-graph-tooltip"></div>
+@:    </div>
+        counter++;
+    }
+}
+
+    <div class="tab-pane fade" id="@tablePaneId">
+        <table id="@tableId" class="table table-bordered zeus-graph-table">
+        @if (!string.IsNullOrEmpty(Model.Title)) {
+            <caption>@Model.Title</caption>
+        }
+            <tbody>
+                @{
+                    // Collect all the disparate category keys across the data sets
+                    HashSet<object> completeKeySet = new HashSet<object>();
+                    foreach (string key in Model.Values.Keys)
+                    {
+                        foreach (object subkey in Model.Values[key].Keys)
+                        {
+                            completeKeySet.Add(subkey);
+                        }
+                    }
+                    
+                    // Write table headings if there is more than one data set
+                    if (Model.Values.Keys.Count > 1)
+                    {
+                        @:<tr><th></th>
+                        foreach (string key in Model.Values.Keys)
+                        {
+                            @Html.Raw("<th>" + Html.Encode(key) + "</th>");
+                        }
+                        @:</tr>
+                    }
+
+                    // Write out the data rows
+                    foreach (object subkey in completeKeySet)
+                    {
+                        @:<tr>
+                        @Html.Raw("<th>" + Html.Encode(subkey.ToString()) + "</th>");
+                        foreach (string key in Model.Values.Keys)
+                        {
+                            string val = Model.Values[key].ContainsKey(subkey) ? Model.Values[key][subkey].ToString() : "0";
+                            @Html.Raw("<td>" + Html.Encode(val) + "</td>");
+                        }
+                        @:</tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
