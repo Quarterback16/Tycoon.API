@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFL-Source", "TFL-Source\TFL-Source.csproj", "{1316570B-187F-436C-B9EE-FEC2C510EB4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1316570B-187F-436C-B9EE-FEC2C510EB4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1316570B-187F-436C-B9EE-FEC2C510EB4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1316570B-187F-436C-B9EE-FEC2C510EB4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1316570B-187F-436C-B9EE-FEC2C510EB4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D2A837F-5221-494C-B8D8-1E643F2C7B5C}
+	EndGlobalSection
+EndGlobal

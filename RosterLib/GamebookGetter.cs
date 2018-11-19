@@ -32,12 +32,13 @@ namespace RosterLib
 			// Loop through keys.
 			foreach ( var key in list )
 			{
-				//Console.WriteLine("{0}: {1}", key, gameDict[key]);
+				Console.WriteLine("{0}: {1}", key, gameDict[key]);
 				var g = gameDict[ key ];
 				if ( g.Id == "0" )
 					g.Id = seed.ToString();
 				var gotIt = false;
-				var offSet = 0;
+				var offSet = -5;
+				var origId = g.Id;
 				while (!gotIt)
 				{
 					var url = g.GamebookUrl();
@@ -54,7 +55,7 @@ namespace RosterLib
 						else
 						{
 							offSet++;
-							var nextId = Int32.Parse(g.Id) + offSet;
+							var nextId = Int32.Parse(origId) + offSet;
 							if (offSet > 15)
 								break;
 							g.Id = nextId.ToString();

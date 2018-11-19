@@ -1,0 +1,122 @@
+SELECT 1
+USE COMP
+
+*--Team 1
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
+
+*--Team 2
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
+
+*--Team 3
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
+
+*--Team 4
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
+
+*--Team 5
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
+
+*--Team 6
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
+
+*--Team 7
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
+
+*--Team 8
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
+
+*--Team 9
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
+
+*--Team 10
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
+
+*--Team 11
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
+
+*--Team 12
+APPEND BLANK 
+replace SEASON WITH "2007"
+replace LEAGUEID WITH "NF"
+replace OWNERID WITH "NF001"
+replace FILENAME WITH "NF001"
+replace FRANCODE with "XX"
+replace FRANCHISE WITH "<Name>"
+replace DIVISION WITH "A"
