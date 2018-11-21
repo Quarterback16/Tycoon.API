@@ -37,7 +37,7 @@ namespace RosterLib
 				if ( g.Id == "0" )
 					g.Id = seed.ToString();
 				var gotIt = false;
-				var offSet = -5;
+				var offSet = -8;
 				var origId = g.Id;
 				while (!gotIt)
 				{

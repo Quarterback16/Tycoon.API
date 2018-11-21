@@ -49,17 +49,25 @@ namespace RosterLib.RosterGridReports
 			var winners = GetWinners();
 			var losers = GetLosers();
 
-			var winnersList = winners.ToList().OrderByDescending( x => x.Margin );
-			var losersList = losers.ToList().OrderBy( x => x.Margin );
+			//var winnersList = winners.ToList().OrderByDescending( x => x.Margin );
+			//var losersList = losers.ToList().OrderBy( x => x.Margin );
+
+			var completeList = new List<Teamer>();
+			foreach (var winner in winners)
+				completeList.Add(winner);
+			foreach (var loser in losers)
+				completeList.Add(loser);
+			var sortedList = completeList.OrderByDescending(
+				x => x.PointsFor);
 
 			var c = new YahooCalculator();
 			var lineNo = 0;
 
-			foreach ( var winner in winnersList )
-				lineNo = GenerateChart( bodyOut, c, lineNo, winner );
+			foreach ( var tm in sortedList)
+				lineNo = GenerateChart( bodyOut, c, lineNo, tm );
 
-			foreach ( var loser in losersList )
-				lineNo = GenerateChart( bodyOut, c, lineNo, loser );
+			//foreach ( var loser in losersList )
+			//	lineNo = GenerateChart( bodyOut, c, lineNo, loser );
 
 			return bodyOut.ToString();
 		}
@@ -611,7 +619,7 @@ namespace RosterLib.RosterGridReports
 
 		#endregion Bits and Pieces
 
-		public IEnumerable<Winner> GetWinners()
+		public IList<Winner> GetWinners()
 		{
 			var week = new NFLWeek( Season, Week );
 			var winners = new List<Winner>();
@@ -621,6 +629,7 @@ namespace RosterLib.RosterGridReports
 				var teamCode = g.BookieTip.WinningTeam();
 				var winner = new Winner
 				{
+					PointsFor = g.BookieTip.WinningScore(),
 					Team = g.Team( teamCode ),
 					Margin = Math.Abs( g.Spread ),
 					Home = g.IsHome( teamCode ),
@@ -632,7 +641,7 @@ namespace RosterLib.RosterGridReports
 			return winners;
 		}
 
-		public IEnumerable<Loser> GetLosers()
+		public IList<Loser> GetLosers()
 		{
 			var week = new NFLWeek( Season, Week );
 			var losers = new List<Loser>();
@@ -643,6 +652,7 @@ namespace RosterLib.RosterGridReports
 
 				var loser = new Loser
 				{
+					PointsFor = g.BookieTip.LosingScore(),
 					Team = g.Team( teamCode ),
 					Margin = Math.Abs( g.Spread ),
 					Home = g.IsHome( teamCode ),
@@ -655,12 +665,9 @@ namespace RosterLib.RosterGridReports
 		}
 	}
 
-	public class Winner : IComparable, IWinOrLose
+	public class Teamer : IComparable, IWinOrLose
 	{
-		public Winner()
-		{
-			IsWinner = true;
-		}
+		public int PointsFor { get; set; }
 
 		public decimal Margin { get; set; }
 
@@ -672,10 +679,19 @@ namespace RosterLib.RosterGridReports
 
 		public NFLGame Game { get; set; }
 
-		public int CompareTo( object obj )
+		public int CompareTo(object obj)
 		{
-			var winner2 = ( Winner ) obj;
+			var winner2 = (Winner)obj;
 			return Margin > winner2.Margin ? 1 : 0;
+		}
+
+	}
+
+	public class Winner : Teamer
+	{
+		public Winner()
+		{
+			IsWinner = true;
 		}
 
 		public override string ToString()
@@ -684,32 +700,11 @@ namespace RosterLib.RosterGridReports
 		}
 	}
 
-	public class Loser : IComparable, IWinOrLose
+	public class Loser : Teamer
 	{
 		public Loser()
 		{
 			IsWinner = false;
-		}
-
-		public decimal Margin { get; set; }
-
-		public NflTeam Team { get; set; }
-
-		public bool Home { get; set; }
-
-		public bool IsWinner { get; set; }
-
-		public NFLGame Game { get; set; }
-
-		public int CompareTo( object obj )
-		{
-			var winner2 = ( Winner ) obj;
-			return Margin < winner2.Margin ? 1 : 0;
-		}
-
-		public override string ToString()
-		{
-			return string.Format( "{0,4}", Margin );
 		}
 	}
 }

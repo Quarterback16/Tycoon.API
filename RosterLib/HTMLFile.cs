@@ -131,7 +131,7 @@ namespace RosterLib
 			sw.Close();
 
 			if ( AnnounceIt )
-				Announce( string.Format( "   {0} has been rendered", _filename ) );
+				Announce( $"   {_filename} has been rendered" );
 		}
 
 		public void Announce( string message )
