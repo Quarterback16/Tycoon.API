@@ -8,7 +8,8 @@ namespace RosterLib
         public abstract string Name { get; }
         public string PlayerId { get; set; }
         public string TeamId { get; set; }
-        public decimal Quantity { get; set; }
+		public string OpponentTeamId { get; set; }
+		public decimal Quantity { get; set; }
         public string Season { get; set; }
         public string Week { get; set; }
         public string GameNo { get; set; }
@@ -18,15 +19,21 @@ namespace RosterLib
 
         public void Dump()
         {
-            RosterLib.Utility.Announce(string.Format("{0}:{1}-{2} {3} {4} has {5} {6}", 
-                Season, Week, GameNo, TeamId, PlayerId, Quantity, Name ));
+			var game = new NFLGame(
+				gameKey: $"{Season}:{Week:00}-{GameNo}");
+			OpponentTeamId = game.Opponent(TeamId);
+
+			Utility.Announce(
+				$@"{Season}:{Week}-{GameNo} {TeamId} {
+					PlayerId
+					} has {Quantity} {Name} vs {OpponentTeamId}");
         }
 
         public bool IsValid()
         {
             bool isValid = true;
 
-            string allTeams = "CH AF DC AC DL CP NG SF GB NO PE SL MV TB WR SS BR HT BB DB CI IC MD KC CL JJ NE OR PS TT NJ SD";
+            string allTeams = "CH AF DC AC DL CP NG SF GB NO PE LR MV TB WR SS BR HT BB DB CI IC MD KC CL JJ NE OR PS TT NJ LC";
             isValid = (allTeams.IndexOf(TeamId) > -1);
             Error = (isValid ? string.Empty : "Invalid Team");
 

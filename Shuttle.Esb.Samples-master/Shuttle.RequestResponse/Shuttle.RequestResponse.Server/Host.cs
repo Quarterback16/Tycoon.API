@@ -14,12 +14,15 @@ namespace Shuttle.RequestResponse.Server
 
         public Host()
         {
-            Log.Assign(new Log4NetLog(LogManager.GetLogger(typeof(Host))));
+            Log.Assign(
+				new Log4NetLog(
+					LogManager.GetLogger(typeof(Host))));
         }
 
         public void Start()
         {
-            var container = new WindsorComponentContainer(new WindsorContainer());
+            var container = new WindsorComponentContainer(
+				new WindsorContainer());
 
             ServiceBus.Register(container);
 

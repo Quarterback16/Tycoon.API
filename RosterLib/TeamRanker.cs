@@ -286,7 +286,9 @@ namespace RosterLib
 			var breakdownFile = $@"{Utility.OutputDirectory()}\\{
 							TimeKeeper.CurrentSeason()
 							}\\Metrics\\breakdowns\\{breakdownKey}.htm";
-			Breakdowns.Dump( breakdownKey, breakdownFile );
+			Breakdowns.Dump( 
+				breakdownKey, 
+				breakdownFile);
 		}
 
 		private string GameScopeFromGameList(ArrayList games)

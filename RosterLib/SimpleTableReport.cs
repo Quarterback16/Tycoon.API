@@ -173,14 +173,25 @@ namespace RosterLib
 		/// <param name="persist">Whether to delete the file or not, sometimes we just want the string.</param>
 		public string RenderAsHtml( string fileName, bool persist )
 		{
-			if ( ReportHeader == null ) ReportHeader = _header;
-			ReportHeader = string.Format( "{0} as of {1}",
-			   ReportHeader, DateTime.Now.ToString( "ddd dd MMM yy HH:MM tt" ) );
-			var h = new HtmlFile( fileName, ReportHeader ) { AnnounceIt = AnnounceIt };
+			if ( ReportHeader == null )
+				ReportHeader = _header;
+			ReportHeader = $@"{
+				ReportHeader
+				} as of {
+				DateTime.Now.ToString("ddd dd MMM yy HH:MM tt")
+				}";
+			var h = new HtmlFile( 
+				fileName, 
+				ReportHeader )
+				{
+					AnnounceIt = AnnounceIt
+				};
 			AddStyles( h );
-			var html = string.Format( "<h3>{0}</h3>", ReportHeader ) + Header( _header );
+			var html = $"<h3>{ReportHeader}</h3>" + Header( _header );
 			if ( SubHeader.Length > 0 ) html += SubHeader;
+
 			html += BodyOut();
+
 			h.AddToBody( html );
 			_et.Stop( DateTime.Now );
 			TimeTaken = _et.TimeOut();
@@ -552,8 +563,9 @@ namespace RosterLib
 
 		private static string TopLine()
 		{
-			var theDate = string.Format( "Report Date: {0} ",
-			   DateTime.Now.ToString( "dd MMM yy  HH:mm" ) );
+			var theDate = $@"Report Date: {
+				DateTime.Now.ToString("dd MMM yy  HH:mm")
+				} ";
 			return theDate;
 		}
 

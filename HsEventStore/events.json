@@ -1,0 +1,15 @@
+[
+    {
+      "event-type": "meta-change",
+      "deck-name": "Resurrect Priest",
+      "direction": "IN",
+      "date-of-effect": "2019-02-01"
+    },
+    {
+      "event-type": "meta-change",
+      "deck-name": "Control Priest",
+      "direction": "IN",
+      "date-of-effect": "2019-03-01"
+    }
+]    
+

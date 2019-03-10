@@ -58,7 +58,7 @@ namespace RosterLib
 
          for (var w = startAt; w > 0; w--)
          {
-            var header = string.Format("Week {0}", w);
+            var header = $"Week {w}";
             var fieldName = string.Format(FieldFormat, w);
 
             if ( IsGridStatsQBReport( sHead ) )
@@ -121,7 +121,7 @@ namespace RosterLib
 
       private static bool IsYahooReport( string sHead )
       {
-         return ( ( sHead.IndexOf( "ESPN" ) > -1 ) || ( sHead.IndexOf( "Yahoo" ) > -1 ) );
+         return ( ( sHead.IndexOf( "ESPN" ) > -1 ) || ( sHead.IndexOf( "YH" ) > -1 ) );
       }
 
       public DataSet LoadData(ArrayList plyrList, NFLWeek startWeek)

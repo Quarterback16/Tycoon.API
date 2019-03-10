@@ -72,10 +72,12 @@ namespace RosterLib
 
 		private void DumpBreakdowns(string teamCode)
 		{
-			Breakdowns.Dump( teamCode+"-Tdr", string.Format("{0}{2}/breakdowns/{1}-TDR.htm",
-			                 Utility.OutputDirectory(), teamCode, Season ) );
-			Breakdowns.Dump( teamCode + "-Tdp", string.Format( "{0}{2}/breakdowns/{1}-TDP.htm",
-								  Utility.OutputDirectory(), teamCode, Season ) );
+			Breakdowns.Dump( 
+				teamCode+"-Tdr", 
+				$"{Utility.OutputDirectory()}{Season}/breakdowns/{teamCode}-TDR.htm" );
+			Breakdowns.Dump( 
+				teamCode + "-Tdp", 
+				$"{Utility.OutputDirectory()}{Season}/breakdowns/{teamCode}-TDP.htm" );
 
 		}
 

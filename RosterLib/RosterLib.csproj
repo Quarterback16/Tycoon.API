@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RosterLib</RootNamespace>
     <AssemblyName>RosterLib</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -163,6 +163,7 @@
     <Compile Include="Interfaces\IRankTeams.cs" />
     <Compile Include="Interfaces\IReason.cs" />
     <Compile Include="Interfaces\ISeasonScheduler.cs" />
+    <Compile Include="Interfaces\ISend.cs" />
     <Compile Include="Interfaces\IYahooStatService.cs" />
     <Compile Include="IPgmMaster.cs" />
     <Compile Include="IPlayerGameMetricsDao.cs" />
@@ -206,6 +207,7 @@
     <Compile Include="MetricsBase.cs" />
     <Compile Include="MillerPredictor.cs" />
     <Compile Include="MillerTips.cs" />
+    <Compile Include="MissingPlayerDataChecker.cs" />
     <Compile Include="Models\Ace.cs" />
     <Compile Include="Models\HillenPowerRating.cs" />
     <Compile Include="Models\NflStat.cs" />
@@ -402,6 +404,10 @@
     <ProjectReference Include="..\Cache\Cache.csproj">
       <Project>{85bb16a5-3c53-4e4f-a342-1103aa6f967e}</Project>
       <Name>Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GerardGui\Gerard.Messages\Gerard.Messages.csproj">
+      <Project>{ebb8fb67-0b66-4c48-804f-70f8d2193668}</Project>
+      <Name>Gerard.Messages</Name>
     </ProjectReference>
     <ProjectReference Include="..\Helpers\Helpers.csproj">
       <Project>{dda0342a-a7e7-48d7-9cb3-4b7676269740}</Project>

@@ -10,7 +10,8 @@ namespace Shuttle.RequestResponse.Client
 	{
 		private static void Main(string[] args)
 		{
-			var container = new WindsorComponentContainer(new WindsorContainer());
+			var container = new WindsorComponentContainer(
+				new WindsorContainer());
 
 			ServiceBus.Register(container);
 
@@ -18,7 +19,8 @@ namespace Shuttle.RequestResponse.Client
 			{
 				string userName;
 
-				while (!string.IsNullOrEmpty(userName = Console.ReadLine()))
+				while (!string.IsNullOrEmpty(
+					userName = Console.ReadLine()))
 				{
 					bus.Send(new RegisterMemberCommand
 					{

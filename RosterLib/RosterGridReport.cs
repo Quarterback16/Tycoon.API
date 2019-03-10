@@ -58,10 +58,14 @@ namespace RosterLib
 
 		public virtual void Finish()
 		{
-			RunTime = Utility.StopTheWatch( Stopwatch, $"Finished: {Name}" );
+			RunTime = Utility.StopTheWatch( 
+				Stopwatch, 
+				$"Finished: {Name}" );
 			if ( string.IsNullOrEmpty( Name ) )
 				throw new ApplicationException( "Unnamed Report !!!" );
-			MyRunStorer.StoreRun( Name, RunTime );
+			MyRunStorer.StoreRun( 
+				Name, 
+				RunTime );
 			LastRun = DateTime.Now;
 		}
 

@@ -30,7 +30,7 @@ namespace RosterLib
 				var listNode = XmlDoc.ChildNodes[ 2 ];
 				foreach ( XmlNode node in listNode.ChildNodes )
 					AddXmlStat( node );
-				Announce( $"{TheHt.Count} items loaded" );
+				Announce( $"{TheHt.Count} items loaded from {Filename}" );
 			}
 			catch ( IOException e )
 			{
@@ -163,8 +163,7 @@ namespace RosterLib
 			theSeason.LoadRegularWeeksToDate();
 			foreach ( var week in theSeason.RegularWeeks )
 			{
-				Announce( string.Format( "YahooMaster:Calculate Season {0} Week {1}",
-			   season, week.WeekNo ) );
+				Announce( $"YahooMaster:Calculate Season {season} Week {week.WeekNo}" );
 				Calculate( theSeason.Year, week.Week );
 			}
 		}

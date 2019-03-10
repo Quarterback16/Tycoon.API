@@ -103,18 +103,28 @@ namespace RosterLib
 			GameCode = "X";
 		}
 
-		internal List<NFLPlayer> LoadAllFantasyHomePlayers()
+		public NFLGame(string teamCode, string season, string week)
 		{
-			return LoadAllFantasyHomePlayers( GameDate, string.Empty );
+			//  instatiate the game for a particular week
+			var gameDs = Utility.TflWs.GameForTeam(
+				season, 
+				week, 
+				teamCode);
+			var dr = gameDs.Tables[0].Rows[0];
+			LoadGameFromDr(dr);
 		}
 
-		internal List<NFLPlayer> LoadAllFantasyAwayPlayers()
-		{
-			return LoadAllFantasyAwayPlayers( GameDate, string.Empty );
-		}
-
-		public NFLGame( string weekIn, DateTime dateIn, string homeCodeIn, string awayCodeIn,
-						int homeScoreIn, int awayScoreIn, decimal spreadIn, decimal totalIn, string season, string gameCode )
+		public NFLGame( 
+			string weekIn, 
+			DateTime dateIn, 
+			string homeCodeIn, 
+			string awayCodeIn,
+			int homeScoreIn, 
+			int awayScoreIn, 
+			decimal spreadIn, 
+			decimal totalIn, 
+			string season, 
+			string gameCode )
 		{
 			// constructor
 			//RosterLib.Utility.Announce( string.Format( "  Constructing game in week {0} {1} @ {2}", weekIn, awayCodeIn, homeCodeIn ) );
@@ -148,7 +158,12 @@ namespace RosterLib
 		/// <param name="gameKey"></param>
 		public NFLGame( string gameKey )
 		{
-			if ( gameKey.Equals( "BYE" ) )
+			InstantiateGameFrom(gameKey);
+		}
+
+		private void InstantiateGameFrom(string gameKey)
+		{
+			if (gameKey.Equals("BYE"))
 			{
 				Season = "XXXX";
 				Week = "XX";
@@ -156,19 +171,24 @@ namespace RosterLib
 			}
 			else
 			{
-				YahooList = new List<YahooOutput>();
-				GridStatsList = new List<GridStatsOutput>();
-				if ( gameKey.Length < 4 )
-					throw new Exception( "Invalid Game Key :" + gameKey );
-				Season = gameKey.Substring( 0, 4 );
-				Week = gameKey.Substring( 5, 2 );
-				GameCode = gameKey.Substring( 8, 1 );
-				var ds = Utility.TflWs.GameFor( Season, Week, GameCode );
-				var dr = ds.Tables[ 0 ].Rows[ 0 ];
-				LoadGameFromDr( dr );
-				if ( Played() )
-					Result = new NFLResult( HomeTeam, HomeScore, AwayTeam, AwayScore );
+				LoadGameFromGameKey(gameKey);
 			}
+		}
+
+		private void LoadGameFromGameKey(string gameKey)
+		{
+			YahooList = new List<YahooOutput>();
+			GridStatsList = new List<GridStatsOutput>();
+			if (gameKey.Length < 4)
+				throw new Exception("Invalid Game Key :" + gameKey);
+			Season = gameKey.Substring(0, 4);
+			Week = gameKey.Substring(5, 2);
+			GameCode = gameKey.Substring(8, 1);
+			var ds = Utility.TflWs.GameFor(Season, Week, GameCode);
+			var dr = ds.Tables[0].Rows[0];
+			LoadGameFromDr(dr);
+			if (Played())
+				Result = new NFLResult(HomeTeam, HomeScore, AwayTeam, AwayScore);
 		}
 
 		/// <summary>
@@ -306,6 +326,15 @@ namespace RosterLib
 
 		#endregion Constructors
 
+		internal List<NFLPlayer> LoadAllFantasyHomePlayers()
+		{
+			return LoadAllFantasyHomePlayers(GameDate, string.Empty);
+		}
+
+		internal List<NFLPlayer> LoadAllFantasyAwayPlayers()
+		{
+			return LoadAllFantasyAwayPlayers(GameDate, string.Empty);
+		}
 
 		internal string DumpPgmsAsHtml( string header, string teamCodeInFocus )
 		{
@@ -2335,7 +2364,8 @@ namespace RosterLib
 			var theWeek = new NFLWeek( Season, WeekNo );
 
 			var scorer = new YahooScorer( theWeek );
-			//  Lineup could be missing some people, manually entered games will have NO LINEUP
+			//  Lineup could be missing some people, 
+			//  manually entered games will have NO LINEUP
 			var playerList = LoadLineupPlayers( 
 				nflTeam.TeamCode == HomeTeam ? HomeTeam : AwayTeam );
 			foreach ( var nflPlayer in playerList )

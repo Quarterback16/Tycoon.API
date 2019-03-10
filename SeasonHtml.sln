@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeasonHtml.Tests", "SeasonHtml\SeasonHtml.Tests\SeasonHtml.Tests.csproj", "{A2E65BD8-C1C9-482C-8289-BC9FE7B7CF85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeasonHtml", "SeasonHtml\SeasonHtml\SeasonHtml.csproj", "{A64C5B6D-128B-4CDD-8120-75B56F8F51A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AFD49BFD-3300-4FFF-B926-1278D0844300}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2E65BD8-C1C9-482C-8289-BC9FE7B7CF85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2E65BD8-C1C9-482C-8289-BC9FE7B7CF85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2E65BD8-C1C9-482C-8289-BC9FE7B7CF85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2E65BD8-C1C9-482C-8289-BC9FE7B7CF85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A64C5B6D-128B-4CDD-8120-75B56F8F51A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A64C5B6D-128B-4CDD-8120-75B56F8F51A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A64C5B6D-128B-4CDD-8120-75B56F8F51A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A64C5B6D-128B-4CDD-8120-75B56F8F51A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A76887A-C78C-42F7-920D-8BF0A0E02481}
+	EndGlobalSection
+EndGlobal

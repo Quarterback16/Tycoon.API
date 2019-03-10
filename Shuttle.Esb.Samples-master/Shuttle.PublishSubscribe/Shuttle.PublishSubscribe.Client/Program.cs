@@ -11,11 +11,14 @@ namespace Shuttle.PublishSubscribe.Client
 		private static void Main(string[] args)
 		{
 			var smRegistry = new Registry();
-			var registry = new StructureMapComponentRegistry(smRegistry);
+			var registry = new StructureMapComponentRegistry(
+				smRegistry);
 
 			ServiceBus.Register(registry);
 
-			using (var bus = ServiceBus.Create(new StructureMapComponentResolver(new Container(smRegistry))).Start())
+			using (var bus = ServiceBus.Create(
+				new StructureMapComponentResolver(
+					new Container(smRegistry))).Start())
 			{
 				string userName;
 

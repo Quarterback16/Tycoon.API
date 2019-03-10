@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9601C58A-6682-4FF3-A3FE-79EF9A3FB0F3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Gerard.HostServer</RootNamespace>
+    <AssemblyName>Gerard.HostServer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.DotNet.PlatformAbstractions.2.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyModel.2.1.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>packages\NLog.4.5.11\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Castle, Version=10.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Castle.10.0.5\lib\net461\Shuttle.Core.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Cli, Version=10.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Cli.10.0.2\lib\net461\Shuttle.Core.Cli.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Compression, Version=10.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Compression.10.0.2\lib\net461\Shuttle.Core.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Configuration, Version=10.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Configuration.10.0.2\lib\net461\Shuttle.Core.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Container, Version=10.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Container.10.0.9\lib\net461\Shuttle.Core.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Contract, Version=10.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Contract.10.0.1\lib\net461\Shuttle.Core.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Encryption, Version=10.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Encryption.10.0.1\lib\net461\Shuttle.Core.Encryption.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Log4Net, Version=10.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Log4Net.10.0.1\lib\net461\Shuttle.Core.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Logging, Version=10.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Logging.10.0.3\lib\net461\Shuttle.Core.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Pipelines, Version=10.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Pipelines.10.0.6\lib\net461\Shuttle.Core.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.PipelineTransaction, Version=10.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.PipelineTransaction.10.0.3\lib\net461\Shuttle.Core.PipelineTransaction.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Reflection, Version=10.0.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Reflection.10.0.10\lib\net461\Shuttle.Core.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Serialization, Version=10.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Serialization.10.0.2\lib\net461\Shuttle.Core.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.ServiceHost, Version=10.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.ServiceHost.10.0.3\lib\net461\Shuttle.Core.ServiceHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Specification, Version=10.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Specification.10.0.1\lib\net461\Shuttle.Core.Specification.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Streams, Version=10.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Streams.10.0.1\lib\net461\Shuttle.Core.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Threading, Version=10.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Threading.10.0.2\lib\net461\Shuttle.Core.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.TimeSpanTypeConverters, Version=10.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.TimeSpanTypeConverters.10.0.1\lib\net461\Shuttle.Core.TimeSpanTypeConverters.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Transactions, Version=10.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Transactions.10.0.1\lib\net461\Shuttle.Core.Transactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Core.Uris, Version=10.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Core.Uris.10.0.4\lib\net461\Shuttle.Core.Uris.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Esb, Version=10.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Esb.10.1.2\lib\net461\Shuttle.Esb.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuttle.Esb.Msmq, Version=10.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Shuttle.Esb.Msmq.10.0.5\lib\net461\Shuttle.Esb.Msmq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.4.5.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.4.5.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Permissions.4.5.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.4.5.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArticleScanner.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataFixHandler.cs" />
+    <Compile Include="DataLibrarian.cs" />
+    <Compile Include="ExaminationEvent.cs" />
+    <Compile Include="ILog.cs" />
+    <Compile Include="INFLPlayer.cs" />
+    <Compile Include="INflTeam.cs" />
+    <Compile Include="ITflDataLibrarian.cs" />
+    <Compile Include="NFLPlayer.cs" />
+    <Compile Include="ProcessinStrategies\IProcessTransaction.cs" />
+    <Compile Include="ITflService.cs" />
+    <Compile Include="ITransactionManager.cs" />
+    <Compile Include="ProcessinStrategies\NewbieStrategy.cs" />
+    <Compile Include="NewsItemHandler.cs" />
+    <Compile Include="NLogAdaptor.cs" />
+    <Compile Include="ProcessinStrategies\PlayerCutStrategy.cs" />
+    <Compile Include="ProcessinStrategies\PlayerInjuredStrategy.cs" />
+    <Compile Include="ProcessinStrategies\PlayerRetirementStrategy.cs" />
+    <Compile Include="ProcessinStrategies\PlayerTradingStrategy.cs" />
+    <Compile Include="ProcessinStrategies\PlayerSigningStrategy.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TflHost.cs" />
+    <Compile Include="TflService.cs" />
+    <Compile Include="TransactionManager.cs" />
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GerardGui\Gerard.Messages\Gerard.Messages.csproj">
+      <Project>{ebb8fb67-0b66-4c48-804f-70f8d2193668}</Project>
+      <Name>Gerard.Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

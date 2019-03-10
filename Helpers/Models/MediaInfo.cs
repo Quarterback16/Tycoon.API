@@ -301,7 +301,8 @@ namespace Helpers.Models
             if (Format == "RAR") return true;
             if (Format == "MOBI") return true;
             if (Format == "EPUB") return true;
-            if (Format == "MB4") return true;
+			if (Format == "AZW3") return true;
+			if (Format == "MB4") return true;
             if (Format == "MP3") return true;  //  audio book
             return false;
         }

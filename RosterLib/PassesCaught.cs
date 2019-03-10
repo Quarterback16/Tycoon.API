@@ -15,7 +15,8 @@
 
         public override bool IsReasonable()
         {
-            if ((Quantity >= 15) || (Quantity < 0))
+			//  Michael Thomas caught 16 in week 1 of 2018
+            if ((Quantity > 16) || (Quantity < 0))
                 return false;
             else
                 return true;

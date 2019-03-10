@@ -31,7 +31,7 @@ namespace RosterLib
 			Name = "Points Allowed Report";
 			Heading = $"{Name} Week {Season}:{Week}";
 			RootFolder = $"{Utility.OutputDirectory()}{Season}//Scores//";
-			FileOut = string.Format( "{0}Points-Allowed-{1}.htm", RootFolder, Week );
+			FileOut = $"{RootFolder}Points-Allowed-{Week}.htm";
 			RenderSingle();
 		}
 
@@ -163,11 +163,12 @@ namespace RosterLib
 
                 FptsAllowed fptsAllowed = new FptsAllowed( team.TeamCode );
                 FptsAllowed totalFptsAllowed = new FptsAllowed( team.TeamCode );
-
-                for ( var w = Constants.K_WEEKS_IN_REGULAR_SEASON; w > 0; w-- )
+                for ( var w = TimeKeeper.CurrentWeek(DateTime.Now)-1; w > 0; w-- )
                 {
                     if ( w > asOfWeek ) continue;
-                    string theWeek = string.Format( "{0:0#}", w );
+					if (w < asOfWeek - 5) continue;
+
+					string theWeek = string.Format( "{0:0#}", w );
 
                     var ds = Utility.TflWs.GameForTeam( 
                         Season, 
@@ -176,11 +177,12 @@ namespace RosterLib
                     if ( ds.Tables[ 0 ].Rows.Count != 1 )
                         continue;
 
-                    fptsAllowed = CalculateFptsAllowed( team, theWeek, ds );
+					fptsAllowed = CalculateFptsAllowed( team, theWeek, ds );
 
                     totalFptsAllowed.Add( fptsAllowed );
                     AccumulateFptsAllowed( fptsAllowed );
                 }
+
                 DumpBreakdowns( team.TeamCode );
 
 #if DEBUG2
@@ -362,9 +364,12 @@ namespace RosterLib
 
 		private void DumpBreakdown( string teamCode, string positionAbbr )
 		{
+			var fpts = GetFptsFor(teamCode);
 			var breakdownKey = $"{teamCode}-{positionAbbr}-{Week}";
-			TeamBreakdowns.Dump( breakdownKey,
-			   $"{RootFolder}\\pts-allowed\\{breakdownKey}.htm" );
+			TeamBreakdowns.Dump( 
+				breakdownKey,
+			    $"{RootFolder}\\pts-allowed\\{breakdownKey}.htm",
+				fpts.AverageFor(positionAbbr) );
 		}
 
 		private string LinkFor( 
@@ -394,8 +399,8 @@ namespace RosterLib
 					String.Empty );
 			else
 				playerList = game.LoadAllFantasyAwayPlayers(
-					( DateTime? ) game.GameDate,
-					String.Empty );
+					date: ( DateTime? ) game.GameDate,
+					catFilter: String.Empty );
 
 			var week = new NFLWeek( Season, theWeek );
 
@@ -435,11 +440,15 @@ namespace RosterLib
 		}
 
 		private void AddBreakdownLine(
-		   NflTeam team, string theWeek, NFLPlayer p, decimal plyrPts, string abbr )
+		   NflTeam team, 
+		   string theWeek, 
+		   NFLPlayer p, 
+		   decimal plyrPts, 
+		   string abbr )
 		{
 			if ( plyrPts == 0 ) return;
 
-			var strPts = string.Format( "{0:0.0}", plyrPts );
+			var strPts = $"{plyrPts:0.0}";
 			strPts = strPts.PadLeft( 5 );
 			strPts = strPts.Substring( strPts.Length - 5 );
 			TeamBreakdowns.AddLine(
@@ -620,14 +629,16 @@ namespace RosterLib
 		public decimal ToWrs { get; set; }
 		public decimal ToTes { get; set; }
 		public decimal ToPks { get; set; }
-        public int ToQbsRank { get; set; }
+
+		public int ToQbsRank { get; set; }
         public int ToRbsRank { get; set; }
         public int ToWrsRank { get; set; }
         public int ToTesRank { get; set; }
         public int ToPksRank { get; set; }
         public int TotalRank { get; set; }
+		public decimal Weeks { get; set; }
 
-        public FptsAllowed(string teamCode)
+		public FptsAllowed(string teamCode)
         {
             TeamCode = teamCode;
         }
@@ -643,6 +654,7 @@ namespace RosterLib
 			ToWrs += fptsAllowed.ToWrs;
 			ToTes += fptsAllowed.ToTes;
 			ToPks += fptsAllowed.ToPks;
+			Weeks = 1;
 		}
 
         internal void IncrementBy( FptsAllowed fptsAllowed )
@@ -652,6 +664,39 @@ namespace RosterLib
             ToWrs += fptsAllowed.ToWrs;
             ToTes += fptsAllowed.ToTes;
             ToPks += fptsAllowed.ToPks;
+			Weeks++;
         }
-    }
+
+		public decimal AverageFor(string positionKey)
+		{
+			var tot = GetTotByPos(positionKey);
+			return tot / ( Weeks + 1 );
+		}
+
+		private decimal GetTotByPos(string positionKey)
+		{
+			var tot = 0.0M;
+			switch (positionKey)
+			{
+				case "QB":
+					tot = ToQbs;
+					break;
+				case "RB":
+					tot = ToRbs;
+					break;
+				case "WR":
+					tot = ToWrs;
+					break;
+				case "TE":
+					tot = ToTes;
+					break;
+				case "PK":
+					tot = ToPks;
+					break;
+				default:
+					break;
+			}
+			return tot;
+		}
+	}
 }

@@ -27,7 +27,10 @@ namespace RosterLib
 			Breakdowns[breakdownKey] = theLines;
 		}
 
-		public void Dump(string breakdownKey, string outputFileName)
+		public void Dump(
+			string breakdownKey, 
+			string outputFileName,
+			decimal avg)
 		{
 			if (!Breakdowns.ContainsKey(breakdownKey)) return;
 
@@ -47,8 +50,39 @@ namespace RosterLib
 				if ( NumberLines ) numPart = $"{i++:0#}";
 				sw.WriteLine( $"{numPart}  {myEnumerator.Current}" );
 			}
+			sw.WriteLine("");
+			sw.WriteLine($"    Avg: {avg:0.00}");
 
 			sw.WriteLine( "</pre>" );
+			sw.Close();
+
+			//Utility.Announce( $"   {outputFileName} has been rendered" );
+		}
+
+		public void Dump(
+			string breakdownKey,
+			string outputFileName)
+		{
+			if (!Breakdowns.ContainsKey(breakdownKey)) return;
+
+			var theLines = (List<String>)Breakdowns[breakdownKey];
+
+			Utility.EnsureDirectory(outputFileName);
+
+			var sw = new StreamWriter(outputFileName, false);
+
+			sw.WriteLine("<pre>");
+
+			var i = 1;
+			var myEnumerator = theLines.GetEnumerator();
+			while (myEnumerator.MoveNext())
+			{
+				var numPart = "  ";
+				if (NumberLines) numPart = $"{i++:0#}";
+				sw.WriteLine($"{numPart}  {myEnumerator.Current}");
+			}
+
+			sw.WriteLine("</pre>");
 			sw.Close();
 
 			//Utility.Announce( $"   {outputFileName} has been rendered" );

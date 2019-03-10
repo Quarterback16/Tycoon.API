@@ -133,11 +133,13 @@ namespace Shuttle.RequestResponse.Client
 </configuration>
 ```
 
-This tells Shuttle that all messages that are sent and have a type name starting with `Shuttle.RequestResponse.Messages` should be sent to endpoint `msmq://./shuttle-server-work`.
+This tells Shuttle that all messages that are sent and have a type name starting with `Shuttle.RequestResponse.Messages` 
+should be sent to endpoint `msmq://./shuttle-server-work`.
 
 ### MemberRegisteredHandler
 
-> Create a new class called `MemberRegisteredHandler` that implements the `IMessageHandler<MemberRegisteredEvent>` interface as follows:
+> Create a new class called `MemberRegisteredHandler` that implements the
+`IMessageHandler<MemberRegisteredEvent>` interface as follows:
 
 ``` c#
 using System;
@@ -263,7 +265,8 @@ namespace Shuttle.RequestResponse.Server
 
 ### RegisterMemberHandler
 
-> Add a new class called `RegisterMemberHandler` that implements the `IMessageHandler<RegisterMemberCommand>` interface as follows:
+> Add a new class called `RegisterMemberHandler` that implements the `IMessageHandler<RegisterMemberCommand>` interface 
+as follows:
 
 ``` c#
 using System;

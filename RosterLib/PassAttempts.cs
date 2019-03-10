@@ -2,7 +2,6 @@
 {
    public class PassAttempts : BaseStat
     {
-
         #region IStat Members
 
         public override string Name
@@ -15,12 +14,11 @@
 
         public override bool IsReasonable()
         {
-
-            if ( (Quantity >= 60) || ( Quantity < 0 ) )
+			//  Andrew Luck had 62 attempts in Week 4 of 2018
+            if ( (Quantity > 62) || ( Quantity < 0 ) )
                 return false;
             else
                 return true;
-
         }
 
         #endregion

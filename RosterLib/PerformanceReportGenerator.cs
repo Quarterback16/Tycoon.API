@@ -30,11 +30,15 @@ namespace RosterLib
 				master.TheHt.Count );
 
 			var theWeek =
-			   new NFLWeek( Int32.Parse( timekeeper.CurrentSeason() ),
-			   weekIn: Int32.Parse( timekeeper.PreviousWeek() ),
-			   loadGames: false );
+			   new NFLWeek( 
+					Int32.Parse( timekeeper.CurrentSeason() ),
+					weekIn: Int32.Parse( timekeeper.PreviousWeek() ),
+					loadGames: false );
 
-			var gs = new EspnScorer( theWeek ) { Master = master };
+			var gs = new EspnScorer( theWeek )
+			{
+				Master = master
+			};
 
 			Configs = new List<PerformanceReportConfig>
 			{
@@ -45,7 +49,8 @@ namespace RosterLib
 					 Scorer = gs,
 					 Week = theWeek
 				  },
-			   new PerformanceReportConfig
+#if !DEBUG
+				new PerformanceReportConfig
 				  {
 					 Category = Constants.K_RUNNINGBACK_CAT,
 					 Position = "RB",
@@ -156,6 +161,7 @@ namespace RosterLib
 					 Week = theWeek,
 					 WeeksToGoBack = 1
 				  },
+#endif
 			};
 
 			Leagues = new List<RosterGridLeague>
@@ -199,16 +205,38 @@ namespace RosterLib
 			Lister.Season = rpt.Week.Season;
 			Lister.RenderToCsv = false;
 			Lister.Week = rpt.Week.WeekNo;
-			Lister.Collect( rpt.Category, sPos: rpt.Position, fantasyLeague: leagueId );
+			Lister.Collect( 
+				rpt.Category, 
+				sPos: rpt.Position, 
+				fantasyLeague: leagueId );
 			Lister.WeeksToGoBack = rpt.WeeksToGoBack;
-			string targetFile;
-			if ( rpt.WeeksToGoBack > 0 )
-				targetFile = $"{Utility.OutputDirectory()}{Lister.Season}//Performance//{leagueId}-Yahoo {rpt.Position} Performance last {rpt.WeeksToGoBack} upto Week {rpt.Week.WeekNo:0#}.htm";
-			else
-				targetFile = $"{Utility.OutputDirectory()}{Lister.Season}//Performance//{leagueId}-Yahoo {rpt.Position} Performance upto Week {rpt.Week.WeekNo:0#}.htm";
+			var targetFile = TargetFile(
+				rpt, 
+				leagueId);
 			Lister.Render( targetFile );
 			FileOut = targetFile;
 			Lister.Clear();
+		}
+
+		private string TargetFile(
+			PerformanceReportConfig rpt, 
+			string leagueId)
+		{
+			var reptName = (rpt.WeeksToGoBack > 0)
+				? $"Perf last {rpt.WeeksToGoBack}"
+				: $"Perf ";
+
+			return $@"{
+				Utility.OutputDirectory()
+				}{
+				Lister.Season
+				}//Performance//{
+				leagueId
+				}//{
+				rpt.Position
+				}//{
+				reptName
+				} upto Week {rpt.Week.WeekNo:0#}.htm";
 		}
 
 		public override string OutputFilename()

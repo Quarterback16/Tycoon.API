@@ -1037,9 +1037,14 @@ namespace RosterLib
 			return SoS;
 		}
 
-		public void CalculateDefensiveScoring( ICalculate myCalculator, [Optional] bool doOpponent )
+		public void CalculateDefensiveScoring(
+			ICalculate myCalculator,
+			[Optional] bool doOpponent )
 		{
-			GameList = LoadGamesFrom( myCalculator.StartWeek.Season, myCalculator.StartWeek.Week, myCalculator.Offset );
+			GameList = LoadGamesFrom( 
+				myCalculator.StartWeek.Season, 
+				myCalculator.StartWeek.Week, 
+				myCalculator.Offset );
 
 			PtsFor = 0;
 			PtsAgin = 0;
@@ -1053,10 +1058,18 @@ namespace RosterLib
 			foreach ( NFLGame g in GameList )
 			{
 #if DEBUG
-				Utility.Announce( string.Format( "  {0} Opponent in week {1} of {3} is {2}",
-				   TeamCode, g.Week, g.OpponentTeam( TeamCode ).Name, g.Season ) );
+				Utility.Announce( $@"  {
+					TeamCode
+					} Opponent in week {
+					g.Week
+					} of {
+					g.Season
+					} is {
+					g.OpponentTeam(TeamCode).Name}" );
 #endif
-				var theTeam = ( doOpponent ? g.OpponentTeam( TeamCode ) : g.Team( TeamCode ) );
+				var theTeam = ( doOpponent 
+					? g.OpponentTeam( TeamCode ) 
+					: g.Team( TeamCode ) );
 
 				myCalculator.Calculate( theTeam, g );
 

@@ -19,7 +19,9 @@ namespace RosterLib
 		}
 
 		public NFLWeek Week { get; set; }
-		public bool AnnounceIt { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public bool AnnounceIt {
+			get => throw new NotImplementedException();
+			set => throw new NotImplementedException(); }
 
 		public YahooXmlScorer( NFLWeek week )
 		{
@@ -28,7 +30,10 @@ namespace RosterLib
 			YahooStatService = new YahooStatService();
 		}
 
-		public decimal RatePlayer( NFLPlayer plyr, NFLWeek week, bool takeCache = true )
+		public decimal RatePlayer( 
+			NFLPlayer plyr, 
+			NFLWeek week, 
+			bool takeCache = true )
 		{
 			if ( week.WeekNo.Equals( 0 ) ) return 0;
 

@@ -4,7 +4,8 @@ namespace RosterLib
 {
    public class DefensiveScorer : RosterGridReport
    {
-		public DefensiveScorer( IKeepTheTime timekeeper ) : base(timekeeper)
+		public DefensiveScorer( IKeepTheTime timekeeper ) 
+			: base(timekeeper)
 		{
 		}
 
@@ -42,11 +43,15 @@ namespace RosterLib
 
          var ttb = new TeamLister
             {
-               Heading = string.Format( "{0}\\defense\\Team To beat-{1:0#}", week.Season, week.WeekNo ),
-               SubHeading = string.Format("last {0} weeks", offset)
+               Heading = $"{week.Season}\\defense\\Team To beat-{week.WeekNo:0#}",
+               SubHeading = $"last {offset} weeks"
             };
          ICalculate ttbCalculator = 
-            new DefensiveScoringCalculator( new NFLWeek( week.SeasonNo, week.WeekNo ), offset);
+            new DefensiveScoringCalculator( 
+				new NFLWeek( 
+					week.SeasonNo, 
+					week.WeekNo ), 
+				offset);
          FileOut = ttb.RenderTeamToBeat(ttbCalculator);
       }
 

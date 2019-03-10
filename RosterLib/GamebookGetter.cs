@@ -20,6 +20,7 @@ namespace RosterLib
 			var gameDict = new Dictionary<string, NFLGame>();
 			var dlCount = 0;
 			var seed = Int32.Parse( Seed( week ) );
+			var origSeed = seed;
 			foreach ( NFLGame game in week.GameList() )
 			{
 				if ( game.GameDate <= DateTime.Now )
@@ -37,8 +38,7 @@ namespace RosterLib
 				if ( g.Id == "0" )
 					g.Id = seed.ToString();
 				var gotIt = false;
-				var offSet = -8;
-				var origId = g.Id;
+				var offSet = -2;
 				while (!gotIt)
 				{
 					var url = g.GamebookUrl();
@@ -55,7 +55,7 @@ namespace RosterLib
 						else
 						{
 							offSet++;
-							var nextId = Int32.Parse(origId) + offSet;
+							var nextId = origSeed + offSet;
 							if (offSet > 15)
 								break;
 							g.Id = nextId.ToString();

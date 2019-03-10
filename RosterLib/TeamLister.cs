@@ -192,7 +192,10 @@ namespace RosterLib
 #if DEBUG
 			Utility.Announce( "RenderTeamToBeat " + Heading );
 #endif
-			var r = new SimpleTableReport(Heading, "") {DoRowNumbers = true};
+			var r = new SimpleTableReport(Heading, "")
+			{
+				DoRowNumbers = true
+			};
 			//  Crunch the numbers
 			var ds = LoadTeamToBeat(myCalculator);
 			//  define the output
@@ -209,7 +212,7 @@ namespace RosterLib
 			var dt = ds.Tables[0];
 			dt.DefaultView.Sort = "FPAVG DESC";
 			r.LoadBody(dt);
-			FileOut = string.Format("{0}{1}.htm", Utility.OutputDirectory(), Heading);
+			FileOut = $"{Utility.OutputDirectory()}{Heading}.htm";
 			r.RenderAsHtml( FileOut, true);
 			return FileOut;
 		}
@@ -239,12 +242,19 @@ namespace RosterLib
 				t.TotInterceptions = 0;
 				t.TotSacks = 0;
 
-            if (string.IsNullOrEmpty(t.Ratings)) t.SetRecord(myCalculator.StartWeek.Season, skipPostseason: false);
+            if (string.IsNullOrEmpty(t.Ratings))
+					t.SetRecord(
+						myCalculator.StartWeek.Season, 
+						skipPostseason: false);
 				var dr = dt.NewRow();
-				t.CalculateDefensiveScoring( myCalculator, doOpponent: true );
+				t.CalculateDefensiveScoring( 
+					myCalculator, 
+					doOpponent: true );
 				dr["Name"] = t.Name;
 				dr["RATING"] = t.Ratings.Substring(0, 3);
-				var g = t.GameFor( myCalculator.StartWeek.Season, myCalculator.StartWeek.WeekNo );
+				var g = t.GameFor( 
+					myCalculator.StartWeek.Season,
+					myCalculator.StartWeek.WeekNo );
 				var opp = "?";
 				if ( g == null )
 					opp = "BYE";

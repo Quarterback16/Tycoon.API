@@ -45,6 +45,15 @@ namespace InternetScanner.Tests
 		[TestMethod]
 		public void Scanner_OnNflFeed_SendsCommands()
 		{
+			_mockQueryHandler
+				.Setup(x => x.Handle(It.IsAny<FeedReaderQuery>()))
+				.Returns(new List<SyndicationItem>());
+
+			_mockGotItQuery
+				.Setup(x => x.GetNewItems(
+					It.IsAny<List<SyndicationItem>>()))
+				.Returns(new List<SyndicationItem>());
+
 			_sut.Scan(
 				new FeedReaderQuery(
 					new Feed

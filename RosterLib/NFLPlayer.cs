@@ -608,6 +608,9 @@ namespace RosterLib
 			StarRating = dr[ "STAR" ].ToString();
 			Bio = FixBio( dr[ "BIO" ].ToString() );
 			JerseyNo = dr[ "JERSEY" ].ToString();
+			HeightFeet = Int32.Parse(dr["HEIGHT_FT"].ToString());
+			HeightInches = Int32.Parse(dr["HEIGHT_IN"].ToString());
+			Weight = Int32.Parse(dr["WEIGHT"].ToString());
 			var d = Convert.ToDateTime( dr[ "DOB" ].ToString() );
 			DBirth = d.ToShortDateString();
 			Scores = Int32.Parse( dr[ "Scores" ].ToString() );
@@ -923,6 +926,11 @@ namespace RosterLib
 		public bool IsActive()
 		{
 			return ( CurrTeam.TeamCode != "??" );
+		}
+
+		public bool IsMissingDob()
+		{
+			return (DBirth == "30/12/1899");
 		}
 
 		public void LoadOwner( [Optional] string fantasyLeague )
@@ -1670,7 +1678,7 @@ namespace RosterLib
 			return ( npoint > -1 );
 		}
 
-		internal bool IsQuarterback()
+		public bool IsQuarterback()
 		{
 			var npoint = PlayerPos.IndexOf( "QB", StringComparison.Ordinal );
 			return ( npoint > -1 );

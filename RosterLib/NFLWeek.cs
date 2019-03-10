@@ -85,7 +85,9 @@ namespace RosterLib
          Season = seasonIn;
          Week = string.Format( "{0:0#}", weekIn );
          if ( loadGames )
-            _sched = Utility.TflWs.GetGames( int.Parse( seasonIn ), weekIn );
+            _sched = Utility.TflWs.GetGames(
+				int.Parse( seasonIn ), 
+				weekIn );
       }
 
       public NFLWeek(string seasonIn, string weekIn)

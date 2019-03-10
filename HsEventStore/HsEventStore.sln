@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HsEventStore", "HsEventStore.csproj", "{F94A487E-CE9B-4666-A76C-F268E8B5726A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HsEventStore.Tests", "HsEventStore.Tests\HsEventStore.Tests.csproj", "{1500A24C-D028-4617-82DC-FFE48B60367B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F94A487E-CE9B-4666-A76C-F268E8B5726A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94A487E-CE9B-4666-A76C-F268E8B5726A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94A487E-CE9B-4666-A76C-F268E8B5726A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94A487E-CE9B-4666-A76C-F268E8B5726A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1500A24C-D028-4617-82DC-FFE48B60367B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1500A24C-D028-4617-82DC-FFE48B60367B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1500A24C-D028-4617-82DC-FFE48B60367B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1500A24C-D028-4617-82DC-FFE48B60367B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49AD578E-FA20-4F53-B7CA-4AB7AF198715}
+	EndGlobalSection
+EndGlobal
