@@ -7,16 +7,16 @@ namespace HsEventStore
 {
     public class HsEventStore : IEventStore
     {
-        public List<HsEvent> Events { get; set; }
+        public List<HsGamePlayedEvent> Events { get; set; }
 
         public HsEventStore()
         {
             // load a JSON file    
 
-            using (var r = new StreamReader("events.json"))
+            using (var r = new StreamReader("gevents.json"))
             {
                 var json = r.ReadToEnd();
-                Events = JsonConvert.DeserializeObject<List<HsEvent>>(json);
+                Events = JsonConvert.DeserializeObject<List<HsGamePlayedEvent>>(json);
             }
         }
 
@@ -25,7 +25,12 @@ namespace HsEventStore
         {
             throw new NotImplementedException();
         }
-    }
+
+		public IEnumerable<IEvent> Get<T>(string eventType)
+		{
+			return Events;
+		}
+	}
 
 
 }

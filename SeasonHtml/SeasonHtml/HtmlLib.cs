@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 
 namespace SeasonHtml
@@ -125,6 +126,11 @@ namespace SeasonHtml
 			return $"<DIV class='{strClass}'>";
 		}
 
+		public static string DivOpenId(string id)
+		{
+			return $"<DIV id='{id}'>";
+		}
+
 		public static string DivClose()
 		{
 			return "</DIV>";
@@ -135,10 +141,30 @@ namespace SeasonHtml
 			return $"<a href='{fileLink}'>{label}</a>";
 		}
 
+		public static string AnchorHref(string label)
+		{
+			return $"<a href='#'>{label}</a>";
+		}
+
 		public static string ALink()
 		{
 			return "<A class='expando' href='#'></A>";
 		}
+
+		public static string OrderedList(Dictionary<string,string> items)
+		{
+			var sb = new StringBuilder();
+			sb.AppendLine("<ol>");
+			foreach (KeyValuePair<string, string> pair in items)
+			{
+				var li = ListItem(Href(pair.Key, pair.Value));
+				sb.AppendLine($"   {li}");
+			}
+			sb.AppendLine("</ol>");
+
+			return sb.ToString();
+		}
+
 
 		public static string Comment(string comment)
 		{

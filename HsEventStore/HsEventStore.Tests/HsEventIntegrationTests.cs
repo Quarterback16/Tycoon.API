@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HsEventStore.Tests
@@ -26,5 +27,12 @@ namespace HsEventStore.Tests
         {
             Assert.IsTrue(_sut.Events.Count > 0, "No events loaded");
         }
-    }
+
+		[TestMethod]
+		public void HsEventStore_ReturnsEvents()
+		{
+			var result = _sut.Get<HsGamePlayedEvent>("game-played");
+			Assert.IsTrue(result.Count() > 0, "No events returned");
+		}
+	}
 }

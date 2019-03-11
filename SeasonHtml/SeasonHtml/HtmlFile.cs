@@ -124,14 +124,14 @@ namespace SeasonHtml
 			sw.WriteLine(HtmlLib.HeadClose());
 			sw.WriteLine(HtmlLib.BodyOpen());
 
-			sw.WriteLine(HtmlLib.DivOpen("id=\"container\""));
+			//sw.WriteLine(HtmlLib.DivOpen("id=\"container\""));
 
 			//  Add the body parts
 			myEnumerator = _bodyList.GetEnumerator();
 			while (myEnumerator.MoveNext())
 				sw.WriteLine(myEnumerator.Current);
 
-			sw.WriteLine(HtmlLib.DivClose());
+			//sw.WriteLine(HtmlLib.DivClose());
 
 			if (Scripts != null)
 			{

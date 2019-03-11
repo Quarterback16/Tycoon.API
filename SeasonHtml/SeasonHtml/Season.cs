@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace SeasonHtml
@@ -33,6 +34,64 @@ namespace SeasonHtml
 		private void Body()
 		{
 			HtmlFile.AddToBody(Heading());
+			HtmlFile.AddToBody(HtmlLib.DivOpenId("myAccordian"));
+			HtmlFile.AddToBody(HtmlLib.DivOpen(string.Empty));
+
+			HtmlFile.AddToBody(PreseasonReports());
+
+			HtmlFile.AddToBody(HtmlLib.DivClose());
+			HtmlFile.AddToBody(HtmlLib.DivClose());
+		}
+
+		private string PreseasonReports()
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, 
+				HtmlLib.H3(
+					HtmlLib.AnchorHref("Preseason Reports")));
+			var items = new Dictionary<string, string>
+			{
+				{
+					$"..\\{Year-1}\\Balance.htm",
+					"Balance Report from last year"
+				},
+				{
+					$"..\\{Year}\\FreeAgentMarket\\faMarket.htm",
+					"Free Agent Analysis"
+				},
+				{
+					$"..\\{Year}\\Players\\PlayersProbablyRetired-{Year}.htm ",
+					"Auto Retired Players"
+				},
+				{
+					$"..\\{Year}\\Players\\PlayerReportsDeleted-{Year}.htm ",
+					"Auto Deleted Player Reports"
+				}
+			};
+			AddLine(sb, HtmlLib.OrderedList(items));
+
+			AddLine(sb,	HtmlLib.H4(	"Once Schedule Available"));
+			items = new Dictionary<string, string>
+			{
+				{
+					$"..\\{Year}\\StrengthOfSchedule.htm",
+					"Strength Of Schedule"
+				},
+				{
+					$"..\\{Year}\\Projections\\Proj-Spread-{Year}.htm",
+					$"{Year} Win Projections"
+				},
+				{
+					$"..\\{Year}\\Projections\\Playercsv.htm",
+					$"{Year} Player FP Projections"
+				},
+				{
+					$"..\\{Year}\\Metrics\\MetricTable--01.htm",
+					$"{Year} Team Metrics"
+				},
+			};
+			AddLine(sb, HtmlLib.OrderedList(items));
+			return sb.ToString();
 		}
 
 		private string Heading()
