@@ -26,6 +26,9 @@ namespace HsEventStore
 		[JsonProperty("rank")]
 		public int Rank { get; set; }
 
+		[JsonProperty("run")]
+		public int Run { get; set; }
+
 		[JsonProperty("notes")]
 		public string Notes { get; set; }
 

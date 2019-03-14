@@ -21,7 +21,7 @@ namespace RosterLib
 
 		public override string OutputFilename()
 		{
-			return string.Format( "{0}{1}/Balance.htm", Utility.OutputDirectory(), Season );
+			return $"{Utility.OutputDirectory()}{Season}/Balance.htm";
 		}
 
 		/// <summary>

@@ -45,9 +45,9 @@ namespace InternetScanner.Tests
 		[TestMethod]
 		public void Scanner_OnNflFeed_SendsCommands()
 		{
-			_mockQueryHandler
-				.Setup(x => x.Handle(It.IsAny<FeedReaderQuery>()))
-				.Returns(new List<SyndicationItem>());
+			//_mockQueryHandler
+			//	.Setup(x => x.Handle(It.IsAny<FeedReaderQuery>()))
+			//	.Returns(new List<SyndicationItem>());
 
 			_mockGotItQuery
 				.Setup(x => x.GetNewItems(
@@ -58,7 +58,7 @@ namespace InternetScanner.Tests
 				new FeedReaderQuery(
 					new Feed
 					{
-						Url = "http://www.rotoworld.com/tools/rss/fantasy-football.aspx",
+						Url = "https://premium.rotoworld.com/rss/feed.aspx?sport=nfl&ftype=article&count=12&format=rss",
 					}));
 		}
 	}

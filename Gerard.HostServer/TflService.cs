@@ -25,32 +25,36 @@ namespace Gerard.HostServer
 		/// <param name="firstName"></param>
 		/// <param name="lastName"></param>
 		/// <returns></returns>
-		public INFLPlayer GetNflPlayer(string firstName, string lastName)
+		public NFLPlayer GetNflPlayer(
+			string firstName,
+			string lastName)
 		{
 			Logger.Trace($"GetNflPlayer calling DataLibrarian {firstName} {lastName}");
 			var ds = TflDataLibrarian.GetPlayer(firstName, lastName);
 			var list = (from DataRow dr in ds.Tables[0].Rows
 						select new NFLPlayer(dr, string.Empty)).ToList();
 			Logger.Trace($"GetNflPlayer found {list.Count} records");
-			return list.Count > 0 ? (INFLPlayer) list[0] : null;
+			return list.Count > 0 ? list[0] : null;
 		}
 
-		public INFLPlayer GetNflPlayer(string playerId)
+		public NFLPlayer GetNflPlayer(
+			string playerId)
 		{
 			var ds = TflDataLibrarian.GetPlayer(playerId);
 			var list = (from DataRow dr in ds.Tables[0].Rows
-						select new NFLPlayer(dr, fantasyLeague: string.Empty)).ToList();
+						select new NFLPlayer(dr, fantasyLeague: string.Empty))
+						.ToList();
 			var plyr = list.Count > 0 ? list[0] : null;
 			if (plyr == null)
 				Logger.Info($"Could not find a player for ID: {playerId}");
 			else
 				Logger.Info($"Found {plyr.PlayerName} for ID: {playerId}");
 
-			return (INFLPlayer) plyr;
+			return plyr;
 		}
 
 		public bool RecordSigning(
-			INFLPlayer p,
+			NFLPlayer p,
 			string teamCode,
 			DateTime when,
 			string how)
@@ -77,7 +81,7 @@ namespace Gerard.HostServer
 		}
 
 		public bool EndContract(
-			INFLPlayer p,
+			NFLPlayer p,
 			DateTime when,
 			bool isRetirement)
 		{
@@ -119,7 +123,7 @@ namespace Gerard.HostServer
 		}
 
 		public bool InjurePlayer(
-			INFLPlayer p)
+			NFLPlayer p)
 		{
 			Logger.Info($"InjurePlayer: {p.PlayerName}");
 			try
@@ -144,7 +148,9 @@ namespace Gerard.HostServer
 			return true;
 		}
 
-		public bool IsSameDay(INFLPlayer p, DateTime when)
+		public bool IsSameDay(
+			NFLPlayer p, 
+			DateTime when)
 		{
 			var lastContract = TflDataLibrarian.LastContract(p.PlayerCode);
 			return (when.Date == lastContract.Date);

@@ -17,7 +17,7 @@ namespace Gerard.HostServer
 		{
 			var p = TflService.GetNflPlayer(transactionEvent.PlayerId);
 
-			if (!string.IsNullOrEmpty(p.CurrTeam.TeamCode))
+			if (!string.IsNullOrEmpty(p.TeamCode))
 				TflService.EndContract(
 					p,
 					transactionEvent.EventDate

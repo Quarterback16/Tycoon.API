@@ -5,7 +5,8 @@ using NLog;
 
 namespace Gerard.HostServer
 {
-	public class NewsItemHandler : IMessageHandler<NewsArticleCommand>
+	public class NewsItemHandler 
+		: IMessageHandler<NewsArticleCommand>
 	{
 		public readonly ArticleExaminer Examiner;
 		private readonly ITransactionManager Manager;
@@ -50,7 +51,7 @@ namespace Gerard.HostServer
 
 		public NewsItemHandler()
 		{
-			//Logger = LogManager.GetCurrentClassLogger();
+			Logger = LogManager.GetCurrentClassLogger();
 			var assemblyVersion = "2.190307.1";
 			WriteInfoLog($@"NewsItemHandler v {
 				assemblyVersion
@@ -67,18 +68,18 @@ namespace Gerard.HostServer
 
 		public void WriteInfoLog(string message)
 		{
-			//Logger.Info(message);
+			Logger.Info(message);
 		}
 
 		public void WriteErrorLog(string message, Exception ex)
 		{
 
-			//Logger.ErrorException(message, ex);
+			Logger.Error(ex, message);
 		}
 
 		public void WriteTraceLog(string message)
 		{
-			//Logger.Trace(message);
+			Logger.Trace(message);
 		}
 	}
 }

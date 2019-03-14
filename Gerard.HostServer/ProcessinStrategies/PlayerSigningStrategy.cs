@@ -28,7 +28,7 @@ namespace Gerard.HostServer
 				return false;
 			}
 
-			if (!string.IsNullOrEmpty(p.CurrTeam.TeamCode))
+			if (!string.IsNullOrEmpty(p.TeamCode))
 			{
 				//  end his previous team contract
 				TflService.EndContract(

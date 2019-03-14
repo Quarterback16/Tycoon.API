@@ -225,19 +225,7 @@ namespace Gerard.HostServer
 
 		#region Accessors
 
-		//public string TeamCode
-		//{
-		//	get
-		//	{
-		//		if (CurrTeam == null)
-		//		{
-		//			Announce(string.Format("NFLPlayer.TeamCode Player {0} {1} has a null CurrTeam", PlayerName,
-		//													 PlayerCode));
-		//			return "??";
-		//		}
-		//		return CurrTeam.TeamCode;
-		//	}
-		//}
+		public string TeamCode { get; set; }
 
 		public decimal Points { get; set; }
 
@@ -613,7 +601,7 @@ namespace Gerard.HostServer
 			Rating = Int32.Parse(dr["CURRATING"].ToString());
 			Adp = Int32.Parse(dr["PROJECTED"].ToString());
 			CurrScores = Int32.Parse(dr["curscores"].ToString());
-			//CurrTeam = new NflTeam(dr["CURRTEAM"].ToString());
+			TeamCode = dr["CURRTEAM"].ToString();
 			//if (RookieYear == Utility.CurrentSeason()) PlayerName += "*";
 			//TotStats = new PlayerStats();
 			SetLastSeason();

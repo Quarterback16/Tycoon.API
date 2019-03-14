@@ -166,6 +166,7 @@
     <Compile Include="INflTeam.cs" />
     <Compile Include="ITflDataLibrarian.cs" />
     <Compile Include="NFLPlayer.cs" />
+    <Compile Include="NFLTeam.cs" />
     <Compile Include="ProcessinStrategies\IProcessTransaction.cs" />
     <Compile Include="ITflService.cs" />
     <Compile Include="ITransactionManager.cs" />
