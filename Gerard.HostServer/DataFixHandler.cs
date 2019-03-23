@@ -1,5 +1,6 @@
 ﻿using System;
 using Gerard.Messages;
+using NLog;
 using Shuttle.Esb;
 
 namespace Gerard.HostServer
@@ -7,6 +8,21 @@ namespace Gerard.HostServer
 	public class DataFixHandler
 		: IMessageHandler<DataFixCommand>
 	{
+		public readonly DataFixer Fixer;
+
+		public Logger Logger { get; set; }
+
+		public DataFixHandler()
+		{
+			var lib = new DataLibrarian(
+				nflConnection: Utility.NflConnectionString(),
+				tflConnection: Utility.TflConnectionString(),
+				ctlConnection: Utility.CtlConnectionString(),
+				logger: new NLogAdaptor());
+			var tfl = new TflService(lib, Logger);
+			Fixer = new DataFixer(tfl, new NLogAdaptor());
+		}
+
 		public void ProcessMessage(
 			IHandlerContext<DataFixCommand> context)
 		{
@@ -15,11 +31,8 @@ namespace Gerard.HostServer
 				$"[DATAFIX] : {context.Message}");
 			Console.WriteLine();
 
-			//TODO: Railway Oriented code to perform fix
-			// 1. get the player
-			// 2. check if data is missing
-			// 3. Get Shuttle data
-			// 4. Update Tfl database
+			Fixer.ApplyFix(context.Message);
+
 		}
 	}
 }

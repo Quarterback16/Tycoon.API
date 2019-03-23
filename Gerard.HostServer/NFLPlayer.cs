@@ -12,7 +12,7 @@ using System.Xml;
 
 namespace Gerard.HostServer
 {
-	public class NFLPlayer //: IComparable
+	public class NFLPlayer : INFLPlayer //: IComparable
 	{
 		public Logger Logger { get; private set; }
 
@@ -41,10 +41,10 @@ namespace Gerard.HostServer
 		public int Rating { get; set; }
 		public int Adp { get; set; }
 
-		public string PlayerName;
+		public string PlayerName { get; set; }
 		public string PlayerNameShort;
-		public string PlayerCode;
-		public string PlayerRole;
+		public string PlayerCode { get; set; }
+		public string PlayerRole { get; set; }
 		public string PlayerPos;
 		public string PlayerCat;
 		public string RookieYear;

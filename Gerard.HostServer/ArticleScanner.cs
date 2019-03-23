@@ -13,7 +13,6 @@ namespace Gerard.HostServer
 	{
 		private readonly ITflService TflService;
 
-		//public Logger Logger { get; set; }
 		public ILog Log { get; set; }
 
 		public int IgnoreCount { get; set; }

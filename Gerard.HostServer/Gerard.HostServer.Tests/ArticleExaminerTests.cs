@@ -5,6 +5,7 @@ using System;
 
 namespace Gerard.HostServer.Tests
 {
+	[TestClass]
 	public class ArticleExaminerTests
 	{
 		#region constructor

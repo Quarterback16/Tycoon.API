@@ -56,7 +56,12 @@ namespace Gerard.HostServer
 			WriteInfoLog($@"NewsItemHandler v {
 				assemblyVersion
 				} =================================================");
-			var lib = Utility.TflWs;
+			//var lib = Utility.TflWs;
+			var lib = new DataLibrarian(
+				nflConnection: Utility.NflConnectionString(),
+				tflConnection: Utility.TflConnectionString(),
+				ctlConnection: Utility.CtlConnectionString(),
+				logger: new NLogAdaptor()	);
 			var tfl = new TflService(lib, Logger);
 			WriteTraceLog("TFL service created");
 			Examiner = new ArticleExaminer(tfl, new NLogAdaptor());

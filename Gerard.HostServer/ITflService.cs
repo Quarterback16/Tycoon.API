@@ -28,5 +28,9 @@ namespace Gerard.HostServer
 		bool IsSameDay(
 			NFLPlayer p, 
 			DateTime when);
+
+		bool UpdateDob(
+			NFLPlayer p,
+			DateTime dob);
 	}
 }

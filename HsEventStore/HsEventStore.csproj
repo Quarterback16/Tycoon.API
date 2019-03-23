@@ -58,9 +58,7 @@
   <ItemGroup>
     <None Include="Doco\Architecture\Decisions\0001-Record-Architecture-Decisions.md" />
     <None Include="Doco\Architecture\Decisions\0002-Use-JSON-To-Persist-Events.md" />
-    <None Include="events.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="events.json" />
     <None Include="gevents.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

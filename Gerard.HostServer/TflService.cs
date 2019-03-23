@@ -155,5 +155,13 @@ namespace Gerard.HostServer
 			var lastContract = TflDataLibrarian.LastContract(p.PlayerCode);
 			return (when.Date == lastContract.Date);
 		}
+
+		public bool UpdateDob(NFLPlayer p, DateTime dob)
+		{
+			TflDataLibrarian.SetDob(
+				playerId: p.PlayerCode,
+				dob: dob);
+			return true;
+		}
 	}
 }

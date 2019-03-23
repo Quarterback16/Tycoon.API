@@ -48,8 +48,8 @@
     <Reference Include="Microsoft.Extensions.DependencyModel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Extensions.DependencyModel.2.1.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>packages\NLog.4.5.11\lib\net45\NLog.dll</HintPath>
@@ -158,15 +158,21 @@
   <ItemGroup>
     <Compile Include="ArticleScanner.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="DataFixer.cs" />
     <Compile Include="DataFixHandler.cs" />
     <Compile Include="DataLibrarian.cs" />
     <Compile Include="ExaminationEvent.cs" />
     <Compile Include="ILog.cs" />
     <Compile Include="INFLPlayer.cs" />
     <Compile Include="INflTeam.cs" />
+    <Compile Include="IQuery.cs" />
+    <Compile Include="IQueryHandler.cs" />
     <Compile Include="ITflDataLibrarian.cs" />
     <Compile Include="NFLPlayer.cs" />
     <Compile Include="NFLTeam.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerQuery.cs" />
+    <Compile Include="PlayerQueryHandler.cs" />
     <Compile Include="ProcessinStrategies\IProcessTransaction.cs" />
     <Compile Include="ITflService.cs" />
     <Compile Include="ITransactionManager.cs" />
@@ -196,6 +202,10 @@
     <ProjectReference Include="..\GerardGui\Gerard.Messages\Gerard.Messages.csproj">
       <Project>{ebb8fb67-0b66-4c48-804f-70f8d2193668}</Project>
       <Name>Gerard.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NflQueries\StattleShip.NflApi\StattleShip.NflApi.csproj">
+      <Project>{8383ff73-8a66-41f1-879d-43d5e29cae12}</Project>
+      <Name>StattleShip.NflApi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
