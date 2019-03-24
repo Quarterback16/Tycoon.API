@@ -31,17 +31,27 @@ namespace Gerard.HostServer
 				Log.Info($"Player Not Found {dataFixCommand}");
 				return false;
 			}
+			else
+				Log.Info($"Player{dataFixCommand} equates to {player}");
+
 			if (!player.IsMissingDob())
 			{
 				Log.Info($"Player DOB is present {dataFixCommand}:{player.DBirth}");
 				return false;
 			}
+			else
+				Log.Info($"Player {dataFixCommand} is missing DOB");
+
 			var statPlayer = GetStatleshipPlayer(dataFixCommand);
-			if (statPlayer == null)
+			if (statPlayer == null 
+				|| statPlayer.BirthDate == new System.DateTime(1,1,1))
 			{
-				Log.Info($"Could not find {dataFixCommand} at Stattleship");
+				Log.Info($"Could not find Birthdate {dataFixCommand} at Stattleship");
 				return false;
 			}
+			else
+				Log.Info($"Birthdate for {dataFixCommand} is {statPlayer.BirthDate:yyyy-MM-dd}");
+
 			PutDob(player, statPlayer);
 			return result;
 		}
@@ -49,7 +59,7 @@ namespace Gerard.HostServer
 		public bool PutDob(NFLPlayer player, Player statPlayer)
 		{
 			TflService.UpdateDob(player, statPlayer.BirthDate);
-			Log.Info($"{player} dob set to {statPlayer.BirthDate:u}");
+			Log.Info($"{player} dob set to {statPlayer.BirthDate:yyyy-MM-dd}");
 			return true;
 		}
 

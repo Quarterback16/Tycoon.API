@@ -23,17 +23,17 @@ namespace Gerard.HostServer
 		///   Find a single player
 		/// </summary>
 		/// <param name="firstName"></param>
-		/// <param name="lastName"></param>
+		/// <param name="lastName"></param>s
 		/// <returns></returns>
 		public NFLPlayer GetNflPlayer(
 			string firstName,
 			string lastName)
 		{
-			Logger.Trace($"GetNflPlayer calling DataLibrarian {firstName} {lastName}");
+			//Logger.Trace($"GetNflPlayer calling DataLibrarian {firstName} {lastName}");
 			var ds = TflDataLibrarian.GetPlayer(firstName, lastName);
 			var list = (from DataRow dr in ds.Tables[0].Rows
 						select new NFLPlayer(dr, string.Empty)).ToList();
-			Logger.Trace($"GetNflPlayer found {list.Count} records");
+			//Logger.Trace($"GetNflPlayer found {list.Count} records");
 			return list.Count > 0 ? list[0] : null;
 		}
 

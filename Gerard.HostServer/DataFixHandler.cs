@@ -26,13 +26,20 @@ namespace Gerard.HostServer
 		public void ProcessMessage(
 			IHandlerContext<DataFixCommand> context)
 		{
-			Console.WriteLine();
-			Console.WriteLine(
-				$"[DATAFIX] : {context.Message}");
-			Console.WriteLine();
+			try
+			{
+				Console.WriteLine();
+				Console.WriteLine(
+					$"[DATAFIX] : {context.Message}");
+				Console.WriteLine();
 
-			Fixer.ApplyFix(context.Message);
-
+				Fixer.ApplyFix(context.Message);
+			}
+			catch (Exception ex)
+			{
+				Logger.Error(ex.Message);
+				throw;
+			}
 		}
 	}
 }

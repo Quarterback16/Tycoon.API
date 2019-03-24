@@ -7,13 +7,44 @@ namespace Gerard.HostServer
 	public sealed class PlayerQueryHandler
 		: IQueryHandler<PlayerQuery, Player>
 	{
-		readonly Dictionary<string, string> TeamSlugs;
+		private readonly Dictionary<string, string> TeamSlugs;
 
 		public PlayerQueryHandler()
 		{
 			TeamSlugs = new Dictionary<string, string>
 			{
-				{ "SF", "nfl-sf" }
+				{ "AC", "nfl-ari" },
+				{ "AF", "nfl-atl" },
+				{ "BR", "nfl-bal" },
+				{ "BB", "nfl-buf" },
+				{ "CP", "nfl-car" },
+				{ "CI", "nfl-cin" },
+				{ "CH", "nfl-chi" },
+				{ "CL", "nfl-cle" },
+				{ "DC", "nfl-dal" },
+				{ "DB", "nfl-den" },
+				{ "DL", "nfl-det" },
+				{ "GB", "nfl-gb" },
+				{ "HT", "nfl-hou" },
+				{ "IC", "nfl-ind" },
+				{ "JJ", "nfl-jac" },
+				{ "KC", "nfl-kc" },
+				{ "SL", "nfl-stl" },
+				{ "LC", "nfl-lac" },
+				{ "MD", "nfl-mia" },
+				{ "MV", "nfl-min" },
+				{ "NE", "nfl-ne" },
+				{ "NO", "nfl-no" },
+				{ "NG", "nfl-nyg" },
+				{ "NJ", "nfl-nyj" },
+				{ "OR", "nfl-oak" },
+				{ "PE", "nfl-phi" },
+				{ "PS", "nfl-pit" },
+				{ "SS", "nfl-sea" },
+				{ "SF", "nfl-sf" },
+				{ "TB", "nfl-tb" },
+				{ "TT", "nfl-ten" },
+				{ "WR", "nfl-was" },
 			};
 		}
 

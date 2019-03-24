@@ -930,7 +930,7 @@ namespace RosterLib
 
 		public bool IsMissingDob()
 		{
-			return (DBirth == "30/12/1899");
+			return (DBirth == "30/12/1899" || DBirth == "01/01/0001");
 		}
 
 		public void LoadOwner( [Optional] string fantasyLeague )
