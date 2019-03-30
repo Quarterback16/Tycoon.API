@@ -33,6 +33,15 @@ namespace FbbEventStore.Tests
 		}
 
 		[TestMethod]
+		public void FbbEventStore_KnowsRosterForTc()
+		{
+			var result = _sut.GetRoster("TC");
+			Assert.IsNotNull(result);
+			Assert.IsTrue(result.Count > 0);
+			_sut.DumpRoster("TC");
+		}
+
+		[TestMethod]
 		public void FbbEventStore_KnowsWhoOwnsYelich()
 		{
 			var result = _sut.GetOwnerOf("Christian Yelich");

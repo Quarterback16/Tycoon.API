@@ -62,9 +62,11 @@ namespace FbbEventStore
 		{
 			Console.WriteLine($"Roster for {fteam}");
 			var roster = Roster[fteam];
+			var i = 0;
 			foreach (var item in roster)
 			{
-				Console.WriteLine(item);
+				i++;
+				Console.WriteLine( $"{i,2} {item}");
 			}
 		}
 
