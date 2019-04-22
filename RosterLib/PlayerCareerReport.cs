@@ -9,7 +9,9 @@ namespace RosterLib
 
 		public int ReportsToDo { get; private set; }
 
-		public PlayerCareerReport( IKeepTheTime timekeeper, int numberOfReportsTodo = 20) : base( timekeeper )
+		public PlayerCareerReport( 
+			IKeepTheTime timekeeper, 
+			int numberOfReportsTodo = 20) : base( timekeeper )
 		{
 			Season = timekeeper.CurrentSeason( DateTime.Now );
 			ReportsToDo = numberOfReportsTodo;
@@ -25,7 +27,7 @@ namespace RosterLib
 
 		public override string OutputFilename()
 		{
-			var fileName = $"{Utility.OutputDirectory()}\\Players\\Errors.htm";
+			var fileName = $"{Utility.OutputDirectory()}\\Players\\";
 			return fileName;
 		}
 	}

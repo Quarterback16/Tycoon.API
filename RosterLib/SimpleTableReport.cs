@@ -95,8 +95,7 @@ namespace RosterLib
 			_body = new DataTable();
 			_cols = _body.Columns;
 			SubHeader = string.Empty;
-
-			//RosterLib.Utility.Announce(string.Format("SimpleTableReport {0} created", header ));
+			AnnounceIt = true;
 		}
 
 		#endregion CONSTRUCTORS

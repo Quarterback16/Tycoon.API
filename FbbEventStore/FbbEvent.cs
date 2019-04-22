@@ -11,6 +11,9 @@ namespace FbbEventStore
 		[JsonProperty("player")]
 		public string Player { get; set; }
 
+		[JsonProperty("date")]
+		public string TransactionDate { get; set; }
+
 		[JsonProperty("fteam")]
 		public string FantasyTeam { get; set; }
 

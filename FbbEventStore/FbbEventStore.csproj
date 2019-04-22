@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FbbEventStore</RootNamespace>
     <AssemblyName>FbbEventStore</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,12 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Closer.cs" />
     <Compile Include="FbbEvent.cs" />
     <Compile Include="FbbEventStore.cs" />
     <Compile Include="FbbRosters.cs" />
     <Compile Include="Handles.cs" />
     <Compile Include="IEventStore.cs" />
     <Compile Include="IEvent.cs" />
+    <Compile Include="IRosterMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

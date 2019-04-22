@@ -30,7 +30,7 @@ namespace RosterLib
 #if DEBUG
             var rootDataPath = "e:\\tfl\\";
 #else
-            var rootDataPath = "d:\\shares\\tfl";
+            var rootDataPath = "c:\\tfl";
 #endif
             var dData = GetDataDate( rootDataPath );
             bool reportIsStale = dData > lastReportDate;

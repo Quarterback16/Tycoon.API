@@ -743,7 +743,7 @@
   },
   {
     "fteam": "CA",
-    "player": "Tommy Pham",
+    "player": "Thomas Pham",
     "team": "TB",
     "pos": "CF",
     "trans": "IN"
@@ -785,7 +785,7 @@
   },
   {
     "fteam": "CA",
-    "player": "Adalberto Mondesi",
+    "player": "Raul Mondesi",
     "team": "KC",
     "pos": "SS",
     "trans": "IN"
@@ -1475,5 +1475,477 @@
     "team": "Mil",
     "pos": "RP",
     "trans": "OUT"
+  },
+  {
+    "date": "2019-04-01",
+    "fteam": "TT",
+    "player": "Tim Beckham",
+    "team": "Sea",
+    "pos": "SS",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-01",
+    "fteam": "TT",
+    "player": "Troy Tulowitzki",
+    "team": "NYY",
+    "pos": "SS",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-01",
+    "fteam": "ABG",
+    "player": "Marco Gonzales",
+    "team": "Sea",
+    "pos": "SP",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-01",
+    "fteam": "TT",
+    "player": "Justus Sheffield",
+    "team": "Sea",
+    "pos": "SP",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-01",
+    "fteam": "TT",
+    "player": "Matt Barnes",
+    "team": "Bos",
+    "pos": "RP",
+    "trans": "IN"
+  },  
+  {
+    "date": "2019-04-03",
+    "fteam": "TC",
+    "player": "Nick Markakis",
+    "team": "Atl",
+    "pos": "RF",
+    "trans": "OUT"
+  }, 
+  {
+    "date": "2019-04-03",
+    "fteam": "TC",
+    "player": "Asdrubal Cabrera",
+    "team": "Tex",
+    "pos": "SS",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-05",
+    "fteam": "TT",
+    "player": "Troy Tulowitzki",
+    "team": "NYY",
+    "pos": "SS",
+    "trans": "OUT"
+  }, 
+  {
+    "date": "2019-04-05",
+    "fteam": "TT",
+    "player": "Shane Greene",
+    "team": "Det",
+    "pos": "RP",
+    "trans": "IN"
+  }, 
+  {
+    "date": "2019-04-05",
+    "fteam": "ABG",
+    "player": "Sean Doolittle",
+    "team": "Wsh",
+    "pos": "RP",
+    "trans": "OUT"
+  }, 
+  {
+    "date": "2019-04-05",
+    "fteam": "ABG",
+    "player": "Marcus Stroman",
+    "team": "Tor",
+    "pos": "SP",
+    "trans": "IN"
+  },  
+  {
+    "date": "2019-04-05",
+    "fteam": "TC",
+    "player": "Brandon Nimmo",
+    "team": "NYM",
+    "pos": "RP",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-05",
+    "fteam": "TC",
+    "player": "Joc Pederson",
+    "team": "LAD",
+    "pos": "LF",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-05",
+    "fteam": "CA",
+    "player": "Will Smith",
+    "team": "SF",
+    "pos": "RP",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-05",
+    "fteam": "CA",
+    "player": "Ryan McMahon",
+    "team": "Col",
+    "pos": "1B",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-05",
+    "fteam": "ABG",
+    "player": "Matt Olson",
+    "team": "Oak",
+    "pos": "1B",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-05",
+    "fteam": "ABG",
+    "player": "Willians Astudillo",
+    "team": "Min",
+    "pos": "C",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "CA",
+    "player": "Eduardo Rodriguez",
+    "team": "Bos",
+    "pos": "SP",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "CA",
+    "player": "Matt Shoemaker",
+    "team": "Tor",
+    "pos": "SP",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "CA",
+    "player": "Domingo Santana",
+    "team": "RF",
+    "pos": "RF",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "CA",
+    "player": "Paul DeJong",
+    "team": "Stl",
+    "pos": "SS",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "CA",
+    "player": "Kolten Wong",
+    "team": "Stl",
+    "pos": "2B",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "CA",
+    "player": "Michael Brantley",
+    "team": "Hou",
+    "pos": "LF",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "CA",
+    "player": "Ryan Braun",
+    "team": "Mil",
+    "pos": "LF",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "CA",
+    "player": "Nomar Mazara",
+    "team": "Tex",
+    "pos": "RF",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "CA",
+    "player": "Adam Jones",
+    "team": "Ari",
+    "pos": "CF",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "CA",
+    "player": "Rafael Devers",
+    "team": "Bos",
+    "pos": "3B",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "CA",
+    "player": "Carlos Santana",
+    "team": "Cle",
+    "pos": "1B",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "GD",
+    "player": "Delino DeShields",
+    "team": "Tex",
+    "pos": "CF",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "GD",
+    "player": "Joey Lucchesi",
+    "team": "SD",
+    "pos": "SP",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "TT",
+    "player": "Sean Newcomb",
+    "team": "Atl",
+    "pos": "SP",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-08",
+    "fteam": "TT",
+    "player": "Brandon Woodruff",
+    "team": "Mil",
+    "pos": "RP",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-10",
+    "fteam": "STTM",
+    "player": "Ketel Marte",
+    "team": "Ari",
+    "pos": "SS",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-10",
+    "fteam": "TC",
+    "player": "Yasiel Puig",
+    "team": "Cin",
+    "pos": "RF",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-10",
+    "fteam": "TC",
+    "player": "Trey Mancini",
+    "team": "Bal",
+    "pos": "LF",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-10",
+    "fteam": "TC",
+    "player": "Brad Keller",
+    "team": "KC",
+    "pos": "SP",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-10",
+    "fteam": "STTM",
+    "player": "Sean Doolittle",
+    "team": "Wsh",
+    "pos": "RP",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-12",
+    "fteam": "TC",
+    "player": "Adrubal Cabrera",
+    "team": "Tex",
+    "pos": "SS",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-12",
+    "fteam": "TC",
+    "player": "Marcus Semien",
+    "team": "Oak",
+    "pos": "SS",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-12",
+    "fteam": "TT",
+    "player": "Brandon Woodruff",
+    "team": "Mil",
+    "pos": "RP",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-12",
+    "fteam": "TT",
+    "player": "Michael Brantley",
+    "team": "Hou",
+    "pos": "LF",
+    "trans": "IN"
+  },
+    {
+    "date": "2019-04-12",
+    "fteam": "CA",
+    "player": "Kolten Wong",
+    "team": "StL",
+    "pos": "2B",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-12",
+    "fteam": "CA",
+    "player": "Enrique Hernandez",
+    "team": "LAD",
+    "pos": "SS",
+    "trans": "IN"
+  },
+    {
+    "date": "2019-04-12",
+    "fteam": "ABG",
+    "player": "Willians Astudillo",
+    "team": "Min",
+    "pos": "C",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-12",
+    "fteam": "ABG",
+    "player": "Tyler Glasnow",
+    "team": "TB",
+    "pos": "RP",
+    "trans": "IN"
+  },
+    {
+    "date": "2019-04-15",
+    "fteam": "CA",
+    "player": "Eric Hosmer",
+    "team": "SD",
+    "pos": "1B",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-15",
+    "fteam": "CA",
+    "player": "Ryon Healy",
+    "team": "Sea",
+    "pos": "1B",
+    "trans": "IN"
+  },
+    {
+    "date": "2019-04-15",
+    "fteam": "CA",
+    "player": "Tyler Skaggs",
+    "team": "LAA",
+    "pos": "SP",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-15",
+    "fteam": "CA",
+    "player": "Mike Fiers",
+    "team": "Oak",
+    "pos": "SP",
+    "trans": "IN"
+  },
+    {
+    "date": "2019-04-15",
+    "fteam": "CA",
+    "player": "Francisco Cervelli",
+    "team": "Pit",
+    "pos": "C",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-15",
+    "fteam": "CA",
+    "player": "Omar Narvaez",
+    "team": "Sea",
+    "pos": "C",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-15",
+    "fteam": "GH",
+    "player": "Greg Holland",
+    "team": "Ari",
+    "pos": "RP",
+    "trans": "IN"
+  },
+    {
+    "date": "2019-04-15",
+    "fteam": "TT",
+    "player": "Nathan Eovaldi",
+    "team": "Bos",
+    "pos": "SP",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-15",
+    "fteam": "TT",
+    "player": "Matthew Boyd",
+    "team": "Det",
+    "pos": "SP",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-17",
+    "fteam": "TC",
+    "player": "Joe Musgrove",
+    "team": "Pit",
+    "pos": "SP",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-17",
+    "fteam": "CA",
+    "player": "Ryan Braun",
+    "team": "Mil",
+    "pos": "LF",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-17",
+    "fteam": "CA",
+    "player": "Niko Goodrum",
+    "team": "Det",
+    "pos": "2B",
+    "trans": "IN"
+  },
+  {
+    "date": "2019-04-17",
+    "fteam": "ABG",
+    "player": "Miguel Cabrera",
+    "team": "Det",
+    "pos": "2B",
+    "trans": "OUT"
+  },
+  {
+    "date": "2019-04-17",
+    "fteam": "ABG",
+    "player": "Daniel Vogelbach",
+    "team": "Sea",
+    "pos": "1B",
+    "trans": "IN"
   }
 ]

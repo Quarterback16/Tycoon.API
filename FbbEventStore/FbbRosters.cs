@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FbbEventStore
 {
-	public class FbbRosters
+	public class FbbRosters : IRosterMaster
 	{
 		public readonly List<FbbEvent> RosterMoves;
 
@@ -56,6 +56,107 @@ namespace FbbEventStore
 		public List<string> GetRoster(string fteam)
 		{
 			return Roster[fteam];
+		}
+
+		public List<string> GetBatters(
+			string fteam,
+			DateTime? asOf)
+		{
+			return GetPlayers(
+				isBatters: true, 
+				fteam, 
+				ref asOf);
+		}
+
+		public List<string> GetPitchers(
+			string fteam,
+			DateTime? asOf)
+		{
+			return GetPlayers(
+				isBatters: false,
+				fteam,
+				ref asOf);
+		}
+
+		private List<string> GetPlayers(
+			bool isBatters,
+			string fteam, 
+			ref DateTime? asOf)
+		{
+			if (asOf == null)
+				asOf = DateTime.Now.Date;
+
+			Roster.Clear();
+			foreach (var move in RosterMoves)
+			{
+				if (string.IsNullOrEmpty(move.TransactionDate))
+					move.TransactionDate = "2019-04-01";
+
+				if (move.FantasyTeam != fteam)
+					continue;
+				if (DateTime.Parse(move.TransactionDate) > asOf)
+					continue;
+
+				if (!Roster.ContainsKey(fteam))
+					Roster.Add(fteam, new List<string>());
+				if (IsBatter(move.Position).Equals(isBatters))
+				{
+					var direction = move.Direction;
+					if (direction.Equals("IN"))
+					{
+						Roster[fteam].Add(move.Player);
+					}
+					if (direction.Equals("OUT"))
+					{
+						Roster[fteam].Remove(move.Player);
+					}
+				}
+			}
+			return Roster[fteam];
+		}
+
+		public int BatterNumber(
+			string fteam,
+			string playerName)
+		{
+			var batterNumber = 0;
+			Roster.Clear();
+			foreach (var move in RosterMoves)
+			{
+				if (string.IsNullOrEmpty(move.TransactionDate))
+					move.TransactionDate = "2019-04-01";
+
+				if (move.FantasyTeam != fteam)
+					continue;
+
+				if (!Roster.ContainsKey(fteam))
+					Roster.Add(fteam, new List<string>());
+				if (IsBatter(move.Position))
+				{
+					var direction = move.Direction;
+					if (direction.Equals("IN"))
+					{
+						batterNumber++;
+						Roster[fteam].Add(move.Player);
+						if (move.Player.Equals(playerName))
+							return batterNumber;
+					}
+					//if (direction.Equals("OUT"))
+					//{
+					//	Roster[fteam].Remove(move.Player);
+					//}
+				}
+			}
+			return batterNumber;
+		}
+
+		private bool IsBatter(string position)
+		{
+			var isBatter = true;
+			if (position.Equals("SP")
+				|| position.Equals("RP"))
+				isBatter = false;
+			return isBatter;
 		}
 
 		public void DumpRoster(string fteam)

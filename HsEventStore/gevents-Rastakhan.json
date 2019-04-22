@@ -1,0 +1,538 @@
+﻿[
+  {
+    "event-type": "game-played",
+    "date-played": "2019-02-23",
+    "h-deck": "Control Priest",
+    "o-deck": "Even Warlock",
+    "opp": null,
+    "result": "win",
+    "rank": 8,
+    "notes": "2MB+Anduin 16d"
+  },
+  {
+    "event-type": "game-played",
+    "date-played": "2019-02-23",
+    "h-deck": "Control Priest",
+    "o-deck": "Resurrect OTK Priest",
+    "opp": "samchung",
+    "result": "loss",
+    "rank": 8,
+    "notes": "he got awesome Lyra value"
+  },
+  {
+    "event-type": "game-played",
+    "date-played": "2019-02-23",
+    "h-deck": "Control Priest",
+    "o-deck": "Midrange Hunter",
+    "opp": null,
+    "result": "win",
+    "rank": 8,
+    "notes": "double cabaled him"
+  },
+  {
+    "date-played": "2019-02-23",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Even Warlock",
+    "notes": "2MB+Anduin 16d\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-23",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Resurrect OTK Priest",
+    "notes": "he got awesome Lyra value",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-02-23",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Miracle Druid",
+    "notes": "screamed him an acolyte (he has no dragons) then stole him back\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-23",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Malygos Druid",
+    "notes": "dropped a 2 mana Maly (flooped)\t",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-02-23",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Aggro Mage",
+    "notes": "Healed up just enoth to avoid the Hero power burn, then came back to win",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-23",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Paladin",
+    "notes": "he conceded after Cabaled his Giant",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-23",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Control Priest",
+    "notes": "he went first and got the board\t",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-02-24",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Warrior",
+    "notes": "no getting through 50 armour",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-02-24",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "OffMeta Druid",
+    "notes": "void ripped Yesera for 12d",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-02-24",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Zoolock",
+    "notes": "Alexed him down and he bled out\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-24",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Paladin",
+    "notes": "Stole his Caldron and got massive value\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-24",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Paladin",
+    "notes": "pure AOE carnage",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-24",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Midrange Hunter",
+    "notes": "milled myself my Anduin",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-02-25",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Elemental Shaman",
+    "notes": "controlled the board afte dusk broke T4\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-25",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Wall Priest",
+    "notes": "silenced his wall then went over it\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-25",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Midrange Hunter",
+    "notes": "he got early Rexar and Anduin was 29th card\t",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-02-25",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Wall Priest",
+    "notes": "stole both his Moshs",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-28",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Tempo Rogue",
+    "notes": "Recovered with Anduin he had no heal post Alex, SV-Divine Hymn",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-28",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Midrange Hunter",
+    "notes": "stole his Rhino\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-02-28",
+    "rank": 8,
+    "h-deck": "Control Priest",
+    "o-deck": "Zoolock",
+    "notes": "he emptied his hand and I had no AOE",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-01",
+    "rank": 11,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Aggro Mage",
+    "notes": "I didnt pull trigger on Hysteria\t",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-01",
+    "rank": 11,
+    "h-deck": "Control Priest",
+    "o-deck": "Quest Priest",
+    "notes": "out healled him\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-01",
+    "rank": 11,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Paladin",
+    "notes": "cabaled his P-Drake as final action screamed his Frostwolf\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-02",
+    "rank": 11,
+    "h-deck": "Control Priest",
+    "o-deck": "Rush Warrior",
+    "notes": "failed to draw the 3rd MB\t",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-02",
+    "rank": 11,
+    "h-deck": "Control Priest",
+    "o-deck": "Control Priest",
+    "notes": "did not save heals 4 post Alex\t",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-02",
+    "rank": 11,
+    "h-deck": "Control Priest",
+    "o-deck": "Taunt Warrior",
+    "notes": "I drew 3rd MB at deaths door\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-02",
+    "rank": 11,
+    "h-deck": "Control Priest",
+    "o-deck": "Secret Hunter",
+    "notes": "held him out till I drew 3 MB\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-02",
+    "rank": 11,
+    "h-deck": "Control Priest",
+    "o-deck": "Espionage Rogue",
+    "notes": "got 3 early MB\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-04",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Malygos Rogue",
+    "notes": "he wasnt expecting the 3rd MB\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-04",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Even Paladin",
+    "notes": "he Dinosized a 1/1 into a 10/10\t",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-05",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Deathrattle Hunter",
+    "notes": "A + 2MB, he did not heal so I wore him down\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-05",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Midrange Hunter",
+    "notes": "I ran him out of resources\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-06",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Quest Warrior",
+    "notes": "I controlled board\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-06",
+    "rank": 9,
+    "h-deck": "Control Priest",
+    "o-deck": "Secret Hunter",
+    "notes": "lost to Rat Trap Kill Command\t",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-06",
+    "rank": 9,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Rogue",
+    "notes": "I struggled to keep up to the board\t",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-06",
+    "rank": 9,
+    "h-deck": "Control Priest",
+    "o-deck": "Resurrect OTK Priest",
+    "notes": "he got his combo scream was not effective",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-06",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Midrange Hunter",
+    "notes": "1 away from lethal then he got lifesteal rush",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-06",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Wall Priest",
+    "notes": "milled 3 of his dudes stole Lich and Mogg",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-06",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Paladin",
+    "notes": "could not draw my aoe",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-07",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Aggro Druid",
+    "notes": "his Fledgling went wild\t",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-08",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Resurrect OTK Priest",
+    "notes": "he got his combo and got good hysteria value",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-08",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Aggro Mage",
+    "notes": "he early conceded",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-08",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Midrange Hunter",
+    "notes": "he played an early Heyena I couldnt deal with",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-08",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Wall Priest",
+    "notes": "cabaled his Mogg\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-08",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Quest Warlock",
+    "notes": "MB + A for 9d\t",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-08",
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Malygos Druid",
+    "notes": "2xMally swipe 2xmoonfire",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-10",
+    "run":  5,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Midrange Hunter",
+    "notes": "he played an early Heyena I couldnt deal with",
+    "result": "loss"
+  },
+    {
+    "date-played": "2019-03-10",
+    "run":  5,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Warrior",
+    "notes": "long game A+2MB plus early board pressure",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-11",
+    "run":  5,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Zoolock",
+	"opp": "toothless",
+    "notes": "Turn 3 (coin) and 5 Duskbreaker broke him",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-11",
+    "run":  5,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Rogue",
+	  "opp": "okborn",
+    "notes": "did not keep health up and he Leeroyed",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-11",
+    "run":  5,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Odd Warrior",
+    "notes": "Shadowformed my heropower doh and A was last card he got lifesteal",
+    "result": "loss"
+  },  
+  {
+    "date-played": "2019-03-11",
+    "run":  6,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Mech Hunter",
+    "notes": "Silenced him with 2 Mass dispel",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-11",
+    "run":  6,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Resurrect OTK Priest",
+    "notes": "He pulled his Maly and Velen got me for 34d",
+    "result": "loss"
+  },
+  {
+    "date-played": "2019-03-11",
+    "run":  6,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Aggro Mage",
+    "notes": "He drew entire deck and milled with Aluneth, but I got early Alex",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-11",
+    "run":  6,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Even Paladin",
+	"opp": "Rixton",
+    "notes": "caballed his C Kangor and got SV-Hymns to heal back from 9 to 30",
+    "result": "win"
+  },
+  {
+    "date-played": "2019-03-11",
+    "run":  6,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Malygos Druid",
+    "notes": "he got his combo just before mine",
+    "result": "loss"
+  },
+ {
+    "date-played": "2019-03-11",
+    "run":  6,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Elemental Shaman",
+    "notes": "too much aggro board pressure for me, need early aoe",
+    "result": "loss"
+  },
+ {
+    "date-played": "2019-03-11",
+    "run":  7,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Control Warlock",
+    "notes": "conceded after I got a strong mid-game board",
+    "result": "win"
+  },
+ {
+    "date-played": "2019-03-11",
+    "run":  7,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Quest Rogue",
+    "notes": "So many 4/4 boars mad by lab recruiter and Sonya",
+    "result": "loss"
+  },
+ {
+    "date-played": "2019-03-11",
+    "run":  7,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "OTK Death Night Paladin",
+    "notes": "did not 1-2 A and Alex, A was last 9",
+    "result": "loss"
+  },
+ {
+    "date-played": "2019-03-11",
+    "run":  7,
+    "rank": 10,
+    "h-deck": "Control Priest",
+    "o-deck": "Rush Warrior",
+    "notes": "failed to draw the 3rd MB and ran out of time",
+    "result": "loss"
+  }  
+] 

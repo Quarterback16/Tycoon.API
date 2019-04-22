@@ -48,7 +48,6 @@ namespace RosterLib
 
 		public void LoadNfc()
 		{
-
 			TraceIt( "NewRosterReport:LoadNFC Loading NFC");
 
 #if !QUICKRUN
@@ -95,7 +94,7 @@ namespace RosterLib
 
 		public void CurrentRoster()
 		{
-			FileOut = string.Format( "{0}{1}\\RosterReport\\RosterReport.htm", Utility.OutputDirectory(), Season );
+			FileOut = $"{Utility.OutputDirectory()}{Season}\\RosterReport\\RosterReport.htm";
 			_html = new HtmlFile( FileOut,
 								 "NFL Rosters as of " + DateTime.Now.ToString( "ddd dd MMM yy HH:mm" ),
 								 "dir='ltr' xmlns:v='urn:schemas-microsoft-com:vml' gpmc_reportInitialized='false'",
@@ -531,7 +530,9 @@ namespace RosterLib
 
 #region Player Reports
 
-		public void PlayerReports( int reportsToDo, IKeepTheTime timekeeper )
+		public void PlayerReports( 
+			int reportsToDo, 
+			IKeepTheTime timekeeper )
 		{
 			var reportsDone = 0;
 			var totalReports = 0;

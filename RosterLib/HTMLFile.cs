@@ -35,8 +35,13 @@ namespace RosterLib
 			AnnounceIt = true;
 		}
 
-		public HtmlFile( string filenameIn, string titleIn, string headerIn,
-							  string cssFileIn, string script1In, string script2In )
+		public HtmlFile( 
+			string filenameIn, 
+			string titleIn,
+			string headerIn,
+			string cssFileIn, 
+			string script1In, 
+			string script2In )
 		{
 			_filename = filenameIn;
 			_title = titleIn;
