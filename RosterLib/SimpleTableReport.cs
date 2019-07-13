@@ -532,7 +532,8 @@ namespace RosterLib
 
 			if ( data != String.Empty )
 			{
-				if ( dc.DataType == Type.GetType( "System.Decimal" ) || dc.DataType == Type.GetType( "System.Int32" ) )
+				if ( dc.DataType == Type.GetType( "System.Decimal" ) 
+					|| dc.DataType == Type.GetType( "System.Int32" ) )
 					sOut = Decimal.Parse( data ).Equals( -1 ) ? "-1" : string.Format( format, Decimal.Parse( data ) );
 			}
 			return sOut;
@@ -747,7 +748,10 @@ namespace RosterLib
 
 		public delegate string TotalDelegate();
 
-		public ReportColumn( string header, string source, string format )
+		public ReportColumn(
+			string header,
+			string source,
+			string format)
 		{
 			Header = header;
 			Source = source;

@@ -16,8 +16,15 @@ namespace FbbEventStore
 			string fteam,
 			DateTime? asOf);
 
-		int BatterNumber(
+		int JerseyNumber(
 			string fteam,
+			string playerName,
+			bool isBatter );
+
+		string GetMlbTeam(
+			string playerName);
+
+		string GetPosition(
 			string playerName);
 	}
 }

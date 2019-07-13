@@ -28,10 +28,8 @@ namespace Gerard.HostServer
 		{
 			try
 			{
-				Console.WriteLine();
-				Console.WriteLine(
+				Logger.Info(
 					$"[DATAFIX] : {context.Message}");
-				Console.WriteLine();
 
 				Fixer.ApplyFix(context.Message);
 			}

@@ -439,7 +439,9 @@ namespace RosterLib
 		/// Need to know # of Tdp, Tdr, SAK
 		/// Heavy 10 IO
 		/// </summary>
-		public void TallyMetrics( string metric, IBreakdown breakdowns = null)
+		public void TallyMetrics(
+			string metric,
+			IBreakdown breakdowns = null)
 		{
 			if ( metric == String.Empty )
 			{
@@ -467,8 +469,18 @@ namespace RosterLib
 
 					HomeInt = ( int ) Utility.TflWs.TeamStats( "M", Season, Week, GameCode, AwayTeam );
 					AwayInt = ( int ) Utility.TflWs.TeamStats( "M", Season, Week, GameCode, HomeTeam );
-					HomePasses = ( int ) Utility.TflWs.TeamStats( "A", Season, Week, GameCode, HomeTeam );
-					AwayPasses = ( int ) Utility.TflWs.TeamStats( "A", Season, Week, GameCode, AwayTeam );
+					HomePasses = ( int ) Utility.TflWs.TeamStats(
+						Constants.K_PASSING_ATTEMPTS, 
+						Season, 
+						Week, 
+						GameCode, 
+						HomeTeam );
+					AwayPasses = ( int ) Utility.TflWs.TeamStats(
+						Constants.K_PASSING_ATTEMPTS,
+						Season,
+						Week,
+						GameCode,
+						AwayTeam);
 					HomeRuns = ( int ) Utility.TflWs.TeamStats( "R", Season, Week, GameCode, HomeTeam );
 					AwayRuns = ( int ) Utility.TflWs.TeamStats( "R", Season, Week, GameCode, AwayTeam );
 					HomeYDr = ( int ) Utility.TflWs.TeamStats( "Y", Season, Week, GameCode, HomeTeam );
@@ -1837,6 +1849,11 @@ namespace RosterLib
 			return HomeTeam == teamCode ? HomeYDp : AwayYDp;
 		}
 
+		public int PassAttempts(string teamCode)
+		{
+			return HomeTeam == teamCode ? HomePasses : AwayPasses;
+		}
+
 		public int YDr( string teamCode )
 		{
 			return HomeTeam == teamCode ? HomeYDr : AwayYDr;
@@ -2273,11 +2290,12 @@ namespace RosterLib
 
 		public void TallyStatsFor( NflTeam team )
 		{
-#if DEBUG
+#if DEBUG2
 			Announce( "Tallying Stats for " + team.NameOut() );
 #endif
 			var gameYDr = YDr( team.TeamCode );
 			var gameYDp = YDp( team.TeamCode );
+			var gamePasses = PassAttempts(team.TeamCode);
 			var gameTDp = Tdp( team.TeamCode );
 			var gameTdr = Tdr( team.TeamCode );
 			var gameSacks = Sacks( team.TeamCode );
@@ -2292,6 +2310,7 @@ namespace RosterLib
 
 			team.TotYdr += gameYDr;
 			team.TotYdp += gameYDp;
+			team.TotPasses += gamePasses;
 			team.TotSacksAllowed += gameSacksAllowed;
 			team.TotSacks += gameSacks;
 			team.TotYdrAllowed += gameYDrAllowed;

@@ -4,6 +4,6 @@ namespace RosterLib.Interfaces
 {
 	public interface IRankTeams
 	{
-		void RankTeams( DateTime when );
+		void RankTeams( DateTime when, string sortColumn );
 	}
 }

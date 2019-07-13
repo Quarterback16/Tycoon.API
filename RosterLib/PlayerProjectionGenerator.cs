@@ -35,11 +35,15 @@ namespace RosterLib
 		private void InitialiseThePipeLine()
 		{
 			pipeline = new PipeLine<PlayerGameProjectionMessage>();
-			pipeline.Register( msg => new GetGamePrediction( msg ) );
-			pipeline.Register( msg => new ClearGameMetrics( msg ) );
+			pipeline.Register( 
+				msg => new GetGamePrediction( msg ) );
+			pipeline.Register( 
+				msg => new ClearGameMetrics( msg ) );
 			//  this takes most of the time
-			pipeline.Register( msg => new PullMetricsFromPrediction( msg ) );
-			pipeline.Register( msg => new SavePlayerGameMetrics( msg ) );
+			pipeline.Register( 
+				msg => new PullMetricsFromPrediction( msg ) );
+			pipeline.Register( 
+				msg => new SavePlayerGameMetrics( msg ) );
 		}
 	}
 

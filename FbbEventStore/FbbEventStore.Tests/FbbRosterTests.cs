@@ -34,6 +34,14 @@ namespace FbbEventStore.Tests
 		}
 
 		[TestMethod]
+		public void FbbEventStore_KnowsMlbTeamForJoshBell()
+		{
+			var result = _sut.GetMlbTeam("Josh Bell");
+			Assert.AreEqual("Pit", result);
+		}
+
+
+		[TestMethod]
 		public void FbbEventStore_KnowsRosterForTc()
 		{
 			var result = _sut.GetRoster("TC");
@@ -65,35 +73,35 @@ namespace FbbEventStore.Tests
 		{
 			var plyrs = new List<Closer>
 			{
-				new Closer("Greg Holland", "AD", "weak"),
+				new Closer("Greg Holland",       "AD", "strong"),
 				new Closer( "A.J. Minter",       "AB", "weak" ),
 				new Closer( "Mychal Givens",     "BO", "committee" ),
-				new Closer( "Matt Barnes",       "BRS",  "committee" ),
-				new Closer( "Pedro Strop",       "CHC", "weak" ),
+				new Closer( "Ryan Brasier",      "BRS",  "medium" ),
+				new Closer( "Steve Cishek",       "CHC", "medium" ),
 				new Closer( "Raisel Iglesias",   "CR", "strong" ),
 				new Closer( "Brad Hand",         "CI", "strong" ),
 				new Closer( "Wade Davis",        "COL", "strong" ),
-				new Closer( "Alex Colome",       "CWS", "weak" ),
-				new Closer( "Shane Green",       "DT", "weak" ),
+				new Closer( "Alex Colome",       "CWS", "strong" ),
+				new Closer( "Shane Greene",       "DT", "strong" ),
 				new Closer( "Roberto Osuna",     "HA", "strong" ),
-				new Closer( "Wily Peralta",      "KC", "committee" ),
-				new Closer( "Cody Allen",        "LAA", "medium" ),
+				new Closer( "Ian Kennedy",       "KC", "committee" ),
+				new Closer( "Hansel Robles",     "LAA", "medium" ),
 				new Closer( "Kenley Jansen",     "LAD", "strong" ),
-				new Closer( "Sergio Romo",       "MIA", "committee" ),
-				new Closer( "Josh Hader",        "MB", "committee" ),
-				new Closer( "Taylor Rogers",     "MT", "committee" ),
+				new Closer( "Sergio Romo",       "MIA", "weak" ),
+				new Closer( "Josh Hader",        "MB", "weak" ),
+				new Closer( "Blake Parker",      "MT", "weak" ),
 				new Closer( "Edwin Diaz",        "NYM", "strong" ),
 				new Closer( "Aroldis Chapman",   "NYY", "strong" ),
 				new Closer( "Blake Trienen",     "OA", "strong" ),
-				new Closer( "Seranthony Dominguez","PHP", "committee" ),
+				new Closer( "Hector Neris",      "PHP", "weak" ),
 				new Closer( "Felipe Vazquez",    "PIT", "strong" ),
 				new Closer( "Kirby Yates",       "SD", "strong" ),
 				new Closer( "Anthony Swarzak",   "SM", "committee" ),
-				new Closer( "Will Smith",        "SF", "weak" ),
-				new Closer( "Jordan Hicks",      "SLC", "weak" ),
-				new Closer( "Jose Alvarado",     "Tam", "weak" ),
+				new Closer( "Will Smith",        "SF", "strong" ),
+				new Closer( "Jordan Hicks",      "SLC", "medium" ),
+				new Closer( "Jose Alvarado",     "Tam", "committee" ),
 				new Closer( "Jose Leclerc",       "TR", "strong" ),
-				new Closer( "Ken Giles",         "TB", "medium" ),
+				new Closer( "Ken Giles",         "TB", "strong" ),
 				new Closer( "Sean Doolittle",    "Wsh", "strong" )
 			};
 

@@ -350,13 +350,18 @@ namespace RosterLib.RosterGridReports
 			bool bLinks = true)
 		{
 			var nextOppTeam = player.NextOpponentTeam( game );
-			var plusMatchup = PlusMatchup( player, nextOppTeam, player.CurrTeam );
+			var plusMatchup = PlusMatchup(
+				player,
+				nextOppTeam,
+				player.CurrTeam);
 			var matchupLink = nextOppTeam.DefensiveUnitMatchUp( 
                 player.PlayerCat, 
                 plusMatchup,
 				bLinks );
 			var owners = player.LoadAllOwners();
-			calculator.Calculate( player, game );
+			calculator.Calculate(
+				player,
+				game);
 			var namePart = bLinks 
 				? $"<a href='..\\Roles\\{player.TeamCode}-Roles-{Week - 1:0#}.htm'>{player.PlayerNameTo(11)}</a>"
 				: $"{player.PlayerNameTo(11)}";

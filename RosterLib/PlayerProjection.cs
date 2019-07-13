@@ -23,7 +23,9 @@ namespace RosterLib
 			Logger = LogManager.GetCurrentClassLogger();
 		}
 
-		public PlayerProjection( NFLPlayer player, string season )
+		public PlayerProjection(
+			NFLPlayer player,
+			string season)
 		{
 			Player = player;
 			Season = season;
@@ -72,7 +74,13 @@ namespace RosterLib
 
 		public string FileName()
 		{
-			return $"{Utility.OutputDirectory()}{Season}//PlayerProjections//{Player.PlayerCode}.htm";
+			return $@"{
+				Utility.OutputDirectory()
+				}{
+				Season
+				}//PlayerProjections//{
+				Player.PlayerCode
+				}.htm";
 		}
 
 		private DataTable BuildTable()

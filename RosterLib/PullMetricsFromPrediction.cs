@@ -12,7 +12,8 @@ namespace RosterLib
 		private IDictionary<RunApproach, IAllocateTDrStrategy> tdrAllocationStrategies;
 		private IDictionary<RunApproach, IAllocateYDrStrategy> ydrAllocationStrategies;
 
-		public PullMetricsFromPrediction( PlayerGameProjectionMessage input )
+		public PullMetricsFromPrediction(
+			PlayerGameProjectionMessage input )
 		{
 			Logger = LogManager.GetCurrentClassLogger();
 			tdrAllocationStrategies = new Dictionary<RunApproach, IAllocateTDrStrategy>
@@ -35,7 +36,10 @@ namespace RosterLib
 			if ( input.Game == null ) return;
 
 			Logger.Trace( $"Processing {input.Game.GameCodeOut()}:{input.Game.GameName()}" );
-			DoRushingUnit( input, input.Game.HomeNflTeam.TeamCode, isHome: true );
+			DoRushingUnit(
+				input: input,
+				teamCode: input.Game.HomeNflTeam.TeamCode,
+				isHome: true);
 			DoRushingUnit( input, input.Game.AwayNflTeam.TeamCode, isHome: false );
 
 			DoPassingUnit( input, input.Game.HomeNflTeam.TeamCode, isHome: true );

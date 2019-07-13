@@ -19,7 +19,8 @@ namespace RosterLib
 
 		public List<String> Errors { get; set; }
 
-		public DepthChartReport( IKeepTheTime timekeeper ) : base( timekeeper )
+		public DepthChartReport( 
+			IKeepTheTime timekeeper ) : base( timekeeper )
 		{
 			Name = "Depth Charts";
 			TeamCode = "SF";
@@ -66,7 +67,8 @@ namespace RosterLib
 
 		private bool IsYahooSeason()
 		{
-			var currentWeek = TimeKeeper.CurrentWeek(TimeKeeper.CurrentDateTime());
+			var currentWeek = TimeKeeper.CurrentWeek(
+				TimeKeeper.CurrentDateTime());
 			if (currentWeek > 0 && currentWeek < 17)
 				return true;
 			return false;
@@ -177,7 +179,9 @@ namespace RosterLib
 			return $"<a href='..\\playerprojections\\{player.PlayerCode}.htm'>{player.PlayerName}</a>";
 		}
 
-		private static object GetPlayerKeys( IEnumerable<NFLPlayer> playerList, string posDesc )
+		private static object GetPlayerKeys( 
+			IEnumerable<NFLPlayer> playerList, 
+			string posDesc )
 		{
 			var playerKeys = new StringBuilder();
 			foreach ( var player in playerList )
@@ -228,11 +232,13 @@ namespace RosterLib
 		}
 
 		/// <summary>
-		///   Will apply rules oon Roles
+		///   Will apply rules on Roles
 		/// </summary>
 		/// <param name="posDesc"></param>
 		/// <param name="playerList"></param>
-		private void ApplyRules( string posDesc, List<NFLPlayer> playerList )
+		private void ApplyRules(
+			string posDesc,
+			List<NFLPlayer> playerList)
 		{
 			//  missing spots rules:-
 			//  must have Q1, R1, W1, W2, TE, PK

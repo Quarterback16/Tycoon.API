@@ -298,7 +298,9 @@ namespace SeasonHtml
 			return "</TD>";
 		}
 
-		public static string TableDataAttr(string strData, string strAttr)
+		public static string TableDataAttr(
+			string strData,
+			string strAttr)
 		{
 			return "<TD " + strAttr + ">" + strData + "</TD>";
 		}
@@ -335,7 +337,9 @@ namespace SeasonHtml
 
 		public static string TableHeader(string strHeader)
 		{
-			return string.Format(TableHeaderOpen() + "{0}" + TableHeaderClose(), strHeader);
+			return string.Format(
+				TableHeaderOpen() + "{0}" + TableHeaderClose(),
+				strHeader);
 		}
 
 		public static string TableHeaderOpen()

@@ -93,6 +93,8 @@ namespace RosterLib
 
 		public int TotYdp { get; set; }
 
+		public int TotPasses { get; set; }
+
 		public int TotYDpAllowed { get; set; }
 
 		public int TotTDpAllowed { get; set; }
@@ -859,7 +861,10 @@ namespace RosterLib
 
 		public string RatingPts()
 		{
-			if ( string.IsNullOrEmpty( Ratings ) ) SetRecord( Utility.LastSeason(), skipPostseason: false );
+			if ( string.IsNullOrEmpty( Ratings ) )
+				SetRecord(
+					Utility.LastSeason(),
+					skipPostseason: false);
 			int i;
 			int nPts = 0;
 			for ( i = 0; i < 6; i++ )
@@ -5341,10 +5346,12 @@ namespace RosterLib
 		{
 			foreach ( NFLGame game in GameList )
 			{
-				TraceIt( $"Tallying stats for {game}" );
+				//TraceIt( $"Tallying stats for {game}" );
 
 				game.MetricsCalculated = false;  //  force the calcs
-				game.TallyMetrics( metric: string.Empty, breakdowns: breakdowns );
+				game.TallyMetrics(
+					metric: string.Empty,
+					breakdowns: breakdowns);
 				game.TallyStatsFor( this );
 			}
 		}

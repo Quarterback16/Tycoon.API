@@ -8,7 +8,8 @@ namespace RosterLib
 {
 	public class GoallineReport : RosterGridReport, IHtmlReport
 	{
-		public GoallineReport( IKeepTheTime timekeeper ) : base( timekeeper )
+		public GoallineReport( IKeepTheTime timekeeper )
+			: base( timekeeper )
 		{
 			Name = "Goalline Report";
 			Season = timekeeper.Season;
@@ -51,12 +52,17 @@ namespace RosterLib
 			return FileOut;
 		}
 
-		private static void AddWeeklyColumns( SimpleTableReport str )
+		private static void AddWeeklyColumns( 
+			SimpleTableReport str )
 		{
 			for ( int i = 1; i < 18; i++ )
 			{
-				var fieldName = string.Format( "Wk{0:0#}", i );
-				str.AddColumn( new ReportColumn( fieldName, fieldName, "{0}" ) );
+				var fieldName = $"Wk{i:0#}";
+				str.AddColumn( 
+					new ReportColumn(
+						header: fieldName,
+						source: fieldName,
+						format: "{0}" ) );
 			}
 		}
 
@@ -74,7 +80,9 @@ namespace RosterLib
 			return dt;
 		}
 
-		private void LoadDataTable( DataTable dt, DataSet scores )
+		private void LoadDataTable(
+			DataTable dt,
+			DataSet scores)
 		{
 			var scoresTable = scores.Tables[ 0 ];
 
@@ -101,16 +109,19 @@ namespace RosterLib
 			return dt;
 		}
 
-		private void AddWeeklyReportCols( DataColumnCollection cols )
+		private void AddWeeklyReportCols( 
+			DataColumnCollection cols )
 		{
 			for ( int i = 1; i < 18; i++ )
 			{
-				var fieldName = string.Format( "Wk{0:0#}", i );
+				var fieldName = $"Wk{i:0#}";
 				cols.Add( fieldName, typeof( String ) );
 			}
 		}
 
-		private void AddWeeklyScorers( DataRow dr, KeyValuePair<string, NflTeam> team )
+		private void AddWeeklyScorers( 
+			DataRow dr, 
+			KeyValuePair<string, NflTeam> team )
 		{
 			var theTeam = team.Value;
 			IDictionaryEnumerator myEnumerator = theTeam.MetricsHt.GetEnumerator();
@@ -128,13 +139,14 @@ namespace RosterLib
 			var scoreType = dr[ "SCORE" ].ToString();
 			var distance = dr[ "DISTANCE" ].ToString();
 			var teamCode = dr[ "TEAM" ].ToString();
-			var weekNo = System.Convert.ToInt32( dr[ "WEEK" ].ToString() );
+			var weekNo = Convert.ToInt32( dr[ "WEEK" ].ToString() );
 
 			if ( TeamList.ContainsKey( teamCode ) )
 			{
 				var t = TeamList[ teamCode ];
 
-				if ( scoreType.Equals( Constants.K_SCORE_TD_RUN ) && distance == "1" )
+				if ( scoreType.Equals( Constants.K_SCORE_TD_RUN )
+					&& distance == "1" )
 				{
 					if ( weekNo < 18 )
 					{
@@ -146,7 +158,9 @@ namespace RosterLib
 			}
 		}
 
-		private static void AddGoallineScorer( DataRow dr, NflTeam t )
+		private static void AddGoallineScorer(
+			DataRow dr,
+			NflTeam t)
 		{
 			var scorer = dr[ "PLAYERID1" ].ToString();
 			var player = new NFLPlayer( scorer );
@@ -158,7 +172,10 @@ namespace RosterLib
 				t.MetricsHt.Add( htKey, scorer );
 		}
 
-		private static void AppendScorer( NflTeam t, string scorer, string htKey )
+		private static void AppendScorer(
+			NflTeam t,
+			string scorer,
+			string htKey)
 		{
 			var oldScorer = t.MetricsHt[ htKey ];
 			t.MetricsHt[ htKey ] = oldScorer + "<br>" + scorer;
@@ -172,9 +189,11 @@ namespace RosterLib
 
 			foreach ( DataRow dr in dt.Rows )
 			{
-				var t = new NflTeam( dr[ "TEAMID" ].ToString(), Season,
-												 Int32.Parse( dr[ "WINS" ].ToString() ),
-												 dr[ "TEAMNAME" ].ToString() )
+				var t = new NflTeam(
+					dr["TEAMID"].ToString(),
+					Season,
+					Int32.Parse(dr["WINS"].ToString()),
+					dr["TEAMNAME"].ToString())
 				{
 					MetricsHt = new Hashtable()
 				};

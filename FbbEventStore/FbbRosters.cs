@@ -36,6 +36,34 @@ namespace FbbEventStore
 			}
 		}
 
+		public string GetMlbTeam(string playerName)
+		{
+			var mlbTeam = "???";
+			foreach (var move in RosterMoves)
+			{
+				if (move.Player.Equals(playerName))
+				{
+					mlbTeam = move.MlbTeam;
+					break;
+				}
+			}
+			return mlbTeam;
+		}
+
+		public string GetPosition(string playerName)
+		{
+			var position = "???";
+			foreach (var move in RosterMoves)
+			{
+				if (move.Player.Equals(playerName))
+				{
+					position = move.Position;
+					break;
+				}
+			}
+			return position;
+		}
+
 		public string GetOwnerOf(string player)
 		{
 			var owner = "FA";
@@ -115,11 +143,12 @@ namespace FbbEventStore
 			return Roster[fteam];
 		}
 
-		public int BatterNumber(
+		public int JerseyNumber(
 			string fteam,
-			string playerName)
+			string playerName,
+			bool isBatter)
 		{
-			var batterNumber = 0;
+			var jerseyNumber = 0;
 			Roster.Clear();
 			foreach (var move in RosterMoves)
 			{
@@ -131,23 +160,36 @@ namespace FbbEventStore
 
 				if (!Roster.ContainsKey(fteam))
 					Roster.Add(fteam, new List<string>());
-				if (IsBatter(move.Position))
+				if (isBatter)
 				{
-					var direction = move.Direction;
-					if (direction.Equals("IN"))
+					if (IsBatter(move.Position))
 					{
-						batterNumber++;
-						Roster[fteam].Add(move.Player);
-						if (move.Player.Equals(playerName))
-							return batterNumber;
+						var direction = move.Direction;
+						if (direction.Equals("IN"))
+						{
+							jerseyNumber++;
+							Roster[fteam].Add(move.Player);
+							if (move.Player.Equals(playerName))
+								return jerseyNumber;
+						}
 					}
-					//if (direction.Equals("OUT"))
-					//{
-					//	Roster[fteam].Remove(move.Player);
-					//}
+				}
+				else
+				{
+					if (!IsBatter(move.Position))
+					{
+						var direction = move.Direction;
+						if (direction.Equals("IN"))
+						{
+							jerseyNumber++;
+							Roster[fteam].Add(move.Player);
+							if (move.Player.Equals(playerName))
+								return jerseyNumber;
+						}
+					}
 				}
 			}
-			return batterNumber;
+			return jerseyNumber;
 		}
 
 		private bool IsBatter(string position)

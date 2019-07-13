@@ -5,11 +5,6 @@ using RosterLib.Helpers;
 
 namespace RosterLib
 {
-   /// <summary>
-   ///   Simple table report on who will get all the FP for a given week
-   ///   1) Implement Render
-   ///   2) Implement Build Table
-   /// </summary>
    public class FantasyProjectionReport 
    {
       public string Season { get; set; }
@@ -24,8 +19,11 @@ namespace RosterLib
       public List<PlayerGameMetrics> PgmList { get; set; }
       public IRatePlayers Scorer { get; set; }
 
-      public FantasyProjectionReport( string season, string week, IPlayerGameMetricsDao dao,
-         IRatePlayers scorer )
+      public FantasyProjectionReport(
+		  string season,
+		  string week,
+		  IPlayerGameMetricsDao dao,
+		  IRatePlayers scorer)
       {
          Season = season;
          Week = ( week.Length == 1 ) ? "0" + week: week;
@@ -108,7 +106,9 @@ namespace RosterLib
             var game = new NFLGame( pgm.GameKey );
             p.LoadProjections( pgm );
 
-            var opponent = p.CurrTeam.OpponentFor( Season, Int32.Parse( Week ) );
+            var opponent = p.CurrTeam.OpponentFor(
+				Season,
+				Int32.Parse(Week));
             //  player actually available
             dr[ "PLAYER" ] = p.Url( p.PlayerName, forceReport: false );
             dr[ "TEAM" ] = p.CurrTeam.TeamCode;
@@ -138,7 +138,8 @@ namespace RosterLib
 
       public void Render()
       {
-         var str = new SimpleTableReport( string.Format( "FP Projection {0}-{1}", Season, Week ) )
+         var str = new SimpleTableReport( 
+			 $"FP Projection {Season}-{Week}" )
          { 
             ReportHeader = string.Format( "Run Date: {0: dddd dd MMM yyyy}", DateTime.Now ) 
          };

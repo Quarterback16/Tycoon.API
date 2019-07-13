@@ -64,9 +64,12 @@ namespace Gerard.HostServer
 					var player = new Player
 					{
 						Name = $"{playerDto.FirstName} {playerDto.LastName}",
-						BirthDate = DateTime.Parse(playerDto.BirthDate),
 						IsActive = playerDto.Active
 					};
+					if (playerDto.BirthDate != null)
+					{
+						player.BirthDate = DateTime.Parse(playerDto.BirthDate);
+					}
 
 					result = player;
 					break;

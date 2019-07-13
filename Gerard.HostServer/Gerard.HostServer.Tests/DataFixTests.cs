@@ -59,8 +59,8 @@ namespace Gerard.HostServer.Tests
 		{
 			var command = new DataFixCommand
 			{
-				FirstName = "Joe",
-				LastName = "Montana",
+				FirstName = "Nick",
+				LastName = "Bosa",
 				TeamCode = "SF"
 			};
 			var player = _sut.GetPlayer(command);
@@ -72,6 +72,20 @@ namespace Gerard.HostServer.Tests
 				player,
 				statPlayer);
 
+			Assert.IsTrue(result);
+		}
+
+
+		[TestMethod]
+		public void Fixer_CanApply_Ok()
+		{
+			var command = new DataFixCommand
+			{
+				FirstName = "Kenny",
+				LastName = "Young",
+				TeamCode = "BR"
+			};
+			var result = _sut.ApplyFix(command);
 			Assert.IsTrue(result);
 		}
 	}
