@@ -54,7 +54,7 @@ namespace Gerard.HostServer
 				return false;
 			}
 			else
-				Log.Info($"Birthdate for {dataFixCommand} is {statPlayer.BirthDate:yyyy-MM-dd}");
+				Log.Info($"  > Birthdate for {dataFixCommand} is {statPlayer.BirthDate:yyyy-MM-dd}");
 
 			PutDob(player, statPlayer);
 			return result;
@@ -71,7 +71,8 @@ namespace Gerard.HostServer
 			return true;
 		}
 
-		public Player GetStatleshipPlayer(DataFixCommand dataFixCommand)
+		public Player GetStatleshipPlayer(
+			DataFixCommand dataFixCommand)
 		{
 			var query = new PlayerQuery(
 				teamCode: dataFixCommand.TeamCode,

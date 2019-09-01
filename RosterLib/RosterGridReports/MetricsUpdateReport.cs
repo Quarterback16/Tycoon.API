@@ -13,18 +13,16 @@ namespace RosterLib.RosterGridReports
 
 		public IPlayerGameMetricsDao Dao { get; set; }
 
-		public MetricsUpdateReport( IKeepTheTime timekeeper ) : base( timekeeper )
+		public MetricsUpdateReport(
+			IKeepTheTime timekeeper ) : base( timekeeper )
 		{
 			Name = "Metrics Update Report";
 			Season = timekeeper.CurrentSeason();
-			Week = new NFLWeek( Season, timekeeper.PreviousWeek() );
+			Week = new NFLWeek( 
+				Season, 
+				timekeeper.PreviousWeek() );
 			Scorer = new YahooScorer( Week );
 			Dao = new DbfPlayerGameMetricsDao();
-		}
-
-		public override string OutputFilename()
-		{
-			return $"{Utility.OutputDirectory()}{Season}/{Name}.htm";
 		}
 
 		public override void RenderAsHtml()

@@ -48,7 +48,8 @@ namespace Gerard.HostServer
 			};
 		}
 
-		public Player Handle(PlayerQuery query)
+		public Player Handle(
+			PlayerQuery query)
 		{
 			var rosterRequest = new RosterRequest();
 			var roster = rosterRequest.LoadData(
@@ -68,6 +69,7 @@ namespace Gerard.HostServer
 					};
 					if (playerDto.BirthDate != null)
 					{
+						Console.WriteLine($"found {player.Name} dob {playerDto.BirthDate}");
 						player.BirthDate = DateTime.Parse(playerDto.BirthDate);
 					}
 

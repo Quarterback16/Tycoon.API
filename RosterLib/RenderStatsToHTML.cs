@@ -1,4 +1,5 @@
 ﻿using NLog;
+using RosterLib.Interfaces;
 using System;
 using System.Collections;
 using System.Data;
@@ -92,7 +93,9 @@ namespace RosterLib
 			return FileOut;
 		}
 
-		public DataSet LoadData( ArrayList plyrList, IRatePlayers scorer )
+		public DataSet LoadData(
+			ArrayList plyrList,
+			IRatePlayers scorer)
 		{
 			var ds = new DataSet();
 			var dt = new DataTable();
@@ -121,29 +124,44 @@ namespace RosterLib
 			}
 
 			cols.Add( "Points", typeof( Decimal ) );
-			cols.Add( "PFP", typeof( Decimal ) );
+			cols.Add( "AgeRate", typeof( Decimal ) );
 			cols.Add( "ADP", typeof( Int32 ) );
 
 			if ( Season == null ) Season = Utility.CurrentSeason();
 
 			foreach ( NFLPlayer p in plyrList )
 			{
-				if (p.TotStats == null) p.LoadPerformances(false, true, Season); //  to get the stats
+				if (p.TotStats == null)
+					p.LoadPerformances(
+						allGames: false,
+						currSeasonOnly: true,
+						whichSeason: Season); //  to get the stats
 
 				//  rate the last whatevr weeks
 				var theWeek = WeekMaster != null ?
-				   WeekMaster.GetWeek(Season, Week) : new NFLWeek(Int32.Parse(Season), Week, loadGames: true);
+				   WeekMaster.GetWeek(Season, Week) 
+				   : new NFLWeek(
+					   Int32.Parse(Season),
+					   Week,
+					   loadGames: true);
 
 				var totPoints = 0M;
 				for (var w = WeeksToGoBack; w > 0; w--)
 				{
-					if (scorer != null) scorer.RatePlayer(p, theWeek);
+					if (scorer != null) scorer.RatePlayer(
+						p,
+						theWeek);
 					totPoints += p.Points;
-					theWeek = WeekMaster != null ? WeekMaster.PreviousWeek(theWeek)
-					   : theWeek.PreviousWeek(theWeek, false, false);
+					theWeek = WeekMaster != null 
+						? WeekMaster.PreviousWeek(theWeek)
+					   : theWeek.PreviousWeek(
+						   theWeek: theWeek,
+						   loadgames: false,
+						   regularSeasonGamesOnly: false);
 				}
 
-				if (totPoints <= 0 && SupressZeros) continue;
+				if (totPoints <= 0 && SupressZeros)
+					continue;
 
 				DataRow dr = PopulatePlayerRow(dt, p, totPoints);
 				dt.Rows.Add(dr);
@@ -153,7 +171,10 @@ namespace RosterLib
 			return ds;
 		}
 
-		private DataRow PopulatePlayerRow(DataTable dt, NFLPlayer p, decimal totPoints)
+		private DataRow PopulatePlayerRow(
+			DataTable dt,
+			NFLPlayer p,
+			decimal totPoints)
 		{
 			var dr = dt.NewRow();
 			dr["Name"] = p.ProjectionLink(Season);
@@ -181,7 +202,7 @@ namespace RosterLib
 			}
 
 			dr["Points"] = totPoints;
-			dr["PFP"] = p.Rating;
+			dr["AgeRate"] = p.AgeRating();
 			dr["ADP"] = p.Adp;
 			return dr;
 		}
@@ -190,7 +211,7 @@ namespace RosterLib
 		{
 			if (adp < 0) return string.Empty;
 			var round = (adp / 12) + 1 ;
-			var remainder = 0;
+			int remainder;
 			if (round == 1)
 				remainder = adp;
 			else
@@ -204,7 +225,8 @@ namespace RosterLib
 			string sHead, 
 			[Optional] string sortOrder,
 		    IRatePlayers scorer, 
-			IWeekMaster weekMaster )
+			IWeekMaster weekMaster,
+			IAdpMaster adpMaster = null)
 		{
 			//  Output the list
 			Utility.Announce("PlayerListing " + sHead);
@@ -214,11 +236,13 @@ namespace RosterLib
 			var ds = LoadProjectedData(
 				plyrList: playerList,
 				scorer: scorer,
-				weekMaster: weekMaster); 
+				weekMaster: weekMaster,
+				adpMaster: adpMaster); 
 
 			var dt = ds.Tables[0];
 			dt.DefaultView.Sort = LongStats
-			   ? (string.IsNullOrEmpty(sortOrder) ? "Points DESC" : sortOrder) : "Points DESC";
+			   ? (string.IsNullOrEmpty(sortOrder) 
+			   ? "Points DESC" : sortOrder) : "Points DESC";
 
 			r.LoadBody(dt); //  just assigns the data table
 			FileOut = $@"{
@@ -275,7 +299,7 @@ namespace RosterLib
 				r.AddColumn(new ReportColumn("Fg", "Fg", "{0,5}"));
 			}
 			r.AddColumn(new ReportColumn("Points", "POINTS", "{0,5}"));
-			r.AddColumn(new ReportColumn("PFP", "PFP", "{0,5}"));
+			r.AddColumn(new ReportColumn("AgeRate", "AgeRate", "{0,5}"));
 			r.AddColumn(new ReportColumn("ADP", "ADP", "{0,5}"));
 			return r;
 		}
@@ -283,13 +307,15 @@ namespace RosterLib
 		public DataSet LoadProjectedData(
 			ArrayList plyrList, 
 			IRatePlayers scorer, 
-			IWeekMaster weekMaster )
+			IWeekMaster weekMaster,
+			IAdpMaster adpMaster = null)
 		{
 			var ds = new DataSet();
 			var dt = new DataTable();
 			DefineReportColumns(dt);
 
-			if (Season == null) Season = Utility.CurrentSeason();
+			if (Season == null)
+				Season = Utility.CurrentSeason();
 
 			var dao = new DbfPlayerGameMetricsDao();
 
@@ -306,8 +332,8 @@ namespace RosterLib
 						week: nWeek);
 
 					//  We are only concerned with the first 4 weeks
-					if (nWeek > 4)
-						continue;
+					//if (nWeek > 4)
+					//	continue;
 
 					// if there is no scorer it just reads the stats, 
 					// this is what we want
@@ -316,7 +342,8 @@ namespace RosterLib
 					else
 						scorer.RatePlayer(p, theWeek);
 
-					if (p.TotStats == null) p.TotStats = new PlayerStats();
+					if (p.TotStats == null)
+						p.TotStats = new PlayerStats();
 					p.TotStats.Tdp += pgm.ProjTDp;
 					p.TotStats.YDp += pgm.ProjYDp;
 					p.TotStats.Tdr += pgm.ProjTDr;
@@ -334,7 +361,8 @@ namespace RosterLib
 					dr["Pos"] = p.PlayerPos;
 					dr["Role"] = p.RoleOut();
 					dr["RookieYr"] = p.RookieYear;
-					dr["CurrTeam"] = p.TeamCode;
+					dr["CurrTeam"] = p.TeamCode 
+						+ (p.IsNewbie() ? "*" : string.Empty);
 					if (ShowOpponent)
 					{
 						dr["Opponent"] = p.Opponent;
@@ -359,12 +387,18 @@ namespace RosterLib
 						dr["YDc"] = p.TotStats.YDc;
 						dr["Fg"] = p.TotStats.Fg;
 						dr["Health"] = p.HealthRating();
-						dr["AdjProj"] = p.HealthRating() * totPoints;
+						dr["AdjProj"] = totPoints
+							* p.HealthRating()
+							* p.AgeRating()
+							* 1.0M - p.NewbieModifier();
 					}
 
 					dr["Points"] = totPoints;
-					dr["PFP"] = p.Rating;
+					dr["AgeRate"] = p.AgeRating();
 					dr["Adp"] = AsDraftRound(p.Adp);
+					if (adpMaster != null)
+						dr["Adp"] = adpMaster.GetAdp(
+							p.PlayerName);
 					dt.Rows.Add(dr);
 					Logger.Trace($"{p.PlayerName:-20} {totPoints:0.0}");
 				}
@@ -408,7 +442,7 @@ namespace RosterLib
 			}
 
 			cols.Add("Points", typeof(Decimal));
-			cols.Add("PFP", typeof(Int32));
+			cols.Add("AgeRate", typeof(Decimal));
 			cols.Add("Adp", typeof(string));
 		}
 	}

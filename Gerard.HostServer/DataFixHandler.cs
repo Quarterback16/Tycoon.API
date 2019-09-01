@@ -14,6 +14,9 @@ namespace Gerard.HostServer
 
 		public DataFixHandler()
 		{
+			if (Logger == null)
+				Logger = LogManager.GetCurrentClassLogger();
+
 			var lib = new DataLibrarian(
 				nflConnection: Utility.NflConnectionString(),
 				tflConnection: Utility.TflConnectionString(),

@@ -1,4 +1,5 @@
 ﻿using RosterLib.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace RosterLib
@@ -13,26 +14,51 @@ namespace RosterLib
 
 		public bool DoProjections { get; set; }
 
-		public PlayerCsv(IKeepTheTime timekeeper) : base(timekeeper)
+		public IAdpMaster AdpMaster { get; set; }
+
+		public PlayerCsv(
+			IKeepTheTime timekeeper,
+			IAdpMaster adpMaster) : base(timekeeper)
 		{
 			Name = "Players CSV";
 			SetLastRunDate();
+			AdpMaster = adpMaster;
 			Lister = new PlayerLister();
 			Configs = new List<StarterConfig>
 		 {
-			new StarterConfig {Category = Constants.K_QUARTERBACK_CAT, Position = "QB"},
-
+			new StarterConfig
+			{
+				Category = Constants.K_QUARTERBACK_CAT,
+				Position = "QB"
+			},
 #if !DEBUG2
-			new StarterConfig {Category = Constants.K_RUNNINGBACK_CAT, Position = "RB"},
-			new StarterConfig {Category = Constants.K_RECEIVER_CAT, Position = "WR"},
-			new StarterConfig {Category = Constants.K_RECEIVER_CAT, Position = "TE"},
-			new StarterConfig {Category = Constants.K_KICKER_CAT, Position = "K"}
+			new StarterConfig
+			{
+				Category = Constants.K_RUNNINGBACK_CAT,
+				Position = "RB"
+			},
+			new StarterConfig
+			{
+				Category = Constants.K_RECEIVER_CAT,
+				Position = "WR"
+			},
+			new StarterConfig
+			{
+				Category = Constants.K_RECEIVER_CAT,
+				Position = "TE"
+			},
+			new StarterConfig
+			{
+				Category = Constants.K_KICKER_CAT,
+				Position = "K"
+			}
 #endif
 			};
 		}
 
 		public override void RenderAsHtml()
 		{
+			Console.WriteLine($"Projections = {DoProjections}");
 			RenderPlayerCsv();
 		}
 
@@ -62,8 +88,8 @@ namespace RosterLib
 			{
 				Lister.Collect(
 					sc.Category, 
-					sc.Position, 
-					string.Empty);
+					sc.Position,
+					fantasyLeague: string.Empty);
 			}
 
 			Lister.Folder = "Starters";
@@ -72,7 +98,10 @@ namespace RosterLib
 			Lister.FantasyLeague = "YH";
 
 			var fileOut = DoProjections ?
-			   Lister.RenderProjection("PlayerCsv", weekMaster)
+			   Lister.RenderProjection(
+				   "PlayerCsv", 
+				   weekMaster,
+				   AdpMaster)
 			   : Lister.Render("PlayerCsv");
 
 			Lister.Clear();

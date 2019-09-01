@@ -49,9 +49,15 @@ namespace RosterLib
 
 		private void GenerateReport( StarterConfig rpt )
 		{
-			Logger.Info( "Generating Starter report {0} for {1}", rpt.Category, LeagueCode );
+			Logger.Info(
+				"Generating Starter report {0} for {1}",
+				rpt.Category,
+				LeagueCode);
 			WriteProjectionReports = true;  //  Will gnerate a page for each player
-			RenderStarters( rpt.Category, rpt.Position, LeagueCode );
+			RenderStarters(
+				rpt.Category,
+				rpt.Position,
+				LeagueCode);
 		}
 
 		public string RenderStarters(

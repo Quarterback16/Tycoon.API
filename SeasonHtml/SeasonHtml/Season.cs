@@ -33,6 +33,11 @@ namespace SeasonHtml
 			return $"nfl-{Year}.htm";
 		}
 
+		private string LastTwoYear()
+		{
+			return Year.ToString().Substring(2,2);
+		}
+
 		private void Body()
 		{
 			HtmlFile.AddToBody(Heading());
@@ -42,11 +47,164 @@ namespace SeasonHtml
 			HtmlFile.AddToBody(PreseasonReports());
 
 			HtmlFile.AddToBody(NflTeamReports());
+			HtmlFile.AddToBody(RostersByPosition());
 
 			HtmlFile.AddToBody(WeeklyReports());
 
 			HtmlFile.AddToBody(HtmlLib.DivClose());
 			HtmlFile.AddToBody(HtmlLib.DivClose());
+		}
+
+		private string RostersByPosition()
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.DivOpen(string.Empty));
+			AddLine(sb, SubHeading("Rosters by Position"));
+			AddLine(sb, HtmlLib.TableWithBorderOpen());
+			string[] headerParams = { "Scope", "QB", "RB", "WR", "TE", "PK" };
+			AddLine(sb, TableHeader(headerParams));
+			AddLine(sb, RosterLine("G1-Hotlist"));
+			AddLine(sb, OldRosters("G1"));
+			AddLine(sb, OldRosters("YH"));
+			AddLine(sb, Starters("G1"));
+			AddLine(sb, Rookies("G1"));
+
+			AddLine(sb, HtmlLib.TableClose());
+			AddLine(sb, HtmlLib.DivClose());
+			return sb.ToString();
+		}
+
+		private string Rookies(string league)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"{league}-rookies"));
+			AddLine(sb, HtmlLib.TableData(RookieLink("QB", league)));
+			AddLine(sb, HtmlLib.TableData(RookieLink("RB", league)));
+			AddLine(sb, HtmlLib.TableData(RookieLink("WR", league)));
+			AddLine(sb, HtmlLib.TableData(RookieLink("TE", league)));
+			AddLine(sb, HtmlLib.TableData(RookieLink("PK", league)));
+			return sb.ToString();
+		}
+
+		private string RookieLink(string playerType, string league)
+		{
+			//file:///W:/medialists/dropbox/gridstat/2018/Rookies/G1-Rookies-QB.htm
+			return HtmlLib.Href(
+				$"..\\{Year}\\Rookies\\{league}-Rookies-{playerType}.htm",
+				$"{playerType}");
+		}
+
+		private string Starters(string league)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"{league}-Starters"));
+			AddLine(sb, HtmlLib.TableData(StarterLink("QB", league)));
+			AddLine(sb, HtmlLib.TableData(StarterLink("RB", league)));
+			AddLine(sb, HtmlLib.TableData(StarterLink("WR", league)));
+			AddLine(sb, HtmlLib.TableData(StarterLink("TE", league)));
+			AddLine(sb, HtmlLib.TableData(StarterLink("PK", league)));
+			return sb.ToString();
+		}
+
+		private string StarterLink(string playerType, string league)
+		{
+			return HtmlLib.Href(
+				$"..\\{Year}\\Starters\\{league}-Starters-{playerType}.htm",
+				$"{playerType}");
+		}
+
+		private string OldRosters(string league)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"{league}-{Year}"));
+			AddLine(sb, HtmlLib.TableData(OldRosterLink("QB", league)));
+			AddLine(sb, HtmlLib.TableData(OldRosterLink("RB", league)));
+			AddLine(sb, HtmlLib.TableData(OldRosterLink("WR", league)));
+			AddLine(sb, HtmlLib.TableData(OldRosterLink("TE", league)));
+			AddLine(sb, HtmlLib.TableData(OldRosterLink("PK", league)));
+			return sb.ToString();
+		}
+
+		private string OldRosterLink(string playerType, string league)
+		{
+			return HtmlLib.Href(
+				$"..\\{Year}\\Rosters\\{league}\\Roster-{playerType}.htm",
+				$"{playerType}");
+		}
+
+		private string RosterLine(string lineHeader)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData(lineHeader));
+			AddLine(sb, HtmlLib.TableData(RosterLink("QB")));
+			AddLine(sb, HtmlLib.TableData(RosterLink("RB")));
+			AddLine(sb, HtmlLib.TableData(RosterLink("WR")));
+			AddLine(sb, HtmlLib.TableData(RosterLink("TE")));
+			AddLine(sb, HtmlLib.TableData(RosterLink("PK")));
+			return sb.ToString();
+		}
+
+		private string RosterLink(string playerType)
+		{
+			return HtmlLib.Href(
+				$"..\\{Year}\\HotLists\\HotList-G1-{playerType}.htm",
+				$"{playerType}");
+		}
+
+		private string TableHeader(string[] headerParams)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			foreach (var item in headerParams)
+			{
+				AddLine(sb, HtmlLib.TableHeader(item));
+			}
+			AddLine(sb, HtmlLib.TableRowClose());
+			return sb.ToString();
+		}
+
+		private string TallyStats(StringBuilder sb)
+		{
+			AddLine(sb, ScopeHeader("TFL Tally Stats"));
+			AddLine(sb, TallyLine("Carries","R"));
+			AddLine(sb, TallyLine("Rushing Yards", "Y"));
+			AddLine(sb, TallyLine("Passing Yards", "S"));
+			AddLine(sb, TallyLine("Reception Yards", "G"));
+			AddLine(sb, TallyLine("Interceptions", "M"));
+			AddLine(sb, TallyLine("Sacks", "Q"));
+			return sb.ToString();
+		}
+
+		private string TallyLine(string tallyName, string tally)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData(tallyName));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(TallyLink(i, tally)));
+			AddLine(sb, HtmlLib.TableRowClose());
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"{tallyName}-YTD"));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(TallyLink(i, tally, true)));
+			AddLine(sb, HtmlLib.TableRowClose());
+			return sb.ToString();
+		}
+
+		private string TallyLink(int i, string tally, bool isYtd = false)
+		{
+			var link = $"..\\{K_TflOutputFolder}\\ZT{tally}{LastTwoYear()}{i:0#}";
+			if (isYtd)
+				link = $"{link}Y";
+			return HtmlLib.Href(
+				link + ".txt",
+				$"{i:0#}");
 		}
 
 		private string NflTeamReports()
@@ -195,12 +353,95 @@ namespace SeasonHtml
 			AddLine(sb,	SubHeading("Weekly Reports"));
 			AddLine(sb, HtmlLib.TableWithBorderOpen());
 			AddLine(sb, HtmlLib.TableHeaderOpen());
-			AddLine(sb, ScopeHeader());
+			AddLine(sb, ScopeHeader("Scope"));
 
 			AddLine(sb, PickupCharts());
 			AddLine(sb, RankingMetrics());
+			AddLine(sb, PlayerProjections("QB"));
+			AddLine(sb, PlayerProjections("RB"));
+			AddLine(sb, PlayerProjections("WR"));
+			AddLine(sb, PlayerProjections("TE"));
+			AddLine(sb, PlayerProjections("PK"));
+			AddLine(sb, NibbleTips());
+			DefensiveReports(sb);
+			TallyStats(sb);
 
 			AddLine(sb, HtmlLib.TableClose());
+			return sb.ToString();
+		}
+
+		private string DefensiveReports(StringBuilder sb)
+		{
+			AddLine(sb, ScopeHeader("Defensive Reports"));
+			AddLine(sb, TopDefense());
+			return sb.ToString();
+		}
+
+		private string TopDefense()
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData("In Form D"));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(DefenseLink(i, "Defensive Scoring")));
+			AddLine(sb, HtmlLib.TableRowClose());
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"Patsies"));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(DefenseLink(i, "Team to beat")));
+			AddLine(sb, HtmlLib.TableRowClose());
+			return sb.ToString();
+		}
+
+		private string DefenseLink(int w, string linkName)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.Href(
+				$"..\\{Year}\\defense\\{linkName}-{w:0#}.htm",
+				$"{w:0#}"));
+			return sb.ToString();
+		}
+
+		private string NibbleTips()
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"Nibble tips"));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(NibbleTip(i)));
+			AddLine(sb, HtmlLib.TableRowClose());
+			return sb.ToString();
+		}
+
+		private string NibbleTip(int i)
+		{
+			return HtmlLib.Href(
+				$"..\\{K_TflOutputFolder}\\ZTIPS{i:0#}.txt",
+				$"{i:0#}");
+		}
+
+		private string PlayerProjections(string playerType)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"{playerType} Projections"));
+			for (int i = 0; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(PlayerProjection(i,playerType)));
+			AddLine(sb, HtmlLib.TableRowClose());
+			return sb.ToString();
+		}
+
+		private string PlayerProjection(
+			int i,
+			string playerType)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.Href(
+				$"..\\{Year}\\scorecards\\{playerType}-Week-{i:0#}.htm",
+				$"{i:0#}"));
 			return sb.ToString();
 		}
 
@@ -211,9 +452,7 @@ namespace SeasonHtml
 			AddLine(sb, HtmlLib.TableData("Ranking Metrics"));
 			AddLine(sb, HtmlLib.TableData(string.Empty));
 			for (int i = 1; i < 18; i++)
-			{
 				AddLine(sb, HtmlLib.TableData(RankingMetric(i)));
-			}
 			AddLine(sb, HtmlLib.TableRowClose());
 			return sb.ToString();
 		}
@@ -250,17 +489,15 @@ namespace SeasonHtml
 			return sb.ToString();
 		}
 
-		private string ScopeHeader()
+		private string ScopeHeader(string whatScope)
 		{
 			var sb = new StringBuilder();
 			AddLine(sb, HtmlLib.TableRowOpen());
 			AddLine(sb, HtmlLib.TableRowHeaderOpen("width='100'"));
-			AddLine(sb, "Scope");
+			AddLine(sb, whatScope);
 			AddLine(sb, HtmlLib.TableRowHeaderClose());
 			for (int i = 0; i < 22; i++)
-			{
 				AddLine(sb, HtmlLib.TableHeader($"{i:0#}"));
-			}
 			AddLine(sb, HtmlLib.TableRowClose());
 			return sb.ToString();
 		}

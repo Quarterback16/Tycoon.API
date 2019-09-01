@@ -1313,6 +1313,7 @@ namespace Gerard.HostServer
 
 		public DateTime LastContract(string playerId)
 		{
+			playerId = FixSingleQuotes(playerId);
 			var dateLastContract = new DateTime(1, 1, 1);
 			var keyValue = $"{"LastContract-Date"}:{playerId}";
 

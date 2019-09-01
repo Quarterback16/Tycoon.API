@@ -13,9 +13,10 @@
 			ExaminationEvent transactionEvent,
 			ILog logger)
 		{
-			logger.Info("Processing Retirement");
+			logger.Trace("Processing Retirement");
 
-			var p = TflService.GetNflPlayer(transactionEvent.PlayerId);
+			var p = TflService.GetNflPlayer(
+				transactionEvent.PlayerId);
 
 			return TflService.EndContract(
 				p,

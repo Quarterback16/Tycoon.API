@@ -127,6 +127,7 @@
     <Compile Include="GridStatsOutput.cs" />
     <Compile Include="GS4Scorer.cs" />
     <Compile Include="GSTeam.cs" />
+    <Compile Include="Helpers\AdpMaster.cs" />
     <Compile Include="Helpers\NLogAdaptor.cs" />
     <Compile Include="Helpers\SeasonScheduler.cs" />
     <Compile Include="Helpers\StyleHelper.cs" />
@@ -153,10 +154,12 @@
     <Compile Include="InterceptionsMade.cs" />
     <Compile Include="InterceptReturn.cs" />
     <Compile Include="Interfaces\IAceRepository.cs" />
+    <Compile Include="Interfaces\IAdpMaster.cs" />
     <Compile Include="Interfaces\IAllocateTDrStrategy.cs" />
     <Compile Include="Interfaces\IAllocateYDrStrategy.cs" />
     <Compile Include="Interfaces\IClock.cs" />
     <Compile Include="Interfaces\IGetGamebooks.cs" />
+    <Compile Include="Interfaces\IHavePlayerIds.cs" />
     <Compile Include="Interfaces\IKeepTheTime.cs" />
     <Compile Include="Interfaces\ILoadPassUnit.cs" />
     <Compile Include="Interfaces\ILoadRunners.cs" />
@@ -211,6 +214,7 @@
     <Compile Include="Models\Ace.cs" />
     <Compile Include="Models\HillenPowerRating.cs" />
     <Compile Include="Models\NflStat.cs" />
+    <Compile Include="Models\PlayerId.cs" />
     <Compile Include="Models\Touchdown.cs" />
     <Compile Include="Models\UnitPerformance.cs" />
     <Compile Include="NFL.cs" />
@@ -296,6 +300,7 @@
     <Compile Include="Rookies.cs" />
     <Compile Include="RosterGridReport.cs" />
     <Compile Include="RosterGridReports\DeletePlayerReportsReport.cs" />
+    <Compile Include="RosterGridReports\FantasyScorecardReport.cs" />
     <Compile Include="RosterGridReports\IWinOrLose.cs" />
     <Compile Include="RosterGridReports\LineupSummary.cs" />
     <Compile Include="RosterGridReports\MetricsUpdateReport.cs" />

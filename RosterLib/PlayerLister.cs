@@ -1,5 +1,7 @@
 using RosterLib.Interfaces;
+using RosterLib.Models;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -9,7 +11,7 @@ namespace RosterLib
    /// <summary>
    /// PlayerLister is generic player list that takes many parameters to customise it.
    /// </summary>
-   public class PlayerLister
+   public class PlayerLister : IHavePlayerIds
    {
       public IWeekMaster WeekMaster;
       public IKeepTheTime TimeKeeper;
@@ -124,6 +126,11 @@ namespace RosterLib
          PlayerList.Clear();
       }
 
+        public string PlayerType()
+		{
+			return Position;
+		}
+
       public void Collect(
          string catCode, 
          string sPos, 
@@ -205,7 +212,10 @@ namespace RosterLib
       }
 
       [Conditional("DEBUG")]
-      private static void AnnounceAdd(string catCode, string sPos, NFLPlayer p)
+      private static void AnnounceAdd(
+		  string catCode,
+		  string sPos,
+		  NFLPlayer p)
       {
          Utility.Announce(
             $"PlayerLister.Collect Adding {p.PlayerNameShort,-12}-{p.CurrTeam.TeamCode}-{p.PlayerRole} to {catCode} - {sPos} list");
@@ -316,7 +326,10 @@ namespace RosterLib
          return FileOut;
       }
 
-      public string RenderProjection( string header, IWeekMaster weekMaster )
+      public string RenderProjection(
+		  string header,
+		  IWeekMaster weekMaster,
+		  IAdpMaster adpMaster = null)
       {
          var html = new RenderStatsToHtml( WeekMaster )
 				{
@@ -335,7 +348,8 @@ namespace RosterLib
 			 sHead: header,
 			 sortOrder: SortOrder,
 			 scorer: _mMyScorer,
-			 weekMaster: weekMaster );
+			 weekMaster: weekMaster,
+			 adpMaster: adpMaster);
 
          return FileOut;
       }
@@ -366,7 +380,8 @@ namespace RosterLib
                            LongStats = false,
                            SupressZeros = false
                         };
-            if (!string.IsNullOrEmpty(SubHeader)) html.SubHeader = SubHeader;
+            if (!string.IsNullOrEmpty(SubHeader))
+				html.SubHeader = SubHeader;
 
             html.FileOut = $"{Utility.OutputDirectory()}{season}//Returners//{season}.htm";
 
@@ -379,5 +394,21 @@ namespace RosterLib
       {
          Render(FileOut);
       }
-   }
+
+		public IEnumerable<PlayerId> GetAll()
+		{
+			var playerIdList = new List<PlayerId>();
+			for (int i = 0; i < PlayerList.Count; i++)
+			{
+				var item = (NFLPlayer)PlayerList[i];
+				var id = new PlayerId
+				{
+					Id = item.PlayerCode,
+					PlayerName = item.PlayerName
+				};
+				playerIdList.Add(id);
+			}
+			return playerIdList;
+		}
+	}
 }

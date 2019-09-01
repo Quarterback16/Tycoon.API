@@ -101,7 +101,9 @@ namespace RosterLib
 			return GameKey.Substring( 5, 2 );
 		}
 
-		public decimal ProjectedScoresOfType( string forScoreType, string id )
+		public decimal ProjectedScoresOfType(
+			string forScoreType,
+			string id)
 		{
 			decimal metric = 0M;
 			switch ( forScoreType )
@@ -124,7 +126,7 @@ namespace RosterLib
 					break;
 
 				default:
-					Utility.Announce( string.Format( "PlayerGameMetrics: Unknown score type {0}", forScoreType ) );
+					Utility.Announce( $"PlayerGameMetrics: Unknown score type {forScoreType}" );
 					break;
 			}
 			return metric;
@@ -232,39 +234,41 @@ namespace RosterLib
 		{
 			if ( player.IsKicker() )
 			{
-				string[] pgmArray = {
-											string.Empty,
-											string.Empty,
-											string.Empty,
-											string.Empty,
-											string.Empty,
-											string.Empty,
-											string.Empty,
-											string.Empty,
-											FG.ToString( CultureInfo.InvariantCulture),
-											Pat.ToString( CultureInfo.InvariantCulture),
-											FantasyPoints.ToString(),
-											VarianceOut()
-								};
+				string[] pgmArray = 
+					{
+						string.Empty,
+						string.Empty,
+						string.Empty,
+						string.Empty,
+						string.Empty,
+						string.Empty,
+						string.Empty,
+						string.Empty,
+						FG.ToString( CultureInfo.InvariantCulture),
+						Pat.ToString( CultureInfo.InvariantCulture),
+						FantasyPoints.ToString(),
+						VarianceOut()
+					};
 				var html = HtmlLib.TableRow( pgmArray );
 				return html;
 			}
 			else
 			{
-				string[] pgmArray = {
-											string.Empty,
-											string.Empty,
-											YDp.ToString( CultureInfo.InvariantCulture ),
-											TDp.ToString( CultureInfo.InvariantCulture ),
-											YDr.ToString( CultureInfo.InvariantCulture ),
-											TDr.ToString( CultureInfo.InvariantCulture ),
-											YDc.ToString( CultureInfo.InvariantCulture),
-											TDc.ToString( CultureInfo.InvariantCulture),
-											string.Empty,
-											string.Empty,
-											FantasyPoints.ToString(),
-											VarianceOut()
-								};
+				string[] pgmArray = 
+					{
+						string.Empty,
+						string.Empty,
+						YDp.ToString( CultureInfo.InvariantCulture ),
+						TDp.ToString( CultureInfo.InvariantCulture ),
+						YDr.ToString( CultureInfo.InvariantCulture ),
+						TDr.ToString( CultureInfo.InvariantCulture ),
+						YDc.ToString( CultureInfo.InvariantCulture),
+						TDc.ToString( CultureInfo.InvariantCulture),
+						string.Empty,
+						string.Empty,
+						FantasyPoints.ToString(),
+						VarianceOut()
+					};
 				var html = HtmlLib.TableRow( pgmArray );
 				return html;
 			}
@@ -348,7 +352,8 @@ namespace RosterLib
 			return ( checkSum > 0 );
 		}
 
-		public decimal CalculateProjectedFantasyPoints( NFLPlayer p )
+		public decimal CalculateProjectedFantasyPoints( 
+			NFLPlayer p )
 		{
 			var scorer = new YahooProjectionScorer();
 			p.ProjectedTDp = ProjTDp;
@@ -360,7 +365,12 @@ namespace RosterLib
 			p.ProjectedFg = ProjFG;
 			p.ProjectedPat = ProjPat;
 
-			var pts = scorer.RatePlayer( p, new NFLWeek( Season(), 99, loadGames: false ) );
+			var pts = scorer.RatePlayer(
+				p,
+				new NFLWeek(
+					Season(), 
+					99, 
+					loadGames: false));
 			return pts;
 		}
 
@@ -376,7 +386,12 @@ namespace RosterLib
 			p.ProjectedFg = FG;
 			p.ProjectedPat = Pat;
 
-			var pts = scorer.RatePlayer( p, new NFLWeek( Season(), 99, loadGames: false ) );
+			var pts = scorer.RatePlayer(
+				p,
+				new NFLWeek(
+					Season(),
+					weekIn: 99, 
+					loadGames: false));
 			return pts;
 		}
 

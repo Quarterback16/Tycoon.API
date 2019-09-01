@@ -228,7 +228,15 @@ namespace RosterLib
 					ProjYDr = IntValue( dr, "projydr" ),
 					ProjYDc = IntValue( dr, "projydc" ),
 					ProjFG = IntValue( dr, "projfg" ),
-					ProjPat = IntValue( dr, "projpat" )
+					ProjPat = IntValue( dr, "projpat" ),
+					TDp = IntValue(dr, "tdp"),
+					TDr = IntValue(dr, "tdr"),
+					TDc = IntValue(dr, "tdc"),
+					YDp = IntValue(dr, "ydp"),
+					YDr = IntValue(dr, "ydr"),
+					YDc = IntValue(dr, "ydc"),
+					FG  = IntValue(dr, "fg"),
+					Pat = IntValue(dr, "pat"),
 				};
 				pgmList.Add( pgm );
 			}
@@ -238,7 +246,9 @@ namespace RosterLib
 			return pgmList;
 		}
 
-		public decimal ProjectedStatsOfType( string forStatType, PlayerGameMetrics pgm )
+		public decimal ProjectedStatsOfType(
+			string forStatType,
+			PlayerGameMetrics pgm)
 		{
 			var qty = 0.0M;
 			switch ( forStatType )
@@ -289,7 +299,7 @@ namespace RosterLib
 				pgmList.Add( pgm );
 			}
 #if DEBUG
-			Utility.Announce( string.Format( "Metric records loaded : {0}", pgmList.Count ) );
+			Utility.Announce( $"Metric records loaded : {pgmList.Count}" );
 #endif
 			return pgmList;
 		}

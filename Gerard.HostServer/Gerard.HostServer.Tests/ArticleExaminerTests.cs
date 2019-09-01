@@ -371,7 +371,6 @@ namespace Gerard.HostServer.Tests
 
 		#region Cuts
 
-
 		[TestMethod]
 		public void PayCut_IsNotACut()
 		{
@@ -602,6 +601,21 @@ namespace Gerard.HostServer.Tests
 			Console.WriteLine(result);
 			result.DumpEvent();
 			Assert.AreEqual("IGNORE", result.RecommendedAction);
+		}
+
+		[TestMethod]
+		public void TestSingleQuotes()
+		{
+			var article = new NewsArticleCommand
+			{
+				ArticleDate = new DateTime(2017, 08, 08),
+				ArticleText = "Packers waived J'Mon Moore"
+			};
+			Console.WriteLine(article);
+			var result = sut.ExamineArticle(article);
+			Console.WriteLine(result);
+			result.DumpEvent();
+			Assert.AreEqual("WAIVER", result.RecommendedAction);
 		}
 
 		#endregion Cuts
@@ -930,5 +944,24 @@ namespace Gerard.HostServer.Tests
 		}
 
 		#endregion
+
+		[TestMethod]
+		public void TestIsRetirementNull()
+		{
+			var article = new NewsArticleCommand
+			{
+				ArticleDate = new DateTime(2019, 8, 30),
+				ArticleText = "Jacoby Brissett will be the Colts' Week 1 starter following the retirement of Andrew Luck."
+			};
+			Console.WriteLine(article);
+
+			var result = sut.ExamineArticle(article);
+			Console.WriteLine(result);
+			result.DumpEvent();
+			Assert.IsFalse(result.IsSigning);
+			Assert.IsFalse(result.IsRetirement);
+			Assert.IsFalse(result.IsWaiver);
+
+		}
 	}
 }

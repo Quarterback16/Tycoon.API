@@ -504,9 +504,58 @@ namespace RosterLib
 			return hrShort;
 		}
 
+		public decimal AgeRating()
+		{
+			//  the age factor
+			var ageRating = 1.0M;
+			var playerAge = PlayerAge();
+			playerAge = playerAge.Replace('?', ' ');
+			var age = int.Parse(playerAge);
+			if (age == 0)
+				return ageRating;
+
+			if (age < 23)
+				ageRating = 0.9M;
+			if (age > 24 && age < 30)
+				ageRating = 1.2M;
+			if (age == 26)
+				ageRating = 1.4M;
+			if (age > 30)
+				ageRating -= 0.1M;
+			if (age > 35)
+				ageRating -= 0.1M;
+			if (age > 40)
+				ageRating -= 0.1M;
+
+			return ageRating;
+		}
+
+		public decimal NewbieModifier()
+		{
+			//  the new team factor
+			if (!IsNewbie())
+				return 1.0M;
+
+			if (IsRookie())
+				return 0.20M;
+
+			var seasons = NoOfSeasons();
+			if ( seasons > 20 )
+				seasons = 20;
+
+			var newbieModifier = (20.0M - (decimal) seasons) / 100.0M;
+
+			return newbieModifier;
+		}
+
 		#endregion Accessors
 
-		public DataSet LastScores( string scoreType, int weekFrom, int weekTo, string season, string id )
+		public DataSet LastScores(
+			string scoreType,
+			int weekFrom,
+			int weekTo,
+			string season,
+			string id)
 		{
 #if DEBUG
 			//Utility.Announce( string.Format( "Getting last Scores {0} for {1}s season {2} from:{3} to:{4}",
@@ -526,7 +575,11 @@ namespace RosterLib
 			return ds;
 		}
 
-		public DataSet LastStats( string statType, int weekFrom, int weekTo, string season )
+		public DataSet LastStats(
+			string statType,
+			int weekFrom,
+			int weekTo,
+			string season)
 		{
 			//  Get the last 4 weeks of stats for this player
 #if DEBUG
@@ -807,8 +860,10 @@ namespace RosterLib
 			SetLastSeason();
 			var lastYr = IsRetired ? LastSeason : Utility.CurrentSeason();
 
-			if ( RookieYear == null ) return 0;
-			if ( string.IsNullOrEmpty( lastYr ) ) return 0;
+			if ( RookieYear == null )
+				return 0;
+			if ( string.IsNullOrEmpty( lastYr ) )
+				return 0;
 
 			try
 			{
@@ -816,7 +871,7 @@ namespace RosterLib
 			}
 			catch ( FormatException ex )
 			{
-				Announce( string.Format( "{1} Cant format lastYr={0}", lastYr, ex.Message ) );
+				Announce( $"{ex.Message} Cant format lastYr={lastYr}" );
 			}
 
 			return nSeasons;
@@ -841,8 +896,7 @@ namespace RosterLib
 
 		public bool IsRookie()
 		{
-			//TODO:  Update this
-			return ( RookieYear == Utility.CurrentSeason() );
+			return NoOfSeasons() == 0;
 		}
 
 		public bool IsInjured()
@@ -1288,7 +1342,7 @@ namespace RosterLib
 
 			if ( !string.IsNullOrEmpty( PlayerName ) )
 			{
-				TraceIt( string.Format( "{0} was born on {1}", PlayerName, dob ) );
+				TraceIt( $"{PlayerName} was born on {dob}" );
 				if ( ( dob == "30/12/1899" ) || ( dob == null ) )
 					age = string.Format( "{0}?", NoOfSeasons() + 23 );
 				else

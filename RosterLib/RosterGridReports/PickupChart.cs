@@ -49,8 +49,7 @@ namespace RosterLib.RosterGridReports
 			var winners = GetWinners();
 			var losers = GetLosers();
 
-			//var winnersList = winners.ToList().OrderByDescending( x => x.Margin );
-			//var losersList = losers.ToList().OrderBy( x => x.Margin );
+			//  We now sort by Points For as this correlates better with FPts
 
 			var completeList = new List<Teamer>();
 			foreach (var winner in winners)
@@ -65,9 +64,6 @@ namespace RosterLib.RosterGridReports
 
 			foreach ( var tm in sortedList)
 				lineNo = GenerateChart( bodyOut, c, lineNo, tm );
-
-			//foreach ( var loser in losersList )
-			//	lineNo = GenerateChart( bodyOut, c, lineNo, loser );
 
 			return bodyOut.ToString();
 		}

@@ -48,7 +48,7 @@ namespace Gerard.HostServer
 			if (plyr == null)
 				Logger.Info($"Could not find a player for ID: {playerId}");
 			else
-				Logger.Info($"Found {plyr.PlayerName} for ID: {playerId}");
+				Logger.Trace($"Found {plyr.PlayerName} for ID: {playerId}");
 
 			return plyr;
 		}
@@ -59,7 +59,7 @@ namespace Gerard.HostServer
 			DateTime when,
 			string how)
 		{
-			Logger.Info($"RecordSigning: {p.PlayerName} signs with {teamCode}");
+			Logger.Trace($"RecordSigning: {p.PlayerName} signs with {teamCode}");
 			try
 			{
 				TflDataLibrarian.Sign(
@@ -85,7 +85,7 @@ namespace Gerard.HostServer
 			DateTime when,
 			bool isRetirement)
 		{
-			Logger.Info($@"EndContract on {
+			Logger.Trace($@"EndContract on {
 				p.PlayerName
 				} when: {
 				when
@@ -103,12 +103,16 @@ namespace Gerard.HostServer
 				{
 					if (isRetirement)
 					{
-						TflDataLibrarian.RetirePlayer(when, p.PlayerCode);
+						TflDataLibrarian.RetirePlayer(
+							when, 
+							p.PlayerCode);
 						Logger.Info($"{p.PlayerName} retired");
 					}
 					else
 					{
-						TflDataLibrarian.CloseServitude(when, p.PlayerCode);
+						TflDataLibrarian.CloseServitude(
+							when,
+							p.PlayerCode);
 						Logger.Info($"{p.PlayerName} contract with {p.TeamCode} ended");
 					}
 					TflDataLibrarian.SetCurrentTeam(p.PlayerCode, "??");
@@ -125,7 +129,7 @@ namespace Gerard.HostServer
 		public bool InjurePlayer(
 			NFLPlayer p)
 		{
-			Logger.Info($"InjurePlayer: {p.PlayerName}");
+			Logger.Trace($"InjurePlayer: {p.PlayerName}");
 			try
 			{
 				var oldRole = p.PlayerRole;
@@ -153,7 +157,7 @@ namespace Gerard.HostServer
 			DateTime when)
 		{
 			var lastContract = TflDataLibrarian.LastContract(p.PlayerCode);
-			return (when.Date == lastContract.Date);
+			return when.Date == lastContract.Date;
 		}
 
 		public bool UpdateDob(NFLPlayer p, DateTime dob)

@@ -30,7 +30,7 @@ namespace Gerard.HostServer
 
 				if (examinationEvent.RecommendedAction != Constants.Result.Ignore)
 				{
-					WriteInfoLog($"Processing {examinationEvent.RecommendedAction}");
+					WriteTraceLog($"Processing {examinationEvent.RecommendedAction}");
 					Manager.ProcessEvent(examinationEvent);
 					//TODO: raise the event so subscribers might do something
 					//context.Publish(examinationEvent);
@@ -44,7 +44,8 @@ namespace Gerard.HostServer
 			}
 			catch (Exception ex)
 			{
-				WriteErrorLog($"Article caused :- {ex.Message}", ex);
+				WriteErrorLog(
+					$"Article >>{context.Message.ArticleText}<< caused :- {ex.Message}", ex);
 				throw;
 			}
 		}

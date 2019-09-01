@@ -55,6 +55,19 @@ namespace Gerard.HostServer.Tests
 		}
 
 		[TestMethod]
+		public void Fixer_CanGetStatleshipPlayer_FindDobOk()
+		{
+			var command = new DataFixCommand
+			{
+				FirstName = "Ben",
+				LastName = "Watson",
+				TeamCode = "NE"
+			};
+			var result = _sut.GetStatleshipPlayer(command);
+			Assert.IsNotNull(result);
+		}
+
+		[TestMethod]
 		public void Fixer_CanPutPlayersDob_Ok()
 		{
 			var command = new DataFixCommand

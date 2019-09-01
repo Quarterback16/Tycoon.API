@@ -1,5 +1,4 @@
 ﻿using System;
-using Helpers;
 
 namespace RosterLib
 {
@@ -14,7 +13,10 @@ namespace RosterLib
 		public XmlCache Master { get; set; }
 		public bool AnnounceIt { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-		public decimal RatePlayer( NFLPlayer plyr, NFLWeek week, bool takeCache = true )
+		public decimal RatePlayer(
+			NFLPlayer plyr,
+			NFLWeek week,
+			bool takeCache = true)
 		{
 			// Points for Scores and points for stats
 			if ( week.WeekNo.Equals( 0 ) ) return 0;
@@ -27,13 +29,13 @@ namespace RosterLib
 			//  4 pts for a Tdp
 			plyr.Points += plyr.ProjectedTDp * 4;
 #if DEBUG
-			RosterLib.Utility.Announce( string.Format( "{0} has {1} points for Tdp", plyr.PlayerName, plyr.Points ) );
+			Utility.Announce( $"{plyr.PlayerName} has {plyr.Points} points for Tdp" );
 #endif
 			//  1 pt / 25 YDp
 			int ptsForYDp = (int) plyr.ProjectedYDp / 25;
 			plyr.Points += ptsForYDp;
 #if DEBUG
-			RosterLib.Utility.Announce( string.Format( "{0} has {1} points for YDp", plyr.PlayerName, ptsForYDp ) );
+			Utility.Announce( $"{plyr.PlayerName} has {ptsForYDp} points for YDp" );
 #endif
 
 			#endregion
@@ -81,8 +83,7 @@ namespace RosterLib
 			#endregion
 
 #if DEBUG
-			Utility.Announce( string.Format( "{0} has {1} in week {2}:{3}", 
-			                   plyr.PlayerName, plyr.Points, week.Season, week.Week ) );
+			Utility.Announce( $"{plyr.PlayerName} has {plyr.Points} in week {week.Season}:{week.Week}" );
 #endif
 
 			return plyr.Points;

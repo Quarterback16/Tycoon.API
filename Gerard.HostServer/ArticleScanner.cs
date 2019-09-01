@@ -93,8 +93,8 @@ namespace Gerard.HostServer
 
 		public ExaminationEvent ExamineArticle(NewsArticleCommand article)
 		{
-			LogInfo("----------------------------------");
-			LogInfo($"Examining {article}");
+			LogTrace("----------------------------------");
+			LogTrace($"Examining {article}");
 
 			var result = new ExaminationEvent
 			{
@@ -241,9 +241,12 @@ namespace Gerard.HostServer
 			return (countFullStops.Equals(2));
 		}
 
-		private void LogResult(ExaminationEvent result)
+		private void LogResult(
+			ExaminationEvent result)
 		{
-			LogInfo($"Result: {result.RecommendedAction}");
+			LogInfo($@"Result: {
+				result.RecommendedAction
+				} : {result.ArticleText}");
 		}
 
 		private ExaminationEvent FindPlayerNameByTeam(

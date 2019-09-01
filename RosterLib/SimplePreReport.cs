@@ -14,7 +14,13 @@ namespace RosterLib
 
 		public string RenderHtml()
 		{
-			FileOut = string.Format("{0}{1}//{2}//{3}.htm", Utility.OutputDirectory(), Season, Folder, InstanceName);
+			FileOut = $@"{Utility.OutputDirectory()}{
+				Season
+				}//{
+				Folder
+				}//{
+				InstanceName
+				}.htm";
 			if (!string.IsNullOrEmpty(InstanceName))
 				ReportHeader = $"{InstanceName}";
 			else
