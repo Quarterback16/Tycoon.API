@@ -53,7 +53,8 @@ namespace RosterLib
 				Runners.Add( player );
 		}
 
-		public List<string> Load( string teamCode )
+		public List<string> Load( 
+			string teamCode )
 		{
 			Reset();
 			Announce( $"Loading Runners for {teamCode}" );

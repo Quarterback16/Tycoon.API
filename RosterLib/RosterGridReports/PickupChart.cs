@@ -168,7 +168,7 @@ namespace RosterLib.RosterGridReports
 			{
 				var bit = $@" <a href='..\\Roles\\{
 					team.Team.TeamCode
-					}-Roles-{Week - 1:0#}.htm'>none</a>                            ";
+					}-Roles-{Week - 1:0#}.htm'>none</a>                                ";
 				return bit;
 			}
 			return "none";
@@ -223,11 +223,12 @@ namespace RosterLib.RosterGridReports
 					}
 					if ( !string.IsNullOrWhiteSpace( dualBacks.Trim() ) )
 					{
+						var dualSpace = 24;
 						dualBacks = dualBacks.Substring( 0, dualBacks.Length - 3 );
-						if ( dualBacks.Length < 20 )
-							dualBacks = dualBacks + new string( ' ', 20 - dualBacks.Length );
-						if ( dualBacks.Length > 20 )
-							dualBacks = dualBacks.Substring( 0, 20 );
+						if ( dualBacks.Length < dualSpace )
+							dualBacks += new string( ' ', dualSpace - dualBacks.Length );
+						if ( dualBacks.Length > dualSpace )
+							dualBacks = dualBacks.Substring( 0, dualSpace );
 					}
 					var p = team.Team.RunUnit.R1;
 

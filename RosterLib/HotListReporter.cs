@@ -26,20 +26,26 @@ namespace RosterLib
          WeekMaster = new WeekMaster();
          Name = "Hot Lists";
          Configs = new List<HotListConfig>();
+#if ! DEBUG2
          Configs.Add(new HotListConfig { Category = Constants.K_QUARTERBACK_CAT, Position = "QB", FreeAgents = true, Starters = true });
-#if ! DEBUG
          Configs.Add(new HotListConfig { Category = Constants.K_RUNNINGBACK_CAT, Position = "RB", FreeAgents = false, Starters = false });
          Configs.Add(new HotListConfig { Category = Constants.K_RECEIVER_CAT, Position = "WR", FreeAgents = true, Starters = true });
          Configs.Add(new HotListConfig { Category = Constants.K_RECEIVER_CAT, Position = "TE", FreeAgents = true, Starters = true });
+#endif
          Configs.Add(new HotListConfig { Category = Constants.K_KICKER_CAT, Position = "PK", FreeAgents = true, Starters = true });
-#endif
-         Leagues = new List<RosterGridLeague>();
-         Leagues.Add(new RosterGridLeague { Id = Constants.K_LEAGUE_Gridstats_NFL1, Name = "Gridstats GS1" });
-#if ! DEBUG
+		Leagues = new List<RosterGridLeague>
+		{
+			new RosterGridLeague
+			{
+				Id = Constants.K_LEAGUE_Gridstats_NFL1,
+				Name = "Gridstats GS1"
+			}
+		};
+#if !DEBUG
          Leagues.Add( new RosterGridLeague { Id = Constants.K_LEAGUE_Yahoo, Name = "Spitzys League" } );
-         //Leagues.Add( new RosterGridLeague { Id = Constants.K_LEAGUE_Rants_n_Raves, Name = "NFL.COM" } );
+         Leagues.Add( new RosterGridLeague { Id = Constants.K_LEAGUE_Rants_n_Raves, Name = "ESPN" } );
 #endif
-      }
+		}
 
       public override void RenderAsHtml()
       {
@@ -53,10 +59,18 @@ namespace RosterLib
 
       private void GenerateReport(HotListConfig rpt)
       {
-         HotList(rpt.Category, rpt.Position, rpt.FreeAgents, rpt.Starters);
+         HotList(
+			 rpt.Category,
+			 rpt.Position,
+			 rpt.FreeAgents,
+			 rpt.Starters);
       }
 
-      public void HotList(string catCode, string position, bool freeAgentsOnly, bool startersOnly)
+      public void HotList(
+		  string catCode,
+		  string position,
+		  bool freeAgentsOnly,
+		  bool startersOnly)
       {
          var gs = new GS4Scorer(Utility.CurrentNFLWeek());
          PlayerLister = new PlayerLister
@@ -73,10 +87,8 @@ namespace RosterLib
          };
          PlayerLister.SetScorer(gs);
          PlayerLister.Load();
-         PlayerLister.SubHeader = string.Format("{1} HotList for {0}",
-            PlayerLister.FantasyLeague, PlayerLister.Position);
-         PlayerLister.FileOut = string.Format("HotLists//HotList-{0}-{1}",
-            PlayerLister.FantasyLeague, PlayerLister.Position);
+         PlayerLister.SubHeader = $"{PlayerLister.Position} HotList for {PlayerLister.FantasyLeague}";
+         PlayerLister.FileOut = $"HotLists//HotList-{PlayerLister.FantasyLeague}-{PlayerLister.Position}";
          PlayerLister.Render(PlayerLister.FileOut);
       }
    }

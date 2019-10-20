@@ -37,7 +37,89 @@ namespace RosterLib.RosterGridReports
 			TotalScoreCard = new ScoreCard();
 		}
 
+		public FantasyScorecardReport(
+			IKeepTheTime timekeeper,
+			IPlayerGameMetricsDao pgmDao) : base(timekeeper)
+		{
+			Name = "Fantasy Scorecard";
+			Season = timekeeper.CurrentSeason();
+			Week = timekeeper.Week;
+			PlayerIds = new List<string>();
+			PgmDao = pgmDao;
+			ScoreCards = new List<ScoreCard>();
+			TotalScoreCard = new ScoreCard();
+		}
+
 		public override void RenderAsHtml()
+		{
+			if (string.IsNullOrEmpty(PlayerList.PlayerType()))
+				RenderAll(Constants.K_LEAGUE_Gridstats_NFL1);
+			else
+				RenderOne();
+		}
+
+		private void RenderAll(string leagueId)
+		{
+			var playerLister = new PlayerLister
+			{
+				StartersOnly = true
+			};
+			for (int i = 1; i < 6; i++)
+			{			
+				playerLister.Collect(
+					catCode: CatForReport(i),
+					sPos: PosForReport(i),
+					fantasyLeague: leagueId);
+				playerLister.Position = PosForReport(i);
+				PlayerList = playerLister;
+				RenderOne();
+				playerLister.Clear();
+			}
+		}
+
+		private string CatForReport(int report)
+		{
+			switch (report)
+			{
+				case 1:
+					return "1";
+				case 2:
+					return "2";
+				case 3:
+					return "3";
+				case 4:
+					return "4";
+				case 5:
+					return "3";
+
+				default:
+					break;
+			}
+			return "?";
+		}
+
+		private string PosForReport(int cat)
+		{
+			switch (cat)
+			{
+				case 1:
+					return "QB";
+				case 2:
+					return "RB";
+				case 3:
+					return "WR";
+				case 4:
+					return "PK";
+				case 5:
+					return "TE";
+
+				default:
+					break;
+			}
+			return "?";
+		}
+
+		private void RenderOne()
 		{
 			PlayerType = PlayerList.PlayerType();
 			RenderPreReport();
@@ -83,12 +165,28 @@ namespace RosterLib.RosterGridReports
 					player,
 					season);
 
-				//if (Int32.Parse(Week) > 0)
-				//{
-				//	GenerateActuals(sb, player, season);
-				//	VarianceLine(sb, player, season);
-				//}
+				if (Int32.Parse(Week) > 0)
+				{
+					TallyActuals(scorecard, player, season);
+				}
 				ScoreCards.Add(scorecard);
+			}
+		}
+
+		private void TallyActuals(
+			ScoreCard scorecard,
+			NFLPlayer player,
+			List<PlayerGameMetrics> season)
+		{
+			foreach (var pgm in season)
+			{
+				scorecard.TotalPoints += pgm.CalculateActualFantasyPoints(
+					player);
+			}
+			for (int w = 1; w < 17; w++)
+			{
+				scorecard.Week[w-1] = Decimal.Parse(
+					TotalFor(w, season, player));
 			}
 		}
 
@@ -148,11 +246,11 @@ namespace RosterLib.RosterGridReports
 					OutputPriors(
 						sb,
 						card);
-				//if (Int32.Parse(Week) > 0)
-				//{
-				//	GenerateActuals(sb, player, season);
-				//	VarianceLine(sb, player, season);
-				//}
+				if (Int32.Parse(Week) > 0)
+				{
+					GenerateActuals(sb, player, season);
+					VarianceLine(sb, player, season);
+				}
 				sb.AppendLine();
 			}
 			OutputTotalPredictions(sb);
@@ -188,10 +286,12 @@ namespace RosterLib.RosterGridReports
 			NFLPlayer player,
 			List<PlayerGameMetrics> season)
 		{
-			sb.Append(new String(' ', 15));
-			sb.Append(VarianceFor(season, player));
-			for (int w = 1; w < 17; w++)
+			sb.Append(new String(' ', 19));
+//			sb.Append(VarianceFor(season, player));
+			sb.Append(new String(' ', 11));
+			for (int w = 1; w <= Int32.Parse(Week); w++)
 				sb.Append(VarianceFor(w, season, player));
+			sb.AppendLine();
 		}
 
 		private string TotalFor(
@@ -246,9 +346,9 @@ namespace RosterLib.RosterGridReports
 			NFLPlayer player,
 			List<PlayerGameMetrics> season)
 		{
-			sb.Append(new String(' ',15));
+			sb.Append(new String(' ',19));
 			sb.Append(TotalFor(season, player));
-			for (int w = 1; w < 17; w++)
+			for (int w = 1; w <= Int32.Parse(Week); w++)
 			{
 				sb.Append(TotalFor(w, season, player));
 			}

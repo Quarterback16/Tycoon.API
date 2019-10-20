@@ -40,7 +40,9 @@ namespace RosterLib
 			if ( Logger == null ) Logger = LogManager.GetCurrentClassLogger();
 		}
 
-		public RoleAssignmentReport( string singleTeamCode, IKeepTheTime timeKeeper ) : base( timeKeeper )
+		public RoleAssignmentReport(
+			string singleTeamCode,
+			IKeepTheTime timeKeeper ) : base( timeKeeper )
 		{
 			SingleTeam = singleTeamCode;
 			Initialise( timeKeeper );

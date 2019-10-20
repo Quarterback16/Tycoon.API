@@ -63,7 +63,8 @@ namespace SeasonHtml
 			AddLine(sb, HtmlLib.TableWithBorderOpen());
 			string[] headerParams = { "Scope", "QB", "RB", "WR", "TE", "PK" };
 			AddLine(sb, TableHeader(headerParams));
-			AddLine(sb, RosterLine("G1-Hotlist"));
+			AddLine(sb, RosterLine("G1-Hotlist", "G1"));
+			AddLine(sb, RosterLine("ESPN-Hotlist", "RR"));
 			AddLine(sb, OldRosters("G1"));
 			AddLine(sb, OldRosters("YH"));
 			AddLine(sb, Starters("G1"));
@@ -135,23 +136,27 @@ namespace SeasonHtml
 				$"{playerType}");
 		}
 
-		private string RosterLine(string lineHeader)
+		private string RosterLine(
+			string lineHeader,
+			string fantasyLeague)
 		{
 			var sb = new StringBuilder();
 			AddLine(sb, HtmlLib.TableRowOpen());
 			AddLine(sb, HtmlLib.TableData(lineHeader));
-			AddLine(sb, HtmlLib.TableData(RosterLink("QB")));
-			AddLine(sb, HtmlLib.TableData(RosterLink("RB")));
-			AddLine(sb, HtmlLib.TableData(RosterLink("WR")));
-			AddLine(sb, HtmlLib.TableData(RosterLink("TE")));
-			AddLine(sb, HtmlLib.TableData(RosterLink("PK")));
+			AddLine(sb, HtmlLib.TableData(RosterLink("QB",fantasyLeague)));
+			AddLine(sb, HtmlLib.TableData(RosterLink("RB", fantasyLeague)));
+			AddLine(sb, HtmlLib.TableData(RosterLink("WR", fantasyLeague)));
+			AddLine(sb, HtmlLib.TableData(RosterLink("TE", fantasyLeague)));
+			AddLine(sb, HtmlLib.TableData(RosterLink("PK", fantasyLeague)));
 			return sb.ToString();
 		}
 
-		private string RosterLink(string playerType)
+		private string RosterLink(
+			string playerType,
+			string fantasyLeague)
 		{
 			return HtmlLib.Href(
-				$"..\\{Year}\\HotLists\\HotList-G1-{playerType}.htm",
+				$"..\\{Year}\\HotLists\\HotList-{fantasyLeague}-{playerType}.htm",
 				$"{playerType}");
 		}
 
@@ -199,7 +204,7 @@ namespace SeasonHtml
 
 		private string TallyLink(int i, string tally, bool isYtd = false)
 		{
-			var link = $"..\\{K_TflOutputFolder}\\ZT{tally}{LastTwoYear()}{i:0#}";
+			var link = $"..\\{K_TflOutputFolder}\\{tally}\\ZT{tally}{LastTwoYear()}{i:0#}";
 			if (isYtd)
 				link = $"{link}Y";
 			return HtmlLib.Href(
@@ -356,6 +361,7 @@ namespace SeasonHtml
 			AddLine(sb, ScopeHeader("Scope"));
 
 			AddLine(sb, PickupCharts());
+			AddLine(sb, PickupSummaries());
 			AddLine(sb, RankingMetrics());
 			AddLine(sb, PlayerProjections("QB"));
 			AddLine(sb, PlayerProjections("RB"));
@@ -363,6 +369,11 @@ namespace SeasonHtml
 			AddLine(sb, PlayerProjections("TE"));
 			AddLine(sb, PlayerProjections("PK"));
 			AddLine(sb, NibbleTips());
+			AddLine(sb, Performance("QB"));
+			AddLine(sb, Performance("RB"));
+			AddLine(sb, Performance("WR"));
+			AddLine(sb, Performance("TE"));
+			AddLine(sb, Performance("PK"));
 			DefensiveReports(sb);
 			TallyStats(sb);
 
@@ -423,6 +434,68 @@ namespace SeasonHtml
 				$"{i:0#}");
 		}
 
+		private string Performance(string playerType)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"YH Perf - {playerType}"));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(PlayerPerformance(i, playerType)));
+			AddLine(sb, HtmlLib.TableRowClose());
+
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"YH Perf - {playerType} last 4"));
+			for (int i = 0; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(
+					PlayerPerformanceLast(
+						weeksToGoBack: 4,
+						weekNo: i,
+						playerType: playerType)));
+			AddLine(sb, HtmlLib.TableRowClose());
+
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"YH Perf - {playerType} last game"));
+			for (int i = 0; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(
+					PlayerPerformanceLast(
+						weeksToGoBack: 1,
+						weekNo: i,
+						playerType: playerType)));
+			AddLine(sb, HtmlLib.TableRowClose());
+
+			return sb.ToString();
+		}
+
+		private string PlayerPerformanceLast(
+			int weeksToGoBack,
+			int weekNo,
+			string playerType)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.Href(
+				$@"..\\{
+					Year
+					}\\Performance\\YH\\{
+					playerType
+					}\\Perf last {
+					weeksToGoBack
+					} upto Week {weekNo:0#}.htm",
+				$"{weekNo:0#}"));
+			return sb.ToString();
+		}
+
+		private string PlayerPerformance(
+			int i,
+			string playerType)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.Href(
+				$"..\\{Year}\\Performance\\YH\\{playerType}\\Perf  upto Week {i:0#}.htm",
+				$"{i:0#}"));
+			return sb.ToString();
+		}
+
 		private string PlayerProjections(string playerType)
 		{
 			var sb = new StringBuilder();
@@ -462,6 +535,29 @@ namespace SeasonHtml
 			var sb = new StringBuilder();
 			AddLine(sb, HtmlLib.Href(
 				$"..\\{Year}\\Metrics\\MetricTable--{i:0#}.htm",
+				$"{i:0#}"));
+			return sb.ToString();
+		}
+
+		private string PickupSummaries()
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData("Pickup summary"));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 22; i++)
+			{
+				AddLine(sb, HtmlLib.TableData(PickupSummary(i)));
+			}
+			AddLine(sb, HtmlLib.TableRowClose());
+			return sb.ToString();
+		}
+
+		private string PickupSummary(int i)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.Href(
+				$"..\\{Year}\\Projections\\Pickup-Summary-Week-{i}.htm",
 				$"{i:0#}"));
 			return sb.ToString();
 		}

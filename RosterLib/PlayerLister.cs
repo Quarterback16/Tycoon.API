@@ -100,7 +100,8 @@ namespace RosterLib
          WeeksToGoBack = Constants.K_WEEKS_IN_A_SEASON; //  default
       }
 
-      public PlayerLister(IKeepTheTime timekeeper)
+      public PlayerLister(
+		  IKeepTheTime timekeeper)
       {
          PrimariesOnly = true;
          ActivesOnly = true;
@@ -157,8 +158,10 @@ namespace RosterLib
             var p = new NFLPlayer(dr, fantasyLeague);
 
             var bAdd = true;
-            if (FreeAgentsOnly) bAdd = p.IsFreeAgent();
-            if (PlayoffsOnly) bAdd = (bAdd) && p.IsPlayoffBound();
+            if (FreeAgentsOnly)
+				bAdd = p.IsFreeAgent();
+            if (PlayoffsOnly)
+				bAdd = (bAdd) && p.IsPlayoffBound();
             bAdd = (bAdd) && p.IsFantasyOffence();
             bAdd = (bAdd) && p.IsActive();
             if (StartersOnly)

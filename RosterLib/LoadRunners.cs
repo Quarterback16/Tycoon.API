@@ -9,13 +9,20 @@ namespace RosterLib
 		public List<NFLPlayer> Load( string teamCode )
 		{
 			var playerList = new List<NFLPlayer>();
-			var ds = Utility.TflWs.GetTeamPlayers( teamCode, Constants.K_RUNNINGBACK_CAT );
+			var ds = Utility.TflWs.GetTeamPlayers(
+				teamCode,
+				Constants.K_RUNNINGBACK_CAT);
 			var dt = ds.Tables[ "player" ];
 			if ( dt.Rows.Count != 0 )
 			{
 				foreach ( DataRow dr in dt.Rows )
 				{
-					if ( dr[ "POSDESC" ].ToString().Trim().Contains( "FB" ) ) continue;
+					if (dr["POSDESC"].ToString().Trim().Contains("FB"))
+					{
+						System.Console.WriteLine(
+							$"FB found skipping {dr["PLAYERID"]}");
+						continue;
+					}
 
 					var newPlayer = new NFLPlayer( dr[ "PLAYERID" ].ToString() );
 					playerList.Add( newPlayer );

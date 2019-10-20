@@ -92,7 +92,9 @@ namespace RosterLib
 		public List<string> Load( string teamCode )
 		{
 			TeamCode = teamCode;
-			Quarterbacks = Loader.Load( teamCode, Constants.K_QUARTERBACK_CAT );
+			Quarterbacks = Loader.Load(
+				teamCode,
+				Constants.K_QUARTERBACK_CAT);
 			Receivers = Loader.Load( teamCode, Constants.K_RECEIVER_CAT );
 			SetQbRoles();
 			SetReceiverRoles();

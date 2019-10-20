@@ -998,12 +998,15 @@ namespace RosterLib
 		{
 			const string l1 = Constants.K_LEAGUE_Gridstats_NFL1;
 			const string l2 = Constants.K_LEAGUE_Yahoo;
+			const string l3 = Constants.K_LEAGUE_Rants_n_Raves;
 
 			LoadOwner(l1);
 			var o1 = Owner;
 			LoadOwner( l2 );
 			var o2 = Owner;
-			return $"{o1}  {o2}";
+			LoadOwner(l3);
+			var o3 = Owner;
+			return $"{o1}  {o2}  {o3}";
 		}
 
 		#region Old Grid report
