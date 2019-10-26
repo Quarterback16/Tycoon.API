@@ -369,6 +369,7 @@ namespace SeasonHtml
 			AddLine(sb, PlayerProjections("TE"));
 			AddLine(sb, PlayerProjections("PK"));
 			AddLine(sb, NibbleTips());
+			AddLine(sb, Standings());
 			AddLine(sb, Performance("QB"));
 			AddLine(sb, Performance("RB"));
 			AddLine(sb, Performance("WR"));
@@ -415,6 +416,18 @@ namespace SeasonHtml
 			return sb.ToString();
 		}
 
+		private string Standings()
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData("Standings"));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(Standing(i)));
+			AddLine(sb, HtmlLib.TableRowClose());
+			return sb.ToString();
+		}
+
 		private string NibbleTips()
 		{
 			var sb = new StringBuilder();
@@ -431,6 +444,13 @@ namespace SeasonHtml
 		{
 			return HtmlLib.Href(
 				$"..\\{K_TflOutputFolder}\\ZTIPS{i:0#}.txt",
+				$"{i:0#}");
+		}
+
+		private string Standing(int i)
+		{
+			return HtmlLib.Href(
+				$"..\\{K_TflOutputFolder}\\ZSTD{LastTwoYear()}{i:0#}.txt",
 				$"{i:0#}");
 		}
 
