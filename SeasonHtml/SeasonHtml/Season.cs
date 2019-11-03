@@ -355,7 +355,7 @@ namespace SeasonHtml
 		private string WeeklyReports()
 		{
 			var sb = new StringBuilder();
-			AddLine(sb,	SubHeading("Weekly Reports"));
+			AddLine(sb, SubHeading("Weekly Reports"));
 			AddLine(sb, HtmlLib.TableWithBorderOpen());
 			AddLine(sb, HtmlLib.TableHeaderOpen());
 			AddLine(sb, ScopeHeader("Scope"));
@@ -370,16 +370,34 @@ namespace SeasonHtml
 			AddLine(sb, PlayerProjections("PK"));
 			AddLine(sb, NibbleTips());
 			AddLine(sb, Standings());
-			AddLine(sb, Performance("QB"));
-			AddLine(sb, Performance("RB"));
-			AddLine(sb, Performance("WR"));
-			AddLine(sb, Performance("TE"));
-			AddLine(sb, Performance("PK"));
+			AddLine(sb, GoalLineScores());
+			LeaguePerformance(sb,"YH","Yahoo");
+			LeaguePerformance(sb, "G1", "GridStats");
 			DefensiveReports(sb);
 			TallyStats(sb);
 
 			AddLine(sb, HtmlLib.TableClose());
 			return sb.ToString();
+		}
+
+		private void LeaguePerformance(
+			StringBuilder sb,
+			string leagueId,
+			string leagueName)
+		{
+			Header(sb, $"{leagueName} Performance");
+			AddLine(sb, Performance(leagueId, "QB"));
+			AddLine(sb, Performance(leagueId, "RB"));
+			AddLine(sb, Performance(leagueId, "WR"));
+			AddLine(sb, Performance(leagueId, "TE"));
+			AddLine(sb, Performance(leagueId, "PK"));
+		}
+
+		private void Header(
+			StringBuilder sb,
+			string header)
+		{
+			AddLine(sb, ScopeHeader(header));
 		}
 
 		private string DefensiveReports(StringBuilder sb)
@@ -428,6 +446,18 @@ namespace SeasonHtml
 			return sb.ToString();
 		}
 
+		private string GoalLineScores()
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData("Goalline scores"));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(GoallineScore(i)));
+			AddLine(sb, HtmlLib.TableRowClose());
+			return sb.ToString();
+		}
+
 		private string NibbleTips()
 		{
 			var sb = new StringBuilder();
@@ -454,34 +484,54 @@ namespace SeasonHtml
 				$"{i:0#}");
 		}
 
-		private string Performance(string playerType)
+		private string GoallineScore(int weekNo)
+		{
+			var sb = new StringBuilder();
+			AddLine(
+				sb, 
+				HtmlLib.Href(
+					fileLink: $"..\\{Year}\\Scores\\GLScores-{weekNo:0#}.htm",
+					label: $"{weekNo:0#}"));
+
+			return sb.ToString();
+		}
+
+		private string Performance(
+			string leagueId,
+			string playerType)
 		{
 			var sb = new StringBuilder();
 			AddLine(sb, HtmlLib.TableRowOpen());
-			AddLine(sb, HtmlLib.TableData($"YH Perf - {playerType}"));
+			AddLine(sb, HtmlLib.TableData($"{leagueId} Perf - {playerType}"));
 			AddLine(sb, HtmlLib.TableData(string.Empty));
 			for (int i = 1; i < 18; i++)
-				AddLine(sb, HtmlLib.TableData(PlayerPerformance(i, playerType)));
+				AddLine(sb, HtmlLib.TableData(
+					PlayerPerformance(
+						i, 
+						playerType,
+						leagueId)));
 			AddLine(sb, HtmlLib.TableRowClose());
 
 			AddLine(sb, HtmlLib.TableRowOpen());
-			AddLine(sb, HtmlLib.TableData($"YH Perf - {playerType} last 4"));
+			AddLine(sb, HtmlLib.TableData($"{leagueId} Perf - {playerType} last 4"));
 			for (int i = 0; i < 18; i++)
 				AddLine(sb, HtmlLib.TableData(
 					PlayerPerformanceLast(
 						weeksToGoBack: 4,
 						weekNo: i,
-						playerType: playerType)));
+						playerType: playerType,
+						leagueId)));
 			AddLine(sb, HtmlLib.TableRowClose());
 
 			AddLine(sb, HtmlLib.TableRowOpen());
-			AddLine(sb, HtmlLib.TableData($"YH Perf - {playerType} last game"));
+			AddLine(sb, HtmlLib.TableData($"{leagueId} Perf - {playerType} last game"));
 			for (int i = 0; i < 18; i++)
 				AddLine(sb, HtmlLib.TableData(
 					PlayerPerformanceLast(
 						weeksToGoBack: 1,
 						weekNo: i,
-						playerType: playerType)));
+						playerType: playerType,
+						leagueId)));
 			AddLine(sb, HtmlLib.TableRowClose());
 
 			return sb.ToString();
@@ -490,13 +540,16 @@ namespace SeasonHtml
 		private string PlayerPerformanceLast(
 			int weeksToGoBack,
 			int weekNo,
-			string playerType)
+			string playerType,
+			string leagueId)
 		{
 			var sb = new StringBuilder();
 			AddLine(sb, HtmlLib.Href(
 				$@"..\\{
 					Year
-					}\\Performance\\YH\\{
+					}\\Performance\\{
+					leagueId
+					}\\{
 					playerType
 					}\\Perf last {
 					weeksToGoBack
@@ -507,11 +560,16 @@ namespace SeasonHtml
 
 		private string PlayerPerformance(
 			int i,
-			string playerType)
+			string playerType,
+			string leagueId)
 		{
 			var sb = new StringBuilder();
 			AddLine(sb, HtmlLib.Href(
-				$"..\\{Year}\\Performance\\YH\\{playerType}\\Perf  upto Week {i:0#}.htm",
+				$@"..\\{Year}\\Performance\\{
+					leagueId
+					}\\{
+					playerType
+					}\\Perf  upto Week {i:0#}.htm",
 				$"{i:0#}"));
 			return sb.ToString();
 		}

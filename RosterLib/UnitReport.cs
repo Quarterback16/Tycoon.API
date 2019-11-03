@@ -11,7 +11,8 @@ namespace RosterLib
    {
 	   public NflSeason SeasonMaster { get; set; }
 
-      public UnitReport( IKeepTheTime timekeeper ) : base( timekeeper )
+      public UnitReport( 
+		  IKeepTheTime timekeeper ) : base( timekeeper )
 	  {
          Name = "Unit Reports";
          LastRun = Utility.TflWs.GetLastRun(Name);
@@ -34,7 +35,7 @@ namespace RosterLib
 	      foreach (string teamKey in SeasonMaster.TeamKeyList)
          {
             TeamUnits( season, teamKey );
-#if DEBUG
+#if DEBUG2
             break;
 #endif
          }
@@ -49,22 +50,22 @@ namespace RosterLib
 	   public void TeamUnits( string season, string teamKey )
 	   {
 		   var t = Masters.Tm.GetTeam( teamKey );
-		   Utility.Announce( string.Format( "Unit reports for {0}", t.NameOut() ) );
+		   Utility.Announce( $"Unit reports for {t.NameOut()}" );
 
-		   var fileOut = string.Format( "{0}\\{2}\\Units\\{1}-Units.htm",
-			   Utility.OutputDirectory(), t.TeamCode, season );
+		   var fileOut = $"{Utility.OutputDirectory()}\\{season}\\Units\\{t.TeamCode}-Units.htm";
 
 		   var h = new HtmlFile( fileOut,
-			   string.Format( " Unit Reports as of {0}  Week {1}",
-				   DateTime.Now.ToString( "dd MMM yy" ), Utility.CurrentWeek() ) );
+			   $@" Unit Reports as of {DateTime.Now.ToString("dd MMM yy")}  Week {
+				   Utility.CurrentWeek()
+				   }" );
 
 		   h.AddToBody( Header( t ) );
 		   h.AddToBody( t.UnitReport() );
 		   h.Render();
 
 		   PoSnippet( t );
-#if !DEBUG
-         RoSnippet( t );
+#if !DEBUG2
+           RoSnippet( t );
 		   PpSnippet( t );
 		   PrSnippet( t );
 		   RdSnippet( t );
@@ -83,32 +84,32 @@ namespace RosterLib
 
       private static string HeaderPo(NflTeam t)
       {
-         return HtmlLib.H2(string.Format("Passing Unit for {0}", t.NameOut()));
+         return HtmlLib.H2($"Passing Unit for {t.NameOut()}");
       }
 
       private static string HeaderRo(NflTeam t)
       {
-         return HtmlLib.H2(string.Format("Rushing Unit for {0}", t.NameOut()));
+         return HtmlLib.H2($"Rushing Unit for {t.NameOut()}");
       }
 
       private static string HeaderPp(NflTeam t)
       {
-         return HtmlLib.H2(string.Format("Pass Protection Unit for {0}", t.NameOut()));
+         return HtmlLib.H2($"Pass Protection Unit for {t.NameOut()}");
       }
 
       private static string HeaderPr(NflTeam t)
       {
-         return HtmlLib.H2(string.Format("Pass Rush Unit for {0}", t.NameOut()));
+         return HtmlLib.H2($"Pass Rush Unit for {t.NameOut()}");
       }
 
       private static string HeaderRd(NflTeam t)
       {
-         return HtmlLib.H2(string.Format("Run Defense Unit for {0}", t.NameOut()));
+         return HtmlLib.H2($"Run Defense Unit for {t.NameOut()}");
       }
 
       private static string HeaderPd(NflTeam t)
       {
-         return HtmlLib.H2(string.Format("Pass Defense Unit for {0}", t.NameOut()));
+         return HtmlLib.H2($"Pass Defense Unit for {t.NameOut()}");
       }
 
 #endregion Headers
@@ -117,13 +118,17 @@ namespace RosterLib
 
       public void PoSnippet(NflTeam t)
       {
-         FileOut = string.Format("{0}\\PassOff\\PO-{1}.htm", RootPath(t.Season), t.TeamCode);
-         var h = new HtmlFile(FileOut,
-                                   string.Format(" {2} Passing Unit as of {0}  Week {1}",
-                                                 DateTime.Now.ToString("dd MMM yy"), Utility.CurrentWeek(), t.NameOut()));
+         FileOut = $"{RootPath(t.Season)}\\PassOff\\PO-{t.TeamCode}.htm";
+         var h = new HtmlFile(
+			 FileOut,
+             $@" {t.NameOut()} Passing Unit as of {DateTime.Now.ToString("dd MMM yy")}  Week {
+				 Utility.CurrentWeek()
+				 }");
 
-         h.AddToBody(HeaderPo(t));
-         h.AddToBody(t.PoReport());
+         h.AddToBody(
+			 HeaderPo(t));
+         h.AddToBody(
+			 t.PoReport());
          h.Render();
       }
 

@@ -3640,18 +3640,28 @@ namespace RosterLib
 		{
 			//TODO:   fails single responsibility
 #if DEBUG
-			//Utility.Announce( string.Format( "NFLTeam.LoadPreviousGames:-loading last {0} games for {1}",
-			//   Constants.K_GAMES_IN_REGULAR_SEASON, sTeam ) );
+			Utility.Announce(
+				$@"NFLTeam.LoadPreviousGames:-loading last {
+					Constants.K_GAMES_IN_REGULAR_SEASON
+					} games for {sTeam}");
 #endif
-			if ( GameList == null ) GameList = new ArrayList();
+			if ( GameList == null )
+				GameList = new ArrayList();
 			GameList.Clear();
 			// get last 16 games
 			var ds = Utility.TflWs.GetLastGames(
-			   sTeam, Constants.K_GAMES_IN_REGULAR_SEASON, Int32.Parse( sSeason ) );
-			AddGamesFromDataSet( ds, sTeam );
+			   sTeam,
+			   Constants.K_GAMES_IN_REGULAR_SEASON, 
+			   Int32.Parse( sSeason ) );
+			AddGamesFromDataSet(
+				ds, 
+				sTeam );
 		}
 
-		public void LoadPreviousRegularSeasonGames( string sTeam, string sSeason, DateTime focusDate )
+		public void LoadPreviousRegularSeasonGames(
+			string sTeam,
+			string sSeason,
+			DateTime focusDate)
 		{
 			//TODO:   fails single responsibility
 			if ( sTeam == "LC" && sSeason == "2017" )
@@ -3669,7 +3679,9 @@ namespace RosterLib
 			AddGamesFromDataSet( ds, sTeam );
 		}
 
-		private void AddGamesFromDataSet( DataSet ds, string sTeam )
+		private void AddGamesFromDataSet(
+			DataSet ds,
+			string sTeam)
 		{
 			var dt = ds.Tables[ "sched" ];
 			foreach ( var g in from DataRow dr in dt.Rows
@@ -3678,18 +3690,22 @@ namespace RosterLib
 			{
 				GameList.Add( g );
 #if DEBUG
-				Announce( string.Format( "{1} included game {2} -{0}",
-				   g.Result.LogResult(), sTeam, g.GameCodeOut() ) );
+				Announce( $"{sTeam} included game {g.GameCodeOut()} -{g.Result.LogResult()}" );
 #endif
 			}
 		}
 
-		public void LoadPreviousGames( int nGames, DateTime theDate )
+		public void LoadPreviousGames(
+			int nGames,
+			DateTime theDate)
 		{
 			if ( GameList == null ) GameList = new ArrayList();
 			GameList.Clear();
 
-			var ds = Utility.TflWs.GetLastGames( teamCode: TeamCode, nGames: 4, theDate: theDate );
+			var ds = Utility.TflWs.GetLastGames(
+				teamCode: TeamCode,
+				nGames: 4,
+				theDate: theDate);
 			AddGamesFromDataSet( ds, TeamCode );
 		}
 
