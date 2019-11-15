@@ -424,9 +424,36 @@ namespace SeasonHtml
 					"Points-Allowed"));
 			AddLine(
 				sb,
-				FantasyPointLine(
-					"QB Scores",
-					"QB-Scores"));
+				ScoreLine("QB"));
+			AddLine(
+				sb,
+				ScoreLine("RB"));
+			AddLine(
+				sb,
+				ScoreLine("WR"));
+			AddLine(
+				sb,
+				ScoreLine("TE"));
+			AddLine(
+				sb,
+				ScoreLine("PK"));
+			return sb.ToString();
+		}
+
+		private string ScoreLine(
+			string posAbbr)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"{posAbbr} Scores"));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(
+					sb,
+					HtmlLib.TableData(
+						ScoresLink(
+							i,
+							$"{posAbbr}-Scores")));
 			return sb.ToString();
 		}
 
@@ -447,7 +474,6 @@ namespace SeasonHtml
 							fileStem)));
 			return sb.ToString();
 		}
-
 
 		private string ScoresLink(
 			int w,
