@@ -29,7 +29,9 @@ namespace RosterLib
 		{
 			LoadTeams();  //  By each Team
 
-			var heading = Week == null ? "GL Scores Season " + Season : "Scores : Week " + Week;
+			var heading = Week == null 
+				? "GL Scores Season " + Season 
+				: "Scores : Week " + Week;
 			var str = new SimpleTableReport( heading )
 			{
 				ColumnHeadings = true,
@@ -70,9 +72,10 @@ namespace RosterLib
 		{
 			DataTable dt = BuildDataTable();
 
-			var scores = Week == null ?
-			   Utility.TflWs.ScoresDs( Season )
-			   : Utility.TflWs.ScoresDs( Season, Week );
+			var scores = Utility.TflWs.ScoresDsWeekRange(
+				Season,
+				fromWeek: "01",
+				toWeek: Week );
 
 			LoadDataTable( dt, scores );
 
@@ -128,7 +131,7 @@ namespace RosterLib
 			while ( myEnumerator.MoveNext() )
 			{
 				var scorer = myEnumerator.Value;
-				var field = string.Format( "Wk{0}", myEnumerator.Key );
+				var field = $"Wk{myEnumerator.Key}";
 				dr[ field ] = scorer;
 			}
 		}

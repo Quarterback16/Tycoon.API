@@ -363,6 +363,7 @@ namespace SeasonHtml
 			AddLine(sb, PickupCharts());
 			AddLine(sb, PickupSummaries());
 			AddLine(sb, RankingMetrics());
+			AddLine(sb, Aces());
 			AddLine(sb, PlayerProjections("QB"));
 			AddLine(sb, PlayerProjections("RB"));
 			AddLine(sb, PlayerProjections("WR"));
@@ -374,6 +375,7 @@ namespace SeasonHtml
 			LeaguePerformance(sb,"YH","Yahoo");
 			LeaguePerformance(sb, "G1", "GridStats");
 			DefensiveReports(sb);
+			FantasyPoints(sb);
 			TallyStats(sb);
 
 			AddLine(sb, HtmlLib.TableClose());
@@ -404,6 +406,57 @@ namespace SeasonHtml
 		{
 			AddLine(sb, ScopeHeader("Defensive Reports"));
 			AddLine(sb, TopDefense());
+			return sb.ToString();
+		}
+
+		private string FantasyPoints(StringBuilder sb)
+		{
+			AddLine(sb, ScopeHeader("Fantasy Points"));
+			AddLine(
+				sb, 
+				FantasyPointLine(
+					"By Category",
+					"FantasyScores"	));
+			AddLine(
+				sb, 
+				FantasyPointLine(
+					"Points Allowed",
+					"Points-Allowed"));
+			AddLine(
+				sb,
+				FantasyPointLine(
+					"QB Scores",
+					"QB-Scores"));
+			return sb.ToString();
+		}
+
+		private string FantasyPointLine(
+			string header,
+			string fileStem)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData(header));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(
+					sb,
+					HtmlLib.TableData(
+						ScoresLink(
+							i,
+							fileStem)));
+			return sb.ToString();
+		}
+
+
+		private string ScoresLink(
+			int w,
+			string linkName)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.Href(
+				$"..\\{Year}\\scores\\{linkName}-{w:0#}.htm",
+				$"{w:0#}"));
 			return sb.ToString();
 		}
 
@@ -592,6 +645,27 @@ namespace SeasonHtml
 			var sb = new StringBuilder();
 			AddLine(sb, HtmlLib.Href(
 				$"..\\{Year}\\scorecards\\{playerType}-Week-{i:0#}.htm",
+				$"{i:0#}"));
+			return sb.ToString();
+		}
+
+		private string Aces()
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData("Aces"));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(Ace(i)));
+			AddLine(sb, HtmlLib.TableRowClose());
+			return sb.ToString();
+		}
+
+		private string Ace(int i)
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.Href(
+				$"..\\{Year}\\Roles\\Aces-{i:0#}.htm",
 				$"{i:0#}"));
 			return sb.ToString();
 		}

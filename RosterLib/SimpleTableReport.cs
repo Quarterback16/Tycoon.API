@@ -170,7 +170,9 @@ namespace RosterLib
 		/// </summary>
 		/// <param name="fileName">The output DOS file fame.  Include a directory.</param>
 		/// <param name="persist">Whether to delete the file or not, sometimes we just want the string.</param>
-		public string RenderAsHtml( string fileName, bool persist )
+		public string RenderAsHtml(
+			string fileName,
+			bool persist)
 		{
 			if ( ReportHeader == null )
 				ReportHeader = _header;
