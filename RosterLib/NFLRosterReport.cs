@@ -132,7 +132,11 @@ namespace RosterLib
 			Logger.Trace( "   " + message );
 		}
 
-		public void SeasonProjection( string metricName, string season, string week, DateTime projectionDate )
+		public void SeasonProjection(
+			string metricName,
+			string season,
+			string week,
+			DateTime projectionDate)
 		{
 			Announce(string.Format("SeasonProjection metric={0} ...", metricName));
 
@@ -325,7 +329,9 @@ namespace RosterLib
 			return s + "<br>" + string.Format( "Total Field Goals : {0}", totalFieldGoals );
 		}
 
-		private string SeasonOut( string metric, DateTime projectionDate )
+		private string SeasonOut(
+			string metric,
+			DateTime projectionDate)
 		{
 			IPrognosticate predictor;
 			if ( metric.Equals( "Spread" ) )
@@ -583,7 +589,7 @@ namespace RosterLib
 		public void DeletePlayerReports( StringBuilder body )
 		{
 			var reportsDeleted = 0;
-			//  All the players
+			//  All the current players 
 			foreach ( NflConference c in _confList )
 			{
 				foreach ( NFLDivision d in c.DivList )
@@ -591,12 +597,20 @@ namespace RosterLib
 					foreach ( NflTeam t in d.TeamList )
 					{
 						t.LoadPlayerUnits();
-						Announce( $"   Team {t} has {t.PlayerList.Count} current players" );
+						Announce( 
+							$@"   Team {
+								t
+								} has {
+								t.PlayerList.Count
+								} current players" );
 						foreach ( NFLPlayer p in t.PlayerList )
 						{
 							if ( p.DeletePlayerReport() )
 							{
-								Announce( $"   {p.PlayerReportFileName()} deleted" );
+								Announce( 
+									$@"   {
+										p.PlayerReportFileName()
+										} deleted" );
 								reportsDeleted++;
 							}
 						}

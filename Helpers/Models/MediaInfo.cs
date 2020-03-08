@@ -139,7 +139,8 @@ namespace Helpers.Models
 
         private void FixTitle()
         {
-            //  quick and dirty way to purify the Title, based on the fac that it is the first part
+            //  quick and dirty way to purify the Title, 
+            //  based on the fac that it is the first part
             var newTitle = string.Empty;
             var lastChar = "x";
 
@@ -244,7 +245,7 @@ namespace Helpers.Models
         {
             if (!Directory.Exists(MagazineFolder))
             {
-                Logger.Error(string.Format("Mag folder {0} does not exist", MagazineFolder));
+                Logger.Error($"Mag folder {MagazineFolder} does not exist");
                 return;
             }
             try
@@ -254,9 +255,11 @@ namespace Helpers.Models
                 var fullDirs = Directory.GetDirectories(MagazineFolder);
 
                 foreach (var dir in fullDirs)
-                    Magazines.Add(dir.Substring(MagazineFolder.Length));
+                    Magazines.Add(
+                        dir.Substring(
+                            MagazineFolder.Length));
 
-                Logger.Trace(string.Format("Found {0} files in folder:{1}", Magazines.Count, MagazineFolder));
+                Logger.Trace($"Found {Magazines.Count} files in folder:{MagazineFolder}");
             }
             catch (IOException ex)
             {
@@ -329,16 +332,19 @@ namespace Helpers.Models
             Console.WriteLine("Episode  : {0}", Episode);
             Console.WriteLine("Format   : {0}", Format);
 
-            Logger.Trace($"    Title    : {Title}");
-            Logger.Trace($"    Is Book  : {IsBook}");
-            Logger.Trace($"    Is Mag   : {IsMagazine}");
-            Logger.Trace($"    Is TV    : {IsTV}");
-            Logger.Trace($"    Season   : {Season}");
-            Logger.Trace($"    Episode  : {Episode}");
-            Logger.Trace($"    Is Movie : {IsMovie}");
-            Logger.Trace($"    Is NFL   : {IsNfl}");
-            Logger.Trace($"    Is Soccer: {IsSoccer}");
-            Logger.Trace($"    Format   : {Format}");
+            if (logIt)
+            {
+                Logger.Trace($"    Title    : {Title}");
+                Logger.Trace($"    Is Book  : {IsBook}");
+                Logger.Trace($"    Is Mag   : {IsMagazine}");
+                Logger.Trace($"    Is TV    : {IsTV}");
+                Logger.Trace($"    Season   : {Season}");
+                Logger.Trace($"    Episode  : {Episode}");
+                Logger.Trace($"    Is Movie : {IsMovie}");
+                Logger.Trace($"    Is NFL   : {IsNfl}");
+                Logger.Trace($"    Is Soccer: {IsSoccer}");
+                Logger.Trace($"    Format   : {Format}");
+            }
         }
 
         public string DetermineTitle()
@@ -399,12 +405,26 @@ namespace Helpers.Models
                  !fileName.ToUpper().Contains("EURO") &&
                  !fileName.ToUpper().Contains("JUVENTUS") &&
                  !fileName.ToUpper().Contains("HALF") &&
-                 !fileName.ToUpper().Contains("SERIE A"))
+                 !fileName.ToUpper().Contains("SERIE A") &&
+                    !IsMatchOfTheDay(fileName))
                 return;
             IsSoccer = true;
             {
                 title = fileName;
             }
+        }
+
+        private bool IsMatchOfTheDay(string fileName)
+        {
+            var isMatchOfTheDay = false;
+            if (fileName.ToUpper().Contains("MOTD"))
+                return true;
+            if (   fileName.ToUpper().Contains("MATCH")
+                && fileName.ToUpper().Contains("OF")
+                && fileName.ToUpper().Contains("THE")
+                && fileName.ToUpper().Contains("DAY"))
+                return true;
+            return isMatchOfTheDay;
         }
 
         private bool IsYearWord(string word)

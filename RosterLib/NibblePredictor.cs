@@ -17,12 +17,19 @@ namespace RosterLib
 		{
 		}
 
-		public NFLResult PredictGame(NFLGame game, IStorePredictions persistor, DateTime predictionDate)
+		public NFLResult PredictGame(
+			NFLGame game,
+			IStorePredictions persistor,
+			DateTime predictionDate)
 		{
 			const int avgScore = 21;
 
-			var homeRating = RatingsService.GetNibbleRatingFor( game.HomeNflTeam, predictionDate );
-			var awayRating = RatingsService.GetNibbleRatingFor( game.AwayNflTeam, predictionDate );
+			var homeRating = RatingsService.GetNibbleRatingFor(
+				game.HomeNflTeam,
+				predictionDate);
+			var awayRating = RatingsService.GetNibbleRatingFor(
+				game.AwayNflTeam,
+				predictionDate);
 
 			var homeOff = homeRating.Offence;
 			var homeDef = homeRating.Defence;
@@ -36,7 +43,11 @@ namespace RosterLib
 			awayScore = Utility.PickAScore(awayScore);
 
 			if (homeScore == awayScore) homeScore++;  //  no ties
-			var res = new NFLResult( game.HomeTeam, homeScore, game.AwayTeam, awayScore );
+			var res = new NFLResult(
+				game.HomeTeam,
+				homeScore,
+				game.AwayTeam,
+				awayScore);
 
 			//TODO:  Nibble predictor does not predict Tdp or Tdr
 

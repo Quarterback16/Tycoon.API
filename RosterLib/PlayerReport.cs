@@ -92,7 +92,7 @@ namespace RosterLib
 				var week = new NFLWeek( g.Season, g.Week );
 				var scorer = new YahooScorer( week );
 				var dr = dt.NewRow();
-				g.Game.TallyMetrics( String.Empty );
+				g.Game.TallyMetrics(metric: String.Empty );
 				dr[ "WEEK" ] = g.Game.GameCodeOut();
 				dr[ "TEAM" ] = string.Format( "{0}-{1}", g.TeamCode, Player.Unit() );
 				dr[ "URES" ] = g.Game.UnitResult( Player.Unit(), g.TeamCode );

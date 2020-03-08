@@ -209,9 +209,14 @@ namespace RosterLib
          return "</style>";
       }
 
-      public static string HTMLPadL( string cStr, int nSpaces )
+      public static string HTMLPadL(
+          string cStr,
+          int nSpaces)
       {
-         if (cStr == null) throw (new ArgumentNullException("cStr", "parameter is null"));
+         if (cStr == null) 
+            throw new ArgumentNullException(
+                "cStr",
+                "parameter is null");
 
          var cPad = "";
          for ( var i = cStr.Trim().Length; i < nSpaces; i++ )

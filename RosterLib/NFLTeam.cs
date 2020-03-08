@@ -3575,7 +3575,10 @@ namespace RosterLib
 
 		#region Game Log
 
-		public ArrayList LoadGamesFrom( string sStartSeason, string sStartWeek, int offset )
+		public ArrayList LoadGamesFrom(
+			string sStartSeason,
+			string sStartWeek,
+			int offset)
 		{
 			if ( GameList == null ) GameList = new ArrayList();
 			GameList.Clear();
@@ -3598,30 +3601,37 @@ namespace RosterLib
 				{
 					//  process week
 #if DEBUG
-					Utility.Announce( string.Format( "  getting {0} game for {1} wk {2} ",
-					  Name, processWeek.Season, processWeek.Week ) );
+					Utility.Announce( $"  getting {Name} game for {processWeek.Season} wk {processWeek.Week} " );
 #endif
 					var dr = Utility.TflWs.GetGame( processWeek.Season,
-								  string.Format( "{0:00}", Int32.Parse( processWeek.Week ) ), TeamCode );
+								  $"{Int32.Parse(processWeek.Week):00}", TeamCode );
 					if ( dr != null )
 					{
 						var myGame = new NFLGame( dr );
 						GameList.Add( myGame );
 					}
-					processWeek = processWeek.PreviousWeek( processWeek, false, regularSeasonGamesOnly: true );
+					processWeek = processWeek.PreviousWeek(
+						processWeek,
+						loadgames: false,
+						regularSeasonGamesOnly: true);
 				}
 			}
 			return GameList;
 		}
 
-		public void LoadGames( string sTeam, string sSeason )
+		public void LoadGames( 
+			string sTeam, 
+			string sSeason )
 		{
 #if DEBUG
 			//Utility.Announce( $"  loading season {sSeason} games only for {sTeam}" );
 #endif
-			if ( GameList == null ) GameList = new ArrayList();
+			if ( GameList == null ) 
+				GameList = new ArrayList();
 			GameList.Clear();
-			var ds = Utility.TflWs.GetSeason( sTeam, sSeason );
+			var ds = Utility.TflWs.GetSeason( 
+				sTeam, 
+				sSeason );
 			var dt = ds.Tables[ "sched" ];
 			foreach ( DataRow dr in dt.Rows )
 			{

@@ -12,16 +12,24 @@ namespace RosterLib
 			TimeKeeper = timekeeper;
 		}
 
-		public override void RenderAsHtml()
+		public override void RenderAsHtml(
+			bool structOnly = false)
 		{
+			StructOnly = structOnly;
 			NflSeason = new NflSeason( 
 				TimeKeeper.CurrentSeason(), 
 				loadGames: true, 
 				loadDivisions: false );
 			foreach ( var game in NflSeason.GameList )
 			{
-				game.WriteProjection();
-#if DEBUG
+				if (game.Played())
+					continue;
+
+				if (StructOnly)
+					System.Console.WriteLine($"WriteProjection for {game.GameName()}");
+				else
+					game.WriteProjection();
+#if DEBUG2
 				if ( game.WeekNo > 1 ) break;
 #endif
 			}

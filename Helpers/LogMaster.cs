@@ -5,7 +5,8 @@ namespace Helpers
 {
     public class LogMaster : XmlCache
     {
-        public LogMaster(string logFileName) : base("Logs")
+        public LogMaster(
+            string logFileName) : base("Logs")
         {
             Filename = logFileName;
             XmlDoc = new XmlDocument();
@@ -15,9 +16,11 @@ namespace Helpers
                 AddXmlLog(node);
         }
 
-        private void AddXmlLog(XmlNode node)
+        private void AddXmlLog(
+            XmlNode node)
         {
-            AddLogItem(new LogItem(node));
+            AddLogItem(
+                new LogItem(node));
         }
 
         private void AddLogItem(LogItem logItem)

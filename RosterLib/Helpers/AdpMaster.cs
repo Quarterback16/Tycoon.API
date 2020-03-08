@@ -90,7 +90,7 @@ namespace RosterLib.Helpers
                         var playerName = values[2];
                         var adp = values[1];
 
-                        System.Console.WriteLine(
+                        Console.WriteLine(
                             $"{playerName} {adp}");
                         Adp.Add(playerName, adp);
                     }

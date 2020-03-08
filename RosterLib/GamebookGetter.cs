@@ -20,12 +20,22 @@ namespace RosterLib
 			var gameDict = new Dictionary<string, NFLGame>();
 			var dlCount = 0;
 			var seed = Int32.Parse( Seed( week ) );
+			if (seed == 0)
+			{
+				Console.WriteLine("Unable to read Game Seed");
+				return seed;
+			}
 			var origSeed = seed;
 			foreach ( NFLGame game in week.GameList() )
 			{
 				if ( game.GameDate <= DateTime.Now )
 					gameDict.Add( game.Index(), game );
-				//Console.WriteLine("{0} : {1} : {2} : {3}",game.GameName(), game.GameApKey(), game.Id,  game.Index() );
+				Console.WriteLine(
+					"{0} : {1} : {2} : {3}",
+					game.GameName(),
+					game.GameApKey(),
+					game.Id,
+					game.Index());
 			}
 			var list = gameDict.Keys.ToList();
 			list.Sort();
@@ -82,6 +92,7 @@ namespace RosterLib
 				gameSeed = game.Id;
 				break;
 			}
+			Console.WriteLine($"Game Seed: {gameSeed}");
 			return gameSeed;
 		}
 	}

@@ -41,7 +41,7 @@ namespace RosterLib
 		private const bool bOutputMatrixs = true; //  turning this on will produce the unit_TT.htm
 		private const bool bFrequencyTables = true;
 		private const bool bOutputLadders = true;
-		private const bool bOutputPlayerEP = true;
+		private const bool bOutputPlayerEP = false;
 		private const bool bExplain = true;
 
 #else
@@ -80,7 +80,34 @@ namespace RosterLib
 
 		#region  Constructors
 
-		public WizSeason( string seasonIn )
+		public WizSeason()
+		{
+			_season = Utility.CurrentSeason();
+			_matrixList = new ArrayList(); //   Ratings Matrix for all the teams
+			_gameList = new ArrayList(); //  stats for all the games
+			_total = new GameStats(
+				gameCode: _season,
+				homeTeam: "tot",
+				awayTeam: "tot",
+				week: 0); //  League Totals
+
+			InitialiseMatrix();
+			ProcessMatrix();
+			//AnnounceTotals();
+		}
+
+		public void ProcessMatrix()
+		{
+			foreach (UnitMatrix u in _matrixList)
+			{
+				u.Team.LoadGames(u.Team.TeamCode, _season);
+				foreach (NFLGame g in u.Team.GameList)
+					ProcessGame(u, g);
+			}
+		}
+
+		public WizSeason( 
+			string seasonIn )
 		{
 			_season = seasonIn;
 			_matrixList = new ArrayList(); //   Ratings Matrix for all the teams
@@ -89,22 +116,29 @@ namespace RosterLib
 			InitialiseMatrix();
 			foreach ( UnitMatrix u in _matrixList )
 			{
-				u.Team.LoadGames( u.Team.TeamCode, _season );
+				u.Team.LoadGames( 
+					u.Team.TeamCode, 
+					_season );
 				foreach (NFLGame g in u.Team.GameList)
-					ProcessGame(u, g);
+					ProcessGame(
+						u,
+						g);
 			}
 			OutputPhase( seasonIn );
 		}
 
-		private static void ProcessGame(UnitMatrix u, NFLGame g)
+		private static void ProcessGame(
+			UnitMatrix u, 
+			NFLGame g)
 		{
 			var weekOffset = Int32.Parse(g.Week) - 1;
-			Utility.Announce(string.Format("Game {0}", g.GameCodeOut()));
+			//Utility.Announce($"Game {g.GameCodeOut()}");
 			if ((weekOffset < 0) || (weekOffset > 20))
-				Utility.Announce(string.Format("Game {0} has week {1}", g.GameCodeOut(), g.Week));
+				Utility.Announce($"Game {g.GameCodeOut()} has week {g.Week}");
 			else
 			{
-				if (!g.MetricsCalculated) g.TallyMetrics(String.Empty);
+				if (!g.MetricsCalculated) 
+					g.TallyMetrics(String.Empty);
 
 				decimal metric = (g.IsHome(u.Team.TeamCode) ? g.HomeTDp : g.AwayTDp);
 				GetEp("PO", u.PoExp, g, u, weekOffset, metric);
@@ -126,7 +160,10 @@ namespace RosterLib
 			}
 		}
 
-		public WizSeason( string seasonIn, string startWeekIn, string endWeekIn )
+		public WizSeason(
+			string seasonIn,
+			string startWeekIn,
+			string endWeekIn)
 		{
 			//  The constructor will read all the results and crunch the 
 			//  experience points for each unit.
@@ -142,8 +179,11 @@ namespace RosterLib
 
 			InitialiseMatrix();
 
-			LoadSeason( _season, _startWeek, _endWeek ); //  loads game stats for a season used for averages
-			Utility.Announce( string.Format( "WizSeason:Loaded and tallied {0} games", _gameList.Count ) );
+			LoadSeason(
+				_season,
+				_startWeek,
+				_endWeek); //  loads game stats for a season used for averages
+			Utility.Announce( $"WizSeason:Loaded and tallied {_gameList.Count} games" );
 
 			if ( seasonIn != Utility.CurrentSeason() )
 			{
@@ -163,15 +203,30 @@ namespace RosterLib
 		}
 
 
-		private static void GetEp( string unitCode, decimal[,] exp, NFLGame g, UnitMatrix u, int weekOffset,
-											decimal metric )
+		private static void GetEp( 
+			string unitCode, 
+			decimal[,] exp, 
+			NFLGame g, 
+			UnitMatrix u, 
+			int weekOffset,
+			decimal metric )
 		{
-			var ep = g.ExperiencePoints( unitCode, u.Team.TeamCode );
-			IncrementMatrix( ep, weekOffset, exp, metric );
+			var ep = g.ExperiencePoints( 
+				unitCode, 
+				u.Team.TeamCode );
+			IncrementMatrix( 
+				ep, 
+				weekOffset, 
+				exp, 
+				metric );
 			return;
 		}
 
-		private static void IncrementMatrix( decimal ep, int weekOffset, decimal[,] exp, decimal metric )
+		private static void IncrementMatrix( 
+			decimal ep, 
+			int weekOffset, 
+			decimal[,] exp, 
+			decimal metric )
 		{
 			exp[ weekOffset, 0 ] = ep;
 			exp[ weekOffset, 1 ] = metric;
@@ -185,34 +240,66 @@ namespace RosterLib
 			}
 		}
 
+		public void OutputPhase()
+		{
+			OutputPhase(_season);
+		}
+
 		private void OutputPhase( string seasonIn )
 		{
-			if ( bOutputMatrixs ) OutputMatrixs( seasonIn );
+			if ( bOutputMatrixs ) 
+				OutputMatrixs( seasonIn );
 
 			if ( bOutputLadders )
 			{
-				if ( _startWeek == null ) _startWeek = "01";
-				if ( _endWeek == null ) _endWeek = "17";
-				var suf = " - " + seasonIn + " " + _startWeek + " to " + _endWeek;
+				if ( _startWeek == null ) 
+					_startWeek = "01";
+				if ( _endWeek == null ) 
+					_endWeek = "17";
+				var suf = $" - {seasonIn} {_startWeek} to {_endWeek}";
 				_ladderHash = new Hashtable();
-				_poLadder = new Ladder( UnitMatrix.KUnitNamePassingOffence + suf, 32 );
-				_ladderHash.Add( UnitMatrix.KUnitNamePassingOffence, _poLadder );
-				_roLadder = new Ladder( UnitMatrix.KUnitNameRushingOffence + suf, 32 );
-				_ladderHash.Add( UnitMatrix.KUnitNameRushingOffence, _roLadder );
-				_ppLadder = new Ladder( UnitMatrix.KUnitNamePassProtection + suf, 32 );
-				_ladderHash.Add( UnitMatrix.KUnitNamePassProtection, _ppLadder );
-
-				_prLadder = new Ladder( UnitMatrix.KUnitNamePassRush + suf, 32 );
-				_ladderHash.Add( UnitMatrix.KUnitNamePassRush, _prLadder );
-				_rdLadder = new Ladder( UnitMatrix.KUnitNameRushingDefence + suf, 32 );
-				_ladderHash.Add( UnitMatrix.KUnitNameRushingDefence, _rdLadder );
-				_pdLadder = new Ladder( UnitMatrix.KUnitNamePassingDefence + suf, 32 );
-				_ladderHash.Add( UnitMatrix.KUnitNamePassingDefence, _pdLadder );
+				_poLadder = new Ladder(
+					titleIn: UnitMatrix.KUnitNamePassingOffence + suf,
+					places: 32 );
+				_ladderHash.Add(
+					key: UnitMatrix.KUnitNamePassingOffence,
+					value: _poLadder );
+				_roLadder = new Ladder(
+					UnitMatrix.KUnitNameRushingOffence + suf, 
+					32 );
+				_ladderHash.Add( 
+					UnitMatrix.KUnitNameRushingOffence, 
+					_roLadder );
+				_ppLadder = new Ladder( 
+					UnitMatrix.KUnitNamePassProtection + suf, 
+					32 );
+				_ladderHash.Add( 
+					UnitMatrix.KUnitNamePassProtection, 
+					_ppLadder );
+				_prLadder = new Ladder( 
+					UnitMatrix.KUnitNamePassRush + suf, 
+					32 );
+				_ladderHash.Add( 
+					UnitMatrix.KUnitNamePassRush, 
+					_prLadder );
+				_rdLadder = new Ladder( 
+					UnitMatrix.KUnitNameRushingDefence + suf, 
+					32 );
+				_ladderHash.Add( 
+					UnitMatrix.KUnitNameRushingDefence, 
+					_rdLadder );
+				_pdLadder = new Ladder( 
+					UnitMatrix.KUnitNamePassingDefence + suf, 
+					32 );
+				_ladderHash.Add( 
+					UnitMatrix.KUnitNamePassingDefence, 
+					_pdLadder );
 				OutputLadders();
 			}
 
 			if ( bFrequencyTables )
-				if ( _gameList != null ) FrequencyTables();
+				if ( _gameList != null ) 
+					FrequencyTables();
 
 			if ( BCsvOutput ) SendToCsv( );
 
@@ -271,7 +358,7 @@ namespace RosterLib
 			{
 				WriteElement( writer, "unitcode", u.UnitCode );
 				var exp = m.GetUnit( u.UnitCode );
-				WriteElement( writer, "ep", string.Format( "{0:#0.0}", exp[ Constants.K_WEEKS_IN_A_SEASON, 0 ] ) );
+				WriteElement( writer, "ep", $"{exp[Constants.K_WEEKS_IN_A_SEASON, 0]:#0.0}" );
 			}
 			writer.WriteEndElement();
 		}
@@ -336,7 +423,11 @@ namespace RosterLib
 
 		private static string TitleOut()
 		{
-			return "Exp Ladder " + Utility.CurrentSeason() + " to week " + Utility.CurrentWeek();
+			return $@"Exp Ladder {
+				Utility.CurrentSeason()
+				} to week {
+				Utility.CurrentWeek()
+				}";
 		}
 
 		private void OutputPoLadder()
@@ -365,14 +456,26 @@ namespace RosterLib
 			st.LoadBody( dt );
 			st.DoRowNumbers = true;
 			st.ShowElapsedTime = false;
-			st.RenderAsHtml( LadderFileName( "PO", _season ), true );
+			st.RenderAsHtml(
+				fileName: LadderFileName(
+					unitCode: "PO",
+					season: _season),
+				persist: true );
 
 			_poLadder.Load( dt, "Team", UnitMatrix.KUnitNamePassingOffence );
 		}
 
-		private static string LadderFileName( string unitCode, string season )
+		private static string LadderFileName(
+			string unitCode,
+			string season)
 		{
-            return string.Format("{0}Exp_{1}_Ladder_{2}.htm", Utility.OutputDirectory(), unitCode, season);
+            return $@"{
+				Utility.OutputDirectory()
+				}Exp_{
+				unitCode
+				}_Ladder_{
+				season
+				}.htm";
 		}
 
 		private void OutputRoLadder()
@@ -616,7 +719,12 @@ namespace RosterLib
 			foreach (var t in _matrixList)
 			{
 				var matrix = (UnitMatrix)t;
-				matrix.RenderAsHtml( "Unit " + seasonIn, true, true, true, true );
+				matrix.RenderAsHtml(
+					header1: "Unit " + seasonIn,
+					defence: true,
+					offence: true,
+					persist: true,
+					showRank: true );
 			}
 		}
 
@@ -631,11 +739,13 @@ namespace RosterLib
 		/// <summary>
 		///   Each Team is the season gets a set of stats.
 		/// </summary>
-		private void InitialiseMatrix()
+		public void InitialiseMatrix()
 		{
 			Utility.Announce( "Initializing Matrix " );
-			var ds = Utility.TflWs.GetTeams( _season, "" );
-			_teams = ds.Tables[ "teams" ];
+			var ds = Utility.TflWs.GetTeams(
+				_season,
+				div: "" );
+			_teams = ds.Tables[ 0 ];
 			foreach ( DataRow dr in _teams.Rows )
 			{
 				var teamCode = dr[ "TEAMID" ].ToString();
@@ -693,7 +803,10 @@ namespace RosterLib
 		/// <param name="homeMatrix">The home Matrix.</param>
 		/// <param name="awayMatrix">The away Matrix.</param>
 		/// <param name="game">The game.</param>
-		private void IncrementExpPts( UnitMatrix homeMatrix, UnitMatrix awayMatrix, GameStats game )
+		private void IncrementExpPts(
+			UnitMatrix homeMatrix,
+			UnitMatrix awayMatrix,
+			GameStats game)
 		{
 			//RosterLib.Utility.Announce( string.Format( "Evaluating game {0} {1}@{2}",
 			//                                    game.Code, game.AwayTeam, game.HomeTeam ) );
@@ -885,9 +998,9 @@ namespace RosterLib
 			defMatrix.AddRdPoints( defPoints, offMult, game );
 			DistributeEp( "RO", offPoints, defMult, game, bHome );
 			DistributeEp( "RD", defPoints, offMult, game, bHome );
-			Explain( offMatrix, defMatrix, "Rush Offence", offPoints,
-						defPoints, "RO", "RD", offMult, defMult, result,
-						( offMatrix.RoPoints - offPoints ), ( defMatrix.RdPoints - defPoints ), metric, bHome );
+			Explain(
+				offMatrix, defMatrix, "Rush Offence", offPoints, defPoints, "RO", "RD", offMult, defMult, result,
+				(offMatrix.RoPoints - offPoints), (defMatrix.RdPoints - defPoints), metric, bHome);
 		}
 
 		/// <summary>
@@ -950,34 +1063,47 @@ namespace RosterLib
 
 		#endregion
 
-		private void LoadSeason( string seasonIn, string startWeekIn, string endWeekIn )
+		public void LoadSeason(
+			string seasonIn,
+			string startWeekIn,
+			string endWeekIn)
 		{
+			_startWeek = startWeekIn;
+			_endWeek = endWeekIn;
 #if DEBUG
-			Utility.Announce( "WizSeason.LoadSeason " + seasonIn + " from " + startWeekIn + " to " + endWeekIn );
+			Utility.Announce($"WizSeason.LoadSeason {seasonIn} from {startWeekIn} to {endWeekIn}");
 #endif
 			//  for each game in the season
-			var ds = Utility.TflWs.GetSeason( seasonIn, startWeekIn, endWeekIn );
+			var ds = Utility.TflWs.GetSeason(
+				seasonIn,
+				startWeekIn,
+				endWeekIn);
 			//  calculate gamestat totals for the season
 			var dt = ds.Tables[ "sched" ];
 			foreach ( DataRow dr in dt.Rows )
 			{
-				if ( dr[ "HOMESCORE" ].ToString() != "0" || dr[ "AWAYSCORE" ].ToString() != "0" )
+				if (   dr[ "HOMESCORE" ].ToString() != "0" 
+					|| dr[ "AWAYSCORE" ].ToString() != "0" )
 				{
 					_nGames++;
 					var game = new GameStats(
-						string.Format("{0}:{1}:{2}", dr["SEASON"], dr["WEEK"], dr["GAMENO"]),
+						$"{dr["SEASON"]}:{dr["WEEK"]}:{dr["GAMENO"]}",
 						dr["HOMETEAM"].ToString(), dr["AWAYTEAM"].ToString(),
 						Int32.Parse(dr["WEEK"].ToString()))
-					           	{
-					           		HomePassingYds = Utility.TflWs.TeamStats("S",
-					           		                                         _season, dr["WEEK"].ToString(),
-					           		                                         dr["GAMENO"].ToString(),
-					           		                                         dr["HOMETEAM"].ToString()),
-					           		AwayPassingYds = Utility.TflWs.TeamStats("S",
-					           		                                         _season, dr["WEEK"].ToString(),
-					           		                                         dr["GAMENO"].ToString(),
-					           		                                         dr["AWAYTEAM"].ToString())
-					           	};
+					    {
+					        HomePassingYds = Utility.TflWs.TeamStats(
+								statCode: "S",
+								season: _season, 
+								week: dr["WEEK"].ToString(),
+								game: dr["GAMENO"].ToString(),
+								teamCode: dr["HOMETEAM"].ToString()),
+					        AwayPassingYds = Utility.TflWs.TeamStats(
+								statCode: "S",
+								season: _season,
+								week: dr["WEEK"].ToString(),
+								game: dr["GAMENO"].ToString(),
+								teamCode: dr["AWAYTEAM"].ToString())
+					    };
 
 					#region  Passing Yards
 
@@ -1114,15 +1240,15 @@ namespace RosterLib
 
 		private void AnnounceTotals()
 		{
-			Utility.Announce( string.Format( "Loaded and totaled {0} games", _gameList.Count ) );
+			Utility.Announce( $"Loaded and totaled {_gameList.Count} games" );
 			Utility.Announce(
-				string.Format( "Total {0} = {1}", "PassingYds", _total.HomePassingYds + _total.AwayPassingYds ) );
-			Utility.Announce( string.Format( "Total {0} = {1}", "Tdp", _total.HomeTDpasses + _total.AwayTDpasses ) );
-			Utility.Announce( string.Format( "Total {0} = {1}", "Tdr", _total.HomeTDruns + _total.AwayTDruns ) );
+				$"Total {"PassingYds"} = {_total.HomePassingYds + _total.AwayPassingYds}" );
+			Utility.Announce( $"Total {"Tdp"} = {_total.HomeTDpasses + _total.AwayTDpasses}" );
+			Utility.Announce( $"Total {"Tdr"} = {_total.HomeTDruns + _total.AwayTDruns}" );
 			Utility.Announce(
-				string.Format( "Total {0} = {1}", "RushingYds", _total.HomeRushingYds + _total.AwayRushingYds ) );
-			Utility.Announce( string.Format( "Total {0} = {1}", "FGs", _total.HomeFGs + _total.AwayFGs ) );
-			Utility.Announce( string.Format( "Total {0} = {1}", "SAK", _total.HomeSacks + _total.AwaySacks ) );
+				$"Total {"RushingYds"} = {_total.HomeRushingYds + _total.AwayRushingYds}" );
+			Utility.Announce( $"Total {"FGs"} = {_total.HomeFGs + _total.AwayFGs}" );
+			Utility.Announce( $"Total {"SAK"} = {_total.HomeSacks + _total.AwaySacks}" );
 		}
 
 		private void FrequencyTables()
@@ -1138,8 +1264,11 @@ namespace RosterLib
 				foreach ( object t in _gameList )
 				{
 					game = (GameStats) t;
-					_ftYDp.Add(game.AwayPassingYds);
-					_ftYDp.Add(game.HomePassingYds);
+					//var g = new NFLGame(game.Code);
+					//if (g.AwayWin())
+					    _ftYDp.Add(game.AwayPassingYds);
+					//if (g.HomeWin())
+						_ftYDp.Add(game.HomePassingYds);
 				}
 
 				_ftYDp.Calculate();

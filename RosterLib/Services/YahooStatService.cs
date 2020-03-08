@@ -12,20 +12,30 @@ namespace RosterLib.Services
 
 		public YahooStatService()
 		{
-			XmlFile = $"{Utility.OutputDirectory()}XML\\{Constants.DefaultFileName.YahooXml}";
+			XmlFile = $@"{
+				Utility.OutputDirectory()
+				}XML\\{
+				Constants.DefaultFileName.YahooXml
+				}";
 			Xdoc = XDocument.Load(XmlFile);
 			System.Console.WriteLine($"loaded XML {XmlFile}");
 		}
 
 		public YahooStatService(string xmlFile)
 		{
-			XmlFile = string.Format("{0}XML\\{1}", Utility.OutputDirectory(), xmlFile);
+			XmlFile = $"{Utility.OutputDirectory()}XML\\{xmlFile}";
 			Xdoc = XDocument.Load(XmlFile);
 		}
 
-		public decimal GetStat(string playerId, string season, string week)
+		public decimal GetStat(
+			string playerId,
+			string season,
+			string week)
 		{
-			var results = LoadStats(playerId, season, week);
+			var results = LoadStats(
+				playerId,
+				season,
+				week);
 
 			var theStat = results.FirstOrDefault();
 			if (theStat == null)

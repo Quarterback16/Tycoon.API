@@ -50,7 +50,10 @@ namespace Helpers
             return $"{Name} Cache hits {CacheHits} misses {CacheMisses}";
         }
 
-        public static void WriteElement(XmlTextWriter writer, string name, string text)
+        public static void WriteElement(
+            XmlTextWriter writer, 
+            string name, 
+            string text)
         {
             writer.WriteStartElement(name);
             writer.WriteString(text);
@@ -63,8 +66,7 @@ namespace Helpers
             var i = 0;
             Logger.Trace("\t-INDEX-\t-KEY-\t-VALUE-");
             while (myEnumerator.MoveNext())
-                Logger.Trace(string.Format("\t[{0}]:\t{1}\t{2}",
-                   i++, myEnumerator.Key, myEnumerator.Value));
+                Logger.Trace($"\t[{i++}]:\t{myEnumerator.Key}\t{myEnumerator.Value}");
         }
     }
 }

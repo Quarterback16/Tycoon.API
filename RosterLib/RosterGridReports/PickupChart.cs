@@ -39,6 +39,11 @@ namespace RosterLib.RosterGridReports
 			Report.Body = GenerateBody();
 			Report.RenderHtml();
 			FileOut = Report.FileOut;
+			PickupSummary.LeagueId = Constants.K_LEAGUE_Yahoo;
+			PickupSummary.RenderAsHtml();
+			PickupSummary.LeagueId = Constants.K_LEAGUE_Gridstats_NFL1;
+			PickupSummary.RenderAsHtml();
+			PickupSummary.LeagueId = Constants.K_LEAGUE_Rants_n_Raves;
 			PickupSummary.RenderAsHtml();
 		}
 
@@ -69,7 +74,10 @@ namespace RosterLib.RosterGridReports
 		}
 
 		public int GenerateChart(
-		   StringBuilder bodyOut, YahooCalculator c, int lineNo, IWinOrLose team )
+		   StringBuilder bodyOut, 
+		   YahooCalculator c, 
+		   int lineNo, 
+		   IWinOrLose team )
 		{
 			team.Team.LoadKickUnit();
 			team.Team.LoadRushUnit();
@@ -312,7 +320,7 @@ namespace RosterLib.RosterGridReports
 					}
 					var p = team.Team.RunUnit.R1;
 
-					var matchupLink = "";
+					string matchupLink;
 					if (p != null)
 					{
 						var plusMatchup = PlusMatchup(
@@ -364,7 +372,11 @@ namespace RosterLib.RosterGridReports
 				: $"{player.PlayerNameTo(11)}";
 			if ( player.PlayerCat.Equals( Constants.K_KICKER_CAT ) )
 			{
-				AddPickup( player, game );
+				AddPickup(
+					player,
+					game,
+					" ",
+					DomeBit(game, player));
 				return string.Format( " {0,-11}  {1}  {2,2:#0}{3} {4}",
 				   namePart,
 				   owners,
@@ -372,7 +384,11 @@ namespace RosterLib.RosterGridReports
 				   DomeBit( game, player ),
 				   ActualOutput( game, player, null ) );
 			}
-			AddPickup( player, game );
+			AddPickup(
+				player,
+				game,
+				matchupLink,
+				DomeBit(game, player));
 			return string.Format( "{6}{0,-11}{7} {3}  {1}  {2,2:#0}{5} {4}",
 			   namePart,
 			   matchupLink,  //  defensiveRating,
@@ -453,7 +469,9 @@ namespace RosterLib.RosterGridReports
 			return namePart;
 		}
 
-		private string PlayerPointsOut(NFLPlayer player, bool isReport = false)
+		private string PlayerPointsOut(
+			NFLPlayer player,
+			bool isReport = false)
 		{
 			var pointsOut = $"{ player.Points,2:#0}";
 			if (pointsOut.Length == 1)
@@ -481,30 +499,78 @@ namespace RosterLib.RosterGridReports
 			return 99;
 		}
 
-		private void AddPickup( NFLPlayer p, NFLGame g )
+		private void AddPickup(
+			NFLPlayer p,
+			NFLGame g,
+			string prefix,
+			string suffix)
 		{
-			p.LoadOwner( Constants.K_LEAGUE_Yahoo );
-			if ( p.IsFreeAgent() || p.Owner == "77" )
+			AddPickupForLeague(
+				p, 
+				g,
+				leagueId: Constants.K_LEAGUE_Yahoo,
+			    prefix,
+			    suffix);
+			AddPickupForLeague(
+				p,
+				g,
+				leagueId: Constants.K_LEAGUE_Gridstats_NFL1,
+				prefix,
+			    suffix);
+			AddPickupForLeague(
+				p,
+				g,
+				leagueId: Constants.K_LEAGUE_Rants_n_Raves,
+				prefix,
+			    suffix);
+		}
+
+		private void AddPickupForLeague(
+			NFLPlayer p,
+			NFLGame g,
+			string leagueId,
+			string prefix,
+			string suffix)
+		{
+			p.LoadOwner(leagueId);
+			if (p.IsFreeAgent() || OwnedBySteve(p,leagueId))
 			{
-                var prevPts = p.Points;  // so we dont lose Points value
-                var pu = new Pickup
-                {
-                    Season = Season,
-                    Player = p,
-                    Name = $"{p.PlayerNameTo( 20 )} ({p.TeamCode}) {p.PlayerPos,-10}",
-                    Opp = $"{g.OpponentOut( p.TeamCode )}",
-                    ProjPts = p.Points,
-                    CategoryCode = p.PlayerCat,
-                    Pos = p.PlayerPos,
-					ActualPts = ActualOutput( g, p, null )
+				var prevPts = p.Points;  // so we dont lose Points value
+				var pu = new Pickup
+				{
+					LeagueId = leagueId,
+					Owner = p.Owner,
+					Season = Season,
+					Player = p,
+					Prefix = prefix,
+					Suffix = suffix,
+					Name = $"{p.PlayerNameTo(20)} ({p.TeamCode}) {p.PlayerPos,-10}",
+					Opp = $"{g.OpponentOut(p.TeamCode)}",
+					ProjPts = p.Points,
+					CategoryCode = p.PlayerCat,
+					Pos = p.PlayerPos,
+					ActualPts = ActualOutput(g, p, null)
 				};
-                p.Points = prevPts;
-				if ( p.Owner == "77" )
+				p.Points = prevPts;
+				if (p.Owner == "77")
 					pu.Name = pu.Name.ToUpper();
-				PickupSummary.AddPickup( pu );
-                if ( PlayerReports )
-                    p.PlayerReport(forceIt:true);
+				PickupSummary.AddPickup(pu);
+				if (PlayerReports)
+					p.PlayerReport(forceIt: true);
 			}
+		}
+
+		private static bool OwnedBySteve(
+			NFLPlayer p, 
+			string leagueId)
+		{
+			if (leagueId == Constants.K_LEAGUE_Yahoo)
+				return p.Owner == "77";
+			if (leagueId == Constants.K_LEAGUE_Gridstats_NFL1)
+				return p.Owner == "CC";
+			if (leagueId == Constants.K_LEAGUE_Rants_n_Raves)
+				return p.Owner == "BZ";
+			return false;
 		}
 
 		private string PlusMatchup( 

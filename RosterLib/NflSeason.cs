@@ -72,7 +72,10 @@ namespace RosterLib
 			return currentWeek;
 		}
 
-		public NflSeason( string yearIn, bool loadGames, bool loadDivisions )
+		public NflSeason(
+			string yearIn,
+			bool loadGames,
+			bool loadDivisions)
 		{
 			WeeksIntheRegularSeason = 17;
 			Year = yearIn;
@@ -98,15 +101,21 @@ namespace RosterLib
 				var l = t.Lineup( Year, week );
 				l.DumpKeyPlayers();
 				if ( l.MissingKeys > 0 )
-					Logger.Trace( $"{t.NameOut()} is missing {l.MissingKeys} key players" );
+					TraceIt( $"{t.NameOut()} is missing {l.MissingKeys} key players" );
 			}
+		}
+
+		private void TraceIt(string message)
+		{
+			Console.WriteLine(message);
+			Logger.Trace(message);
 		}
 
 		#region Load
 
 		private void LoadDivisionList( string yearIn )
 		{
-			Logger.Trace( $"LoadDivisionList: Loading {yearIn} division List..." );
+			TraceIt( $"LoadDivisionList: Loading {yearIn} division List..." );
 			var nfc = new NflConference( "NFC", yearIn );
 			ConferenceList.Add( nfc );
 			LoadNfc( nfc );
@@ -117,24 +126,24 @@ namespace RosterLib
 
 		public void LoadNfc( NflConference conf )
 		{
-			Logger.Trace( "NewRosterReport:LoadNFC Loading NFC" );
+			TraceIt( "NewRosterReport:LoadNFC Loading NFC" );
 			conf.AddDiv( "East", "A" );
 			conf.AddDiv( "North", "B" );
 			conf.AddDiv( "South", "C" );
 			conf.AddDiv( "West", "D" );
-			Logger.Trace( "NewRosterReport:LoadNFC Loading NFC - finished" );
+			TraceIt( "NewRosterReport:LoadNFC Loading NFC - finished" );
 		}
 
 		public void LoadAfc( NflConference conf )
 		{
-			Logger.Trace( "NewRosterReport:LoadAFC Loading AFC" );
+			TraceIt( "NewRosterReport:LoadAFC Loading AFC" );
 
 			conf.AddDiv( "East", "E" );
 			conf.AddDiv( "North", "F" );
 			conf.AddDiv( "South", "G" );
 			conf.AddDiv( "West", "H" );
 
-			Logger.Trace( "NewRosterReport:LoadAFC Loading AFC - finished" );
+			TraceIt( "NewRosterReport:LoadAFC Loading AFC - finished" );
 		}
 
 		public void LoadRegularWeeks()
@@ -170,21 +179,21 @@ namespace RosterLib
 
 		private void LoadGameList( string yearIn )
 		{
-			Logger.Trace( string.Format( "LoadGameList: Loading {0} game List...", yearIn ) );
+			TraceIt( $"LoadGameList: Loading {yearIn} game List..." );
 
 			if ( GameList == null ) GameList = new List<NFLGame>();
 			var gameDt = Utility.TflWs.GetSeasonDt( yearIn );
 			foreach ( var g in from DataRow dr in gameDt.Rows select new NFLGame( dr ) )
 				GameList.Add( g );
 
-			Logger.Trace( $"LoadGameList: Loaded {GameList.Count} games." );
+			TraceIt( $"LoadGameList: Loaded {GameList.Count} games." );
 		}
 
 		private void LoadTeamList( string yearIn )
 		{
 			Logger = LogManager.GetCurrentClassLogger();
 
-			Logger.Trace( $"LoadTeamList: Loading {yearIn} team List" );
+			TraceIt( $"LoadTeamList: Loading {yearIn} team List" );
 
 			var ds = Utility.TflWs.GetTeams( yearIn, "" );
 			var teams = ds.Tables[ "team" ];
@@ -194,7 +203,7 @@ namespace RosterLib
 				TeamList.Add( new NflTeam( dr[ "TEAMID" ].ToString(), yearIn ) );
 			}
 
-			Logger.Trace( $"LoadTeamList: Loaded {TeamList.Count} teams." );
+			TraceIt( $"LoadTeamList: Loaded {TeamList.Count} teams." );
 		}
 
 		#endregion Load
@@ -544,7 +553,11 @@ namespace RosterLib
 		public void Predict()
 		{
 			var rr = new NFLRosterReport( Year );
-			rr.SeasonProjection( "Spread", Year, "0", Utility.StartOfSeason( Year ) );
+			rr.SeasonProjection(
+				metricName: "Spread",
+				season: Year,
+				week: "0",
+				projectionDate: Utility.StartOfSeason(Year));
 		}
 
 		public void DumpPowerRatings()
@@ -552,8 +565,7 @@ namespace RosterLib
 			var compareByPower = new Comparison<NflTeam>( CompareTeamsByPower );
 			TeamList.Sort( compareByPower );
 			foreach ( var t in TeamList )
-				Logger.Trace( string.Format( "{0,-20} : {1:00.0} : {2:00.0} : {3:'+'00.0;'-'00.0'}  ",
-				   t.NameOut(), t.StartingPowerRating, t.PowerRating, t.PowerRating - t.StartingPowerRating ) );
+				TraceIt( $"{t.NameOut(),-20} : {t.StartingPowerRating:00.0} : {t.PowerRating:00.0} : {t.PowerRating - t.StartingPowerRating:'+'00.0;'-'00.0'}  " );
 		}
 
 		private static int CompareTeamsByPower( NflTeam x, NflTeam y )

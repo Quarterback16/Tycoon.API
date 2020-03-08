@@ -1,0 +1,3122 @@
+[
+  {
+    "round": "1",
+    "gamedate": "2020-03-12 20:05",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-13 18:00",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-13 20:05",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-14 15:00",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-14 17:30",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-14 19:35",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-15 16:05",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-15 18:15",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-19 20:05",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-20 18:00",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-20 20:05",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-21 15:00",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-21 17:30",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-21 19:35",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-22 16:05",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-22 18:15",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-03-26 20:05",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-03-27 18:00",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-03-27 20:05",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-03-28 15:00",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-03-28 17:30",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-03-28 19:35",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-03-29 16:05",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-03-29 18:15",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-02 20:05",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-03 18:00",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-03 20:05",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-04 15:00",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-04 17:30",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-04 19:35",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-05 16:05",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-05 18:15",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-09 19:50",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-10 16:05",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-10 19:55",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-11 17:30",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-11 19:35",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-12 16:05",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-12 18:15",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-13 16:05",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-16 19:50",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-17 18:00",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-17 19:55",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-18 15:00",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-18 17:30",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-18 19:35",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-19 14:05",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-19 16:05",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-04-23 19:50",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-04-24 18:00",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-04-24 19:55",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-04-25 16:00",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-04-25 18:00",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-04-25 20:00",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-04-26 14:05",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-04-26 16:05",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-01 18:00",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-01 20:05",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-02 15:00",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-02 17:30",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-02 19:45",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-03 13:50",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-03 16:05",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-03 18:25",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-07 19:50",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-08 18:00",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-08 19:55",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-09 15:00",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-09 17:30",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-09 19:35",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-10 14:05",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-10 16:05",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-14 19:50",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-15 18:00",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-15 19:55",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-16 15:00",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-16 17:30",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-16 19:35",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-17 14:05",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-17 16:05",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-21 19:50",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-22 18:00",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-22 19:55",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-23 15:00",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-23 17:30",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-23 19:35",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-24 14:05",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-24 16:05",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "12",
+    "gamedate": "2020-05-28 19:50",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "12",
+    "gamedate": "2020-05-29 19:55",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "12",
+    "gamedate": "2020-05-30 19:35",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "12",
+    "gamedate": "2020-05-31 16:05",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-05 18:00",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-05 19:55",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-06 15:00",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-06 17:30",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-06 19:35",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-07 14:05",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-07 16:05",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-08 16:05",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-11 19:50",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-12 18:00",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-12 19:55",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-13 15:00",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-13 17:30",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-13 19:35",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-14 14:05",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-14 16:05",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-25 19:50",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-26 18:00",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-26 19:55",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-27 15:00",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-27 17:30",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-27 19:35",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-28 14:05",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-28 16:05",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-02 19:50",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-03 19:55",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-04 19:35",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-05 16:05",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-10 18:00",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-10 19:55",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-11 15:00",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-11 17:30",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-11 19:35",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-12 14:05",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-12 16:05",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-12 18:15",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-16 19:50",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-17 18:00",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-17 19:55",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-18 15:00",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-18 17:30",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-18 19:35",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-19 14:05",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-19 16:05",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-23 19:50",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-24 18:00",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-24 19:55",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-25 15:00",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-25 17:30",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-25 19:35",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-26 14:05",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-26 16:05",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-07-30 19:50",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-07-31 18:00",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-07-31 19:55",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-01 15:00",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-01 17:30",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-01 19:35",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-02 14:05",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-02 16:05",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-06 19:50",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-07 18:00",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-07 19:55",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-08 15:00",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-08 17:30",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-08 19:35",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-09 14:05",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-09 16:05",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-13 19:50",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-14 18:00",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-14 19:55",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-15 15:00",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-15 17:30",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-15 19:35",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-16 14:05",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-16 16:05",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-20 19:50",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "SHRK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-21 18:00",
+    "League": "NRL",
+    "HomeTeam": "NZW",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-21 19:55",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 15:00",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 17:30",
+    "League": "NRL",
+    "HomeTeam": "SSYD",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 19:35",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-23 14:05",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "TITN",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-23 16:05",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "24",
+    "gamedate": "2020-08-27 19:50",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "DRAG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "24",
+    "gamedate": "2020-08-28 18:00",
+    "League": "NRL",
+    "HomeTeam": "PARR",
+    "AwayTeam": "NEWC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "24",
+    "gamedate": "2020-08-28 19:55",
+    "League": "NRL",
+    "HomeTeam": "SYDR",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "24",
+    "gamedate": "2020-08-29 15:00",
+    "League": "NRL",
+    "HomeTeam": "BULL",
+    "AwayTeam": "WTIG",
+    "EventType": "schedule"
+  },
+  {
+    "round": "24",
+    "gamedate": "2020-08-29 17:30",
+    "League": "NRL",
+    "HomeTeam": "NQLD",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "24",
+    "gamedate": "2020-08-29 19:35",
+    "League": "NRL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "BRIS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "24",
+    "gamedate": "2020-08-30 14:05",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "CANB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "24",
+    "gamedate": "2020-08-30 16:05",
+    "League": "NRL",
+    "HomeTeam": "MANL",
+    "AwayTeam": "PENR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "25",
+    "gamedate": "2020-09-03 19:50",
+    "League": "NRL",
+    "HomeTeam": "DRAG",
+    "AwayTeam": "SSYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "25",
+    "gamedate": "2020-09-04 18:00",
+    "League": "NRL",
+    "HomeTeam": "WTIG",
+    "AwayTeam": "NQLD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "25",
+    "gamedate": "2020-09-04 19:55",
+    "League": "NRL",
+    "HomeTeam": "BRIS",
+    "AwayTeam": "SYDR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "25",
+    "gamedate": "2020-09-05 15:00",
+    "League": "NRL",
+    "HomeTeam": "SHRK",
+    "AwayTeam": "NZW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "25",
+    "gamedate": "2020-09-05 17:30",
+    "League": "NRL",
+    "HomeTeam": "TITN",
+    "AwayTeam": "MANL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "25",
+    "gamedate": "2020-09-05 19:35",
+    "League": "NRL",
+    "HomeTeam": "CANB",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "25",
+    "gamedate": "2020-09-06 14:05",
+    "League": "NRL",
+    "HomeTeam": "NEWC",
+    "AwayTeam": "BULL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "25",
+    "gamedate": "2020-09-06 16:05",
+    "League": "NRL",
+    "HomeTeam": "PENR",
+    "AwayTeam": "PARR",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-19 19:25",
+    "League": "AFL",
+    "HomeTeam": "RICH",
+    "AwayTeam": "CARL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-20 19:50",
+    "League": "AFL",
+    "HomeTeam": "WB",
+    "AwayTeam": "COLL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-21 13:45",
+    "League": "AFL",
+    "HomeTeam": "ESS",
+    "AwayTeam": "FRE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-21 16:35",
+    "League": "AFL",
+    "HomeTeam": "ADEL",
+    "AwayTeam": "SYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-21 19:25",
+    "League": "AFL",
+    "HomeTeam": "GWS",
+    "AwayTeam": "GEEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-21 19:25",
+    "League": "AFL",
+    "HomeTeam": "GCFC",
+    "AwayTeam": "PORT",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-22 13:10",
+    "League": "AFL",
+    "HomeTeam": "NMFC",
+    "AwayTeam": "STK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-22 15:20",
+    "League": "AFL",
+    "HomeTeam": "HAW",
+    "AwayTeam": "BL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "1",
+    "gamedate": "2020-03-22 18:20",
+    "League": "AFL",
+    "HomeTeam": "WCE",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-26 19:25",
+    "League": "AFL",
+    "HomeTeam": "COLL",
+    "AwayTeam": "RICH",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-27 19:50",
+    "League": "AFL",
+    "HomeTeam": "SYD",
+    "AwayTeam": "ESS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-28 13:45",
+    "League": "AFL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "GWS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-28 16:35",
+    "League": "AFL",
+    "HomeTeam": "CARL",
+    "AwayTeam": "WB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-28 19:25",
+    "League": "AFL",
+    "HomeTeam": "BL",
+    "AwayTeam": "NMFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-28 19:40",
+    "League": "AFL",
+    "HomeTeam": "PORT",
+    "AwayTeam": "ADEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-29 13:10",
+    "League": "AFL",
+    "HomeTeam": "GEEL",
+    "AwayTeam": "GCFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-29 15:20",
+    "League": "AFL",
+    "HomeTeam": "STK",
+    "AwayTeam": "WCE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "2",
+    "gamedate": "2020-03-29 18:20",
+    "League": "AFL",
+    "HomeTeam": "FRE",
+    "AwayTeam": "HAW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-04-02 19:25",
+    "League": "AFL",
+    "HomeTeam": "CARL",
+    "AwayTeam": "ESS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-04-03 19:50",
+    "League": "AFL",
+    "HomeTeam": "GWS",
+    "AwayTeam": "WB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-04-04 13:45",
+    "League": "AFL",
+    "HomeTeam": "HAW",
+    "AwayTeam": "COLL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-04-04 16:35",
+    "League": "AFL",
+    "HomeTeam": "ADEL",
+    "AwayTeam": "BL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-04-04 19:25",
+    "League": "AFL",
+    "HomeTeam": "NMFC",
+    "AwayTeam": "PORT",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-04-04 20:10",
+    "League": "AFL",
+    "HomeTeam": "WCE",
+    "AwayTeam": "GEEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-04-05 13:10",
+    "League": "AFL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "FRE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-04-05 15:20",
+    "League": "AFL",
+    "HomeTeam": "STK",
+    "AwayTeam": "RICH",
+    "EventType": "schedule"
+  },
+  {
+    "round": "3",
+    "gamedate": "2020-04-05 16:40",
+    "League": "AFL",
+    "HomeTeam": "GCFC",
+    "AwayTeam": "SYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-09 19:35",
+    "League": "AFL",
+    "HomeTeam": "BL",
+    "AwayTeam": "COLL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-10 16:20",
+    "League": "AFL",
+    "HomeTeam": "NMFC",
+    "AwayTeam": "WB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-10 19:50",
+    "League": "AFL",
+    "HomeTeam": "PORT",
+    "AwayTeam": "WCE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-11 13:45",
+    "League": "AFL",
+    "HomeTeam": "RICH",
+    "AwayTeam": "ADEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-11 16:35",
+    "League": "AFL",
+    "HomeTeam": "FRE",
+    "AwayTeam": "GCFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-11 19:25",
+    "League": "AFL",
+    "HomeTeam": "ESS",
+    "AwayTeam": "GWS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-12 13:10",
+    "League": "AFL",
+    "HomeTeam": "SYD",
+    "AwayTeam": "CARL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-12 16:40",
+    "League": "AFL",
+    "HomeTeam": "STK",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "4",
+    "gamedate": "2020-04-13 15:20",
+    "League": "AFL",
+    "HomeTeam": "GEEL",
+    "AwayTeam": "HAW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-16 19:40",
+    "League": "AFL",
+    "HomeTeam": "ADEL",
+    "AwayTeam": "ESS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-17 20:10",
+    "League": "AFL",
+    "HomeTeam": "WCE",
+    "AwayTeam": "RICH",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-18 13:10",
+    "League": "AFL",
+    "HomeTeam": "COLL",
+    "AwayTeam": "PORT",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-18 13:10",
+    "League": "AFL",
+    "HomeTeam": "GCFC",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-18 19:10",
+    "League": "AFL",
+    "HomeTeam": "SYD",
+    "AwayTeam": "GWS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-18 19:25",
+    "League": "AFL",
+    "HomeTeam": "WB",
+    "AwayTeam": "BL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-19 13:10",
+    "League": "AFL",
+    "HomeTeam": "NMFC",
+    "AwayTeam": "FRE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-19 15:20",
+    "League": "AFL",
+    "HomeTeam": "HAW",
+    "AwayTeam": "CARL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "5",
+    "gamedate": "2020-04-19 16:40",
+    "League": "AFL",
+    "HomeTeam": "GEEL",
+    "AwayTeam": "STK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-24 19:55",
+    "League": "AFL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "RICH",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-25 13:10",
+    "League": "AFL",
+    "HomeTeam": "HAW",
+    "AwayTeam": "WCE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-25 16:20",
+    "League": "AFL",
+    "HomeTeam": "COLL",
+    "AwayTeam": "ESS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-25 19:25",
+    "League": "AFL",
+    "HomeTeam": "BL",
+    "AwayTeam": "SYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-25 19:50",
+    "League": "AFL",
+    "HomeTeam": "PORT",
+    "AwayTeam": "WB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-26 13:10",
+    "League": "AFL",
+    "HomeTeam": "GWS",
+    "AwayTeam": "GCFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-26 15:20",
+    "League": "AFL",
+    "HomeTeam": "CARL",
+    "AwayTeam": "NMFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-26 16:40",
+    "League": "AFL",
+    "HomeTeam": "STK",
+    "AwayTeam": "ADEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "6",
+    "gamedate": "2020-04-26 19:50",
+    "League": "AFL",
+    "HomeTeam": "FRE",
+    "AwayTeam": "GEEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-05-01 19:50",
+    "League": "AFL",
+    "HomeTeam": "COLL",
+    "AwayTeam": "STK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-05-02 13:45",
+    "League": "AFL",
+    "HomeTeam": "GCFC",
+    "AwayTeam": "ADEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-05-02 13:45",
+    "League": "AFL",
+    "HomeTeam": "RICH",
+    "AwayTeam": "GWS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-05-02 16:35",
+    "League": "AFL",
+    "HomeTeam": "PORT",
+    "AwayTeam": "CARL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-05-02 19:25",
+    "League": "AFL",
+    "HomeTeam": "GEEL",
+    "AwayTeam": "BL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-05-02 19:25",
+    "League": "AFL",
+    "HomeTeam": "WB",
+    "AwayTeam": "HAW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-05-03 13:10",
+    "League": "AFL",
+    "HomeTeam": "SYD",
+    "AwayTeam": "NMFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-05-03 15:20",
+    "League": "AFL",
+    "HomeTeam": "ESS",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "7",
+    "gamedate": "2020-05-03 17:20",
+    "League": "AFL",
+    "HomeTeam": "WCE",
+    "AwayTeam": "FRE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-08 19:50",
+    "League": "AFL",
+    "HomeTeam": "BL",
+    "AwayTeam": "RICH",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-09 13:45",
+    "League": "AFL",
+    "HomeTeam": "ADEL",
+    "AwayTeam": "FRE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-09 13:45",
+    "League": "AFL",
+    "HomeTeam": "WB",
+    "AwayTeam": "GCFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-09 16:35",
+    "League": "AFL",
+    "HomeTeam": "GEEL",
+    "AwayTeam": "ESS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-09 16:35",
+    "League": "AFL",
+    "HomeTeam": "WCE",
+    "AwayTeam": "SYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-09 19:25",
+    "League": "AFL",
+    "HomeTeam": "GWS",
+    "AwayTeam": "COLL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-09 19:25",
+    "League": "AFL",
+    "HomeTeam": "STK",
+    "AwayTeam": "CARL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-10 15:20",
+    "League": "AFL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "PORT",
+    "EventType": "schedule"
+  },
+  {
+    "round": "8",
+    "gamedate": "2020-05-10 16:40",
+    "League": "AFL",
+    "HomeTeam": "NMFC",
+    "AwayTeam": "HAW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-15 19:50",
+    "League": "AFL",
+    "HomeTeam": "RICH",
+    "AwayTeam": "GEEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-16 13:45",
+    "League": "AFL",
+    "HomeTeam": "NMFC",
+    "AwayTeam": "ESS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-16 14:10",
+    "League": "AFL",
+    "HomeTeam": "GCFC",
+    "AwayTeam": "WCE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-16 16:35",
+    "League": "AFL",
+    "HomeTeam": "GWS",
+    "AwayTeam": "STK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-16 19:25",
+    "League": "AFL",
+    "HomeTeam": "HAW",
+    "AwayTeam": "SYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-16 19:40",
+    "League": "AFL",
+    "HomeTeam": "PORT",
+    "AwayTeam": "BL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-17 13:10",
+    "League": "AFL",
+    "HomeTeam": "CARL",
+    "AwayTeam": "COLL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-17 15:20",
+    "League": "AFL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "ADEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "9",
+    "gamedate": "2020-05-17 17:20",
+    "League": "AFL",
+    "HomeTeam": "FRE",
+    "AwayTeam": "WB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-22 19:50",
+    "League": "AFL",
+    "HomeTeam": "SYD",
+    "AwayTeam": "GEEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-23 13:45",
+    "League": "AFL",
+    "HomeTeam": "STK",
+    "AwayTeam": "FRE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-23 13:45",
+    "League": "AFL",
+    "HomeTeam": "HAW",
+    "AwayTeam": "PORT",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-23 16:35",
+    "League": "AFL",
+    "HomeTeam": "ADEL",
+    "AwayTeam": "CARL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-23 19:25",
+    "League": "AFL",
+    "HomeTeam": "ESS",
+    "AwayTeam": "RICH",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-23 19:25",
+    "League": "AFL",
+    "HomeTeam": "BL",
+    "AwayTeam": "GCFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-24 13:10",
+    "League": "AFL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "WB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-24 15:20",
+    "League": "AFL",
+    "HomeTeam": "COLL",
+    "AwayTeam": "NMFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "10",
+    "gamedate": "2020-05-24 17:20",
+    "League": "AFL",
+    "HomeTeam": "WCE",
+    "AwayTeam": "GWS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-29 19:50",
+    "League": "AFL",
+    "HomeTeam": "HAW",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-30 13:45",
+    "League": "AFL",
+    "HomeTeam": "GEEL",
+    "AwayTeam": "NMFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-30 13:45",
+    "League": "AFL",
+    "HomeTeam": "RICH",
+    "AwayTeam": "SYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-30 16:35",
+    "League": "AFL",
+    "HomeTeam": "GWS",
+    "AwayTeam": "ADEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-30 19:25",
+    "League": "AFL",
+    "HomeTeam": "WB",
+    "AwayTeam": "CARL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-30 20:10",
+    "League": "AFL",
+    "HomeTeam": "FRE",
+    "AwayTeam": "BL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-31 13:10",
+    "League": "AFL",
+    "HomeTeam": "ESS",
+    "AwayTeam": "GCFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-31 15:20",
+    "League": "AFL",
+    "HomeTeam": "COLL",
+    "AwayTeam": "WCE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "11",
+    "gamedate": "2020-05-31 16:10",
+    "League": "AFL",
+    "HomeTeam": "STK",
+    "AwayTeam": "PORT",
+    "EventType": "schedule"
+  },
+  {
+    "round": "12",
+    "gamedate": "2020-06-05 19:50",
+    "League": "AFL",
+    "HomeTeam": "ADEL",
+    "AwayTeam": "WB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "12",
+    "gamedate": "2020-06-06 13:45",
+    "League": "AFL",
+    "HomeTeam": "SYD",
+    "AwayTeam": "FRE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "12",
+    "gamedate": "2020-06-06 16:35",
+    "League": "AFL",
+    "HomeTeam": "GCFC",
+    "AwayTeam": "HAW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "12",
+    "gamedate": "2020-06-06 19:25",
+    "League": "AFL",
+    "HomeTeam": "CARL",
+    "AwayTeam": "GWS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "12",
+    "gamedate": "2020-06-07 14:10",
+    "League": "AFL",
+    "HomeTeam": "RICH",
+    "AwayTeam": "NMFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "12",
+    "gamedate": "2020-06-08 15:20",
+    "League": "AFL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "COLL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-11 20:10",
+    "League": "AFL",
+    "HomeTeam": "WCE",
+    "AwayTeam": "ESS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-12 19:50",
+    "League": "AFL",
+    "HomeTeam": "HAW",
+    "AwayTeam": "GEEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-13 13:45",
+    "League": "AFL",
+    "HomeTeam": "NMFC",
+    "AwayTeam": "BL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-13 16:35",
+    "League": "AFL",
+    "HomeTeam": "GCFC",
+    "AwayTeam": "STK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-13 19:25",
+    "League": "AFL",
+    "HomeTeam": "WB",
+    "AwayTeam": "GWS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "13",
+    "gamedate": "2020-06-14 15:50",
+    "League": "AFL",
+    "HomeTeam": "ADEL",
+    "AwayTeam": "PORT",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-18 19:20",
+    "League": "AFL",
+    "HomeTeam": "SYD",
+    "AwayTeam": "COLL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-19 19:50",
+    "League": "AFL",
+    "HomeTeam": "BL",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-20 13:45",
+    "League": "AFL",
+    "HomeTeam": "ESS",
+    "AwayTeam": "STK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-20 16:35",
+    "League": "AFL",
+    "HomeTeam": "FRE",
+    "AwayTeam": "CARL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-20 19:40",
+    "League": "AFL",
+    "HomeTeam": "PORT",
+    "AwayTeam": "GEEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "14",
+    "gamedate": "2020-06-21 14:10",
+    "League": "AFL",
+    "HomeTeam": "RICH",
+    "AwayTeam": "WCE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-25 19:20",
+    "League": "AFL",
+    "HomeTeam": "BL",
+    "AwayTeam": "HAW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-26 19:50",
+    "League": "AFL",
+    "HomeTeam": "WB",
+    "AwayTeam": "ESS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-27 13:45",
+    "League": "AFL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "GCFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-27 16:35",
+    "League": "AFL",
+    "HomeTeam": "CARL",
+    "AwayTeam": "GEEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-27 19:25",
+    "League": "AFL",
+    "HomeTeam": "GWS",
+    "AwayTeam": "RICH",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-27 20:10",
+    "League": "AFL",
+    "HomeTeam": "WCE",
+    "AwayTeam": "NMFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-28 13:10",
+    "League": "AFL",
+    "HomeTeam": "COLL",
+    "AwayTeam": "ADEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-28 15:20",
+    "League": "AFL",
+    "HomeTeam": "STK",
+    "AwayTeam": "SYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "15",
+    "gamedate": "2020-06-28 16:40",
+    "League": "AFL",
+    "HomeTeam": "PORT",
+    "AwayTeam": "FRE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-02 19:20",
+    "League": "AFL",
+    "HomeTeam": "ESS",
+    "AwayTeam": "HAW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-03 19:50",
+    "League": "AFL",
+    "HomeTeam": "GEEL",
+    "AwayTeam": "WCE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-04 13:45",
+    "League": "AFL",
+    "HomeTeam": "COLL",
+    "AwayTeam": "BL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-04 16:35",
+    "League": "AFL",
+    "HomeTeam": "RICH",
+    "AwayTeam": "PORT",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-04 19:25",
+    "League": "AFL",
+    "HomeTeam": "SYD",
+    "AwayTeam": "WB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-04 19:40",
+    "League": "AFL",
+    "HomeTeam": "ADEL",
+    "AwayTeam": "STK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-05 13:10",
+    "League": "AFL",
+    "HomeTeam": "GCFC",
+    "AwayTeam": "CARL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-05 15:20",
+    "League": "AFL",
+    "HomeTeam": "NMFC",
+    "AwayTeam": "GWS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "16",
+    "gamedate": "2020-07-05 17:20",
+    "League": "AFL",
+    "HomeTeam": "FRE",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-10 19:50",
+    "League": "AFL",
+    "HomeTeam": "RICH",
+    "AwayTeam": "COLL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-11 13:45",
+    "League": "AFL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "STK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-11 14:10",
+    "League": "AFL",
+    "HomeTeam": "HAW",
+    "AwayTeam": "NMFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-11 16:35",
+    "League": "AFL",
+    "HomeTeam": "GWS",
+    "AwayTeam": "ESS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-11 19:25",
+    "League": "AFL",
+    "HomeTeam": "WB",
+    "AwayTeam": "FRE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-11 19:25",
+    "League": "AFL",
+    "HomeTeam": "BL",
+    "AwayTeam": "GEEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-12 13:10",
+    "League": "AFL",
+    "HomeTeam": "PORT",
+    "AwayTeam": "GCFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-12 15:20",
+    "League": "AFL",
+    "HomeTeam": "CARL",
+    "AwayTeam": "SYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "17",
+    "gamedate": "2020-07-12 17:20",
+    "League": "AFL",
+    "HomeTeam": "WCE",
+    "AwayTeam": "ADEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-17 19:50",
+    "League": "AFL",
+    "HomeTeam": "COLL",
+    "AwayTeam": "GEEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-18 13:45",
+    "League": "AFL",
+    "HomeTeam": "HAW",
+    "AwayTeam": "GWS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-18 14:10",
+    "League": "AFL",
+    "HomeTeam": "GCFC",
+    "AwayTeam": "RICH",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-18 16:35",
+    "League": "AFL",
+    "HomeTeam": "SYD",
+    "AwayTeam": "PORT",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-18 19:25",
+    "League": "AFL",
+    "HomeTeam": "STK",
+    "AwayTeam": "WB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-18 20:10",
+    "League": "AFL",
+    "HomeTeam": "FRE",
+    "AwayTeam": "WCE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-19 13:10",
+    "League": "AFL",
+    "HomeTeam": "ESS",
+    "AwayTeam": "NMFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-19 15:20",
+    "League": "AFL",
+    "HomeTeam": "CARL",
+    "AwayTeam": "BL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "18",
+    "gamedate": "2020-07-19 16:40",
+    "League": "AFL",
+    "HomeTeam": "ADEL",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-24 19:20",
+    "League": "AFL",
+    "HomeTeam": "PORT",
+    "AwayTeam": "HAW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-25 13:45",
+    "League": "AFL",
+    "HomeTeam": "CARL",
+    "AwayTeam": "WCE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-25 14:10",
+    "League": "AFL",
+    "HomeTeam": "NMFC",
+    "AwayTeam": "GCFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-25 16:35",
+    "League": "AFL",
+    "HomeTeam": "GEEL",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-25 17:10",
+    "League": "AFL",
+    "HomeTeam": "GWS",
+    "AwayTeam": "SYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-25 19:25",
+    "League": "AFL",
+    "HomeTeam": "ESS",
+    "AwayTeam": "ADEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-26 13:10",
+    "League": "AFL",
+    "HomeTeam": "RICH",
+    "AwayTeam": "WB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-26 15:20",
+    "League": "AFL",
+    "HomeTeam": "BL",
+    "AwayTeam": "STK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "19",
+    "gamedate": "2020-07-26 17:20",
+    "League": "AFL",
+    "HomeTeam": "FRE",
+    "AwayTeam": "COLL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-07-31 19:20",
+    "League": "AFL",
+    "HomeTeam": "ADEL",
+    "AwayTeam": "RICH",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-01 13:45",
+    "League": "AFL",
+    "HomeTeam": "ESS",
+    "AwayTeam": "COLL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-01 14:10",
+    "League": "AFL",
+    "HomeTeam": "GWS",
+    "AwayTeam": "BL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-01 16:35",
+    "League": "AFL",
+    "HomeTeam": "GEEL",
+    "AwayTeam": "WB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-01 19:25",
+    "League": "AFL",
+    "HomeTeam": "STK",
+    "AwayTeam": "HAW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-01 20:10",
+    "League": "AFL",
+    "HomeTeam": "WCE",
+    "AwayTeam": "PORT",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-02 13:10",
+    "League": "AFL",
+    "HomeTeam": "NMFC",
+    "AwayTeam": "CARL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-02 15:20",
+    "League": "AFL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "SYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "20",
+    "gamedate": "2020-08-02 16:40",
+    "League": "AFL",
+    "HomeTeam": "GCFC",
+    "AwayTeam": "FRE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-07 19:20",
+    "League": "AFL",
+    "HomeTeam": "GEEL",
+    "AwayTeam": "GWS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-08 13:45",
+    "League": "AFL",
+    "HomeTeam": "COLL",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-08 14:10",
+    "League": "AFL",
+    "HomeTeam": "BL",
+    "AwayTeam": "WCE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-08 16:35",
+    "League": "AFL",
+    "HomeTeam": "HAW",
+    "AwayTeam": "ADEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-08 19:25",
+    "League": "AFL",
+    "HomeTeam": "SYD",
+    "AwayTeam": "GCFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-08 20:10",
+    "League": "AFL",
+    "HomeTeam": "FRE",
+    "AwayTeam": "STK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-09 13:10",
+    "League": "AFL",
+    "HomeTeam": "CARL",
+    "AwayTeam": "RICH",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-09 15:20",
+    "League": "AFL",
+    "HomeTeam": "WB",
+    "AwayTeam": "NMFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "21",
+    "gamedate": "2020-08-09 16:40",
+    "League": "AFL",
+    "HomeTeam": "PORT",
+    "AwayTeam": "ESS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-14 20:10",
+    "League": "AFL",
+    "HomeTeam": "WCE",
+    "AwayTeam": "COLL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-15 13:45",
+    "League": "AFL",
+    "HomeTeam": "WB",
+    "AwayTeam": "PORT",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-15 13:45",
+    "League": "AFL",
+    "HomeTeam": "MELB",
+    "AwayTeam": "CARL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-15 16:35",
+    "League": "AFL",
+    "HomeTeam": "GWS",
+    "AwayTeam": "FRE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-15 19:25",
+    "League": "AFL",
+    "HomeTeam": "ESS",
+    "AwayTeam": "SYD",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-15 19:25",
+    "League": "AFL",
+    "HomeTeam": "GCFC",
+    "AwayTeam": "BL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-16 13:10",
+    "League": "AFL",
+    "HomeTeam": "STK",
+    "AwayTeam": "GEEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-16 15:20",
+    "League": "AFL",
+    "HomeTeam": "RICH",
+    "AwayTeam": "HAW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "22",
+    "gamedate": "2020-08-16 16:40",
+    "League": "AFL",
+    "HomeTeam": "ADEL",
+    "AwayTeam": "NMFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 00:00",
+    "League": "AFL",
+    "HomeTeam": "NMFC",
+    "AwayTeam": "MELB",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 00:00",
+    "League": "AFL",
+    "HomeTeam": "GEEL",
+    "AwayTeam": "ADEL",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 00:00",
+    "League": "AFL",
+    "HomeTeam": "WB",
+    "AwayTeam": "WCE",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 00:00",
+    "League": "AFL",
+    "HomeTeam": "CARL",
+    "AwayTeam": "STK",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 00:00",
+    "League": "AFL",
+    "HomeTeam": "COLL",
+    "AwayTeam": "GCFC",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 00:00",
+    "League": "AFL",
+    "HomeTeam": "SYD",
+    "AwayTeam": "HAW",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 00:00",
+    "League": "AFL",
+    "HomeTeam": "BL",
+    "AwayTeam": "ESS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 00:30",
+    "League": "AFL",
+    "HomeTeam": "PORT",
+    "AwayTeam": "GWS",
+    "EventType": "schedule"
+  },
+  {
+    "round": "23",
+    "gamedate": "2020-08-22 02:00",
+    "League": "AFL",
+    "HomeTeam": "FRE",
+    "AwayTeam": "RICH",
+    "EventType": "schedule"
+  }
+]

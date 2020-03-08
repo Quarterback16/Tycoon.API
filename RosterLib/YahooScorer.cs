@@ -113,13 +113,25 @@ namespace RosterLib
 			#region Catching
 
 			//  6 pts for a TD catch
-			var ptsForTDcatches = PointsFor( plyr, 6, Constants.K_SCORE_TD_PASS, id: "1" );
+			var ptsForTDcatches = PointsFor(
+				plyr: plyr,
+				increment: 6,
+				forScoreType: Constants.K_SCORE_TD_PASS,
+				id: "1");
 			plyr.Points += ptsForTDcatches;
 			//  2 points for a 2 point conversion
-			var ptsForPATcatches = PointsFor( plyr, 2, Constants.K_SCORE_PAT_PASS, id: "1" );
+			var ptsForPATcatches = PointsFor(
+				plyr: plyr,
+				increment: 2,
+				forScoreType: Constants.K_SCORE_PAT_PASS,
+				id: "1");
 			plyr.Points += ptsForPATcatches;
 
-			Announce( $"{plyr.PlayerName} has {ptsForPATcatches} points for PAT catches" );
+			Announce( $@"{
+				plyr.PlayerName
+				} has {
+				ptsForPATcatches
+				} points for PAT catches" );
 
 			//  1 pt / 10 yds
 			var ptsForYDs = PointsForStats(
@@ -131,6 +143,17 @@ namespace RosterLib
 			plyr.Points += ptsForYDs;
 
 			Announce( $"{plyr.PlayerName} has {ptsForYDs} points for YDc" );
+
+			//  1/2 pt / 10 yds
+			var ptsForRecs = PointsForStats(
+			   plyr: plyr,
+			   increment: 1,
+			   forStatType: Constants.K_STATCODE_PASSES_CAUGHT,
+			   divisor: 2.0M);
+
+			plyr.Points += ptsForRecs;
+
+			Announce($"{plyr.PlayerName} has {ptsForRecs} points for REC");
 
 			#endregion Catching
 

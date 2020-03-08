@@ -522,7 +522,12 @@ namespace RosterLib
 			var stats = Utility.TflWs.TeamStats( statCode, season, week, gameCode, teamCode );
 			if ( breakdowns != null )
 				breakdowns.AddLine( $"{teamCode}-{statCode}", $"{week} {statCode} {stats}");
-			ReasonablenessCheck( teamCode, season, week, statCode, stats );  //  for a single game
+			ReasonablenessCheck(
+				teamCode,
+				season,
+				week,
+				statCode,
+				stats);  //  for a single game
 			return stats;
 		}
 
@@ -617,7 +622,8 @@ namespace RosterLib
 				  : DanGordan.WantsRevenge( AwayNflTeam, HomeNflTeam, GameDate );
 		}
 
-		public bool Played(bool addDay = true)
+		public bool Played(
+			bool addDay = true)
 		{
             if ( HomeScore + AwayScore < 3) return false;
 			if ( addDay )
@@ -901,7 +907,8 @@ namespace RosterLib
 
 		public string ScoreOut( string teamInFocus )
 		{
-			return teamInFocus == HomeTeam ? $"{HomeScore:#0}-{AwayScore:#0}" : String.Format( "{0:#0}-{1:#0}", AwayScore, HomeScore );
+			return teamInFocus == HomeTeam 
+				? $"{FormatScore(HomeScore,AwayScore)}" : $"{FormatScore(AwayScore, HomeScore)}";
 		}
 
 		public string ProjectedScoreOut( string teamInFocus )
@@ -1051,22 +1058,22 @@ namespace RosterLib
 				if ( HomeScore > AwayScore )
 				{
 					theResult = abbreviate ? "W" : "Won ";
-					theResult = $"{theResult} v {AwayTeam} {HomeScore,2}-{AwayScore,2} ";
+					theResult = $"{theResult} v {AwayTeam} {FormatScore(HomeScore,AwayScore)} ";
 				}
 				else if ( HomeScore < AwayScore )
 				{
 					theResult = abbreviate ? "L" : "Lost";
-					theResult = $"{theResult} v {AwayTeam} {HomeScore,2}-{AwayScore,2} ";
+					theResult = $"{theResult} v {AwayTeam} {FormatScore(HomeScore, AwayScore)} ";
 				}
 				else if ( AwayScore > HomeScore )
 				{
 					theResult = abbreviate ? "W" : "Won";
-					theResult = $"{theResult} v {AwayTeam} {HomeScore,2}-{AwayScore,2} ";
+					theResult = $"{theResult} v {AwayTeam} {FormatScore(HomeScore, AwayScore)} ";
 				}
 				else if ( AwayScore < HomeScore )
 				{
 					theResult = abbreviate ? "L" : "Lost";
-					theResult = $"{theResult} v {AwayTeam} {HomeScore,2}-{AwayScore,2} ";
+					theResult = $"{theResult} v {AwayTeam} {FormatScore(HomeScore, AwayScore)} ";
 				}
 				else if ( AwayScore == 0 && HomeScore == 0 )
 				{
@@ -1085,22 +1092,22 @@ namespace RosterLib
 				if ( AwayScore > HomeScore )
 				{
 					theResult = abbreviate ? "W" : "Won ";
-					theResult = $"{theResult} @ {HomeTeam} {AwayScore,2}-{HomeScore,2} ";
+					theResult = $"{theResult} @ {HomeTeam} {FormatScore(AwayScore, HomeScore)} ";
 				}
 				else if ( AwayScore < HomeScore )
 				{
 					theResult = abbreviate ? "L" : "Lost";
-					theResult = $"{theResult} @ {HomeTeam} {AwayScore,2}-{HomeScore,2} ";
+					theResult = $"{theResult} @ {HomeTeam} {FormatScore(AwayScore, HomeScore)} ";
 				}
 				else if ( HomeScore > AwayScore )
 				{
 					theResult = abbreviate ? "W" : "Won";
-					theResult = $"{theResult} @ {HomeTeam} {AwayScore,2}-{HomeScore,2} ";
+					theResult = $"{theResult} @ {HomeTeam} {FormatScore(AwayScore, HomeScore)} ";
 				}
 				else if ( HomeScore < AwayScore )
 				{
 					theResult = abbreviate ? "L" : "Lost";
-					theResult = $"{theResult} @ {HomeTeam} {AwayScore,2}-{HomeScore,2} ";
+					theResult = $"{theResult} @ {HomeTeam} {FormatScore(AwayScore, HomeScore)} ";
 				}
 				else if ( AwayScore == 0 && HomeScore == 0 )
 				{
@@ -1116,6 +1123,15 @@ namespace RosterLib
 				}
 			}
 			return string.Format( "{1}{0}", theResult, dividerChar );
+		}
+
+		private string FormatScore(int score1, int score2)
+		{
+			var strScore1 = $" {score1}";
+			var strScore2 = $" {score2}";
+			strScore1 = strScore1.Substring(strScore1.Length -2);
+			strScore2 = strScore2.Substring(strScore2.Length -2);
+			return $"{strScore1,2}-{strScore2,2}";
 		}
 
 		public string ScoreCountsFor( string teamInFocus )
@@ -2219,15 +2235,35 @@ namespace RosterLib
 
 		public void StoreResult( NFLResult res )
 		{
-			Utility.TflWs.StoreResult( Season, Week, GameCode, res.AwayScore, res.HomeScore,
-			   res.HomeTDp, res.AwayTDp, res.HomeTDr, res.AwayTDr, res.HomeFg, res.AwayFg, res.AwayTDd, res.HomeTDd,
-			   res.AwayTDs, res.HomeTDs );
+			Utility.TflWs.StoreResult(
+				Season,
+				Week,
+				GameCode,
+				res.AwayScore,
+				res.HomeScore,
+				res.HomeTDp,
+				res.AwayTDp,
+				res.HomeTDr,
+				res.AwayTDr,
+				res.HomeFg,
+				res.AwayFg,
+				res.AwayTDd,
+				res.HomeTDd,
+				res.AwayTDs,
+				res.HomeTDs);
 		}
 
 		public void WriteProjection()
 		{
-			var r = new GameProjection( this );
-			r.Render();
+			if (Played())
+			{
+				Announce($"Skipping projection {GameName()} played already");
+			}
+			else
+			{
+				var r = new GameProjection( this );
+				r.Render();
+			}
 		}
 
 		/// <summary>
@@ -2423,8 +2459,7 @@ namespace RosterLib
 
 		public List<NFLPlayer> LoadAllFantasyAwayPlayers(
 			DateTime? date,
-			string catFilter = ""
-			)
+			string catFilter = "")
 		{
 			if ( date == null )
 			{
@@ -2443,8 +2478,7 @@ namespace RosterLib
 
 		public List<NFLPlayer> LoadAllFantasyHomePlayers( 
 			DateTime? date,
-			string catFilter = ""
-			)
+			string catFilter = "")
 		{
 			if ( date == null )
 			{
@@ -2544,7 +2578,7 @@ namespace RosterLib
 			var LineupDs = Utility.TflWs.GetLineup( teamCode, Season, WeekNo );
 			var lineup = new Lineup( LineupDs );
 
-			Announce( string.Format( "NFLGame.LoadLineupPlayers {0} players in lineup", lineup.PlayerList.Count ) );
+			Announce( $"NFLGame.LoadLineupPlayers {lineup.PlayerList.Count} players in lineup" );
 
 			return lineup.PlayerList;
 		}
@@ -2571,8 +2605,7 @@ namespace RosterLib
 			var opp = OpponentTeam( teamCode );
 			var powerRating = opp.GetPowerRating( week );
 #if DEBUG
-			Utility.Announce( string.Format( "   {0} opponent is {1} with PowerRating of {2} ",
-			  teamCode, opp.TeamCode, powerRating ) );
+			Utility.Announce( $"   {teamCode} opponent is {opp.TeamCode} with PowerRating of {powerRating} " );
 #endif
 			return powerRating;
 		}
@@ -2606,14 +2639,14 @@ namespace RosterLib
 
 		public void CalculateSpreadResult()
 		{
-            //  dont use the actual score properties
-            var homescore = 0;
-            var awayscore = 0;
-			if ( Spread == 0 )
+			//  dont use the actual score properties
+			int homescore;
+			int awayscore;
+			if (Spread == 0)
 			{
-                // OTB, give it to the home team 21-20
-                homescore = 21;
-                awayscore = 20;
+				// OTB, give it to the home team 21-20
+				homescore = 21;
+				awayscore = 20;
 			}
 			else
 			{
@@ -2621,25 +2654,25 @@ namespace RosterLib
 				var winningScore = 0.0M;
 				var losingScore = 0.0M;
 
-				if ( ( Total > 0 ) )
+				if ((Total > 0))
 				{
-					var splitScore = Total - Math.Abs( Spread );
-					losingScore = Math.Round( splitScore / 2, MidpointRounding.AwayFromZero );
-					winningScore = Math.Round( Total - losingScore, MidpointRounding.AwayFromZero );
+					var splitScore = Total - Math.Abs(Spread);
+					losingScore = Math.Round(splitScore / 2, MidpointRounding.AwayFromZero);
+					winningScore = Math.Round(Total - losingScore, MidpointRounding.AwayFromZero);
 				}
 
-				if ( ( winningScore - losingScore ) < Math.Abs( Spread ) )
+				if ((winningScore - losingScore) < Math.Abs(Spread))
 					winningScore++;
 
-				if ( Spread > 0 )
+				if (Spread > 0)
 				{
-					homescore = ( int ) winningScore;
-                    awayscore = ( int ) losingScore;
+					homescore = (int)winningScore;
+					awayscore = (int)losingScore;
 				}
 				else
 				{
-					homescore = ( int ) losingScore;
-					awayscore = ( int ) winningScore;
+					homescore = (int)losingScore;
+					awayscore = (int)winningScore;
 				}
 			}
 			BookieTip = new NFLResult( HomeTeam, homescore, AwayTeam, awayscore );
@@ -2695,39 +2728,36 @@ namespace RosterLib
 		internal string ProjectionLink()
 		{
 			var urlOut = ProjectionUrl();
-			return string.Format( "<a href='{0}'>{1}</a>", urlOut, GetPrediction( "unit" ).PredictedScore() );
+			return $"<a href='{urlOut}'>{GetPrediction("unit").PredictedScore()}</a>";
 		}
 
 		public string ProjectionUrl()
 		{
-			var urlOut = string.Format( ".//gameprojections//{0}-{1}@{2}.htm", Week, AwayTeam, HomeTeam );
+			var urlOut = $".//gameprojections//{Week}-{AwayTeam}@{HomeTeam}.htm";
 			return urlOut;
 		}
 
 		public string GameProjectionUrl()
 		{
-			var urlOut = string.Format( ".//gameprojections//Week {0:0#}/{1}@{2}.htm", Int32.Parse( Week ), AwayTeam, HomeTeam );
+			var urlOut = $".//gameprojections//Week {Int32.Parse(Week):0#}/{AwayTeam}@{HomeTeam}.htm";
 			return urlOut;
 		}
 
 		public string SummaryFile()
 		{
-			var summaryFile = string.Format( "{0}{1}//GameSummaries//Week {4}//{2}@{3}.htm",
-				Utility.OutputDirectory(), Season, AwayTeam, HomeTeam, Week );
+			var summaryFile = $"{Utility.OutputDirectory()}{Season}//GameSummaries//Week {Week}//{AwayTeam}@{HomeTeam}.htm";
 			return summaryFile;
 		}
 
 		public string SummaryUrl( string textOut )
 		{
-			var summaryFile = string.Format( "<a href='..//{1}//GameSummaries//Week {0}//{2}@{3}.htm'>|{4} {5,2} @ {6} {7,2}</a>",
-				Week, Season, AwayTeam, HomeTeam, AwayTeam, AwayScore, HomeTeam, HomeScore );
+			var summaryFile = $"<a href='..//{Season}//GameSummaries//Week {Week}//{AwayTeam}@{HomeTeam}.htm'>|{AwayTeam} {AwayScore,2} @ {HomeTeam} {HomeScore,2}</a>";
 			return summaryFile;
 		}
 
 		internal string ProjectionLink( string textOut )
 		{
-			return string.Format( "<a href='..//projections//gameprojections//Week {0}//{1}@{2}.htm'>{3}</a>",
-			   Week, AwayTeam, HomeTeam, textOut );
+			return $"<a href='..//projections//gameprojections//Week {Week}//{AwayTeam}@{HomeTeam}.htm'>{textOut}</a>";
 		}
 
 		internal string GameLink( string textOut )
@@ -2836,5 +2866,15 @@ namespace RosterLib
 			var rootUrl = "http://www.nfl.com/liveupdate/gamecenter/";
 			return string.Format( "{0}{1}/{2}_Gamebook.pdf", rootUrl, Id, HomeNflTeam.ApCode.Trim() );
 		}
+	}
+
+	public enum GameScenario
+	{
+		None,
+		ShortFavourite,
+		LongFavourite,
+		Even,
+		LongDog,
+		ShortDog
 	}
 }

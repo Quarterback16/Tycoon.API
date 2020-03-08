@@ -151,7 +151,8 @@ namespace RosterLib
 
 		public int CurrentWeek( DateTime focusDate )
 		{
-			return Int32.Parse( Utility.CurrentWeek() );
+			var theWeek = Utility.CurrentWeek();
+			return Int32.Parse(theWeek);
 		}
 
 		public int CurrentWeek()

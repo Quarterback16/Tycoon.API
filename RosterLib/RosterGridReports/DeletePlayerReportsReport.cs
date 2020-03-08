@@ -10,7 +10,8 @@ namespace RosterLib.RosterGridReports
 
 		public SimplePreReport PreReport { get; set; }
 
-		public DeletePlayerReportsReport( IKeepTheTime timekeeper ) : base( timekeeper )
+		public DeletePlayerReportsReport( IKeepTheTime timekeeper ) 
+			: base( timekeeper )
 		{
 			Name = "Delete-Stale-Player-Reports";
 			Season = timekeeper.CurrentSeason( DateTime.Now );

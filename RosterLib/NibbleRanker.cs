@@ -108,7 +108,11 @@ namespace RosterLib
 				//  workout adjustments to the previous ratings
 				NibbleGameRating startingGameRating;
 				if ( g.Week.Equals( "01" ) )
-					startingGameRating = new NibbleGameRating( 0, 0, 0, 0 );
+					startingGameRating = new NibbleGameRating(
+						ho: 0,
+						hd: 0,
+						ao: 0,
+						ad: 0);
 				else
 					// Get previous rating
 					startingGameRating = GetRating( g );
@@ -133,7 +137,12 @@ namespace RosterLib
 				Utility.Announce(string.Format("    Adjustments  A {0} {1} - {2}",
 																g.AwayTeam, adjustment.AwayOff, adjustment.AwayDef));
 
-				AdjustRatings( startingGameRating, adjustment, g.HomeTeam, g.AwayTeam, g.Week );
+				AdjustRatings(
+					startingGameRating: startingGameRating,
+					adjustment: adjustment,
+					homeTeam: g.HomeTeam,
+					awayTeam: g.AwayTeam,
+					week: g.Week);
 			}
 		}
 
@@ -164,11 +173,15 @@ namespace RosterLib
 			return ( g.HomeTeam == testTeam ) || ( g.AwayTeam == testTeam );
 		}
 
-		private void AdjustRatings( NibbleGameRating startingGameRating, NibbleGameRating adjustment,
-											 string homeTeam, string awayTeam, string week )
+		private void AdjustRatings(
+			NibbleGameRating startingGameRating,
+			NibbleGameRating adjustment,
+			string homeTeam,
+			string awayTeam,
+			string week)
 		{
 			Debug.Assert( ( Math.Abs(adjustment.HomeOff ) < 10 ), "adjustment too big",
-				string.Format("Week {0} home team {1} adj={2}", week, homeTeam, adjustment.HomeOff));
+				$"Week {week} home team {homeTeam} adj={adjustment.HomeOff}");
 
 			var newHomeOff = startingGameRating.HomeOff + adjustment.HomeOff;
 			var newHomeDef = startingGameRating.HomeDef + adjustment.HomeDef;
@@ -178,19 +191,29 @@ namespace RosterLib
 			var awayRating = new NibbleTeamRating( newAwayOff, newAwayDef );
 			var homeKey = KeyFor( homeTeam );
 			var awayKey = KeyFor( awayTeam );
-			UpdateRating( homeKey, homeRating, Int32.Parse( week ) );
-			UpdateRating( awayKey, awayRating, Int32.Parse( week ) );
+			UpdateRating(
+				teamCode: homeKey,
+				rating: homeRating,
+				week: Int32.Parse(week));
+			UpdateRating(
+				teamCode: awayKey,
+				rating: awayRating,
+				week: Int32.Parse(week));
 		}
 
 		private string KeyFor( string team )
 		{
-			return string.Format( "{0}{1}", Season.Year, team );
+			return $"{Season.Year}{team}";
 		}
 
-		private void UpdateRating( string teamCode, NibbleTeamRating rating, int week )
+		private void UpdateRating(
+			string teamCode,
+			NibbleTeamRating rating,
+			int week)
 		{
-			Utility.Announce( string.Format( "    Updating rating for {0}", teamCode ) );
-			if ( Rates == null ) Rates = new Hashtable();
+			Utility.Announce( $"    Updating rating for {teamCode}" );
+			if ( Rates == null ) 
+				Rates = new Hashtable();
 			if ( Rates.ContainsKey( teamCode ) )
 			{
 				var ratings = (NibbleTeamRating[]) Rates[ teamCode ]; // get the array for the team
@@ -239,7 +262,8 @@ namespace RosterLib
 		private int MaximumScore( int score )
 		{
 			MaxScore = 35;
-			if ( score > MaxScore ) score = MaxScore;
+			if ( score > MaxScore ) 
+				score = MaxScore;
 			return score;
 		}
 

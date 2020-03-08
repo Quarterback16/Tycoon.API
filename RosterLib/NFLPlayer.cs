@@ -235,8 +235,7 @@ namespace RosterLib
 			{
 				if ( CurrTeam == null )
 				{
-					Announce( string.Format( "NFLPlayer.TeamCode Player {0} {1} has a null CurrTeam", PlayerName,
-															 PlayerCode ) );
+					Announce( $"NFLPlayer.TeamCode Player {PlayerName} {PlayerCode} has a null CurrTeam" );
 					return "??";
 				}
 				return CurrTeam.TeamCode;
@@ -1176,6 +1175,7 @@ namespace RosterLib
 				Logger = LogManager.GetCurrentClassLogger();
 
 			Logger.Trace( "   " + message );
+			//Console.WriteLine($"   {message}");
 		}
 
 		public void Announce( string message )

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 
 namespace SeasonHtml
@@ -40,19 +39,31 @@ namespace SeasonHtml
 
 		private void Body()
 		{
+			OpenBody();
+
+			HtmlFile.AddToBody(
+				PreseasonReports());
+			HtmlFile.AddToBody(
+				NflTeamReports());
+			HtmlFile.AddToBody(
+				RostersByPosition());
+			HtmlFile.AddToBody(
+				WeeklyReports());
+
+			CloseBody();
+		}
+
+		private void CloseBody()
+		{
+			HtmlFile.AddToBody(HtmlLib.DivClose());
+			HtmlFile.AddToBody(HtmlLib.DivClose());
+		}
+
+		private void OpenBody()
+		{
 			HtmlFile.AddToBody(Heading());
 			HtmlFile.AddToBody(HtmlLib.DivOpenId("myAccordian"));
 			HtmlFile.AddToBody(HtmlLib.DivOpen(string.Empty));
-
-			HtmlFile.AddToBody(PreseasonReports());
-
-			HtmlFile.AddToBody(NflTeamReports());
-			HtmlFile.AddToBody(RostersByPosition());
-
-			HtmlFile.AddToBody(WeeklyReports());
-
-			HtmlFile.AddToBody(HtmlLib.DivClose());
-			HtmlFile.AddToBody(HtmlLib.DivClose());
 		}
 
 		private string RostersByPosition()
@@ -361,7 +372,9 @@ namespace SeasonHtml
 			AddLine(sb, ScopeHeader("Scope"));
 
 			AddLine(sb, PickupCharts());
-			AddLine(sb, PickupSummaries());
+			AddLine(sb, PickupSummaries("YH"));
+			AddLine(sb, PickupSummaries("RR"));
+			AddLine(sb, PickupSummaries("G1"));
 			AddLine(sb, RankingMetrics());
 			AddLine(sb, Aces());
 			AddLine(sb, PlayerProjections("QB"));
@@ -370,6 +383,7 @@ namespace SeasonHtml
 			AddLine(sb, PlayerProjections("TE"));
 			AddLine(sb, PlayerProjections("PK"));
 			AddLine(sb, NibbleTips());
+			AddLine(sb, PlayoffTeams());
 			AddLine(sb, Standings());
 			AddLine(sb, GoalLineScores());
 			LeaguePerformance(sb,"YH","Yahoo");
@@ -377,6 +391,7 @@ namespace SeasonHtml
 			DefensiveReports(sb);
 			FantasyPoints(sb);
 			TallyStats(sb);
+			TopDogs(sb);
 
 			AddLine(sb, HtmlLib.TableClose());
 			return sb.ToString();
@@ -400,6 +415,13 @@ namespace SeasonHtml
 			string header)
 		{
 			AddLine(sb, ScopeHeader(header));
+		}
+
+		private string TopDogs(StringBuilder sb)
+		{
+			AddLine(sb, ScopeHeader("Top Dog Reports"));
+			AddLine(sb, TopDogs());
+			return sb.ToString();
 		}
 
 		private string DefensiveReports(StringBuilder sb)
@@ -486,18 +508,61 @@ namespace SeasonHtml
 			return sb.ToString();
 		}
 
+		private string TopDogs()
+		{
+			var sb = new StringBuilder();
+			TopDogFor(sb, "QB");
+			TopDogFor(sb, "RB");
+			TopDogFor(sb, "WR");
+			TopDogFor(sb, "TE");
+			TopDogFor(sb, "PK");
+			return sb.ToString();
+		}
+
+		private void TopDogFor(
+			StringBuilder sb,
+			string position)
+		{
+			TableRowOpen(sb, rowName: $"{position} Top dogs");
+			for (int i = 1; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(
+					TopDogLink(i, position)));
+			AddLine(sb, HtmlLib.TableRowClose());
+		}
+
+		private string TopDogLink(
+			int w, 
+			string position)
+		{
+			var sb = new StringBuilder();
+
+			AddLine(
+				sb, WeeklyLink(
+					w,
+					"Starters",
+					$"{position}-topdogs-"));
+
+			return sb.ToString();
+		}
+
+		private static void TableRowOpen(
+			StringBuilder sb,
+			string rowName)
+		{
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData(rowName));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+		}
+
 		private string TopDefense()
 		{
 			var sb = new StringBuilder();
-			AddLine(sb, HtmlLib.TableRowOpen());
-			AddLine(sb, HtmlLib.TableData("In Form D"));
-			AddLine(sb, HtmlLib.TableData(string.Empty));
+			TableRowOpen(sb, rowName: "In Form D");
 			for (int i = 1; i < 18; i++)
 				AddLine(sb, HtmlLib.TableData(DefenseLink(i, "Defensive Scoring")));
 			AddLine(sb, HtmlLib.TableRowClose());
-			AddLine(sb, HtmlLib.TableRowOpen());
-			AddLine(sb, HtmlLib.TableData($"Patsies"));
-			AddLine(sb, HtmlLib.TableData(string.Empty));
+
+			TableRowOpen(sb, rowName: "Patsies");
 			for (int i = 1; i < 18; i++)
 				AddLine(sb, HtmlLib.TableData(DefenseLink(i, "Team to beat")));
 			AddLine(sb, HtmlLib.TableRowClose());
@@ -549,18 +614,44 @@ namespace SeasonHtml
 			return sb.ToString();
 		}
 
+		private string PlayoffTeams()
+		{
+			var sb = new StringBuilder();
+			AddLine(sb, HtmlLib.TableRowOpen());
+			AddLine(sb, HtmlLib.TableData($"Playoff Teams"));
+			AddLine(sb, HtmlLib.TableData(string.Empty));
+			for (int i = 1; i < 18; i++)
+				AddLine(sb, HtmlLib.TableData(
+					WeeklyLink(
+						week:i,
+						folder: "Playoffs",
+						fileStem: "Playoff-Week-")));
+			AddLine(sb, HtmlLib.TableRowClose());
+			return sb.ToString();
+		}
+
+		private string WeeklyLink(
+			int week,
+			string folder,
+			string fileStem)
+		{
+			return HtmlLib.Href(
+				fileLink: $"..\\{Year}\\{folder}\\{fileStem}{week:0#}.htm",
+				label: $"{week:0#}");
+		}
+
 		private string NibbleTip(int i)
 		{
 			return HtmlLib.Href(
-				$"..\\{K_TflOutputFolder}\\ZTIPS{i:0#}.txt",
-				$"{i:0#}");
+				fileLink: $"..\\{K_TflOutputFolder}\\ZTIPS{i:0#}.txt",
+				label: $"{i:0#}");
 		}
 
 		private string Standing(int i)
 		{
 			return HtmlLib.Href(
-				$"..\\{K_TflOutputFolder}\\ZSTD{LastTwoYear()}{i:0#}.txt",
-				$"{i:0#}");
+				fileLink: $"..\\{K_TflOutputFolder}\\ZSTD{LastTwoYear()}{i:0#}.txt",
+				label: $"{i:0#}");
 		}
 
 		private string GoallineScore(int weekNo)
@@ -717,26 +808,34 @@ namespace SeasonHtml
 			return sb.ToString();
 		}
 
-		private string PickupSummaries()
+		private string PickupSummaries(
+			string leagueId)
 		{
 			var sb = new StringBuilder();
 			AddLine(sb, HtmlLib.TableRowOpen());
-			AddLine(sb, HtmlLib.TableData("Pickup summary"));
+			AddLine(sb, HtmlLib.TableData(
+				$"Pickup summary - {leagueId}"));
+
 			AddLine(sb, HtmlLib.TableData(string.Empty));
 			for (int i = 1; i < 22; i++)
 			{
-				AddLine(sb, HtmlLib.TableData(PickupSummary(i)));
+				AddLine(sb, HtmlLib.TableData(
+					PickupSummary(
+						i,
+						leagueId)));
 			}
 			AddLine(sb, HtmlLib.TableRowClose());
 			return sb.ToString();
 		}
 
-		private string PickupSummary(int i)
+		private string PickupSummary(
+			int week,
+			string leagueId)
 		{
 			var sb = new StringBuilder();
 			AddLine(sb, HtmlLib.Href(
-				$"..\\{Year}\\Projections\\Pickup-Summary-Week-{i}.htm",
-				$"{i:0#}"));
+				$"..\\{Year}\\Projections\\Pickup-Summary-{leagueId}-Week-{week}.htm",
+				$"{week:0#}"));
 			return sb.ToString();
 		}
 

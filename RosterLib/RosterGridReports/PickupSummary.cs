@@ -7,12 +7,15 @@ namespace RosterLib.RosterGridReports
 {
 	public class PickupSummary : RosterGridReport
 	{
+		public string LeagueId { get; set; }
 		public string Week { get; private set; }
 		public SimplePreReport Report { get; private set; }
 
 		public List<Pickup> Pickups { get; set; }
 
-		public PickupSummary( IKeepTheTime timekeeper, int week ) : base( timekeeper )
+		public PickupSummary(
+			IKeepTheTime timekeeper,
+			int week) : base( timekeeper )
 		{
 			Name = "Pickup Summary";
 			Season = timekeeper.Season;
@@ -21,18 +24,17 @@ namespace RosterLib.RosterGridReports
 			{
 				ReportType = "Pickup Summary",
 				Folder = "Projections",
-				Season = Season,
-				InstanceName = $"Pickup-Summary-Week-{Week:0#}"
+				Season = Season
 			};
 			Pickups = new List<Pickup>();
 		}
 
 		public override void RenderAsHtml()
 		{
+			Report.InstanceName = $"Pickup-Summary-{LeagueId}-Week-{Week:0#}";
 			Report.Body = GenerateBody();
 			Report.RenderHtml();
 			FileOut = Report.FileOut;
-			Pickups.Clear();
 		}
 
 		private string GenerateBody()
@@ -43,6 +45,9 @@ namespace RosterLib.RosterGridReports
 			var lastCategory = "X";
 			foreach ( Pickup pickup in Pickups )
 			{
+				if (pickup.LeagueId != LeagueId)
+					continue;
+
 				if ( pickup.RealCatCode() != lastCategory)
 				{
 					simple.AppendLine( string.Empty );

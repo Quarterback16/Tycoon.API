@@ -15,7 +15,11 @@ namespace RosterLib
 
 		public PlayerStats PerfStats;
 
-		public NflPerformance( int seasonIn, int weekIn, string teamIn, NFLPlayer myPlayer )
+		public NflPerformance(
+			int seasonIn,
+			int weekIn,
+			string teamIn,
+			NFLPlayer myPlayer)
 		{
 			// constructor
 			TeamCode = teamIn;
@@ -46,13 +50,38 @@ namespace RosterLib
 				TeamCode = "bye";
 		}
 
-		public NflPerformance( string seasonIn, string weekIn, decimal epIn )
+		public NflPerformance(
+			string seasonIn,
+			string weekIn,
+			decimal epIn)
 		{
 			// constructor
 			Season = Int32.Parse( seasonIn );
 			Week = Int32.Parse( weekIn );
 			ExperiencePoints = epIn;
 			Game = new NFLGame( seasonIn, weekIn );
+		}
+
+		public bool GameMatchesScenario(GameScenario gameScenario)
+		{
+			var scenario = ScenarioOut(_thePlayer.TeamCode).TrimEnd();
+			if (gameScenario == GameScenario.ShortFavourite
+				&& scenario == "Fav")
+				return true;
+			if (gameScenario == GameScenario.ShortDog
+				&& scenario == "Dog")
+				return true;
+			if (gameScenario == GameScenario.LongFavourite
+				&& scenario == "BigFav")
+				return true;
+			if (gameScenario == GameScenario.LongDog
+				&& scenario == "BigDog")
+				return true;
+			if (gameScenario == GameScenario.Even
+				&& scenario == "Even")
+				return true;
+
+			return false;
 		}
 
 		public string PerfHeaders()
@@ -144,10 +173,21 @@ namespace RosterLib
 				   + HtmlLib.TableRowClose() + "\n";
 		}
 
+		public bool PlayerPlayed()
+		{
+			return PerfStats.HasStats();
+		}
+
 		private string RowClass()
 		{
-			if ( ( Week == 2 ) || ( Week == 4 ) || ( Week == 6 ) || ( Week == 8 ) || ( Week == 10 ) || ( Week == 12 ) ||
-				 ( Week == 14 ) || ( Week == 16 ) )
+			if (   ( Week == 2 ) 
+				|| ( Week == 4 ) 
+				|| ( Week == 6 ) 
+				|| ( Week == 8 )
+				|| ( Week == 10 )
+				|| ( Week == 12 ) 
+				|| ( Week == 14 ) 
+				|| ( Week == 16 ) )
 				return "class='monoeven' ";
 
 			return "class='mono' ";
@@ -163,9 +203,53 @@ namespace RosterLib
 			return s;
 		}
 
+		private string SpreadOut(
+			string teamCode )
+		{
+			var team = new NflTeam(teamCode);
+			var decSpread = Game.ExpMarginFor(team);
+			var spread = String.Format("{0,5:##.#}", decSpread);
+			return spread;
+		}
+
+		private string ScenarioOut(
+			string teamCode)
+		{
+			var team = new NflTeam(teamCode);
+			var decSpread = Game.ExpMarginFor(team);
+			return Scenario(decSpread);
+		}
+
+		private string Scenario(
+			decimal decSpread)
+		{
+			if (decSpread > 6.5M)
+				return "BigFav";
+			if (decSpread > 0.0M)
+				return "Fav   ";
+			if (decSpread == 0.0M)
+				return "Even  ";
+			if (decSpread > -7.5M)
+				return "Dog   ";
+			return "BigDog";
+		}
+
 		private string ResultOut()
 		{
-			return Game.ResultOut( TeamCode, false ) + " " + Game.ScoreOut( TeamCode );
+			return $@"{
+				Game.ResultOut( TeamCode, abbreviate: false )
+				} {
+				Game.ScoreOut( TeamCode )
+				}";
+		}
+
+		public string GameResultOut()
+		{
+			return $@"{Season}:{Week:0#} {
+				GameOut()
+				} {Game.GameDate.ToString("dd/MM/yyyy")} {
+				ResultOut()
+				}";
 		}
 
 		#region Load methods
@@ -293,5 +377,23 @@ namespace RosterLib
 		public decimal ExperiencePoints { get; set; }
 
 		#endregion Accessors
+
+		public override string ToString()
+		{
+			if (   (TeamCode == null) 
+				|| (TeamCode == "??") 
+				|| (TeamCode == "bye"))
+				return String.Empty;
+
+			return $@"{
+				GameResultOut()
+				} {ScenarioOut(
+					_thePlayer.TeamCode
+					)} {
+				PerfStats.Stat1(
+					_thePlayer.PlayerCat,
+					addAvg: false)
+				}";
+		}
 	}
 }

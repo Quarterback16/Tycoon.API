@@ -1,0 +1,206 @@
+[
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "CANB",
+    "team-name": "Canberra Raiders"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "MELB",
+    "team-name": "Melbourne Storm"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "SYDR",
+    "team-name": "Roosters"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "SSYD",
+    "team-name": "South Sydney"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "PARR",
+    "team-name": "Parrameter"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "MANL",
+    "team-name": "Manly"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "SHRK",
+    "team-name": "Cronulla Sharks"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "BRIS",
+    "team-name": "Brisbane Broncos"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "WTIG",
+    "team-name": "WTIG"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "DRAG",
+    "team-name": "St George Dragons"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "PENR",
+    "team-name": "Penrith"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "NEWC",
+    "team-name": "Newcastle"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "BULL",
+    "team-name": "Bulldogs"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "NZW",
+    "team-name": "NZW"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "NQLD",
+    "team-name": "North Queensland"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "NRL",
+    "team-id": "TITN",
+    "team-name": "Titans"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "GEEL",
+    "team-name": "Geelong"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "BL",
+    "team-name": "Brisbane Lions"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "RICH",
+    "team-name": "Richmond"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "COLL",
+    "team-name": "Collingwood"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "WCE",
+    "team-name": "West Coast Eagles"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "GWS",
+    "team-name": "GWS"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "WB",
+    "team-name": "WB"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "ESS",
+    "team-name": "Essendon"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "HAW",
+    "team-name": "Hawthorne"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "PORT",
+    "team-name": "Port Adelaide"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "ADEL",
+    "team-name": "Adelaide"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "NMFC",
+    "team-name": "NMFC"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "FRE",
+    "team-name": "Freemantle"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "STK",
+    "team-name": "St Kilda"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "SYD",
+    "team-name": "Sydney Swans"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "CARL",
+    "team-name": "Carlton"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "MELB",
+    "team-name": "Melbourne"
+  },
+  {
+    "event-type": "add-team",
+    "league-code": "AFL",
+    "team-id": "GCFC",
+    "team-name": "Gold Coast"
+  }
+]

@@ -4,50 +4,33 @@ namespace RosterLib
 {
 	public class Pickup
 	{
-        public string Season { get; set; }
+		public string LeagueId { get; set; }
+		public string Owner { get; set; }
+		public string Suffix { get; set; }
+		public string Prefix { get; set; }
+		public string Season { get; set; }
         public NFLPlayer Player { get; set; }
         public string Name { get; set; }
-
 		public string Opp { get; set; }
-
 		public decimal ProjPts { get; set; }
-
 		public string ActualPts { get; set; }
-
 		public string CategoryCode { get; set; }
-
 		public string  Pos { get; set; }
 
 		public string Category()
 		{
-			var s = "Unknown";
-			switch ( RealCatCode() )
-			{
-				case "1":
-					s = "QUARTERBACKS";
-					break;
-
-				case "2":
-					s = "RUNNING BACKS";
-					break;
-
-				case "3":
-					s = "RECEIVERS";
-					break;
-
-				case "4":
-					s = "TIGHT ENDS";
-					break;
-
-				case "5":
-					s = "KICKERS";
-					break;
-
-				default:
-					s = "Not defined";
-					break;
-			}
-			return s;
+			string s = RealCatCode();
+			if (s == "1")
+				return "QUARTERBACKS";
+			if (s == "2")
+				return "RUNNING BACKS";
+			if (s == "3")
+				return "RECEIVERS";
+			if (s == "4")
+				return "TIGHT ENDS";
+			if (s == "5")
+				return "KICKERS";
+			return "Not defined";
 		}
 
 		public string RealCatCode()
@@ -84,17 +67,51 @@ namespace RosterLib
 
 		public override string ToString()
 		{
-			return $"{ProjectionLink(),-36}    {Opp,-10} {ProjPts,5}  {ActualPts}";
+			return $@"{
+				ProjectionLink(),-36
+				}    {
+				Opp,-10
+				} {
+				Prefix
+				}{
+				ProjPts,5
+				}{
+				Suffix
+				} {
+				ActualPts
+				}";
 		}
 
         private string ProjectionLink()
         {
-            string url = Name.PadRight( 36, ' ' ).Substring( 0, 36 );
+			UpperCaseStevesPlayers();
+            string url = Name.PadRight( 37, ' ' ).Substring( 0, 37 );
             if ( Player.IsPlayerProjection(Season) )
             {
                 url = $"<a href =\"..//..//PlayerProjections/{Player.PlayerCode}.htm\">{Name}</a>";
             }
             return url;
         }
-    }
+
+		private void UpperCaseStevesPlayers()
+		{
+			if (OwnedBySteve())
+				Name = Name.ToUpper();
+			if (Player.IsPlayoffBound())
+				Name = $"+{Name}";
+			else
+				Name = $" {Name}";
+		}
+
+		private bool OwnedBySteve()
+		{
+			if (LeagueId == Constants.K_LEAGUE_Yahoo)
+				return Owner == "77";
+			if (LeagueId == Constants.K_LEAGUE_Gridstats_NFL1)
+				return Owner == "CC";
+			if (LeagueId == Constants.K_LEAGUE_Rants_n_Raves)
+				return Owner == "BZ";
+			return false;
+		}
+	}
 }

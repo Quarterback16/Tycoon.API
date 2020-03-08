@@ -1188,7 +1188,9 @@ namespace RosterLib
          return decEquivalent;
       }
 
-      public static decimal SpreadRangeScore(int marginOfVictory, decimal expectedMargin)
+      public static decimal SpreadRangeScore(
+          int marginOfVictory,
+          decimal expectedMargin)
       {
       	decimal spreadRangeScore;
          var coverMargin = Convert.ToDecimal( marginOfVictory ) - expectedMargin;

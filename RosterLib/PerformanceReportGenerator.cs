@@ -13,7 +13,8 @@ namespace RosterLib
 
 		public List<RosterGridLeague> Leagues { get; set; }
 
-		public PerformanceReportGenerator( IKeepTheTime timekeeper ) : base( timekeeper )
+		public PerformanceReportGenerator( 
+			IKeepTheTime timekeeper ) : base( timekeeper )
 		{
 			Logger = LogManager.GetCurrentClassLogger();
 			Name = "Fantasy Performance Reports";
@@ -179,7 +180,12 @@ namespace RosterLib
 				 Id = Constants.K_LEAGUE_Gridstats_NFL1,
 				 Name = "Gridstats GS1"
 			 });
-         //Leagues.Add( new RosterGridLeague { Id = Constants.K_LEAGUE_Rants_n_Raves, Name = "NFL.COM" } );
+         Leagues.Add( 
+			new RosterGridLeague 
+			{ 
+				Id = Constants.K_LEAGUE_Rants_n_Raves, 
+			    Name = "ESPN" 
+			} );
 #endif
 		}
 

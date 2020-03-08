@@ -5,8 +5,6 @@ namespace Helpers.Models
 {
     public class LogItem
     {
-        private XmlNode node;
-
         public string LogDir { get; set; }
         public string Filespec { get; set; }
         public DateTime MailDate { get; set; }
@@ -17,7 +15,6 @@ namespace Helpers.Models
 
         public LogItem(XmlNode node)
         {
-            this.node = node;
             foreach (XmlNode n in node.ChildNodes)
             {
                 switch (n.Name)

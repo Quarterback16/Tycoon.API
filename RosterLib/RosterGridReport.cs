@@ -27,6 +27,8 @@ namespace RosterLib
 
 		public string TflFolder { get; set; }
 
+		public bool StructOnly { get; set; }
+
 		public RosterGridReport( IKeepTheTime timekeeper )
 		{
 			Logger = LogManager.GetCurrentClassLogger();
@@ -48,6 +50,12 @@ namespace RosterLib
 
 		public virtual void RenderAsHtml()
 		{
+			RenderAsHtml(structOnly: false);
+		}
+
+		public virtual void RenderAsHtml(bool structOnly = false)
+		{
+			StructOnly = structOnly;
 			Finish();
 		}
 
