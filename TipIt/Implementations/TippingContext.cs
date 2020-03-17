@@ -189,6 +189,44 @@ namespace TipIt.Implementations
             return Math.Round(avgScore, 0);
         }
 
+        public decimal EasyPointsForTeam(
+            string leagueCode,
+            string teamCode)
+        {
+            var record = new Record(teamCode);
+            foreach (var item in LeaguePastResults[leagueCode])
+            {
+                var games = item.Value;
+                foreach (var g in games)
+                {
+                    if (g.GameDate.Year < 2020)
+                        continue;
+
+                    if (g.HomeTeam.Equals(teamCode)
+                        || g.AwayTeam.Equals(teamCode))
+                    {
+                        if (g.WinFor(teamCode))
+                        {
+                            record.Wins++;
+                            record.EasyPoints += LookupUtils.LookupEasyPoints(
+                                teamCode,
+                                leagueCode);
+                        }
+                        else if (g.LossFor(teamCode))
+                            record.Losses++;
+                        else
+                        {
+                            record.Draws++;
+                            record.EasyPoints += LookupUtils.LookupEasyPoints(
+                                teamCode,
+                                leagueCode) / 2.0M;
+                        }
+                    }
+                }
+            }
+            return record.EasyPoints;
+        }
+
         public Record PastRecord(
             string leagueCode,
             string teamCode)
@@ -199,6 +237,8 @@ namespace TipIt.Implementations
                 var games = item.Value;
                 foreach (var g in games)
                 {
+                    if (g.GameDate.Year == 2020)
+                        Console.WriteLine("Including results for 2020");
                     if (g.HomeTeam.Equals(teamCode) 
                         || g.AwayTeam.Equals(teamCode))
                     {
@@ -256,6 +296,30 @@ namespace TipIt.Implementations
                     .ToString());
             }
             return sb.ToString();
+        }
+
+        public decimal EasyPoints(
+            List<string> aflSet,
+            List<string> nrlSet)
+        {
+            decimal easyPoints = 0.0M;
+            easyPoints += EasyPointsFor("NRL", nrlSet);
+            easyPoints += EasyPointsFor("AFL", aflSet);
+            return easyPoints;
+        }
+
+        private decimal EasyPointsFor(
+            string leagueCode, 
+            List<string> teamSet)
+        {
+            var easyPoints = 0.0M;
+            foreach (var team in teamSet)
+            {
+                easyPoints += EasyPointsForTeam(
+                    leagueCode,
+                    team);
+            }
+            return easyPoints;
         }
 
         public List<string> GetTeams(string leagueCode)

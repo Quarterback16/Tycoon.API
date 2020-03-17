@@ -124,14 +124,19 @@ namespace TipIt.TippingStrategies
 			projAway = (projAway / 2) + (int) AverageScore;
 
 			adjustment.HomeRating.Offence = (int)
-				(g.HomeScore - projHome) / 4;
+				(g.HomeScore - projHome) / FudgeFactor();
 			adjustment.HomeRating.Defence = (int)
-				(g.AwayScore - projAway) / 4;
+				(g.AwayScore - projAway) / FudgeFactor();
 			adjustment.AwayRating.Offence = (int)
-				(g.AwayScore - projAway) / 4;
+				(g.AwayScore - projAway) / FudgeFactor();
 			adjustment.AwayRating.Defence = (int)
-				(g.HomeScore - projHome) / 4;
+				(g.HomeScore - projHome) / FudgeFactor();
 			return adjustment;
+		}
+
+		private int FudgeFactor()
+		{
+			return 4;
 		}
 
 		public PredictedResult Tip(

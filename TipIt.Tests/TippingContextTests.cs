@@ -1,4 +1,5 @@
-﻿using TipIt.Implementations;
+﻿using System.Collections.Generic;
+using TipIt.Implementations;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -225,6 +226,32 @@ namespace TipIt.Tests
             var cut = new TippingContext();
             var result = cut.TeamRecords("NRL");
             _output.WriteLine(result);
+        }
+
+        [Fact]
+        public void Context_CalculatesEasyPointsForMyTeamSet()
+        {
+            var aflSet = new List<string>
+            {
+                "ADEL",
+                "ESS",
+                "GEEL",
+                "PORT",
+                "COLL"
+            };
+            var nrlSet = new List<string>
+            {
+                "WTIG",
+                "BULL",
+                "NZW",
+                "SHRK",
+                "BRIS"
+            };
+            var cut = new TippingContext();
+            var result = cut.EasyPoints(
+                aflSet: aflSet,
+                nrlSet: nrlSet);
+            _output.WriteLine($"Points so far {result}");
         }
     }
 }

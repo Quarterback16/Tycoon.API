@@ -4278,15 +4278,96 @@
     "Location": "Leichhardt Oval",
     "Round": 25
   },
-  {
-    "AwayScore": 10,
-    "AwayTeam": "NEWC",
-    "EventType": "result",
-    "GameDate": "2019-09-08 06:05",
-    "HomeScore": 54,
-    "HomeTeam": "PENR",
-    "League": "NRL",
-    "Location": "Panthers Stadium",
-    "Round": 25
-  }
+    {
+        "AwayScore": 10,
+        "AwayTeam": "NEWC",
+        "EventType": "result",
+        "GameDate": "2019-09-08 06:05",
+        "HomeScore": 54,
+        "HomeTeam": "PENR",
+        "League": "NRL",
+        "Location": "Panthers Stadium",
+        "Round": 25
+    },
+        {
+            "round": "1",
+            "gamedate": "2020-03-12 20:05",
+            "League": "NRL",
+            "HomeTeam": "PARR",
+            "HomeScore": 8,
+            "AwayTeam": "BULL",
+            "AwayScore": 2,
+            "EventType": "result"
+        },
+        {
+            "round": "1",
+            "gamedate": "2020-03-13 18:00",
+            "League": "NRL",
+            "HomeTeam": "CANB",
+            "AwayScore": 6,
+            "HomeScore": 24,
+            "AwayTeam": "TITN",
+            "EventType": "result"
+        },
+        {
+            "round": "1",
+            "gamedate": "2020-03-13 20:05",
+            "League": "NRL",
+            "HomeTeam": "NQLD",
+            "HomeScore": 21,
+            "AwayScore": 28,
+            "AwayTeam": "BRIS",
+            "EventType": "result"
+        },
+        {
+            "round": "1",
+            "gamedate": "2020-03-14 15:00",
+            "League": "NRL",
+            "HomeTeam": "NEWC",
+            "HomeScore": 20,
+            "AwayScore": 0,
+            "AwayTeam": "NZW",
+            "EventType": "result"
+        },
+        {
+            "round": "1",
+            "gamedate": "2020-03-14 17:30",
+            "League": "NRL",
+            "HomeTeam": "SSYD",
+            "HomeScore": 22,
+            "AwayScore": 18,
+            "AwayTeam": "SHRK",
+            "EventType": "result"
+        },
+        {
+            "round": "1",
+            "gamedate": "2020-03-14 19:35",
+            "League": "NRL",
+            "HomeTeam": "PENR",
+            "HomeScore": 20,
+            "AwayScore": 14,
+            "AwayTeam": "SYDR",
+            "EventType": "result"
+        },
+        {
+            "round": "1",
+            "gamedate": "2020-03-15 16:05",
+            "League": "NRL",
+            "HomeTeam": "MANL",
+            "HomeScore": 4,
+            "AwayScore": 18,
+            "AwayTeam": "MELB",
+            "EventType": "result"
+        },
+        {
+            "round": "1",
+            "gamedate": "2020-03-15 18:15",
+            "League": "NRL",
+            "HomeTeam": "DRAG",
+            "HomeScore": 14,
+            "AwayScore": 24,
+            "AwayTeam": "WTIG",
+            "EventType": "result"
+        }
+    
 ]
