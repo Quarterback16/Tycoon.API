@@ -229,6 +229,32 @@ namespace TipIt.Tests
         }
 
         [Fact]
+        public void Context_CalculatesTotalEasyPointsForMyTeamSet()
+        {
+            var aflSet = new List<string>
+            {
+                "ADEL",
+                "ESS",
+                "GEEL",
+                "PORT",
+                "COLL"
+            };
+            var nrlSet = new List<string>
+            {
+                "WTIG",
+                "BULL",
+                "SSYD",
+                "SHRK",
+                "BRIS"
+            };
+            var cut = new TippingContext();
+            var result = cut.EasyPoints(
+                aflSet: aflSet,
+                nrlSet: nrlSet);
+            _output.WriteLine($"Points so far {result}");
+        }
+
+        [Fact]
         public void Context_CalculatesEasyPointsForMyTeamSet()
         {
             var aflSet = new List<string>
@@ -243,15 +269,19 @@ namespace TipIt.Tests
             {
                 "WTIG",
                 "BULL",
-                "NZW",
+                "SSYD",
                 "SHRK",
                 "BRIS"
             };
             var cut = new TippingContext();
-            var result = cut.EasyPoints(
-                aflSet: aflSet,
-                nrlSet: nrlSet);
-            _output.WriteLine($"Points so far {result}");
+            foreach (var team in aflSet)
+            {
+                _output.WriteLine($"{team} : {cut.EasyPointsForTeam("AFL",team)}");
+            }
+            foreach (var team in nrlSet)
+            {
+                _output.WriteLine($"{team} : {cut.EasyPointsForTeam("NRL", team)}");
+            }
         }
     }
 }

@@ -34,7 +34,8 @@ namespace Gerard.HostServer
 				Logger.Info(
 					$"[DATAFIX] : {context.Message}");
 
-				Fixer.ApplyFix(context.Message);
+				//  With the demise of Stattleship this will no longer work
+				//Fixer.ApplyFix(context.Message);
 			}
 			catch (Exception ex)
 			{

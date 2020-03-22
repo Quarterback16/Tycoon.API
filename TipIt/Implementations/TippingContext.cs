@@ -318,6 +318,7 @@ namespace TipIt.Implementations
                 easyPoints += EasyPointsForTeam(
                     leagueCode,
                     team);
+                Console.WriteLine($"{leagueCode}:{team} {easyPoints}");
             }
             return easyPoints;
         }

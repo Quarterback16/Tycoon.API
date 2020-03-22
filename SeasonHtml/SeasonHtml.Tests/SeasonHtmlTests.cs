@@ -10,7 +10,7 @@ namespace SeasonHtml.Tests
 		[TestInitialize]
 		public void Setup()
 		{
-			_sut = new Season(2019);
+			_sut = new Season(2020);
 		}
 
 		[TestMethod]
