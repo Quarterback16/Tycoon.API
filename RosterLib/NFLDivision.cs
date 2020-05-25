@@ -35,7 +35,12 @@ namespace RosterLib
 		/// <param name="codeIn"></param>
 		/// <param name="seasonIn"></param>
 		/// <param name="catIn"></param>
-		public NFLDivision( string nameIn, string confIn, string codeIn, string seasonIn, string catIn )
+		public NFLDivision(
+			string nameIn,
+			string confIn,
+			string codeIn,
+			string seasonIn,
+			string catIn)
 		{
 			Announce( string.Format( "NFLDivision Constructing Division {0} cat {1}", nameIn, catIn ) );
 

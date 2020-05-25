@@ -28,5 +28,5 @@ Basically the development process is one of designing Commands and testing them
 
 ## Configuration
 
-Here you should write what are all of the configurations a user can enter when
-using the project.
+The year (season) is passed into the constructor.  On a new season you need to manually update 
+the W: drive menu

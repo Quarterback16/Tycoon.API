@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.98
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeAgentBrowser", "FreeAgentBrowser\FreeAgentBrowser.csproj", "{CD9E7883-C0F5-4F4B-8F4D-607E8E47C2AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreeAgentBrowser", "FreeAgentBrowser\FreeAgentBrowser.csproj", "{CD9E7883-C0F5-4F4B-8F4D-607E8E47C2AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosterService", "RosterService\RosterService.csproj", "{99F45AF4-E7AC-4293-956F-9314FEB9B4B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosterService.Tests", "RosterService.Tests\RosterService.Tests.csproj", "{675E76A5-A031-4584-8549-A1EDFA77491D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{CD9E7883-C0F5-4F4B-8F4D-607E8E47C2AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD9E7883-C0F5-4F4B-8F4D-607E8E47C2AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD9E7883-C0F5-4F4B-8F4D-607E8E47C2AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99F45AF4-E7AC-4293-956F-9314FEB9B4B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F45AF4-E7AC-4293-956F-9314FEB9B4B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F45AF4-E7AC-4293-956F-9314FEB9B4B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F45AF4-E7AC-4293-956F-9314FEB9B4B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{675E76A5-A031-4584-8549-A1EDFA77491D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675E76A5-A031-4584-8549-A1EDFA77491D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675E76A5-A031-4584-8549-A1EDFA77491D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675E76A5-A031-4584-8549-A1EDFA77491D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
