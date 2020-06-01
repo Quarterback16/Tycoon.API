@@ -1251,7 +1251,7 @@
         "trans": "IN"
     },
     {
-        "fteam": "DH",
+        "fteam": "DD",
         "num": "112",
         "team": "LR",
         "player": "Preston Dennard",
@@ -1260,7 +1260,7 @@
         "trans": "IN"
     },
     {
-        "fteam": "DH",
+        "fteam": "DD",
         "num": "64",
         "team": "CH",
         "player": "Matt Suhey",
@@ -1269,7 +1269,7 @@
         "trans": "IN"
     },
     {
-        "fteam": "DH",
+        "fteam": "DD",
         "num": "72",
         "team": "GB",
         "player": "H.Huckleby",
@@ -1278,7 +1278,7 @@
         "trans": "IN"
     },
     {
-        "fteam": "DH",
+        "fteam": "DD",
         "num": "24",
         "team": "MV",
         "player": "Steve Dills",
@@ -1287,7 +1287,7 @@
         "trans": "IN"
     },
     {
-        "fteam": "DH",
+        "fteam": "DD",
         "num": "20",
         "team": "PS",
         "player": "Cliff Stoudt",
@@ -1377,13 +1377,85 @@
         "trans": "OUT"
     },
     {
-        "fteam": "DH",
+        "fteam": "DD",
         "num": "78",
         "team": "MD",
         "player": "Mark Duper",
         "pos": "WR",
         "price": "17",
         "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "21",
+        "team": "BC",
+        "player": "Mike Pagel",
+        "pos": "QB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "119",
+        "team": "SS",
+        "player": "Paul Johns",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "67",
+        "team": "MV",
+        "player": "Tony Galbreath",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "41",
+        "team": "LA",
+        "player": "Marcus Allen",
+        "pos": "RB",
+        "price": "44",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "59",
+        "team": "BC",
+        "player": "Curtis Dickey",
+        "pos": "RB",
+        "price": "17",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "86",
+        "team": "NJ",
+        "player": "Wesley Walker",
+        "pos": "WR",
+        "price": "18",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "192",
+        "team": "NG",
+        "player": "Jeff Hostetler",
+        "pos": "QB",
+        "price": "0",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "78",
+        "team": "MD",
+        "player": "Mark Duper",
+        "pos": "WR",
+        "price": "36",
+        "trans": "IN"
     }
 ]
 

@@ -34,6 +34,19 @@ namespace RosterService.Tests
 		}
 
 		[Fact]
+		public void RetroRosters_KnowsDuckHuntersRoster()
+		{
+			var sut = new RetroRosters(
+				new RosterEventStore());
+			var result = sut.GetRoster("DD");
+			foreach (var item in result)
+			{
+				output.WriteLine(item);
+			}
+			Assert.True(result.Count > 0);
+		}
+
+		[Fact]
 		public void RetroRosters_KnowsRaidersRoster()
 		{
 			var sut = new RetroRosters(

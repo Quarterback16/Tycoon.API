@@ -69,19 +69,45 @@ namespace TipIt.Tests
             }
         }
 
+        [Fact]
+        public void TipIt_ConvertsNflCsvToJson_Ok()
+        {
+            var fileName = "nfl-schedule-2020.csv";
+            string path = Directory.GetCurrentDirectory();
+            if (!File.Exists(fileName))
+            {
+                _output.WriteLine($"Could not find file {fileName} in {path}");
+            }
+            else
+            {
+                var sw = new StreamWriter(@"nfl-schedule.json");
+                var reader = new ChoCSVReader(fileName).WithFirstLineHeader();
+                foreach (var x in reader)
+                {
+                    x.HomeTeam = ConvertNflTeam(x.HomeTeam);
+                    x.AwayTeam = ConvertNflTeam(x.AwayTeam);
+                    x.GameDate = ConvertDate(x.GameDate);
+                    x.EventType = "schedule";
+                    x.League = "NFL";
+                    _output.WriteLine(x.DumpAsJson());
+                    sw.WriteLine(x.DumpAsJson()+",");
+                }
+                sw.Close();
+            }
+        }
     }
 
-    //[ChoCSVFileHeader]
-    //[ChoCSVRecordObject(ObjectValidationMode = ChoObjectValidationMode.MemberLevel)]
-    //public class ScheduleRec
-    //{
-    //    public int Round { get; set; }
-    //    public string GameDate { get; set; }
-    //    public string Location { get; set; }
-    //    public string HomeTeam { get; set; }
-    //    public string AwayTeam { get; set; }
+	[ChoCSVFileHeader]
+	[ChoCSVRecordObject(ObjectValidationMode = ChoObjectValidationMode.MemberLevel)]
+	public class ScheduleRec
+	{
+		public int Round { get; set; }
+		public string GameDate { get; set; }
+		public string Location { get; set; }
+		public string HomeTeam { get; set; }
+		public string AwayTeam { get; set; }
 
-    //    [ChoDefaultValue("schedule")]
-    //    public string EventType { get; set; }
-    //}
+		[ChoDefaultValue("schedule")]
+		public string EventType { get; set; }
+	}
 }

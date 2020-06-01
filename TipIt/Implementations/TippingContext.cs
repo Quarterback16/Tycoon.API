@@ -471,7 +471,21 @@ namespace TipIt.Implementations
                 Console.WriteLine(theTeam);
             }
         }
-
+        public void ProcessLeagueSchedule(
+            string league,
+            IGameProcessor processor)
+        {
+            var teams = new List<string>();
+            foreach (var item in LeagueSchedule[league])
+            {
+                var games = item.Value;
+                //Console.WriteLine($"Round {item.Key} has {games.Count} games");
+                foreach (var g in games)
+                {
+                    processor.ProcessGame(g);
+                }
+            }
+        }
 
         #region  IDisposable
 

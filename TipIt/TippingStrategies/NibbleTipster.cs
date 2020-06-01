@@ -166,6 +166,7 @@ namespace TipIt.TippingStrategies
 				score = MinScore;
 			return score;
 		}
+
 	}
 
 	public class NibbleRating

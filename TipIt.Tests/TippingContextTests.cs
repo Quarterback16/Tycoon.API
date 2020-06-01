@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using TipIt.Implementations;
+using TipIt.Interfaces;
+using TipIt.Models;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -283,5 +285,31 @@ namespace TipIt.Tests
                 _output.WriteLine($"{team} : {cut.EasyPointsForTeam("NRL", team)}");
             }
         }
+
+        [Fact]
+        public void Context_CanFeedGames()
+        {
+            var testProcessor = new TestProcessor(
+                _output);
+            var cut = new TippingContext();
+            cut.ProcessLeagueSchedule(
+                "NFL",
+                testProcessor);
+        }
     }
+
+	public class TestProcessor : IGameProcessor
+	{
+        private readonly ITestOutputHelper _output;
+		public TestProcessor(
+            ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
+        public void ProcessGame(Game g)
+		{
+            _output.WriteLine(g.ToString());
+        }
+	}
 }
