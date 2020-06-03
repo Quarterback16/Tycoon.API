@@ -1175,7 +1175,7 @@
         "team": "SS",
         "player": "Norm Johnson",
         "pos": "KK",
-        "price": "45 ",
+        "price": "45",
         "trans": "IN"
     },
     {
@@ -1455,6 +1455,123 @@
         "player": "Mark Duper",
         "pos": "WR",
         "price": "36",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "205",
+        "team": "SD",
+        "player": "James Brooks",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "159",
+        "team": "LR",
+        "player": "Mike Lansford",
+        "pos": "KK",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "206",
+        "team": "WR",
+        "player": "Alvin Garrett",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "53",
+        "team": "LA",
+        "player": "Frank Hawkins",
+        "pos": "RB",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "65",
+        "team": "GB",
+        "player": "George Ellis",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "198",
+        "team": "MV",
+        "player": "Tommy Kramer",
+        "pos": "QB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "119",
+        "team": "SS",
+        "player": "Paul Johns",
+        "pos": "WR",
+        "price": "0",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "116",
+        "team": "DL",
+        "player": "Jeff Chadwick",
+        "pos": "WR",
+        "price": "0",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "129",
+        "team": "DC",
+        "player": "Timmy Newsome",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "178",
+        "team": "LA",
+        "player": "Dokie Williams",
+        "pos": "WR",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "72",
+        "team": "GB",
+        "player": "H.Huckleby",
+        "pos": "RB",
+        "price": "0",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SF",
+        "num": "145",
+        "team": "SS",
+        "player": "Norm Johnson",
+        "pos": "KK",
+        "price": "45",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "117",
+        "team": "CL",
+        "player": "Bobby Jones",
+        "pos": "WR",
+        "price": "1",
         "trans": "IN"
     }
 ]

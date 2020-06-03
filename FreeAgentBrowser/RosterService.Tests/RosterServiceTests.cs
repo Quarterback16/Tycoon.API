@@ -71,5 +71,18 @@ namespace RosterService.Tests
 			}
 			Assert.True(result.Count > 0);
 		}
+
+		[Fact]
+		public void RetroRosters_KnowsGalaxyRoster()
+		{
+			var sut = new RetroRosters(
+				new RosterEventStore());
+			var result = sut.GetRoster("CG");
+			foreach (var item in result)
+			{
+				output.WriteLine(item);
+			}
+			Assert.True(result.Count > 0);
+		}
 	}
 }
