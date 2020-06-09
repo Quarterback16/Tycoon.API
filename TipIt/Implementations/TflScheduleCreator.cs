@@ -16,10 +16,12 @@ namespace TipIt.Implementations
 				"Provider=VFPOLEDB.1;Data Source=e:\\tfl\\nfl\\team.dbf");
 		}
 		public void ProcessGame(
-			Game g)
+			Game g,
+			int n)
 		{
 			var season = Season(g.GameDate);
 			var week = TflWeek(g.Round);
+			var gameNumber = GameNumber(n);
 			var gameDate = g.GameDate;
 			var gameHour = GameHour(g.GameDate);
 			var awayTeamCode = g.AwayTeam;
@@ -28,10 +30,18 @@ namespace TipIt.Implementations
 			InsertGame(
 				season,
 				week,
+				gameNumber,
 				gameDate,
 				gameHour,
 				awayTeamCode,
 				homeTeamCode);
+		}
+
+		public string GameNumber(
+			int n)
+		{
+			string str = char.ConvertFromUtf32(n + 64);
+			return str;
 		}
 
 		public string TflWeek(
@@ -43,20 +53,45 @@ namespace TipIt.Implementations
 		public string Season(
 			DateTime gameDate)
 		{
-			//TODO
-			return "2020";
+			var yr = gameDate.Year;
+			var mth = gameDate.Month;
+			var season = yr;
+			if (mth < 3)
+				season--;
+			return season.ToString();
 		}
 
 		public string GameHour(
 			DateTime gameDate)
 		{
-			//TODO
-			return "1";
+			// Assume times are US Eastern Standard time
+			// Common times are 13:00 -> "1"
+			//  16:05 -> "4"
+			//  16:25 -> "5"
+			//  19:15
+			//  22:10
+			//  20:20
+			//
+			//  formula get hr, substract 12, if > 9 set to 9
+			//  spec case make 16:25 a "5"
+			//  morning games get a 0
+			
+			if (gameDate.ToString("HH:mm") == "16:25")
+				return "5";
+
+			var hr = gameDate.Hour;
+			hr -= 12;
+			if (hr > 9)
+				hr = 9;
+			if (hr < 0)
+				hr = 0;
+			return hr.ToString();
 		}
 
-		private void InsertGame(
+		public string InsertGame(
 			string season, 
 			string week, 
+			string gameNumber,
 			DateTime gameDate, 
 			string gameHour, 
 			string awayTeamCode,
@@ -70,6 +105,7 @@ namespace TipIt.Implementations
 				formatStr, 
 				season, 
 				week, 
+				gameNumber,
 				gameDate,
 				gameHour,
 				awayTeamCode, 
@@ -77,6 +113,8 @@ namespace TipIt.Implementations
 
 			ExecuteNflCommand(
 				commandStr);
+
+			return $"{season}:{week}:{gameNumber}";
 		}
 
 		private void ExecuteNflCommand(

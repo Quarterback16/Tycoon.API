@@ -4,6 +4,6 @@ namespace TipIt.Interfaces
 {
 	public interface IGameProcessor
 	{
-		void ProcessGame(Game g);
+		void ProcessGame(Game g, int num);
 	}
 }

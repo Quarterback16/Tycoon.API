@@ -1573,7 +1573,95 @@
         "pos": "WR",
         "price": "1",
         "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "209",
+        "team": "WR",
+        "player": "Reggie Evans",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "117",
+        "team": "BB",
+        "player": "Mike Mosley",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SF",
+        "num": "132",
+        "team": "NG",
+        "player": "Ali Haji-Shiekh",
+        "pos": "KK",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "207",
+        "team": "CI",
+        "player": "Larry Kinnebrew",
+        "pos": "RB",
+        "price": "6",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "208",
+        "team": "SD",
+        "player": "Earnest Jackson",
+        "pos": "RB",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "67",
+        "team": "MV",
+        "player": "Tony Galbreath",
+        "pos": "RB",
+        "price": "2",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "206",
+        "team": "MV",
+        "player": "Alvin Garrett",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "136",
+        "team": "PS",
+        "player": "Gary Anderson",
+        "pos": "KK",
+        "price": "21",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SF",
+        "num": "133",
+        "team": "BC",
+        "player": "Raul Allegre",
+        "pos": "KK",
+        "price": "26",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "55",
+        "team": "PS",
+        "player": "Franco Harris",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
     }
 ]
-
-

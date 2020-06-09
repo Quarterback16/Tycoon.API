@@ -307,7 +307,9 @@ namespace TipIt.Tests
             _output = output;
         }
 
-        public void ProcessGame(Game g)
+        public void ProcessGame(
+            Game g,
+            int gameNum)
 		{
             _output.WriteLine(g.ToString());
         }

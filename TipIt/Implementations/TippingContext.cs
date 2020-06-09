@@ -91,7 +91,7 @@ namespace TipIt.Implementations
 
         public int HomeFieldAdvantage(string leagueCode)
         {
-            var homefieldAdvantage = 0;
+            int homefieldAdvantage;
             var totalHomePoints = 0;
             var totalAwayPoints = 0;
             var totalGames = 0;
@@ -461,28 +461,36 @@ namespace TipIt.Implementations
             return leagueResults;
         }
 
-        private static void DisplayTeams(
-            List<AddTeamEvent> teams)
-        {
+        //private static void DisplayTeams(
+        //    List<AddTeamEvent> teams)
+        //{
+        //    foreach (var team in teams)
+        //    {
+        //        var theTeam = new Team(team);
+        //        Console.WriteLine(theTeam);
+        //    }
+        //}
 
-            foreach (var team in teams)
-            {
-                var theTeam = new Team(team);
-                Console.WriteLine(theTeam);
-            }
-        }
         public void ProcessLeagueSchedule(
             string league,
             IGameProcessor processor)
         {
-            var teams = new List<string>();
             foreach (var item in LeagueSchedule[league])
             {
                 var games = item.Value;
                 //Console.WriteLine($"Round {item.Key} has {games.Count} games");
+                var i = 0;
+                var lastRound = 0;
                 foreach (var g in games)
                 {
-                    processor.ProcessGame(g);
+                    if ( g.Round != lastRound )
+					{
+                        lastRound = g.Round;
+                        i = 0;
+					}
+                    i++;
+
+                    processor.ProcessGame(g,i);
                 }
             }
         }

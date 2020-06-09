@@ -86,7 +86,7 @@ namespace TipIt.Tests
         {
             if (teamName == "San Francisco 49ers")
                 return "SF";
-            if (teamName == "New Oleans Saints")
+            if (teamName == "New Orleans Saints")
                 return "NO";
             if (teamName == "Green Bay Packers")
                 return "GB";

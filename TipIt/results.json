@@ -4547,7 +4547,7 @@
         "HomeScore": 6,
         "AwayScore": 34,
         "AwayTeam": "PARR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4557,7 +4557,7 @@
         "HomeScore": 36,
         "AwayScore": 6,
         "AwayTeam": "TITN",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4567,7 +4567,7 @@
         "HomeScore": 28,
         "AwayScore": 12,
         "AwayTeam": "SSYD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4577,7 +4577,7 @@
         "HomeScore": 18,
         "AwayScore": 0,
         "AwayTeam": "DRAG",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4587,7 +4587,7 @@
         "HomeScore": 16,
         "AwayScore": 28,
         "AwayTeam": "WTIG",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4597,7 +4597,7 @@
         "HomeScore": 6,
         "AwayScore": 22,
         "AwayTeam": "CANB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4607,7 +4607,7 @@
         "HomeScore": 14,
         "AwayScore": 14,
         "AwayTeam": "NEWC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4617,7 +4617,87 @@
         "HomeScore": 32,
         "AwayScore": 6,
         "AwayTeam": "BULL",
-        "EventType": "schedule"
+        "EventType": "result"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-04 19:50",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "HomeScore": 0,
+        "AwayScore": 59,
+        "AwayTeam": "SYDR",
+        "EventType": "result"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-05 18:00",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "HomeScore": 26,
+        "AwayScore": 0,
+        "AwayTeam": "NZW",
+        "EventType": "result"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-05 19:55",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "HomeScore": 22,
+        "AwayScore": 8,
+        "AwayTeam": "SSYD",
+        "EventType": "result"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-06 17:30",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "HomeScore": 19,
+        "AwayScore": 16,
+        "AwayTeam": "MANL",
+        "EventType": "result"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-06 19:35",
+        "League": "NRL",
+        "HomeTeam": "NQLD",
+        "HomeScore": 16,
+        "AwayScore": 26,
+        "AwayTeam": "SHRK",
+        "EventType": "result"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-07 16:05",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "HomeScore": 18,
+        "AwayScore": 34,
+        "AwayTeam": "NEWC",
+        "EventType": "result"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-07 18:30",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "HomeScore": 28,
+        "AwayScore": 23,
+        "AwayTeam": "WTIG",
+        "EventType": "result"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-08 16:05",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "HomeScore": 22,
+        "AwayScore": 2,
+        "AwayTeam": "DRAG",
+        "EventType": "result"
     }
 
 ]

@@ -1,8 +1,8 @@
 {
   "profiles": {
-    "TipIt": {
+    "TipIt.Tests": {
       "commandName": "Project",
-      "commandLineArgs": "-l NRL -r 5"
+      "nativeDebugging": true
     }
   }
 }

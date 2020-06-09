@@ -84,5 +84,18 @@ namespace RosterService.Tests
 			}
 			Assert.True(result.Count > 0);
 		}
+
+		[Fact]
+		public void RetroRosters_KnowsRhinosRoster()
+		{
+			var sut = new RetroRosters(
+				new RosterEventStore());
+			var result = sut.GetRoster("RR");
+			foreach (var item in result)
+			{
+				output.WriteLine(item);
+			}
+			Assert.True(result.Count > 0);
+		}
 	}
 }
