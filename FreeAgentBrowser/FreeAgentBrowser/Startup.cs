@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FreeAgentBrowser.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -13,6 +10,13 @@ namespace FreeAgentBrowser
 {
 	public class Startup
 	{
+		public IConfiguration Configuration { get; }
+
+		public Startup(IConfiguration configuration)
+		{
+			Configuration = configuration;
+		}
+
 		// This method gets called by the runtime. 
 		// Use this method to add services to the container.
 		// For more information on how to configure your application, 
@@ -21,11 +25,19 @@ namespace FreeAgentBrowser
 			IServiceCollection services)
 		{
 			//  built in dependency injection here
+			services.AddDbContext<AppDbContext>(
+				options => options.UseSqlServer(
+					Configuration.GetConnectionString(
+						"DefaultConnection")));
 			//  Framework services
 			services.AddControllersWithViews();
 			//  Custom services
-			services.AddScoped<IPlayerRepository, MockPlayerRepository>();
-			services.AddScoped<IPositionRepository, MockPositionRepository>();
+			services.AddScoped<
+				IPlayerRepository, 
+				PlayerRepository>();
+			services.AddScoped<
+				IPositionRepository, 
+				PositionRepository>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure 
