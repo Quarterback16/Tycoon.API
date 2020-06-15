@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace RosterService
 {
@@ -33,7 +32,14 @@ namespace RosterService
 				}
 				if (direction.Equals("OUT"))
 				{
-					Roster[fteam].Remove(move.Player);
+					foreach (var player in Roster[fteam])
+					{
+						if (player.Contains(move.Player))
+						{
+							Roster[fteam].Remove(player);
+							break;
+						}
+					}
 				}
 			}
 		}
@@ -45,7 +51,7 @@ namespace RosterService
 			{
 				foreach (string p in fteam.Value)
 				{
-					if (p.Equals(player))
+					if (p.Contains(player))
 					{
 						owner = fteam.Key;
 						break;

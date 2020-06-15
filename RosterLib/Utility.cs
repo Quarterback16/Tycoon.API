@@ -646,7 +646,9 @@ namespace RosterLib
             File.Copy(sourceFile, destFile, overwrite: true);
         }
 
-        public static void CopyFile(string fromFile, string targetFile)
+        public static void CopyFile(
+			string fromFile,
+			string targetFile)
         {
             EnsureDirectory(targetFile);
 
@@ -654,31 +656,37 @@ namespace RosterLib
             // overwrite the destination file if it already exists.
             File.Copy(fromFile, targetFile, overwrite: true);
         }
-        public static void MoveFile(string fromFile, string targetFile)
+        public static void MoveFile(
+			string fromFile,
+			string targetFile)
         {
-            Announce(string.Format("Moving File: from {0} to {1}", fromFile, targetFile));
+            Announce($"Moving File: from {fromFile} to {targetFile}");
             CopySubFile(fromFile, targetFile);
             var sourcePath = OutputDirectory();
             var workFile = Path.Combine(sourcePath, fromFile);
             File.Delete(workFile);
         }
 
-        public static void EnsureDirectory(string destFile)
+        public static void EnsureDirectory(
+            string destFile)
         {
             var directoryInfo = new FileInfo(destFile).Directory;
             if (directoryInfo != null)
             {
-                if (!Directory.Exists(directoryInfo.ToString()))
+                if (!Directory.Exists(
+                    directoryInfo.ToString()))
                 {
                     string currentWorkingDirectory =
                        Path.GetDirectoryName(
                           System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
-                    Directory.CreateDirectory(directoryInfo.ToString());
+                    Directory.CreateDirectory(
+                        directoryInfo.ToString());
                 }
             }
         }
 
-        public static string UniversalDate(DateTime date)
+        public static string UniversalDate(
+            DateTime date)
         {
             var longDate = $"{date.Date:u}";
             var universalDate = longDate.Substring(0, 10);
