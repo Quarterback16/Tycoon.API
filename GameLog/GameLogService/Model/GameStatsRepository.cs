@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GameLog.Model
+namespace GameLogService.Model
 {
 	public class GameStatsRepository
 	{
@@ -64,6 +64,40 @@ namespace GameLog.Model
 				result.Add(gameStat);
 			}
 			return result;
+		}
+
+		public void SendToConsole(
+			PlayerReportModel playerModel)
+		{
+			Console.WriteLine($"{playerModel.PlayerName} {playerModel.Season}");
+			Console.WriteLine();
+			var totals = new GameStats();
+			foreach (var game in playerModel.GameLog)
+			{
+				if (game.Week.Equals(5) ||
+					game.Week.Equals(9) ||
+					game.Week.Equals(13))
+				{
+					WriteTotalLine(totals);
+					totals = new GameStats();
+					Console.WriteLine();
+				}
+				Console.WriteLine($"  {game}");
+				totals.PassingTds += game.PassingTds;
+				totals.RushingTds += game.RushingTds;
+				totals.ReceivingTds += game.ReceivingTds;
+			}
+			WriteTotalLine(totals);
+		}
+
+		private void WriteTotalLine(
+			GameStats totals)
+		{
+			Console.WriteLine(
+				$"          {totals.RushingTds}-{totals.PassingTds}-{totals.ReceivingTds}");
+			return;
+
+
 		}
 
 		private static void GatherStats(

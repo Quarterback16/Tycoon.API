@@ -1,4 +1,4 @@
-﻿namespace GameLog.Model
+﻿namespace GameLogService.Model
 {
 	public class GameStats
 	{

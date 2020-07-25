@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GameLog.Model
+namespace GameLogService.Model
 {
 	public class PlayerReportModel
 	{

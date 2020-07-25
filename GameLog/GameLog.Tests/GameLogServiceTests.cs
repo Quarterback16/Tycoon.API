@@ -1,11 +1,11 @@
-﻿using GameLog.Model;
+﻿using GameLogService.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace GameLog.Tests
 {
     [TestClass]
-    public class GameLogHelperTests
+    public class GameLogServiceTests
     {
         private GameStatsRepository _sut;
 
@@ -18,12 +18,16 @@ namespace GameLog.Tests
         [TestMethod]
         public void GameStatsRepository_ForJoeMontana_Returns16rows()
 		{
-            var result = _sut.GetGameStats(
-				season: "1984",
-				playerName: "Joe Montana");
+            var playerModel = new PlayerReportModel
+            {
+                Season = "1984",
+                PlayerName = "Joe Montana"
+            };
 
-			foreach (var item in result)
-                Console.WriteLine(item);
+            var result = _sut.GetGameStats(
+				model: playerModel);
+
+            _sut.SendToConsole(playerModel);
 
             Assert.AreEqual(16, result.Count);
 		}
@@ -40,8 +44,7 @@ namespace GameLog.Tests
             var result = _sut.GetGameStats(
                 model: playerModel);
 
-            foreach (var item in result)
-                Console.WriteLine(item);
+            _sut.SendToConsole(playerModel);
 
             Assert.AreEqual(16, result.Count);
         }

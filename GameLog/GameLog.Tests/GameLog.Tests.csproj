@@ -42,13 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameLogHelperTests.cs" />
+    <Compile Include="GameLogServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GameLog\GameLog.csproj">
-      <Project>{7b979125-4931-414f-bab0-b0c5157d3ff8}</Project>
-      <Name>GameLog</Name>
+    <ProjectReference Include="..\GameLogService\GameLogService.csproj">
+      <Project>{c1bba3b2-629b-4873-b0ff-f48ba1df85cf}</Project>
+      <Name>GameLogService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
