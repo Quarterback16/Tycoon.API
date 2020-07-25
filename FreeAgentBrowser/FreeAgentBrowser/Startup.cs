@@ -31,13 +31,14 @@ namespace FreeAgentBrowser
 						"DefaultConnection")));
 			//  Framework services
 			services.AddControllersWithViews();
+			services.AddSession();
 			//  Custom services
 			services.AddScoped<
 				IPlayerRepository, 
-				PlayerRepository>();
+				MockPlayerRepository>();
 			services.AddScoped<
 				IPositionRepository, 
-				PositionRepository>();
+				MockPositionRepository>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure 
@@ -54,6 +55,7 @@ namespace FreeAgentBrowser
 			}
 			//app.UseHttpsRedirection();  //  to use HTTPS
 			//app.UseStatusCodePages();  //  support for text only headers
+			app.UseSession();
 			app.UseStaticFiles();      //  to serve static files from wwwroot
 			app.UseRouting();
 
@@ -62,7 +64,7 @@ namespace FreeAgentBrowser
 				{
 					endpoints.MapControllerRoute(
 						name: "default", 
-						pattern: "{controller=Home}/{action=Index}/{id?}");
+						pattern: "{controller=Player}/{action=List}/{id:int?}");
 				});
 		}
 	}

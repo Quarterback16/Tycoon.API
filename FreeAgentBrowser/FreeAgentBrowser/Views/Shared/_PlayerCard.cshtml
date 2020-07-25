@@ -1,0 +1,16 @@
+﻿@model Player
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <img src="@Model.ImageThumbnailUrl" alt="" />
+        <div class="caption">
+            <h3 class="pull-right">@Model.Number.ToString()</h3>
+            <h3>
+                <a asp-controller="Player"
+                   asp-action="Details"
+                   asp-route-id="@Model.Id"
+                   >@Model.Name</a>
+            </h3>
+            <p>@Model.Position.ToString()</p>
+        </div>
+    </div>
+</div>

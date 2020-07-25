@@ -1,4 +1,6 @@
-﻿using RosterLib.Interfaces;
+﻿#define DEBUG2
+using RosterLib.Interfaces;
+using System;
 
 namespace RosterLib
 {
@@ -6,7 +8,8 @@ namespace RosterLib
 	{
 		public NflSeason NflSeason { get; private set; }
 
-		public GameProjectionsReport( IKeepTheTime timekeeper ) : base( timekeeper )
+		public GameProjectionsReport( 
+			IKeepTheTime timekeeper ) : base( timekeeper )
 		{
 			Name = "Game Projections Report";
 			TimeKeeper = timekeeper;
@@ -26,13 +29,25 @@ namespace RosterLib
 					continue;
 
 				if (StructOnly)
-					System.Console.WriteLine($"WriteProjection for {game.GameName()}");
+					Console.WriteLine(
+						$"WriteProjection for {game.GameName()}");
 				else
+				{
+					TraceIt($"Writing projections for {game}");
 					game.WriteProjection();
+				}
 #if DEBUG2
 				if ( game.WeekNo > 1 ) break;
 #endif
 			}
+		}
+
+		public void TraceIt(string message)
+		{
+			Logger.Trace("   " + message);
+#if DEBUG
+			Console.WriteLine(message);
+#endif
 		}
 	}
 }

@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -56,6 +55,12 @@ namespace RosterService.Tests
 			RosterDump("SF");
 		}
 
+		[Fact]
+		public void RetroRosters_KnowsLightningRoster()
+		{
+			RosterDump("LL");
+		}
+
 		private void RosterDump(string teamCode)
 		{
 			output.WriteLine(
@@ -69,12 +74,6 @@ namespace RosterService.Tests
 			}
 			output.WriteLine($"Roster count: {result.Count}");
 			Assert.True(result.Count > 0);
-		}
-
-		[Fact]
-		public void RetroRosters_KnowsLightningRoster()
-		{
-			RosterDump("LL");
 		}
 
 		[Fact]

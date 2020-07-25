@@ -21,14 +21,16 @@ namespace TipIt.Tests
             //  uses ChinChoo ETL https://www.nuget.org/packages/ChoETL.JSON/
             //  use this test to generate output for pasting into schedule.json
             //  transform data downloaded from fixturedownload.com
-            var fileName = "afl-schedule-2020.csv";
+            var fileName = "afl-schedule-2020-8.csv";
             string path = Directory.GetCurrentDirectory();
             if (!File.Exists(fileName))
             {
-                _output.WriteLine($"Could not find file {fileName} in {path}");
+                _output.WriteLine(
+                    $"Could not find file {fileName} in {path}");
             }
             else
             {
+                var sw = new StreamWriter(@"afl-schedule-2.json");
                 var reader = new ChoCSVReader(fileName).WithFirstLineHeader();
                 foreach (var x in reader)
                 {
@@ -38,7 +40,9 @@ namespace TipIt.Tests
                     x.EventType = "schedule";
                     x.League = "AFL";
                     _output.WriteLine(x.DumpAsJson());
+                    sw.WriteLine(x.DumpAsJson() + ",");
                 }
+                sw.Close();
             }
         }
 

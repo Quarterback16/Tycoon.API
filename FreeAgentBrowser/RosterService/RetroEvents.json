@@ -1798,5 +1798,761 @@
         "pos": "RB",
         "price": "1",
         "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "209",
+        "team": "WR",
+        "player": "Reggie Evans",
+        "pos": "RB",
+        "price": "3",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "116",
+        "team": "DL",
+        "player": "Jeff Chadwick",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "54",
+        "team": "SR",
+        "player": "Ottis Anderson",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "69",
+        "team": "NE",
+        "player": "Mosi Tatupu",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "151",
+        "team": "NJ",
+        "player": "Pat Leahy",
+        "pos": "KK",
+        "price": "9",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "191",
+        "team": "NE",
+        "player": "Stanley Morgan",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "145",
+        "team": "SS",
+        "player": "Norm Johnson",
+        "pos": "KK",
+        "price": "4",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "50",
+        "team": "DC",
+        "player": "Ron Springs",
+        "pos": "RB",
+        "price": "8",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "91",
+        "team": "CL",
+        "player": "Ozzie Newsome",
+        "pos": "TE",
+        "price": "29",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "117",
+        "team": "BB",
+        "player": "Mike Mosley",
+        "pos": "WR",
+        "price": "0",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "198",
+        "team": "MV",
+        "player": "Tommy Kramer",
+        "pos": "QB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "15",
+        "team": "NJ",
+        "player": "Richard Todd",
+        "pos": "QB",
+        "price": "4",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SF",
+        "num": "136",
+        "team": "PS",
+        "player": "Gary Anderson",
+        "pos": "KK",
+        "price": "4",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "39",
+        "team": "NE",
+        "player": "Tony Collins",
+        "pos": "RB",
+        "price": "39",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "218",
+        "team": "MD",
+        "player": "David Overstreet",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "1",
+        "team": "GB",
+        "player": "Lynn Dickey",
+        "pos": "QB",
+        "price": "87",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "182",
+        "team": "DB",
+        "player": "Clint Sampson",
+        "pos": "WR",
+        "price": "4",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "25",
+        "team": "NG",
+        "player": "Scott Brunner",
+        "pos": "QB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "91",
+        "team": "CL",
+        "player": "Ozzie Newsome",
+        "pos": "TE",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "218",
+        "team": "MD",
+        "player": "David Overstreet",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "92",
+        "team": "HO",
+        "player": "Tim Smith",
+        "pos": "WR",
+        "price": "18",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "86",
+        "team": "NJ",
+        "player": "Wesley Walker",
+        "pos": "WR",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "50",
+        "team": "DC",
+        "player": "Ron Springs",
+        "pos": "RB",
+        "price": "11",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "9",
+        "team": "LR",
+        "player": "Vince Ferragamo",
+        "pos": "QB",
+        "price": "4",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "18",
+        "team": "NE",
+        "player": "Steve Grogan",
+        "pos": "QB",
+        "price": "16",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "220",
+        "team": "GB",
+        "player": "Eddie Ivery",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "160",
+        "team": "SD",
+        "player": "Charlie Joiner",
+        "pos": "WR",
+        "price": "16",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "RR",
+        "num": "45",
+        "team": "SF",
+        "player": "Roger Craig",
+        "pos": "RB",
+        "price": "44",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "97",
+        "team": "MD",
+        "player": "Nat Moore",
+        "pos": "WR",
+        "price": "9",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "81",
+        "team": "SF",
+        "player": "Dwight Clark",
+        "pos": "WR",
+        "price": "35",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "219",
+        "team": "MV",
+        "player": "Rickey Young",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SF",
+        "num": "89",
+        "team": "DC",
+        "player": "Tony Hill",
+        "pos": "WR",
+        "price": "13",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CG",
+        "num": "90",
+        "team": "DL",
+        "player": "Ulysses Norris",
+        "pos": "TE",
+        "price": "21",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "39",
+        "team": "NE",
+        "player": "Tony Collins",
+        "pos": "RB",
+        "price": "29",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CG",
+        "num": "48",
+        "team": "AF",
+        "player": "William Andrews",
+        "pos": "RB",
+        "price": "60",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "69",
+        "team": "NE",
+        "player": "Mosi Tatupu",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "20",
+        "team": "PS",
+        "player": "Cliff Stoudt",
+        "pos": "QB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "197",
+        "team": "MV",
+        "player": "Darrin Nelson",
+        "pos": "RB",
+        "price": "7",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "54",
+        "team": "SR",
+        "player": "Ottis Anderson",
+        "pos": "RB",
+        "price": "25",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "BR",
+        "num": "37",
+        "team": "SD",
+        "player": "Chuck Muncie",
+        "pos": "RB",
+        "price": "8",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "BR",
+        "num": "56",
+        "team": "NS",
+        "player": "George Rogers",
+        "pos": "RB",
+        "price": "5",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "131",
+        "team": "WR",
+        "player": "Mark Moseley",
+        "pos": "KK",
+        "price": "48",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SF",
+        "num": "59",
+        "team": "BC",
+        "player": "Curtis Dickey",
+        "pos": "RB",
+        "price": "11",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "125",
+        "team": "MV",
+        "player": "Sammy White",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "200",
+        "team": "DL",
+        "player": "Gary Danielson",
+        "pos": "QB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SF",
+        "num": "119",
+        "team": "SS",
+        "player": "Paul Johns",
+        "pos": "WR",
+        "price": "19",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CG",
+        "num": "55",
+        "team": "PS",
+        "player": "Franco Harris",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CG",
+        "num": "225",
+        "team": "MD",
+        "player": "Tony Nathan",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "13",
+        "team": "SD",
+        "player": "Dan Fouts",
+        "pos": "QB",
+        "price": "28",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CG",
+        "num": "199",
+        "team": "SL",
+        "player": "Stump Mitchell",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "97",
+        "team": "MD",
+        "player": "Nat Moore",
+        "pos": "WR",
+        "price": "17",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "81",
+        "team": "SF",
+        "player": "Dwight Clark",
+        "pos": "WR",
+        "price": "14",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "46",
+        "team": "KC",
+        "player": "Theotis Brown",
+        "pos": "RB",
+        "price": "5",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "151",
+        "team": "NJ",
+        "player": "Pat Leahy",
+        "pos": "KK",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SF",
+        "num": "187",
+        "team": "MD",
+        "player": "Mark Clayton",
+        "pos": "WR",
+        "price": "25 ",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "190",
+        "team": "KC",
+        "player": "Stephone Paige",
+        "pos": "WR",
+        "price": "12",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "24",
+        "team": "MV",
+        "player": "Steve Dills",
+        "pos": "QB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "63",
+        "team": "TB",
+        "player": "James Wilder",
+        "pos": "RB",
+        "price": "15",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "116",
+        "team": "DL",
+        "player": "Jeff Chadwick",
+        "pos": "WR",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "71",
+        "team": "DB",
+        "player": "Nathan Poole",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "125",
+        "team": "MV",
+        "player": "Sammy White",
+        "pos": "WR",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SF",
+        "num": "93",
+        "team": "AF",
+        "player": "Stacey Bailey",
+        "pos": "WR",
+        "price": "13",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SF",
+        "num": "37",
+        "team": "SD",
+        "player": "Chuck Muncie",
+        "pos": "RB",
+        "price": "44",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "165",
+        "team": "DC",
+        "player": "Butch Johnson",
+        "pos": "WR",
+        "price": "12",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "56",
+        "team": "NS",
+        "player": "George Rogers",
+        "pos": "RB",
+        "price": "29",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "131",
+        "team": "WR",
+        "player": "Mark Moseley",
+        "pos": "KK",
+        "price": "59",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "26",
+        "team": "NS",
+        "player": "Ken Stabler",
+        "pos": "QB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "224",
+        "team": "PS",
+        "player": "Louis Lipps",
+        "pos": "WR",
+        "price": "12",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "178",
+        "team": "LA",
+        "player": "Dokie Williams",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "172",
+        "team": "SD",
+        "player": "Eric Sievers",
+        "pos": "TE",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "122",
+        "team": "SF",
+        "player": "Freddie Solomon",
+        "pos": "WR",
+        "price": "15",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "84",
+        "team": "SR",
+        "player": "Doug Marsh",
+        "pos": "TE",
+        "price": "30",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "26",
+        "team": "NS",
+        "player": "Ken Stabler",
+        "pos": "QB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "71",
+        "team": "DB",
+        "player": "Nathan Poole",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "21",
+        "team": "BC",
+        "player": "Mike Pagel",
+        "pos": "QB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "56",
+        "team": "NS",
+        "player": "George Rogers",
+        "pos": "RB",
+        "price": "5",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "149",
+        "team": "CL",
+        "player": "Matt Bahr",
+        "pos": "KK",
+        "price": "2",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "63",
+        "team": "TB",
+        "player": "James Wilder",
+        "pos": "RB",
+        "price": "54",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "187",
+        "team": "MD",
+        "player": "Mark Clayton",
+        "pos": "WR",
+        "price": "73",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "54",
+        "team": "SR",
+        "player": "Ottis Anderson",
+        "pos": "RB",
+        "price": "38",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "39",
+        "team": "NE",
+        "player": "Tony Collins",
+        "pos": "RB",
+        "price": "35",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "22",
+        "team": "CI",
+        "player": "Ken Anderson",
+        "pos": "QB",
+        "price": "6",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "160",
+        "team": "SD",
+        "player": "Charlie Joiner",
+        "pos": "TE",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "125",
+        "team": "MV",
+        "player": "Sammy White",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
     }
 ]

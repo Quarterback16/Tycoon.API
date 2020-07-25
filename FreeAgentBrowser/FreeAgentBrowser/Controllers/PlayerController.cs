@@ -28,5 +28,14 @@ namespace FreeAgentBrowser.Controllers
 			return View(
 				viewModel);
 		}
+
+		public IActionResult Details(
+			int id)
+		{
+			var p = _playerRepository.GetPlayerById(id);
+			if (p == null)
+				return NotFound();
+			return View(p);
+		}
 	}
 }
