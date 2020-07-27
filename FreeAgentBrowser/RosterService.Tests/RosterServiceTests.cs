@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -63,17 +64,32 @@ namespace RosterService.Tests
 
 		private void RosterDump(string teamCode)
 		{
+			output.WriteLine("--------------------------------------");
 			output.WriteLine(
 				Utility.FantasyTeamName(teamCode));
+			output.WriteLine("--------------------------------------");
 			var sut = new RetroRosters(
 				new RosterEventStore());
 			var result = sut.GetRoster(teamCode);
-			foreach (var item in result)
-			{
-				output.WriteLine(item);
-			}
+			PartialRoster(result,"QB");
+			PartialRoster(result, "RB");
+			PartialRoster(result, "TE");
+			PartialRoster(result, "WR");
+			PartialRoster(result, "KK");
 			output.WriteLine($"Roster count: {result.Count}");
 			Assert.True(result.Count > 0);
+		}
+
+		private void PartialRoster(
+			List<string> result,
+			string position)
+		{
+			foreach (var item in result)
+			{
+				if (item.Contains(position+" "))
+					output.WriteLine(item);
+			}
+			output.WriteLine("");
 		}
 
 		[Fact]

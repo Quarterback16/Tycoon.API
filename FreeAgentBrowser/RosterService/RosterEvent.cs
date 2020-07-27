@@ -42,7 +42,7 @@ namespace RosterService
 
 		internal string ToLine()
 		{
-			return $"{Number,3}  {Position} {Player,-20} {ProTeam} {Price,3}";
+			return $"{Number,3}  {Position} {Player,-20} ({ProTeam}) {Price,3}";
 		}
 
 		public DateTimeOffset TimeStamp 

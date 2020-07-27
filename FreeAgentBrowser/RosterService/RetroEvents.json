@@ -2049,6 +2049,15 @@
         "player": "Roger Craig",
         "pos": "RB",
         "price": "44",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "RR",
+        "num": "45",
+        "team": "SF",
+        "player": "Roger Craig",
+        "pos": "RB",
+        "price": "44",
         "trans": "IN"
     },
     {
@@ -2439,6 +2448,15 @@
         "trans": "OUT"
     },
     {
+        "fteam": "CD",
+        "num": "71",
+        "team": "DB",
+        "player": "Nathan Poole",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
         "fteam": "DD",
         "num": "84",
         "team": "SR",
@@ -2464,6 +2482,15 @@
         "pos": "RB",
         "price": "1",
         "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "93",
+        "team": "AF",
+        "player": "Stacey Bailey",
+        "pos": "WR",
+        "price": "17",
+        "trans": "IN"
     },
     {
         "fteam": "CD",
@@ -2542,7 +2569,7 @@
         "num": "160",
         "team": "SD",
         "player": "Charlie Joiner",
-        "pos": "TE",
+        "pos": "WR",
         "price": "1",
         "trans": "IN"
     },
@@ -2553,6 +2580,96 @@
         "player": "Sammy White",
         "pos": "WR",
         "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "185",
+        "team": "NG",
+        "player": "Phil Simms",
+        "pos": "QB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "RR",
+        "num": "208",
+        "team": "SD",
+        "player": "Earnest Jackson",
+        "pos": "RB",
+        "price": "2",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "107",
+        "team": "DC",
+        "player": "Drew Pearson",
+        "pos": "WR",
+        "price": "2",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "53",
+        "team": "LA",
+        "player": "Frank Hawkins",
+        "pos": "RB",
+        "price": "6",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "101",
+        "team": "NG",
+        "player": "Earnest Gray",
+        "pos": "WR",
+        "price": "14",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "182",
+        "team": "DB",
+        "player": "Clint Sampson",
+        "pos": "WR",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "88",
+        "team": "GB",
+        "player": "John Jefferson",
+        "pos": "WR",
+        "price": "2",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "35",
+        "team": "SS",
+        "player": "Curt Warner",
+        "pos": "RB",
+        "price": "28",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "16",
+        "team": "TB",
+        "player": "Jack Thompson",
+        "pos": "QB",
+        "price": "7",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "122",
+        "team": "SF",
+        "player": "Freddie Solomon",
+        "pos": "WR",
+        "price": "39",
         "trans": "IN"
     }
 ]
