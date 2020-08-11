@@ -21,7 +21,7 @@ namespace TipIt.Tests
             //  uses ChinChoo ETL https://www.nuget.org/packages/ChoETL.JSON/
             //  use this test to generate output for pasting into schedule.json
             //  transform data downloaded from fixturedownload.com
-            var fileName = "afl-schedule-2020-8.csv";
+            var fileName = "afl-schedule-9to12.csv";
             string path = Directory.GetCurrentDirectory();
             if (!File.Exists(fileName))
             {

@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLog.Tests", "GameLog.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLogService", "GameLogService\GameLogService.csproj", "{C1BBA3B2-629B-4873-B0FF-F48BA1DF85CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosterService", "RosterService\RosterService.csproj", "{042D9FA5-45C7-4FB7-AE2C-9BD30B1BFDE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosterService.Tests", "RosterService.Tests\RosterService.Tests.csproj", "{EBE2814C-64FE-42B2-B785-08FA73DB7BEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{C1BBA3B2-629B-4873-B0FF-F48BA1DF85CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1BBA3B2-629B-4873-B0FF-F48BA1DF85CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1BBA3B2-629B-4873-B0FF-F48BA1DF85CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{042D9FA5-45C7-4FB7-AE2C-9BD30B1BFDE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042D9FA5-45C7-4FB7-AE2C-9BD30B1BFDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042D9FA5-45C7-4FB7-AE2C-9BD30B1BFDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042D9FA5-45C7-4FB7-AE2C-9BD30B1BFDE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBE2814C-64FE-42B2-B785-08FA73DB7BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBE2814C-64FE-42B2-B785-08FA73DB7BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBE2814C-64FE-42B2-B785-08FA73DB7BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBE2814C-64FE-42B2-B785-08FA73DB7BEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

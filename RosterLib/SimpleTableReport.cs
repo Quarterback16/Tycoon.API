@@ -629,8 +629,13 @@ namespace RosterLib
 		private string CsvLine( DataRow dr )
 		{
 			var sb = new StringBuilder();
-			foreach ( DataColumn col in _body.Columns )
-				sb.Append( $"\"{dr[col.ColumnName]}\"," );
+			foreach (DataColumn col in _body.Columns)
+			{
+				var colValue = dr[col.ColumnName].ToString();
+				if (col.ColumnName.Equals("Age"))
+					colValue = colValue.Replace("?", "");
+				sb.Append($"\"{colValue}\",");
+			}
 			return sb.ToString();
 		}
 

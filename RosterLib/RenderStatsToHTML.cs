@@ -184,7 +184,8 @@ namespace RosterLib
 			dr["RookieYr"] = p.RookieYear + "-" + p.Drafted;
 			dr["CurrTeam"] = p.TeamCode;
 			dr["FT"] = p.Owner;
-			dr["Age"] = p.PlayerAge();
+			dr["Age"] = p.PlayerAge(
+				noQuestionMark: true);
 
 			if (LongStats)
 			{
@@ -286,6 +287,9 @@ namespace RosterLib
 			r.AddColumn(new ReportColumn("Owner", "FT", "{0,2}"));
 			if (LongStats)
 			{
+				r.AddColumn(new ReportColumn("scoremod", "SCOREMOD", "{0,5}"));
+				r.AddColumn(new ReportColumn("seasons", "SEASONS", "{0,5}"));
+				r.AddColumn(new ReportColumn("newteam", "NEWTEAM", "{0,5}"));
 				r.AddColumn(new ReportColumn("Curr", "CURSCORES", "{0,5}"));
 				r.AddColumn(new ReportColumn("Tot", "SCORES", "{0,5}"));
 				r.AddColumn(new ReportColumn("Avg", "AVG", "{0:0.0}"));
@@ -299,6 +303,7 @@ namespace RosterLib
 				r.AddColumn(new ReportColumn("Fg", "Fg", "{0,5}"));
 			}
 			r.AddColumn(new ReportColumn("Points", "POINTS", "{0,5}"));
+			r.AddColumn(new ReportColumn("newbie", "NEWBIE", "{0,5}"));
 			r.AddColumn(new ReportColumn("AgeRate", "AgeRate", "{0,5}"));
 			r.AddColumn(new ReportColumn("ADP", "ADP", "{0,5}"));
 			return r;
@@ -361,8 +366,7 @@ namespace RosterLib
 					dr["Pos"] = p.PlayerPos;
 					dr["Role"] = p.RoleOut();
 					dr["RookieYr"] = p.RookieYear;
-					dr["CurrTeam"] = p.TeamCode 
-						+ (p.IsNewbie() ? "*" : string.Empty);
+					dr["CurrTeam"] = p.TeamCode;
 					if (ShowOpponent)
 					{
 						dr["Opponent"] = p.Opponent;
@@ -375,6 +379,9 @@ namespace RosterLib
 
 					if (LongStats)
 					{
+						dr["scoremod"] = p.ScoreModifier();
+						dr["seasons"] = p.NoOfSeasons();
+						dr["newteam"] = p.IsNewbie() ? "*" : string.Empty;
 						dr["CurSCORES"] = p.CurrScores;
 						dr["SCORES"] = p.Scores;
 						dr["Avg"] = p.ScoresPerYear();
@@ -387,9 +394,11 @@ namespace RosterLib
 						dr["YDc"] = p.TotStats.YDc;
 						dr["Fg"] = p.TotStats.Fg;
 						dr["Health"] = p.HealthRating();
+						dr["newbie"] = 1.0M - p.NewbieModifier();
 						dr["AdjProj"] = totPoints
 							* p.HealthRating()
 							* p.AgeRating()
+							* p.ScoreModifier()
 							* 1.0M - p.NewbieModifier();
 					}
 
@@ -426,6 +435,9 @@ namespace RosterLib
 
 			if (LongStats)
 			{
+				cols.Add("scoremod", typeof(Decimal));
+				cols.Add("Seasons", typeof(Int32));
+				cols.Add("newteam", typeof(String));
 				cols.Add("CurScores", typeof(Int32));
 				cols.Add("Scores", typeof(Int32));
 				cols.Add("Avg", typeof(Decimal));
@@ -438,6 +450,7 @@ namespace RosterLib
 				cols.Add("YDc", typeof(Int32));
 				cols.Add("Fg", typeof(Int32));
 				cols.Add("Health", typeof(Decimal));
+				cols.Add("newbie", typeof(Decimal));
 				cols.Add("AdjProj", typeof(Int32));
 			}
 

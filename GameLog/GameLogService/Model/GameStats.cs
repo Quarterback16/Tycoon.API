@@ -6,10 +6,17 @@
 		public int RushingTds { get; set; }
 		public int PassingTds { get; set; }
 		public int ReceivingTds { get; set; }
+		public int FieldGoalsMade { get; set; }
+		public int ExtraPointsMade { get; set; }
+	
+		public string KickerStats()
+		{
+			return $"Week:{Week:0#} {FieldGoalsMade}-{ExtraPointsMade}";
+		}
 
 		public override string ToString()
 		{
-			return $"Week:{Week:0#} {RushingTds}-{PassingTds}-{ReceivingTds}";
+			return $"Week:{Week:0#} {RushingTds}-{ReceivingTds}-{PassingTds}";
 		}
 	}
 

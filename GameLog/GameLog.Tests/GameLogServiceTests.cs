@@ -1,6 +1,7 @@
 ﻿using GameLogService.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace GameLog.Tests
 {
@@ -16,18 +17,23 @@ namespace GameLog.Tests
 		}
 
         [TestMethod]
-        public void GameStatsRepository_ForJoeMontana_Returns16rows()
+        public void GameStatsRepository_ForPlayer_Returns16rows()
 		{
             var playerModel = new PlayerReportModel
             {
                 Season = "1984",
-                PlayerName = "Joe Montana"
+                PlayerName = "Woody Bennett"
             };
+
+            Console.WriteLine(
+                _sut.PlayerLogUrl(
+                    playerModel));
 
             var result = _sut.GetGameStats(
 				model: playerModel);
 
             _sut.SendToConsole(playerModel);
+            _sut.SendLineToConsole(playerModel);
 
             Assert.AreEqual(16, result.Count);
 		}
@@ -132,5 +138,62 @@ namespace GameLog.Tests
                 result);
         }
 
+        [TestMethod]
+        public void GameStatsRepoForEntireTeam()
+		{
+            int[] weeks = new int[] { 1, 2, 3, 4  };
+            List<string> teamList = new List<string>
+			{
+				"Neil Lomax",
+				"Dave Krieg",
+				"Jim McMahon",
+				"Dan Fouts",
+				"Sammy Winder",
+				"James Jones",
+				"Wendell Tyler",
+				"James Brooks",
+				"Ottis Anderson",
+				"Derrick Ramsey",
+				"Ozzie Newsome",
+				"Kevin House",
+				"Henry Marshall",
+				"Stephen Starring",
+				"Alfred Jackson",
+				"Butch Johnson",
+				"Stacey Bailey",
+				"Mark Clayton"
+			};
+			foreach (var item in teamList)
+			{
+                var playerModel = new PlayerReportModel
+                {
+                    Season = "1984",
+                    PlayerName = item
+                };
+                _sut.GetGameStats(
+                    model: playerModel);
+
+                _sut.SendToConsole(
+                    playerModel,
+                    weeks);
+            }
+		}
+
+        [TestMethod]
+        public void GameStatsRepository_ForKicker_Returns16rows()
+        {
+            var playerModel = new PlayerReportModel
+            {
+                Season = "1984",
+                PlayerName = "Uwe Von Schamann"
+            };
+
+            var result = _sut.GetKickerStats(
+                model: playerModel);
+
+            _sut.SendKickerToConsole(playerModel);
+
+            Assert.AreEqual(16, result.Count);
+        }
     }
 }

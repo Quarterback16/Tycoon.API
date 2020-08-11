@@ -19,13 +19,21 @@ namespace GameLogService.Model
 		public List<GameStats> GetGameStats(
 			PlayerReportModel model)
 		{
-			model.GameLog = GetGameStats(
+			model.GameLog = GetPlayerStats(
 				model.Season,
 				model.PlayerName);
 			return model.GameLog;
 		}
 
-		public List<GameStats> GetGameStats( 
+		public string PlayerLogUrl(
+			PlayerReportModel playerModel)
+		{
+			return PlayerLogUrl(
+				playerModel.Season,
+				playerModel.PlayerName);
+		}
+
+		public List<GameStats> GetPlayerStats( 
 			string season,
 			string playerName)
 		{
@@ -66,38 +74,140 @@ namespace GameLogService.Model
 			return result;
 		}
 
-		public void SendToConsole(
+		public List<GameStats> GetKickerStats(
+			PlayerReportModel model)
+		{
+			model.GameLog = GetKickerStats(
+				model.Season,
+				model.PlayerName);
+			return model.GameLog;
+		}
+
+		public List<GameStats> GetKickerStats(
+			string season,
+			string playerName)
+		{
+			var result = new List<GameStats>();
+			HtmlWeb web = new HtmlWeb();
+			var url = PlayerLogUrl(
+				season,
+				playerName);
+			var htmlDoc = web.Load(
+				url);
+			var seasonTable = GetSeasonTable(
+				htmlDoc.DocumentNode);
+
+			GatherStats(
+				seasonTable,
+				"fgm",
+				out int[] fgm);
+			GatherStats(
+				seasonTable,
+				"xpm",
+				out int[] xpm);
+
+
+			for (int w = 0; w < 16; w++)
+			{
+				var gameStat = new GameStats
+				{
+					Week = w + 1,
+					FieldGoalsMade = fgm[w],
+					ExtraPointsMade = xpm[w]
+				};
+				result.Add(gameStat);
+			}
+			return result;
+		}
+
+		public void SendLineToConsole(
 			PlayerReportModel playerModel)
 		{
+			Console.Write($"{playerModel.PlayerName} ");
+			foreach (var game in playerModel.GameLog)
+			{
+				Console.Write($"{game.RushingTds} {game.ReceivingTds} {game.PassingTds} ");
+			}
+			Console.WriteLine();
+		}
+
+		public void SendKickerToConsole(
+			PlayerReportModel playerModel,
+			int[] weeksOfInterest = null)
+		{
+			if (weeksOfInterest == null)
+				weeksOfInterest = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
 			Console.WriteLine($"{playerModel.PlayerName} {playerModel.Season}");
 			Console.WriteLine();
 			var totals = new GameStats();
 			foreach (var game in playerModel.GameLog)
 			{
-				if (game.Week.Equals(5) ||
-					game.Week.Equals(9) ||
-					game.Week.Equals(13))
+				if (weeksOfInterest.Contains(
+					game.Week))
 				{
-					WriteTotalLine(totals);
-					totals = new GameStats();
-					Console.WriteLine();
+					if (game.Week.Equals(5) ||
+						game.Week.Equals(9) ||
+						game.Week.Equals(13))
+					{
+						WriteKickerTotalLine(totals);
+						totals = new GameStats();
+						Console.WriteLine();
+					}
+					Console.WriteLine($"  {game.KickerStats()}");
+					totals.FieldGoalsMade += game.FieldGoalsMade;
+					totals.ExtraPointsMade += game.ExtraPointsMade;
 				}
-				Console.WriteLine($"  {game}");
-				totals.PassingTds += game.PassingTds;
-				totals.RushingTds += game.RushingTds;
-				totals.ReceivingTds += game.ReceivingTds;
+			}
+			WriteKickerTotalLine(totals);
+			Console.WriteLine();
+		}
+
+		public void SendToConsole(
+			PlayerReportModel playerModel,
+			int[] weeksOfInterest = null)
+		{
+			if (weeksOfInterest == null)
+				weeksOfInterest = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13,14,15,16 };
+			Console.WriteLine($"{playerModel.PlayerName} {playerModel.Season}");
+			Console.WriteLine();
+			var totals = new GameStats();
+			foreach (var game in playerModel.GameLog)
+			{
+				if (weeksOfInterest.Contains(
+					game.Week))
+				{
+					if (game.Week.Equals(5) ||
+						game.Week.Equals(9) ||
+						game.Week.Equals(13))
+					{
+						WriteTotalLine(totals);
+						totals = new GameStats();
+						Console.WriteLine();
+					}
+					Console.WriteLine($"  {game}");
+					totals.PassingTds += game.PassingTds;
+					totals.RushingTds += game.RushingTds;
+					totals.ReceivingTds += game.ReceivingTds;
+				}
 			}
 			WriteTotalLine(totals);
+			Console.WriteLine();
 		}
 
 		private void WriteTotalLine(
 			GameStats totals)
 		{
 			Console.WriteLine(
-				$"          {totals.RushingTds}-{totals.PassingTds}-{totals.ReceivingTds}");
+				$"          {totals.RushingTds}-{totals.ReceivingTds}-{totals.PassingTds}");
 			return;
+		}
 
-
+		private void WriteKickerTotalLine(
+			GameStats totals)
+		{
+			Console.WriteLine(
+				$"          {totals.FieldGoalsMade}-{totals.ExtraPointsMade}");
+			return;
 		}
 
 		private static void GatherStats(
@@ -120,7 +230,14 @@ namespace GameLogService.Model
 
 			foreach (var rowNode in seasonNodes)
 			{
-				statArray[i++] = Int32.Parse(rowNode.InnerText);
+				if (string.IsNullOrEmpty(rowNode.InnerText))
+				{
+					statArray[i++] = 0;
+				}
+				else
+				{
+					statArray[i++] = Int32.Parse(rowNode.InnerText);
+				}
 				if (i == 16)
 					break;
 			}

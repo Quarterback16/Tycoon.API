@@ -292,29 +292,38 @@ namespace RosterLib
 
       public string Render(string header)
       {
-         if ( WeekMaster == null ) WeekMaster = new WeekMaster();
+         if ( WeekMaster == null )
+            WeekMaster = new WeekMaster();
 
          if (_mFormat.Equals("weekly"))
          {
-            var html = new RenderStatsToWeekly(_mMyScorer, WeekMaster, TimeKeeper)
-               {
-                  CurrentSeasonOnly = true,
-                  FullStart = AllWeeks,
-                  WeeksToGoBack = WeeksToGoBack > 0 ? WeeksToGoBack : 99
-               };
-            FileOut = html.RenderData(PlayerList, header, _mMyScorer.Week);
+            var html = new RenderStatsToWeekly(
+                _mMyScorer, 
+                WeekMaster, 
+                TimeKeeper)
+            {
+               CurrentSeasonOnly = true,
+               FullStart = AllWeeks,
+               WeeksToGoBack = WeeksToGoBack > 0 ? WeeksToGoBack : 99
+            };
+            FileOut = html.RenderData(
+                PlayerList, 
+                header, 
+                _mMyScorer.Week);
          }
          else
          {
             var html = new RenderStatsToHtml( WeekMaster )
-                        {
-                           RenderToCsv = RenderToCsv,
-                           Season = Season,
-                           Week = Week,
-                           WeeksToGoBack = WeeksToGoBack,
-                           LongStats = LongStats
-                        };
-            if (!string.IsNullOrEmpty(SubHeader)) html.SubHeader = SubHeader;
+            {
+                RenderToCsv = RenderToCsv,
+                Season = Season,
+                Week = Week,
+                WeeksToGoBack = WeeksToGoBack,
+                LongStats = LongStats
+            };
+            if (!string.IsNullOrEmpty(SubHeader)) 
+                html.SubHeader = SubHeader;
+
             html.FileOut = $@"{
 				Utility.OutputDirectory()
 				}{
@@ -324,7 +333,11 @@ namespace RosterLib
 				}\\{
 				header
 				}.htm";
-            FileOut = html.RenderData(PlayerList, header, SortOrder, _mMyScorer);
+            FileOut = html.RenderData(
+                PlayerList, 
+                header, 
+                SortOrder, 
+                _mMyScorer);
          }
          return FileOut;
       }
@@ -335,13 +348,13 @@ namespace RosterLib
 		  IAdpMaster adpMaster = null)
       {
          var html = new RenderStatsToHtml( WeekMaster )
-				{
-					RenderToCsv = RenderToCsv,
-					Season = Season,
-					Week = Week,
-					LongStats = LongStats,
-					WeeksToGoBack = WeeksToGoBack
-				};
+		    {
+			    RenderToCsv = RenderToCsv,
+			    Season = Season,
+			    Week = Week,
+			    LongStats = LongStats,
+			    WeeksToGoBack = WeeksToGoBack
+		    };
 
          if (!string.IsNullOrEmpty(SubHeader))
 			html.SubHeader = SubHeader;

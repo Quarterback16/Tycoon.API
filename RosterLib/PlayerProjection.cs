@@ -15,11 +15,14 @@ namespace RosterLib
 
 		public string Season { get; set; }
 
-		public PlayerProjection( string playerId, string season )
+		public PlayerProjection( 
+			string playerId, 
+			string season )
 		{
 			Player = new NFLPlayer( playerId );
 			Season = season;
-			Player.LoadSeason( Season );
+			Player.LoadSeason( 
+				Season );
 			Logger = LogManager.GetCurrentClassLogger();
 		}
 
@@ -29,7 +32,8 @@ namespace RosterLib
 		{
 			Player = player;
 			Season = season;
-			Player.LoadSeason( Season );
+			Player.LoadSeason(
+				Season );
 			Logger = LogManager.GetCurrentClassLogger();
 		}
 
@@ -214,7 +218,10 @@ namespace RosterLib
 			Logger.Info( msg );
 		}
 
-		private static string OppUnitRating( NFLGame g, string playerTeamCode, string playerCategory )
+		private static string OppUnitRating(
+			NFLGame g, 
+			string playerTeamCode, 
+			string playerCategory )
 		{
 			var unitRate = "X";
 			var rating = g.OpponentTeam( playerTeamCode ).Ratings;

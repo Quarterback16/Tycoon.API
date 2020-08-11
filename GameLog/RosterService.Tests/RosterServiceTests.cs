@@ -1,62 +1,55 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
-using Xunit;
-using Xunit.Abstractions;
 
 namespace RosterService.Tests
 {
+	[TestClass]
 	public class RosterServiceTests
 	{
-		private readonly ITestOutputHelper output;
-
-		public RosterServiceTests(
-			ITestOutputHelper output)
-		{
-			this.output = output;
-		}
-
-		[Fact]
+		[TestMethod]
 		public void RetroRosters_KnowsDeloreanRoster()
 		{
 			RosterDump("CD");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void RetroRosters_KnowsDuckHuntersRoster()
 		{
 			RosterDump("DD");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void RetroRosters_KnowsRaidersRoster()
 		{
 			RosterDump("BR");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void RetroRosters_KnowsRevivalRoster()
 		{
 			RosterDump("SR");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void RetroRosters_KnowsGalaxyRoster()
 		{
 			RosterDump("CG");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void RetroRosters_KnowsRhinosRoster()
 		{
 			RosterDump("RR");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void RetroRosters_KnowsFridgeRoster()
 		{
 			RosterDump("SF");
 		}
 
-		[Fact]
+		[TestMethod]
 		public void RetroRosters_KnowsLightningRoster()
 		{
 			RosterDump("LL");
@@ -64,20 +57,20 @@ namespace RosterService.Tests
 
 		private void RosterDump(string teamCode)
 		{
-			output.WriteLine("--------------------------------------");
-			output.WriteLine(
+			Console.WriteLine("--------------------------------------");
+			Console.WriteLine(
 				Utility.FantasyTeamName(teamCode));
-			output.WriteLine("--------------------------------------");
+			Console.WriteLine("--------------------------------------");
 			var sut = new RetroRosters(
 				new RosterEventStore());
 			var result = sut.GetRoster(teamCode);
-			PartialRoster(result,"QB");
+			PartialRoster(result, "QB");
 			PartialRoster(result, "RB");
 			PartialRoster(result, "TE");
 			PartialRoster(result, "WR");
 			PartialRoster(result, "KK");
-			output.WriteLine($"Roster count: {result.Count}");
-			Assert.True(result.Count > 0);
+			Console.WriteLine($"Roster count: {result.Count}");
+			Assert.IsTrue(result.Count > 0);
 		}
 
 		private void PartialRoster(
@@ -86,25 +79,11 @@ namespace RosterService.Tests
 		{
 			foreach (var item in result)
 			{
-				if (item.Contains(position+" "))
-					output.WriteLine(item);
+				if (item.Contains(position + " "))
+					Console.WriteLine(item);
 			}
-			output.WriteLine("");
+			Console.WriteLine("");
 		}
 
-		[Fact]
-		public void RetroRosters_KnowsWhoOwnsPlayer()
-		{
-			var testPlayer = "Eddie Ivery";
-			var sut = new RetroRosters(
-				new RosterEventStore());
-			var result = sut.GetOwnerOf(testPlayer);
-			Assert.NotNull(result);
-			output.WriteLine(Utility.FantasyTeamName(result));
-			if (result != "FA")
-			{
-				RosterDump(result);
-			}
-		}
 	}
 }

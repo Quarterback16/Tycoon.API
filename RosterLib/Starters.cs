@@ -18,14 +18,15 @@ namespace RosterLib
 
 		public List<RosterGridLeague> Leagues { get; set; }
 
-		public Starters( IKeepTheTime timekeeper ) : base( timekeeper )
+		public Starters( 
+			IKeepTheTime timekeeper ) : base( timekeeper )
 		{
 			Name = "Starters";
 			SetLastRunDate();
 			Lister = new PlayerLister();
 			Configs = new List<StarterConfig>();
 			Configs.Add( new StarterConfig { Category = Constants.K_QUARTERBACK_CAT, Position = "QB" } );
-#if !DEBUG
+#if !DEBUG2
          Configs.Add(new StarterConfig { Category = Constants.K_RUNNINGBACK_CAT, Position = "RB" });
          Configs.Add(new StarterConfig { Category = Constants.K_RECEIVER_CAT, Position = "WR" });
          Configs.Add(new StarterConfig { Category = Constants.K_RECEIVER_CAT, Position = "TE" });
@@ -53,7 +54,7 @@ namespace RosterLib
 				"Generating Starter report {0} for {1}",
 				rpt.Category,
 				LeagueCode);
-			WriteProjectionReports = true;  //  Will gnerate a page for each player
+			WriteProjectionReports = true;  //  Will genrate a page for each player
 			RenderStarters(
 				rpt.Category,
 				rpt.Position,
@@ -64,7 +65,8 @@ namespace RosterLib
 			string cat,
 			string sPos, [System.Runtime.InteropServices.Optional] string fantasyLeague )
 		{
-			Lister.SortOrder = Int32.Parse( TimeKeeper.Week ) > 0 ? "POINTS DESC" : "CURSCORES DESC";
+			Lister.SortOrder = Int32.Parse( TimeKeeper.Week ) > 0 
+				? "POINTS DESC" : "CURSCORES DESC";
 			PlayoffsOnly = PlayoffsOnly;
 
 			var theWeek = new NFLWeek(
@@ -100,7 +102,8 @@ namespace RosterLib
 			foreach ( NFLPlayer p in Lister.PlayerList )
 			{
 				Logger.Trace( "    Writing pp for {0}", p.PlayerName );
-				p.PlayerProjection( TimeKeeper.Season );
+				p.PlayerProjection( 
+					TimeKeeper.Season );
 			}
 		}
 	}

@@ -31,6 +31,11 @@ namespace RosterLib
 		public const String K_FANTASY_POSITIONS = "QB,RB,HB,FL,WR,TE,PK,K";
 		public const String K_RUSHING_POSITIONS = "RB,HB";
 
+		public const String K_CATEGORY_QB = "1";
+		public const String K_CATEGORY_RB = "2";
+		public const String K_CATEGORY_WR = "3";
+		public const String K_CATEGORY_PK = "4";
+
 		#endregion Constants
 
 		public string FirstName { get; set; }
@@ -447,6 +452,39 @@ namespace RosterLib
 			return myUnitRating;
 		}
 
+		internal decimal ScoreModifier()
+		{
+			var modifier = 1.0M;
+			if (PlayerCat.Equals(K_CATEGORY_QB))
+			{
+				if (Scores < 60)
+				{
+					modifier = 30.0M * (Scores/60.0M);
+					modifier += 70;
+					modifier /= 100.0M;
+				}
+			}
+			if (PlayerCat.Equals(K_CATEGORY_RB))
+			{
+				if (Scores < 30)
+				{
+					modifier = 30.0M * (Scores / 30.0M);
+					modifier += 70;
+					modifier /= 100.0M;
+				}
+			}
+			if (PlayerCat.Equals(K_CATEGORY_WR))
+			{
+				if (Scores < 40)
+				{
+					modifier = 30.0M * (Scores / 40.0M);
+					modifier += 70;
+					modifier /= 100.0M;
+				}
+			}
+			return modifier;
+		}
+
 		public string OpponentRating( string ratings )
 		{
 			var myOpponentRating = "?";
@@ -489,7 +527,7 @@ namespace RosterLib
 		public decimal HealthRating()
 		{
 			//  Health rating is a percentage  Injuries / Seasons
-			//  foored at 0.1
+			//  foored at 0.5
 			var injuryRating = int.Parse( Injury );
 			if ( injuryRating == 0 )
 				return 1.0M;
@@ -497,7 +535,8 @@ namespace RosterLib
 			decimal seasons = ( decimal ) NoOfSeasons();
 			decimal hr = injuryRating / seasons;
 			hr = ( 1.0M - hr );
-			if ( hr == 0.0M ) hr = 0.1M;
+			if ( hr < 0.5M ) 
+				hr = 0.5M;
 			var healthRating = string.Format( "{0:#.00}", hr );
 			var hrShort = Decimal.Parse( healthRating );
 			return hrShort;
@@ -1331,23 +1370,31 @@ namespace RosterLib
 			return _teamLastYear == CurrTeam.TeamCode ? "&nbsp;" : ">";
 		}
 
-		public string PlayerAge()
+		public string PlayerAge(
+			bool noQuestionMark = false)
 		{
-			var ageOut = Age( DBirth );
+			var ageOut = Age( DBirth, noQuestionMark );
 			if ( ageOut == "??" )
 				ageOut = string.Format( "{0}", 22 + NoOfSeasons() );
 			return ageOut;
 		}
 
-		private string Age( string dob )
+		private string Age( 
+			string dob,
+			bool noQuestionMark = false)
 		{
 			var age = string.Empty;
 
 			if ( !string.IsNullOrEmpty( PlayerName ) )
 			{
 				TraceIt( $"{PlayerName} was born on {dob}" );
+				var formatStr = "{0}?";
+				if (noQuestionMark)
+					formatStr = "{0}";
 				if ( ( dob == "30/12/1899" ) || ( dob == null ) )
-					age = string.Format( "{0}?", NoOfSeasons() + 23 );
+					age = string.Format( 
+						formatStr, 
+						NoOfSeasons() + 23 );
 				else
 				{
 					var ts = DateTime.Now - Convert.ToDateTime( dob );

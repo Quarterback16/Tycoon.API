@@ -58,7 +58,8 @@ namespace RosterLib
 
 		public override void RenderAsHtml()
 		{
-			Console.WriteLine($"Projections = {DoProjections}");
+			Console.WriteLine(
+				$"Projections = {DoProjections}");
 			RenderPlayerCsv();
 		}
 
@@ -95,7 +96,7 @@ namespace RosterLib
 			Lister.Folder = "Starters";
 			Lister.LongStats = true;
 			Lister.RenderToHtml = false;
-			Lister.FantasyLeague = "YH";
+			Lister.FantasyLeague = "GS";
 
 			var fileOut = DoProjections ?
 			   Lister.RenderProjection(
