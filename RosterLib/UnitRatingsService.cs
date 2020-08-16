@@ -46,7 +46,9 @@ namespace RosterLib
 			var ratings = RatingsFor( team.TeamCode );
 			var strRatings = ratings.ToString();
 
-			//strRatings = team.AdjustedRatings( strRatings );  //TODO: we dont adjust if season has started - implement check
+			if (TimeKeeper.IsItPreseason())
+				strRatings = team.AdjustedRatings( 
+					strRatings );  // we dont adjust if season has started - implement check
 
 			return strRatings;
 		}

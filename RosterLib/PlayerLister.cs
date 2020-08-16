@@ -62,11 +62,12 @@ namespace RosterLib
 
       public TeamCheckList Tc { get; set; }
 
-      public PlayerLister(string catCode,
-                          bool faOnly,
-                          [Optional] string fantasyLeague,
-                          [Optional] bool startersOnly,
-                          [Optional] IKeepTheTime timekeeper
+      public PlayerLister(
+            string catCode,
+            bool faOnly,
+            [Optional] string fantasyLeague,
+            [Optional] bool startersOnly,
+            [Optional] IKeepTheTime timekeeper
          )
       {
          if (timekeeper != null)
@@ -82,17 +83,17 @@ namespace RosterLib
          foreach (DataRow dr in dt.Rows)
          {
             var p = new NFLPlayer(dr, fantasyLeague);
-            var bAdd = !(faOnly) || p.IsFreeAgent();
+            var bAdd = !faOnly || p.IsFreeAgent();
             if (ActivesOnly)
-               bAdd = (bAdd) && p.IsActive();
+               bAdd = bAdd && p.IsActive();
             if (StartersOnly)
-               bAdd = (bAdd) && p.IsStarter();
+               bAdd = bAdd && p.IsStarter();
             if (PlayoffsOnly)
-               bAdd = (bAdd) && p.IsPlayoffBound();
+               bAdd = bAdd && p.IsPlayoffBound();
             if (PrimariesOnly)
-               bAdd = (bAdd) && !p.IsItalic(); //  dont want FB, TE or punters
+               bAdd = bAdd && !p.IsItalic(); //  dont want FB, TE or punters
             if (OnesAndTwosOnly)
-               bAdd = (bAdd) && p.IsOneOrTwo();
+               bAdd = bAdd && p.IsOneOrTwo();
 
             if (bAdd)
                PlayerList.Add(p);
@@ -161,17 +162,20 @@ namespace RosterLib
             if (FreeAgentsOnly)
 				bAdd = p.IsFreeAgent();
             if (PlayoffsOnly)
-				bAdd = (bAdd) && p.IsPlayoffBound();
-            bAdd = (bAdd) && p.IsFantasyOffence();
-            bAdd = (bAdd) && p.IsActive();
+				bAdd = bAdd && p.IsPlayoffBound();
+            bAdd = bAdd && p.IsFantasyOffence();
+            bAdd = bAdd && p.IsActive();
             if (StartersOnly)
-               bAdd = (bAdd) && p.IsStarter();
+               bAdd = bAdd && p.IsStarter();
             if (OnesAndTwosOnly)
-               bAdd = (bAdd) && p.IsOneOrTwo();
+               bAdd = bAdd && p.IsOneOrTwo();
 
             if (bAdd)
             {
-               AnnounceAdd(catCode, sPos, p);
+               AnnounceAdd(
+                   catCode, 
+                   sPos, 
+                   p);
 
                PlayerList.Add(p);
 #if DEBUG2
@@ -186,10 +190,10 @@ namespace RosterLib
                }
             }
          }
-         AnnounceTotal(sPos);
+         //AnnounceTotal(sPos);
       }
 
-      [Conditional( "DEBUG" )]
+      [Conditional( "DEBUG2" )]
       private void DumpParameters()
       {
          AnnounceParameter( "FreeAgentsOnly", FreeAgentsOnly );
@@ -199,14 +203,15 @@ namespace RosterLib
          AnnounceParameter( "OnesAndTwosOnly", OnesAndTwosOnly );
       }
 
-      private void AnnounceParameter( string para, bool paraValue )
+      private void AnnounceParameter(
+		  string para,
+		  bool paraValue)
       {
          Utility.Announce(
-            string.Format( "PlayerLister para {0} = {1}",
-                           para, paraValue ) );
+            $"PlayerLister para {para} = {paraValue}" );
       }
 
-      [Conditional("DEBUG")]
+      [Conditional("DEBUG2")]
       private void AnnounceTotal(string sPos)
       {
          Utility.Announce(
@@ -214,7 +219,7 @@ namespace RosterLib
          Utility.Announce( $"Teams missing {Position} are {Tc.TeamsLeft()}" );
       }
 
-      [Conditional("DEBUG")]
+      [Conditional("DEBUG2")]
       private static void AnnounceAdd(
 		  string catCode,
 		  string sPos,
@@ -230,7 +235,7 @@ namespace RosterLib
          PlayerList = new ArrayList();
          var ds = Utility.TflWs.GetPlayers(CatCode, Position);
          var dt = ds.Tables[0];
-#if DEBUG
+#if DEBUG2
          Utility.Announce($"{dt.Rows.Count} candidate players");
 #endif
          foreach (DataRow dr in dt.Rows)
@@ -246,7 +251,7 @@ namespace RosterLib
                {
                   if (p.Owner.Equals("**"))
                   {
-#if DEBUG
+#if DEBUG2
                      Utility.Announce($@"  Player {p.PlayerNameShort,-15} owned by {
 						 p.Owner
 						 } playoffs {(p.IsPlayoffBound() ? "Yes" : "No ")} starter {
@@ -266,7 +271,7 @@ namespace RosterLib
 
             if (bAdd)
             {
-#if DEBUG
+#if DEBUG2
                Utility.Announce($"    Adding Player {p.PlayerNameShort,-15}");
 #endif
                PlayerList.Add(p);
@@ -274,7 +279,7 @@ namespace RosterLib
             }
          }
          if ( WeeksToGoBack == 0 ) WeeksToGoBack = Constants.K_WEEKS_IN_A_SEASON; // default
-#if DEBUG
+#if DEBUG2
          Utility.Announce($"PlayerLister.init {PlayerList.Count} {Position} players added to the list");
          Utility.Announce($"Teams missing {Position} are {tc.TeamsLeft()}");
 #endif
@@ -313,7 +318,8 @@ namespace RosterLib
          }
          else
          {
-            var html = new RenderStatsToHtml( WeekMaster )
+            var html = new RenderStatsToHtml( 
+                WeekMaster )
             {
                 RenderToCsv = RenderToCsv,
                 Season = Season,
@@ -370,11 +376,13 @@ namespace RosterLib
          return FileOut;
       }
 
-      public void RenderReturners([Optional] string season)
+      public void RenderReturners(
+          [Optional] string season)
       {
          if (_mFormat.Equals("weekly"))
          {
-            var html = new RenderStatsToWeekly(_mMyScorer)
+            var html = new RenderStatsToWeekly(
+                _mMyScorer)
 			{
 				CurrentSeasonOnly = true,
 				FullStart = AllWeeks
@@ -387,21 +395,26 @@ namespace RosterLib
          }
          else
          {
-            var html = new RenderStatsToHtml( WeekMaster  )
-                        {
-                           RenderToCsv = RenderToCsv,
-                           Season = Season,
-                           Week = Week,
-                           WeeksToGoBack = WeeksToGoBack,
-                           LongStats = false,
-                           SupressZeros = false
-                        };
+            var html = new RenderStatsToHtml( 
+                WeekMaster  )
+                {
+                    RenderToCsv = RenderToCsv,
+                    Season = Season,
+                    Week = Week,
+                    WeeksToGoBack = WeeksToGoBack,
+                    LongStats = false,
+                    SupressZeros = false
+                };
             if (!string.IsNullOrEmpty(SubHeader))
 				html.SubHeader = SubHeader;
 
             html.FileOut = $"{Utility.OutputDirectory()}{season}//Returners//{season}.htm";
 
-            html.RenderData(PlayerList, season, SortOrder, _mMyScorer);
+            html.RenderData(
+				PlayerList,
+				season,
+				SortOrder,
+				_mMyScorer);
             FileOut = html.FileOut;
          }
       }

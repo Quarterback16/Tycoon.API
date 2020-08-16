@@ -1,5 +1,6 @@
 ﻿using GameLogService.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using RosterService;
 using System;
 using System.Collections.Generic;
 
@@ -17,12 +18,12 @@ namespace GameLog.Tests
 		}
 
         [TestMethod]
-        public void GameStatsRepository_ForPlayer_Returns16rows()
-		{
+        public void GameStatsRepository_ForEddieLee_ReturnsStatsIinCorrectWeeks()
+        {
             var playerModel = new PlayerReportModel
             {
                 Season = "1984",
-                PlayerName = "Woody Bennett"
+                PlayerName = "Eddie Lee Ivery"
             };
 
             Console.WriteLine(
@@ -30,15 +31,51 @@ namespace GameLog.Tests
                     playerModel));
 
             var result = _sut.GetGameStats(
-				model: playerModel);
+                model: playerModel);
 
-            _sut.SendToConsole(playerModel);
-            _sut.SendLineToConsole(playerModel);
+            // week 12 he had 3TDs
+            Assert.AreEqual(
+                3, 
+                result[11].RushingTds);
+
+            _sut.SendToConsole(
+                playerModel);
+            _sut.SendLineToConsole(
+                playerModel);
 
             Assert.AreEqual(16, result.Count);
-		}
+        }
 
         [TestMethod]
+        public void GameStatsRepository_ComparePlayers_Returns16rows()
+		{
+			PlayerLine(
+                "Richard Todd");
+            PlayerLine(
+                "Steve DeBerg");
+            PlayerLine(
+                "Warren Moon");
+        }
+
+		private List<GameStats> PlayerLine(
+            string playerName,
+            string season = "1984")
+		{
+			var playerModel = new PlayerReportModel
+			{
+				Season = season,
+				PlayerName = playerName
+			};
+
+			var result = _sut.GetGameStats(
+				model: playerModel);
+
+			_sut.SendLineToConsole(playerModel);
+            Assert.AreEqual(16, result.Count);
+            return result;
+		}
+
+		[TestMethod]
         public void GameStatsRepository_ForDwightClark_Returns16rows()
         {
             var playerModel = new PlayerReportModel
@@ -53,6 +90,39 @@ namespace GameLog.Tests
             _sut.SendToConsole(playerModel);
 
             Assert.AreEqual(16, result.Count);
+        }
+
+        [TestMethod]
+        public void GameStatsRepository_ForFrddieSolommon_Returns10catches()
+        {
+            var playerModel = new PlayerReportModel
+            {
+                Season = "1984",
+                PlayerName = "Freddie Solomon"
+            };
+
+            var result = _sut.GetGameStats(
+                model: playerModel);
+
+            _sut.SendToConsole(playerModel);
+
+            Assert.AreEqual(16, result.Count);
+            Assert.AreEqual(0, result[0].ReceivingTds);
+            Assert.AreEqual(0, result[1].ReceivingTds);
+            Assert.AreEqual(1, result[2].ReceivingTds);
+            Assert.AreEqual(1, result[3].ReceivingTds);
+            Assert.AreEqual(0, result[4].ReceivingTds);
+            Assert.AreEqual(0, result[5].ReceivingTds);
+            Assert.AreEqual(0, result[6].ReceivingTds);
+            Assert.AreEqual(0, result[7].ReceivingTds);
+            Assert.AreEqual(1, result[8].ReceivingTds);
+            Assert.AreEqual(1, result[9].ReceivingTds);
+            Assert.AreEqual(2, result[10].ReceivingTds);
+            Assert.AreEqual(0, result[11].ReceivingTds);
+            Assert.AreEqual(1, result[12].ReceivingTds);
+            Assert.AreEqual(1, result[13].ReceivingTds);
+            Assert.AreEqual(1, result[14].ReceivingTds);
+            Assert.AreEqual(1, result[15].ReceivingTds);
         }
 
         [TestMethod]
@@ -88,6 +158,19 @@ namespace GameLog.Tests
             Console.WriteLine(result);
             Assert.AreEqual(
                 "MontJo01",
+                result);
+        }
+
+        [TestMethod]
+        public void GameStatsRepository_ForARetiredPlayer_ReturnsEmpty()
+        {
+            var result = _sut.PlayerCode(
+                season: "1984",
+                playerName: "Brian Sipe");
+
+            Console.WriteLine(result);
+            Assert.AreEqual(
+                "",
                 result);
         }
 
@@ -139,47 +222,122 @@ namespace GameLog.Tests
         }
 
         [TestMethod]
-        public void GameStatsRepoForEntireTeam()
-		{
-            int[] weeks = new int[] { 1, 2, 3, 4  };
-            List<string> teamList = new List<string>
-			{
-				"Neil Lomax",
-				"Dave Krieg",
-				"Jim McMahon",
-				"Dan Fouts",
-				"Sammy Winder",
-				"James Jones",
-				"Wendell Tyler",
-				"James Brooks",
-				"Ottis Anderson",
-				"Derrick Ramsey",
-				"Ozzie Newsome",
-				"Kevin House",
-				"Henry Marshall",
-				"Stephen Starring",
-				"Alfred Jackson",
-				"Butch Johnson",
-				"Stacey Bailey",
-				"Mark Clayton"
-			};
-			foreach (var item in teamList)
-			{
+        public void GameStatsRepoForEntireTeamEntireYear()
+        {
+            var fantasyTeam = "CD";
+            var rosterService = new RetroRosters(
+                new RosterEventStore());
+            var roster = rosterService.GetRoster(
+                fantasyTeam);
+            var teamList = new List<(string, string)>();
+            AddRosterInOrder(roster, teamList);
+            foreach (var item in teamList)
+            {
                 var playerModel = new PlayerReportModel
                 {
                     Season = "1984",
-                    PlayerName = item
+                    PlayerName = item.Item1
                 };
-                _sut.GetGameStats(
-                    model: playerModel);
 
-                _sut.SendToConsole(
-                    playerModel,
-                    weeks);
+                if (item.Item2.Equals("KK"))
+                {
+                    _sut.GetKickerStats(
+                        model: playerModel);
+                    _sut.SendKickerLineToConsole(
+                        playerModel);
+                }
+                else
+                {
+                    _sut.GetGameStats(
+                        model: playerModel);
+                    _sut.SendLineToConsole(
+                        playerModel);
+                }
             }
-		}
+        }
 
         [TestMethod]
+        public void GameStatsRepoForEntireTeam()
+		{
+			var fantasyTeam = "BR";
+			var rosterService = new RetroRosters(
+				new RosterEventStore());
+			var roster = rosterService.GetRoster(
+				fantasyTeam);
+			var teamList = new List<(string, string)>();
+			AddRosterInOrder(roster, teamList);
+			//int[] weeks = new int[] { 5, 6, 7, 8 };
+            //int[] weeks = new int[] { 9, 10, 11, 12 };
+            int[] weeks = new int[] { 13, 14, 15, 16 };
+            foreach (var item in teamList)
+			{
+				var playerModel = new PlayerReportModel
+				{
+					Season = "1984",
+					PlayerName = item.Item1
+				};
+
+				if (item.Item2.Equals("KK"))
+				{
+					_sut.GetKickerStats(
+						model: playerModel);
+					_sut.SendKickerToConsole(
+						playerModel,
+						weeks);
+				}
+				else
+				{
+					_sut.GetGameStats(
+						model: playerModel);
+					_sut.SendToConsole(
+						playerModel,
+						weeks);
+				}
+			}
+		}
+
+		private static void AddRosterInOrder(
+			List<string> roster,
+			List<(string, string)> teamList)
+		{
+			AddPartial(
+				"QB",
+				roster,
+				teamList);
+			AddPartial(
+				"RB",
+				roster,
+				teamList);
+			AddPartial(
+				"TE",
+				roster,
+				teamList);
+			AddPartial(
+				"WR",
+				roster,
+				teamList);
+			AddPartial(
+				"KK",
+				roster,
+				teamList);
+		}
+
+		private static void AddPartial(
+            string desiredPos,
+			List<string> roster,
+			List<(string, string)> teamList)
+		{
+			foreach (var player in roster)
+			{
+				var thePlayer = player.Substring(7, 20)
+					.Trim();
+				var thePos = player.Substring(5, 2);
+                if (thePos.Equals(desiredPos))
+				    teamList.Add((thePlayer, thePos));
+			}
+		}
+
+		[TestMethod]
         public void GameStatsRepository_ForKicker_Returns16rows()
         {
             var playerModel = new PlayerReportModel
@@ -191,7 +349,8 @@ namespace GameLog.Tests
             var result = _sut.GetKickerStats(
                 model: playerModel);
 
-            _sut.SendKickerToConsole(playerModel);
+            _sut.SendKickerToConsole(
+                playerModel);
 
             Assert.AreEqual(16, result.Count);
         }

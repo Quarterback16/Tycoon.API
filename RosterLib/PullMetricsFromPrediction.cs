@@ -9,8 +9,8 @@ namespace RosterLib
 	{
 		public Logger Logger { get; set; }
 
-		private IDictionary<RunApproach, IAllocateTDrStrategy> tdrAllocationStrategies;
-		private IDictionary<RunApproach, IAllocateYDrStrategy> ydrAllocationStrategies;
+		private readonly IDictionary<RunApproach, IAllocateTDrStrategy> tdrAllocationStrategies;
+		private readonly IDictionary<RunApproach, IAllocateYDrStrategy> ydrAllocationStrategies;
 
 		public PullMetricsFromPrediction(
 			PlayerGameProjectionMessage input )
@@ -31,22 +31,37 @@ namespace RosterLib
 			Process( input );
 		}
 
-		private void Process( PlayerGameProjectionMessage input )
+		private void Process( 
+			PlayerGameProjectionMessage input )
 		{
-			if ( input.Game == null ) return;
+			if ( input.Game == null ) 
+				return;
 
 			Logger.Trace( $"Processing {input.Game.GameCodeOut()}:{input.Game.GameName()}" );
 			DoRushingUnit(
 				input: input,
 				teamCode: input.Game.HomeNflTeam.TeamCode,
 				isHome: true);
-			DoRushingUnit( input, input.Game.AwayNflTeam.TeamCode, isHome: false );
-
-			DoPassingUnit( input, input.Game.HomeNflTeam.TeamCode, isHome: true );
-			DoPassingUnit( input, input.Game.AwayNflTeam.TeamCode, isHome: false );
-
-			DoKickingUnit( input, input.Game.HomeNflTeam.TeamCode, isHome: true );
-			DoKickingUnit( input, input.Game.AwayNflTeam.TeamCode, isHome: false );
+			DoRushingUnit(
+				input,
+				input.Game.AwayNflTeam.TeamCode,
+				isHome: false);
+			DoPassingUnit(
+				input,
+				input.Game.HomeNflTeam.TeamCode,
+				isHome: true);
+			DoPassingUnit(
+				input,
+				input.Game.AwayNflTeam.TeamCode,
+				isHome: false);
+			DoKickingUnit(
+				input,
+				input.Game.HomeNflTeam.TeamCode,
+				isHome: true);
+			DoKickingUnit(
+				input,
+				input.Game.AwayNflTeam.TeamCode,
+				isHome: false);
 			if ( input.Game.PlayerGameMetrics.Count < 12 )
 				Utility.Announce( $"Missing metrics from {input.Game}" );
 		}
@@ -91,16 +106,32 @@ namespace RosterLib
 
 		#region Passing
 
-		private void DoPassingUnit( PlayerGameProjectionMessage input, string teamCode, bool isHome )
+		private void DoPassingUnit( 
+			PlayerGameProjectionMessage input,
+			string teamCode,
+			bool isHome )
 		{
 			PassUnit unit;
-			if ( isHome )
+			RushUnit rushUnit;
+			if (isHome)
+			{
 				unit = input.Game.HomeNflTeam.PassUnit;
+				rushUnit = input.Game.HomeNflTeam.RunUnit;
+			}
 			else
+			{
 				unit = input.Game.AwayNflTeam.PassUnit;
+				rushUnit = input.Game.AwayNflTeam.RunUnit;
+			}
 
-			if ( unit == null ) unit = new PassUnit();
-			if ( !unit.IsLoaded() ) unit.Load( teamCode );
+			if ( unit == null ) 
+				unit = new PassUnit();
+			if ( !unit.IsLoaded() )
+				unit.Load( teamCode );
+			if (rushUnit == null)
+				rushUnit = new RushUnit();
+			if (!rushUnit.IsLoaded())
+				rushUnit.Load(teamCode);
 
 			// give it to the QB
 			if ( unit.Q1 != null )
@@ -109,43 +140,82 @@ namespace RosterLib
 				var projTDp = ( isHome ) ? input.Prediction.HomeTDp : input.Prediction.AwayTDp;
 				AddPassinglayerGameMetric( input, unit.Q1.PlayerCode, projYDp, projTDp );
 			}
-			// Receivers  W1 40%, W2 25%, W3 10%, TE 20% (todo 3D 5%)
+			// Receivers  W1 35%, W2 25%, W3 10%, TE 20% (todo 3D 5%)
 			int projYDc, projTDc;
 			if ( unit.W1 != null )
 			{
-				projYDc = ( int ) ( .35 * ( ( isHome ) ? input.Prediction.HomeYDp : input.Prediction.AwayYDp ) );
-				projTDc = W1TdsFrom( ( isHome ) ? input.Prediction.HomeTDp : input.Prediction.AwayTDp );
-				projYDc = AllowForInjuryRisk( unit.W1, projYDc );
-				AddCatchingPlayerGameMetric( input, unit.W1.PlayerCode, projYDc, projTDc );
+				projYDc = ( int ) ( .35 * (  isHome  ? input.Prediction.HomeYDp : input.Prediction.AwayYDp ) );
+				projTDc = W1TdsFrom(  
+					isHome  ? input.Prediction.HomeTDp : input.Prediction.AwayTDp );
+				projYDc = AllowForInjuryRisk(
+					unit.W1,
+					projYDc);
+				AddCatchingPlayerGameMetric(
+					input,
+					unit.W1.PlayerCode,
+					projYDc,
+					projTDc);
 			}
 			if ( unit.W2 != null )
 			{
-				projYDc = ( int ) ( .25 * ( ( isHome ) ? input.Prediction.HomeYDp : input.Prediction.AwayYDp ) );
-				projTDc = W2TdsFrom( ( isHome ) ? input.Prediction.HomeTDp : input.Prediction.AwayTDp );
-				projYDc = AllowForInjuryRisk( unit.W2, projYDc );
-				AddCatchingPlayerGameMetric( input, unit.W2.PlayerCode, projYDc, projTDc );
+				projYDc = ( int ) ( .25 * (  isHome  ? input.Prediction.HomeYDp : input.Prediction.AwayYDp ) );
+				projTDc = W2TdsFrom(  isHome  ? input.Prediction.HomeTDp : input.Prediction.AwayTDp );
+				projYDc = AllowForInjuryRisk(
+					unit.W2,
+					projYDc);
+				AddCatchingPlayerGameMetric(
+					input,
+					unit.W2.PlayerCode,
+					projYDc,
+					projTDc);
 			}
 			if ( unit.W3 != null )
 			{
-				projYDc = ( int ) ( .15 * ( ( isHome ) ? input.Prediction.HomeYDp : input.Prediction.AwayYDp ) );
-				projTDc = 0;
-				projYDc = AllowForInjuryRisk( unit.W3, projYDc );
-				AddCatchingPlayerGameMetric( input, unit.W3.PlayerCode, projYDc, projTDc );
+				projYDc = ( int ) ( .15 * (  isHome  ? input.Prediction.HomeYDp : input.Prediction.AwayYDp ) );
+				projTDc = W3TdsFrom(isHome ? input.Prediction.HomeTDp : input.Prediction.AwayTDp);
+
+				projYDc = AllowForInjuryRisk(
+					unit.W3,
+					projYDc);
+				AddCatchingPlayerGameMetric(
+					input,
+					unit.W3.PlayerCode,
+					projYDc,
+					projTDc);
 			}
 			if ( unit.TE != null )
 			{
-				projYDc = ( int ) ( .20 * ( ( isHome ) ? input.Prediction.HomeYDp : input.Prediction.AwayYDp ) );
-				projTDc = TETdsFrom( ( isHome ) ? input.Prediction.HomeTDp : input.Prediction.AwayTDp );
+				projYDc = ( int ) ( .20 * (  isHome  ? input.Prediction.HomeYDp : input.Prediction.AwayYDp ) );
+				projTDc = TETdsFrom(  isHome  ? input.Prediction.HomeTDp : input.Prediction.AwayTDp );
 				projYDc = AllowForInjuryRisk( unit.TE, projYDc );
 				AddCatchingPlayerGameMetric( input, unit.TE.PlayerCode, projYDc, projTDc );
 			}
+			if (rushUnit.ThirdDownBack != null)
+			{
+				projYDc = (int)(.05 * (isHome ? input.Prediction.HomeYDp : input.Prediction.AwayYDp));
+				projTDc = RB3DTdsFrom(isHome ? input.Prediction.HomeTDp : input.Prediction.AwayTDp);
+
+				projYDc = AllowForInjuryRisk(
+					rushUnit.ThirdDownBack,
+					projYDc);
+				AddCatchingPlayerGameMetric(
+					input,
+					rushUnit.ThirdDownBack.PlayerCode,
+					projYDc,
+					projTDc);
+			}
 		}
 
-		private void AddCatchingPlayerGameMetric( PlayerGameProjectionMessage input,
-		   string playerId, int projYDc, int projTDc )
+		private void AddCatchingPlayerGameMetric(
+			PlayerGameProjectionMessage input,
+			string playerId,
+			int projYDc,
+			int projTDc)
 		{
-			if ( input == null || playerId == null ) return;
-			if ( string.IsNullOrEmpty( playerId ) || input.Game == null ) return;
+			if ( input == null || playerId == null )
+				return;
+			if ( string.IsNullOrEmpty( playerId ) || input.Game == null ) 
+				return;
 			var pgm = new PlayerGameMetrics
 			{
 				PlayerId = playerId,
@@ -159,7 +229,8 @@ namespace RosterLib
 			input.Game.PlayerGameMetrics.Add( pgm );
 		}
 
-		private static int W1TdsFrom( int totalTds )
+		private static int W1TdsFrom( 
+			int totalTds )
 		{
 			var tds = 0;
 			switch ( totalTds )
@@ -173,41 +244,9 @@ namespace RosterLib
 					break;
 
 				case 3:
-					tds = 1;
-					break;
-
-				case 4:
-					tds = 2;
-					break;
-
-				case 5:
-					tds = 2;
-					break;
-
-				case 6:
-					tds = 3;
-					break;
-			}
-			return tds;
-		}
-
-		private static int W2TdsFrom( int totalTds )
-		{
-			var tds = 0;
-			switch ( totalTds )
-			{
-				case 1:
 					tds = 0;
 					break;
 
-				case 2:
-					tds = 1;
-					break;
-
-				case 3:
-					tds = 1;
-					break;
-
 				case 4:
 					tds = 1;
 					break;
@@ -223,7 +262,8 @@ namespace RosterLib
 			return tds;
 		}
 
-		private static int TETdsFrom( int totalTds )
+		private static int W2TdsFrom( 
+			int totalTds )
 		{
 			var tds = 0;
 			switch ( totalTds )
@@ -255,7 +295,107 @@ namespace RosterLib
 			return tds;
 		}
 
-		private static void AddPassinglayerGameMetric( PlayerGameProjectionMessage input, string playerId, int projYDp, int projTDp )
+		private static int W3TdsFrom(
+			int totalTds)
+		{
+			var tds = 0;
+			switch (totalTds)
+			{
+				case 1:
+					tds = 0;
+					break;
+
+				case 2:
+					tds = 0;
+					break;
+
+				case 3:
+					tds = 0;
+					break;
+
+				case 4:
+					tds = 1;
+					break;
+
+				case 5:
+					tds = 1;
+					break;
+
+				case 6:
+					tds = 1;
+					break;
+			}
+			return tds;
+		}
+		private static int TETdsFrom( 
+			int totalTds )
+		{
+			var tds = 0;
+			switch ( totalTds )
+			{
+				case 1:
+					tds = 0;
+					break;
+
+				case 2:
+					tds = 1;
+					break;
+
+				case 3:
+					tds = 1;
+					break;
+
+				case 4:
+					tds = 1;
+					break;
+
+				case 5:
+					tds = 1;
+					break;
+
+				case 6:
+					tds = 1;
+					break;
+			}
+			return tds;
+		}
+		private static int RB3DTdsFrom(
+			int totalTds)
+		{
+			var tds = 0;
+			switch (totalTds)
+			{
+				case 1:
+					tds = 0;
+					break;
+
+				case 2:
+					tds = 0;
+					break;
+
+				case 3:
+					tds = 1;
+					break;
+
+				case 4:
+					tds = 1;
+					break;
+
+				case 5:
+					tds = 1;
+					break;
+
+				case 6:
+					tds = 1;
+					break;
+			}
+			return tds;
+		}
+		private static void AddPassinglayerGameMetric(
+			PlayerGameProjectionMessage input,
+			string playerId,
+			int projYDp,
+			int projTDp)
 		{
 			if ( input == null || playerId == null ) return;
 			var pgm = new PlayerGameMetrics
@@ -370,7 +510,9 @@ namespace RosterLib
 			input.Game.PlayerGameMetrics.Add( pgm );
 		}
 
-		public static int AllowForInjuryRisk( NFLPlayer p, int proj )
+		public static int AllowForInjuryRisk(
+			NFLPlayer p,
+			int proj)
 		{
 			if ( p == null )
 				Utility.Announce( "AllowForInjuryRisk:Null Player" );
@@ -379,7 +521,7 @@ namespace RosterLib
 				Int32.TryParse( p.Injuries(), out int nInjury );
 				if ( nInjury > 0 )
 				{
-					var injChance = ( ( nInjury * 10.0M ) / 100.0M );
+					var injChance = (  nInjury * 10.0M  / 100.0M );
 					var effectiveness = 1 - injChance;
 					proj = ( int ) ( proj * effectiveness );
 				}

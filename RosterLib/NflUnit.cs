@@ -35,7 +35,7 @@ namespace RosterLib
             Logger = NLog.LogManager.GetCurrentClassLogger();
 
          //Logger.Info( "   " + message );
-#if DEBUG
+#if DEBUG2
          Utility.Announce( message );
 #endif
       }

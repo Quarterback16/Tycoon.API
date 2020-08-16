@@ -155,7 +155,7 @@ namespace RosterLib
 				};
 				pgmList.Add( pgm );
 			}
-#if DEBUG
+#if DEBUG2
 			Utility.Announce( string.Format( "Metric records loaded : {0}", pgmList.Count ) );
 #endif
 			return pgmList;
@@ -240,7 +240,7 @@ namespace RosterLib
 				};
 				pgmList.Add( pgm );
 			}
-#if DEBUG
+#if DEBUG2
 			Utility.Announce( $"Metric records loaded : {pgmList.Count}" );
 #endif
 			return pgmList;
@@ -298,7 +298,7 @@ namespace RosterLib
 				};
 				pgmList.Add( pgm );
 			}
-#if DEBUG
+#if DEBUG2
 			Utility.Announce( $"Metric records loaded : {pgmList.Count}" );
 #endif
 			return pgmList;

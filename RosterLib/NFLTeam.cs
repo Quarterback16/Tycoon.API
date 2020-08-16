@@ -4444,9 +4444,11 @@ namespace RosterLib
 
 		#region Adjustments
 
-		public string AdjustedRatings( string ratings )
+		public string AdjustedRatings( 
+			string ratings )
 		{
-			if ( string.IsNullOrEmpty( ratings ) ) return ratings;
+			if ( string.IsNullOrEmpty( ratings ) ) 
+				return ratings;
 
 			if ( Utility.CurrentSeason().Equals( "2010" ) )
 				ratings = ConvertTeamRatings2010( ratings );
@@ -4454,6 +4456,8 @@ namespace RosterLib
 				ratings = ConvertTeamRatings2011( ratings );
 			if ( Utility.CurrentSeason().Equals( "2015" ) )
 				ratings = ConvertTeamRatings2015( ratings );
+			if (Utility.CurrentSeason().Equals("2020"))
+				ratings = ConvertTeamRatings2020(ratings);
 			return ratings;
 		}
 
@@ -4697,7 +4701,8 @@ namespace RosterLib
 			return ratings;
 		}
 
-		private string ConvertTeamRatings2015( string ratings )
+		private string ConvertTeamRatings2015( 
+			string ratings )
 		{
 			if ( TeamCode == null ) return "null team";
 
@@ -4803,6 +4808,51 @@ namespace RosterLib
 			{
 				//  odds
 				ratings = PassRush( -1, ratings );
+			}
+
+			return ratings;
+		}
+
+		private string ConvertTeamRatings2020(
+			string ratings)
+		{
+			if (TeamCode == null) 
+				return "null team";
+
+			if (TeamCode.Equals("SF"))
+			{
+				//  Bosa
+				ratings = PassRush(
+					diff: +1,
+					ratings: ratings);
+			}
+			if (TeamCode.Equals("AC"))
+			{
+				//  balance Bosa
+				ratings = PassRush(
+					diff: -1,
+					ratings: ratings);
+			}
+			if (TeamCode.Equals("NE"))
+			{
+				//  lost Brady
+				ratings = PassOffence(
+					diff: -1,
+					ratings: ratings);
+			}
+			if (TeamCode.Equals("SS"))
+			{
+				//  got Adams
+				ratings = PassDefence(
+					diff: +1,
+					ratings: ratings);
+			}
+			if (TeamCode.Equals("NJ"))
+			{
+				//  lost Adams
+				ratings = PassDefence(
+					diff: -1,
+					ratings: ratings);
 			}
 
 			return ratings;

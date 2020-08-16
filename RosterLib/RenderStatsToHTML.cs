@@ -287,6 +287,7 @@ namespace RosterLib
 			r.AddColumn(new ReportColumn("Owner", "FT", "{0,2}"));
 			if (LongStats)
 			{
+				r.AddColumn(new ReportColumn("cat", "CAT", "{0,5}"));
 				r.AddColumn(new ReportColumn("scoremod", "SCOREMOD", "{0,5}"));
 				r.AddColumn(new ReportColumn("seasons", "SEASONS", "{0,5}"));
 				r.AddColumn(new ReportColumn("newteam", "NEWTEAM", "{0,5}"));
@@ -379,6 +380,7 @@ namespace RosterLib
 
 					if (LongStats)
 					{
+						dr["cat"] = p.PlayerCat;
 						dr["scoremod"] = p.ScoreModifier();
 						dr["seasons"] = p.NoOfSeasons();
 						dr["newteam"] = p.IsNewbie() ? "*" : string.Empty;
@@ -409,7 +411,7 @@ namespace RosterLib
 						dr["Adp"] = adpMaster.GetAdp(
 							p.PlayerName);
 					dt.Rows.Add(dr);
-					Logger.Trace($"{p.PlayerName:-20} {totPoints:0.0}");
+					//Logger.Trace($"{p.PlayerName:-20} {totPoints:0.0}");
 				}
 			}
 			ds.Tables.Add(dt);
@@ -435,6 +437,7 @@ namespace RosterLib
 
 			if (LongStats)
 			{
+				cols.Add("cat", typeof(String));
 				cols.Add("scoremod", typeof(Decimal));
 				cols.Add("Seasons", typeof(Int32));
 				cols.Add("newteam", typeof(String));

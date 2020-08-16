@@ -1334,7 +1334,8 @@ namespace RosterLib
 
 				#region frequency table for TD runs
 
-				_ftTDr = new FrequencyTable(string.Format("TD runs {0} week {1} to {2}", _season, _startWeek, _endWeek ));
+				_ftTDr = new FrequencyTable(
+					$"TD runs {_season} week {_startWeek} to {_endWeek}");
 
 				foreach (var t in _gameList)
 				{

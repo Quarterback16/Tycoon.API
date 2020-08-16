@@ -16,14 +16,14 @@ namespace RosterLib
 
          foreach ( var action in _actions )
          {
-#if DEBUG
+#if DEBUG2
             _et.Start( DateTime.Now );
             stepNo++;
 #endif
 
             action.Invoke( input );
 
-#if DEBUG
+#if DEBUG2
             _et.Stop( DateTime.Now );
             Utility.Announce( string.Format( "Step {1} took {0} ",
             _et.TimeOut(), stepNo ) );

@@ -140,33 +140,52 @@ namespace RosterLib
 		{
 			Announce(string.Format("SeasonProjection metric={0} ...", metricName));
 
-			FileOut = ProjectionFileName( metricName, season );
+			FileOut = ProjectionFileName( 
+				metricName, 
+				season );
 
 			_html = new HtmlFile( FileOut,
 								 " Win Projections as of " + projectionDate.ToString( "ddd dd MMM yy" ) );
 
-			_html.AddToBody( Header( "Season Projections " + metricName + " - " + season ) );
-			_html.AddToBody( SeasonOut( metricName, projectionDate ) );
+			_html.AddToBody( 
+				Header( "Season Projections " + metricName + " - " + season ) );
+			_html.AddToBody( 
+				SeasonOut( 
+					metricName, 
+					projectionDate ) );
 			_html.Render();
-			ProjectionList.Add( metricName );
-			Utility.CopySubFile( ProjectionFileName1( metricName, season ),
-			ProjectionFileName2( metricName, season, week ) );
+			ProjectionList.Add( 
+				metricName );
+			Utility.CopySubFile( 
+				ProjectionFileName1( 
+					metricName, 
+					season ),
+			ProjectionFileName2( 
+				metricName, 
+				season, 
+				week ) );
 		}
 
-		public string ProjectionFileName( string metricName, string season )
+		public string ProjectionFileName( 
+			string metricName, string season )
 		{
 			return string.Format( "{0}{2}\\Projections\\Proj-{1}-{2}.htm",
 								 Utility.OutputDirectory(), metricName,
 								 season );
 		}
 
-		public string ProjectionFileName1( string metricName, string season )
+		public string ProjectionFileName1( 
+			string metricName, 
+			string season )
 		{
 			return string.Format( "{1}\\Projections\\Proj-{0}-{1}.htm",
 								 metricName, season );
 		}
 
-		public string ProjectionFileName2( string metricName, string season, string week )
+		public string ProjectionFileName2( 
+			string metricName, 
+			string season, 
+			string week )
 		{
 			return string.Format( "{1}\\Projections\\Proj-{0}-{1}-{2:0#}.htm",
 								 metricName,

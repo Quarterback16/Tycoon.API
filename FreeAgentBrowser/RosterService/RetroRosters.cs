@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace RosterService
 {
@@ -21,6 +22,8 @@ namespace RosterService
 		{
 			foreach (var move in RosterMoves)
 			{
+				if (move.Player == "Theotis Brown")
+					Console.WriteLine(move.Player);
 				var fteam = move.FantasyTeam;
 				if (!Roster.ContainsKey(fteam))
 					Roster.Add(fteam, new List<string>());

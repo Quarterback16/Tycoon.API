@@ -42,6 +42,8 @@ namespace GameLogService.Model
 			var url = PlayerLogUrl(
 				season,
 				playerName);
+			if (url.StartsWith("no data"))
+				return result;
 			var htmlDoc = web.Load(
 				url);
 			var seasonTable = GetSeasonTable(
@@ -123,10 +125,21 @@ namespace GameLogService.Model
 		public void SendLineToConsole(
 			PlayerReportModel playerModel)
 		{
-			Console.Write($"{playerModel.PlayerName} ");
+			Console.Write($"{playerModel.PlayerName,25} ");
 			foreach (var game in playerModel.GameLog)
 			{
 				Console.Write($"{game.RushingTds} {game.ReceivingTds} {game.PassingTds} ");
+			}
+			Console.WriteLine();
+		}
+
+		public void SendKickerLineToConsole(
+			PlayerReportModel playerModel)
+		{
+			Console.Write($"{playerModel.PlayerName,25} ");
+			foreach (var game in playerModel.GameLog)
+			{
+				Console.Write($"{game.PassingTds} {game.FieldGoalsMade} {game.ExtraPointsMade} ");
 			}
 			Console.WriteLine();
 		}
@@ -140,14 +153,16 @@ namespace GameLogService.Model
 			Console.WriteLine($"{playerModel.PlayerName} {playerModel.Season}");
 			Console.WriteLine();
 			var totals = new GameStats();
+			var isFirst = false;
 			foreach (var game in playerModel.GameLog)
 			{
 				if (weeksOfInterest.Contains(
 					game.Week))
 				{
-					if (game.Week.Equals(5) ||
+					if (isFirst
+						&& (game.Week.Equals(5) ||
 						game.Week.Equals(9) ||
-						game.Week.Equals(13))
+						game.Week.Equals(13)))
 					{
 						WriteKickerTotalLine(totals);
 						totals = new GameStats();
@@ -156,6 +171,7 @@ namespace GameLogService.Model
 					Console.WriteLine($"  {game.KickerStats()}");
 					totals.FieldGoalsMade += game.FieldGoalsMade;
 					totals.ExtraPointsMade += game.ExtraPointsMade;
+					isFirst = true;
 				}
 			}
 			WriteKickerTotalLine(totals);
@@ -171,14 +187,16 @@ namespace GameLogService.Model
 			Console.WriteLine($"{playerModel.PlayerName} {playerModel.Season}");
 			Console.WriteLine();
 			var totals = new GameStats();
+			var isFirst = false;
 			foreach (var game in playerModel.GameLog)
 			{
 				if (weeksOfInterest.Contains(
 					game.Week))
 				{
-					if (game.Week.Equals(5) ||
+					if (isFirst 
+						&& (game.Week.Equals(5) ||
 						game.Week.Equals(9) ||
-						game.Week.Equals(13))
+						game.Week.Equals(13)))
 					{
 						WriteTotalLine(totals);
 						totals = new GameStats();
@@ -188,6 +206,7 @@ namespace GameLogService.Model
 					totals.PassingTds += game.PassingTds;
 					totals.RushingTds += game.RushingTds;
 					totals.ReceivingTds += game.ReceivingTds;
+					isFirst = true;
 				}
 			}
 			WriteTotalLine(totals);
@@ -227,20 +246,33 @@ namespace GameLogService.Model
 				}
 				return;
 			}
-
+			var weekNodes = seasonTable.SelectNodes(
+						$"//tr/td[@data-stat='week_num']");
 			foreach (var rowNode in seasonNodes)
 			{
+				int weekNum = WeekNumber(i, weekNodes);
+				if (weekNum == 0)
+					continue;
 				if (string.IsNullOrEmpty(rowNode.InnerText))
 				{
-					statArray[i++] = 0;
+					statArray[weekNum - 1] = 0;
 				}
 				else
 				{
-					statArray[i++] = Int32.Parse(rowNode.InnerText);
+					statArray[weekNum - 1] = Int32.Parse(rowNode.InnerText);
 				}
-				if (i == 16)
+				if (i++ == 16)
 					break;
 			}
+		}
+
+		private static int WeekNumber(
+			int i, 
+			HtmlNodeCollection weekNodes)
+		{
+			if (string.IsNullOrEmpty(weekNodes[i].InnerText))
+				return 0;
+			return Int32.Parse(weekNodes[i].InnerText);
 		}
 
 		private HtmlNode GetSeasonTable(
@@ -313,8 +345,8 @@ namespace GameLogService.Model
 						playerCode = PlayerCodeFrom(
 							hrefPart);
 						//  ultimately need to get to https://www.pro-football-reference.com/players/M/MontJo01/gamelog/1984/
+						break;
 					}
-					break;
 				}
 			}
 			return playerCode;
@@ -375,6 +407,10 @@ namespace GameLogService.Model
 			var playerCode = PlayerCode(
 				season,
 				playerName);
+			if (playerName == "Eddie Ivery")
+				playerCode = "IverEd00";
+			if (string.IsNullOrEmpty(playerCode))
+				return $"no data for {playerName}";
 			return string.Format(
 				_playerLogUrl, 
 				letter, 

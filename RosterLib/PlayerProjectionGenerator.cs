@@ -29,7 +29,8 @@ namespace RosterLib
 				PlayerCache = PlayerCache
 			};
 			msg.Game.PlayerGameMetrics = new List<PlayerGameMetrics>();
-			if ( pipeline != null ) pipeline.Execute( msg );
+			if ( pipeline != null ) 
+				pipeline.Execute( msg );
 		}
 
 		private void InitialiseThePipeLine()

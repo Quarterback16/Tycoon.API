@@ -49,7 +49,7 @@ namespace RosterLib
 			Utility.Announce($"  Defense got {Team.TotSacks} sacks for {Team.TotSacks} FP");
 #endif
 			Team.FantasyPoints += Team.TotInterceptions * 2;
-#if DEBUG
+#if DEBUG2
 			Utility.Announce($"  Defense got {Team.TotInterceptions} intercepts for {Team.TotInterceptions * 2} FP");
 #endif
 
@@ -59,12 +59,12 @@ namespace RosterLib
 			var defFantasyPts = PointsForAllowing(Team.PtsAgin);
 			Team.FantasyPoints += defFantasyPts;
 
-#if DEBUG
+#if DEBUG2
 			Utility.Announce(string.Format("  Defense gave up {0} real points for {1} FP",
 			Team.PtsAgin, defFantasyPts));
 #endif
 
-#if DEBUG
+#if DEBUG2
 			Utility.Announce(string.Format("  FP total {0}", Team.FantasyPoints));
 #endif
 			Team.Games++;

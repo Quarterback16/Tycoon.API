@@ -28,13 +28,13 @@ namespace RosterLib
 
 			//  4 pts for a Tdp
 			plyr.Points += plyr.ProjectedTDp * 4;
-#if DEBUG
+#if DEBUG2
 			Utility.Announce( $"{plyr.PlayerName} has {plyr.Points} points for Tdp" );
 #endif
 			//  1 pt / 25 YDp
 			int ptsForYDp = (int) plyr.ProjectedYDp / 25;
 			plyr.Points += ptsForYDp;
-#if DEBUG
+#if DEBUG2
 			Utility.Announce( $"{plyr.PlayerName} has {ptsForYDp} points for YDp" );
 #endif
 
@@ -45,13 +45,13 @@ namespace RosterLib
 			//  6 pts for a TD catch
 			decimal ptsForTDcatches = 6 * plyr.ProjectedTDc;
 			plyr.Points += ptsForTDcatches;
-#if DEBUG
+#if DEBUG2
 			Utility.Announce( string.Format( "{0} has {1} points for TD catches", plyr.PlayerName, ptsForTDcatches ) );
 #endif
 			//  1 pt / 10 yds
 			int ptsForYDs = (int) plyr.ProjectedYDc / 10;
 			plyr.Points += ptsForYDs;
-#if DEBUG
+#if DEBUG2
 			Utility.Announce( string.Format( "{0} has {1} points for YDc", plyr.PlayerName, ptsForYDs ) );
 #endif
 			#endregion
@@ -61,15 +61,15 @@ namespace RosterLib
 			//  6 points for TD run
 			decimal ptsForTDruns = 6 * plyr.ProjectedTDr;
 			plyr.Points += ptsForTDruns;
-#if DEBUG
-			Utility.Announce( string.Format( "{0} has {1} points for TD runs", plyr.PlayerName, ptsForTDruns ) );
+#if DEBUG2
+			Utility.Announce( $"{plyr.PlayerName} has {ptsForTDruns} points for TD runs" );
 #endif
 
 			//  1 pt / 10 yds
 			int ptsForYDr = (int) plyr.ProjectedYDr / 10;
 			plyr.Points += ptsForYDr;
-#if DEBUG
-			Utility.Announce( string.Format( "{0} has {1} points for YDr", plyr.PlayerName, ptsForYDr ) );
+#if DEBUG2
+			Utility.Announce( $"{plyr.PlayerName} has {ptsForYDr} points for YDr" );
 #endif
 
 			#endregion
@@ -82,7 +82,7 @@ namespace RosterLib
 
 			#endregion
 
-#if DEBUG
+#if DEBUG2
 			Utility.Announce( $"{plyr.PlayerName} has {plyr.Points} in week {week.Season}:{week.Week}" );
 #endif
 

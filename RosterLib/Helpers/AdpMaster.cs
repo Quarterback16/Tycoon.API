@@ -15,7 +15,8 @@ namespace RosterLib.Helpers
             Adp = new Dictionary<string, string>();
         }
 
-        public AdpMaster(string dataSource) : this()
+        public AdpMaster(
+            string dataSource) : this()
         {
 			//  data source assumes 12 team league
 			//  adp would change for differnt sized leagues
@@ -44,10 +45,12 @@ namespace RosterLib.Helpers
             return adp;
         }
 
-		private bool CsvHas(ref string playerName)
+		private bool CsvHas(
+            ref string playerName)
 		{
 			if (Adp.ContainsKey(playerName))
 				return true;
+
 			//  look harder eg Patrick Mahomes is Pat Mahomes
 			playerName = TakeOutNoise(playerName);
 			var name = playerName.Split(' ');
@@ -61,7 +64,7 @@ namespace RosterLib.Helpers
 					return true;
 				}
 			};
-			Console.WriteLine($"{playerName} not found");
+			//Console.WriteLine($"{playerName} not found");
 			return false;
 		}
 
@@ -85,15 +88,16 @@ namespace RosterLib.Helpers
                     var line = reader.ReadLine();
                     var values = line.Split(',');
 
-                    if (lineCount > 0)
-                    {
+                    // there is no header line
+                    //if (lineCount > 0)
+                    //{
                         var playerName = values[2];
                         var adp = values[1];
 
-                        Console.WriteLine(
-                            $"{playerName} {adp}");
+//                        Console.WriteLine(
+//                            $"{playerName} {adp}");
                         Adp.Add(playerName, adp);
-                    }
+                    //}
                     lineCount++;
                 }
             }

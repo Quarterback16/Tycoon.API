@@ -2283,7 +2283,7 @@
         "player": "Theotis Brown",
         "pos": "RB",
         "price": "5",
-        "trans": "IN"
+        "trans": "OUT"
     },
     {
         "fteam": "CD",
@@ -2725,5 +2725,222 @@
         "pos": "QB",
         "price": "50",
         "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "62",
+        "team": "NG",
+        "player": "Rob Carpenter",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "129",
+        "team": "DC",
+        "player": "Timmy Newsome",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "150",
+        "team": "SD",
+        "player": "Rob Benirschke",
+        "pos": "KK",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "212",
+        "team": "KC",
+        "player": "Todd Blackledge",
+        "pos": "QB",
+        "price": "5",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "29",
+        "team": "LA",
+        "player": "Marc Wilson",
+        "pos": "QB",
+        "price": "10",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "212",
+        "team": "HO",
+        "player": "Oliver Luck",
+        "pos": "QB",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "4",
+        "team": "SF",
+        "player": "Joe Montana",
+        "pos": "QB",
+        "price": "59",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "4",
+        "team": "PE",
+        "player": "Paul McFadden",
+        "pos": "KK",
+        "price": "49",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "89",
+        "team": "DC",
+        "player": "Tony Hill",
+        "pos": "WR",
+        "price": "13",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "1",
+        "team": "GB",
+        "player": "Lynn Dickey",
+        "pos": "QB",
+        "price": "65",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "1",
+        "team": "GB",
+        "player": "Lynn Dickey",
+        "pos": "QB",
+        "price": "65",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "232",
+        "team": "NS",
+        "player": "Dave Wilson",
+        "pos": "QB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "35",
+        "team": "SS",
+        "player": "Curt Warner",
+        "pos": "RB",
+        "price": "59",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "219",
+        "team": "MV",
+        "player": "Rickey Young",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "25",
+        "team": "NG",
+        "player": "Scott Brunner",
+        "pos": "QB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "204",
+        "team": "NJ",
+        "player": "Pat Ryan",
+        "pos": "QB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "94",
+        "team": "KC",
+        "player": "Henry Marshall",
+        "pos": "WR",
+        "price": "9",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "64",
+        "team": "CH",
+        "player": "Matt Suhey",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "133",
+        "team": "BC",
+        "player": "Raul Allegre",
+        "pos": "KK",
+        "price": "45 ",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "12",
+        "team": "LA",
+        "player": "Jim Plunkett",
+        "pos": "QB",
+        "price": "48",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "9",
+        "team": "LR",
+        "player": "Vince Ferragamo",
+        "pos": "QB",
+        "price": "4",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "163",
+        "team": "CI",
+        "player": "Dan Ross",
+        "pos": "TE",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "15",
+        "team": "NJ",
+        "player": "Richard Todd",
+        "pos": "QB",
+        "price": "4",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "59",
+        "team": "BC",
+        "player": "Curtis Dickey",
+        "pos": "RB",
+        "price": "31",
+        "trans": "OUT"
     }
+
 ]

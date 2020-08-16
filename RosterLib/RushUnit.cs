@@ -213,7 +213,7 @@ namespace RosterLib
 			output.Add( unit + Environment.NewLine );
 			var approach = $"Run approach is {DetermineApproach()}";
 			output.Add( approach + Environment.NewLine );
-			Console.WriteLine(approach);
+			//Console.WriteLine(approach);
 			return output;
 		}
 

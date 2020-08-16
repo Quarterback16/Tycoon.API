@@ -10,7 +10,7 @@ namespace RosterLib
 	{
 		public AddActualYahooPassingPoints(YahooProjectedPointsMessage input)
 		{
-#if DEBUG
+#if DEBUG2
 			Utility.Announce(string.Format("Calculating Actual Passing Points for {0} Game {1}",
 				input.Player.PlayerNameShort, input.Game.GameName()));
 #endif

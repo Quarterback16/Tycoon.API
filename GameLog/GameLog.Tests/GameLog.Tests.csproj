@@ -50,6 +50,10 @@
       <Project>{c1bba3b2-629b-4873-b0ff-f48ba1df85cf}</Project>
       <Name>GameLogService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RosterService\RosterService.csproj">
+      <Project>{042d9fa5-45c7-4fb7-ae2c-9bd30b1bfde2}</Project>
+      <Name>RosterService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

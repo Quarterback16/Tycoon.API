@@ -19,8 +19,8 @@ namespace RosterLib
 				{
 					if (dr["POSDESC"].ToString().Trim().Contains("FB"))
 					{
-						System.Console.WriteLine(
-							$"FB found skipping {dr["PLAYERID"]}");
+						//System.Console.WriteLine(
+						//	$"FB found skipping {dr["PLAYERID"]}");
 						continue;
 					}
 

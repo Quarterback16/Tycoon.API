@@ -4,7 +4,7 @@
 	{
 		public AddActualYahooKickingPoints(YahooProjectedPointsMessage input)
 		{
-#if DEBUG
+#if DEBUG2
 			Utility.Announce(string.Format("Calculating Kicking Points for {0} Game {1}",
 				input.Player.PlayerNameShort, input.Game.GameName()));
 #endif
@@ -14,7 +14,7 @@
 		private static void Process(YahooProjectedPointsMessage input)
 		{
 			input.Player.Points += input.PlayerGameMetrics.FG * 3;
-#if DEBUG
+#if DEBUG2
 			Utility.Announce(string.Format("FG = {0} * 3 = {1}",
 				input.PlayerGameMetrics.FG, input.PlayerGameMetrics.FG * 3));
 #endif

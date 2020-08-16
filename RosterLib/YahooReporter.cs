@@ -5,17 +5,25 @@
 		//  uses a pipeline to process a YahooProjectedPointsMessage
 		public PipeLine<YahooProjectedPointsMessage> yahooPipeline { get; set; }
 
-		public YahooProjectedPointsMessage Calculate(NFLPlayer p, NFLGame g)
+		public YahooProjectedPointsMessage Calculate(
+			NFLPlayer p, 
+			NFLGame g)
 		{
-			if (yahooPipeline == null) InitialiseThePipeLine();
+			if (yahooPipeline == null) 
+				InitialiseThePipeLine();
 
-			var msg = new YahooProjectedPointsMessage { Player = p };
-			if (g.IsBye()) return msg;
+			var msg = new YahooProjectedPointsMessage 
+			{ 
+				Player = p 
+			};
+			if (g.IsBye()) 
+				return msg;
 
 			msg.Player.Points = 0;
 			msg.Game = g;
 
-			if (yahooPipeline != null) yahooPipeline.Execute(msg);
+			if (yahooPipeline != null) 
+				yahooPipeline.Execute(msg);
 			return msg;
 		}
 

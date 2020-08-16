@@ -1881,9 +1881,10 @@ namespace RosterLib
 				NextGameSpread( nextGame ),
 				NextResult( nextGame ),
 				Points,
-				FantasyAdvice( defensiveRating, nextGame ),
-				nextGame.Week
-				);
+				FantasyAdvice( 
+					defensiveRating, 
+					nextGame ),
+				nextGame.Week);
 			return detailLine;
 		}
 

@@ -23,7 +23,8 @@ namespace GameLogService
 			model.GameLog = _repo.GetGameStats(
 				model);
 
-			_repo.SendToConsole(model);
+			_repo.SendToConsole(
+				model);
 		}
 	}
 }

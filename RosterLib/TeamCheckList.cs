@@ -27,7 +27,7 @@ namespace RosterLib
          if (HtTeam.ContainsKey( theKey ))
             HtTeam.Remove( theKey );
 
-#if DEBUG
+#if DEBUG2
          if (HtDone.ContainsKey( theKey ))
          {
             Utility.Announce( "We have a duplicate " + sPos + " for " + theKey );

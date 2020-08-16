@@ -8,7 +8,8 @@
 		public int ReceivingTds { get; set; }
 		public int FieldGoalsMade { get; set; }
 		public int ExtraPointsMade { get; set; }
-	
+
+
 		public string KickerStats()
 		{
 			return $"Week:{Week:0#} {FieldGoalsMade}-{ExtraPointsMade}";
