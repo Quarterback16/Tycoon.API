@@ -259,14 +259,15 @@ namespace GameLog.Tests
         [TestMethod]
         public void GameStatsRepoForEntireTeam()
 		{
-			var fantasyTeam = "BR";
+			var fantasyTeam = "LL";
 			var rosterService = new RetroRosters(
 				new RosterEventStore());
 			var roster = rosterService.GetRoster(
 				fantasyTeam);
 			var teamList = new List<(string, string)>();
 			AddRosterInOrder(roster, teamList);
-			//int[] weeks = new int[] { 5, 6, 7, 8 };
+            //int[] weeks = new int[] { 1, 2, 3 };
+            //int[] weeks = new int[] { 5, 6, 7, 8 };
             //int[] weeks = new int[] { 9, 10, 11, 12 };
             int[] weeks = new int[] { 13, 14, 15, 16 };
             foreach (var item in teamList)
@@ -354,5 +355,495 @@ namespace GameLog.Tests
 
             Assert.AreEqual(16, result.Count);
         }
+
+        [TestMethod]
+        public void GameStatsRepository_GeneratesTdp_ForQuarterbacks()
+        {
+            var rosterService = new RetroRosters(
+                new RosterEventStore());
+            var qbList = LoadQuarterbacksFrom1984();
+			foreach (var item in qbList)
+			{
+                WriteLabel(rosterService, item);
+                WriteTdpStats(item);
+                Console.WriteLine();
+			}
+		}
+
+        [TestMethod]
+        public void GameStatsRepository_GeneratesTdc_ForReceivers()
+        {
+            var rosterService = new RetroRosters(
+                new RosterEventStore());
+            var recList = LoadReceiversFrom1984Part2();
+            foreach (var item in recList)
+            {
+                WriteLabel(rosterService, item);
+                WriteTdcStats(item);
+                Console.WriteLine();
+            }
+        }
+
+        [TestMethod]
+        public void GameStatsRepository_GeneratesTdr_ForQuarterbacks()
+        {
+            var rosterService = new RetroRosters(
+                new RosterEventStore());
+            var qbList = LoadQuarterbacksFrom1984();
+            foreach (var item in qbList)
+			{
+				WriteLabel(rosterService, item);
+				WriteTdrStats(item);
+				Console.WriteLine();
+			}
+		}
+
+        [TestMethod]
+        public void GameStatsRepository_GeneratesTdr_ForRunningbacks()
+        {
+            var rosterService = new RetroRosters(
+                new RosterEventStore());
+            var qbList = LoadRunningbacksFrom1984();
+            foreach (var item in qbList)
+            {
+                WriteLabel(rosterService, item);
+                WriteTdrStats(item);
+                Console.WriteLine();
+            }
+        }
+
+        [TestMethod]
+        public void GameStatsRepository_GeneratesKickingPts_ForKickers()
+        {
+            var rosterService = new RetroRosters(
+                new RosterEventStore());
+            var kList = LoadKickersFrom1984();
+            foreach (var item in kList)
+            {
+                WriteLabel(rosterService, item);
+                WriteKickStats(item);
+                Console.WriteLine();
+            }
+        }
+
+        private void WriteKickStats(
+            (string, string) item)
+        {
+            var model = new PlayerReportModel
+            {
+                PlayerName = item.Item1,
+                Season = "1984"
+            };
+            var stats = _sut.GetKickerStats(
+                model);
+            WriteSeasonKicking(stats);
+        }
+
+        private void WriteTdcStats(
+            (string, string) item)
+        {
+            var model = new PlayerReportModel
+            {
+                PlayerName = item.Item1,
+                Season = "1984"
+            };
+            var stats = _sut.GetGameStats(
+                model);
+            WriteSeasonTdc(stats);
+        }
+
+        private void WriteTdrStats(
+            (string, string) item)
+        {
+            var model = new PlayerReportModel
+            {
+                PlayerName = item.Item1,
+                Season = "1984"
+            };
+            var stats = _sut.GetGameStats(
+                model);
+            WriteSeasonTdr(stats);
+        }
+
+        private void WriteTdpStats(
+            (string, string) item)
+		{
+			var model = new PlayerReportModel
+			{
+				PlayerName = item.Item1,
+				Season = "1984"
+			};
+			var stats = _sut.GetGameStats(
+				model);
+			WriteSeasonTdp(stats);
+		}
+
+		private static void WriteLabel(
+            RetroRosters rosterService,
+            (string, string) item)
+		{
+            var playerName = item.Item1.Trim();
+            var id = rosterService.GetIdOf(
+                playerName);
+            WriteColumn(id.ToString(), 3);
+            WriteColumn(playerName, 20);
+			WriteColumn(item.Item2, 3);
+			var fantasyTeam = rosterService.GetOwnerOf(
+                playerName,
+				"**");
+            var price = rosterService.GetPriceOf(
+                playerName);
+            WriteColumn($"{price,4}", 4);
+            WriteColumn(fantasyTeam, 2);
+		}
+
+        private void WriteSeasonKicking(
+            List<GameStats> stats,
+            string delimiter = " ")
+        {
+            for (int w = 1; w < 17; w++)
+            {
+                var kPtsForTheWeek = 0;
+                foreach (var game in stats)
+                {
+                    if (game.Week.Equals(w))
+                    {
+                        kPtsForTheWeek = game.KickingPoints();
+                        break;
+                    }
+                }
+                Console.Write(
+                    $"{kPtsForTheWeek}{delimiter}");
+            }
+        }
+
+        private void WriteSeasonTdc(
+            List<GameStats> stats,
+            string delimiter = " ")
+        {
+            for (int w = 1; w < 17; w++)
+            {
+                var tdcForTheWeek = 0;
+                foreach (var game in stats)
+                {
+                    if (game.Week.Equals(w))
+                    {
+                        tdcForTheWeek = game.ReceivingTds;
+                        break;
+                    }
+                }
+                Console.Write(
+                    $"{tdcForTheWeek}{delimiter}");
+            }
+        }
+
+        private void WriteSeasonTdr(
+            List<GameStats> stats,
+            string delimiter = " ")
+        {
+            for (int w = 1; w < 17; w++)
+            {
+                var tdrForTheWeek = 0;
+                foreach (var game in stats)
+                {
+                    if (game.Week.Equals(w))
+                    {
+                        tdrForTheWeek = game.RushingTds;
+                        break;
+                    }
+                }
+                Console.Write(
+                    $"{tdrForTheWeek}{delimiter}");
+            }
+        }
+
+        private void WriteSeasonTdp(
+            List<GameStats> stats,
+            string delimiter = " ")
+		{
+			for (int w = 1; w < 17; w++)
+			{
+                var tdpForTheWeek = 0;
+				foreach (var game in stats)
+				{
+                    if (game.Week.Equals(w))
+					{
+                        tdpForTheWeek = game.PassingTds;
+                        break;
+					}
+				}
+                Console.Write(
+                    $"{tdpForTheWeek}{delimiter}");
+            }
+		}
+
+		private static void WriteColumn(
+            string part,
+            int colLength)
+		{
+            var delimiter = " ";
+            part += new string(
+				c: ' ',
+				count: colLength);
+            Console.Write($"{part.Substring(0,colLength)}{delimiter}");
+		}
+
+		private List<(string, string)> LoadQuarterbacksFrom1984()
+		{
+			var qbList = new List<(string, string)>
+			{
+                ("Dan Marino", "MD"),
+                ("Dave Krieg", "SS"),
+                ("Neil Lomax", "SL"),
+				("Joe Montana", "SF"),
+                ("Lynn Dickey", "GB"),
+                ("Joe Theismann", "WR"),
+                ("Tony Eason", "NG"),
+                ("Phil Simms", "NG"),
+                ("Steve DeBerg", "TB"),
+                ("Dan Fouts", "SD"),
+                ("John Elway", "DB"),
+                ("Gary Danielson", "DL"),
+                ("Ron Jaworski", "PE"),
+                ("Mark Malone", "PS"),
+                ("Bill Kenney", "KC"),
+                ("Marc Wilson", "OR"),
+                ("Paul McDonald", "CL"),
+                ("Pat Ryan", "NJ"),
+                ("Jeff Kemp", "LA"),
+                ("Joe Ferguson", "BB"),
+                ("Warren Moon", "HO"),
+                ("Steve Bartkowski", "AF"),
+                ("Richard Todd", "NG"),
+                ("Danny White", "NG"),
+                ("Ken Anderson", "CI"),
+                ("Tommy Kramer", "MV"),
+                ("Jim McMahon", "CH"),
+                ("Mike Pagel", "IC"),
+                ("David Woodley", "PS"),
+                ("Gary Hogeboom", "DC"),
+                ("Dave Wilson", "NO"),
+                ("Todd Blackledge", "KC"),
+                ("Ken O'Brien", "NG"),
+                ("Jim Plunkett", "LR"),
+                ("Ed Luther", "SD"),
+                ("Wade Wilson", "MV"),
+                ("Matt Cavanaugh", "SF"),
+                ("Joe Dufek", "BB"),
+                ("Gary Kubiak", "DB"),
+                ("Turk Schonert", "CI"),
+                ("Rich Campbell", "GB"),
+                ("Boomer Esiason", "CI"),
+                ("Steve Fuller", "CH"),
+                ("Steve Grogan", "NE"),
+                ("Joe Pisarcik", "PE"),
+                ("Art Schichter", "CL"),
+            };
+			return qbList;
+        }
+
+        private List<(string, string)> LoadRunningbacksFrom1984()
+        {
+            var rbList = new List<(string, string)>
+            {
+                ("Eric Dickerson", "LA"),
+                ("John Riggins", "WR"),
+                ("Marcus Allen", "OR"),
+                ("Gerald Riggs", "AF"),
+                ("James Wilder", "TB"),
+                ("Pete Johnson", "CI"),
+                ("Walter Payton", "CH"),
+                ("Larry Kinnebrew", "CI"),
+                ("Stump Mitchell", "SL"),
+                ("Earnest Jackson", "SD"),
+                ("Greg Bell", "BB"),
+                ("Woody Bennett", "MD"),
+                ("Rob Carpenter", "NG"),
+                ("Roger Craig", "SF"),
+                ("Tony Paige", "NJ"),
+                ("Wendell Tyler", "SF"),
+                ("Ottis Anderson", "SL"),
+                ("Tony Dorsett", "DC"),
+                ("Eddie Ivery", "GB"),
+                ("Larry Moriarty", "BB"),
+                ("Frank Pollard", "PS"),
+                ("Mike Pruit", "CL"),
+                ("Tony Collins", "NE"),
+                ("Hokie Gajan", "NO"),
+                ("Randy McMillan", "CL"),
+                ("Freeman McNeil", "MV"),
+                ("Timmy Newsome", "DC"),
+                ("Billy Sims", "DL"),
+                ("Theotis Brown", "KC"),
+                ("Earl Campbell", "HO"),
+                ("Jessie Clark", "GB"),
+                ("Gerry Ellis", "GB"),
+                ("Herman Heard", "KC"),
+                ("Eric Lane", "SS"),
+                ("Buford McGee", "SD"),
+                ("Joe Morris", "NG"),
+                ("Matt Suhey", "CH"),
+                ("Modi Tatupu", "NE"),
+                ("Sammy Winder", "DB"),
+                ("Otis Wonsley", "WR"),
+                ("Ted Brown", "MV"),
+                ("Lynn Cain", "AF"),
+                ("Curtis Dickey", "CL"),
+                ("Frank Hawkins", "OR"),
+                ("James Jones", "DL"),
+                ("Darrin Nelson", "MV"),
+                ("Bill Ring", "SF"),
+            };
+            return rbList;
+        }
+
+        //private List<(string, string)> LoadQuarterbacksFrom1984Fix()
+        //{
+        //    var qbList = new List<(string, string)>
+        //    {
+        //        ("Dan Marino", "MD"),
+        //        ("Joe Montana", "SF"),
+        //    };
+        //    return qbList;
+        //}
+
+        private List<(string, string)> LoadKickersFrom1984()
+        {
+            var qbList = new List<(string, string)>
+            {
+                ("Paul McFadden", "PE"),
+                ("Mike Lansford", "LA"),
+                ("Ray Wersching", "SF"),
+                ("Gary Anderson", "PS"),
+                ("Matt Bahr", "CL"),
+                ("Mark Moseley", "WR"),
+                ("Nick Lowery", "KC"),
+                ("Neil O'Donoghue", "CI"),
+                ("Rafael Septien", "DC"),
+                ("Jim Breech", "CI"),
+                ("Tony Franklin", "NE"),
+                ("Bob Thomas", "CH"),
+                ("Rich Karlis", "DB"),
+                ("Morten Andersen", "NO"),
+                ("Chris Bahr", "OR"),
+                ("Norm Johnson", "SS"),
+                ("Mick Luckhurst", "AF"),
+                ("Eddie Murray", "DL"),
+                ("Jan Stenerud", "MV"),
+                ("Obed Ariri", "TB"),
+                ("Rolf Benirschke", "SD"),
+                ("Ali Haji-Sheikh", "NG"),
+                ("Pat Leahy", "NJ"),
+                ("Raul Allegre", "BC"),
+                ("Joe Cooper", "HO"),
+                ("Al Del Greco", "GB"),
+                ("Uwe von Schamann", "MD"),
+                ("Joe Danelo", "BB"),
+                ("Florian Kempf", "HO"),
+                ("Dean Biasucci", "BC"),
+                ("Eddie Garcia", "GB"),
+            };
+            return qbList;
+        }
+
+        private List<(string, string)> LoadReceiversFrom1984Part1()
+        {
+            var playerList = new List<(string, string)>
+            {
+                ("Mark Clayton","MD"),
+                ("Roy Green", "SL"),
+                ("Steve Largent","SEA"),
+                ("John Stallworth","PIT"),
+                ("Freddie Solomon","SFO"),
+                ("Daryl Turner","SEA"),
+                ("Paul Coffman","GNB"),
+                ("Louis Lipps","PIT"),
+                ("Mike Quick","PHI"),
+                ("Mark Duper      ","MIA"),
+                ("Todd Christensen", "OR"),
+                ("Preston Dennard  ","BUF"),
+                ("Bobby Johnson  ","NYG"),
+                ("James Lofton  ","GNB"),
+                ("Art Monk      ","WAS"),
+                ("Derrick Ramsey  ","NWE"),
+                ("Wesley Walker  ","NYJ"),
+                ("Steve Watson  ","DEN"),
+                ("Stacey Bailey  ","ATL"),
+                ("Hoby Brenner  ","NOR"),
+                ("Ray Butler      ","CLT"),
+                ("Wes Chandler  ","SDG"),
+                ("Dwight Clark  ","SFO"),
+                ("Cris Collinsworth  ","CIN"),
+                ("Henry Ellard  ","RAM"),
+                ("Willie Gault  ","CHI"),
+                ("Butch Johnson  ","DEN"),
+                ("Charlie Joiner  ","SDG"),
+                ("Nat Moore      ","MIA"),
+                ("Zeke Mowatt      ","NYG"),
+                ("Mickey Shuler  ","NYJ"),
+                ("Leonard Thompson  ","DET"),
+                ("Gerald Carter  ","TAM"),
+                ("Clint Didier  ","WAS"),
+                ("Bruce Hardy      ","MIA"),
+                ("Tony Hill      ","DAL"),
+                ("Kevin House      ","TAM"),
+                ("James Jones      ","DET"),
+                ("Doug Marsh      ","CRD"),
+                ("Stanley Morgan  ","NWE"),
+                ("Ozzie Newsome  ","CLE"),
+                ("Pat Tilley      ","CRD"),
+                ("Jerry Bell      ","TAM"),
+                ("Ron Brown      ","RAM"),
+                ("Carlos Carson  ","KAN"),
+                ("Earl Cooper      ","SFO"),
+                ("Doug Cosbie      ","DAL"),
+                ("Lin Dawson      ","NWE"),
+                ("Bobby Duckworth  ","SDG"),
+                ("Byron Franklin  ","BUF"),
+                ("Drew Hill      ","RAM"),
+                ("Leo Lewis      ","MIN"),
+                ("Lionel Manuel  ","NYG"),
+                ("Henry Marshall  ","KAN"),
+                ("Calvin Muhammad  ","WAS"),
+                ("Stephone Paige  ","KAN"),
+            };
+            return playerList;
+        }
+
+        private List<(string, string)> LoadReceiversFrom1984Part2()
+        {
+            var playerList = new List<(string, string)>
+            {
+                ("Tim Smith      ","OTI"),
+                ("Stephen Starring  ","NWE"),
+                ("Ed West          ","GNB"),
+                ("Dokie Williams  ","RAI"),
+                ("Adger Armstrong  ","TAM"),
+                ("Brian Brennan  ","CLE"),
+                ("Charlie Brown  ","WAS"),
+                ("Ted Brown      ","MIN"),
+                ("Arthur Cox      ","ATL"),
+                ("Phil Epps      ","GNB"),
+                ("Eugene Goodlow  ","NOR"),
+                ("Stanford Jennings  ","CIN"),
+                ("Billy Johnson  ","ATL"),
+                ("Dan Johnson    ","MIA"),
+                ("Vyto Kab      ","PHI"),
+                ("Clarence Kay  ","DEN"),
+                ("David Lewis      ","DET"),
+                ("Dennis McKinnon  ","CHI"),
+                ("Willie Scott  ","KAN"),
+                ("Eric Sievers  ","SDG"),
+                ("Ron Springs      ","DAL"),
+                ("Weegie Thompson  ","PIT"),
+                ("Mike Tice      ","SEA"),
+                ("Jamie Williams  ","OTI"),
+                ("Wayne Wilson  ","NOR"),
+                ("Tony Woodruff  ","PHI"),
+                ("Tyrone Young", "NO"),
+            };
+            return playerList;
+        }
+
     }
 }

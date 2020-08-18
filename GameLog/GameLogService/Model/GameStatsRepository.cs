@@ -48,7 +48,8 @@ namespace GameLogService.Model
 				url);
 			var seasonTable = GetSeasonTable(
 				htmlDoc.DocumentNode);
-
+			if (seasonTable == null)
+				return result;
 			GatherStats(
 				seasonTable,
 				"pass_td",
@@ -94,11 +95,14 @@ namespace GameLogService.Model
 			var url = PlayerLogUrl(
 				season,
 				playerName);
+			if (url.StartsWith("no data"))
+				return result;
 			var htmlDoc = web.Load(
 				url);
 			var seasonTable = GetSeasonTable(
 				htmlDoc.DocumentNode);
-
+			if (seasonTable == null)
+				return result;
 			GatherStats(
 				seasonTable,
 				"fgm",
@@ -107,7 +111,6 @@ namespace GameLogService.Model
 				seasonTable,
 				"xpm",
 				out int[] xpm);
-
 
 			for (int w = 0; w < 16; w++)
 			{
@@ -281,6 +284,8 @@ namespace GameLogService.Model
 			HtmlNode seasonTable = null;
 			var tables = documentNode.SelectNodes(
 				"//table");
+			if (tables == null)
+				return seasonTable;
 			foreach (var table in tables)
 			{
 				if ( table.FirstChild.InnerHtml == "Regular Season Table" )
@@ -310,7 +315,7 @@ namespace GameLogService.Model
 		public string FirstLetterOfSurname(
 			string playerName)
 		{
-			var pieces = playerName.Split(' ');
+			var pieces = playerName.Trim().Split(' ');
 			var noOfPieces = pieces.Length;
 			var surname = pieces[noOfPieces - 1];
 			return surname.Substring(0, 1).ToUpper();
@@ -322,6 +327,7 @@ namespace GameLogService.Model
 		{
 			var playerCode = string.Empty;
 			HtmlWeb web = new HtmlWeb();
+			playerName = playerName.Trim();
 			var url = PlayerListUrl(
 				season,
 				playerName);
@@ -357,7 +363,7 @@ namespace GameLogService.Model
 		{
 			char[] delimiterChars = { '/', '.' };
 			string[] words = href.Split(delimiterChars);
-			var noWords = words.Length;
+			//var noWords = words.Length;
 			//Console.WriteLine($"{noWords} words in text:");
 
 			//foreach (var word in words)
@@ -409,6 +415,8 @@ namespace GameLogService.Model
 				playerName);
 			if (playerName == "Eddie Ivery")
 				playerCode = "IverEd00";
+			if (playerName == "Uwe von Schamann")
+				playerCode = "vonscuwe01";
 			if (string.IsNullOrEmpty(playerCode))
 				return $"no data for {playerName}";
 			return string.Format(

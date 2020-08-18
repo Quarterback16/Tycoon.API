@@ -1,4 +1,6 @@
-﻿namespace GameLogService.Model
+﻿using System;
+
+namespace GameLogService.Model
 {
 	public class GameStats
 	{
@@ -18,6 +20,11 @@
 		public override string ToString()
 		{
 			return $"Week:{Week:0#} {RushingTds}-{ReceivingTds}-{PassingTds}";
+		}
+
+		public int KickingPoints()
+		{
+			return (3 * FieldGoalsMade) + ExtraPointsMade;
 		}
 	}
 

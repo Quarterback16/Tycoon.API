@@ -85,5 +85,14 @@ namespace RosterService.Tests
 			Console.WriteLine("");
 		}
 
+		[TestMethod]
+		public void RetroRosters_KnowsPriceOfMontana()
+		{
+			var sut = new RetroRosters(
+				new RosterEventStore());
+			var result = sut.GetPriceOf(
+				"Joe Montana");
+			Assert.AreEqual(59, result);
+		}
 	}
 }

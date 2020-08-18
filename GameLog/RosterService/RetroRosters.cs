@@ -47,9 +47,11 @@ namespace RosterService
 			}
 		}
 
-		public string GetOwnerOf(string player)
+		public string GetOwnerOf(
+			string player,
+			string noOwner = "FA")
 		{
-			var owner = "FA";
+			var owner = noOwner;
 			foreach (KeyValuePair<string, List<string>> fteam in Roster)
 			{
 				foreach (string p in fteam.Value)
@@ -62,6 +64,34 @@ namespace RosterService
 				}
 			}
 			return owner;
+		}
+
+		public int GetPriceOf(
+			string player)
+		{
+			var price = 0;
+			foreach (var move in RosterMoves)
+			{
+				var direction = move.Direction;
+				if (direction.Equals("IN"))
+				{
+					if (move.Player.Equals(player))
+						price = Int32.Parse(move.Price);
+				}
+			}
+			return price;
+		}
+
+		public int GetIdOf(
+			string player)
+		{
+			var id = 0;
+			foreach (var move in RosterMoves)
+			{
+				if (move.Player.Equals(player))
+					id = Int32.Parse(move.Number);
+			}
+			return id;
 		}
 
 		public List<string> GetRoster(string fteam)
