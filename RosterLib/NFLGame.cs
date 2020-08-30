@@ -247,9 +247,11 @@ namespace RosterLib
 			GridStatsList = new List<GridStatsOutput>();
 		}
 
-		private void LoadGameFromDr( DataRow dr )
+		private void LoadGameFromDr( 
+			DataRow dr )
 		{
-			if ( dr == null ) return;
+			if ( dr == null )
+				return;
 
 			Id = dr[ "id" ].ToString();
 			Season = dr[ "SEASON" ].ToString();
@@ -285,13 +287,21 @@ namespace RosterLib
 			HomeTDd = Int32.Parse( dr[ "HOME_TDD" ].ToString() );
 			HomeTDs = Int32.Parse( dr[ "HOME_TDS" ].ToString() );
 
-			HomeTeamName = Masters.Tm.TeamFor( HomeTeam, Season );
-			AwayTeamName = Masters.Tm.TeamFor( AwayTeam, Season );
+			HomeTeamName = Masters.Tm.TeamFor(
+				HomeTeam,
+				Season);
+			AwayTeamName = Masters.Tm.TeamFor(
+				AwayTeam,
+				Season);
 
 			GetHomeTeam();
 			GetAwayTeam();
 
-			Result = new NFLResult( HomeTeam, HomeScore, AwayTeam, AwayScore );
+			Result = new NFLResult(
+				HomeTeam,
+				HomeScore,
+				AwayTeam,
+				AwayScore);
 		}
 
 		public decimal MyLine()
@@ -312,8 +322,12 @@ namespace RosterLib
 
 		public NflTeam GetHomeTeam()
 		{
-			HomeNflTeam = Masters.Tm.GetTeam( Season, HomeTeam );
-			HomeNflTeam.SetRecord( Season, skipPostseason: false );
+			HomeNflTeam = Masters.Tm.GetTeam( 
+				Season,
+				HomeTeam );
+			HomeNflTeam.SetRecord( 
+				Season, 
+				skipPostseason: false );
 			return HomeNflTeam;
 		}
 
@@ -2261,7 +2275,8 @@ namespace RosterLib
 			}
 			else
 			{
-				var r = new GameProjection( this );
+				var r = new GameProjection(
+					game: this );
 				r.Render();
 			}
 		}
@@ -2304,7 +2319,7 @@ namespace RosterLib
 
 		public decimal ProjectedSpread()
 		{
-			return ( ProjectedHomeScore - ProjectedAwayScore );
+			return  ProjectedHomeScore - ProjectedAwayScore;
 		}
 
 		internal string ScorersOff( string scoreType, string teamCode )
@@ -2414,7 +2429,9 @@ namespace RosterLib
 			return YahooList;
 		}
 
-		public void TallyYahooFor( NflTeam nflTeam, bool announceIt )
+		public void TallyYahooFor( 
+			NflTeam nflTeam, 
+			bool announceIt )
 		{
 			var theWeek = new NFLWeek( Season, WeekNo );
 
@@ -2678,19 +2695,26 @@ namespace RosterLib
 			BookieTip = new NFLResult( HomeTeam, homescore, AwayTeam, awayscore );
 		}
 
-		public virtual NFLResult GetPrediction( string predMethod )
+		public virtual NFLResult GetPrediction( 
+			string predMethod )
 		{
 			if ( PredictionGetter == null )
 				PredictionGetter = new DbfPredictionQueryMaster();
-
-			var prediction = PredictionGetter.Get( predMethod, Season, Week, GameCode );
+			var prediction = PredictionGetter.Get( 
+				predMethod, 
+				Season,
+				Week,
+				GameCode );
 			return prediction.NflResult;
 		}
 
-		public void LoadPrediction( string method )
+		public void LoadPrediction( 
+			string method )
 		{
-			if ( ProjectedHomeScore + ProjectedAwayScore != 0 ) return;
-			var result = GetPrediction( method );
+			if ( ProjectedHomeScore + ProjectedAwayScore != 0 ) 
+				return;
+			var result = GetPrediction( 
+				method );
 			ProjectedHomeTdp = result.HomeTDp;
 			ProjectedHomeFg = result.HomeFg;
 			ProjectedHomeTdr = result.HomeTDr;
@@ -2717,12 +2741,13 @@ namespace RosterLib
 		/// </summary>
 		public void LoadPrediction()
 		{
-			LoadPrediction( "unit" );
+			LoadPrediction(
+				method: "unit" );
 		}
 
 		internal int TotalTds()
 		{
-			return ( HomeTDd + HomeTDs + HomeTDr + HomeTDp + AwayTDd + AwayTDs + AwayTDr + AwayTDp );
+			return  HomeTDd + HomeTDs + HomeTDr + HomeTDp + AwayTDd + AwayTDs + AwayTDr + AwayTDp;
 		}
 
 		internal string ProjectionLink()

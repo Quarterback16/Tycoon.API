@@ -4527,7 +4527,7 @@
         "HomeScore": 36,
         "AwayScore": 36,
         "AwayTeam": "RICH",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "2",
@@ -4537,7 +4537,7 @@
         "HomeScore": 108,
         "AwayScore": 47,
         "AwayTeam": "HAW",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "2",
@@ -4547,7 +4547,7 @@
         "HomeScore": 81,
         "AwayScore": 69,
         "AwayTeam": "FRE",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "2",
@@ -4557,7 +4557,7 @@
         "HomeScore": 53,
         "AwayScore": 54,
         "AwayTeam": "MELB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "2",
@@ -4565,7 +4565,7 @@
         "League": "AFL",
         "HomeTeam": "GCFC",
         "AwayTeam": "WCE",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "2",
@@ -4575,7 +4575,7 @@
         "HomeScore": 110,
         "AwayScore": 35,
         "AwayTeam": "ADEL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "2",
@@ -4585,7 +4585,7 @@
         "HomeScore": 60,
         "AwayScore": 80,
         "AwayTeam": "NMFC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "2",
@@ -4595,7 +4595,7 @@
         "HomeScore": 73,
         "AwayScore": 79,
         "AwayTeam": "ESS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "2",
@@ -4605,7 +4605,7 @@
         "HomeScore": 88,
         "AwayScore": 49,
         "AwayTeam": "WB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4615,7 +4615,7 @@
         "HomeScore": 39,
         "AwayScore": 71,
         "AwayTeam": "HAW",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4625,7 +4625,7 @@
         "HomeScore": 57,
         "AwayScore": 33,
         "AwayTeam": "GWS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4635,7 +4635,7 @@
         "HomeScore": 60,
         "AwayScore": 71,
         "AwayTeam": "SYD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4645,7 +4645,7 @@
         "HomeScore": 81,
         "AwayScore": 37,
         "AwayTeam": "STK",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4655,7 +4655,7 @@
         "HomeScore": 74,
         "AwayScore": 44,
         "AwayTeam": "WCE",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4665,7 +4665,7 @@
         "HomeScore": 77,
         "AwayScore": 79,
         "AwayTeam": "CARL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4675,7 +4675,7 @@
         "HomeScore": 82,
         "AwayScore": 29,
         "AwayTeam": "ADEL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "3",
@@ -4685,7 +4685,7 @@
         "HomeScore": 41,
         "AwayScore": 70,
         "AwayTeam": "PORT",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "2",
@@ -4875,7 +4875,7 @@
         "HomeScore": 20,
         "AwayScore": 18,
         "AwayTeam": "BRIS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -4885,7 +4885,7 @@
         "HomeScore": 37,
         "AwayScore": 26,
         "AwayTeam": "NQLD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -4895,7 +4895,7 @@
         "HomeScore": 16,
         "AwayScore": 10,
         "AwayTeam": "PENR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -4905,7 +4905,7 @@
         "HomeScore": 32,
         "AwayScore": 12,
         "AwayTeam": "TITN",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -4915,7 +4915,7 @@
         "HomeScore": 12,
         "AwayScore": 26,
         "AwayTeam": "MELB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -4925,7 +4925,7 @@
         "HomeScore": 6,
         "AwayScore": 14,
         "AwayTeam": "CANB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -4935,7 +4935,7 @@
         "HomeScore": 6,
         "AwayScore": 42,
         "AwayTeam": "SYDR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -4945,7 +4945,7 @@
         "HomeScore": 30,
         "AwayScore": 16,
         "AwayTeam": "SHRK",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "6",
@@ -4955,7 +4955,7 @@
         "HomeScore": 27,
         "AwayScore": 6,
         "AwayTeam": "BRIS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "6",
@@ -4965,7 +4965,7 @@
         "HomeScore": 40,
         "AwayScore": 12,
         "AwayTeam": "NZW",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "6",
@@ -4975,7 +4975,7 @@
         "HomeScore": 21,
         "AwayScore": 14,
         "AwayTeam": "MELB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "6",
@@ -4985,7 +4985,7 @@
         "HomeScore": 8,
         "AwayScore": 20,
         "AwayTeam": "DRAG",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "6",
@@ -4995,7 +4995,7 @@
         "HomeScore": 36,
         "AwayScore": 20,
         "AwayTeam": "NQLD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "6",
@@ -5005,7 +5005,7 @@
         "HomeScore": 24,
         "AwayScore": 10,
         "AwayTeam": "PARR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "6",
@@ -5015,7 +5015,7 @@
         "HomeScore": 6,
         "AwayScore": 14,
         "AwayTeam": "MANL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "6",
@@ -5025,7 +5025,7 @@
         "HomeScore": 20,
         "AwayScore": 18,
         "AwayTeam": "BULL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5035,7 +5035,7 @@
         "HomeScore": 20,
         "AwayScore": 12,
         "AwayTeam": "SSYD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5045,7 +5045,7 @@
         "HomeScore": 50,
         "AwayScore": 6,
         "AwayTeam": "NZW",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5055,7 +5055,7 @@
         "HomeScore": 26,
         "AwayScore": 12,
         "AwayTeam": "DRAG",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5065,7 +5065,7 @@
         "HomeScore": 32,
         "AwayScore": 20,
         "AwayTeam": "NEWC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5075,7 +5075,7 @@
         "HomeScore": 12,
         "AwayScore": 30,
         "AwayTeam": "TITN",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5085,7 +5085,7 @@
         "HomeScore": 25,
         "AwayScore": 24,
         "AwayTeam": "CANB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5095,7 +5095,7 @@
         "HomeScore": 22,
         "AwayScore": 40,
         "AwayTeam": "SHRK",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5105,7 +5105,7 @@
         "HomeScore": 6,
         "AwayScore": 34,
         "AwayTeam": "WTIG",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "4",
@@ -5115,7 +5115,7 @@
         "HomeScore": 39,
         "AwayScore": 67,
         "AwayTeam": "WB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "4",
@@ -5125,7 +5125,7 @@
         "HomeScore": 66,
         "AwayScore": 64,
         "AwayTeam": "COLL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "4",
@@ -5135,7 +5135,7 @@
         "HomeScore": 89,
         "AwayScore": 41,
         "AwayTeam": "WCE",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "4",
@@ -5145,7 +5145,7 @@
         "HomeScore": 93,
         "AwayScore": 67,
         "AwayTeam": "RICH",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "4",
@@ -5155,7 +5155,7 @@
         "HomeScore": 51,
         "AwayScore": 52,
         "AwayTeam": "CARL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "4",
@@ -5165,7 +5165,7 @@
         "HomeScore": 64,
         "AwayScore": 51,
         "AwayTeam": "FRE",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "4",
@@ -5175,7 +5175,7 @@
         "HomeScore": 83,
         "AwayScore": 46,
         "AwayTeam": "ADEL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "4",
@@ -5185,7 +5185,7 @@
         "HomeScore": 44,
         "AwayScore": 47,
         "AwayTeam": "GEEL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "4",
@@ -5195,7 +5195,7 @@
         "HomeScore": 58,
         "AwayScore": 54,
         "AwayTeam": "NMFC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5205,7 +5205,7 @@
         "HomeScore": 27,
         "AwayScore": 25,
         "AwayTeam": "SYDR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5215,7 +5215,7 @@
         "HomeScore": 22,
         "AwayScore": 16,
         "AwayTeam": "DRAG",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5225,7 +5225,7 @@
         "HomeScore": 42,
         "AwayScore": 4,
         "AwayTeam": "NQLD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5235,7 +5235,7 @@
         "HomeScore": 10,
         "AwayScore": 40,
         "AwayTeam": "SHRK",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5245,7 +5245,7 @@
         "HomeScore": 26,
         "AwayScore": 16,
         "AwayTeam": "BRIS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5255,7 +5255,7 @@
         "HomeScore": 12,
         "AwayScore": 19,
         "AwayTeam": "PENR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5265,7 +5265,7 @@
         "HomeScore": 12,
         "AwayScore": 14,
         "AwayTeam": "NEWC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5275,7 +5275,7 @@
         "HomeScore": 10,
         "AwayScore": 26,
         "AwayTeam": "SSYD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -5285,7 +5285,7 @@
         "HomeScore": 77,
         "AwayScore": 43,
         "AwayTeam": "SSYD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -5295,7 +5295,7 @@
         "HomeScore": 48,
         "AwayScore": 63,
         "AwayTeam": "ESS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -5305,7 +5305,7 @@
         "HomeScore": 55,
         "AwayScore": 73,
         "AwayTeam": "STK",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -5315,7 +5315,7 @@
         "HomeScore": 89,
         "AwayScore": 52,
         "AwayTeam": "GCFC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -5325,7 +5325,7 @@
         "HomeScore": 87,
         "AwayScore": 38,
         "AwayTeam": "NMFC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -5335,7 +5335,7 @@
         "HomeScore": 85,
         "AwayScore": 48,
         "AwayTeam": "PORT",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -5345,7 +5345,7 @@
         "HomeScore": 34,
         "AwayScore": 54,
         "AwayTeam": "FRE",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -5355,7 +5355,7 @@
         "HomeScore": 52,
         "AwayScore": 79,
         "AwayTeam": "RICH",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "5",
@@ -5365,7 +5365,7 @@
         "HomeScore": 83,
         "AwayScore": 49,
         "AwayTeam": "HAW",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5375,7 +5375,7 @@
         "HomeScore": 20,
         "AwayScore": 24,
         "AwayTeam": "CANB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5385,7 +5385,7 @@
         "HomeScore": 42,
         "AwayScore": 6,
         "AwayTeam": "TITN",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5395,7 +5395,7 @@
         "HomeScore": 48,
         "AwayScore": 0,
         "AwayTeam": "BRIS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5405,7 +5405,7 @@
         "HomeScore": 28,
         "AwayScore": 22,
         "AwayTeam": "BULL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5415,7 +5415,7 @@
         "HomeScore": 18,
         "AwayScore": 20,
         "AwayTeam": "NEWC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5425,7 +5425,7 @@
         "HomeScore": 22,
         "AwayScore": 18,
         "AwayTeam": "PARR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5435,7 +5435,7 @@
         "HomeScore": 10,
         "AwayScore": 46,
         "AwayTeam": "SHRK",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5445,7 +5445,7 @@
         "HomeScore": 22,
         "AwayScore": 10,
         "AwayTeam": "NQLD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5455,7 +5455,7 @@
         "HomeScore": 35,
         "AwayScore": 57,
         "AwayTeam": "COLL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5465,7 +5465,7 @@
         "HomeScore": 51,
         "AwayScore": 93,
         "AwayTeam": "WB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5475,7 +5475,7 @@
         "HomeScore": 68,
         "AwayScore": 88,
         "AwayTeam": "BL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5485,7 +5485,7 @@
         "HomeScore": 60,
         "AwayScore": 92,
         "AwayTeam": "GCFC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5495,7 +5495,7 @@
         "HomeScore": 77,
         "AwayScore": 23,
         "AwayTeam": "NMFC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5505,7 +5505,7 @@
         "HomeScore": 61,
         "AwayScore": 64,
         "AwayTeam": "PORT",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5515,7 +5515,7 @@
         "HomeScore": 48,
         "AwayScore": 91,
         "AwayTeam": "MELB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5525,7 +5525,7 @@
         "HomeScore": 32,
         "AwayScore": 62,
         "AwayTeam": "WCE",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "7",
@@ -5535,7 +5535,7 @@
         "HomeScore": 55,
         "AwayScore": 78,
         "AwayTeam": "STK",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "11",
@@ -5545,7 +5545,7 @@
         "HomeScore": 26,
         "AwayScore": 16,
         "AwayTeam": "WTIG",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "11",
@@ -5555,7 +5555,7 @@
         "HomeScore": 12,
         "AwayScore": 24,
         "AwayTeam": "MANL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "11",
@@ -5565,7 +5565,7 @@
         "HomeScore": 8,
         "AwayScore": 46,
         "AwayTeam": "MELB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "11",
@@ -5575,7 +5575,7 @@
         "HomeScore": 10,
         "AwayScore": 18,
         "AwayTeam": "SYDR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "11",
@@ -5585,7 +5585,7 @@
         "HomeScore": 28,
         "AwayScore": 24,
         "AwayTeam": "DRAG",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "11",
@@ -5595,7 +5595,7 @@
         "HomeScore": 18,
         "AwayScore": 12,
         "AwayTeam": "SSYD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "11",
@@ -5605,7 +5605,7 @@
         "HomeScore": 12,
         "AwayScore": 18,
         "AwayTeam": "BULL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "11",
@@ -5615,7 +5615,7 @@
         "HomeScore": 14,
         "AwayScore": 22,
         "AwayTeam": "PENR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5625,7 +5625,7 @@
         "HomeScore": 46,
         "AwayScore": 51,
         "AwayTeam": "WB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5635,7 +5635,7 @@
         "HomeScore": 62,
         "AwayScore": 50,
         "AwayTeam": "RICH",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5645,7 +5645,7 @@
         "HomeScore": 57,
         "AwayScore": 64,
         "AwayTeam": "CARL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5655,7 +5655,7 @@
         "HomeScore": 60,
         "AwayScore": 53,
         "AwayTeam": "HAW",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5665,7 +5665,7 @@
         "HomeScore": 44,
         "AwayScore": 73,
         "AwayTeam": "STK",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5675,7 +5675,7 @@
         "HomeScore": 59,
         "AwayScore": 62,
         "AwayTeam": "ESS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5685,7 +5685,7 @@
         "HomeScore": 111,
         "AwayScore": 45,
         "AwayTeam": "COLL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5695,7 +5695,7 @@
         "HomeScore": 49,
         "AwayScore": 53,
         "AwayTeam": "BL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "8",
@@ -5705,7 +5705,7 @@
         "HomeScore": 16,
         "AwayScore": 48,
         "AwayTeam": "GEEL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "9",
@@ -5715,7 +5715,7 @@
         "HomeScore": 49,
         "AwayScore": 90,
         "AwayTeam": "RICH",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "9",
@@ -5725,7 +5725,7 @@
         "HomeScore": 32,
         "AwayScore": 83,
         "AwayTeam": "PORT",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "9",
@@ -5735,7 +5735,7 @@
         "HomeScore": 58,
         "AwayScore": 89,
         "AwayTeam": "HAW",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "9",
@@ -5745,7 +5745,7 @@
         "HomeScore": 28,
         "AwayScore": 91,
         "AwayTeam": "BL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "9",
@@ -5755,7 +5755,7 @@
         "HomeScore": 119,
         "AwayScore": 50,
         "AwayTeam": "ADEL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "9",
@@ -5765,7 +5765,7 @@
         "HomeScore": 101,
         "AwayScore": 48,
         "AwayTeam": "SYD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "9",
@@ -5775,7 +5775,7 @@
         "HomeScore": 73,
         "AwayScore": 64,
         "AwayTeam": "GEEL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "9",
@@ -5785,7 +5785,7 @@
         "HomeScore": 35,
         "AwayScore": 61,
         "AwayTeam": "GWS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "9",
@@ -5795,7 +5795,7 @@
         "HomeScore": 61,
         "AwayScore": 49,
         "AwayTeam": "COLL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -5805,7 +5805,7 @@
         "HomeScore": 24,
         "AwayScore": 32,
         "AwayTeam": "SSYD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -5815,7 +5815,7 @@
         "HomeScore": 20,
         "AwayScore": 26,
         "AwayTeam": "NZW",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -5825,7 +5825,7 @@
         "HomeScore": 26,
         "AwayScore": 36,
         "AwayTeam": "SHRK",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -5835,7 +5835,7 @@
         "HomeScore": 18,
         "AwayScore": 12,
         "AwayTeam": "TITN",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -5845,7 +5845,7 @@
         "HomeScore": 12,
         "AwayScore": 14,
         "AwayTeam": "CANB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -5855,7 +5855,7 @@
         "HomeScore": 12,
         "AwayScore": 42,
         "AwayTeam": "PENR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -5865,7 +5865,7 @@
         "HomeScore": 16,
         "AwayScore": 18,
         "AwayTeam": "PARR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -5875,7 +5875,7 @@
         "HomeScore": 26,
         "AwayScore": 16,
         "AwayTeam": "NEWC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5885,7 +5885,7 @@
         "HomeScore": 55,
         "AwayScore": 42,
         "AwayTeam": "WB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5895,7 +5895,7 @@
         "HomeScore": 82,
         "AwayScore": 41,
         "AwayTeam": "BL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5905,7 +5905,7 @@
         "HomeScore": 90,
         "AwayScore": 57,
         "AwayTeam": "NMFC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5915,7 +5915,7 @@
         "HomeScore": 37,
         "AwayScore": 88,
         "AwayTeam": "MELB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5925,7 +5925,7 @@
         "HomeScore": 50,
         "AwayScore": 41,
         "AwayTeam": "SYD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5935,7 +5935,7 @@
         "HomeScore": 74,
         "AwayScore": 78,
         "AwayTeam": "STK",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "10",
@@ -5945,7 +5945,7 @@
         "HomeScore": 55,
         "AwayScore": 59,
         "AwayTeam": "GWS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "13",
@@ -5955,7 +5955,7 @@
         "HomeScore": 16,
         "AwayScore": 24,
         "AwayTeam": "SYDR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "13",
@@ -5965,7 +5965,7 @@
         "HomeScore": 22,
         "AwayScore": 26,
         "AwayTeam": "NZW",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "13",
@@ -5975,7 +5975,7 @@
         "HomeScore": 28,
         "AwayScore": 10,
         "AwayTeam": "BRIS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "13",
@@ -5985,7 +5985,7 @@
         "HomeScore": 41,
         "AwayScore": 10,
         "AwayTeam": "BULL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "13",
@@ -5995,7 +5995,7 @@
         "HomeScore": 44,
         "AwayScore": 4,
         "AwayTeam": "WTIG",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "13",
@@ -6005,7 +6005,7 @@
         "HomeScore": 28,
         "AwayScore": 12,
         "AwayTeam": "CANB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "13",
@@ -6015,7 +6015,7 @@
         "HomeScore": 30,
         "AwayScore": 10,
         "AwayTeam": "NQLD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "13",
@@ -6025,7 +6025,7 @@
         "HomeScore": 12,
         "AwayScore": 14,
         "AwayTeam": "PARR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -6035,7 +6035,7 @@
         "HomeScore": 66,
         "AwayScore": 25,
         "AwayTeam": "GWS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -6045,7 +6045,7 @@
         "HomeScore": 91,
         "AwayScore": 31,
         "AwayTeam": "PORT",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -6055,7 +6055,7 @@
         "HomeScore": 52,
         "AwayScore": 53,
         "AwayTeam": "BL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -6065,7 +6065,7 @@
         "HomeScore": 100,
         "AwayScore": 44,
         "AwayTeam": "COLL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -6075,7 +6075,7 @@
         "HomeScore": 36,
         "AwayScore": 40,
         "AwayTeam": "CARL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -6085,7 +6085,7 @@
         "HomeScore": 111,
         "AwayScore": 54,
         "AwayTeam": "ADEL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -6095,7 +6095,7 @@
         "HomeScore": 68,
         "AwayScore": 33,
         "AwayTeam": "ESS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -6105,7 +6105,7 @@
         "HomeScore": 81,
         "AwayScore": 49,
         "AwayTeam": "HAW",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "12",
@@ -6115,7 +6115,7 @@
         "HomeScore": 53,
         "AwayScore": 32,
         "AwayTeam": "GCFC",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "14",
@@ -6125,7 +6125,7 @@
         "HomeScore": 6,
         "AwayScore": 24,
         "AwayTeam": "MELB",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "14",
@@ -6135,7 +6135,7 @@
         "HomeScore": 12,
         "AwayScore": 18,
         "AwayTeam": "PENR",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "14",
@@ -6145,7 +6145,7 @@
         "HomeScore": 12,
         "AwayScore": 14,
         "AwayTeam": "DRAG",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "14",
@@ -6155,7 +6155,7 @@
         "HomeScore": 30,
         "AwayScore": 18,
         "AwayTeam": "TITN",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "14",
@@ -6165,7 +6165,7 @@
         "HomeScore": 30,
         "AwayScore": 31,
         "AwayTeam": "SSYD",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "14",
@@ -6175,7 +6175,7 @@
         "HomeScore": 36,
         "AwayScore": 8,
         "AwayTeam": "BRIS",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "14",
@@ -6185,7 +6185,7 @@
         "HomeScore": 29,
         "AwayScore": 28,
         "AwayTeam": "BULL",
-        "EventType": "schedule"
+        "EventType": "result"
     },
     {
         "round": "14",
@@ -6195,7 +6195,177 @@
         "HomeScore": 26,
         "AwayScore": 24,
         "AwayTeam": "MANL",
-        "EventType": "schedule"
+        "EventType": "result"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-20 19:50",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "HomeScore": 14,
+        "AwayScore": 0,
+        "AwayTeam": "MELB",
+        "EventType": "result"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-21 18:00",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "HomeScore": 38,
+        "AwayScore": 12,
+        "AwayTeam": "SHRK",
+        "EventType": "result"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-21 19:55",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "HomeScore": 24,
+        "AwayScore": 28,
+        "AwayTeam": "DRAG",
+        "EventType": "result"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-22 15:00",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "HomeScore": 16,
+        "AwayScore": 36,
+        "AwayTeam": "CANB",
+        "EventType": "result"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-22 17:30",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "HomeScore": 16,
+        "AwayScore": 38,
+        "AwayTeam": "SYDR",
+        "EventType": "result"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-22 19:35",
+        "League": "NRL",
+        "HomeTeam": "SSYD",
+        "HomeScore": 56,
+        "AwayScore": 16,
+        "AwayTeam": "MANL",
+        "EventType": "result"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-23 14:00",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "HomeScore": 14,
+        "AwayScore": 20,
+        "AwayTeam": "NZW",
+        "EventType": "result"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-23 16:05",
+        "League": "NRL",
+        "HomeTeam": "NEWC",
+        "HomeScore": 12,
+        "AwayScore": 0,
+        "AwayTeam": "NQLD",
+        "EventType": "result"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-21 19:50",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "HomeScore": 27,
+        "AwayScore": 60,
+        "AwayTeam": "CARL",
+        "EventType": "result"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-22 13:45",
+        "League": "AFL",
+        "HomeTeam": "WB",
+        "HomeScore": 80,
+        "AwayScore": 52,
+        "AwayTeam": "MELB",
+        "EventType": "result"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-22 16:35",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "HomeScore": 68,
+        "AwayScore": 58,
+        "AwayTeam": "HAW",
+        "EventType": "result"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-22 19:40",
+        "League": "AFL",
+        "HomeTeam": "ESS",
+        "HomeScore": 61,
+        "AwayScore": 73,
+        "AwayTeam": "RICH",
+        "EventType": "result"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-22 20:10",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "HomeScore": 50,
+        "AwayScore": 19,
+        "AwayTeam": "SYD",
+        "EventType": "result"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-23 13:05",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "HomeScore": 37,
+        "AwayScore": 65,
+        "AwayTeam": "GEEL",
+        "EventType": "result"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-23 15:35",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "HomeScore": 50,
+        "AwayScore": 48,
+        "AwayTeam": "STK",
+        "EventType": "result"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-23 18:10",
+        "League": "AFL",
+        "HomeTeam": "WCE",
+        "HomeScore": 61,
+        "AwayScore": 49,
+        "AwayTeam": "GWS",
+        "EventType": "result"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-24 19:10",
+        "League": "AFL",
+        "HomeTeam": "COLL",
+        "HomeScore": 65,
+        "AwayScore": 35,
+        "AwayTeam": "NMFC",
+        "EventType": "result"
     }
 
 ]

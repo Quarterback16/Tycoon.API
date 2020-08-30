@@ -138,14 +138,15 @@ namespace RosterLib
 			string week,
 			DateTime projectionDate)
 		{
-			Announce(string.Format("SeasonProjection metric={0} ...", metricName));
+			Announce($"SeasonProjection metric={metricName} ...");
 
 			FileOut = ProjectionFileName( 
 				metricName, 
 				season );
 
-			_html = new HtmlFile( FileOut,
-								 " Win Projections as of " + projectionDate.ToString( "ddd dd MMM yy" ) );
+			_html = new HtmlFile( 
+				FileOut,
+				" Win Projections as of " + projectionDate.ToString( "ddd dd MMM yy" ) );
 
 			_html.AddToBody( 
 				Header( "Season Projections " + metricName + " - " + season ) );
@@ -167,19 +168,17 @@ namespace RosterLib
 		}
 
 		public string ProjectionFileName( 
-			string metricName, string season )
+			string metricName,
+			string season )
 		{
-			return string.Format( "{0}{2}\\Projections\\Proj-{1}-{2}.htm",
-								 Utility.OutputDirectory(), metricName,
-								 season );
+			return $"{Utility.OutputDirectory()}{season}\\Projections\\Proj-{metricName}-{season}.htm";
 		}
 
 		public string ProjectionFileName1( 
 			string metricName, 
 			string season )
 		{
-			return string.Format( "{1}\\Projections\\Proj-{0}-{1}.htm",
-								 metricName, season );
+			return $"{season}\\Projections\\Proj-{metricName}-{season}.htm";
 		}
 
 		public string ProjectionFileName2( 
@@ -187,9 +186,7 @@ namespace RosterLib
 			string season, 
 			string week )
 		{
-			return string.Format( "{1}\\Projections\\Proj-{0}-{1}-{2:0#}.htm",
-								 metricName,
-								 season, Int32.Parse( week ) );
+			return $"{season}\\Projections\\Proj-{metricName}-{season}-{Int32.Parse(week):0#}.htm";
 		}
 
 		public void DumpProjections()
@@ -254,7 +251,11 @@ namespace RosterLib
 			}
 		}
 
-		private static void AddRow( DataTable dt, int stat, NflTeam t, string metricName )
+		private static void AddRow(
+			DataTable dt,
+			int stat,
+			NflTeam t,
+			string metricName)
 		{
 			var dr = dt.NewRow();
 			var p = t.GetCurrentStarter( PosInFocus( metricName ) );
@@ -265,20 +266,27 @@ namespace RosterLib
 			if ( p != null )
 			{
 				starterName = p.PlayerName;
-				gs11Owner = Utility.TflWs.GetStatus( p.PlayerCode, "GS", Utility.CurrentSeason() );
-				gs2Owner = Utility.TflWs.GetStatus( p.PlayerCode, "G2", Utility.CurrentSeason() );
+				gs11Owner = Utility.TflWs.GetStatus(
+					p.PlayerCode,
+					"GS",
+					Utility.CurrentSeason());
+				gs2Owner = Utility.TflWs.GetStatus(
+					p.PlayerCode,
+					"G2",
+					Utility.CurrentSeason());
 			}
 
 			dr[ "TEAM" ] = t.Name;
 			dr[ "TOTAL" ] = Normalised( stat, metricName );
-			dr[ "STARTER" ] = ( metricName.Equals( "spread" ) ? "" : starterName );
+			dr[ "STARTER" ] =  metricName.Equals( "spread" ) ? "" : starterName ;
 			dr[ "GS" ] = gs11Owner;
 			dr[ "G2" ] = gs2Owner;
 
 			dt.Rows.Add( dr );
 		}
 
-		private static string PosInFocus( IEquatable<string> metricName )
+		private static string PosInFocus(
+			IEquatable<string> metricName )
 		{
 			var posOut = String.Empty;
 			if ( metricName.Equals( "Tdp" ) )
@@ -288,7 +296,9 @@ namespace RosterLib
 			return posOut;
 		}
 
-		private static int Normalised( int metric, string metricName )
+		private static int Normalised( 
+			int metric, 
+			string metricName )
 		{
 			var metricOut = metric;
 			if ( metricName.Equals( "Tdp" ) )
@@ -361,20 +371,28 @@ namespace RosterLib
 					AuditTrail = false,
 					WriteProjection = true,
 					StorePrediction = true,
-					RatingsService = new UnitRatingsService(new TimeKeeper(null) )
+					RatingsService = new UnitRatingsService(
+						new TimeKeeper(null) )
 				};
 			else
 				predictor = new WizPredictor();
 			var s = HtmlLib.TableOpen( "border=1 cellpadding='0' cellspacing='0'" );
 #if !DEBUG
 			//  to save time testing
-			if ( Nfc != null ) s += Nfc.SeasonProjection( metric, predictor, projectionDate );
+			if ( Nfc != null ) s += Nfc.SeasonProjection( 
+				metric, 
+				predictor, 
+				projectionDate );
 #endif
-			if ( Afc != null ) s += Afc.SeasonProjection( metric, predictor, projectionDate );
+			if ( Afc != null ) s += Afc.SeasonProjection( 
+				metric, 
+				predictor, 
+				projectionDate );
 			return s;
 		}
 
-		private string Header( string cHeading )
+		private string Header( 
+			string cHeading )
 		{
 			var htmlOut = HtmlLib.TableOpen( "class='title' cellpadding='0' cellspacing='0'" ) + "\n\t"
 						  + HtmlLib.TableRowOpen() + "\n\t\t"

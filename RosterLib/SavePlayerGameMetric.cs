@@ -4,12 +4,14 @@ namespace RosterLib
    //  Filter
    public class SavePlayerGameMetrics
    {
-      public SavePlayerGameMetrics( PlayerGameProjectionMessage input )
+      public SavePlayerGameMetrics(
+          PlayerGameProjectionMessage input )
       {
          Process( input );
       }
 
-      private static void Process( PlayerGameProjectionMessage input )
+      private static void Process( 
+          PlayerGameProjectionMessage input )
       {
          var nMetrics = 0;
          foreach ( var pgm in input.Game.PlayerGameMetrics )

@@ -4238,7 +4238,329 @@
         "HomeTeam": "COLL",
         "AwayTeam": "NMFC",
         "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-27 16:40",
+        "League": "AFL",
+        "HomeTeam": "HAW",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-27 19:10",
+        "League": "AFL",
+        "HomeTeam": "RICH",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-28 19:50",
+        "League": "AFL",
+        "HomeTeam": "WB",
+        "AwayTeam": "GEEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-29 13:45",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "AwayTeam": "SYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-29 16:35",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-29 19:40",
+        "League": "AFL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "STK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-30 15:35",
+        "League": "AFL",
+        "HomeTeam": "CARL",
+        "AwayTeam": "COLL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-30 18:10",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "NMFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-01 17:40",
+        "League": "AFL",
+        "HomeTeam": "HAW",
+        "AwayTeam": "ADEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-01 20:10",
+        "League": "AFL",
+        "HomeTeam": "WCE",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-02 19:10",
+        "League": "AFL",
+        "HomeTeam": "RICH",
+        "AwayTeam": "FRE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-03 16:40",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-03 19:10",
+        "League": "AFL",
+        "HomeTeam": "GWS",
+        "AwayTeam": "CARL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-04 19:50",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "COLL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-05 19:40",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "PORT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-06 13:05",
+        "League": "AFL",
+        "HomeTeam": "STK",
+        "AwayTeam": "HAW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-06 15:35",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-06 18:10",
+        "League": "AFL",
+        "HomeTeam": "WB",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-07 19:10",
+        "League": "AFL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "FRE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-08 17:40",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-08 20:10",
+        "League": "AFL",
+        "HomeTeam": "CARL",
+        "AwayTeam": "SYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-09 19:10",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "GCFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-10 19:10",
+        "League": "AFL",
+        "HomeTeam": "STK",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-11 19:50",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "RICH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-12 13:45",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "FRE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-12 16:35",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-12 19:40",
+        "League": "AFL",
+        "HomeTeam": "GWS",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-13 13:05",
+        "League": "AFL",
+        "HomeTeam": "CARL",
+        "AwayTeam": "ADEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-13 15:35",
+        "League": "AFL",
+        "HomeTeam": "HAW",
+        "AwayTeam": "WB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-13 18:10",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "BL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-14 19:10",
+        "League": "AFL",
+        "HomeTeam": "COLL",
+        "AwayTeam": "GCFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "RICH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "CARL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "COLL",
+        "AwayTeam": "PORT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "ESS",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "WB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "HAW",
+        "AwayTeam": "GCFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "STK",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "GEEL",
+        "EventType": "schedule"
     }
+
+
 
 ]
 

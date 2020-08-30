@@ -90,8 +90,7 @@ namespace RosterLib
 
 		public override string OutputFilename()
 		{
-			return string.Format( "{0}{1}/DepthCharts/Errors.htm",
-				Utility.OutputDirectory(), Season );
+			return $"{Utility.OutputDirectory()}{Season}/DepthCharts/Errors.htm";
 		}
 
 		private string GenerateBody()
@@ -144,7 +143,8 @@ namespace RosterLib
 				bodyOut.AppendLine( line );
 
 			NflTeam.LoadRushUnit();
-			bodyOut.AppendLine( $"Rush Unit : ({NflTeam.RoRating()})" );
+			bodyOut.AppendLine(
+				$"Rush Unit : ({NflTeam.RoRating()})" );
 			lines = NflTeam.RunUnit.DumpUnit();
 			foreach ( var line in lines )
 				bodyOut.AppendLine( line );

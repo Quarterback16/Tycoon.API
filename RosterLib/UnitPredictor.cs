@@ -46,11 +46,11 @@ namespace RosterLib
 			//  Matrix for predicting TD passes POvPD
 			_tdp = new[ , ]
 				{
+					{1, 0, 0, 0, 0},
 					{1, 1, 0, 0, 0},
 					{2, 1, 1, 0, 0},
 					{2, 2, 1, 1, 0},
-					{3, 2, 2, 1, 1},
-					{4, 3, 2, 2, 1}
+					{3, 2, 2, 1, 1}
 				};
 
 			//  Matrix for predicting YDp POvPD
@@ -68,17 +68,17 @@ namespace RosterLib
 				{
 					{1, 0, 0, 0, 0},
 					{1, 1, 0, 0, 0},
-					{2, 2, 1, 0, 0},
-					{3, 3, 2, 1, 0},
-					{4, 3, 2, 1, 1}
+					{2, 1, 1, 0, 0},
+					{2, 2, 1, 1, 0},
+					{3, 2, 2, 1, 1}
 				};
 
-			//  Matrix for predicting YD5  ROvRD
+			//  Matrix for predicting YDr  ROvRD
 			_ydr = new[ , ]
 				{
-					{116, 125, 75,  55,   45},
+					{116, 100, 75,  55,   45},
 					{125, 116, 100, 75,   55 },
-					{140, 125, 116, 100,  75 },
+					{140, 130, 116, 100,  75 },
 					{160, 140, 125, 116, 100},
 					{200, 160, 140, 125, 116}
 				};
@@ -97,7 +97,10 @@ namespace RosterLib
 			StorePrediction = true;
 		}
 
-		public NFLResult PredictGame( NFLGame game, IStorePredictions persistor, DateTime predictionDate )
+		public NFLResult PredictGame( 
+			NFLGame game, 
+			IStorePredictions persistor, 
+			DateTime predictionDate )
 		{
 			if ( TakeActuals )
 				if ( game.Played() )
@@ -106,17 +109,32 @@ namespace RosterLib
 			const int homeRating = 0;
 			const int awayRating = 0;
 
-			if ( game.HomeNflTeam == null ) game.HomeNflTeam = Masters.Tm.GetTeam( game.Season + game.HomeTeam );
-			if ( game.AwayNflTeam == null ) game.AwayNflTeam = Masters.Tm.GetTeam( game.Season + game.AwayTeam );
+			if ( game.HomeNflTeam == null ) 
+				game.HomeNflTeam = Masters.Tm.GetTeam( 
+					game.Season + game.HomeTeam );
+			if ( game.AwayNflTeam == null ) 
+				game.AwayNflTeam = Masters.Tm.GetTeam(
+					game.Season + game.AwayTeam );
 
-			var homeMetrics = CalculateGameMetrics( true, game, predictionDate );
-			var awayMetrics = CalculateGameMetrics( false, game, predictionDate );
+			var homeMetrics = CalculateGameMetrics(
+				isHome: true,
+				game: game,
+				focusDate: predictionDate );
+			var awayMetrics = CalculateGameMetrics(
+				isHome: false,
+				game: game,
+				focusDate: predictionDate );
 			var homeScore = homeMetrics.Score;
 			var awayScore = awayMetrics.Score;
 
-			if ( homeScore == awayScore ) homeScore++;  //  no ties
+			if ( homeScore == awayScore ) 
+				homeScore++;  //  no ties
 
-			game.Result = new NFLResult( game.HomeTeam, homeScore, game.AwayTeam, awayScore )
+			game.Result = new NFLResult( 
+				game.HomeTeam, 
+				homeScore, 
+				game.AwayTeam, 
+				awayScore )
 			{
 				HomeTDp = _homeTDp,
 				HomeTDr = _homeTDr,
@@ -138,7 +156,9 @@ namespace RosterLib
 				AuditIt( game, game.Result, homeRating, awayRating );
 
 			if ( StorePrediction )
-				StorePredictedResult( game, game.Result );
+				StorePredictedResult(
+					game, 
+					game.Result );
 
 			//  pulled this out to its own job "GameProjectionReportsJob"
 			//if ( WriteProjection )
@@ -147,12 +167,20 @@ namespace RosterLib
 			return game.Result;
 		}
 
-		private void StorePredictedResult( NFLGame game, NFLResult nflResult )
+		private void StorePredictedResult( 
+			NFLGame game, 
+			NFLResult nflResult )
 		{
-			PredictionStorer.StorePrediction( "unit", game, nflResult );
+			PredictionStorer.StorePrediction( 
+				"unit", 
+				game, 
+				nflResult );
 		}
 
-		private GameMetrics CalculateGameMetrics( bool isHome, NFLGame game, DateTime focusDate )
+		private GameMetrics CalculateGameMetrics(
+			bool isHome, 
+			NFLGame game, 
+			DateTime focusDate )
 		{
 			string teamRatings;
 			string oppRatings;
@@ -161,24 +189,46 @@ namespace RosterLib
 
 			if ( isHome )
 			{
-				oppRatings = RatingsService.GetUnitRatingsFor( game.AwayNflTeam, focusDate );
-				teamRatings = RatingsService.GetUnitRatingsFor( game.HomeNflTeam, focusDate );
+				oppRatings = RatingsService.GetUnitRatingsFor( 
+					game.AwayNflTeam, 
+					focusDate );
+				teamRatings = RatingsService.GetUnitRatingsFor( 
+					game.HomeNflTeam,
+					focusDate );
+				//  pump up the defence ratings if its divisional game
+				if (game.IsDivisionalGame())
+				{
+					teamRatings = PumpIt(
+						teamRatings);
+				}
 				game.AwayNflTeam.Ratings = oppRatings;
 				game.HomeNflTeam.Ratings = teamRatings;
 			}
 			else
 			{
-				teamRatings = RatingsService.GetUnitRatingsFor( game.AwayNflTeam, focusDate );
-				oppRatings = RatingsService.GetUnitRatingsFor( game.HomeNflTeam, focusDate );
+				teamRatings = RatingsService.GetUnitRatingsFor(
+					game.AwayNflTeam,
+					focusDate );
+				oppRatings = RatingsService.GetUnitRatingsFor( 
+					game.HomeNflTeam, 
+					focusDate );
+				//  pump up the defence ratings if its divisional game
+				if (game.IsDivisionalGame())
+				{
+					oppRatings = PumpIt(
+						oppRatings);
+				}
 				game.HomeNflTeam.Ratings = oppRatings;
 				game.AwayNflTeam.Ratings = teamRatings;
 			}
 
 			var score = 0;
-			if ( string.IsNullOrEmpty( teamRatings ) || string.IsNullOrEmpty( oppRatings ) )
+			if ( string.IsNullOrEmpty( teamRatings ) 
+				|| string.IsNullOrEmpty( oppRatings ) )
 				Announce( "Ratings not found - skipping score calculation" );
 			else
 			{
+				//  Part 0 - Calculate field goals
 				var fg = isHome ? 2 : 1;
 				if ( game.IsDomeGame() )
 					fg++;
@@ -213,9 +263,13 @@ namespace RosterLib
 				gm.TDr = tdr;
 				gm.YDr = ydr;
 
-				var tdd = DefensiveScores( game.IsDivisionalGame(), isHome );
+				var tdd = DefensiveScores( 
+					game.IsDivisionalGame(), 
+					isHome );
 
-				var tds = SpecialTeamScores( game.IsMondayNight(), isHome );
+				var tds = SpecialTeamScores( 
+					game.IsMondayNight(),
+					isHome );
 
 				gm.TDd = tdd;
 				gm.TDs = tds;
@@ -228,8 +282,24 @@ namespace RosterLib
 				// Total up all the parts of a score
 				score = ( tdp + tdr + tdd + tds ) * 7 + ( fg * 3 );
 
-				DumpCalculations( isHome, game, tdr, pr, pp, ro, tds, tdd, rd, oppRatings,
-					teamRatings, ppr, tdp, score, pd, po, fg );
+				DumpCalculations( 
+					isHome, 
+					game, 
+					tdr, 
+					pr, 
+					pp, 
+					ro, 
+					tds, 
+					tdd,
+					rd,
+					oppRatings,
+					teamRatings,
+					ppr, 
+					tdp,
+					score, 
+					pd, 
+					po, 
+					fg );
 
 				if ( isHome )
 				{
@@ -256,10 +326,48 @@ namespace RosterLib
 			return gm;
 		}
 
+		private string PumpIt(
+			string ratings)
+		{
+			var offRatings = ratings.Substring(0, 3);
+			var defRatings = ratings.Substring(3, 3);
+			var newDefRatings = string.Empty;
+			for (int i = 0; i < 3; i++)
+			{
+				var start = defRatings.Substring(i, 1);
+				var finish = start;
+				if (start == "B")
+					finish = "A";
+				else if (start == "C")
+					finish = "B";
+				else if (start == "D")
+					finish = "C";
+				else if (start == "E")
+					finish = "D";
+				newDefRatings += finish;
+			}
+			return offRatings + newDefRatings;
+		}
+
 		[Conditional( "DEBUG" )]
-		private void DumpCalculations( bool isHome, NFLGame game, int tdr, string pr, string pp, string ro, int tds,
-											 int tdd, string rd, string oppRatings, string teamRatings, int ppr, int tdp,
-											 int score, string pd, string po, int fg )
+		private void DumpCalculations(
+			bool isHome,
+			NFLGame game,
+			int tdr,
+			string pr,
+			string pp,
+			string ro,
+			int tds,
+			int tdd,
+			string rd,
+			string oppRatings,
+			string teamRatings,
+			int ppr,
+			int tdp,
+			int score,
+			string pd,
+			string po,
+			int fg)
 		{
 			var team = isHome ? game.HomeTeamName : game.AwayTeamName;
 			Announce( string.Format( "team {2} Ratings : {0}-{3} opponentRatings {1}-{4}",
@@ -321,14 +429,17 @@ namespace RosterLib
 			return _tdr[ rdindex, roindex ];
 		}
 
-		private int YardsRushing( string roRating, string rdRating )
+		private int YardsRushing( 
+			string roRating, 
+			string rdRating )
 		{
 			var roindex = ConvertRating( roRating );
 			var rdindex = ConvertRating( rdRating );
 			return _ydr[ rdindex, roindex ];
 		}
 
-		private static int ConvertRating( string rating )
+		private static int ConvertRating( 
+			string rating )
 		{
 			int val;
 			switch ( rating )
@@ -356,7 +467,11 @@ namespace RosterLib
 			return val;
 		}
 
-		private void AuditIt( NFLGame game, NFLResult res, int homeRating, int awayRating )
+		private void AuditIt(
+			NFLGame game,
+			NFLResult res,
+			int homeRating,
+			int awayRating)
 		{
 			const string debugTeamCode = "SF";
 			var debugTeamRank = "(0-0)";
@@ -397,12 +512,17 @@ namespace RosterLib
 #endif
 		}
 
-		private void Announce( string msg )
+		private void Announce( 
+			string msg )
 		{
+#if DEBUG
+			Console.WriteLine(msg);
+#else
 			if ( Logger == null )
 				Logger = NLog.LogManager.GetCurrentClassLogger();
 
 			Logger.Info( msg );
+#endif
 		}
 	}
 }

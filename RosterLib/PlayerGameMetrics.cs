@@ -81,7 +81,8 @@ namespace RosterLib
 			return output;
 		}
 
-		public void Save( IPlayerGameMetricsDao dao )
+		public void Save( 
+			IPlayerGameMetricsDao dao )
 		{
 			dao.Save( this );
 		}

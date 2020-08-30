@@ -232,7 +232,8 @@ namespace RosterLib
 			//  Output the list
 			Utility.Announce("PlayerListing " + sHead);
 
-			SimpleTableReport r = SetUpProjectionReport(sHead);
+			SimpleTableReport r = SetUpProjectionReport(
+				sHead);
 
 			var ds = LoadProjectedData(
 				plyrList: playerList,
@@ -253,14 +254,19 @@ namespace RosterLib
 				}//Projections//{
 				sHead
 				}.htm";
-			r.RenderAsHtml(fileName: FileOut, persist: true);
+			r.RenderAsHtml(
+				fileName: FileOut, 
+				persist: true);
 
 			if (RenderToCsv)
-				r.RenderAsCsv("Starters-" + sHead, Logger);
+				r.RenderAsCsv(
+					"Starters-" + sHead, 
+					Logger);
 			return FileOut;
 		}
 
-		private SimpleTableReport SetUpProjectionReport(string sHead)
+		private SimpleTableReport SetUpProjectionReport(
+			string sHead)
 		{
 			var r = new SimpleTableReport
 			{
@@ -302,10 +308,10 @@ namespace RosterLib
 				r.AddColumn(new ReportColumn("YDc", "YDC", "{0,5}"));
 				r.AddColumn(new ReportColumn("TDc", "TDC", "{0,5}"));
 				r.AddColumn(new ReportColumn("Fg", "Fg", "{0,5}"));
+				r.AddColumn(new ReportColumn("newbie", "NEWBIE", "{0,5}"));
+				r.AddColumn(new ReportColumn("AgeRate", "AgeRate", "{0,5}"));
 			}
 			r.AddColumn(new ReportColumn("Points", "POINTS", "{0,5}"));
-			r.AddColumn(new ReportColumn("newbie", "NEWBIE", "{0,5}"));
-			r.AddColumn(new ReportColumn("AgeRate", "AgeRate", "{0,5}"));
 			r.AddColumn(new ReportColumn("ADP", "ADP", "{0,5}"));
 			return r;
 		}
@@ -327,6 +333,9 @@ namespace RosterLib
 
 			foreach (NFLPlayer p in plyrList)
 			{
+				if (p.PlayerName.Equals("Mark Ingram"))
+					Console.WriteLine("TestPlayer check");
+
 				var pgms = dao.GetSeason(Season, p.PlayerCode);
 
 				var totPoints = 0M;
@@ -397,15 +406,18 @@ namespace RosterLib
 						dr["Fg"] = p.TotStats.Fg;
 						dr["Health"] = p.HealthRating();
 						dr["newbie"] = 1.0M - p.NewbieModifier();
-						dr["AdjProj"] = totPoints
-							* p.HealthRating()
-							* p.AgeRating()
-							* p.ScoreModifier()
-							* 1.0M - p.NewbieModifier();
+						dr["adjProj"] = AdjustedPoints(
+							p, 
+							totPoints);
+						dr["AgeRate"] = p.AgeRating();
 					}
 
 					dr["Points"] = totPoints;
-					dr["AgeRate"] = p.AgeRating();
+					if (!LongStats)
+						dr["Points"] = (int) AdjustedPoints(
+							p,
+							totPoints);
+
 					dr["Adp"] = AsDraftRound(p.Adp);
 					if (adpMaster != null)
 						dr["Adp"] = adpMaster.GetAdp(
@@ -416,6 +428,25 @@ namespace RosterLib
 			}
 			ds.Tables.Add(dt);
 			return ds;
+		}
+
+		private static decimal AdjustedPoints(
+			NFLPlayer p, 
+			decimal totPoints)
+		{
+			var hr = p.HealthRating();
+			var ar = p.AgeRating();
+			var sm = p.ScoreModifier();
+			var nm = p.NewbieModifier();
+			if (p.PlayerName.Equals("Mark Ingram"))
+				Console.WriteLine("TestPlayer check");
+			var adjPoints = 
+			    totPoints
+				* hr
+				* ar
+				* sm
+				* nm;
+			return adjPoints;
 		}
 
 		private void DefineReportColumns(DataTable dt)
@@ -455,10 +486,10 @@ namespace RosterLib
 				cols.Add("Health", typeof(Decimal));
 				cols.Add("newbie", typeof(Decimal));
 				cols.Add("AdjProj", typeof(Int32));
+				cols.Add("AgeRate", typeof(Decimal));
 			}
 
 			cols.Add("Points", typeof(Decimal));
-			cols.Add("AgeRate", typeof(Decimal));
 			cols.Add("Adp", typeof(string));
 		}
 	}

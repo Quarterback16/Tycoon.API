@@ -42,7 +42,8 @@ namespace RosterLib
 			}
 		}
 
-		public void TraceIt(string message)
+		public void TraceIt(
+			string message)
 		{
 			Logger.Trace("   " + message);
 #if DEBUG

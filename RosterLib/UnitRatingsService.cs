@@ -19,7 +19,8 @@ namespace RosterLib
 
 		public IKeepTheTime TimeKeeper { get; set; }
 
-		public UnitRatingsService( IKeepTheTime timekeeper)
+		public UnitRatingsService( 
+			IKeepTheTime timekeeper)
 		{
 			TimeKeeper = timekeeper;
 			RatingsHt = new Hashtable();
@@ -28,7 +29,9 @@ namespace RosterLib
 				ThisSeasonOnly = true;
 		}
 
-		public string GetUnitRatingsFor( NflTeam team, DateTime when )
+		public string GetUnitRatingsFor(
+			NflTeam team, 
+			DateTime when )
 		{
 			//if ( IsCurrent( team, when ) )
 			//	return team.Ratings;
@@ -54,11 +57,16 @@ namespace RosterLib
 		}
 
 		//    Does NextWeek equate to Current Week
-		public bool IsCurrent( NflTeam team, DateTime when )
+		public bool IsCurrent( 
+			NflTeam team, 
+			DateTime when )
 		{
 			var nextGame = team.NextGame(when);
 			var currentWeek = Utility.CurrentNFLWeek();
-			return currentWeek.Season.Equals( nextGame.Season ) && currentWeek.WeekNo.Equals( nextGame.WeekNo );
+			return currentWeek.Season.Equals( 
+					nextGame.Season ) 
+				&& currentWeek.WeekNo.Equals( 
+					nextGame.WeekNo );
 		}
 
 		private UnitRatings RatingsFor( string teamCode )
@@ -92,9 +100,14 @@ namespace RosterLib
 			var season = Utility.SeasonFor(when);
 			//  Get the teams for that season
 			var teamList = new List<NflTeam>();
-			LoadTeams( teamList, season, when );
+			LoadTeams(
+				teamList: teamList,
+				season: season,
+				focusDate: when );
 
-			var metricTable = LoadMetrix(teamList, when );
+			var metricTable = LoadMetrix(
+				teamList,
+				when );
 			Rank( metricTable, "YDp DESC", UnitRatings.UnitRating.Po );
 			Rank( metricTable, "YDr DESC", UnitRatings.UnitRating.Ro );
 			Rank( metricTable, "SAKa ASC", UnitRatings.UnitRating.Pp ); 
@@ -102,16 +115,24 @@ namespace RosterLib
 			Rank( metricTable, "YDra ASC", UnitRatings.UnitRating.Rd );
 			Rank( metricTable, "IntRatio DESC", UnitRatings.UnitRating.Pd );
 			LastDateRanked = when;
-			DumpRatingsHt( when );
-			UpdateMetricsWithRatings( metricTable );
-			DumpMetricTable( metricTable, when );
-
-			WriteRatings( metricTable, when );
-
-			UpdateRatings( metricTable, season );
+			DumpRatingsHt( 
+				when );
+			UpdateMetricsWithRatings( 
+				metricTable );
+			DumpMetricTable( 
+				metricTable, 
+				when );
+			WriteRatings( 
+				metricTable, 
+				when );
+			UpdateRatings( 
+				metricTable, 
+				season );
 
 #if DEBUG
-			Utility.StopTheWatch( stopwatch, string.Format( "Ranking teams : {0:d}", when ) );
+			Utility.StopTheWatch( 
+				stopwatch, 
+				$"Ranking teams : {when:d}" );
 #endif
 		}
 
@@ -149,7 +170,9 @@ namespace RosterLib
 			}
 		}
 
-		private static void UpdateRatings( DataTable dt, string season  )
+		private static void UpdateRatings( 
+			DataTable dt, 
+			string season  )
 		{
 			foreach ( DataRow dr in dt.Rows )
 			{
@@ -165,7 +188,8 @@ namespace RosterLib
 			}
 		}
 
-		public bool HaveAlreadyRated(DateTime when)
+		public bool HaveAlreadyRated(
+			DateTime when)
 		{
 			// get ratings
 			var ds = Utility.TflWs.GetUnitRatings( when );
@@ -187,7 +211,9 @@ namespace RosterLib
 			}
 		}
 
-		private object GetRank( string teamCode, UnitRatings.UnitRating unitRating )
+		private object GetRank( 
+			string teamCode,
+			UnitRatings.UnitRating unitRating )
 		{
 			var ur = (UnitRatings) RatingsHt[teamCode];
 			return ur.RatingFor(unitRating);
@@ -266,7 +292,9 @@ namespace RosterLib
 				return "C";
 			return rank < 30 ? "D" : "E";
 		}
-		private static DataTable LoadMetrix(IEnumerable<NflTeam> teamList, DateTime when )
+		private static DataTable LoadMetrix(
+			IEnumerable<NflTeam> teamList, 
+			DateTime when )
 		{
 			var metricTable = BuildTable();
 			foreach (var nflTeam in teamList)
@@ -280,18 +308,25 @@ namespace RosterLib
 				dr["YDra"] = nflTeam.TotYdrAllowed;
 				dr["TDpa"] = nflTeam.TotTDpAllowed;
 				dr["INT"] = nflTeam.TotIntercepts;
-				dr[ "IntRatio" ] = InterceptionRatio( nflTeam.TotIntercepts, nflTeam.TotTDpAllowed );
+				dr[ "IntRatio" ] = InterceptionRatio( 
+					nflTeam.TotIntercepts, 
+					nflTeam.TotTDpAllowed );
 				dr["RPTS"] = nflTeam.RatingPts();
 				metricTable.Rows.Add( dr );
 			}
-			DumpMetricTable(metricTable, when );
+			DumpMetricTable(
+				metricTable, 
+				when );
 			return metricTable;
 		}
 
-		private static void DumpMetricTable( DataTable dt, DateTime when )
+		private static void DumpMetricTable( 
+			DataTable dt,
+			DateTime when )
 		{
 			var st =
-				new SimpleTableReport(string.Format( "Team Metrics at {0}", when.ToShortDateString() )
+				new SimpleTableReport(
+					$"Team Metrics at {when.ToShortDateString()}"
 					) {ColumnHeadings = true};
 			st.AddColumn( new ReportColumn( "Team", "TEAM", "{0,-20}"   ) ); 
 			st.AddColumn( new ReportColumn( "YDp",  "YDp", "{0}"       ) );
@@ -309,40 +344,63 @@ namespace RosterLib
 			st.AddColumn( new ReportColumn( "IntRatio", "IntRatio", "{0}" ) );
 			st.AddColumn( new ReportColumn( "RIntRatio", "RIntRatio", "{0}" ) );
 			st.AddColumn(new ReportColumn( "RPoints", "RPTS", "{0}"));
-			dt.DefaultView.Sort = "YDr DESC";
+			dt.DefaultView.Sort = "INT DESC";
 			st.LoadBody( dt );
-			st.RenderAsHtml( string.Format( "{0}\\{1}\\Metrics\\MetricTable.htm",
-				 Utility.OutputDirectory(), Utility.CurrentSeason() ), true );
+			st.RenderAsHtml(
+				fileName: string.Format( "{0}\\{1}\\Metrics\\MetricTable.htm",
+				 Utility.OutputDirectory(), 
+				 Utility.CurrentSeason() ),
+				persist: true );
 		}
 
-		private static decimal InterceptionRatio( int interceptions, int touchDownPassesAllowed )
+		private static decimal InterceptionRatio( 
+			int interceptions, 
+			int touchDownPassesAllowed )
 		{
 			if ( touchDownPassesAllowed.Equals( 0 ) ) return interceptions;
-// ReSharper disable PossibleLossOfFraction
-			return interceptions/touchDownPassesAllowed;
-// ReSharper restore PossibleLossOfFraction
+
+			var ratio = (decimal)interceptions / touchDownPassesAllowed;
+			return decimal.Round(ratio, 2);
 		}
 
-		public void LoadTeams(ICollection<NflTeam> teamList, string season, DateTime focusDate )
+		public void LoadTeams(
+			ICollection<NflTeam> teamList, 
+			string season, 
+			DateTime focusDate )
 		{
 			var teamDs = Utility.TflWs.TeamsDs(season);
-			if (teamDs.Tables[0].Rows.Count <= 0) return;
+			if (teamDs.Tables[0].Rows.Count <= 0) 
+				return;
 
 			var dt = teamDs.Tables["team"];
 			foreach (DataRow dr in dt.Rows)
 			{
 				var teamCode = dr[ "TEAMID" ].ToString();
-				TallyTeam( teamList, season, focusDate, teamCode );
+				TallyTeam( 
+					teamList, 
+					season, 
+					focusDate, 
+					teamCode );
 			}
 		}
-		public void TallyTeam( ICollection<NflTeam> teamList, string season, DateTime focusDate, string teamCode )
+		public void TallyTeam( 
+			ICollection<NflTeam> teamList, 
+			string season, 
+			DateTime focusDate, 
+			string teamCode )
 		{
 			var team = new NflTeam( teamCode );  //  simple code constructor
+			if ( teamCode == "IC")
+				Console.WriteLine("Test Team");
 			if ( thisSeasonOnly )
 				team.LoadGames( team.TeamCode, season );
 			else
-				team.LoadPreviousRegularSeasonGames( team.TeamCode, season, focusDate );
-			team.TallyStats(breakdowns:null);
+				team.LoadPreviousRegularSeasonGames(
+					team.TeamCode, 
+					season, 
+					focusDate );
+			team.TallyStats(
+				breakdowns:null);
 			teamList.Add( team );
 		}
 		private static DataTable BuildTable()

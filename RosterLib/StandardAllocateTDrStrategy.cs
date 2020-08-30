@@ -4,22 +4,32 @@ namespace RosterLib
 {
 	public class StandardAllocateTDrStrategy : IAllocateTDrStrategy
 	{
-		public void Allocate( RushUnit ru, int nTDr, PlayerGameMetricsCollection pgms )
+		public void Allocate(
+			RushUnit ru,
+			int nTDr,
+			PlayerGameMetricsCollection pgms)
 		{
 			if ( ru.Starters.Count > 0 )
 			{
-				var pgm = pgms.GetPgmFor( ru.R1.PlayerCode );
+				var pgm = pgms.GetPgmFor( 
+					ru.R1.PlayerCode );
 				pgm.PlayerId = ru.R1.PlayerCode;  // incase its a new one
-				pgm.ProjTDr += R1TdsFrom( nTDr );
-				pgms.Update( pgm );
-				var pgm2 = pgms.GetPgmFor( ru.R2.PlayerCode );
+				pgm.ProjTDr += R1TdsFrom( 
+					nTDr );
+				pgms.Update( 
+					pgm );
+				var pgm2 = pgms.GetPgmFor(
+					ru.R2.PlayerCode );
 				pgm2.PlayerId = ru.R2.PlayerCode;  // incase its a new one
-				pgm2.ProjTDr += R2TdsFrom( nTDr );
-				pgms.Update( pgm2 );
+				pgm2.ProjTDr += R2TdsFrom( 
+					nTDr );
+				pgms.Update( 
+					pgm2 );
 			}
 		}
 
-		private static int R1TdsFrom( int totalTdr )
+		private static int R1TdsFrom(
+			int totalTdr )
 		{
 			var tdrs = 0;
 			switch ( totalTdr )
@@ -37,21 +47,22 @@ namespace RosterLib
 					break;
 
 				case 4:
-					tdrs = 3;
+					tdrs = 2;  //  allow for leakage
 					break;
 
 				case 5:
-					tdrs = 3;
+					tdrs = 2;
 					break;
 
 				case 6:
-					tdrs = 3;
+					tdrs = 2;
 					break;
 			}
 			return tdrs;
 		}
 
-		private static int R2TdsFrom( int totalTdr )
+		private static int R2TdsFrom( 
+			int totalTdr )
 		{
 			var tdrs = 0;
 			switch ( totalTdr )
@@ -69,15 +80,15 @@ namespace RosterLib
 					break;
 
 				case 4:
-					tdrs = 1;
+					tdrs = 0;
 					break;
 
 				case 5:
-					tdrs = 2;
+					tdrs = 0;
 					break;
 
 				case 6:
-					tdrs = 2;
+					tdrs = 0;
 					break;
 			}
 			return tdrs;

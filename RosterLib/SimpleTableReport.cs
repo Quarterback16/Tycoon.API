@@ -592,7 +592,9 @@ namespace RosterLib
 
 		#region CSV Rendition
 
-		public void RenderAsCsv( string fileName, Logger logger )
+		public void RenderAsCsv( 
+			string fileName, 
+			Logger logger )
 		{
 			var fileOut = $@"{
 				Utility.OutputDirectory()
@@ -608,8 +610,11 @@ namespace RosterLib
 				sw.WriteLine( CsvHeader() );
 				foreach (DataRow dr in _body.Rows)
 				{
-					var csvRow = ConvertLinkToName(dr);
-					sw.WriteLine(CsvLine(csvRow));
+					var csvRow = ConvertLinkToName(
+						dr);
+					sw.WriteLine(
+						CsvLine(
+							csvRow));
 				}
 			}
 			logger.Info( $"{fileOut} rendered" );

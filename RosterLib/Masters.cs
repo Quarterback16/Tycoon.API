@@ -13,7 +13,8 @@
 		{
 			get
 			{
-				if (Equals(_epm, null)) _epm = new EpMaster(name: "EP");
+				if (Equals(_epm, null)) 
+					_epm = new EpMaster(name: "EP");
 				return _epm;
 			}
 			set { _epm = value; }
@@ -23,7 +24,8 @@
 		{
 			get
 			{
-				if (Equals(_sm, null)) _sm = new SeasonMaster("Season", "season.xml");
+				if (Equals(_sm, null)) 
+					_sm = new SeasonMaster("Season", "season.xml");
 				return _sm;
 			}
 			set { _sm = value; }
@@ -33,7 +35,8 @@
 		{
 			get
 			{
-				if (Equals(_pm, null)) _pm = new PlayerMaster("Player", "player.xml");
+				if (Equals(_pm, null)) 
+					_pm = new PlayerMaster("Player", "player.xml");
 				return _pm;
 			}
 			set { _pm = value; }
@@ -43,7 +46,10 @@
 		{
 			get
 			{
-				if (Equals(_tm, null)) _tm = new TeamMaster("Team", "team.xml");
+				if (Equals(_tm, null)) 
+					_tm = new TeamMaster(
+						"Team", 
+						"team.xml");
 				return _tm;
 			}
 			set { _tm = value; }
@@ -53,7 +59,8 @@
 		{
 			get
 			{
-				if (Equals(_tepm, null)) _tepm = new TEPMaster();
+				if (Equals(_tepm, null))
+					_tepm = new TEPMaster();
 				return _tepm;
 			}
 			set { _tepm = value; }
@@ -63,7 +70,8 @@
 		{
 			get
 			{
-				if (Equals(_gm, null)) _gm = new GameMaster("Game");
+				if (Equals(_gm, null)) 
+					_gm = new GameMaster("Game");
 				return _gm;
 			}
 			set { _gm = value; }

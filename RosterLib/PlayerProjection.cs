@@ -42,7 +42,8 @@ namespace RosterLib
 		/// </summary>
 		public void Render()
 		{
-			var str = new SimpleTableReport( "Player Projection " + Player.PlayerName + "-" + Season );
+			var str = new SimpleTableReport(
+				$"Player Projection {Player.PlayerName}-{Season}");
 			str.AddStyle(
 			   "#container { text-align: left; background-color: #ccc; margin: 0 auto; border: 1px solid #545454; width: 641px; padding:10px; font: 13px/19px Trebuchet MS, Georgia, Times New Roman, serif; }" );
 			str.AddStyle( "#main { margin-left:1em; }" );
@@ -73,7 +74,9 @@ namespace RosterLib
 			str.AddColumn( new ReportColumn( "Variation", "VAR", "{0:0.0}", tally: true ) );
 			str.LoadBody( BuildTable() );
 			str.SubHeader = SubHeading();
-			str.RenderAsHtml( FileName(), true );
+			str.RenderAsHtml( 
+				FileName(), 
+				true );
 		}
 
 		public string FileName()
@@ -122,10 +125,14 @@ namespace RosterLib
 					dr = dt.NewRow();
 					byeDone = true;
 				}
-				var yahooMsg = c.Calculate( Player, g );
+				var yahooMsg = c.Calculate( 
+					Player, 
+					g );
 				dr[ "WEEK" ] = g.WeekNo;
-				dr[ "MATCH" ] = g.OpponentOut( Player.CurrTeam.TeamCode );
-				dr[ "SCORE" ] = g.ProjectedScoreOut( Player.CurrTeam.TeamCode );
+				dr[ "MATCH" ] = g.OpponentOut(
+					Player.CurrTeam.TeamCode );
+				dr[ "SCORE" ] = g.ProjectedScoreOut(
+					Player.CurrTeam.TeamCode );
 				dr[ "OPPRATE" ] = OppUnitRating( 
 					g, 
 					Player.CurrTeam.TeamCode, 
@@ -186,25 +193,30 @@ namespace RosterLib
 			string playerRole )
 		{
 			var projection = 0;
-			if ( playerRole != Constants.K_ROLE_STARTER ) return projection;
+			if ( playerRole != Constants.K_ROLE_STARTER ) 
+				return projection;
 
 			//  is a starter
 			switch ( playerCategory )
 			{
 				case Constants.K_QUARTERBACK_CAT:
-					projection = g.IsHome( playerTeamCode ) ? g.ProjectedHomeTdp : g.ProjectedAwayTdp;
+					projection = g.IsHome( playerTeamCode ) 
+						? g.ProjectedHomeTdp : g.ProjectedAwayTdp;
 					break;
 
 				case Constants.K_RUNNINGBACK_CAT:
-					projection = g.IsHome( playerTeamCode ) ? g.ProjectedHomeTdr : g.ProjectedAwayTdr;
+					projection = g.IsHome( playerTeamCode ) 
+						? g.ProjectedHomeTdr : g.ProjectedAwayTdr;
 					break;
 
 				case Constants.K_RECEIVER_CAT:
-					projection = g.IsHome( playerTeamCode ) ? g.ProjectedHomeTdp / 2 : g.ProjectedAwayTdp / 2;
+					projection = g.IsHome( playerTeamCode ) 
+						? g.ProjectedHomeTdp / 2 : g.ProjectedAwayTdp / 2;
 					break;
 
 				case Constants.K_KICKER_CAT:
-					projection = g.IsHome( playerTeamCode ) ? g.ProjectedHomeFg : g.ProjectedAwayFg;
+					projection = g.IsHome( playerTeamCode )
+						? g.ProjectedHomeFg : g.ProjectedAwayFg;
 					break;
 			}
 #if DEBUG
@@ -246,7 +258,10 @@ namespace RosterLib
 		private string SubHeading()
 		{
 			var header = Legend();
-			var div = HtmlLib.DivOpen( "id=\"main\"" ) + PlayerData() + EndDiv() + HtmlLib.DivClose();
+			var div = HtmlLib.DivOpen( "id=\"main\"" ) 
+				+ PlayerData() 
+				+ EndDiv() 
+				+ HtmlLib.DivClose();
 			return $"{header}{div}\n";
 		}
 
@@ -254,13 +269,15 @@ namespace RosterLib
 		{
 			var status = Player.Status();
 			var lastSeason = "";
-			if ( Player.IsRetired ) lastSeason = Player.LastSeason;
+			if ( Player.IsRetired ) 
+				lastSeason = Player.LastSeason;
 			return $"\n<h3>{Player.PlayerName} - {status} {lastSeason}</h3>\n";
 		}
 
 		private static string EndDiv()
 		{
-			return HtmlLib.DivOpen( "class=\"end\"" ) + HtmlLib.Spaces( 1 ) + HtmlLib.DivClose() + "\n";
+			return HtmlLib.DivOpen( "class=\"end\"" ) 
+				+ HtmlLib.Spaces( 1 ) + HtmlLib.DivClose() + "\n";
 		}
 
 		private string PlayerData()
@@ -269,8 +286,10 @@ namespace RosterLib
 			Player.SetDraftRound();
 			Player.CalculateEp( Season );
 			s += DataOut( "Position", Player.PlayerPos );
-			s += DataOut( "Role", Player.RoleOut() );
-			s += DataOut( "Ratings", Player.TeamRating( Utility.PreviousSeason( Season ) ) );
+			s += DataOut( "Role", 
+				$"{Player.RoleOut()} {RunApproach(Player)}" );
+			s += DataOut( "Ratings", Player.TeamRating(
+				Utility.PreviousSeason( Season ) ) );
 			s += DataOut( "Rookie Yr", Player.RookieYear );
 			s += DataOut( "Acquired", Player.Drafted );
 			s += DataOut( "Seasons", Player.Seasons() );
@@ -283,7 +302,17 @@ namespace RosterLib
 			return s;
 		}
 
-		private static string DataOut( string label, string val )
+		private string RunApproach(
+			NFLPlayer player)
+		{
+			var team = player.CurrTeam;
+			team.LoadRushUnit();
+			return team.RunUnit.DetermineApproach().ToString();
+		}
+
+		private static string DataOut( 
+			string label, 
+			string val )
 		{
 			return $"<label>{label}:</label> <value>{val,8}</value>";
 		}

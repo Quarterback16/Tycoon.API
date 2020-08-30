@@ -208,14 +208,24 @@ namespace RosterLib
 			return s;
 		}
 
-		public string SeasonProjection( string metricName, IPrognosticate predictor, DateTime projectionDate )
+		public string SeasonProjection( 
+			string metricName, 
+			IPrognosticate predictor, 
+			DateTime projectionDate )
 		{
 			//  Start off with the division name
 			var s = HtmlLib.TableRowOpen( "BGCOLOR='LIGHTGREY'" ) +
-			   HtmlLib.TableDataAttr( HtmlLib.Font( "VERDANA", NameOut(), "-1" ), "ALIGN='CENTER' COLSPAN='19'" ) +
+			   HtmlLib.TableDataAttr( 
+				   HtmlLib.Font( "VERDANA", NameOut(), "-1" ), 
+				   "ALIGN='CENTER' COLSPAN='19'" ) +
 			   HtmlLib.TableRowClose() + "\n";
 			return TeamList.Cast<NflTeam>()
-				  .Aggregate( s, ( current, t ) => current + t.SeasonProjection( predictor, metricName, projectionDate ) );
+				  .Aggregate( 
+					  s, 
+					  ( current, t ) => current + t.SeasonProjection( 
+						  predictor, 
+						  metricName, 
+						  projectionDate ) );
 		}
 
 		#region Accessors

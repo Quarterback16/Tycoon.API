@@ -9,7 +9,9 @@ namespace RosterLib
    /// </summary>
    public class TeamMaster : XmlCache
    {
-      public TeamMaster( string name, string fileName ) : base( name )
+      public TeamMaster( 
+          string name, 
+          string fileName ) : base( name )
       {
          try
          {
@@ -23,15 +25,16 @@ namespace RosterLib
          }
          catch ( IOException e )
          {
-            Utility.Announce( string.Format( "Unable to open {1} xmlfile - {0}", e.Message, fileName ) );
+            Utility.Announce( $"Unable to open {fileName} xmlfile - {e.Message}" );
          }
       }
 
-      private void AddXmlTeam( XmlNode teamNode )
+      private void AddXmlTeam( 
+          XmlNode teamNode )
       {
-         PutTeam( new NflTeam( teamNode ) );
+         PutTeam( 
+             new NflTeam( teamNode ) );
       }
-
 
       private static string Key( NflTeam team )
       {
@@ -51,7 +54,9 @@ namespace RosterLib
          return GetTeam( seasonpart, teampart );
       }
 
-      public NflTeam GetTeam( string season, string teamCode )
+      public NflTeam GetTeam( 
+          string season, 
+          string teamCode )
       {
 #if DEBUG
          //Utility.Announce( string.Format( "TeamMaster:Getting Team {0} for {1}", teamCode, season ) );
@@ -70,7 +75,9 @@ namespace RosterLib
 #if DEBUG
             //Utility.Announce( string.Format( "TeamMaster:Instantiating Team {0} for {1}", teamCode, season ) );
 #endif
-            team = new NflTeam( teamCode, season );
+            team = new NflTeam( 
+                teamCode, 
+                season );
             PutTeam( team );
             IsDirty = true;
             CacheMisses++;
@@ -78,9 +85,13 @@ namespace RosterLib
          return team;
       }
 
-      public string TeamFor( string teamCode, string season )
+      public string TeamFor(
+		  string teamCode,
+		  string season)
       {
-         var team = GetTeam( season, teamCode );
+         var team = GetTeam(
+			 season,
+			 teamCode);
          return team.Name;
       }
 
@@ -110,7 +121,9 @@ namespace RosterLib
          }
       }
 
-      private static void WriteTeamNode( XmlTextWriter writer, NflTeam t )
+      private static void WriteTeamNode(
+		  XmlTextWriter writer,
+		  NflTeam t)
       {
          writer.WriteStartElement( "team" );
          writer.WriteAttributeString( "season", t.Season );

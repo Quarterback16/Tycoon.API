@@ -90,6 +90,7 @@ namespace RosterLib
 			DumpMetricTable( metricTable, when, sortColumn );
 			WriteRatings( metricTable, when );
 			UpdateRatings( metricTable, season );
+			//TODO:  Update the team table?
 #if DEBUG
 			Utility.StopTheWatch(
 				stopwatch,

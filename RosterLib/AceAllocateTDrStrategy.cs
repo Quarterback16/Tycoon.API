@@ -4,12 +4,17 @@ namespace RosterLib
 {
 	public class AceAllocateTDrStrategy : IAllocateTDrStrategy
 	{
-		public void Allocate( RushUnit ru, int nTDr, PlayerGameMetricsCollection pgms )
+		public void Allocate(
+			RushUnit ru,
+			int nTDr,
+			PlayerGameMetricsCollection pgms)
 		{
-			var pgm = pgms.GetPgmFor( ru.R1.PlayerCode );
+			var pgm = pgms.GetPgmFor( 
+				ru.R1.PlayerCode );
 			pgm.PlayerId = ru.R1.PlayerCode;
 			pgm.ProjTDr += nTDr;
-			pgms.Update( pgm );
+			pgms.Update(
+				pgm );
 		}
 
 	}

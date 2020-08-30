@@ -259,7 +259,7 @@ namespace GameLog.Tests
         [TestMethod]
         public void GameStatsRepoForEntireTeam()
 		{
-			var fantasyTeam = "LL";
+			var fantasyTeam = "BR";
 			var rosterService = new RetroRosters(
 				new RosterEventStore());
 			var roster = rosterService.GetRoster(

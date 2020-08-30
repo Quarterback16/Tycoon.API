@@ -7,7 +7,10 @@ namespace RosterLib
 	/// </summary>
 	public interface IPrognosticate
 	{
-      NFLResult PredictGame(NFLGame game, IStorePredictions persistor, DateTime predictionDate);
+      NFLResult PredictGame(
+		  NFLGame game,
+		  IStorePredictions persistor,
+		  DateTime predictionDate);
 
 		bool AuditTrail
 		{

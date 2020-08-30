@@ -575,13 +575,13 @@ namespace RosterLib
 				return 1.0M;
 
 			if (IsRookie())
-				return 0.20M;
+				return 0.80M;
 
 			var seasons = NoOfSeasons();
 			if ( seasons > 20 )
 				seasons = 20;
 
-			var newbieModifier = (20.0M - (decimal) seasons) / 100.0M;
+			var newbieModifier = 1.0M - (20.0M - (decimal) seasons) / 100.0M;
 
 			return newbieModifier;
 		}

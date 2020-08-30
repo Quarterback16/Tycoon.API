@@ -181,15 +181,18 @@ namespace RosterLib
 		{
 			TraceIt( $"LoadGameList: Loading {yearIn} game List..." );
 
-			if ( GameList == null ) GameList = new List<NFLGame>();
+			if ( GameList == null ) 
+				GameList = new List<NFLGame>();
 			var gameDt = Utility.TflWs.GetSeasonDt( yearIn );
-			foreach ( var g in from DataRow dr in gameDt.Rows select new NFLGame( dr ) )
+			foreach ( var g in from DataRow dr in gameDt.Rows 
+							   select new NFLGame( dr ) )
 				GameList.Add( g );
 
 			TraceIt( $"LoadGameList: Loaded {GameList.Count} games." );
 		}
 
-		private void LoadTeamList( string yearIn )
+		private void LoadTeamList( 
+			string yearIn )
 		{
 			Logger = LogManager.GetCurrentClassLogger();
 

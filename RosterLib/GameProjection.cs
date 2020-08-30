@@ -12,7 +12,8 @@ namespace RosterLib
 
 		public string Season { get; set; }
 
-		public GameProjection( NFLGame game )
+		public GameProjection( 
+			NFLGame game )
 		{
 			Game = game;
 		}
@@ -32,7 +33,8 @@ namespace RosterLib
 			Game.HomeNflTeam.Ratings = homeRatings;
 			Game.AwayNflTeam.Ratings = awayRatings;
 
-			var str = new SimpleTableReport( "GameProjection " + Game.GameName() );
+			var str = new SimpleTableReport( 
+				"GameProjection " + Game.GameName() );
 			str.AddDenisStyle();
 			str.ColumnHeadings = true;
 			str.DoRowNumbers = false;
@@ -52,7 +54,9 @@ namespace RosterLib
 			str.LoadBody( BuildTable() );
 			str.SubHeader = SubHeading();
 			str.FootNote = Game.PlayerProjectionsHtml();  //  these projections are old
-			str.RenderAsHtml( FileName(), true );
+			str.RenderAsHtml( 
+				FileName(),
+				persist: true );
 		}
 
 		private string ScoreTotalDelegate()

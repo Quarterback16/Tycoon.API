@@ -136,9 +136,13 @@ namespace RosterLib
 			// give it to the QB
 			if ( unit.Q1 != null )
 			{
-				var projYDp = ( isHome ) ? input.Prediction.HomeYDp : input.Prediction.AwayYDp;
-				var projTDp = ( isHome ) ? input.Prediction.HomeTDp : input.Prediction.AwayTDp;
-				AddPassinglayerGameMetric( input, unit.Q1.PlayerCode, projYDp, projTDp );
+				var projYDp =  isHome  ? input.Prediction.HomeYDp : input.Prediction.AwayYDp;
+				var projTDp =  isHome  ? input.Prediction.HomeTDp : input.Prediction.AwayTDp;
+				AddPassinglayerGameMetric( 
+					input, 
+					unit.Q1.PlayerCode,
+					projYDp, 
+					projTDp );
 			}
 			// Receivers  W1 35%, W2 25%, W3 10%, TE 20% (todo 3D 5%)
 			int projYDc, projTDc;
@@ -190,20 +194,6 @@ namespace RosterLib
 				projYDc = AllowForInjuryRisk( unit.TE, projYDc );
 				AddCatchingPlayerGameMetric( input, unit.TE.PlayerCode, projYDc, projTDc );
 			}
-			if (rushUnit.ThirdDownBack != null)
-			{
-				projYDc = (int)(.05 * (isHome ? input.Prediction.HomeYDp : input.Prediction.AwayYDp));
-				projTDc = RB3DTdsFrom(isHome ? input.Prediction.HomeTDp : input.Prediction.AwayTDp);
-
-				projYDc = AllowForInjuryRisk(
-					rushUnit.ThirdDownBack,
-					projYDc);
-				AddCatchingPlayerGameMetric(
-					input,
-					rushUnit.ThirdDownBack.PlayerCode,
-					projYDc,
-					projTDc);
-			}
 		}
 
 		private void AddCatchingPlayerGameMetric(
@@ -214,7 +204,8 @@ namespace RosterLib
 		{
 			if ( input == null || playerId == null )
 				return;
-			if ( string.IsNullOrEmpty( playerId ) || input.Game == null ) 
+			if ( string.IsNullOrEmpty( playerId ) 
+				|| input.Game == null ) 
 				return;
 			var pgm = new PlayerGameMetrics
 			{
@@ -346,15 +337,15 @@ namespace RosterLib
 					break;
 
 				case 4:
-					tds = 1;
+					tds = 0;
 					break;
 
 				case 5:
-					tds = 1;
+					tds = 0;
 					break;
 
 				case 6:
-					tds = 1;
+					tds = 0;
 					break;
 			}
 			return tds;
@@ -397,7 +388,8 @@ namespace RosterLib
 			int projYDp,
 			int projTDp)
 		{
-			if ( input == null || playerId == null ) return;
+			if ( input == null || playerId == null ) 
+				return;
 			var pgm = new PlayerGameMetrics
 			{
 				PlayerId = playerId,
@@ -416,7 +408,9 @@ namespace RosterLib
 		#region Rushing
 
 		private void DoRushingUnit(
-			PlayerGameProjectionMessage input, string teamCode, bool isHome )
+			PlayerGameProjectionMessage input, 
+			string teamCode, 
+			bool isHome )
 		{
 			RushUnit ru;
 			if ( isHome )
@@ -430,19 +424,30 @@ namespace RosterLib
 			if( !ru.IsLoaded() )
 				ru.Load( teamCode );
 
-			var pgms = new PlayerGameMetricsCollection( input.Game );
-			var projTDr = ( isHome ) ? input.Prediction.HomeTDr : input.Prediction.AwayTDr;
-			projTDr = AllowForVultures( ru, projTDr, pgms );
-			AllocateTDr( ru, projTDr, pgms);
+			var pgms = new PlayerGameMetricsCollection( 
+				input.Game );
+			var projTDr =  isHome  ? input.Prediction.HomeTDr : input.Prediction.AwayTDr;
+			projTDr = AllowForVultures( 
+				ru,
+				projTDr, 
+				pgms );
+			AllocateTDr(
+				ru,
+				projTDr,
+				pgms);
 			input.Game.PlayerGameMetrics = pgms.Pgms;
 
-			var projYDr = ( isHome ) ? input.Prediction.HomeYDr : input.Prediction.AwayYDr;
-			AllocateYDr( ru, projYDr, pgms );
+			var projYDr =  isHome  ? input.Prediction.HomeYDr : input.Prediction.AwayYDr;
+			AllocateYDr( 
+				ru, 
+				projYDr, 
+				pgms );
 
 			if ( ru.ThirdDownBack != null )
 			{
-				var projYDc = ( int ) ( .05 * ( ( isHome ) ? input.Prediction.HomeYDp : input.Prediction.AwayYDp ) );
-				var pgm = pgms.GetPgmFor( ru.ThirdDownBack.PlayerCode );
+				var projYDc = ( int ) ( .05 * (  isHome  ? input.Prediction.HomeYDp : input.Prediction.AwayYDp ) );
+				var pgm = pgms.GetPgmFor(
+					ru.ThirdDownBack.PlayerCode );
 				pgm.ProjYDc += projYDc;
 				pgms.Update( pgm );
 			}
@@ -450,21 +455,28 @@ namespace RosterLib
 
 		#region Goalline Vultures
 
-		private int AllowForVultures( RushUnit ru, int projTDr, PlayerGameMetricsCollection pgms )
+		private int AllowForVultures(
+			RushUnit ru, 
+			int projTDr,
+			PlayerGameMetricsCollection pgms )
 		{
 			var nTDr = projTDr;
 			if ( ru.GoalLineBack != null )
 			{
-				var pgm = pgms.GetPgmFor( ru.GoalLineBack.PlayerCode );
-				var vulturedTDs = VulturedTdsFrom( nTDr );
+				var pgm = pgms.GetPgmFor(
+					ru.GoalLineBack.PlayerCode );
+				var vulturedTDs = VulturedTdsFrom(
+					nTDr );
 				pgm.ProjTDr += vulturedTDs;
-				pgms.Update( pgm );
+				pgms.Update( 
+					pgm );
 				nTDr -= vulturedTDs;
 			}
 			return nTDr;
 		}
 
-		private int VulturedTdsFrom( int nTDr )
+		private int VulturedTdsFrom( 
+			int nTDr )
 		{
 			if ( nTDr > 4 ) return 2;
 			if ( nTDr > 1 ) return 1;
@@ -474,17 +486,27 @@ namespace RosterLib
 		#endregion
 
 		private void AllocateTDr( 
-			RushUnit ru, int projTDr, PlayerGameMetricsCollection pgms )
+			RushUnit ru, 
+			int projTDr, 
+			PlayerGameMetricsCollection pgms )
 		{
 			var approach = ru.DetermineApproach();
-			tdrAllocationStrategies[ approach ].Allocate( ru, projTDr, pgms );
+			tdrAllocationStrategies[ approach ].Allocate( 
+				ru, 
+				projTDr, 
+				pgms );
 		}
 
 		private void AllocateYDr( 
-			RushUnit ru, int projYDr, PlayerGameMetricsCollection pgms )
+			RushUnit ru,
+			int projYDr, 
+			PlayerGameMetricsCollection pgms )
 		{
 			var approach = ru.DetermineApproach();
-			ydrAllocationStrategies[ approach ].Allocate( ru, projYDr, pgms );
+			ydrAllocationStrategies[ approach ].Allocate( 
+				ru,
+				projYDr, 
+				pgms );
 		}
 
 
@@ -506,7 +528,8 @@ namespace RosterLib
 #if DEBUG
 			Utility.Announce( pgm.ToString() );
 #endif
-			if ( input.Game.PlayerGameMetrics == null ) input.Game.PlayerGameMetrics = new List<PlayerGameMetrics>();
+			if ( input.Game.PlayerGameMetrics == null )
+				input.Game.PlayerGameMetrics = new List<PlayerGameMetrics>();
 			input.Game.PlayerGameMetrics.Add( pgm );
 		}
 

@@ -94,6 +94,8 @@ namespace RosterLib
                bAdd = bAdd && !p.IsItalic(); //  dont want FB, TE or punters
             if (OnesAndTwosOnly)
                bAdd = bAdd && p.IsOneOrTwo();
+            if (catCode.Equals("2"))  //  there is a lack of RBs
+               bAdd = bAdd && p.IsOneOrTwo();
 
             if (bAdd)
                PlayerList.Add(p);
@@ -158,6 +160,10 @@ namespace RosterLib
 
             var p = new NFLPlayer(dr, fantasyLeague);
 
+            if (p.PlayerName == "Jonathan Taylor")
+				{
+					System.Console.WriteLine("Testplayer");
+				}
             var bAdd = true;
             if (FreeAgentsOnly)
 				bAdd = p.IsFreeAgent();
@@ -166,7 +172,11 @@ namespace RosterLib
             bAdd = bAdd && p.IsFantasyOffence();
             bAdd = bAdd && p.IsActive();
             if (StartersOnly)
-               bAdd = bAdd && p.IsStarter();
+            {
+                bAdd = bAdd && p.IsStarter();
+                if (sPos.Equals("RB"))
+                    bAdd = p.IsOneOrTwo();
+            }
             if (OnesAndTwosOnly)
                bAdd = bAdd && p.IsOneOrTwo();
 
@@ -186,11 +196,17 @@ namespace RosterLib
                if (StartersOnly)
                {
                   if (sPos != null)
-                     if (sPos != "WR") Tc.TickOff(p.TeamCode, sPos); //  there r 2 WRs
+                     if (sPos != "WR") 
+                                Tc.TickOff(p.TeamCode, sPos); //  there r 2 WRs
                }
             }
-         }
-         //AnnounceTotal(sPos);
+            else
+               AnnounceSkip(
+                   catCode,
+                   sPos,
+                   p);
+            }
+         AnnounceTotal(sPos);
       }
 
       [Conditional( "DEBUG2" )]
@@ -211,7 +227,7 @@ namespace RosterLib
             $"PlayerLister para {para} = {paraValue}" );
       }
 
-      [Conditional("DEBUG2")]
+      [Conditional("DEBUG")]
       private void AnnounceTotal(string sPos)
       {
          Utility.Announce(
@@ -219,7 +235,7 @@ namespace RosterLib
          Utility.Announce( $"Teams missing {Position} are {Tc.TeamsLeft()}" );
       }
 
-      [Conditional("DEBUG2")]
+      [Conditional("DEBUG")]
       private static void AnnounceAdd(
 		  string catCode,
 		  string sPos,
@@ -229,7 +245,17 @@ namespace RosterLib
             $"PlayerLister.Collect Adding {p.PlayerNameShort,-12}-{p.CurrTeam.TeamCode}-{p.PlayerRole} to {catCode} - {sPos} list");
       }
 
-      public void Load()
+        [Conditional("DEBUG")]
+        private static void AnnounceSkip(
+            string catCode,
+            string sPos,
+            NFLPlayer p)
+        {
+            Utility.Announce(
+               $"PlayerLister.Collect Skipped {p.PlayerNameShort,-12}-{p.CurrTeam.TeamCode}-{p.PlayerRole} to {catCode} - {sPos} list");
+        }
+
+        public void Load()
       {
          var tc = new TeamCheckList();
          PlayerList = new ArrayList();
@@ -354,13 +380,15 @@ namespace RosterLib
 		  IAdpMaster adpMaster = null)
       {
          var html = new RenderStatsToHtml( WeekMaster )
-		    {
-			    RenderToCsv = RenderToCsv,
-			    Season = Season,
-			    Week = Week,
-			    LongStats = LongStats,
-			    WeeksToGoBack = WeeksToGoBack
-		    };
+        {
+	        RenderToCsv = RenderToCsv,
+	        Season = Season,
+	        Week = Week,
+	        LongStats = LongStats,
+	        WeeksToGoBack = WeeksToGoBack
+        };
+        if (header.EndsWith("Short"))
+                html.LongStats = false;
 
          if (!string.IsNullOrEmpty(SubHeader))
 			html.SubHeader = SubHeader;

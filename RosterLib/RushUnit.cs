@@ -48,7 +48,8 @@ namespace RosterLib
 		public void Add( NFLPlayer player )
 		{
 			if ( Runners.Contains( player ) )
-				Announce( string.Format( "Duplicate player {0}", player.PlayerName ) );
+				Announce( 
+					$"Duplicate player {player.PlayerName}" );
 			else
 				Runners.Add( player );
 		}
@@ -184,9 +185,17 @@ namespace RosterLib
 		{
 			var output = new List<string>();
 			var unit = string.Empty;
-			var starters = ( AceBack == null || string.IsNullOrEmpty( AceBack.ToString() ) ) ? Committee : AceBack.ToString();
-			unit += DumpPlayer( "R1", starters, nR1 ) + Environment.NewLine;
-			unit += DumpPlayer( "R2", R2 == null ? string.Empty : R2.PlayerNameShort, nR2 ) + Environment.NewLine;
+			var starters = ( AceBack == null 
+				|| string.IsNullOrEmpty( AceBack.ToString() ) ) 
+				? Committee : AceBack.ToString();
+			unit += DumpPlayer( 
+				"R1", 
+				starters, nR1 ) + Environment.NewLine;
+			unit += DumpPlayer(
+				"R2",
+				R2 == null 
+					? string.Empty 
+					: R2.PlayerNameShort, nR2 ) + Environment.NewLine;
 
 			var ace = $"Ace back : {AceBack}";
 			Announce( ace );
@@ -204,28 +213,42 @@ namespace RosterLib
 
 			foreach ( var runner in Runners )
 			{
-				var runr = string.Format( "{3,2} {0,-25} : {1} : {2}",
-				   runner.PlayerName.PadRight( 25 ), runner.PlayerRole, runner.PlayerPos,
+				var runr = string.Format( 
+					"{3,2} {0,-25} : {1} : {2}",
+				   runner.ProjectionLink( 25 ), 
+				   runner.PlayerRole, 
+				   runner.PlayerPos,
 				   runner.JerseyNo );
 				Announce( runr );
 				unit += runr + Environment.NewLine;
 			}
-			output.Add( unit + Environment.NewLine );
+			output.Add( 
+				unit + Environment.NewLine );
 			var approach = $"Run approach is {DetermineApproach()}";
-			output.Add( approach + Environment.NewLine );
+			output.Add( 
+				approach + Environment.NewLine );
 			//Console.WriteLine(approach);
 			return output;
 		}
 
-		private string DumpPlayer( string pos, string player, int count )
+		private string DumpPlayer( 
+			string pos, 
+			string player, 
+			int count )
 		{
 			var plyrName = player ?? "none";
-			var p = string.Format( "{2} ({1}): {0}", plyrName, count, pos );
+			var p = string.Format( 
+				"{2} ({1}): {0}", 
+				plyrName, 
+				count, 
+				pos );
 			Announce( p );
 			return p;
 		}
 
-		public List<string> LoadCarries( string season, string week )
+		public List<string> LoadCarries( 
+			string season, 
+			string week )
 		{
 			var output = new List<string>();
 			var totRushes = 0;
@@ -269,17 +292,26 @@ namespace RosterLib
 				SetSpecialRoles();
 
 				foreach ( var runner in Runners )
-					Utility.TflWs.StorePlayerRoleAndPos( runner.PlayerRole, runner.PlayerPos, runner.PlayerCode );
+					Utility.TflWs.StorePlayerRoleAndPos( 
+						runner.PlayerRole, 
+						runner.PlayerPos, 
+						runner.PlayerCode );
 			}
 			else
-				Announce( string.Format( "{0}:{1} is a bye week for {2}", season, week, TeamCode ) );
+				Announce( $"{season}:{week} is a bye week for {TeamCode}" );
 			return output;
 		}
 
-		public string GetShortYardageBack( string season, string week, string teamCode )
+		public string GetShortYardageBack( 
+			string season, 
+			string week,
+			string teamCode )
 		{
 			var sh = "???";
-			var ds = Utility.TflWs.PenaltyScores( season, week, teamCode );
+			var ds = Utility.TflWs.PenaltyScores( 
+				season,
+				week, 
+				teamCode );
 			if ( ds != null )
 			{
 				var dt = ds.Tables[ 0 ];
@@ -291,7 +323,9 @@ namespace RosterLib
 			return sh;
 		}
 
-		private static int CompareTeamsByCarries( NFLPlayer x, NFLPlayer y )
+		private static int CompareTeamsByCarries( 
+			NFLPlayer x, 
+			NFLPlayer y )
 		{
 			if ( x == null )
 			{
@@ -302,12 +336,15 @@ namespace RosterLib
 			return y == null ? 1 : y.TotStats.Rushes.CompareTo( x.TotStats.Rushes );
 		}
 
-		public List<string> DumpUnitByCarries( int totRushes )
+		public List<string> DumpUnitByCarries( 
+			int totRushes )
 		{
 			var output = new List<string>();
 			foreach ( var runner in Runners )
 			{
-				var load = Utility.Percent( runner.TotStats.Rushes, totRushes );
+				var load = Utility.Percent(
+					runner.TotStats.Rushes,
+					totRushes );
 
 				//  Returned fron the dead
 				if ( load > 0 && ( runner.PlayerRole == Constants.K_ROLE_INJURED || runner.PlayerRole == Constants.K_ROLE_SUSPENDED ) )
@@ -324,10 +361,13 @@ namespace RosterLib
 						runner.PlayerRole = Constants.K_ROLE_STARTER;
 				}
 
-				var msg = string.Format( "{0,-25} : {1} : {2,3} : {3,5:##0.0}% : {4} : {5}",
-				   runner.PlayerName.PadRight( 25 ), runner.PlayerRole, runner.TotStats.Rushes,
-				   load, runner.PlayerRole, runner.PlayerPos
-				   );
+				var msg = string.Format( 
+					"{0,-25} : {1} : {2,3} : {3,5:##0.0}% : {4} : {5}",
+				   runner.ProjectionLink(25), 
+				   runner.PlayerRole,
+				   runner.TotStats.Rushes,
+				   load, runner.PlayerRole, 
+				   runner.PlayerPos );
 				Announce( msg );
 				output.Add( msg );
 			}

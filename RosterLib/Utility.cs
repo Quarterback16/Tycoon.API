@@ -128,11 +128,13 @@ namespace RosterLib
             return Type.GetType("System.Reflection.ReflectionContext", false) != null;
         }
 
-        public static void Announce(string rpt, int indent = 3)
+        public static void Announce(
+            string rpt, 
+            int indent = 3)
         {
             var theLength = rpt.Length + indent;
             rpt = rpt.PadLeft(theLength, ' ');
-            //Console.WriteLine(rpt);  //  not viewable when in Unit Test mode
+            Console.WriteLine(rpt);  //  not viewable when in Unit Test mode
             //WriteLog(rpt);
 #if DEBUG
             Debug.WriteLine(rpt);

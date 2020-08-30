@@ -8,7 +8,8 @@ namespace RosterLib
 
 		public string GameKey { get; set; }
 
-		public PlayerGameMetricsCollection( NFLGame game )
+		public PlayerGameMetricsCollection( 
+			NFLGame game )
 		{
 			GameKey = game.GameKey();
 			var pgms = game.PlayerGameMetrics;
@@ -17,7 +18,8 @@ namespace RosterLib
 			Pgms = pgms;
 		}
 
-		public PlayerGameMetrics GetPgmFor( string playerId  )
+		public PlayerGameMetrics GetPgmFor(
+			string playerId  )
 		{
 			var pgm = new PlayerGameMetrics();
 			foreach ( var m in Pgms )
@@ -32,9 +34,11 @@ namespace RosterLib
 			return pgm;
 		}
 
-		public void Update( PlayerGameMetrics pgm )
+		public void Update( 
+			PlayerGameMetrics pgm )
 		{
-			var index = Pgms.FindIndex( i => i.PlayerId == pgm.PlayerId );
+			var index = Pgms.FindIndex( 
+				i => i.PlayerId == pgm.PlayerId );
 			if ( index == -1 )
 			{
 				pgm.GameKey = GameKey;

@@ -103,7 +103,9 @@ namespace RosterLib
 			}
 		}
 
-		public void SaveActuals( PlayerGameMetrics pgm, decimal fpts )
+		public void SaveActuals(
+			PlayerGameMetrics pgm, 
+			decimal fpts )
 		{
 			string commandStr;
 			var oldPgm = Get( pgm.PlayerId, pgm.GameKey );

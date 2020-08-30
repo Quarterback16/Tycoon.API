@@ -281,7 +281,9 @@ namespace RosterLib
 			return Kicker;
 		}
 
-		public NflTeam( string codeIn, string seasonIn )
+		public NflTeam( 
+			string codeIn, 
+			string seasonIn )
 		{
 			PlayersLost = "";
 			PlayersGot = "";
@@ -290,8 +292,11 @@ namespace RosterLib
 			PlayerList = new ArrayList();
 			Season = seasonIn;
 			TeamCode = codeIn;
-			var dr = Utility.TflWs.TeamDataFor( codeIn, seasonIn );
-			GetTeamValuesFromData( dr );
+			var dr = Utility.TflWs.TeamDataFor( 
+				codeIn, 
+				seasonIn );
+			GetTeamValuesFromData(
+				dr );
 			_spotList = new ArrayList();
 
 			if ( Config.DoProjections() || Config.DoMatchups() )
@@ -311,7 +316,11 @@ namespace RosterLib
 				LoadGames( codeIn, seasonIn );
 				if ( Config.DoExperience() )
 				{
-					if ( Utility.Wz == null ) Utility.Wz = new WizSeason( Utility.LastSeason(), "01", "17" );
+					if ( Utility.Wz == null ) 
+						Utility.Wz = new WizSeason(
+							Utility.LastSeason(),
+							startWeekIn: "01",
+							endWeekIn: "17" );
 					Matrix = Utility.Wz.GetMatrix( TeamCode );
 				}
 			}
@@ -319,11 +328,12 @@ namespace RosterLib
 			InitialiseRatings();
 		}
 
-		private void GetTeamValuesFromData( DataRow dr )
+		private void GetTeamValuesFromData(
+			DataRow dr )
 		{
-			if ( dr == null ) return;
-			Name = string.Format( "{0} {1}",
-								  dr[ "CITY" ].ToString().Trim(), dr[ "TEAMNAME" ].ToString().Trim() );
+			if ( dr == null ) 
+				return;
+			Name = $"{dr["CITY"].ToString().Trim()} {dr["TEAMNAME"].ToString().Trim()}";
 			PowerRating = Decimal.Parse( dr[ "POWER" ].ToString() );
 			StartingPowerRating = Decimal.Parse( dr[ "POWER" ].ToString() );
 			Ratings = dr[ "RATE" ].ToString();
@@ -340,7 +350,11 @@ namespace RosterLib
 		/// <param name="season">The season.</param>
 		/// <param name="wins">The wins.</param>
 		/// <param name="name">The name.</param>
-		public NflTeam( string codeIn, string season, int wins, string name )
+		public NflTeam(
+			string codeIn,
+			string season,
+			int wins,
+			string name)
 		{
 			PlayersLost = "";
 			PlayersGot = "";
@@ -354,8 +368,12 @@ namespace RosterLib
 			LoadGames( codeIn, season );
 		}
 
-		public NflTeam( string nameIn, string divIn, string codeIn, string shortNameIn,
-					   string seasonIn )
+		public NflTeam(
+			string nameIn,
+			string divIn,
+			string codeIn,
+			string shortNameIn,
+			string seasonIn)
 		{
 			PlayersLost = "";
 			PlayersGot = "";
@@ -379,7 +397,9 @@ namespace RosterLib
 				InitialiseProjections();
 
 			//  New stuff
-			SetRecord( seasonIn, skipPostseason: false );
+			SetRecord( 
+				seasonIn, 
+				skipPostseason: false );
 
 			//  Team record
 			GameList = new ArrayList();
@@ -564,8 +584,12 @@ namespace RosterLib
 #if DEBUG
 			Utility.Announce( "NFLTeam.InitialiseProjections: Loading schedule for " + lastSeason.ToString() );
 #endif
-			_sched = new NFLSchedule( Season, this );
-			_prevSched = new NFLSchedule( lastSeason.ToString(), this );
+			_sched = new NFLSchedule(
+				Season,
+				team: this );
+			_prevSched = new NFLSchedule(
+				lastSeason.ToString(),
+				team: this );
 			ProjectionList = new ArrayList();
 		}
 
@@ -672,7 +696,10 @@ namespace RosterLib
 			if ( string.IsNullOrEmpty( Ratings ) ) Ratings = "CCCCCC";
 		}
 
-		private int CalculateScoreType( string scoretype, string seasonIn, bool skipPostseason )
+		private int CalculateScoreType(
+			string scoretype,
+			string seasonIn,
+			bool skipPostseason)
 		{
 			var scores = skipPostseason ?
 			   Utility.TflWs.GetTeamRegularSeasonScoresFor( scoretype, TeamCode, seasonIn )
@@ -3646,7 +3673,9 @@ namespace RosterLib
 			}
 		}
 
-		public void LoadPreviousGames( string sTeam, string sSeason )
+		public void LoadPreviousGames( 
+			string sTeam, 
+			string sSeason )
 		{
 			//TODO:   fails single responsibility
 #if DEBUG
@@ -4003,9 +4032,13 @@ namespace RosterLib
 
 		#region Tipping Stuff
 
-		public string SeasonProjection( IPrognosticate strategy, string metricName, DateTime projectionDate )
+		public string SeasonProjection(
+			IPrognosticate strategy, 
+			string metricName,
+			DateTime projectionDate )
 		{
-			if ( strategy == null ) return String.Empty;
+			if ( strategy == null ) 
+				return String.Empty;
 
 			strategy.AuditTrail = true;
 
@@ -4014,9 +4047,13 @@ namespace RosterLib
 			int metric;
 
 			//  Lazy intitialisation of the sched
-			if ( _sched == null ) InitialiseProjections();
+			if ( _sched == null )
+				InitialiseProjections();
 
-			var om = new NFLOutputMetric( metricName, null, this );
+			var om = new NFLOutputMetric(
+				metricIn: metricName,
+				playerIn: null,
+				teamIn: this );
 
 			//  Go through the schedule and predict the games
 			//  Clear win totals
@@ -4031,24 +4068,32 @@ namespace RosterLib
 				{
 					if ( i > 20 ) continue;
 					game = ( NFLGame ) _sched.GameList[ i ];
-					result = strategy.PredictGame( game, new DbfPredictionStorer(), projectionDate );
+					result = strategy.PredictGame(
+						game: game,
+						persistor: new DbfPredictionStorer(),
+						predictionDate: projectionDate );
 					if ( i > 15 ) continue;
 #if DEBUG
 					Announce( result.LogResult() );
 #endif
 					metric = metricName == "Spread"
-								? Convert.ToInt32( ( ( game.IsHome( TeamCode ) ) ? result.Spread : 0.0M - ( result.Spread ) ) )
+								? Convert.ToInt32( game.IsHome( TeamCode )  
+									? result.Spread : 0.0M -  result.Spread   )
 								: ( metricName == "Tdp"
-									  ? ( ( game.IsHome( TeamCode ) ) ? result.HomeTDp : result.AwayTDp )
-									  : ( ( game.IsHome( TeamCode ) ) ? result.HomeTDr : result.AwayTDr ) );
+									  ? (  game.IsHome( TeamCode )  
+										? result.HomeTDp : result.AwayTDp )
+									  : (  game.IsHome( TeamCode )  
+										? result.HomeTDr : result.AwayTDr ) );
 
 					if ( metric > 0 ) projWins++;
 					if ( metric == 0 ) projTies++;
 					if ( metric < 0 ) projLosses++;
 
 					om.AddWeeklyOutput(
-					   Int32.Parse( game.Week ), metric,
-					   game.Opponent( TeamCode ), game.IsHome( TeamCode ) );
+					   Int32.Parse( game.Week ), 
+					   metric,
+					   game.Opponent( TeamCode ),
+					   game.IsHome( TeamCode ) );
 				}
 			}
 			if ( metricName == "Spread" )
@@ -4061,17 +4106,25 @@ namespace RosterLib
 						if ( Int32.Parse( g.Week ) < 18 )
 						{
 							result = g.Result;
-							metric = Convert.ToInt32( ( g.IsHome( TeamCode ) ) ? result.Spread : 0.0M - ( result.Spread ) );
+							metric = Convert.ToInt32( 
+								 g.IsHome( TeamCode )  
+								 ? result.Spread : 0.0M -  result.Spread  );
 							ApplyPrevResult( metric );
 							var so =
-							   new SeasonOpposition( g.Opponent( TeamCode ), g.IsHome( TeamCode ), metric );
-							om.AddPrevWeeklyOutput( Int32.Parse( g.Week ), so );
+							   new SeasonOpposition( 
+								   g.Opponent( TeamCode ),
+								   g.IsHome( TeamCode ),
+								   metric );
+							om.AddPrevWeeklyOutput(
+								Int32.Parse( g.Week ),
+								so );
 						}
 					}
 				}
 			}
 
-			if ( ProjectionList == null ) ProjectionList = new ArrayList();
+			if ( ProjectionList == null ) 
+				ProjectionList = new ArrayList();
 
 			ProjectionList.Add( om ); //  store it for later
 
@@ -4978,7 +5031,8 @@ namespace RosterLib
 		{
 			TraceIt( $"NFLTeam.LoadRushUnit for {TeamCode}" );
 
-			if ( RunUnit == null ) RunUnit = new RushUnit();
+			if ( RunUnit == null ) 
+				RunUnit = new RushUnit();
 			return RunUnit.Load( TeamCode );
 		}
 

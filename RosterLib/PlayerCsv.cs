@@ -31,12 +31,12 @@ namespace RosterLib
 				Category = Constants.K_QUARTERBACK_CAT,
 				Position = "QB"
 			},
-#if !DEBUG2
 			new StarterConfig
 			{
 				Category = Constants.K_RUNNINGBACK_CAT,
 				Position = "RB"
 			},
+#if !DEBUG2
 			new StarterConfig
 			{
 				Category = Constants.K_RECEIVER_CAT,
@@ -65,6 +65,37 @@ namespace RosterLib
 
 		public string RenderPlayerCsv()
 		{
+			WeekMaster weekMaster = CollectPlayers();
+
+			Lister.Folder = "Starters";
+			Lister.LongStats = true;
+			Lister.RenderToHtml = false;
+			Lister.FantasyLeague = "GS";
+
+			var fileOut = DoProjections ?
+			   Lister.RenderProjection(
+				   "PlayerCsv",
+				   weekMaster,
+				   AdpMaster)
+			   : Lister.Render("PlayerCsv");
+
+			if (DoProjections)
+				if (DoProjections)
+				{
+					// also do short csv for listpro (limited)
+					Lister.RenderProjection(
+						"PlayerCsvShort",
+						weekMaster,
+						AdpMaster);
+				}
+
+			Lister.Clear();
+
+			return fileOut;
+		}
+
+		public WeekMaster CollectPlayers()
+		{
 			Lister.SortOrder = "POINTS DESC";
 
 			var nWeek = int.Parse(Utility.CurrentWeek());
@@ -72,7 +103,7 @@ namespace RosterLib
 
 			var theWeek = new NFLWeek(
 				int.Parse(Utility.CurrentSeason()),
-				nWeek, 
+				nWeek,
 				loadGames: false);
 
 			var weekMaster = new WeekMaster();
@@ -88,26 +119,12 @@ namespace RosterLib
 			foreach (var sc in Configs)
 			{
 				Lister.Collect(
-					sc.Category, 
+					sc.Category,
 					sc.Position,
 					fantasyLeague: string.Empty);
 			}
 
-			Lister.Folder = "Starters";
-			Lister.LongStats = true;
-			Lister.RenderToHtml = false;
-			Lister.FantasyLeague = "GS";
-
-			var fileOut = DoProjections ?
-			   Lister.RenderProjection(
-				   "PlayerCsv", 
-				   weekMaster,
-				   AdpMaster)
-			   : Lister.Render("PlayerCsv");
-
-			Lister.Clear();
-
-			return fileOut;
+			return weekMaster;
 		}
 	}
 }
