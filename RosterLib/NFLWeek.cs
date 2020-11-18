@@ -73,14 +73,20 @@ namespace RosterLib
 
 		#region  Constructors
 
-		public NFLWeek(string seasonIn, int weekIn)
+		public NFLWeek(
+			string seasonIn, 
+			int weekIn)
 		{
 			Season = seasonIn;
-			Week = string.Format("{0:0#}", weekIn);
-			_sched = Utility.TflWs.GetGames( int.Parse(seasonIn), weekIn);
+			Week = $"{weekIn:0#}";
+			_sched = Utility.TflWs.GetGames(
+				int.Parse(seasonIn), weekIn);
 		}
 
-      public NFLWeek( string seasonIn, int weekIn, bool loadGames )
+      public NFLWeek(
+		  string seasonIn,
+		  int weekIn,
+		  bool loadGames)
       {
          Season = seasonIn;
          Week = string.Format( "{0:0#}", weekIn );
@@ -90,7 +96,9 @@ namespace RosterLib
 				weekIn );
       }
 
-      public NFLWeek(string seasonIn, string weekIn)
+      public NFLWeek(
+		  string seasonIn, 
+		  string weekIn)
 		{
 			Season = seasonIn;
 			Week = weekIn;
@@ -100,25 +108,34 @@ namespace RosterLib
 #endif
 		}
 
-		public NFLWeek(int seasonIn, int weekIn)
+		public NFLWeek(
+			int seasonIn,
+			int weekIn)
 		{
 			TflWs = Utility.TflWs;
 			Season = seasonIn.ToString();
-			_sched = LoadSchedule(seasonIn, weekIn);
+			_sched = LoadSchedule(
+				seasonIn, 
+				weekIn);
 #if DEBUG
 			//Utility.Announce($"NFLWeek:Constructor Week {weekIn}:{Season} has {_sched.Tables[ 0 ].Rows.Count} games");
 #endif
 			Week = weekIn.ToString();
 		}
 
-		public NFLWeek(int seasonIn, int weekIn, bool loadGames)
+		public NFLWeek(
+			int seasonIn,
+			int weekIn,
+			bool loadGames)
 		{
 			Season = seasonIn.ToString();
 			Week = weekIn.ToString();
 			if (loadGames)
 			{
 				TflWs = Utility.TflWs;
-				_sched = LoadSchedule(seasonIn, weekIn);
+				_sched = LoadSchedule(
+					seasonIn,
+					weekIn);
 #if DEBUG
 				//Utility.Announce( $"NFLWeek:Constructor Week {weekIn}:{Season} has {_sched.Tables[ 0 ].Rows.Count} games" );
 #endif
@@ -127,9 +144,13 @@ namespace RosterLib
 
 		#endregion
 
-		public DataSet LoadSchedule(int season, int week)
+		public DataSet LoadSchedule(
+			int season, 
+			int week)
 		{
-			return Utility.TflWs.GetGames(season, week);
+			return Utility.TflWs.GetGames(
+				season, 
+				week);
 		}
 
 
@@ -166,17 +187,23 @@ namespace RosterLib
 			Kenny.RenderBets(playList, true, true);
 		}
 
-		public ArrayList GameList(int season, int week)
+		public ArrayList GameList(
+			int season, 
+			int week)
 		{
-			//  express the scedule as a collection of games
-			if (_gameList == null) LoadGameList(season, week);
+			//  express the schedule as a collection of games
+			if (_gameList == null)
+				LoadGameList(
+					season, 
+					week);
 			return _gameList;
 		}
 
 		public ArrayList GameList()
 		{
 			//  express the schedule as a collection of games
-			if (_gameList == null) LoadGameList();
+			if (_gameList == null)
+				LoadGameList();
 			return _gameList;
 		}
 
@@ -229,7 +256,8 @@ namespace RosterLib
 				foreach (DataRow dr in dt.Rows)
 				{
 					var gameCode = $"{Season}:{dr[ "WEEK" ]}-{dr[ "GAMENO" ]}";
-					Announce(string.Format("LoadGameList: getting Game:{0}", gameCode ));
+					Announce(
+						$"LoadGameList: getting Game:{gameCode}");
 
 					var g = new NFLGame(dr);
 
@@ -237,20 +265,26 @@ namespace RosterLib
 				}
 			}
 			else
-				Announce(string.Format("LoadGameList: No Sched"));
+				Announce(
+					string.Format("LoadGameList: No Sched"));
 		}
 
-      private void Announce( string msg )
+      private void Announce( 
+		  string msg )
       {
          if (Logger==null)
-            Logger = NLog.LogManager.GetCurrentClassLogger();
+            Logger = LogManager.GetCurrentClassLogger();
 
          Logger.Trace( msg );
+		 Console.WriteLine(msg);
       }
 
       #endregion
 
-      public NFLWeek PreviousWeek(NFLWeek theWeek, bool loadgames, bool regularSeasonGamesOnly )
+      public NFLWeek PreviousWeek(
+		  NFLWeek theWeek, 
+		  bool loadgames, 
+		  bool regularSeasonGamesOnly )
 		{
 			var previousWeekNo = theWeek.WeekNo - 1;
 			var previousSeasonNo = theWeek.SeasonNo;
@@ -465,11 +499,14 @@ namespace RosterLib
 
 		#endregion
 
-		public NFLGame GameFor(string teamCode)
+		public NFLGame GameFor(
+			string teamCode)
 		{
 			//  go through the games and send back the one for the chosen team
 
-			var myGameList = GameList(SeasonNo, WeekNo);
+			var myGameList = GameList(
+				SeasonNo, 
+				WeekNo);
 
 			if (myGameList == null) return null;
 
