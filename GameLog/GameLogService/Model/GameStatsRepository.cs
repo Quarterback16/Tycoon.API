@@ -156,6 +156,7 @@ namespace GameLogService.Model
 			Console.WriteLine($"{playerModel.PlayerName} {playerModel.Season}");
 			Console.WriteLine();
 			var totals = new GameStats();
+			var grandtotals = new GameStats();
 			var isFirst = false;
 			foreach (var game in playerModel.GameLog)
 			{
@@ -174,10 +175,14 @@ namespace GameLogService.Model
 					Console.WriteLine($"  {game.KickerStats()}");
 					totals.FieldGoalsMade += game.FieldGoalsMade;
 					totals.ExtraPointsMade += game.ExtraPointsMade;
+					grandtotals.FieldGoalsMade += game.FieldGoalsMade;
+					grandtotals.ExtraPointsMade += game.ExtraPointsMade;
 					isFirst = true;
 				}
 			}
 			WriteKickerTotalLine(totals);
+			Console.WriteLine();
+			WriteKickerTotalLine(grandtotals);
 			Console.WriteLine();
 		}
 
@@ -190,6 +195,7 @@ namespace GameLogService.Model
 			Console.WriteLine($"{playerModel.PlayerName} {playerModel.Season}");
 			Console.WriteLine();
 			var totals = new GameStats();
+			var grandtotals = new GameStats();
 			var isFirst = false;
 			foreach (var game in playerModel.GameLog)
 			{
@@ -209,10 +215,15 @@ namespace GameLogService.Model
 					totals.PassingTds += game.PassingTds;
 					totals.RushingTds += game.RushingTds;
 					totals.ReceivingTds += game.ReceivingTds;
+					grandtotals.PassingTds += game.PassingTds;
+					grandtotals.RushingTds += game.RushingTds;
+					grandtotals.ReceivingTds += game.ReceivingTds;
 					isFirst = true;
 				}
 			}
 			WriteTotalLine(totals);
+			Console.WriteLine();
+			WriteTotalLine(grandtotals);
 			Console.WriteLine();
 		}
 
@@ -286,9 +297,12 @@ namespace GameLogService.Model
 				"//table");
 			if (tables == null)
 				return seasonTable;
+			//  first table is regular season , second one is playoffs
+			if (tables.Count > 0)
+				return tables[0];
 			foreach (var table in tables)
 			{
-				if ( table.FirstChild.InnerHtml == "Regular Season Table" )
+				if ( table.FirstChild.InnerHtml.Contains("Regular Season Table") )
 				{
 					seasonTable = table;
 					break;
@@ -323,8 +337,24 @@ namespace GameLogService.Model
 
 		public string PlayerCode(
 			string season,
-			string playerName)
+			string playerName,
+			string position = "")
 		{
+			if (season.Equals("1985")
+				&& playerName == "Bobby Johnson")
+			{
+				return "JohnBo00";
+			}
+			if (season.Equals("1985") 
+				&& playerName == "Theotis Brown")
+			{
+				return "BrowTh00";
+			}
+			if (season.Equals("1985") 
+				&& playerName == "Clint Sampson")
+			{
+				return "SampCl00";
+			}
 			var playerCode = string.Empty;
 			HtmlWeb web = new HtmlWeb();
 			playerName = playerName.Trim();
@@ -338,6 +368,14 @@ namespace GameLogService.Model
 			{
 				if (node.InnerText.Contains(playerName))
 				{
+					if (!string.IsNullOrEmpty(position))
+					{
+						if (!node.InnerText.Contains(
+							"("+position+")"))
+						{
+							continue;
+						}
+					}
 					var selectedNode = node.InnerText;
 					var career = CareerRange(
 						node);

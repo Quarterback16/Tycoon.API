@@ -108,7 +108,9 @@ namespace RosterLib
 			//  opponent factor
 			if (plyr.TotStats.YDp != 0)
 			{
-				var opponent = plyr.CurrTeam.OpponentFor(Week.Season, Week.WeekNo);
+				var opponent = plyr.CurrTeam.OpponentFor(
+					Week.Season,
+					Week.WeekNo);
 				if (opponent != null)
 				{
 					var oppRating = plyr.OpponentRating(opponent.Ratings);

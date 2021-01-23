@@ -24,7 +24,9 @@ namespace RosterLib
 				StartersOnly = false
 			};
 
-			var master = new YahooMaster( "Yahoo", "YahooOutput.xml" );
+			var master = new YahooMaster(
+				"Yahoo", 
+				"YahooOutput.xml" );
 			Logger.Trace( 
 				"  using {0} which has {1} stats", 
 				master.Filename, 
@@ -50,7 +52,7 @@ namespace RosterLib
 					 Scorer = gs,
 					 Week = theWeek
 				  },
-#if !DEBUG
+
 				new PerformanceReportConfig
 				  {
 					 Category = Constants.K_RUNNINGBACK_CAT,
@@ -162,7 +164,6 @@ namespace RosterLib
 					 Week = theWeek,
 					 WeeksToGoBack = 1
 				  },
-#endif
 			};
 
 			Leagues = new List<RosterGridLeague>

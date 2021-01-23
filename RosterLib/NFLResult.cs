@@ -93,8 +93,10 @@
 
 		public string PredictedScore()
 		{
-			if (this.Spread == 0.5M) this.Spread = 1.0M;  //  give it to the home team
-			if (this.Spread == 0) return string.Format("{0} @ {1} OTB", AwayTeam, HomeTeam);
+			if (Spread == 0.5M) 
+				Spread = 1.0M;  //  give it to the home team
+			if (Spread == 0) 
+				return $"{AwayTeam} @ {HomeTeam} OTB";
 			var winner = WinningTeam();
 			var winnerScore = WinningScore();
 			var loser = LosingTeam();
@@ -102,8 +104,7 @@
 			var joiner = Joiner();
 			var winnerPoFlag = PlayoffFlag(winner);
 			var loserPoFlag = PlayoffFlag(loser);
-			return string.Format("{0}{5}{1,2}{4}{2}{6}{3,2}",
-			   winner, winnerScore, loser, loserScore, joiner, winnerPoFlag, loserPoFlag);
+			return $"{winner}{winnerPoFlag}{winnerScore,2}{joiner}{loser}{loserPoFlag}{loserScore,2}";
 		}
 
 		private string PlayoffFlag(string teamCode)

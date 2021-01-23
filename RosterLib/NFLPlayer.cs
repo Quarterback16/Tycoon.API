@@ -738,10 +738,13 @@ namespace RosterLib
 			return false;
 		}
 
-		public bool ScoredLastGame(IKeepTheTime timekeeper)
+		public bool ScoredLastGame(
+			IKeepTheTime timekeeper)
 		{
-			var previousWeek = Int32.Parse(timekeeper.PreviousWeek());
-			if (ByeWeek(Int32.Parse(timekeeper.Season), previousWeek))
+			var previousWeek = Int32.Parse(
+				timekeeper.PreviousWeek());
+			if (ByeWeek(
+				Int32.Parse(timekeeper.Season), previousWeek))
 				previousWeek--;
 			if (previousWeek < 1)
 				return false;

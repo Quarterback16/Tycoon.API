@@ -64,9 +64,13 @@ namespace RosterLib
 				Logger.Trace( string.Format( "\t[{0}]:\t{1}\t{2}", i++, myEnumerator.Key, myEnumerator.Value ) );			
 		}
 
-      public void Announce( string message )
+      public void Announce( 
+		  string message )
       {
-         Logger.Trace( message );
+         Logger.Trace( 
+			 message );
+		 System.Diagnostics.Debug.WriteLine(
+			 message);
       }
 	}
 }

@@ -63,6 +63,7 @@ namespace RosterLib.Helpers
         /// <returns>WeekKey</returns>
         public string WeekKey(DateTime theDate)
         {
+            theDate = theDate.AddDays(-2);  // to handle Monday night games
             while (!theDate.DayOfWeek.Equals(DayOfWeek.Sunday))
                 theDate = theDate.AddDays(1);
 

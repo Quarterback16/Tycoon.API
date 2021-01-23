@@ -30,7 +30,9 @@ namespace RosterLib.RosterGridReports
 				Season = Season,
 				InstanceName = $"Pickup-Chart-Week-{Week:0#}"
 			};
-			PickupSummary = new PickupSummary(timekeeper, week);
+			PickupSummary = new PickupSummary(
+				timekeeper, 
+				week);
             PlayerReports = playerReports;
 		}
 
@@ -68,7 +70,11 @@ namespace RosterLib.RosterGridReports
 			var lineNo = 0;
 
 			foreach ( var tm in sortedList)
-				lineNo = GenerateChart( bodyOut, c, lineNo, tm );
+				lineNo = GenerateChart(
+					bodyOut: bodyOut,
+					c: c,
+					lineNo: lineNo,
+					team: tm );
 
 			return bodyOut.ToString();
 		}
@@ -115,22 +121,34 @@ namespace RosterLib.RosterGridReports
 
 		#region Bits and Pieces
 
-		private static string TimeBit( IWinOrLose team )
+		private static string TimeBit( 
+			IWinOrLose team )
 		{
 			var dayName = team.Game.GameDate.ToString( "dddd" ).Substring( 0, 2 );
 			var bit = $"{dayName}{team.Game.Hour}";
 			return bit;
 		}
 
-		private static string GameBit( IWinOrLose team )
+		public static string GameBit( 
+			IWinOrLose team )
 		{
 			team.Game.CalculateSpreadResult();
-			var predictedResult = team.IsWinner
-			   ? team.Game.BookieTip.PredictedScore()
-			   : team.Game.BookieTip.PredictedScoreFlipped();
+			string theResult;
+			if (team.Game.Played())
+			{
+				theResult = team.Game.ResultOutSimple(
+					teamInFocus: team.Team.TeamCode);
+			}
+			else
+			{
+				var predictedResult = team.IsWinner
+				   ? team.Game.BookieTip.PredictedScore()
+				   : team.Game.BookieTip.PredictedScoreFlipped();
+				theResult = predictedResult;
+			}
 			var theLine = team.Game.TheLine( team.Team.TeamCode );
 			var url = team.Game.GameProjectionUrl();
-			return $"<a href='{url}'>{predictedResult}</a> {theLine,3}";
+			return $"<a href='{url}'>{theResult}</a> {theLine,3}";
 		}
 
 		public string GetPlayerBit(
@@ -202,7 +220,9 @@ namespace RosterLib.RosterGridReports
 			YahooCalculator calculator,
 			bool bLinks = true)
 		{
-			var bit = NoneBit(team, bLinks);
+			var bit = NoneBit(
+				team, 
+				bLinks);
 			if ( team.Team.PassUnit.Q1 != null )
 			{
 				// get the next opponent by using the QB
@@ -222,14 +242,18 @@ namespace RosterLib.RosterGridReports
 						bLinks: bLinks);
 				else
 				{
+					var runners = team.Team.RunUnit.Starters;
 					var dualBacks = team.Team.RunUnit.Committee;
 					var combinedPts = 0.0M;
 					foreach ( NFLPlayer runner in team.Team.RunUnit.Starters )
 					{
-						calculator.Calculate( runner, team.Game );
+						calculator.Calculate( 
+							runner, 
+							team.Game );
 						combinedPts += runner.Points;
 					}
-					if ( !string.IsNullOrWhiteSpace( dualBacks.Trim() ) )
+					if ( !string.IsNullOrWhiteSpace( 
+						dualBacks.Trim() ) )
 					{
 						var dualSpace = 24;
 						dualBacks = dualBacks.Substring( 0, dualBacks.Length - 3 );
@@ -240,7 +264,7 @@ namespace RosterLib.RosterGridReports
 					}
 					var p = team.Team.RunUnit.R1;
 
-					var matchupLink = "";
+					string matchupLink;
 					if ( p != null )
 					{
 						var plusMatchup = PlusMatchup(
@@ -253,20 +277,26 @@ namespace RosterLib.RosterGridReports
 							bLinks: bLinks );
 					}
 					else
-						matchupLink = "?" + new String(' ', 20);
+						matchupLink = "?" + new String(' ', 24);
 
 					if (bLinks)
 						bit = string.Format(
-						   "&nbsp;<a href='..\\Roles\\{0}-Roles-{1:0#}.htm'>{3}</a> {2}  {4,2:#0}      ",
+						   "&nbsp;<a href='..\\Roles\\{0}-Roles-{1:0#}.htm'>{3}</a> {2}  {4,2:#0}  ",
 						   team.Team.TeamCode,
 						   Week - 1,
 						   matchupLink,
 						   dualBacks,
 						   (int) combinedPts  );
 					else
-						bit = $" {dualBacks} {matchupLink}  {(int)combinedPts,2:#0}      ";
+						bit = $" {dualBacks} {matchupLink}  {(int)combinedPts,2:#0}  ";
 
-					Logger.Trace( "   >>> No Ace back for {0}", team.Team.Name );
+					bit += ActualOutput(
+						game: team.Game,
+						player: null,
+						runners: runners);
+
+					Logger.Trace(
+						"   >>> No Ace back for {0}", team.Team.Name );
 				}
 			}
 			else
@@ -352,9 +382,11 @@ namespace RosterLib.RosterGridReports
             NFLPlayer player, 
             NFLGame game, 
             YahooCalculator calculator,
-			bool bLinks = true)
+			bool bLinks = true,
+			List<NFLPlayer> runners = null)
 		{
-			var nextOppTeam = player.NextOpponentTeam( game );
+			var nextOppTeam = player.NextOpponentTeam( 
+				game );
 			var plusMatchup = PlusMatchup(
 				player,
 				nextOppTeam,
@@ -368,9 +400,10 @@ namespace RosterLib.RosterGridReports
 				player,
 				game);
 			var namePart = bLinks 
-				? $"<a href='..\\Roles\\{player.TeamCode}-Roles-{Week - 1:0#}.htm'>{player.PlayerNameTo(11)}</a>"
+				? RoleLink(player)
 				: $"{player.PlayerNameTo(11)}";
-			if ( player.PlayerCat.Equals( Constants.K_KICKER_CAT ) )
+			if ( player.PlayerCat.Equals( 
+				Constants.K_KICKER_CAT ) )
 			{
 				AddPickup(
 					player,
@@ -382,7 +415,10 @@ namespace RosterLib.RosterGridReports
 				   owners,
 				   player.Points,
 				   DomeBit( game, player ),
-				   ActualOutput( game, player, null ) );
+				   ActualOutput(
+					   game: game,
+					   player: player,
+					   runners: null ) );
 			}
 			AddPickup(
 				player,
@@ -394,10 +430,26 @@ namespace RosterLib.RosterGridReports
 			   matchupLink,  //  defensiveRating,
 			   player.Points,
 			   owners,
-			   ActualOutput( game, player, null ),
+			   ActualOutput(
+				   game: game,
+				   player: player,
+				   runners: runners ),
 			   DomeBit( game, player ),
 			   ReturnerBit( player ),
 			   ShortYardageBit( player ) );
+		}
+
+		private string RoleLink(
+			NFLPlayer player)
+		{
+			var team = new NflTeam(
+				player.TeamCode);
+			var lastWeekPlayed = team.WeekLastPlayed(
+				Week);
+			var link = $@"<a href='..\\Roles\\{
+				player.TeamCode
+				}-Roles-{lastWeekPlayed:0#}.htm'>{player.PlayerNameTo(11)}</a>";
+			return link;
 		}
 
 		public string PlayerWikiPiece(
@@ -477,7 +529,8 @@ namespace RosterLib.RosterGridReports
 			if (pointsOut.Length == 1)
 				pointsOut = " " + pointsOut;
 
-			if (player.Points > PlayerStandard(player.PlayerCat)
+			if (player.Points > PlayerStandard(
+				player.PlayerCat)
 				&& player.IsFreeAgent())
 			{
 				if (!isReport)
@@ -582,10 +635,14 @@ namespace RosterLib.RosterGridReports
 				return " ";
 
 			var matchUp = "-";
-			var oppRating = nextOppTeam.DefensiveRating( player.PlayerCat );
-			var oppNumber = GetAsciiValue( oppRating );
-			var plrRating = pTeam.OffensiveRating( player.PlayerCat );
-			var plrNumber = GetAsciiValue( plrRating );
+			var oppRating = nextOppTeam.DefensiveRating( 
+				player.PlayerCat );
+			var oppNumber = GetAsciiValue( 
+				oppRating );
+			var plrRating = pTeam.OffensiveRating( 
+				player.PlayerCat );
+			var plrNumber = GetAsciiValue(
+				plrRating );
 			if ( plrNumber <= oppNumber )
 			{
 				matchUp = "+";
@@ -595,13 +652,15 @@ namespace RosterLib.RosterGridReports
 			return matchUp;
 		}
 
-		private static int GetAsciiValue( string rating )
+		private static int GetAsciiValue( 
+			string rating )
 		{
 			byte[] value = Encoding.ASCII.GetBytes( rating );
 			return value[ 0 ];
 		}
 
-		private string ShortYardageBit( NFLPlayer p )
+		private string ShortYardageBit( 
+			NFLPlayer p )
 		{
 			var shortYardageBit = " ";
 			if ( p.IsShortYardageBack() )
@@ -611,7 +670,8 @@ namespace RosterLib.RosterGridReports
 			return shortYardageBit;
 		}
 
-		private string ReturnerBit( NFLPlayer p )
+		private string ReturnerBit( 
+			NFLPlayer p )
 		{
 			var returnerBit = " ";
 			if ( p.IsReturner() )
@@ -621,7 +681,9 @@ namespace RosterLib.RosterGridReports
 			return returnerBit;
 		}
 
-		private string DomeBit( NFLGame g, NFLPlayer p )
+		private string DomeBit( 
+			NFLGame g,
+			NFLPlayer p )
 		{
 			var bit = " ";
 			if ( p.IsKicker() )
@@ -656,7 +718,9 @@ namespace RosterLib.RosterGridReports
 			}
 
 			if ( game.GameWeek == null )
-                game.GameWeek = new NFLWeek( game.Season, game.Week );
+                game.GameWeek = new NFLWeek( 
+					game.Season, 
+					game.Week );
 
             var scorer = new YahooScorer( game.GameWeek )
             {
@@ -674,7 +738,7 @@ namespace RosterLib.RosterGridReports
 					scorer.RatePlayer(runner, game.GameWeek);
 					nScore += runner.Points;
 				}
-				return $"{nScore,2:#0}";
+				return $" {nScore,2:#0} ";
 			}
 
             nScore = scorer.RatePlayer( 
@@ -682,7 +746,9 @@ namespace RosterLib.RosterGridReports
                 game.GameWeek, 
                 takeCache:false );
 			player.Points = nScore;
-			return PlayerPointsOut(player,isReport);
+			return PlayerPointsOut(
+				player,
+				isReport);
 		}
 
 		#endregion Bits and Pieces

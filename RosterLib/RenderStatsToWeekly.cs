@@ -36,7 +36,10 @@ namespace RosterLib
 
       public bool FullStart { get; set; }
 
-      public string RenderData(ArrayList playerList, string sHead, NFLWeek week)
+      public string RenderData(
+          ArrayList playerList, 
+          string sHead, 
+          NFLWeek week)
       {
          //  Output the list
          var r = new SimpleTableReport
@@ -91,7 +94,8 @@ namespace RosterLib
 
       private static bool IsYahooPkReport(string sHead )
       {
-         return ( IsYahooReport( sHead ) ) && ( ( sHead.IndexOf( "PK" ) > -1 ) );
+         return  IsYahooReport( sHead ) 
+                && ( sHead.IndexOf( "PK" ) > -1 ) ;
       }
 
       private static bool IsYahooTeReport(string sHead )
@@ -142,10 +146,17 @@ namespace RosterLib
 
          for (var w = Constants.K_WEEKS_IN_A_SEASON; w > 0; w--)
          {
-            var fieldName = string.Format(FieldFormat, currentWeek.WeekNo);
-            Utility.Announce( string.Format( "Adding field: {0}", fieldName ) );
-            cols.Add(fieldName, typeof (String));
-            currentWeek = currentWeek.PreviousWeek(currentWeek,loadgames:false, regularSeasonGamesOnly: false);
+            var fieldName = string.Format(
+                FieldFormat, 
+                currentWeek.WeekNo);
+            //Utility.Announce( 
+            //    string.Format( "Adding field: {0}", fieldName ) );
+            cols.Add(
+                fieldName, 
+                typeof (String));
+            currentWeek = currentWeek.PreviousWeek(
+                currentWeek,loadgames:false, 
+                regularSeasonGamesOnly: false);
          }
          foreach (NFLPlayer p in plyrList)
          {
@@ -158,7 +169,11 @@ namespace RosterLib
 
             var weekCounter = Constants.K_WEEKS_IN_A_SEASON;
             var weeksDone = 0;
-            var scoreWeek = WeekMaster != null ? WeekMaster.GetWeek(startWeek.Season, 17) : new NFLWeek( startWeek.Season, Constants.K_WEEKS_IN_REGULAR_SEASON );
+            var scoreWeek = WeekMaster != null 
+                    ? WeekMaster.GetWeek(startWeek.Season, 17) 
+                    : new NFLWeek( 
+                        startWeek.Season, 
+                        Constants.K_WEEKS_IN_REGULAR_SEASON );
             do
             {
                var game = scoreWeek.GameFor(p.TeamCode);

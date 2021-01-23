@@ -44,7 +44,9 @@ namespace RosterLib
                 LeagueInFocus = Constants.K_LEAGUE_Gridstats_NFL1;
 
             var totalPlayers = 0;
-			var season = new NflSeason( Season, teamsOnly: true );
+			var season = new NflSeason( 
+				Season, 
+				teamsOnly: true );
 			foreach ( var team in season.TeamList )
 			{
 				TeamCode = team.TeamCode;

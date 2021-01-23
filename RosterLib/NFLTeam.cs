@@ -775,9 +775,22 @@ namespace RosterLib
 			return sb.ToString();
 		}
 
+		public int WeekLastPlayed(
+			int currentWeek)
+		{
+			if (GameList == null)
+				LoadGames(TeamCode, Season);
+			var lastGame = GameForWeek(currentWeek-1);
+			if (lastGame.IsBye())
+				return currentWeek - 2;
+			else
+				return currentWeek - 1;
+		}
+
 		public string SeasonProjectionOut()
 		{
-			if ( GameList == null ) LoadGames( TeamCode, Season );
+			if ( GameList == null )
+				LoadGames( TeamCode, Season );
 			var w = 0;
 			var l = 0;
 			var t = 0;
@@ -856,8 +869,7 @@ namespace RosterLib
 			   PPUnitLink(PpRating()),
 			   PRUnitLink(PrRating()),
 			   RDUnitLink(RdRating()),
-			   PDUnitLink( PdRating() )
-			   );
+			   PDUnitLink( PdRating() ));
 		}
 
 		/// <summary>
@@ -952,13 +964,19 @@ namespace RosterLib
 
 		#region Schedule stuff
 
-		public NflTeam OpponentFor( string seasonIn, int week )
+		public NflTeam OpponentFor( 
+			string seasonIn,
+			int week )
 		{
-			if ( _sched == null ) LoadSchedule();
+			if ( _sched == null ) 
+				LoadSchedule();
 
-			if ( _sched != null && _sched.GameList == null ) _sched.Load();
+			if ( _sched != null 
+				&& _sched.GameList == null ) 
+				_sched.Load();
 
-			if ( _sched == null ) return null;
+			if ( _sched == null ) 
+				return null;
 
 			var opponent = seasonIn == Utility.CurrentSeason() ? _sched.Opponent( week ) : _prevSched.Opponent( week );
 			return opponent;
@@ -1416,18 +1434,23 @@ namespace RosterLib
 			return opp;
 		}
 
-		public NFLGame NextGame( DateTime when )
+		public NFLGame NextGame( 
+			DateTime when )
 		{
 			NFLGame g = null;
-			var dr = Utility.TflWs.GetGameAfter( TeamCode, when );
-			if ( dr != null ) g = new NFLGame( dr );
+			var dr = Utility.TflWs.GetGameAfter(
+				TeamCode, when );
+			if ( dr != null ) 
+				g = new NFLGame( dr );
 			return g;
 		}
 
 		public NFLGame NextGame()
 		{
 			NFLGame g = null;
-			var dr = Utility.TflWs.GetGameAfter( TeamCode, DateTime.Now );
+			var dr = Utility.TflWs.GetGameAfter(
+				TeamCode, 
+				DateTime.Now );
 			if ( dr != null ) g = new NFLGame( dr );
 			return g;
 		}
@@ -5302,8 +5325,8 @@ namespace RosterLib
 		{
 			//  starters only
 #if DEBUG
-			Utility.Announce( "NFLTeam.FillSpot: for " + plyr.PlayerName );
-			if ( plyr.PlayerCode.Equals( "GOREFR01" ) )
+			//Utility.Announce( "NFLTeam.FillSpot: for " + plyr.PlayerName );
+			if ( plyr.PlayerCode.Equals( "HARRN'01" ) )
 				DumpSpots();
 #endif
 			if ( plyr.PlayerRole == "S" )

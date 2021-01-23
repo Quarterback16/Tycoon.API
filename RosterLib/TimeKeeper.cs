@@ -78,7 +78,8 @@ namespace RosterLib
 			{
 				var now = SystemClock.Now;
 				//  add a day for Aus time
-				return now >= SeasonStarts.AddDays( 1 ) && now <= RegularSeasonEnds;
+				return now >= SeasonStarts.AddDays( 1 ) 
+					&& now <= RegularSeasonEnds;
 			}
 			var month = SystemClock.GetMonth();
 			return month >= 9 && month <= 12;
@@ -101,7 +102,8 @@ namespace RosterLib
 			return IsItPeakTime( SystemClock.Now );
 		}
 
-		public bool IsItPeakTime( DateTime theDateTime )
+		public bool IsItPeakTime(
+			DateTime theDateTime )
 		{
 			var startHour = 5;
 			var endHour = 23;
@@ -122,7 +124,16 @@ namespace RosterLib
 
 		public DateTime GetDate()
 		{
-			return SystemClock.Now;
+			return GetUsDate();
+		}
+
+		public DateTime GetUsDate()
+		{
+			var usOffset = new TimeSpan(
+				hours: 15,
+				minutes: 0,
+				seconds: 0);
+			return SystemClock.Now - usOffset;
 		}
 
 		public bool IsDateDaysOld( int daysOld, DateTime theDate )
@@ -131,7 +142,8 @@ namespace RosterLib
 			return daysSince.Days <= daysOld;
 		}
 
-		public bool IsItWednesdayOrThursday( DateTime focusDate )
+		public bool IsItWednesdayOrThursday( 
+			DateTime focusDate )
 		{
 			return focusDate.DayOfWeek == DayOfWeek.Wednesday || focusDate.DayOfWeek == DayOfWeek.Thursday;
 		}
@@ -178,9 +190,12 @@ namespace RosterLib
 			set { }
 		}
 
-		public bool IsItFridaySaturdayOrSunday( DateTime focusDate )
+		public bool IsItFridaySaturdayOrSunday(
+			DateTime focusDate )
 		{
-			return focusDate.DayOfWeek == DayOfWeek.Friday || focusDate.DayOfWeek == DayOfWeek.Saturday || focusDate.DayOfWeek == DayOfWeek.Sunday;
+			return focusDate.DayOfWeek == DayOfWeek.Friday 
+				|| focusDate.DayOfWeek == DayOfWeek.Saturday 
+				|| focusDate.DayOfWeek == DayOfWeek.Sunday;
 		}
 
 		public bool IsItMondayMorning()
@@ -202,7 +217,8 @@ namespace RosterLib
 			return SystemClock.Now;
 		}
 
-		public string PreviousSeason( DateTime focusDate )
+		public string PreviousSeason( 
+			DateTime focusDate )
 		{
 			Season = CurrentSeason( focusDate );
 			return PreviousSeason();
@@ -230,7 +246,8 @@ namespace RosterLib
 			return numberOfSundays;
 		}
 
-		public DateTime GetSundayFor( DateTime when )
+		public DateTime GetSundayFor(
+			DateTime when )
 		{
 			var theSeason = Utility.SeasonFor( when );
 			var theSunday = Utility.TflWs.GetSeasonStartDate( theSeason );
@@ -246,15 +263,23 @@ namespace RosterLib
 			return theSunday;
 		}
 
-		public bool IsItWednesday( DateTime focusDate )
+		public bool IsItWednesday(
+			DateTime focusDate )
 		{
 			return focusDate.DayOfWeek == DayOfWeek.Wednesday;
+		}
+
+		public bool IsItMonday()
+		{
+			var focusDate = CurrentDateTime();
+			return focusDate.DayOfWeek == DayOfWeek.Monday;
 		}
 
 		public bool IsItTuesday()
 		{
 			var focusDate = CurrentDateTime();
-			return focusDate.DayOfWeek == DayOfWeek.Tuesday && IsItRegularSeason();
+			return focusDate.DayOfWeek == DayOfWeek.Tuesday 
+				&& IsItRegularSeason();
 		}
 	}
 }

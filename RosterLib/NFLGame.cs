@@ -103,7 +103,8 @@ namespace RosterLib
 			GameCode = "X";
 		}
 
-		public NFLGame(string teamCode, string season, string week)
+		public NFLGame(
+			string teamCode, string season, string week)
 		{
 			//  instatiate the game for a particular week
 			var gameDs = Utility.TflWs.GameForTeam(
@@ -887,7 +888,8 @@ namespace RosterLib
 
 		public int AgainstFor( string teamCode )
 		{
-			return teamCode.Equals( HomeTeam ) ? AwayScore : HomeScore;
+			return teamCode.Equals( HomeTeam ) 
+				? AwayScore : HomeScore;
 		}
 
 		public int ScoreFor( string teamCode )
@@ -1034,7 +1036,9 @@ namespace RosterLib
 			return team == WinningTeam() ? HtmlLib.Bold( team ) : team;
 		}
 
-		public string ResultOut( string teamInFocus, bool abbreviate )
+		public string ResultOut( 
+			string teamInFocus,
+			bool abbreviate )
 		{
 			var theResult = "tied";
 			if ( teamInFocus == HomeTeam )
@@ -1056,7 +1060,36 @@ namespace RosterLib
 			return theResult;
 		}
 
-		public string ResultFor( string teamInFocus, bool abbreviate, bool barIt = true )
+		public string ResultOutSimple(
+			string teamInFocus)
+		{
+			string theOperator;
+			int teamScore;
+			int oppScore;
+			if (teamInFocus == HomeTeam)
+			{
+				theOperator = "v";
+				teamScore = HomeScore;
+				oppScore = AwayScore;
+			}
+			else
+			{
+				theOperator = "@";
+				teamScore = AwayScore;
+				oppScore = HomeScore;
+
+			}
+			return $@"{
+				teamInFocus
+				} {teamScore,2}{
+				theOperator
+				}{Opponent(teamInFocus)} {oppScore,2}";
+		}
+
+		public string ResultFor( 
+			string teamInFocus, 
+			bool abbreviate, 
+			bool barIt = true )
 		{
 			string dividerChar;
 			if ( barIt )
@@ -1139,7 +1172,9 @@ namespace RosterLib
 			return string.Format( "{1}{0}", theResult, dividerChar );
 		}
 
-		private string FormatScore(int score1, int score2)
+		private string FormatScore(
+			int score1, 
+			int score2)
 		{
 			var strScore1 = $" {score1}";
 			var strScore2 = $" {score2}";
@@ -1506,7 +1541,10 @@ namespace RosterLib
 		/// <param name="drawQuota">The draw quota - you win if you get more than this.</param>
 		/// <returns></returns>
 
-		private static string ResultOf( decimal metric, decimal lossQuota, decimal drawQuota )
+		private static string ResultOf( 
+			decimal metric, 
+			decimal lossQuota,
+			decimal drawQuota )
 		{
 			if ( metric <= lossQuota )
 				return "L";
@@ -1514,7 +1552,10 @@ namespace RosterLib
 			return metric <= drawQuota ? "D" : "W";
 		}
 
-		private static string ReverseResultOf( decimal metric, decimal lossQuota, decimal drawQuota )
+		private static string ReverseResultOf(
+			decimal metric, 
+			decimal lossQuota, 
+			decimal drawQuota )
 		{
 			var res = ResultOf( metric, lossQuota, drawQuota );
 
@@ -1622,7 +1663,8 @@ namespace RosterLib
 			return theResult;
 		}
 
-		public string OpponentOut( string teamInFocus )
+		public string OpponentOut( 
+			string teamInFocus )
 		{
 			var ha = ( HomeTeam == teamInFocus ) ? "v" : "@";
 			var opp = ( HomeTeam == teamInFocus ) ? AwayTeam : HomeTeam;
@@ -2267,7 +2309,19 @@ namespace RosterLib
 				res.HomeTDs);
 		}
 
-		public void WriteProjection()
+		public void StoreGameLine(
+			decimal spread,
+			decimal total)
+		{ 
+			Utility.TflWs.StoreGameLine(
+			    spread,
+			    total,
+				Season,
+				Week,
+				GameCode);
+		}
+
+	public void WriteProjection()
 		{
 			if (Played())
 			{
@@ -2888,7 +2942,7 @@ namespace RosterLib
 
 		public string GamebookUrl()
 		{
-			var rootUrl = "http://www.nfl.com/liveupdate/gamecenter/";
+			var rootUrl = "https://nflcdns.nfl.com/liveupdate/gamecenter/";
 			return string.Format( "{0}{1}/{2}_Gamebook.pdf", rootUrl, Id, HomeNflTeam.ApCode.Trim() );
 		}
 	}

@@ -12,7 +12,8 @@ namespace RosterLib
 		public IBreakdown TeamBreakdowns { get; set; }
 
         public List<FptsAllowed> TotalFpAllowedList { get; set; }
-        public PointsAllowedReport( IKeepTheTime timekeeper ) : base( timekeeper )
+        public PointsAllowedReport(
+			IKeepTheTime timekeeper ) : base( timekeeper )
 		{
 			Week = timekeeper.Week;
 			if ( timekeeper.IsItPostSeason() )
@@ -84,7 +85,16 @@ namespace RosterLib
 				ColumnHeadings = true,
 				DoRowNumbers = true
 			};
-			str.AddColumn( new ReportColumn( "Team", "TEAM", "{0,-20}" ) );
+			str.AddColumn( 
+				new ReportColumn(
+					"Team",
+					"TEAM",
+					"{0,-20}") );
+			str.AddColumn(
+				new ReportColumn(
+					"Opp",
+					"OPP",
+					"{0,-20}"));
 			str.AddColumn(
 			   new ReportColumn( 
                    "Total", 
@@ -141,6 +151,7 @@ namespace RosterLib
 			var dt = new DataTable();
 			var cols = dt.Columns;
 			cols.Add( "TEAM", typeof( String ) );
+			cols.Add( "OPP", typeof(String));
 			cols.Add( "TOTAL", typeof( decimal ) );
 			cols.Add( "QB", typeof( string ) );
 			cols.Add( "RB", typeof( string ) );
@@ -161,14 +172,19 @@ namespace RosterLib
             {
                 var team = teamPair.Value;
 
-                FptsAllowed fptsAllowed = new FptsAllowed( team.TeamCode );
-                FptsAllowed totalFptsAllowed = new FptsAllowed( team.TeamCode );
-                for ( var w = TimeKeeper.CurrentWeek(DateTime.Now)-1; w > 0; w-- )
+                FptsAllowed fptsAllowed = new FptsAllowed( 
+					team.TeamCode );
+                FptsAllowed totalFptsAllowed = new FptsAllowed(
+					team.TeamCode );
+                for ( var w = TimeKeeper.CurrentWeek(
+					DateTime.Now)-1; w > 0; w-- )
                 {
-                    if ( w > asOfWeek ) continue;
-					if (w < asOfWeek - 5) continue;
+                    if ( w > asOfWeek ) 
+						continue;
+					if (w < asOfWeek - 5) 
+						continue;
 
-					string theWeek = string.Format( "{0:0#}", w );
+					string theWeek = $"{w:0#}";
 
                     var ds = Utility.TflWs.GameForTeam( 
                         Season, 
@@ -177,13 +193,19 @@ namespace RosterLib
                     if ( ds.Tables[ 0 ].Rows.Count != 1 )
                         continue;
 
-					fptsAllowed = CalculateFptsAllowed( team, theWeek, ds );
+					fptsAllowed = CalculateFptsAllowed( 
+						team,
+						theWeek, 
+						ds );
 
-                    totalFptsAllowed.Add( fptsAllowed );
-                    AccumulateFptsAllowed( fptsAllowed );
+                    totalFptsAllowed.Add( 
+						fptsAllowed );
+                    AccumulateFptsAllowed( 
+						fptsAllowed );
                 }
 
-                DumpBreakdowns( team.TeamCode );
+                DumpBreakdowns( 
+					team.TeamCode );
 
 #if DEBUG2
             tCount++;
@@ -204,7 +226,9 @@ namespace RosterLib
             {
                 DataRow teamRow = Data.NewRow();
                 teamRow[ "TEAM" ] = item.TeamCode;
-                teamRow[ "TOTAL" ] = 0;
+				teamRow[ "OPP" ] = Opponent(
+					item.TeamCode);
+				teamRow[ "TOTAL" ] = 0;
                 teamRow[ "QB" ] = LinkFor( item.TeamCode, "QB", item.ToQbs, item.ToQbsRank );
                 teamRow[ "RB" ] = LinkFor( item.TeamCode, "RB", item.ToRbs, item.ToRbsRank );
                 teamRow[ "WR" ] = LinkFor( item.TeamCode, "WR", item.ToWrs, item.ToWrsRank );
@@ -216,21 +240,40 @@ namespace RosterLib
             }
         }
 
-        private void AccumulateFptsAllowed( FptsAllowed fptsAllowed )
+		private string Opponent(
+			string teamCode)
+		{
+			var team = new NflTeam(teamCode);
+			var nextGame = team.NextGame(
+				DateTime.Now);
+			if (nextGame == null)
+				return string.Empty;
+
+			var opponent = nextGame.OpponentOut(
+				teamCode);
+			return opponent;
+		}
+
+		private void AccumulateFptsAllowed(
+			FptsAllowed fptsAllowed )
         {
             // get the right object
-            var fpts = GetFptsFor( fptsAllowed.TeamCode );
+            var fpts = GetFptsFor(
+				fptsAllowed.TeamCode );
             if ( fpts == null )
             {
-                TotalFpAllowedList.Add( fptsAllowed );
+                TotalFpAllowedList.Add( 
+					fptsAllowed );
             }
             else
             {
-                fpts.IncrementBy( fptsAllowed );
+                fpts.IncrementBy( 
+					fptsAllowed );
             }
         }
 
-        private FptsAllowed GetFptsFor( string teamCode )
+        private FptsAllowed GetFptsFor( 
+			string teamCode )
         {
             FptsAllowed fpts = null;
             foreach ( FptsAllowed item in TotalFpAllowedList )
@@ -353,7 +396,8 @@ namespace RosterLib
             }
         }
 
-        private void DumpBreakdowns( string teamCode )
+        private void DumpBreakdowns( 
+			string teamCode )
 		{
 			DumpBreakdown( teamCode, "QB" );
 			DumpBreakdown( teamCode, "RB" );
@@ -362,7 +406,9 @@ namespace RosterLib
 			DumpBreakdown( teamCode, "PK" );
 		}
 
-		private void DumpBreakdown( string teamCode, string positionAbbr )
+		private void DumpBreakdown(
+			string teamCode, 
+			string positionAbbr )
 		{
 			var fpts = GetFptsFor(teamCode);
 			var breakdownKey = $"{teamCode}-{positionAbbr}-{Week}";
@@ -446,7 +492,8 @@ namespace RosterLib
 		   decimal plyrPts, 
 		   string abbr )
 		{
-			if ( plyrPts == 0 ) return;
+			if ( plyrPts == 0 ) 
+				return;
 
 			var strPts = $"{plyrPts:0.0}";
 			strPts = strPts.PadLeft( 5 );
@@ -455,7 +502,7 @@ namespace RosterLib
 			   breakdownKey: $"{ team.TeamCode}-{abbr}-{Week}",
 			   line: $@"Wk:{
 				  theWeek
-				  } {p.PlayerName,-25} Pts : {strPts}"
+				  } ({p.TeamCode}) {p.PlayerName,-25} Pts : {strPts}"
 				);
 		}
 

@@ -55,7 +55,8 @@ namespace RosterService.Tests
 			RosterDump("LL");
 		}
 
-		private void RosterDump(string teamCode)
+		private void RosterDump(
+			string teamCode)
 		{
 			Console.WriteLine("--------------------------------------");
 			Console.WriteLine(
@@ -93,6 +94,18 @@ namespace RosterService.Tests
 			var result = sut.GetPriceOf(
 				"Joe Montana");
 			Assert.AreEqual(59, result);
+		}
+
+		[TestMethod]
+		public void RetroRosters_KnowsWhoHasPlayer()
+		{
+			var player = "Wesley Walker";
+			var sut = new RetroRosters(
+				new RosterEventStore());
+			var result = sut.GetOwnerOf(
+				player);
+			Console.WriteLine($"{result} has {player}");
+			//Assert.AreEqual("CD", result);
 		}
 	}
 }

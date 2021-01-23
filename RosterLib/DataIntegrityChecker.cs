@@ -150,7 +150,9 @@ namespace RosterLib
 					}
 				}
 			}
-			ReportResults(StatsChecked, "Stats");
+			ReportResults(
+				StatsChecked, 
+				"Stats");
 		}
 
 		private void CheckGamesForWeek(int week)

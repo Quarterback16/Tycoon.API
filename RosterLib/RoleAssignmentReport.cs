@@ -22,22 +22,27 @@ namespace RosterLib
 			Initialise( timekeeper );
 		}
 
-		private void Initialise( IKeepTheTime timekeeper )
+		private void Initialise(
+			IKeepTheTime timekeeper )
 		{
 			Name = "Role Assignment Report";
 			Lines = new List<String> { Name };
-			Season = timekeeper.CurrentSeason( DateTime.Now );
+			Season = timekeeper.CurrentSeason( 
+				DateTime.Now );
 			Aces = new List<string>();
-			if ( Logger == null ) Logger = LogManager.GetCurrentClassLogger();
+			if ( Logger == null ) 
+				Logger = LogManager.GetCurrentClassLogger();
 		}
 
 		private void Initialise()
 		{
 			Name = "Role Assignment Report";
 			Lines = new List<String> { Name };
-			Season = TimeKeeper.CurrentSeason( DateTime.Now );
+			Season = TimeKeeper.CurrentSeason(
+				DateTime.Now );
 			Aces = new List<string>();
-			if ( Logger == null ) Logger = LogManager.GetCurrentClassLogger();
+			if ( Logger == null ) 
+				Logger = LogManager.GetCurrentClassLogger();
 		}
 
 		public RoleAssignmentReport(
@@ -50,7 +55,7 @@ namespace RosterLib
 
 		public override string OutputFilename()
 		{
-			return $"{Utility.OutputDirectory()}{Season}/{Name}.htm";
+			return $"{Utility.OutputDirectory()}{Season}\\Roles\\{Name}.htm";
 		}
 
 		public override void RenderAsHtml()

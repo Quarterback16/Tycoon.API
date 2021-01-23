@@ -183,8 +183,11 @@ namespace RosterLib
                 var p = Masters.Pm.GetPlayer( dr[ "PLAYERID" ].ToString() );
                 var oldJersey = p.JerseyNo;
                 var newJersey = dr[ "SHIRT" ].ToString().Trim();
-                if ( oldJersey.Equals( newJersey ) )
-                    newJersey = "0"; // so it is ignored by update
+                if (oldJersey != null)
+                {
+                    if (oldJersey.Equals(newJersey))
+                        newJersey = "0"; // so it is ignored by update
+                }
                 p.JerseyNo = newJersey;
                 p.LineupPos = dr[ "POS" ].ToString().Trim();
                 if ( ( bool ) dr[ "START" ] )

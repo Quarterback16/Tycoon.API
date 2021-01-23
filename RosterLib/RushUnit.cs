@@ -374,16 +374,20 @@ namespace RosterLib
 			return output;
 		}
 
-		public List<string> DumpUnitByTouches( int totTouches )
+		public List<string> DumpUnitByTouches( 
+			int totTouches )
 		{
 			var output = new List<string>();
 			foreach ( var runner in Runners )
 			{
-				var load = Utility.Percent( runner.TotStats.Touches, totTouches );
+				var load = Utility.Percent(
+					runner.TotStats.Touches, 
+					totTouches );
 
 				//  Returned fron the dead
 				if ( load > 0 &&
-				   ( runner.PlayerRole == Constants.K_ROLE_INJURED || runner.PlayerRole == Constants.K_ROLE_SUSPENDED ) )
+				   ( runner.PlayerRole == Constants.K_ROLE_INJURED 
+				  || runner.PlayerRole == Constants.K_ROLE_SUSPENDED ) )
 					runner.PlayerRole = Constants.K_ROLE_DEEP_RESERVE;
 
 				if ( runner.PlayerRole != Constants.K_ROLE_INJURED
@@ -398,10 +402,15 @@ namespace RosterLib
 						runner.PlayerRole = Constants.K_ROLE_STARTER;
 				}
 
-				var msg = string.Format( "{0,-25} : {6} : {1} : {2,3} : {3,5:##0.0}% : {4} : {5}",
-				   runner.ProjectionLink( 25 ), runner.PlayerRole, runner.TotStats.Touches,
-				   load, runner.PlayerRole, runner.PlayerPos, runner.Owner
-				   );
+				var msg = string.Format( 
+					"{0,-25} : {6} : {1} : {2,3} : {3,5:##0.0}% : {4} : {5}",
+				   runner.ProjectionLink( 25 ), 
+				   runner.PlayerRole, 
+				   runner.TotStats.Touches,
+				   load, 
+				   runner.PlayerRole, 
+				   runner.PlayerPos, 
+				   runner.Owner );
 				runner.TotStats.TouchLoad = load;
 				Announce( msg );
 				output.Add( msg );
@@ -411,12 +420,14 @@ namespace RosterLib
 
 		public bool TandemBack( NFLPlayer p )
 		{
-			return Starters.Count == 2 && Starters.Contains( p );
+			return Starters.Count == 2 
+				&& Starters.Contains( p );
 		}
 
 		public bool IsLoaded()
 		{
-			return Runners != null && Runners.Count > 0;
+			return Runners != null 
+				&& Runners.Count > 0;
 		}
 
 		public RunApproach DetermineApproach()

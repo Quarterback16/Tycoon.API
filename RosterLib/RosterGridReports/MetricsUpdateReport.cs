@@ -31,11 +31,20 @@ namespace RosterLib.RosterGridReports
 			var gameList = Week.GameList();
 			foreach ( NFLGame g in gameList )
 			{
-				body.AppendLine( g.GameName() + "  " + g.ScoreOut() );
-				g.LoadAllFantasyAwayPlayers( null, string.Empty );
-				g.LoadAllFantasyHomePlayers( null, string.Empty );
-				ProcessPlayerList( g.HomePlayers, body );
-				ProcessPlayerList( g.AwayPlayers, body );
+				body.AppendLine( 
+					g.GameName() + "  " + g.ScoreOut() );
+				g.LoadAllFantasyAwayPlayers(
+					date: null,
+					catFilter: string.Empty );
+				g.LoadAllFantasyHomePlayers(
+					date: null,
+					catFilter: string.Empty );
+				ProcessPlayerList(
+					g.HomePlayers,
+					body );
+				ProcessPlayerList(
+					g.AwayPlayers,
+					body );
 #if DEBUG2
 		      break;  // to speed things up
 #endif
@@ -56,10 +65,16 @@ namespace RosterLib.RosterGridReports
 			}
 		}
 
-		public void ProcessPlayer( StringBuilder body, NFLPlayer p )
+		public void ProcessPlayer( 
+			StringBuilder body, 
+			NFLPlayer p )
 		{
-			var pts = Scorer.RatePlayer( p, Week, takeCache: false );
-			// By product is that the players Game Metrics are updated
+			var pts = Scorer.RatePlayer( 
+				p,
+				Week,
+				takeCache: false );
+			// By product is that the players Game Metrics 
+			// are updated
 			p.Points = pts;
 
 #if DEBUG
@@ -81,7 +96,8 @@ namespace RosterLib.RosterGridReports
 			Console.WriteLine(line);
 		}
 
-		private void OutputReport( string body )
+		private void OutputReport(
+			string body )
 		{
 			var PreReport = new SimplePreReport
 			{

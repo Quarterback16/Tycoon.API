@@ -18,13 +18,15 @@ namespace Helpers
             OutputFolder = ".//Source//";
         }
 
-        public Downloader(string outputFolder)
+        public Downloader(
+            string outputFolder)
         {
             Logger = LogManager.GetCurrentClassLogger();
             OutputFolder = outputFolder;
         }
 
-        public bool GotIt(Uri target)
+        public bool GotIt(
+            Uri target)
         {
             var gotIt = false;
             var fileName = GetFileName(target);
@@ -37,7 +39,8 @@ namespace Helpers
             return gotIt;
         }
 
-        public static string GetFileName(Uri target)
+        public static string GetFileName(
+            Uri target)
         {
             var fileName = Path.GetFileName(target.LocalPath);
             return fileName;
@@ -45,13 +48,16 @@ namespace Helpers
 
         public bool Download(Uri target)
         {
-            if (GotIt(target)) return false;  //  we already seen this file
+            if (GotIt(target)) 
+                return false;  //  we already seen this file
 
             var downloaded = false;
 
-            var fileName = GetFileName(target);
+            var fileName = GetFileName(
+                target);
 
-            fileName = TackOnOutputDirectory(fileName);
+            fileName = TackOnOutputDirectory(
+                fileName);
             Logger.Info($"attempting DL on uri: {target} to {fileName}");
             try
             {
@@ -108,9 +114,11 @@ namespace Helpers
             return downloaded;
         }
 
-        public bool DownloadPdf(Uri target)
+        public bool DownloadPdf(
+            Uri target)
         {
-            if (GotIt(target)) return false;  //  we already seen this file
+            if (GotIt(target)) 
+                return false;  //  we already seen this file
 
             var downloaded = false;
 

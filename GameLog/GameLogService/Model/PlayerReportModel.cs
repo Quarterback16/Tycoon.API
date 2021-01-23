@@ -6,6 +6,7 @@ namespace GameLogService.Model
 	{
 		public string Season { get; set; }
 		public string PlayerName { get; set; }
+		public string Position { get; set; }
 		public List<GameStats> GameLog { get; set; }
 
 		public bool IsKicker()

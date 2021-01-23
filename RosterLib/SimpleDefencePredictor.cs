@@ -8,12 +8,17 @@ namespace RosterLib
    public class SimpleDefencePredictor : IPredictDefensiveTeams
    {
 
-      public Int32 PredictSacks( NflTeam team, string season, int week )
+      public Int32 PredictSacks( 
+          NflTeam team, 
+          string season, 
+          int week )
       {
          //  Predict the number of Sacks the team will make
          int sacks = 0;
          //  who are the opponents
-         NflTeam opponent = team.OpponentFor( season, week );
+         NflTeam opponent = team.OpponentFor(
+             season, 
+             week );
          if (opponent != null)
          {
             //  not on a bye
@@ -31,7 +36,8 @@ namespace RosterLib
             if (game.IsBadWeather()) sacks += 1;
          }
 
-         if (sacks < 0) sacks = 0;
+         if (sacks < 0) 
+                sacks = 0;
          
          return sacks;
       }

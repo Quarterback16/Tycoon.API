@@ -36,8 +36,9 @@ namespace RosterLib
 			else
 			{
 				Logger.Info(
-					"  Generating Yahoo xml for Season {0} Week {1}",
-				   TimeKeeper.Season, TimeKeeper.Week );
+				   "  Generating Yahoo xml for Season {0} Week {1}",
+				   TimeKeeper.Season, 
+				   TimeKeeper.PreviousWeek() );
 				YahooMaster.Calculate( 
 					TimeKeeper.Season, 
 					TimeKeeper.PreviousWeek() );

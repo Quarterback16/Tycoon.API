@@ -32,13 +32,17 @@ namespace RosterLib
 			string outputFileName,
 			decimal avg)
 		{
-			if (!Breakdowns.ContainsKey(breakdownKey)) return;
+			if (!Breakdowns.ContainsKey(breakdownKey)) 
+				return;
 
 			var theLines = (List<String>) Breakdowns[ breakdownKey ];
 
-			Utility.EnsureDirectory( outputFileName );
+			Utility.EnsureDirectory(
+				outputFileName );
 
-			var sw = new StreamWriter( outputFileName, false );
+			var sw = new StreamWriter( 
+				outputFileName,
+				append: false );
 
 			sw.WriteLine( "<pre>" );
 

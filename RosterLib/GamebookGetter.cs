@@ -10,12 +10,14 @@ namespace RosterLib
 	{
 		public readonly IDownloader Downloader;
 
-		public GamebookGetter( IDownloader downloader )
+		public GamebookGetter( 
+			IDownloader downloader )
 		{
 			Downloader = downloader;
 		}
 
-		public int DownloadWeek( NFLWeek week )
+		public int DownloadWeek(
+			NFLWeek week )
 		{
 			var gameDict = new Dictionary<string, NFLGame>();
 			var dlCount = 0;
@@ -66,7 +68,7 @@ namespace RosterLib
 						{
 							offSet++;
 							var nextId = origSeed + offSet;
-							if (offSet > 15)
+							if (offSet > 1 * 16)
 								break;
 							g.Id = nextId.ToString();
 						}

@@ -125,7 +125,8 @@ namespace RosterLib
 			writer.Close();
 		}
 
-		public void Dump2Xml( Logger logger )
+		public void Dump2Xml( 
+			Logger logger )
 		{
 			Dump2Xml();
 			Announce( "  " + Filename + " written" );

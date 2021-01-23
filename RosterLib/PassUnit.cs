@@ -243,7 +243,9 @@ namespace RosterLib
 			return 1;
 		}
 
-		public List<string> AnalyseWideouts( string season, string week )
+		public List<string> AnalyseWideouts( 
+			string season, 
+			string week )
 		{
 			var output = new List<string>();
 
@@ -275,12 +277,15 @@ namespace RosterLib
 			}
 			if ( totTouches > 0 ) //  not bye wk
 			{
-				var compareByTouches = new Comparison<NFLPlayer>( ComparePlayersByTouches );
+				var compareByTouches = new Comparison<NFLPlayer>( 
+					ComparePlayersByTouches );
 
-				Receivers.Sort( compareByTouches );
-				return DumpUnitByTouches( totTouches );
+				Receivers.Sort( 
+					compareByTouches );
+				return DumpUnitByTouches( 
+					totTouches );
 			}
-			Announce( string.Format( "{0}:{1} is a bye week for {2}", season, week, TeamCode ) );
+			Announce( $"{season}:{week} is a bye week for {TeamCode}" );
 
 			return output;
 		}
@@ -471,16 +476,20 @@ namespace RosterLib
 			return output;
 		}
 
-		public List<string> DumpUnitByTouches( int tot )
+		public List<string> DumpUnitByTouches( 
+			int tot )
 		{
 			var output = new List<string>();
 
 			var wideCnt = 0;
 			foreach ( var p in Receivers )
 			{
-				if ( !p.IsWideout() ) continue;
+				if ( !p.IsWideout() ) 
+					continue;
 
-				var load = Utility.Percent( p.TotStats.Touches, tot );
+				var load = Utility.Percent( 
+					p.TotStats.Touches, 
+					tot );
 				p.TotStats.TouchLoad = load;
 
 				//  Returned fron the dead

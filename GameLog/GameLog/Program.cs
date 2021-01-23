@@ -15,7 +15,9 @@ namespace GameLog
 			// scrape it
 			var service = new GameLogService.GameLogService();
 
-			service.GameLogFor(season, playerName);
+			service.GameLogFor(
+				season, 
+				playerName);
 
 			Console.ReadLine();
 		}

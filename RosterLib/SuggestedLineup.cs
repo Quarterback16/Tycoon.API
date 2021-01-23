@@ -265,7 +265,9 @@ namespace RosterLib
 
 		private void AddPlayerLine( DataTable dt, string playerId, [Optional] bool freeAgent )
 		{
-			var p = new NFLPlayer( playerId, LeagueId );
+			var p = new NFLPlayer( 
+				playerId, 
+				LeagueId );
 			AddPlayerLineWithPlayer( dt, freeAgent, p );
 		}
 
@@ -292,9 +294,13 @@ namespace RosterLib
 
 			if ( ( p.CurrTeam != null ) && ( game != null ) )
 			{
-				var opponent = p.CurrTeam.OpponentFor( Season, Week );
+				var opponent = p.CurrTeam.OpponentFor( 
+					Season,
+					Week );
 				//  player actually available
-				dr[ "PLAYER" ] = p.Url( p.PlayerName, forceReport: false );
+				dr[ "PLAYER" ] = p.Url( 
+					p.PlayerName, 
+					forceReport: false );
 				dr[ "TEAM" ] = p.CurrTeam.TeamCode;
 				dr[ "ROLE" ] = p.PlayerRole;
 				dr[ "POS" ] = p.PlayerPos;
@@ -315,7 +321,9 @@ namespace RosterLib
 			dt.Rows.Add( dr );
 		}
 
-		public decimal PlayerSpread( decimal spread, bool isHome )
+		public decimal PlayerSpread( 
+			decimal spread,
+			bool isHome )
 		{
 			var modifier = 1.0M;
 
