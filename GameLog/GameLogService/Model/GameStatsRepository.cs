@@ -21,7 +21,8 @@ namespace GameLogService.Model
 		{
 			model.GameLog = GetPlayerStats(
 				model.Season,
-				model.PlayerName);
+				model.PlayerName,
+				model.Position);
 			return model.GameLog;
 		}
 
@@ -35,13 +36,15 @@ namespace GameLogService.Model
 
 		public List<GameStats> GetPlayerStats( 
 			string season,
-			string playerName)
+			string playerName,
+			string position = "")
 		{
 			var result = new List<GameStats>();
 			HtmlWeb web = new HtmlWeb();
 			var url = PlayerLogUrl(
 				season,
-				playerName);
+				playerName,
+				position);
 			if (url.StartsWith("no data"))
 				return result;
 			var htmlDoc = web.Load(
@@ -340,7 +343,7 @@ namespace GameLogService.Model
 			string playerName,
 			string position = "")
 		{
-			if (season.Equals("1985")
+			if (season.Equals("1986") 
 				&& playerName == "Bobby Johnson")
 			{
 				return "JohnBo00";
@@ -444,13 +447,15 @@ namespace GameLogService.Model
 
 		public string PlayerLogUrl(
 			string season, 
-			string playerName)
+			string playerName,
+			string position = "")
 		{
 			var letter = FirstLetterOfSurname(
 				playerName);
 			var playerCode = PlayerCode(
 				season,
-				playerName);
+				playerName,
+				position);
 			if (playerName == "Eddie Ivery")
 				playerCode = "IverEd00";
 			if (playerName == "Uwe von Schamann")

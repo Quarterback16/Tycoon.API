@@ -5169,7 +5169,7 @@
         "fteam": "CD",
         "num": "167",
         "team": "DC",
-        "player": "Herschell Walker",
+        "player": "Herschel Walker",
         "pos": "RB",
         "price": "1",
         "trans": "IN"
@@ -5337,7 +5337,7 @@
         "trans": "OUT"
     },
     {
-        "fteam": "DH",
+        "fteam": "DD",
         "num": "184",
         "team": "LR",
         "player": "Henry Ellard",
@@ -5373,7 +5373,7 @@
         "trans": "IN"
     },
     {
-        "fteam": "DH",
+        "fteam": "DD",
         "num": "294",
         "team": "IC",
         "player": "George Wonsley",
@@ -5722,5 +5722,770 @@
         "pos": "TE",
         "price": "5",
         "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "13",
+        "team": "SD",
+        "player": "Dan Fouts",
+        "pos": "QB",
+        "price": "4",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "271",
+        "team": "SD",
+        "player": "Gary Anderson",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "90",
+        "team": "CL",
+        "player": "Bernie Kosar",
+        "pos": "WB",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "179",
+        "team": "MV",
+        "player": "Anthony Carter",
+        "pos": "WR",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "258",
+        "team": "WR",
+        "player": "Gary Clark",
+        "pos": "WR",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "BR",
+        "num": "46",
+        "team": "KC",
+        "player": "Theotis Brown",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "143",
+        "team": "NE",
+        "player": "Tony Franklin",
+        "pos": "KK",
+        "price": "51",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "221",
+        "team": "BB",
+        "player": "Greg Bell",
+        "pos": "RB",
+        "price": "37",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "32",
+        "team": "WR",
+        "player": "John Riggins",
+        "pos": "RB",
+        "price": "37",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "66",
+        "team": "PS",
+        "player": "Frank Pollard",
+        "pos": "RB",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "160",
+        "team": "SD",
+        "player": "Charlie Joiner",
+        "pos": "WR",
+        "price": "34",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "196",
+        "team": "NE",
+        "player": "Stephon Starring",
+        "pos": "WR",
+        "price": "11",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "116",
+        "team": "DL",
+        "player": "Jeff Chadwick",
+        "pos": "WR",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CG",
+        "num": "87",
+        "team": "BB",
+        "player": "Joe Cribbs",
+        "pos": "RB",
+        "price": "75",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CG",
+        "num": "204",
+        "team": "NJ",
+        "player": "Pat Ryan",
+        "pos": "QB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "RR",
+        "num": "14",
+        "team": "MD",
+        "player": "Dan Marino",
+        "pos": "QB",
+        "price": "103",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "RR",
+        "num": "133",
+        "team": "BC",
+        "player": "Raul Allegre",
+        "pos": "KK",
+        "price": "45",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "RR",
+        "num": "134",
+        "team": "MV",
+        "player": "Benny Ricardo",
+        "pos": "KK",
+        "price": "18",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "71",
+        "team": "DB",
+        "player": "Nathan Poole",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "14",
+        "team": "MD",
+        "player": "Dan Marino",
+        "pos": "QB",
+        "price": "116",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "133",
+        "team": "BC",
+        "player": "Raul Allegre",
+        "pos": "KK",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CG",
+        "num": "205",
+        "team": "SD",
+        "player": "James Brooks",
+        "pos": "RB",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "305",
+        "team": "NS",
+        "player": "Rueben Mayes",
+        "pos": "RB",
+        "price": "14",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "120",
+        "team": "SF",
+        "player": "Russ Francis",
+        "pos": "TE",
+        "price": "25",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "203",
+        "team": "CI",
+        "player": "Boomer Esiason",
+        "pos": "QB",
+        "price": "46",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "203",
+        "team": "CI",
+        "player": "Boomer Esiason",
+        "pos": "QB",
+        "price": "46",
+        "trans": "IN"
+    },
+    {
+        "fteam": "BR",
+        "num": "106",
+        "team": "WR",
+        "player": "Art Monk",
+        "pos": "WR",
+        "price": "33",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CG",
+        "num": "238",
+        "team": "HO",
+        "player": "Warren Moon",
+        "pos": "QB",
+        "price": "9",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "4",
+        "team": "SF",
+        "player": "Joe Montana",
+        "pos": "QB",
+        "price": "79",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "41",
+        "team": "LA",
+        "player": "Marcus Allen",
+        "pos": "RB",
+        "price": "59",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "108",
+        "team": "SR",
+        "player": "Pat Tilley",
+        "pos": "WR",
+        "price": "12",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "184",
+        "team": "LR",
+        "player": "Henry Ellard",
+        "pos": "WR",
+        "price": "4",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "294",
+        "team": "IC",
+        "player": "George Wonsley",
+        "pos": "RB",
+        "price": "34",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "78",
+        "team": "MD",
+        "player": "Mark Duper",
+        "pos": "WR",
+        "price": "35",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "BR",
+        "num": "201",
+        "team": "NE",
+        "player": "Lin Dawson",
+        "pos": "NE",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CG",
+        "num": "156",
+        "team": "AF",
+        "player": "Emile Harry",
+        "pos": "WR",
+        "price": "2",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SF",
+        "num": "132",
+        "team": "NG",
+        "player": "Ali Haji-Sheikh",
+        "pos": "KK",
+        "price": "39",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SF",
+        "num": "49",
+        "team": "DL",
+        "player": "Billy Sims",
+        "pos": "RB",
+        "price": "25 ",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "70",
+        "team": "NS",
+        "player": "Hokie Gajan",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "81",
+        "team": "SF",
+        "player": "Dwight Clark",
+        "pos": "WR",
+        "price": "35",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "185",
+        "team": "NG",
+        "player": "Phil Simms",
+        "pos": "QB",
+        "price": "3",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "78",
+        "team": "MD",
+        "player": "Mark Duper",
+        "pos": "WR",
+        "price": "36",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "4",
+        "team": "SF",
+        "player": "Joe Montana",
+        "pos": "QB",
+        "price": "22",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "105",
+        "team": "TB",
+        "player": "Kevin House",
+        "pos": "WR",
+        "price": "18",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "41",
+        "team": "LA",
+        "player": "Marcus Allen",
+        "pos": "RB",
+        "price": "42",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "296",
+        "team": "TB",
+        "player": "Steve Young",
+        "pos": "QB",
+        "price": "5",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "176",
+        "team": "LR",
+        "player": "Doug Flutie",
+        "pos": "QB",
+        "price": "5",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "29",
+        "team": "LA",
+        "player": "Marc Wilson",
+        "pos": "QB",
+        "price": "10",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "264",
+        "team": "MD",
+        "player": "Fuad Reveiz",
+        "pos": "KK",
+        "price": "13",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "212",
+        "team": "KC",
+        "player": "Todd Blackledge",
+        "pos": "QB",
+        "price": "5",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "114",
+        "team": "AF",
+        "player": "Billy Johnson",
+        "pos": "WR",
+        "price": "12",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "BR",
+        "num": "46",
+        "team": "KC",
+        "player": "Theotis Brown",
+        "pos": "RB",
+        "price": "26",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "RR",
+        "num": "99",
+        "team": "KC",
+        "player": "Willie Scott",
+        "pos": "TE",
+        "price": "5",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SF",
+        "num": "36",
+        "team": "HO",
+        "player": "Earl Campbell",
+        "pos": "RB",
+        "price": "23",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "216",
+        "team": "NE",
+        "player": "Tony Eason",
+        "pos": "QB",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "280",
+        "team": "SD",
+        "player": "Buford McGee",
+        "pos": "RB",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "306",
+        "team": "MD",
+        "player": "Lorenzo Hampton",
+        "pos": "RB",
+        "price": "20",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "306",
+        "team": "DB",
+        "player": "Gerald Willhite",
+        "pos": "RB",
+        "price": "20",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "328",
+        "team": "IC",
+        "player": "Bill Brooks",
+        "pos": "WR",
+        "price": "15",
+        "trans": "IN"
+    },
+    {
+        "fteam": "BR",
+        "num": "295",
+        "team": "IC",
+        "player": "John Tice",
+        "pos": "TE",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CG",
+        "num": "72",
+        "team": "IC",
+        "player": "Chris Burkett",
+        "pos": "WR",
+        "price": "5",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "121",
+        "team": "HO",
+        "player": "Chris Dressel",
+        "pos": "TE",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SF",
+        "num": "327",
+        "team": "DC",
+        "player": "Max Zendejas",
+        "pos": "KK",
+        "price": "4",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "152",
+        "team": "CI",
+        "player": "Jim Breech",
+        "pos": "KK",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "275",
+        "team": "HO",
+        "player": "Mike Rozier",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "128",
+        "team": "CH",
+        "player": "Dennis McKinnon",
+        "pos": "WR",
+        "price": "2",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "165",
+        "team": "DC",
+        "player": "Butch Johnson",
+        "pos": "WR",
+        "price": "12",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "289",
+        "team": "MD",
+        "player": "Ron Davenport",
+        "pos": "RB",
+        "price": "13",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "43",
+        "team": "DC",
+        "player": "Tony Dorsett",
+        "pos": "RB",
+        "price": "48",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "RR",
+        "num": "160",
+        "team": "SD",
+        "player": "Charlie Joiner",
+        "pos": "WR",
+        "price": "34",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "166",
+        "team": "DL",
+        "player": "Leonard Thompson",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "55",
+        "team": "NG",
+        "player": "Mark Bavaro",
+        "pos": "TE",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "43",
+        "team": "DC",
+        "player": "Tony Dorsett",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "59",
+        "team": "BC",
+        "player": "Curtis Dickey",
+        "pos": "RB",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "214",
+        "team": "PS",
+        "player": "Mark Malone",
+        "pos": "QB",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "228",
+        "team": "NJ",
+        "player": "Johnny Hector",
+        "pos": "RB",
+        "price": "5",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "6",
+        "team": "CL",
+        "player": "Brian Brennan",
+        "pos": "WR",
+        "price": "5",
+        "trans": "IN"
+    },
+    {
+        "fteam": "BR",
+        "num": "208",
+        "team": "SD",
+        "player": "Earnest Jackson",
+        "pos": "RB",
+        "price": "4",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CG",
+        "num": "30",
+        "team": "CL",
+        "player": "Reggie Langhorne",
+        "pos": "WR",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "16",
+        "team": "PE",
+        "player": "Kenny Jackson",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "184",
+        "team": "LR",
+        "player": "Henry Ellard",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "159",
+        "team": "LR",
+        "player": "Mike Lansford",
+        "pos": "KK",
+        "price": "26",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "51",
+        "team": "CH",
+        "player": "Walter Payton",
+        "pos": "RB",
+        "price": "58",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CG",
+        "num": "83",
+        "team": "CH",
+        "player": "Willie Gault",
+        "pos": "WR",
+        "price": "41",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "190",
+        "team": "KC",
+        "player": "Stephone Paige",
+        "pos": "WR",
+        "price": "12",
+        "trans": "OUT"
     }
 ]

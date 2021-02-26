@@ -99,7 +99,7 @@ namespace RosterService.Tests
 		[TestMethod]
 		public void RetroRosters_KnowsWhoHasPlayer()
 		{
-			var player = "Wesley Walker";
+			var player = "Henry Ellard";
 			var sut = new RetroRosters(
 				new RosterEventStore());
 			var result = sut.GetOwnerOf(

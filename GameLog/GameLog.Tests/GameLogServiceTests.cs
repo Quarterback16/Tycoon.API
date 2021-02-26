@@ -10,7 +10,7 @@ namespace GameLog.Tests
     public class GameLogServiceTests
     {
         private GameStatsRepository _sut;
-        const string K_CurrentSeason = "1985";
+        const string K_CurrentSeason = "1986";
 
         [TestInitialize]
         public void Initialise()
@@ -62,8 +62,9 @@ namespace GameLog.Tests
         {
             var playerModel = new PlayerReportModel
             {
-                Season = "1985",
-                PlayerName = "Walter Payton"
+                Season = "1986",
+                PlayerName = "Bobby Johnson",
+                //Position = "RB"
             };
 
             var result = _sut.GetGameStats(
@@ -120,8 +121,9 @@ namespace GameLog.Tests
 			var teamList = new List<(string, string)>();
 			AddRosterInOrder(roster, teamList);
             //int[] weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-            //int[] weeks = new int[] { 1, 2, 7, 8  };
-            int[] weeks = new int[] { 10, 12, 13, 15 };
+//            int[] weeks = new int[] { 5, 7, 8  };
+            int[] weeks = new int[] { 9, 10, 11, 12 };
+            //int[] weeks = new int[] { 1, 2, 8, 10, 12 };
 
             foreach (var item in teamList)
 			{
@@ -226,12 +228,12 @@ namespace GameLog.Tests
         public void GameStatsRepository_ForBobbyJohnson_KnowsPlayerCode()
         {
             var result = _sut.PlayerCode(
-                season: "1985",
+                season: "1986",
                 playerName: "Bobby Johnson");
 
             Console.WriteLine(result);
             Assert.AreEqual(
-                "JohnBo00",
+                "JohnBo20",
                 result);
         }
 
