@@ -44,7 +44,8 @@ namespace TipIt.Tests
         [Theory]
         [InlineData("2020-09-14 19:15", "2020")]
         [InlineData("2019-10-14 19:15", "2019")]
-        [InlineData("2021-01-03 16:25", "2020")]        
+        [InlineData("2021-01-03 16:25", "2020")]
+        [InlineData("2021-01-28 16:25", "2021")]
         public void Creator_KnowsHowToConvertDateToSeason(
             string dateIn,
             string seasonOut)

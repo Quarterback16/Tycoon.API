@@ -22,9 +22,38 @@ namespace TipIt.Tests
 		{
 			var cut = new NibbleTipster(
 							 new TippingContext());
-			var result = cut.ShowTips("NRL", 1);
-			_output.WriteLine(result);
-			Assert.False(string.IsNullOrEmpty(result));
+
+			var result = cut.ShowTips(
+				league: "NRL",
+				round: 1);
+			_output.WriteLine(
+				result);
+			Assert.False(
+				string.IsNullOrEmpty(result));
+			DumpRatings(cut);
+			DumpMetrics(cut,"NRL");
+		}
+
+		private void DumpRatings(NibbleTipster cut)
+		{
+			_output.WriteLine(
+				cut.DumpRatings());
+		}
+
+		private void DumpMetrics(
+			NibbleTipster cut,
+			string leagueCode)
+		{
+			_output.WriteLine(
+				$"Average Score      : {cut.AverageScore}");
+			_output.WriteLine(
+				$"Average Margin     : {cut.Context.AverageMargin(leagueCode)}");
+			_output.WriteLine(
+				$"Homefield Advantage: {cut.HomeFieldAdvantage}");
+			_output.WriteLine(
+				$"Max Score          : {cut.MaxScore}");
+			_output.WriteLine(
+				$"Min Score          : {cut.MinScore}");
 		}
 
 		[Fact]

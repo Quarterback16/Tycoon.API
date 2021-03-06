@@ -128,7 +128,8 @@ namespace TipIt.Implementations
             return LeagueDict.Count;
         }
 
-        public decimal AverageScore(string leagueCode)
+        public decimal AverageScore(
+            string leagueCode)
         {
             var totalScore = 0;
             var totalGames = 0;
@@ -145,7 +146,8 @@ namespace TipIt.Implementations
             return Math.Round(avgScore,0);
         }
 
-        public decimal AverageMargin(string leagueCode)
+        public decimal AverageMargin(
+            string leagueCode)
         {
             var totalScore = 0;
             var totalGames = 0;
@@ -264,7 +266,8 @@ namespace TipIt.Implementations
             return record;
         }
 
-        public string TeamRecords(string leagueCode)
+        public string TeamRecords(
+            string leagueCode)
         {
             var teamDict = new Dictionary<string, Record>();
             var sb = new StringBuilder();
@@ -499,15 +502,24 @@ namespace TipIt.Implementations
 
         public bool IsDisposed { get; private set; }
 
-        public int ScheduledRoundCount(string leagueCode)
+        public int ScheduledRoundCount(
+            string leagueCode)
         {
-            return LeagueSchedule[leagueCode].Count;
+            if (LeagueSchedule.ContainsKey(leagueCode))
+                return LeagueSchedule[leagueCode].Count;
+            return 0;
         }
 
-        public int ScheduledGameCount(string leagueCode, int round)
+        public int ScheduledGameCount(
+            string leagueCode, 
+            int round)
         {
-            var sched = LeagueSchedule[leagueCode];
-            return sched[round].Count;
+            if (LeagueSchedule.ContainsKey(leagueCode))
+            {
+                var sched = LeagueSchedule[leagueCode];
+                return sched[round].Count;
+            }
+            return 0;
         }
 
         ~TippingContext()

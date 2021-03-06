@@ -74,12 +74,12 @@ namespace TipIt.Tests
         }
 
         [Fact]
-        public void TipIt_ConvertsNrlCovidCsvToJson_Ok()
+        public void TipIt_ConvertsNrlCsv2021ToJson_Ok()
         {
             //  uses ChinChoo ETL https://www.nuget.org/packages/ChoETL.JSON/
             //  use this test to generate output for pasting into schedule.json
             //  transform data downloaded from fixturedownload.com
-            var fileName = "nrl-schedule-2020-covid19.csv";
+            var fileName = "nrl-2021.csv";
             string path = Directory.GetCurrentDirectory();
             if (!File.Exists(fileName))
             {
@@ -87,7 +87,7 @@ namespace TipIt.Tests
             }
             else
             {
-                var sw = new StreamWriter(@"nrl-schedule.json");
+                var sw = new StreamWriter(@"nrl-schedule-2021.json");
 
                 var reader = new ChoCSVReader(fileName).WithFirstLineHeader();
                 foreach (var x in reader)
@@ -107,7 +107,7 @@ namespace TipIt.Tests
         [Fact]
         public void TipIt_ConvertsNflCsvToJson_Ok()
         {
-            var fileName = "nfl-schedule-2020.csv";
+            var fileName = "nfl-2021.csv";
             string path = Directory.GetCurrentDirectory();
             if (!File.Exists(fileName))
             {

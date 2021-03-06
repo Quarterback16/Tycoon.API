@@ -16,14 +16,14 @@ namespace TipIt
         static void Main(string[] args)
         {
             var context = new TippingContext();
-            //TODO: some validation could go here
-            //Console.WriteLine($"There are {context.LeagueCount()} leagues");
-            //Console.WriteLine(
-            //    $"League NRL has {context.ScheduledRoundCount("NRL")} rounds scheduled");
-            //Console.WriteLine(
-            //    $"League AFL has {context.ScheduledRoundCount("AFL")} rounds scheduled");
-            //context.DumpResults("NRL");
-            var options = new Options();
+			//TODO: some validation could go here
+			Console.WriteLine($"There are {context.LeagueCount()} leagues");
+			Console.WriteLine(
+				$"League NRL has {context.ScheduledRoundCount("NRL")} rounds scheduled");
+			Console.WriteLine(
+				$"League AFL has {context.ScheduledRoundCount("AFL")} rounds scheduled");
+			context.DumpResults("NRL");
+			var options = new Options();
             var result = Parser.Default.ParseArguments<Options>(args)
                 .WithParsed(o => options.League = o.League)
                 .WithParsed(o => options.Output = o.Output)
@@ -56,7 +56,9 @@ namespace TipIt
                 else
                     round = options.Round;
                 Console.WriteLine($"Command is TIP {options.League} Round {round}");
-                tipster.ShowTips(options.League, round);
+                tipster.ShowTips(
+                    options.League, 
+                    round);
             }
         }
 

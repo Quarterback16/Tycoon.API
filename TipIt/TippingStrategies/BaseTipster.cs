@@ -10,7 +10,7 @@ namespace TipIt.TippingStrategies
 	{
 		public List<PredictedResult> Predictions { get; set; }
 
-		protected readonly TippingContext Context;
+		public readonly TippingContext Context;
 
 		public BaseTipster(
 			TippingContext context)

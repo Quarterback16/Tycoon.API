@@ -63,8 +63,26 @@ namespace GameLog.Tests
             var playerModel = new PlayerReportModel
             {
                 Season = "1986",
-                PlayerName = "Bobby Johnson",
+                PlayerName = "Calvin Magee",
                 //Position = "RB"
+            };
+
+            var result = _sut.GetGameStats(
+                model: playerModel);
+
+            _sut.SendToConsole(playerModel);
+
+            Assert.AreEqual(16, result.Count);
+        }
+
+        [TestMethod]
+        public void GameStatsRepository_ForGaryAnderson_RB_Returns16rows()
+        {
+            var playerModel = new PlayerReportModel
+            {
+                Season = "1986",
+                PlayerName = "Gary Anderson",
+                Position = "RB"
             };
 
             var result = _sut.GetGameStats(
@@ -121,8 +139,10 @@ namespace GameLog.Tests
 			var teamList = new List<(string, string)>();
 			AddRosterInOrder(roster, teamList);
             //int[] weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-//            int[] weeks = new int[] { 5, 7, 8  };
-            int[] weeks = new int[] { 9, 10, 11, 12 };
+            //int[] weeks = new int[] { 1, 3, 4  };
+            //int[] weeks = new int[] { 5, 7, 8  };
+            //int[] weeks = new int[] { 9, 10, 11, 12 };
+            int[] weeks = new int[] { 13, 14, 15, 16 };
             //int[] weeks = new int[] { 1, 2, 8, 10, 12 };
 
             foreach (var item in teamList)

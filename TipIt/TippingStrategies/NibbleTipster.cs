@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TipIt.Helpers;
 using TipIt.Implementations;
@@ -32,11 +33,31 @@ namespace TipIt.TippingStrategies
 				leagueCode: league);
 			HomeFieldAdvantage = Context.HomeFieldAdvantage(
 				leagueCode: league);
-			MaxScore = Context.MaxScore(league);
-			MinScore = Context.MinScore(league);
-			RateResults(league);
-			Tip(league, round);
+			MaxScore = Context.MaxScore(
+				league);
+			MinScore = Context.MinScore(
+				league);
+			RateResults(
+				league);
+
+			DumpMetrics();
+
+			Tip(
+				league,
+				round);
 			return Output();
+		}
+
+		private void DumpMetrics()
+		{
+			Console.WriteLine(
+				$"Average Score      : {AverageScore}");
+			Console.WriteLine(
+				$"Homefield Advantage: {HomeFieldAdvantage}");
+			Console.WriteLine(
+				$"Max Score          : {MaxScore}");
+			Console.WriteLine(
+				$"Min Score          : {MinScore}");
 		}
 
 		private void Tip(
@@ -47,9 +68,11 @@ namespace TipIt.TippingStrategies
 			var sched = Context.LeagueSchedule[league][round];
 			foreach (var game in sched)
 			{
-				var prediction = Tip(game);
+				var prediction = Tip(
+					game);
 
-				Predictions.Add(prediction);
+				Predictions.Add(
+					prediction);
 			}
 		}
 
@@ -76,8 +99,15 @@ namespace TipIt.TippingStrategies
 
 		public string DumpRatings()
 		{
+			var list = Ratings.ToList();
+			list.Sort(
+				delegate (KeyValuePair<string, NibbleRating> pair1,
+				KeyValuePair<string, NibbleRating> pair2)
+				{
+					return pair2.Value.Total().CompareTo(pair1.Value.Total());
+				});
 			var sb = new StringBuilder();
-			foreach (KeyValuePair<string,NibbleRating> pair in Ratings)
+			foreach (KeyValuePair<string,NibbleRating> pair in list)
 			{
 				sb.AppendLine(
 					$@"{
@@ -186,7 +216,14 @@ namespace TipIt.TippingStrategies
 				StringUtils.PadLeft(4, Offence.ToString())
 				} Def:{
 				StringUtils.PadLeft(4, Defence.ToString())
+				} Tot:{
+				StringUtils.PadLeft(4, Total().ToString())
 				}";
+		}
+
+		public int Total()
+		{
+			return Offence + (-Defence);
 		}
 	}
 

@@ -47,7 +47,7 @@ namespace TipIt.Tests
         [Fact]
         public void TipIt_ConvertsNrlResultsCsvToJson_Ok()
         {
-            var fileName = "nrl-2019-results.csv";
+            var fileName = "nrl-2021.csv";
             string path = Directory.GetCurrentDirectory();
             if (!File.Exists(fileName))
             {

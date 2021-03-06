@@ -6487,5 +6487,104 @@
         "pos": "WR",
         "price": "12",
         "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "80",
+        "team": "WR",
+        "player": "Charlie Brown",
+        "pos": "WR",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "158",
+        "team": "MV",
+        "player": "Chuck Nelson",
+        "pos": "KK",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CG",
+        "num": "209",
+        "team": "NG",
+        "player": "Phil McConkey",
+        "pos": "WR",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "115",
+        "team": "TB",
+        "player": "Calvin Magee",
+        "pos": "TE",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "fteam": "BR",
+        "num": "185",
+        "team": "NG",
+        "player": "Phil Simms",
+        "pos": "QB",
+        "price": "27",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "199",
+        "team": "SL",
+        "player": "Stump Mitchell",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "145",
+        "team": "SS",
+        "player": "Norm Johnson",
+        "pos": "KK",
+        "price": "45",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "19",
+        "team": "DC",
+        "player": "Eric Hipple",
+        "pos": "QB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "236",
+        "team": "LR",
+        "player": "Ron Brown",
+        "pos": "WR",
+        "price": "3",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "260",
+        "team": "TB",
+        "player": "Donald Igwebuike",
+        "pos": "KK",
+        "price": "3",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "191",
+        "team": "NE",
+        "player": "Stanley Morgan",
+        "pos": "WR",
+        "price": "1",
+        "trans": "OUT"
     }
 ]

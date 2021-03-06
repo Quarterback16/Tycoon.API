@@ -1,0 +1,4562 @@
+[
+    {
+        "round": "1",
+        "gamedate": "2020-03-12 20:05",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "AwayTeam": "BULL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-13 18:00",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "AwayTeam": "TITN",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-13 20:05",
+        "League": "NRL",
+        "HomeTeam": "NQLD",
+        "AwayTeam": "BRIS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-14 15:00",
+        "League": "NRL",
+        "HomeTeam": "NEWC",
+        "AwayTeam": "NZW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-14 17:30",
+        "League": "NRL",
+        "HomeTeam": "SSYD",
+        "AwayTeam": "SHRK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-14 19:35",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "AwayTeam": "SYDR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-15 16:05",
+        "League": "NRL",
+        "HomeTeam": "MANL",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-15 18:15",
+        "League": "NRL",
+        "HomeTeam": "DRAG",
+        "AwayTeam": "WTIG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-03-19 20:05",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "AwayTeam": "NQLD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-03-20 18:00",
+        "League": "NRL",
+        "HomeTeam": "DRAG",
+        "AwayTeam": "PENR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-03-20 20:05",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "AwayTeam": "SSYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-03-21 15:00",
+        "League": "NRL",
+        "HomeTeam": "NZW",
+        "AwayTeam": "CANB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-03-21 17:30",
+        "League": "NRL",
+        "HomeTeam": "SYDR",
+        "AwayTeam": "MANL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-03-21 19:35",
+        "League": "NRL",
+        "HomeTeam": "SHRK",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-03-22 16:05",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "AwayTeam": "NEWC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-03-22 18:15",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "AwayTeam": "PARR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-05-28 19:50",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "AwayTeam": "PARR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-05-29 18:00",
+        "League": "NRL",
+        "HomeTeam": "NQLD",
+        "AwayTeam": "TITN",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-05-29 19:55",
+        "League": "NRL",
+        "HomeTeam": "SYDR",
+        "AwayTeam": "SSYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-05-30 15:00",
+        "League": "NRL",
+        "HomeTeam": "NZW",
+        "AwayTeam": "DRAG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-05-30 17:30",
+        "League": "NRL",
+        "HomeTeam": "SHRK",
+        "AwayTeam": "WTIG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-05-30 19:35",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "CANB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-05-31 16:05",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "AwayTeam": "NEWC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-05-31 18:30",
+        "League": "NRL",
+        "HomeTeam": "MANL",
+        "AwayTeam": "BULL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-04 19:50",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "AwayTeam": "SYDR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-05 18:00",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "AwayTeam": "NZW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-05 19:55",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "SSYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-06 17:30",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "AwayTeam": "MANL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-06 19:35",
+        "League": "NRL",
+        "HomeTeam": "NQLD",
+        "AwayTeam": "SHRK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-07 16:05",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "AwayTeam": "NEWC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-07 18:30",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "AwayTeam": "WTIG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-08 16:05",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "AwayTeam": "DRAG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-06-11 19:50",
+        "League": "NRL",
+        "HomeTeam": "MANL",
+        "AwayTeam": "BRIS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-06-12 18:00",
+        "League": "NRL",
+        "HomeTeam": "NZW",
+        "AwayTeam": "NQLD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-06-12 19:55",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "AwayTeam": "PENR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-06-13 15:00",
+        "League": "NRL",
+        "HomeTeam": "SSYD",
+        "AwayTeam": "TITN",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-06-13 17:30",
+        "League": "NRL",
+        "HomeTeam": "NEWC",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-06-13 19:35",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "AwayTeam": "CANB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-06-14 16:05",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "AwayTeam": "SYDR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-06-14 18:30",
+        "League": "NRL",
+        "HomeTeam": "DRAG",
+        "AwayTeam": "SHRK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-06-18 19:50",
+        "League": "NRL",
+        "HomeTeam": "NEWC",
+        "AwayTeam": "BRIS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-06-19 18:00",
+        "League": "NRL",
+        "HomeTeam": "SSYD",
+        "AwayTeam": "NZW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-06-19 19:55",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-06-20 15:00",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "AwayTeam": "DRAG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-06-20 17:30",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "AwayTeam": "NQLD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-06-20 19:35",
+        "League": "NRL",
+        "HomeTeam": "SYDR",
+        "AwayTeam": "PARR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-06-21 16:05",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "AwayTeam": "MANL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-06-21 18:30",
+        "League": "NRL",
+        "HomeTeam": "SHRK",
+        "AwayTeam": "BULL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-06-25 19:50",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "AwayTeam": "SSYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-06-26 18:00",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "NZW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-06-26 19:55",
+        "League": "NRL",
+        "HomeTeam": "SYDR",
+        "AwayTeam": "DRAG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-06-27 15:00",
+        "League": "NRL",
+        "HomeTeam": "NQLD",
+        "AwayTeam": "NEWC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-06-27 17:30",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "AwayTeam": "TITN",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-06-27 19:35",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "AwayTeam": "CANB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-06-28 16:05",
+        "League": "NRL",
+        "HomeTeam": "MANL",
+        "AwayTeam": "SHRK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-06-28 18:30",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "AwayTeam": "WTIG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-02 19:50",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "SYDR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-03 18:00",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "AwayTeam": "DRAG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-03 19:55",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "AwayTeam": "NQLD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-04 15:00",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "AwayTeam": "SHRK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-04 17:30",
+        "League": "NRL",
+        "HomeTeam": "NZW",
+        "AwayTeam": "BRIS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-04 19:35",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "AwayTeam": "PENR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-05 16:05",
+        "League": "NRL",
+        "HomeTeam": "MANL",
+        "AwayTeam": "NEWC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-05 18:30",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "AwayTeam": "SSYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-09 19:50",
+        "League": "NRL",
+        "HomeTeam": "NQLD",
+        "AwayTeam": "SYDR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-10 18:00",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "AwayTeam": "NZW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-10 19:55",
+        "League": "NRL",
+        "HomeTeam": "SSYD",
+        "AwayTeam": "WTIG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-11 15:00",
+        "League": "NRL",
+        "HomeTeam": "SHRK",
+        "AwayTeam": "PENR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-11 17:30",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "AwayTeam": "BULL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-11 19:35",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-12 16:05",
+        "League": "NRL",
+        "HomeTeam": "NEWC",
+        "AwayTeam": "PARR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-12 18:30",
+        "League": "NRL",
+        "HomeTeam": "DRAG",
+        "AwayTeam": "MANL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-07-16 19:50",
+        "League": "NRL",
+        "HomeTeam": "SYDR",
+        "AwayTeam": "CANB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-07-17 18:00",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "TITN",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-07-17 19:55",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "AwayTeam": "BRIS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-07-18 15:00",
+        "League": "NRL",
+        "HomeTeam": "DRAG",
+        "AwayTeam": "BULL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-07-18 17:30",
+        "League": "NRL",
+        "HomeTeam": "SSYD",
+        "AwayTeam": "NEWC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-07-18 19:35",
+        "League": "NRL",
+        "HomeTeam": "MANL",
+        "AwayTeam": "PARR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-07-19 14:00",
+        "League": "NRL",
+        "HomeTeam": "NZW",
+        "AwayTeam": "SHRK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-07-19 16:05",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "AwayTeam": "NQLD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-07-23 19:50",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "AwayTeam": "WTIG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-07-24 18:00",
+        "League": "NRL",
+        "HomeTeam": "NQLD",
+        "AwayTeam": "MANL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-07-24 19:55",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-07-25 15:00",
+        "League": "NRL",
+        "HomeTeam": "NZW",
+        "AwayTeam": "SYDR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-07-25 17:30",
+        "League": "NRL",
+        "HomeTeam": "SHRK",
+        "AwayTeam": "DRAG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-07-25 19:35",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "AwayTeam": "SSYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-07-26 14:00",
+        "League": "NRL",
+        "HomeTeam": "NEWC",
+        "AwayTeam": "BULL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-07-26 16:05",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "AwayTeam": "PENR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-07-30 19:50",
+        "League": "NRL",
+        "HomeTeam": "DRAG",
+        "AwayTeam": "SSYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-07-31 18:00",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "AwayTeam": "NZW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-07-31 19:55",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "AwayTeam": "SHRK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-01 15:00",
+        "League": "NRL",
+        "HomeTeam": "SYDR",
+        "AwayTeam": "TITN",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-01 17:30",
+        "League": "NRL",
+        "HomeTeam": "NQLD",
+        "AwayTeam": "CANB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-01 19:35",
+        "League": "NRL",
+        "HomeTeam": "MANL",
+        "AwayTeam": "PENR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-02 14:00",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "AwayTeam": "PARR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-02 16:05",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "NEWC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-06 19:50",
+        "League": "NRL",
+        "HomeTeam": "DRAG",
+        "AwayTeam": "SYDR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-07 18:00",
+        "League": "NRL",
+        "HomeTeam": "MANL",
+        "AwayTeam": "NZW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-07 19:55",
+        "League": "NRL",
+        "HomeTeam": "SSYD",
+        "AwayTeam": "BRIS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-08 15:00",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "BULL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-08 17:30",
+        "League": "NRL",
+        "HomeTeam": "NEWC",
+        "AwayTeam": "WTIG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-08 19:35",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "AwayTeam": "CANB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-09 14:00",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "AwayTeam": "NQLD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-09 16:05",
+        "League": "NRL",
+        "HomeTeam": "SHRK",
+        "AwayTeam": "PARR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-13 19:50",
+        "League": "NRL",
+        "HomeTeam": "SYDR",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-14 18:00",
+        "League": "NRL",
+        "HomeTeam": "NZW",
+        "AwayTeam": "PENR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-14 19:55",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "AwayTeam": "DRAG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-15 15:00",
+        "League": "NRL",
+        "HomeTeam": "SHRK",
+        "AwayTeam": "TITN",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-15 17:30",
+        "League": "NRL",
+        "HomeTeam": "NQLD",
+        "AwayTeam": "SSYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-15 19:35",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "AwayTeam": "BRIS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-16 16:05",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "AwayTeam": "BULL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-16 18:30",
+        "League": "NRL",
+        "HomeTeam": "NEWC",
+        "AwayTeam": "MANL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-20 19:50",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-21 18:00",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "AwayTeam": "SHRK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-21 19:55",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "AwayTeam": "DRAG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-22 15:00",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "AwayTeam": "CANB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-22 17:30",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "AwayTeam": "SYDR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-22 19:35",
+        "League": "NRL",
+        "HomeTeam": "SSYD",
+        "AwayTeam": "MANL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-23 14:00",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "AwayTeam": "NZW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-08-23 16:05",
+        "League": "NRL",
+        "HomeTeam": "NEWC",
+        "AwayTeam": "NQLD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-08-27 19:50",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "AwayTeam": "SSYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-08-28 18:00",
+        "League": "NRL",
+        "HomeTeam": "DRAG",
+        "AwayTeam": "TITN",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-08-28 19:55",
+        "League": "NRL",
+        "HomeTeam": "SYDR",
+        "AwayTeam": "BRIS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-08-29 15:00",
+        "League": "NRL",
+        "HomeTeam": "NZW",
+        "AwayTeam": "NEWC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-08-29 17:30",
+        "League": "NRL",
+        "HomeTeam": "SHRK",
+        "AwayTeam": "NQLD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-08-29 19:35",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "AwayTeam": "WTIG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-08-30 16:05",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "MANL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-08-30 18:30",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "AwayTeam": "BULL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-03 19:50",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "AwayTeam": "PENR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-04 18:00",
+        "League": "NRL",
+        "HomeTeam": "NEWC",
+        "AwayTeam": "SHRK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-04 19:55",
+        "League": "NRL",
+        "HomeTeam": "SSYD",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-05 15:00",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "AwayTeam": "TITN",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-05 17:30",
+        "League": "NRL",
+        "HomeTeam": "MANL",
+        "AwayTeam": "WTIG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-05 19:35",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "AwayTeam": "SYDR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-06 16:05",
+        "League": "NRL",
+        "HomeTeam": "NZW",
+        "AwayTeam": "PARR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-06 18:30",
+        "League": "NRL",
+        "HomeTeam": "NQLD",
+        "AwayTeam": "DRAG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-10 19:50",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "AwayTeam": "SSYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-11 18:00",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "AwayTeam": "MANL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-11 19:55",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "AwayTeam": "PARR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-12 15:00",
+        "League": "NRL",
+        "HomeTeam": "DRAG",
+        "AwayTeam": "CANB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-12 17:30",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "AwayTeam": "BRIS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-12 19:35",
+        "League": "NRL",
+        "HomeTeam": "SYDR",
+        "AwayTeam": "NEWC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-13 16:05",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "NQLD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-13 18:30",
+        "League": "NRL",
+        "HomeTeam": "SHRK",
+        "AwayTeam": "NZW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "19",
+        "gamedate": "2020-09-17 19:50",
+        "League": "NRL",
+        "HomeTeam": "SSYD",
+        "AwayTeam": "BULL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "19",
+        "gamedate": "2020-09-18 18:00",
+        "League": "NRL",
+        "HomeTeam": "NQLD",
+        "AwayTeam": "PENR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "19",
+        "gamedate": "2020-09-18 19:55",
+        "League": "NRL",
+        "HomeTeam": "PARR",
+        "AwayTeam": "BRIS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "19",
+        "gamedate": "2020-09-19 15:00",
+        "League": "NRL",
+        "HomeTeam": "MANL",
+        "AwayTeam": "TITN",
+        "EventType": "schedule"
+    },
+    {
+        "round": "19",
+        "gamedate": "2020-09-19 17:30",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "WTIG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "19",
+        "gamedate": "2020-09-19 19:35",
+        "League": "NRL",
+        "HomeTeam": "SYDR",
+        "AwayTeam": "SHRK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "19",
+        "gamedate": "2020-09-20 14:00",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "AwayTeam": "NZW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "19",
+        "gamedate": "2020-09-20 16:05",
+        "League": "NRL",
+        "HomeTeam": "NEWC",
+        "AwayTeam": "DRAG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "20",
+        "gamedate": "2020-09-24 19:50",
+        "League": "NRL",
+        "HomeTeam": "BRIS",
+        "AwayTeam": "NQLD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "20",
+        "gamedate": "2020-09-25 18:00",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "AwayTeam": "NEWC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "20",
+        "gamedate": "2020-09-25 19:55",
+        "League": "NRL",
+        "HomeTeam": "SSYD",
+        "AwayTeam": "SYDR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "20",
+        "gamedate": "2020-09-26 15:00",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "AwayTeam": "PENR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "20",
+        "gamedate": "2020-09-26 17:30",
+        "League": "NRL",
+        "HomeTeam": "SHRK",
+        "AwayTeam": "CANB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "20",
+        "gamedate": "2020-09-26 19:35",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "AwayTeam": "PARR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "20",
+        "gamedate": "2020-09-27 14:00",
+        "League": "NRL",
+        "HomeTeam": "NZW",
+        "AwayTeam": "MANL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "20",
+        "gamedate": "2020-09-27 16:05",
+        "League": "NRL",
+        "HomeTeam": "DRAG",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-19 19:25",
+        "League": "AFL",
+        "HomeTeam": "RICH",
+        "AwayTeam": "CARL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-20 19:50",
+        "League": "AFL",
+        "HomeTeam": "WB",
+        "AwayTeam": "COLL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-21 13:45",
+        "League": "AFL",
+        "HomeTeam": "ESS",
+        "AwayTeam": "FRE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-21 16:35",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "SYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-21 19:25",
+        "League": "AFL",
+        "HomeTeam": "GWS",
+        "AwayTeam": "GEEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-21 19:25",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "PORT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-22 13:10",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "STK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-22 15:20",
+        "League": "AFL",
+        "HomeTeam": "HAW",
+        "AwayTeam": "BL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-03-22 18:20",
+        "League": "AFL",
+        "HomeTeam": "WCE",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-06-11 19:40",
+        "League": "AFL",
+        "HomeTeam": "COLL",
+        "AwayTeam": "RICH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-06-12 19:40",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "HAW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-06-13 13:45",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "FRE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-06-13 13:45",
+        "League": "AFL",
+        "HomeTeam": "CARL",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-06-13 16:35",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-06-13 19:40",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "AwayTeam": "ADEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-06-14 13:45",
+        "League": "AFL",
+        "HomeTeam": "GWS",
+        "AwayTeam": "NMFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-06-14 19:50",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-06-14 13:10",
+        "League": "AFL",
+        "HomeTeam": "STK",
+        "AwayTeam": "WB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-06-18 19:40",
+        "League": "AFL",
+        "HomeTeam": "RICH",
+        "AwayTeam": "HAW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-06-19 19:50",
+        "League": "AFL",
+        "HomeTeam": "WB",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-06-20 13:45",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "SYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-06-20 16:35",
+        "League": "AFL",
+        "HomeTeam": "COLL",
+        "AwayTeam": "STK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-06-20 19:40",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-06-20 19:40",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "CARL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-06-21 13:05",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "ADEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-06-21 15:35",
+        "League": "AFL",
+        "HomeTeam": "ESS",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-06-21 18:05",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "PORT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-25 19:40",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "WB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-26 19:50",
+        "League": "AFL",
+        "HomeTeam": "GWS",
+        "AwayTeam": "COLL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-27 13:45",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-27 16:35",
+        "League": "AFL",
+        "HomeTeam": "STK",
+        "AwayTeam": "RICH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-27 19:40",
+        "League": "AFL",
+        "HomeTeam": "ESS",
+        "AwayTeam": "CARL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-27 19:40",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "FRE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-28 13:05",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "ADEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-28 15:35",
+        "League": "AFL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "GEEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-06-28 18:05",
+        "League": "AFL",
+        "HomeTeam": "HAW",
+        "AwayTeam": "NMFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-07-02 19:40",
+        "League": "AFL",
+        "HomeTeam": "WCE",
+        "AwayTeam": "RICH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-07-03 19:50",
+        "League": "AFL",
+        "HomeTeam": "COLL",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-07-04 13:45",
+        "League": "AFL",
+        "HomeTeam": "CARL",
+        "AwayTeam": "STK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-07-04 16:35",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "GCFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-07-04 19:40",
+        "League": "AFL",
+        "HomeTeam": "WB",
+        "AwayTeam": "NMFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-07-04 19:40",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "PORT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-07-05 13:05",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "FRE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-07-05 15:35",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-07-05 18:05",
+        "League": "AFL",
+        "HomeTeam": "GWS",
+        "AwayTeam": "HAW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-07-09 19:40",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "BL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-07-10 19:50",
+        "League": "AFL",
+        "HomeTeam": "COLL",
+        "AwayTeam": "HAW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-07-11 12:35",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "STK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-07-11 15:05",
+        "League": "AFL",
+        "HomeTeam": "WCE",
+        "AwayTeam": "ADEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-07-11 18:05",
+        "League": "AFL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "GCFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-07-11 19:40",
+        "League": "AFL",
+        "HomeTeam": "ESS",
+        "AwayTeam": "NMFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-07-12 13:05",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-07-12 15:35",
+        "League": "AFL",
+        "HomeTeam": "RICH",
+        "AwayTeam": "SYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-07-12 18:45",
+        "League": "AFL",
+        "HomeTeam": "CARL",
+        "AwayTeam": "WB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-07-16 20:10",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "COLL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-07-17 19:50",
+        "League": "AFL",
+        "HomeTeam": "ESS",
+        "AwayTeam": "WB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-07-18 13:45",
+        "League": "AFL",
+        "HomeTeam": "GWS",
+        "AwayTeam": "BL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-07-18 16:35",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "GCFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-07-18 19:40",
+        "League": "AFL",
+        "HomeTeam": "RICH",
+        "AwayTeam": "NMFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-07-19 13:05",
+        "League": "AFL",
+        "HomeTeam": "CARL",
+        "AwayTeam": "PORT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-07-19 15:35",
+        "League": "AFL",
+        "HomeTeam": "HAW",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-07-19 18:35",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-07-20 19:40",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "STK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-10 20:20",
+        "League": "NFL",
+        "HomeTeam": "KC",
+        "AwayTeam": "HT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "JJ",
+        "AwayTeam": "IC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "AF",
+        "AwayTeam": "SS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "CP",
+        "AwayTeam": "OR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "WR",
+        "AwayTeam": "PE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "BR",
+        "AwayTeam": "CL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "MV",
+        "AwayTeam": "GB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "DL",
+        "AwayTeam": "CH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "NE",
+        "AwayTeam": "MD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "BB",
+        "AwayTeam": "NJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 16:05",
+        "League": "NFL",
+        "HomeTeam": "CI",
+        "AwayTeam": "LC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 16:25",
+        "League": "NFL",
+        "HomeTeam": "SF",
+        "AwayTeam": "AC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 16:25",
+        "League": "NFL",
+        "HomeTeam": "NO",
+        "AwayTeam": "TB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-13 20:20",
+        "League": "NFL",
+        "HomeTeam": "LR",
+        "AwayTeam": "DC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-14 19:15",
+        "League": "NFL",
+        "HomeTeam": "NG",
+        "AwayTeam": "PS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "1",
+        "gamedate": "2020-09-14 22:10",
+        "League": "NFL",
+        "HomeTeam": "DB",
+        "AwayTeam": "TT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-17 20:20",
+        "League": "NFL",
+        "HomeTeam": "CL",
+        "AwayTeam": "CI",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "PE",
+        "AwayTeam": "LR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "DC",
+        "AwayTeam": "AF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "TT",
+        "AwayTeam": "JJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "NJ",
+        "AwayTeam": "SF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "MD",
+        "AwayTeam": "BB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "IC",
+        "AwayTeam": "MV",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "CH",
+        "AwayTeam": "NG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "TB",
+        "AwayTeam": "CP",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "PS",
+        "AwayTeam": "DB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "GB",
+        "AwayTeam": "DL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 16:05",
+        "League": "NFL",
+        "HomeTeam": "AC",
+        "AwayTeam": "WR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 16:25",
+        "League": "NFL",
+        "HomeTeam": "LC",
+        "AwayTeam": "KC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 16:25",
+        "League": "NFL",
+        "HomeTeam": "HT",
+        "AwayTeam": "BR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-20 20:20",
+        "League": "NFL",
+        "HomeTeam": "SS",
+        "AwayTeam": "NE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "2",
+        "gamedate": "2020-09-21 20:15",
+        "League": "NFL",
+        "HomeTeam": "OR",
+        "AwayTeam": "NO",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-24 20:20",
+        "League": "NFL",
+        "HomeTeam": "JJ",
+        "AwayTeam": "MD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "PE",
+        "AwayTeam": "CI",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "NG",
+        "AwayTeam": "SF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "CL",
+        "AwayTeam": "WR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "NE",
+        "AwayTeam": "OR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "AF",
+        "AwayTeam": "CH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "PS",
+        "AwayTeam": "HT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "MV",
+        "AwayTeam": "TT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "BB",
+        "AwayTeam": "LR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 16:05",
+        "League": "NFL",
+        "HomeTeam": "IC",
+        "AwayTeam": "NJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 16:05",
+        "League": "NFL",
+        "HomeTeam": "LC",
+        "AwayTeam": "CP",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 16:25",
+        "League": "NFL",
+        "HomeTeam": "SS",
+        "AwayTeam": "DC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 16:25",
+        "League": "NFL",
+        "HomeTeam": "DB",
+        "AwayTeam": "TB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 16:25",
+        "League": "NFL",
+        "HomeTeam": "AC",
+        "AwayTeam": "DL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-27 20:20",
+        "League": "NFL",
+        "HomeTeam": "NO",
+        "AwayTeam": "GB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "3",
+        "gamedate": "2020-09-28 20:15",
+        "League": "NFL",
+        "HomeTeam": "BR",
+        "AwayTeam": "KC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-01 20:20",
+        "League": "NFL",
+        "HomeTeam": "NJ",
+        "AwayTeam": "DB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 13:00",
+        "League": "NFL",
+        "HomeTeam": "TB",
+        "AwayTeam": "LC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 13:00",
+        "League": "NFL",
+        "HomeTeam": "MD",
+        "AwayTeam": "SS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 13:00",
+        "League": "NFL",
+        "HomeTeam": "CH",
+        "AwayTeam": "IC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 13:00",
+        "League": "NFL",
+        "HomeTeam": "TT",
+        "AwayTeam": "PS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 13:00",
+        "League": "NFL",
+        "HomeTeam": "HT",
+        "AwayTeam": "MV",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 13:00",
+        "League": "NFL",
+        "HomeTeam": "DL",
+        "AwayTeam": "NO",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 13:00",
+        "League": "NFL",
+        "HomeTeam": "WR",
+        "AwayTeam": "BR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 13:00",
+        "League": "NFL",
+        "HomeTeam": "DC",
+        "AwayTeam": "CL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 13:00",
+        "League": "NFL",
+        "HomeTeam": "CP",
+        "AwayTeam": "AC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 13:00",
+        "League": "NFL",
+        "HomeTeam": "CI",
+        "AwayTeam": "JJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 16:05",
+        "League": "NFL",
+        "HomeTeam": "LR",
+        "AwayTeam": "NG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 16:25",
+        "League": "NFL",
+        "HomeTeam": "KC",
+        "AwayTeam": "NE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 16:25",
+        "League": "NFL",
+        "HomeTeam": "OR",
+        "AwayTeam": "BB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-04 20:20",
+        "League": "NFL",
+        "HomeTeam": "SF",
+        "AwayTeam": "PE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "4",
+        "gamedate": "2020-10-05 20:15",
+        "League": "NFL",
+        "HomeTeam": "GB",
+        "AwayTeam": "AF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-08 20:20",
+        "League": "NFL",
+        "HomeTeam": "CH",
+        "AwayTeam": "TB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 13:00",
+        "League": "NFL",
+        "HomeTeam": "WR",
+        "AwayTeam": "LR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 13:00",
+        "League": "NFL",
+        "HomeTeam": "TT",
+        "AwayTeam": "BB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 13:00",
+        "League": "NFL",
+        "HomeTeam": "PS",
+        "AwayTeam": "PE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 13:00",
+        "League": "NFL",
+        "HomeTeam": "HT",
+        "AwayTeam": "JJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 13:00",
+        "League": "NFL",
+        "HomeTeam": "NE",
+        "AwayTeam": "DB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 13:00",
+        "League": "NFL",
+        "HomeTeam": "NJ",
+        "AwayTeam": "AC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 13:00",
+        "League": "NFL",
+        "HomeTeam": "BR",
+        "AwayTeam": "CI",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 13:00",
+        "League": "NFL",
+        "HomeTeam": "KC",
+        "AwayTeam": "OR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 13:00",
+        "League": "NFL",
+        "HomeTeam": "AF",
+        "AwayTeam": "CP",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 16:05",
+        "League": "NFL",
+        "HomeTeam": "SF",
+        "AwayTeam": "MD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 16:25",
+        "League": "NFL",
+        "HomeTeam": "DC",
+        "AwayTeam": "NG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 16:25",
+        "League": "NFL",
+        "HomeTeam": "CL",
+        "AwayTeam": "IC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-11 20:20",
+        "League": "NFL",
+        "HomeTeam": "SS",
+        "AwayTeam": "MV",
+        "EventType": "schedule"
+    },
+    {
+        "round": "5",
+        "gamedate": "2020-10-12 20:15",
+        "League": "NFL",
+        "HomeTeam": "NO",
+        "AwayTeam": "LC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-15 20:20",
+        "League": "NFL",
+        "HomeTeam": "BB",
+        "AwayTeam": "KC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 13:00",
+        "League": "NFL",
+        "HomeTeam": "IC",
+        "AwayTeam": "CI",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 13:00",
+        "League": "NFL",
+        "HomeTeam": "JJ",
+        "AwayTeam": "DL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 13:00",
+        "League": "NFL",
+        "HomeTeam": "MV",
+        "AwayTeam": "AF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 13:00",
+        "League": "NFL",
+        "HomeTeam": "CP",
+        "AwayTeam": "CH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 13:00",
+        "League": "NFL",
+        "HomeTeam": "NG",
+        "AwayTeam": "WR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 13:00",
+        "League": "NFL",
+        "HomeTeam": "TT",
+        "AwayTeam": "HT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 13:00",
+        "League": "NFL",
+        "HomeTeam": "PE",
+        "AwayTeam": "BR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 13:00",
+        "League": "NFL",
+        "HomeTeam": "PS",
+        "AwayTeam": "CL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 16:05",
+        "League": "NFL",
+        "HomeTeam": "LC",
+        "AwayTeam": "NJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 16:05",
+        "League": "NFL",
+        "HomeTeam": "DB",
+        "AwayTeam": "MD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 16:25",
+        "League": "NFL",
+        "HomeTeam": "TB",
+        "AwayTeam": "GB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-18 20:20",
+        "League": "NFL",
+        "HomeTeam": "SF",
+        "AwayTeam": "LR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "6",
+        "gamedate": "2020-10-19 20:15",
+        "League": "NFL",
+        "HomeTeam": "DC",
+        "AwayTeam": "AC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-22 20:20",
+        "League": "NFL",
+        "HomeTeam": "PE",
+        "AwayTeam": "NG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 13:00",
+        "League": "NFL",
+        "HomeTeam": "WR",
+        "AwayTeam": "DC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 13:00",
+        "League": "NFL",
+        "HomeTeam": "MD",
+        "AwayTeam": "LC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 13:00",
+        "League": "NFL",
+        "HomeTeam": "HT",
+        "AwayTeam": "GB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 13:00",
+        "League": "NFL",
+        "HomeTeam": "NO",
+        "AwayTeam": "CP",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 13:00",
+        "League": "NFL",
+        "HomeTeam": "AF",
+        "AwayTeam": "DL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 13:00",
+        "League": "NFL",
+        "HomeTeam": "BR",
+        "AwayTeam": "PS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 13:00",
+        "League": "NFL",
+        "HomeTeam": "NJ",
+        "AwayTeam": "BB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 13:00",
+        "League": "NFL",
+        "HomeTeam": "CI",
+        "AwayTeam": "CL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 16:05",
+        "League": "NFL",
+        "HomeTeam": "AC",
+        "AwayTeam": "SS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 16:25",
+        "League": "NFL",
+        "HomeTeam": "NE",
+        "AwayTeam": "SF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 16:25",
+        "League": "NFL",
+        "HomeTeam": "DB",
+        "AwayTeam": "KC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-25 20:20",
+        "League": "NFL",
+        "HomeTeam": "OR",
+        "AwayTeam": "TB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "7",
+        "gamedate": "2020-10-26 20:15",
+        "League": "NFL",
+        "HomeTeam": "LR",
+        "AwayTeam": "CH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-10-29 20:20",
+        "League": "NFL",
+        "HomeTeam": "CP",
+        "AwayTeam": "AF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-01 13:00",
+        "League": "NFL",
+        "HomeTeam": "GB",
+        "AwayTeam": "MV",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-01 13:00",
+        "League": "NFL",
+        "HomeTeam": "DL",
+        "AwayTeam": "IC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-01 13:00",
+        "League": "NFL",
+        "HomeTeam": "KC",
+        "AwayTeam": "NJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-01 13:00",
+        "League": "NFL",
+        "HomeTeam": "CI",
+        "AwayTeam": "TT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-01 13:00",
+        "League": "NFL",
+        "HomeTeam": "BB",
+        "AwayTeam": "NE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-01 13:00",
+        "League": "NFL",
+        "HomeTeam": "CL",
+        "AwayTeam": "OR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-01 13:00",
+        "League": "NFL",
+        "HomeTeam": "MD",
+        "AwayTeam": "LR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-01 16:05",
+        "League": "NFL",
+        "HomeTeam": "LC",
+        "AwayTeam": "JJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-01 16:25",
+        "League": "NFL",
+        "HomeTeam": "CH",
+        "AwayTeam": "NO",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-01 16:25",
+        "League": "NFL",
+        "HomeTeam": "SS",
+        "AwayTeam": "SF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-01 20:20",
+        "League": "NFL",
+        "HomeTeam": "PE",
+        "AwayTeam": "DC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-11-02 20:15",
+        "League": "NFL",
+        "HomeTeam": "NG",
+        "AwayTeam": "TB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-05 20:20",
+        "League": "NFL",
+        "HomeTeam": "SF",
+        "AwayTeam": "GB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 13:00",
+        "League": "NFL",
+        "HomeTeam": "WR",
+        "AwayTeam": "NG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 13:00",
+        "League": "NFL",
+        "HomeTeam": "JJ",
+        "AwayTeam": "HT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 13:00",
+        "League": "NFL",
+        "HomeTeam": "AF",
+        "AwayTeam": "DB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 13:00",
+        "League": "NFL",
+        "HomeTeam": "TT",
+        "AwayTeam": "CH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 13:00",
+        "League": "NFL",
+        "HomeTeam": "MV",
+        "AwayTeam": "DL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 13:00",
+        "League": "NFL",
+        "HomeTeam": "KC",
+        "AwayTeam": "CP",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 13:00",
+        "League": "NFL",
+        "HomeTeam": "IC",
+        "AwayTeam": "BR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 13:00",
+        "League": "NFL",
+        "HomeTeam": "BB",
+        "AwayTeam": "SS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 16:05",
+        "League": "NFL",
+        "HomeTeam": "LC",
+        "AwayTeam": "OR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 16:25",
+        "League": "NFL",
+        "HomeTeam": "AC",
+        "AwayTeam": "MD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 16:25",
+        "League": "NFL",
+        "HomeTeam": "DC",
+        "AwayTeam": "PS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-08 20:20",
+        "League": "NFL",
+        "HomeTeam": "TB",
+        "AwayTeam": "NO",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-11-09 20:15",
+        "League": "NFL",
+        "HomeTeam": "NJ",
+        "AwayTeam": "NE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-12 20:20",
+        "League": "NFL",
+        "HomeTeam": "TT",
+        "AwayTeam": "IC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 13:00",
+        "League": "NFL",
+        "HomeTeam": "PS",
+        "AwayTeam": "CI",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 13:00",
+        "League": "NFL",
+        "HomeTeam": "DL",
+        "AwayTeam": "WR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 13:00",
+        "League": "NFL",
+        "HomeTeam": "CL",
+        "AwayTeam": "HT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 13:00",
+        "League": "NFL",
+        "HomeTeam": "NG",
+        "AwayTeam": "PE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 13:00",
+        "League": "NFL",
+        "HomeTeam": "GB",
+        "AwayTeam": "JJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 13:00",
+        "League": "NFL",
+        "HomeTeam": "CP",
+        "AwayTeam": "TB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 16:05",
+        "League": "NFL",
+        "HomeTeam": "OR",
+        "AwayTeam": "DB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 16:05",
+        "League": "NFL",
+        "HomeTeam": "AC",
+        "AwayTeam": "BB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 16:05",
+        "League": "NFL",
+        "HomeTeam": "MD",
+        "AwayTeam": "NJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 16:25",
+        "League": "NFL",
+        "HomeTeam": "NO",
+        "AwayTeam": "SF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 16:25",
+        "League": "NFL",
+        "HomeTeam": "LR",
+        "AwayTeam": "SS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-15 20:20",
+        "League": "NFL",
+        "HomeTeam": "NE",
+        "AwayTeam": "BR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-11-16 20:15",
+        "League": "NFL",
+        "HomeTeam": "CH",
+        "AwayTeam": "MV",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-19 20:20",
+        "League": "NFL",
+        "HomeTeam": "SS",
+        "AwayTeam": "AC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-22 13:00",
+        "League": "NFL",
+        "HomeTeam": "WR",
+        "AwayTeam": "CI",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-22 13:00",
+        "League": "NFL",
+        "HomeTeam": "NO",
+        "AwayTeam": "AF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-22 13:00",
+        "League": "NFL",
+        "HomeTeam": "HT",
+        "AwayTeam": "NE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-22 13:00",
+        "League": "NFL",
+        "HomeTeam": "BR",
+        "AwayTeam": "TT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-22 13:00",
+        "League": "NFL",
+        "HomeTeam": "JJ",
+        "AwayTeam": "PS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-22 13:00",
+        "League": "NFL",
+        "HomeTeam": "CP",
+        "AwayTeam": "DL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-22 13:00",
+        "League": "NFL",
+        "HomeTeam": "CL",
+        "AwayTeam": "PE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-22 13:00",
+        "League": "NFL",
+        "HomeTeam": "IC",
+        "AwayTeam": "GB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-22 16:05",
+        "League": "NFL",
+        "HomeTeam": "DB",
+        "AwayTeam": "LC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-22 16:25",
+        "League": "NFL",
+        "HomeTeam": "MV",
+        "AwayTeam": "DC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-22 20:20",
+        "League": "NFL",
+        "HomeTeam": "OR",
+        "AwayTeam": "KC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-11-23 20:15",
+        "League": "NFL",
+        "HomeTeam": "TB",
+        "AwayTeam": "LR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-26 12:30",
+        "League": "NFL",
+        "HomeTeam": "DL",
+        "AwayTeam": "HT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-26 16:30",
+        "League": "NFL",
+        "HomeTeam": "DC",
+        "AwayTeam": "WR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-26 20:20",
+        "League": "NFL",
+        "HomeTeam": "PS",
+        "AwayTeam": "BR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 13:00",
+        "League": "NFL",
+        "HomeTeam": "CI",
+        "AwayTeam": "NG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 13:00",
+        "League": "NFL",
+        "HomeTeam": "BB",
+        "AwayTeam": "LC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 13:00",
+        "League": "NFL",
+        "HomeTeam": "JJ",
+        "AwayTeam": "CL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 13:00",
+        "League": "NFL",
+        "HomeTeam": "NE",
+        "AwayTeam": "AC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 13:00",
+        "League": "NFL",
+        "HomeTeam": "IC",
+        "AwayTeam": "TT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 13:00",
+        "League": "NFL",
+        "HomeTeam": "MV",
+        "AwayTeam": "CP",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 13:00",
+        "League": "NFL",
+        "HomeTeam": "NJ",
+        "AwayTeam": "MD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 13:00",
+        "League": "NFL",
+        "HomeTeam": "AF",
+        "AwayTeam": "OR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 16:05",
+        "League": "NFL",
+        "HomeTeam": "LR",
+        "AwayTeam": "SF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 16:05",
+        "League": "NFL",
+        "HomeTeam": "DB",
+        "AwayTeam": "NO",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 16:25",
+        "League": "NFL",
+        "HomeTeam": "TB",
+        "AwayTeam": "KC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-29 20:20",
+        "League": "NFL",
+        "HomeTeam": "GB",
+        "AwayTeam": "CH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-11-30 20:15",
+        "League": "NFL",
+        "HomeTeam": "PE",
+        "AwayTeam": "SS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-03 20:20",
+        "League": "NFL",
+        "HomeTeam": "BR",
+        "AwayTeam": "DC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 13:00",
+        "League": "NFL",
+        "HomeTeam": "HT",
+        "AwayTeam": "IC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 13:00",
+        "League": "NFL",
+        "HomeTeam": "PS",
+        "AwayTeam": "WR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 13:00",
+        "League": "NFL",
+        "HomeTeam": "NJ",
+        "AwayTeam": "OR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 13:00",
+        "League": "NFL",
+        "HomeTeam": "MV",
+        "AwayTeam": "JJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 13:00",
+        "League": "NFL",
+        "HomeTeam": "AF",
+        "AwayTeam": "NO",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 13:00",
+        "League": "NFL",
+        "HomeTeam": "TT",
+        "AwayTeam": "CL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 13:00",
+        "League": "NFL",
+        "HomeTeam": "MD",
+        "AwayTeam": "CI",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 13:00",
+        "League": "NFL",
+        "HomeTeam": "CH",
+        "AwayTeam": "DL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 16:05",
+        "League": "NFL",
+        "HomeTeam": "SS",
+        "AwayTeam": "NG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 16:05",
+        "League": "NFL",
+        "HomeTeam": "AC",
+        "AwayTeam": "LR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 16:25",
+        "League": "NFL",
+        "HomeTeam": "LC",
+        "AwayTeam": "NE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 16:25",
+        "League": "NFL",
+        "HomeTeam": "GB",
+        "AwayTeam": "PE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-06 20:20",
+        "League": "NFL",
+        "HomeTeam": "KC",
+        "AwayTeam": "DB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-12-07 20:15",
+        "League": "NFL",
+        "HomeTeam": "SF",
+        "AwayTeam": "BB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-10 20:20",
+        "League": "NFL",
+        "HomeTeam": "LR",
+        "AwayTeam": "NE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "CH",
+        "AwayTeam": "HT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "JJ",
+        "AwayTeam": "TT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "TB",
+        "AwayTeam": "MV",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "NG",
+        "AwayTeam": "AC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "MD",
+        "AwayTeam": "KC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "CI",
+        "AwayTeam": "DC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "DL",
+        "AwayTeam": "GB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 13:00",
+        "League": "NFL",
+        "HomeTeam": "CP",
+        "AwayTeam": "DB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 16:05",
+        "League": "NFL",
+        "HomeTeam": "SS",
+        "AwayTeam": "NJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 16:05",
+        "League": "NFL",
+        "HomeTeam": "OR",
+        "AwayTeam": "IC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 16:25",
+        "League": "NFL",
+        "HomeTeam": "SF",
+        "AwayTeam": "WR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 16:25",
+        "League": "NFL",
+        "HomeTeam": "PE",
+        "AwayTeam": "NO",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 16:25",
+        "League": "NFL",
+        "HomeTeam": "LC",
+        "AwayTeam": "AF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-13 20:20",
+        "League": "NFL",
+        "HomeTeam": "BB",
+        "AwayTeam": "PS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-12-14 20:15",
+        "League": "NFL",
+        "HomeTeam": "CL",
+        "AwayTeam": "BR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-17 20:20",
+        "League": "NFL",
+        "HomeTeam": "OR",
+        "AwayTeam": "LC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-19 13:00",
+        "League": "NFL",
+        "HomeTeam": "TT",
+        "AwayTeam": "DL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-19 13:00",
+        "League": "NFL",
+        "HomeTeam": "LR",
+        "AwayTeam": "NJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-19 13:00",
+        "League": "NFL",
+        "HomeTeam": "GB",
+        "AwayTeam": "CP",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-19 13:00",
+        "League": "NFL",
+        "HomeTeam": "IC",
+        "AwayTeam": "HT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-19 13:00",
+        "League": "NFL",
+        "HomeTeam": "DB",
+        "AwayTeam": "BB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "BR",
+        "AwayTeam": "JJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "AF",
+        "AwayTeam": "TB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "WR",
+        "AwayTeam": "SS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "NG",
+        "AwayTeam": "CL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "MV",
+        "AwayTeam": "CH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-20 13:00",
+        "League": "NFL",
+        "HomeTeam": "MD",
+        "AwayTeam": "NE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-20 16:05",
+        "League": "NFL",
+        "HomeTeam": "AC",
+        "AwayTeam": "PE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-20 16:25",
+        "League": "NFL",
+        "HomeTeam": "NO",
+        "AwayTeam": "KC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-20 20:20",
+        "League": "NFL",
+        "HomeTeam": "DC",
+        "AwayTeam": "SF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-12-21 20:15",
+        "League": "NFL",
+        "HomeTeam": "CI",
+        "AwayTeam": "PS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-25 16:30",
+        "League": "NFL",
+        "HomeTeam": "NO",
+        "AwayTeam": "MV",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-26 13:00",
+        "League": "NFL",
+        "HomeTeam": "LC",
+        "AwayTeam": "DB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-26 13:00",
+        "League": "NFL",
+        "HomeTeam": "OR",
+        "AwayTeam": "MD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-26 13:00",
+        "League": "NFL",
+        "HomeTeam": "NJ",
+        "AwayTeam": "CL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-26 13:00",
+        "League": "NFL",
+        "HomeTeam": "AC",
+        "AwayTeam": "SF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-26 13:00",
+        "League": "NFL",
+        "HomeTeam": "DL",
+        "AwayTeam": "TB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "JJ",
+        "AwayTeam": "CH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "WR",
+        "AwayTeam": "CP",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "PS",
+        "AwayTeam": "IC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "HT",
+        "AwayTeam": "CI",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "BR",
+        "AwayTeam": "NG",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-27 13:00",
+        "League": "NFL",
+        "HomeTeam": "KC",
+        "AwayTeam": "AF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-27 16:05",
+        "League": "NFL",
+        "HomeTeam": "SS",
+        "AwayTeam": "LR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-27 16:25",
+        "League": "NFL",
+        "HomeTeam": "DC",
+        "AwayTeam": "PE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-27 20:20",
+        "League": "NFL",
+        "HomeTeam": "GB",
+        "AwayTeam": "TT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-12-28 20:15",
+        "League": "NFL",
+        "HomeTeam": "NE",
+        "AwayTeam": "BB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "DL",
+        "AwayTeam": "MV",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "TB",
+        "AwayTeam": "AF",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "HT",
+        "AwayTeam": "TT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "NE",
+        "AwayTeam": "NJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "CL",
+        "AwayTeam": "PS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "NG",
+        "AwayTeam": "DC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "KC",
+        "AwayTeam": "LC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "PE",
+        "AwayTeam": "WR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "IC",
+        "AwayTeam": "JJ",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "CI",
+        "AwayTeam": "BR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "BB",
+        "AwayTeam": "MD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "CP",
+        "AwayTeam": "NO",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 13:00",
+        "League": "NFL",
+        "HomeTeam": "CH",
+        "AwayTeam": "GB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 16:25",
+        "League": "NFL",
+        "HomeTeam": "LR",
+        "AwayTeam": "AC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 16:25",
+        "League": "NFL",
+        "HomeTeam": "SF",
+        "AwayTeam": "SS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2021-01-03 16:25",
+        "League": "NFL",
+        "HomeTeam": "DB",
+        "AwayTeam": "OR",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-23 19:40",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "WB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-24 19:50",
+        "League": "AFL",
+        "HomeTeam": "GWS",
+        "AwayTeam": "RICH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-25 13:05",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "CARL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-25 15:35",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "HAW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-25 19:40",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "AwayTeam": "STK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-26 13:05",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-26 15:35",
+        "League": "AFL",
+        "HomeTeam": "WCE",
+        "AwayTeam": "COLL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-26 18:10",
+        "League": "AFL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "BL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "8",
+        "gamedate": "2020-07-27 20:10",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "GEEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-29 19:10",
+        "League": "AFL",
+        "HomeTeam": "WB",
+        "AwayTeam": "RICH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-30 19:50",
+        "League": "AFL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "PORT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-31 17:40",
+        "League": "AFL",
+        "HomeTeam": "CARL",
+        "AwayTeam": "HAW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-07-31 20:10",
+        "League": "AFL",
+        "HomeTeam": "ESS",
+        "AwayTeam": "BL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-08-01 14:35",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "ADEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-08-01 17:10",
+        "League": "AFL",
+        "HomeTeam": "STK",
+        "AwayTeam": "SYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-08-01 20:10",
+        "League": "AFL",
+        "HomeTeam": "WCE",
+        "AwayTeam": "GEEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-08-02 15:35",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "9",
+        "gamedate": "2020-08-02 18:10",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "COLL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-08-03 19:10",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "AwayTeam": "WB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-08-04 19:10",
+        "League": "AFL",
+        "HomeTeam": "RICH",
+        "AwayTeam": "BL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-08-05 17:40",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "NMFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-08-05 20:10",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-08-06 17:40",
+        "League": "AFL",
+        "HomeTeam": "COLL",
+        "AwayTeam": "SYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-08-06 20:10",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "STK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "10",
+        "gamedate": "2020-08-07 19:50",
+        "League": "AFL",
+        "HomeTeam": "ESS",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-08-08 16:35",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "AwayTeam": "RICH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-08-08 19:40",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "WB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-08-09 15:35",
+        "League": "AFL",
+        "HomeTeam": "WCE",
+        "AwayTeam": "CARL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-08-09 18:10",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-08-10 18:10",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "STK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-08-10 20:40",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "HAW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-08-11 19:10",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "COLL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "11",
+        "gamedate": "2020-08-12 19:10",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-13 20:10",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-14 19:50",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "PORT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-15 14:35",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "BL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-15 17:10",
+        "League": "AFL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "COLL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-15 20:10",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "CARL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-16 13:05",
+        "League": "AFL",
+        "HomeTeam": "WB",
+        "AwayTeam": "ADEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-16 15:35",
+        "League": "AFL",
+        "HomeTeam": "STK",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-16 18:10",
+        "League": "AFL",
+        "HomeTeam": "WCE",
+        "AwayTeam": "HAW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "12",
+        "gamedate": "2020-08-17 19:10",
+        "League": "AFL",
+        "HomeTeam": "RICH",
+        "AwayTeam": "GCFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-21 19:50",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "CARL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-22 13:45",
+        "League": "AFL",
+        "HomeTeam": "WB",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-22 16:35",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "AwayTeam": "HAW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-22 19:40",
+        "League": "AFL",
+        "HomeTeam": "ESS",
+        "AwayTeam": "RICH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-22 20:10",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "SYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-23 13:05",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "GEEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-23 15:35",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "STK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-23 18:10",
+        "League": "AFL",
+        "HomeTeam": "WCE",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "13",
+        "gamedate": "2020-08-24 19:10",
+        "League": "AFL",
+        "HomeTeam": "COLL",
+        "AwayTeam": "NMFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-27 16:40",
+        "League": "AFL",
+        "HomeTeam": "HAW",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-27 19:10",
+        "League": "AFL",
+        "HomeTeam": "RICH",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-28 19:50",
+        "League": "AFL",
+        "HomeTeam": "WB",
+        "AwayTeam": "GEEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-29 13:45",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "AwayTeam": "SYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-29 16:35",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-29 19:40",
+        "League": "AFL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "STK",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-30 15:35",
+        "League": "AFL",
+        "HomeTeam": "CARL",
+        "AwayTeam": "COLL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "14",
+        "gamedate": "2020-08-30 18:10",
+        "League": "AFL",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "NMFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-01 17:40",
+        "League": "AFL",
+        "HomeTeam": "HAW",
+        "AwayTeam": "ADEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-01 20:10",
+        "League": "AFL",
+        "HomeTeam": "WCE",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-02 19:10",
+        "League": "AFL",
+        "HomeTeam": "RICH",
+        "AwayTeam": "FRE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-03 16:40",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-03 19:10",
+        "League": "AFL",
+        "HomeTeam": "GWS",
+        "AwayTeam": "CARL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "15",
+        "gamedate": "2020-09-04 19:50",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "COLL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-05 19:40",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "PORT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-06 13:05",
+        "League": "AFL",
+        "HomeTeam": "STK",
+        "AwayTeam": "HAW",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-06 15:35",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-06 18:10",
+        "League": "AFL",
+        "HomeTeam": "WB",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-07 19:10",
+        "League": "AFL",
+        "HomeTeam": "MELB",
+        "AwayTeam": "FRE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-08 17:40",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-08 20:10",
+        "League": "AFL",
+        "HomeTeam": "CARL",
+        "AwayTeam": "SYD",
+        "EventType": "schedule"
+    },
+    {
+        "round": "16",
+        "gamedate": "2020-09-09 19:10",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "GCFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-10 19:10",
+        "League": "AFL",
+        "HomeTeam": "STK",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-11 19:50",
+        "League": "AFL",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "RICH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-12 13:45",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "FRE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-12 16:35",
+        "League": "AFL",
+        "HomeTeam": "PORT",
+        "AwayTeam": "ESS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-12 19:40",
+        "League": "AFL",
+        "HomeTeam": "GWS",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-13 13:05",
+        "League": "AFL",
+        "HomeTeam": "CARL",
+        "AwayTeam": "ADEL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-13 15:35",
+        "League": "AFL",
+        "HomeTeam": "HAW",
+        "AwayTeam": "WB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-13 18:10",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "BL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "17",
+        "gamedate": "2020-09-14 19:10",
+        "League": "AFL",
+        "HomeTeam": "COLL",
+        "AwayTeam": "GCFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "RICH",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "BL",
+        "AwayTeam": "CARL",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "COLL",
+        "AwayTeam": "PORT",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "ESS",
+        "AwayTeam": "MELB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "FRE",
+        "AwayTeam": "WB",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "HAW",
+        "AwayTeam": "GCFC",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "WCE",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "STK",
+        "AwayTeam": "GWS",
+        "EventType": "schedule"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-19 00:00",
+        "League": "AFL",
+        "HomeTeam": "SYD",
+        "AwayTeam": "GEEL",
+        "EventType": "schedule"
+    }
+]
