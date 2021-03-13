@@ -45,5 +45,20 @@ namespace TipIt.Events
             get => throw new NotImplementedException();
             set => throw new NotImplementedException();
         }
+
+        public override string ToString()
+		{
+            return $@"{
+                LeagueCode
+                } R{Round,2} {GameDate.ToString("yyyy-MM-dd")} {
+                HomeTeam
+                } {
+                HomeScore,2
+                } {
+                AwayTeam
+                } {
+                AwayScore,2
+                }";
+		}
     }
 }

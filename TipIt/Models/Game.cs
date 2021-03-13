@@ -81,5 +81,70 @@ namespace TipIt.Models
                     return true;
             return false;
         }
-    }
+
+		internal int WinningMargin()
+		{
+            return Math.Abs(HomeScore - AwayScore);
+		}
+
+		internal string GameLine(
+            string teamCode)
+		{
+            var line = $@"{League} Rd {Round,2} {GameDate.ToString("yyyy-MM-dd")} {
+                ResultFor(teamCode)
+                } {ScoreFor(teamCode),2} - {ScoreAgin(teamCode),2}";
+            return line;
+		}
+
+		private string ScoreAgin(string teamCode)
+		{
+            if (IsHomeTeam(teamCode))
+                return $"{AwayScore}";
+            return $"{HomeScore}";
+		}
+
+        private string ScoreFor(string teamCode)
+        {
+            if (IsHomeTeam(teamCode))
+                return $"{HomeScore}";
+            return $"{AwayScore}";
+        }
+
+        private bool IsHomeTeam(string teamCode)
+		{
+			return HomeTeam.Equals(teamCode);
+		}
+
+		private string ResultFor(
+            string teamCode)
+		{
+            if (WinFor(teamCode))
+                return "W";
+            else if (LossFor(teamCode))
+                return "L";
+            return "T";
+        }
+
+		internal bool Involves(
+            string teamCode)
+		{
+            if (HomeTeam.Equals(teamCode))
+                return true;
+            if (AwayTeam.Equals(teamCode))
+                return true;
+            return false;
+        }
+
+		internal string GameResultShort(
+            string teamCode)
+		{
+            var shortResult = "T  ";
+            if (WinFor(teamCode))
+                shortResult = $"+{WinningMargin(),2}";
+            else if (LossFor(teamCode))
+                shortResult = $"-{WinningMargin(),2}";
+
+            return $"R{Round,2} {shortResult}";
+        }
+	}
 }

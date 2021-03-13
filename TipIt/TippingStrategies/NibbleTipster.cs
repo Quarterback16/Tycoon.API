@@ -12,11 +12,9 @@ namespace TipIt.TippingStrategies
 	public class NibbleTipster : BaseTipster, ITipster
 	{
 		public Dictionary<string,NibbleRating> Ratings { get; set; }
-
 		public decimal AverageScore { get; set; }
 		public int MaxScore { get; set; }
 		public int MinScore { get; set; }
-
 		public int HomeFieldAdvantage { get; set; }
 
 		public NibbleTipster(
@@ -76,14 +74,14 @@ namespace TipIt.TippingStrategies
 			}
 		}
 
-
 		public string RateResults(
 			string leagueCode)
 		{
+			var gamesRated = 0;
 			foreach (var item in Context.LeaguePastResults[leagueCode])
             {
-                var games = item.Value;
-                foreach (var g in games)
+                var round = item.Value;
+                foreach (var g in round)
                 {
 					var gameRating = RateGame(g);
 					AdjustTeam(
@@ -92,12 +90,19 @@ namespace TipIt.TippingStrategies
 					AdjustTeam(
 						g.AwayTeam,
 						gameRating.AwayRating);
+					gamesRated++;
 				}
 			}
-			return DumpRatings();
+			Console.WriteLine();
+			Console.WriteLine(
+				$"Ratings done on {gamesRated} games");
+			Console.WriteLine();
+			return DumpRatings(
+				leagueCode);
         }
 
-		public string DumpRatings()
+		public string DumpRatings(
+			string leagueCode)
 		{
 			var list = Ratings.ToList();
 			list.Sort(
@@ -114,9 +119,23 @@ namespace TipIt.TippingStrategies
 						StringUtils.StringOfSize(4,pair.Key)
 						} {
 						pair.Value
+						} {
+						CurrentForm(
+							leagueCode,
+							pair.Key)
 						}");
 			}
 			return sb.ToString();
+		}
+
+		private string CurrentForm(
+			string leagueCode,
+			string teamCode)
+		{
+			return Context.FormLast(
+				4,
+				leagueCode,
+				teamCode);
 		}
 
 		private void AdjustTeam(
@@ -154,19 +173,28 @@ namespace TipIt.TippingStrategies
 			projAway = (projAway / 2) + (int) AverageScore;
 
 			adjustment.HomeRating.Offence = (int)
-				(g.HomeScore - projHome) / FudgeFactor();
+				(g.HomeScore - projHome) / FudgeFactor(g);
 			adjustment.HomeRating.Defence = (int)
-				(g.AwayScore - projAway) / FudgeFactor();
+				(g.AwayScore - projAway) / FudgeFactor(g);
 			adjustment.AwayRating.Offence = (int)
-				(g.AwayScore - projAway) / FudgeFactor();
+				(g.AwayScore - projAway) / FudgeFactor(g);
 			adjustment.AwayRating.Defence = (int)
-				(g.HomeScore - projHome) / FudgeFactor();
+				(g.HomeScore - projHome) / FudgeFactor(g);
 			return adjustment;
 		}
 
-		private int FudgeFactor()
+		private int FudgeFactor(Game game)
 		{
-			return 4;
+			if (game.GameDate > DateTime.Now.AddDays(-7) 
+				|| game.GameDate.Year == 2020 && game.Round == 19)
+				return 2;
+			if (game.GameDate > DateTime.Now.AddDays(-14)
+				|| game.GameDate.Year == 2020 && game.Round == 18)
+				return 3;
+			if (game.GameDate > DateTime.Now.AddDays(-21)
+				|| game.GameDate.Year == 2020 && game.Round == 17)
+				return 4;
+			return 5;
 		}
 
 		public PredictedResult Tip(

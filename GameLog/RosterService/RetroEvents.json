@@ -6586,5 +6586,131 @@
         "pos": "WR",
         "price": "1",
         "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "145",
+        "team": "SS",
+        "player": "Norm Johnson",
+        "pos": "KK",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "181",
+        "team": "IC",
+        "player": "Ray Butler",
+        "pos": "WR",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "329",
+        "team": "MV",
+        "player": "Hasan Jones",
+        "pos": "WR",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "181",
+        "team": "IC",
+        "player": "Jay Schroeder",
+        "pos": "WR",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "190",
+        "team": "KC",
+        "player": "Stephone Paige",
+        "pos": "WR",
+        "price": "39",
+        "trans": "IN"
+    },
+    {
+        "fteam": "BR",
+        "num": "152",
+        "team": "CI",
+        "player": "Jim Breech",
+        "pos": "KK",
+        "price": "12",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "191",
+        "team": "NE",
+        "player": "Stanley Morgan",
+        "pos": "WR",
+        "price": "32",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "125",
+        "team": "GB",
+        "player": "Walter Stanley",
+        "pos": "WR",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "231",
+        "team": "NG",
+        "player": "Mickey Shuler",
+        "pos": "TE",
+        "price": "13",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "47",
+        "team": "AF",
+        "player": "Gerald Riggs",
+        "pos": "RB",
+        "price": "27",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "274",
+        "team": "DC",
+        "player": "Mike Renfro",
+        "pos": "WR",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "115",
+        "team": "TB",
+        "player": "Calvin Magee",
+        "pos": "TE",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "197",
+        "team": "MV",
+        "player": "Darrin Nelson",
+        "pos": "RB",
+        "price": "7",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "214",
+        "team": "PS",
+        "player": "Mark Malone",
+        "pos": "QB",
+        "price": "1",
+        "trans": "OUT"
     }
 ]

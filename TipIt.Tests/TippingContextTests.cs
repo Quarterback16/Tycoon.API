@@ -165,6 +165,31 @@ namespace TipIt.Tests
         }
 
         [Fact]
+        public void Context_KnowsNrlFormOfTitans()
+        {
+            var cut = new TippingContext();
+            Assert.True(
+                cut.LeaguePastResults["NRL"].Count == 25); //rounds
+
+            var result = cut.CurrentForm(
+				leagueCode: "NRL",
+				teamCode: "TITN");
+            _output.WriteLine(result);
+        }
+
+        [Fact]
+        public void Context_KnowsNrlLatestFormOfTitans()
+        {
+            var cut = new TippingContext();
+
+            var result = cut.FormLast( 
+                4, 
+                leagueCode: "NRL",
+                teamCode: "TITN");
+            _output.WriteLine(result);
+        }
+
+        [Fact]
         public void Context_KnowsNrlPreviousStats()
         {
             var cut = new TippingContext();

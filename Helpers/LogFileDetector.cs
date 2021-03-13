@@ -6,23 +6,39 @@ namespace Helpers
 {
     public class LogFileDetector : BaseFileDetector, IDetectLogFiles
     {
-        public List<string> DetectLogFileIn(string dir, string logType, DateTime logDate)
+        public List<string> DetectLogFileIn(
+            string dir, 
+            string logType, 
+            DateTime logDate)
         {
             var fileList = new List<string>();
             var filesInDir = System.IO.Directory.GetFiles(dir);
-
+            Trace($"      found {filesInDir.Length} files");
             foreach (var file in filesInDir)
             {
-                var filepart = FilePartFile(dir, file);
-                if (FileMatches(dir, filepart, logType, logDate))
+                var filepart = FilePartFile(
+                    dir, 
+                    file);
+                if (FileMatches(
+                        dir,
+                        filepart,
+                        logType,
+                        logDate))
                 {
                     fileList.Add(file);
                 }
+                else
+                    Trace($"      filepart:{filepart} does not match");
             }
             return fileList;
         }
 
-        public string FilePartFile(string dir, string file)
+		private void Trace(string msg)
+		{
+            Logger.Info(msg);
+		}
+
+		public string FilePartFile(string dir, string file)
         {
             var len = file.Length - 4 - dir.Length;
             if (len < 10) return file;

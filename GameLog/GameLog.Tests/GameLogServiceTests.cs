@@ -139,10 +139,10 @@ namespace GameLog.Tests
 			var teamList = new List<(string, string)>();
 			AddRosterInOrder(roster, teamList);
             //int[] weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-            //int[] weeks = new int[] { 1, 3, 4  };
+            int[] weeks = new int[] { 1, 3, 4  };
             //int[] weeks = new int[] { 5, 7, 8  };
-            //int[] weeks = new int[] { 9, 10, 11, 12 };
-            int[] weeks = new int[] { 13, 14, 15, 16 };
+            //int[] weeks = new int[] { 10, 11, 12 };
+            //int[] weeks = new int[] { 13, 14, 15 };
             //int[] weeks = new int[] { 1, 2, 8, 10, 12 };
 
             foreach (var item in teamList)
@@ -152,6 +152,8 @@ namespace GameLog.Tests
 					Season = K_CurrentSeason,
 					PlayerName = item.Item1
 				};
+                if (playerModel.PlayerName.Equals("Gary Anderson"))
+                    playerModel.Position = "RB";
 
 				if (item.Item2.Equals("KK"))
 				{

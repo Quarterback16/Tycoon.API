@@ -6926,5 +6926,85 @@
         "AwayScore": 69,
         "AwayTeam": "GEEL",
         "EventType": "result"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-10 00:00",
+        "League": "NRL",
+        "HomeTeam": "WTIG",
+        "HomeScore": 24,
+        "AwayScore": 26,
+        "AwayTeam": "SSYD",
+        "EventType": "result"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-11 00:00",
+        "League": "NRL",
+        "HomeTeam": "BULL",
+        "HomeScore": 20,
+        "AwayScore": 32,
+        "AwayTeam": "MANL",
+        "EventType": "result"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-11 00:00",
+        "League": "NRL",
+        "HomeTeam": "PENR",
+        "HomeScore": 20,
+        "AwayScore": 2,
+        "AwayTeam": "PARR",
+        "EventType": "result"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-11 00:00",
+        "League": "NRL",
+        "HomeTeam": "CANB",
+        "HomeScore": 37,
+        "AwayScore": 8,
+        "AwayTeam": "DRAG",
+        "EventType": "result"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-12 00:00",
+        "League": "NRL",
+        "HomeTeam": "TITN",
+        "HomeScore": 18,
+        "AwayScore": 6,
+        "AwayTeam": "BRIS",
+        "EventType": "result"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-12 00:00",
+        "League": "NRL",
+        "HomeTeam": "SYDR",
+        "HomeScore": 42,
+        "AwayScore": 12,
+        "AwayTeam": "NEWC",
+        "EventType": "result"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-12 00:00",
+        "League": "NRL",
+        "HomeTeam": "MELB",
+        "HomeScore": 36,
+        "AwayScore": 20,
+        "AwayTeam": "NQLD",
+        "EventType": "result"
+    },
+    {
+        "round": "18",
+        "gamedate": "2020-09-12 00:00",
+        "League": "NRL",
+        "HomeTeam": "SHRK",
+        "HomeScore": 22,
+        "AwayScore": 14,
+        "AwayTeam": "NZW",
+        "EventType": "result"
     }
 ]

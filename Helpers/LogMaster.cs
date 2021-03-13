@@ -31,10 +31,13 @@ namespace Helpers
         public void PutItem(LogItem m)
         {
             var filespec = m.Filespec;
-            if (!TheHt.ContainsKey(filespec))
+            if (filespec != null)
             {
-                TheHt.Add(filespec, m);
-                IsDirty = true;
+                if (!TheHt.ContainsKey(filespec))
+                {
+                    TheHt.Add(filespec, m);
+                    IsDirty = true;
+                }
             }
         }
 

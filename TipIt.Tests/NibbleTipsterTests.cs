@@ -30,14 +30,17 @@ namespace TipIt.Tests
 				result);
 			Assert.False(
 				string.IsNullOrEmpty(result));
-			DumpRatings(cut);
+			DumpRatings(cut,"NRL");
 			DumpMetrics(cut,"NRL");
 		}
 
-		private void DumpRatings(NibbleTipster cut)
+		private void DumpRatings(
+			NibbleTipster cut,
+			string leagueCode)
 		{
 			_output.WriteLine(
-				cut.DumpRatings());
+				cut.DumpRatings(
+					leagueCode));
 		}
 
 		private void DumpMetrics(

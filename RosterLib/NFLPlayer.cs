@@ -1028,6 +1028,11 @@ namespace RosterLib
 			return (DBirth == "30/12/1899" || DBirth == "01/01/0001");
 		}
 
+		public bool IsMissingDimensions()
+		{
+			return HeightFeet == 0 || Weight == 0;
+		}
+
 		public void LoadOwner( [Optional] string fantasyLeague )
 		{
 			var theLeague = ( string.IsNullOrEmpty( fantasyLeague ) ) 

@@ -22,7 +22,7 @@ namespace TipIt
 				$"League NRL has {context.ScheduledRoundCount("NRL")} rounds scheduled");
 			Console.WriteLine(
 				$"League AFL has {context.ScheduledRoundCount("AFL")} rounds scheduled");
-			context.DumpResults("NRL");
+			//context.DumpResults("NRL");
 			var options = new Options();
             var result = Parser.Default.ParseArguments<Options>(args)
                 .WithParsed(o => options.League = o.League)
@@ -59,7 +59,12 @@ namespace TipIt
                 tipster.ShowTips(
                     options.League, 
                     round);
+
             }
+			Console.WriteLine();
+			Console.WriteLine(
+                tipster.DumpRatings(
+                    options.League));
         }
 
         private static void PastLeagueStats(

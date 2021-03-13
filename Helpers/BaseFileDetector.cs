@@ -9,10 +9,12 @@ namespace Helpers
 
         public BaseFileDetector()
         {
-            Logger = NLog.LogManager.GetCurrentClassLogger();
+            Logger = LogManager.GetCurrentClassLogger();
         }
 
-        public DateTime FileDate(string dir, string fileNameWithNoExtension)
+        public DateTime FileDate(
+            string dir, 
+            string fileNameWithNoExtension)
         {
             var len = fileNameWithNoExtension.Length;
             if (DateIsNotEmbeddedIntheFileName(len))
@@ -30,7 +32,10 @@ namespace Helpers
                     return new DateTime(1, 1, 1);
                 }
             }
-            return DateTime.Parse(fileNameWithNoExtension.Substring(len - 10, 10));
+            return DateTime.Parse(
+                fileNameWithNoExtension.Substring(
+                    len - 10, 
+                    10));
         }
 
         private static bool DateIsNotEmbeddedIntheFileName(int len)
@@ -38,38 +43,45 @@ namespace Helpers
             return len < 21;
         }
 
-        public bool FileMatches(string dir, string fileNameWithNoExtension, string logType, DateTime logDate)
+        public bool FileMatches(
+            string dir, 
+            string fileNameWithNoExtension, 
+            string logType, 
+            DateTime logDate)
         {
             var isMatch = false;
             if (fileNameWithNoExtension.Length < 10)
             {
-                Logger.Trace("  file {0} length is too small", fileNameWithNoExtension);
+                Trace(
+                    $"  file {fileNameWithNoExtension} length is too small");
                 return false;
             }
             if (fileNameWithNoExtension.StartsWith(logType))
             {
-                var fileDate = FileDate(dir, fileNameWithNoExtension);
+                var fileDate = FileDate(
+                    dir, 
+                    fileNameWithNoExtension);
                 if (fileDate.Date > logDate.Date)
                 {
                     if (fileDate.Date == DateTime.Now.Date)
-                    {
-                        Logger.Info("  file {0} may still be in progress", fileNameWithNoExtension);
-                    }
+                        Trace(
+                            $" file {fileNameWithNoExtension} may still be in progress");
                     else
-                    {
                         isMatch = true;
-                    }
                 }
                 else
-                {
-                    //Logger.Info( "  file {0} is older than the last logdate of {1:d}", fileNameWithNoExtension, logDate.Date );
-                }
+                    Trace(
+                        $"file {fileNameWithNoExtension} is less than the last logdate of {logDate.Date:d}");
             }
             else
-            {
-                Logger.Trace("  file {0} does not start with {1}", fileNameWithNoExtension, logType);
-            }
+                Trace($"file {fileNameWithNoExtension} does not start with {logType}");
             return isMatch;
         }
-    }
+
+		private void Trace(
+            string msg)
+		{
+			Logger.Trace($"      {msg}");
+		}
+	}
 }

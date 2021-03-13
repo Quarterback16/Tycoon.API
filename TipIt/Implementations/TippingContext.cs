@@ -16,9 +16,10 @@ namespace TipIt.Implementations
             LeagueDict = LoadLeagues();
             LeagueSchedule = LoadSchedule();
             LeaguePastResults = LoadLastYearsResults();
+            //DumpResults("NRL");
         }
 
-        public Dictionary<string, Dictionary<int, List<Game>>> LeaguePastResults
+		public Dictionary<string, Dictionary<int, List<Game>>> LeaguePastResults
         {
             get;
             set;
@@ -191,7 +192,59 @@ namespace TipIt.Implementations
             return Math.Round(avgScore, 0);
         }
 
-        public decimal EasyPointsForTeam(
+		public string FormLast(
+            int gamesBack, 
+            string leagueCode, 
+            string teamCode)
+		{
+            var sb = new StringBuilder();
+            var teamGameCount = 0;
+            var nRounds = LeaguePastResults[leagueCode].Count;
+			for (int r = nRounds; r > 0; r--)
+			{
+                var games = LeaguePastResults[leagueCode][r - 1];
+				for (int i = games.Count; i > 0; i--)
+                {
+                    Game g = games[i-1];
+                    if (!g.Involves(teamCode))
+                        continue;
+                    if (g.GameDate.Year < 2020)
+                        continue;
+                    //if (g.GameDate < DateTime.Now.AddDays(-300))
+                    //    continue;
+                    sb.Append($"{g.GameResultShort(teamCode)} ");
+                    teamGameCount++;
+                }
+                if (teamGameCount == gamesBack)
+                    break;
+            }
+            return sb.ToString();
+        }
+
+		public string CurrentForm(
+            string leagueCode,
+            string teamCode,
+            bool expand = false)
+        {
+            var sb = new StringBuilder();
+            foreach (var item in LeaguePastResults[leagueCode])
+            {
+                var games = item.Value;
+                foreach (var g in games)
+                {
+                    if (!g.Involves(teamCode))
+                        continue;
+                    if (g.GameDate.Year != 2020)
+                        continue;
+                    //if (g.GameDate < DateTime.Now.AddDays(-300))
+                    //    continue;
+                   sb.AppendLine($"{g.GameLine(teamCode)} ");
+                }
+            }
+            return sb.ToString();
+		}
+
+		public decimal EasyPointsForTeam(
             string leagueCode,
             string teamCode)
         {
@@ -344,7 +397,8 @@ namespace TipIt.Implementations
             return teams;
         }
 
-        public LeagueStats LastYearsStats(string leagueCode)
+        public LeagueStats LastYearsStats(
+            string leagueCode)
         {
             var totalScore = 0;
             var totalGames = 0;
@@ -376,7 +430,8 @@ namespace TipIt.Implementations
             return stats;
         }
 
-        private int ScoreMode(SortedDictionary<int, int> scoreDict)
+        private int ScoreMode(
+            SortedDictionary<int, int> scoreDict)
         {
             var mode = 0;
             var topFreq = 0;
@@ -443,9 +498,12 @@ namespace TipIt.Implementations
 
         public Dictionary<string, Dictionary<int, List<Game>>> LoadLastYearsResults()
         {
-            var leagueResults = new Dictionary<string, Dictionary<int, List<Game>>>();
+            var leagueResults = new Dictionary<string, Dictionary<
+                int, 
+                List<Game>>>();
             var eventStore = new ResultEventStore();
-            var events = (List<ResultEvent>)eventStore.Get<ResultEvent>("results");
+            var events = (List<ResultEvent>)eventStore.Get<ResultEvent>(
+                "results");
             foreach (var e in events)
             {
                 var theGame = new Game(e);
@@ -453,10 +511,20 @@ namespace TipIt.Implementations
                     leagueResults.Add(
                         theGame.League,
                         new Dictionary<int, List<Game>>());
+
                 var roundDict = leagueResults[theGame.League];
+
                 if (!roundDict.ContainsKey(theGame.Round))
-                    roundDict.Add(theGame.Round, new List<Game>());
+                    roundDict.Add(
+                        theGame.Round, 
+                        new List<Game>());
+
                 var gameList = roundDict[theGame.Round];
+                if (theGame.Round == 19 
+                    && theGame.League == "NRL"
+                    && theGame.GameDate.Year == 2020)
+					Console.WriteLine();
+
                 gameList.Add(theGame);
                 roundDict[theGame.Round] = gameList;
                 leagueResults[theGame.League] = roundDict;
