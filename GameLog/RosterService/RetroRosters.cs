@@ -94,7 +94,8 @@ namespace RosterService
 			return id;
 		}
 
-		public List<string> GetRoster(string fteam)
+		public List<string> GetRoster(
+			string fteam)
 		{
 			return Roster[fteam];
 		}

@@ -11,15 +11,18 @@ namespace GameLogService.Model
 
 		public int TotalPoints { get; set; }
 		public LineUp[] LineUp { get; set; }
+		public int[] GameScore { get; set; }
 
 		public SeasonRoster()
 		{
 			PlayerLogs = new List<PlayerReportModel>();
 			TotalPoints = 0;
 			LineUp = new LineUp[17];
+			GameScore = new int[17];
 			for (int i = 0; i < 17; i++)
 			{
 				LineUp[i] = new LineUp();
+				GameScore[i] = 0;
 			}
 			Contribution = new PlayerContributions();
 		}
@@ -49,6 +52,7 @@ namespace GameLogService.Model
 			var xp = MinOf(pats, tds);
 			var points = (tds * 6) + (fgs * 3) + xp;
 			TotalPoints += points;
+			GameScore[week] = points;
 			LineUp[week].QB = quarterback;
 			LineUp[week].RB1 = runningBackSet.At(0);
 			LineUp[week].RB2 = runningBackSet.At(1);
@@ -57,7 +61,7 @@ namespace GameLogService.Model
 			LineUp[week].PR3 = receiverSet.At(2);
 			LineUp[week].Kicker = kicker;
 			Contribution.Add(LineUp[week]);
-			return $@"TDp:{
+			return $@" ({points,2}) TDp:{
 				tdp
 				} TDr:{
 				rushingTouchdowns,2
@@ -67,14 +71,12 @@ namespace GameLogService.Model
 				fgs,2
 				} xp:{
 				xp,2
-				} PTS:{
-				points,2
 				} drops: {
 				DroppedPasses(
 					passingTouchdowns,
 					receivingTouchdowns),2
 				}  rb spots avail: {
-				2-runningBackSet.Count(),2
+				2-runningBackSet.Scorers(),2
 				}";
 		}
 
@@ -321,6 +323,12 @@ namespace GameLogService.Model
 			int week)
 		{
 			return LineUp[week].ToString();
+		}
+
+		public int Score(
+			int week)
+		{
+			return GameScore[week];
 		}
 	}
 }

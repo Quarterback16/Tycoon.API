@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GameLogService.Model
 {
@@ -26,6 +27,17 @@ namespace GameLogService.Model
 		internal int Count()
 		{
 			return Players.Count;
+		}
+
+		internal int Scorers()
+		{
+			var scorers = 0;
+			foreach (var player in Players)
+			{
+				if (player.Stats.Scores() > 0)
+					scorers++;
+			}
+			return scorers;
 		}
 	}
 }

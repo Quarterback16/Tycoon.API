@@ -51,6 +51,7 @@
     <Compile Include="Model\PlayerContributions.cs" />
     <Compile Include="Model\PlayerReportModel.cs" />
     <Compile Include="Model\PlayerSet.cs" />
+    <Compile Include="Model\Record.cs" />
     <Compile Include="Model\SeasonRoster.cs" />
     <Compile Include="Model\Starter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
