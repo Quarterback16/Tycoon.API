@@ -80,6 +80,24 @@ namespace GameLogService.Model
 			return result;
 		}
 
+		public List<GameStats> GetStats(
+			PlayerReportModel model)
+		{
+			if (model.Position != null 
+				&& model.Position.Equals("KK"))
+			{
+				model.GameLog = GetKickerStats(
+					model.Season,
+					model.PlayerName);
+				return model.GameLog;
+			}
+			return GetPlayerStats(
+				model.Season,
+				model.PlayerName,
+				model.Position);
+		}
+
+
 		public List<GameStats> GetKickerStats(
 			PlayerReportModel model)
 		{

@@ -66,7 +66,8 @@ namespace TipIt.Tests
 							 new TippingContext());
 			var result = cut.ShowTips("AFL", 1);
 			_output.WriteLine(result);
-			Assert.False(string.IsNullOrEmpty(result));
+			Assert.False(
+				string.IsNullOrEmpty(result));
 		}
 
 		[Fact]

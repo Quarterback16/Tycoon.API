@@ -16,12 +16,12 @@ namespace TipIt.Tests
         }
 
         [Fact]
-        public void TipIt_ConvertsAflCsvToJson_Ok()
+        public void TipIt_ConvertsAfl2021CsvToJson_Ok()
         {
             //  uses ChinChoo ETL https://www.nuget.org/packages/ChoETL.JSON/
             //  use this test to generate output for pasting into schedule.json
             //  transform data downloaded from fixturedownload.com
-            var fileName = "afl-2020-R14-18.csv";
+            var fileName = "afl-schedule-2021.csv";
             string path = Directory.GetCurrentDirectory();
             if (!File.Exists(fileName))
             {
@@ -30,7 +30,7 @@ namespace TipIt.Tests
             }
             else
             {
-                var sw = new StreamWriter(@"afl-schedule-2.json");
+                var sw = new StreamWriter(@"afl-schedule-2021.json");
                 var reader = new ChoCSVReader(fileName).WithFirstLineHeader();
                 foreach (var x in reader)
                 {

@@ -35,7 +35,7 @@ namespace Helpers
 
 		private void Trace(string msg)
 		{
-            Logger.Info(msg);
+            Logger.Trace(msg);
 		}
 
 		public string FilePartFile(string dir, string file)

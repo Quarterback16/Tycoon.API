@@ -1731,7 +1731,7 @@
         "fteam": "DD",
         "num": "65",
         "team": "GB",
-        "player": "George Ellis",
+        "player": "Gerry Ellis",
         "pos": "RB",
         "price": "1",
         "trans": "OUT"
@@ -6579,7 +6579,7 @@
         "trans": "OUT"
     },
     {
-        "fteam": "CD",
+        "fteam": "DD",
         "num": "191",
         "team": "NE",
         "player": "Stanley Morgan",
@@ -6609,17 +6609,17 @@
         "fteam": "DD",
         "num": "329",
         "team": "MV",
-        "player": "Hasan Jones",
+        "player": "Hassan Jones",
         "pos": "WR",
         "price": "3",
         "trans": "IN"
     },
     {
-        "fteam": "DD",
+        "fteam": "SR",
         "num": "181",
         "team": "IC",
         "player": "Jay Schroeder",
-        "pos": "WR",
+        "pos": "QB",
         "price": "3",
         "trans": "IN"
     },
@@ -6711,6 +6711,87 @@
         "player": "Mark Malone",
         "pos": "QB",
         "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "22",
+        "team": "CI",
+        "player": "Ken Anderson",
+        "pos": "QB",
+        "price": "6",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "222",
+        "team": "SF",
+        "player": "Jeff Kemp",
+        "pos": "QB",
+        "price": "4",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "132",
+        "team": "NG",
+        "player": "Ali Haji-Sheikh",
+        "pos": "KK",
+        "price": "25",
+        "trans": "IN"
+    },
+    {
+        "fteam": "DD",
+        "num": "29",
+        "team": "LA",
+        "player": "Marc Wilson",
+        "pos": "QB",
+        "price": "32",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SF",
+        "num": "264",
+        "team": "MD",
+        "player": "Fuad Reveiz",
+        "pos": "KK",
+        "price": "10",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SF",
+        "num": "51",
+        "team": "CH",
+        "player": "Walter Payton",
+        "pos": "RB",
+        "price": "33",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "44",
+        "team": "CI",
+        "player": "Eddie Brown",
+        "pos": "WR",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "RR",
+        "num": "191",
+        "team": "NE",
+        "player": "Stanley Morgan",
+        "pos": "WR",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "136",
+        "team": "PS",
+        "player": "Gary Anderson",
+        "pos": "KK",
+        "price": "30",
         "trans": "OUT"
     }
 ]

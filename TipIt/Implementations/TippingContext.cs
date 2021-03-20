@@ -200,8 +200,10 @@ namespace TipIt.Implementations
             var sb = new StringBuilder();
             var teamGameCount = 0;
             var nRounds = LeaguePastResults[leagueCode].Count;
-			for (int r = nRounds; r > 0; r--)
+			for (int r = nRounds; r > 1; r--)
 			{
+                if (LeaguePastResults[leagueCode].Count < r - 1)
+                    continue;
                 var games = LeaguePastResults[leagueCode][r - 1];
 				for (int i = games.Count; i > 0; i--)
                 {

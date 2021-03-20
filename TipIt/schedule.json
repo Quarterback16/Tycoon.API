@@ -1918,6 +1918,1986 @@
         "Result": "",
         "EventType": "schedule",
         "League": "NRL"
+    },
+    {
+        "Round": "1",
+        "GameDate": "2021-03-18 19:25",
+        "Location": "MCG",
+        "HomeTeam": "RICH",
+        "AwayTeam": "CARL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "1",
+        "GameDate": "2021-03-19 19:50",
+        "Location": "MCG",
+        "HomeTeam": "COLL",
+        "AwayTeam": "WB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "1",
+        "GameDate": "2021-03-20 13:45",
+        "Location": "MCG",
+        "HomeTeam": "MELB",
+        "AwayTeam": "FRE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "1",
+        "GameDate": "2021-03-20 16:35",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "GEEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "1",
+        "GameDate": "2021-03-20 19:25",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "ESS",
+        "AwayTeam": "HAW",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "1",
+        "GameDate": "2021-03-20 19:45",
+        "Location": "Gabba",
+        "HomeTeam": "BL",
+        "AwayTeam": "SYD",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "1",
+        "GameDate": "2021-03-21 13:10",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "PORT",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "1",
+        "GameDate": "2021-03-21 15:20",
+        "Location": "GIANTS Stadium",
+        "HomeTeam": "GWS",
+        "AwayTeam": "STK",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "1",
+        "GameDate": "2021-03-21 18:10",
+        "Location": "Optus Stadium",
+        "HomeTeam": "WCE",
+        "AwayTeam": "GCFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "2",
+        "GameDate": "2021-03-25 19:20",
+        "Location": "MCG",
+        "HomeTeam": "CARL",
+        "AwayTeam": "COLL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "2",
+        "GameDate": "2021-03-26 19:20",
+        "Location": "GMHBA Stadium",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "BL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "2",
+        "GameDate": "2021-03-27 13:45",
+        "Location": "SCG",
+        "HomeTeam": "SYD",
+        "AwayTeam": "ADEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "2",
+        "GameDate": "2021-03-27 16:35",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "PORT",
+        "AwayTeam": "ESS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "2",
+        "GameDate": "2021-03-27 19:25",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "STK",
+        "AwayTeam": "MELB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "2",
+        "GameDate": "2021-03-27 20:10",
+        "Location": "Metricon Stadium",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "NMFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "2",
+        "GameDate": "2021-03-28 13:10",
+        "Location": "MCG",
+        "HomeTeam": "HAW",
+        "AwayTeam": "RICH",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "2",
+        "GameDate": "2021-03-28 15:20",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "WB",
+        "AwayTeam": "WCE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "2",
+        "GameDate": "2021-03-28 18:10",
+        "Location": "Optus Stadium",
+        "HomeTeam": "FRE",
+        "AwayTeam": "GWS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "3",
+        "GameDate": "2021-04-01 19:40",
+        "Location": "Gabba",
+        "HomeTeam": "BL",
+        "AwayTeam": "COLL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "3",
+        "GameDate": "2021-04-02 16:20",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "WB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "3",
+        "GameDate": "2021-04-02 19:50",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "GCFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "3",
+        "GameDate": "2021-04-03 13:45",
+        "Location": "MCG",
+        "HomeTeam": "RICH",
+        "AwayTeam": "SYD",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "3",
+        "GameDate": "2021-04-03 16:35",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "ESS",
+        "AwayTeam": "STK",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "3",
+        "GameDate": "2021-04-03 20:10",
+        "Location": "Optus Stadium",
+        "HomeTeam": "WCE",
+        "AwayTeam": "PORT",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "3",
+        "GameDate": "2021-04-04 15:20",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "CARL",
+        "AwayTeam": "FRE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "3",
+        "GameDate": "2021-04-04 18:10",
+        "Location": "Manuka Oval",
+        "HomeTeam": "GWS",
+        "AwayTeam": "MELB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "3",
+        "GameDate": "2021-04-05 15:20",
+        "Location": "MCG",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "HAW",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "4",
+        "GameDate": "2021-04-08 19:20",
+        "Location": "SCG",
+        "HomeTeam": "SYD",
+        "AwayTeam": "ESS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "4",
+        "GameDate": "2021-04-09 19:50",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "PORT",
+        "AwayTeam": "RICH",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "4",
+        "GameDate": "2021-04-10 13:45",
+        "Location": "Mars Stadium",
+        "HomeTeam": "WB",
+        "AwayTeam": "BL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "4",
+        "GameDate": "2021-04-10 16:35",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "STK",
+        "AwayTeam": "WCE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "4",
+        "GameDate": "2021-04-10 19:25",
+        "Location": "Metricon Stadium",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "CARL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "4",
+        "GameDate": "2021-04-10 19:25",
+        "Location": "MCG",
+        "HomeTeam": "COLL",
+        "AwayTeam": "GWS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "4",
+        "GameDate": "2021-04-11 13:10",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "ADEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "4",
+        "GameDate": "2021-04-11 15:20",
+        "Location": "MCG",
+        "HomeTeam": "MELB",
+        "AwayTeam": "GEEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "4",
+        "GameDate": "2021-04-11 16:40",
+        "Location": "Optus Stadium",
+        "HomeTeam": "FRE",
+        "AwayTeam": "HAW",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "5",
+        "GameDate": "2021-04-15 19:20",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "STK",
+        "AwayTeam": "RICH",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "5",
+        "GameDate": "2021-04-16 20:10",
+        "Location": "Optus Stadium",
+        "HomeTeam": "WCE",
+        "AwayTeam": "COLL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "5",
+        "GameDate": "2021-04-17 13:45",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "WB",
+        "AwayTeam": "GCFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "5",
+        "GameDate": "2021-04-17 16:35",
+        "Location": "SCG",
+        "HomeTeam": "SYD",
+        "AwayTeam": "GWS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "5",
+        "GameDate": "2021-04-17 19:25",
+        "Location": "MCG",
+        "HomeTeam": "CARL",
+        "AwayTeam": "PORT",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "5",
+        "GameDate": "2021-04-17 19:25",
+        "Location": "Gabba",
+        "HomeTeam": "BL",
+        "AwayTeam": "ESS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "5",
+        "GameDate": "2021-04-18 13:10",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "FRE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "5",
+        "GameDate": "2021-04-18 15:20",
+        "Location": "MCG",
+        "HomeTeam": "HAW",
+        "AwayTeam": "MELB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "5",
+        "GameDate": "2021-04-18 16:40",
+        "Location": "GMHBA Stadium",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "NMFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "6",
+        "GameDate": "2021-04-23 19:50",
+        "Location": "Manuka Oval",
+        "HomeTeam": "GWS",
+        "AwayTeam": "WB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "6",
+        "GameDate": "2021-04-24 13:45",
+        "Location": "GMHBA Stadium",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "WCE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "6",
+        "GameDate": "2021-04-24 13:45",
+        "Location": "Metricon Stadium",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "SYD",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "6",
+        "GameDate": "2021-04-24 16:35",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "CARL",
+        "AwayTeam": "BL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "6",
+        "GameDate": "2021-04-24 19:25",
+        "Location": "MCG",
+        "HomeTeam": "MELB",
+        "AwayTeam": "RICH",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "6",
+        "GameDate": "2021-04-24 20:10",
+        "Location": "Optus Stadium",
+        "HomeTeam": "FRE",
+        "AwayTeam": "NMFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "6",
+        "GameDate": "2021-04-25 12:30",
+        "Location": "University of Tasmania Stadium",
+        "HomeTeam": "HAW",
+        "AwayTeam": "ADEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "6",
+        "GameDate": "2021-04-25 15:20",
+        "Location": "MCG",
+        "HomeTeam": "COLL",
+        "AwayTeam": "ESS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "6",
+        "GameDate": "2021-04-25 18:40",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "PORT",
+        "AwayTeam": "STK",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "7",
+        "GameDate": "2021-05-01 12:00",
+        "Location": "Gabba",
+        "HomeTeam": "BL",
+        "AwayTeam": "PORT",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "7",
+        "GameDate": "2021-05-01 12:00",
+        "Location": "MCG",
+        "HomeTeam": "COLL",
+        "AwayTeam": "GCFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "7",
+        "GameDate": "2021-05-01 12:00",
+        "Location": "MCG",
+        "HomeTeam": "ESS",
+        "AwayTeam": "CARL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "7",
+        "GameDate": "2021-05-01 12:00",
+        "Location": "Blundstone Arena",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "MELB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "7",
+        "GameDate": "2021-05-01 12:00",
+        "Location": "MCG",
+        "HomeTeam": "RICH",
+        "AwayTeam": "WB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "7",
+        "GameDate": "2021-05-01 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "STK",
+        "AwayTeam": "HAW",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "7",
+        "GameDate": "2021-05-01 12:00",
+        "Location": "SCG",
+        "HomeTeam": "SYD",
+        "AwayTeam": "GEEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "7",
+        "GameDate": "2021-05-01 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "GWS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "7",
+        "GameDate": "2021-05-01 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "WCE",
+        "AwayTeam": "FRE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "8",
+        "GameDate": "2021-05-08 12:00",
+        "Location": "Metricon Stadium",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "STK",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "8",
+        "GameDate": "2021-05-08 12:00",
+        "Location": "GIANTS Stadium",
+        "HomeTeam": "GWS",
+        "AwayTeam": "ESS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "8",
+        "GameDate": "2021-05-08 12:00",
+        "Location": "MCG",
+        "HomeTeam": "HAW",
+        "AwayTeam": "WCE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "8",
+        "GameDate": "2021-05-08 12:00",
+        "Location": "MCG",
+        "HomeTeam": "MELB",
+        "AwayTeam": "SYD",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "8",
+        "GameDate": "2021-05-08 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "COLL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "8",
+        "GameDate": "2021-05-08 12:00",
+        "Location": "MCG",
+        "HomeTeam": "RICH",
+        "AwayTeam": "GEEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "8",
+        "GameDate": "2021-05-08 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "WB",
+        "AwayTeam": "CARL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "8",
+        "GameDate": "2021-05-08 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "PORT",
+        "AwayTeam": "ADEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "8",
+        "GameDate": "2021-05-08 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "FRE",
+        "AwayTeam": "BL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "9",
+        "GameDate": "2021-05-15 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "ESS",
+        "AwayTeam": "FRE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "9",
+        "GameDate": "2021-05-15 12:00",
+        "Location": "Metricon Stadium",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "BL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "9",
+        "GameDate": "2021-05-15 12:00",
+        "Location": "University of Tasmania Stadium",
+        "HomeTeam": "HAW",
+        "AwayTeam": "NMFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "9",
+        "GameDate": "2021-05-15 12:00",
+        "Location": "MCG",
+        "HomeTeam": "MELB",
+        "AwayTeam": "CARL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "9",
+        "GameDate": "2021-05-15 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "RICH",
+        "AwayTeam": "GWS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "9",
+        "GameDate": "2021-05-15 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "STK",
+        "AwayTeam": "GEEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "9",
+        "GameDate": "2021-05-15 12:00",
+        "Location": "SCG",
+        "HomeTeam": "SYD",
+        "AwayTeam": "COLL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "9",
+        "GameDate": "2021-05-15 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "PORT",
+        "AwayTeam": "WB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "9",
+        "GameDate": "2021-05-15 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "WCE",
+        "AwayTeam": "ADEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "10",
+        "GameDate": "2021-05-22 12:00",
+        "Location": "Gabba",
+        "HomeTeam": "BL",
+        "AwayTeam": "RICH",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "10",
+        "GameDate": "2021-05-22 12:00",
+        "Location": "MCG",
+        "HomeTeam": "CARL",
+        "AwayTeam": "HAW",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "10",
+        "GameDate": "2021-05-22 12:00",
+        "Location": "MCG",
+        "HomeTeam": "COLL",
+        "AwayTeam": "PORT",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "10",
+        "GameDate": "2021-05-22 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "ESS",
+        "AwayTeam": "NMFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "10",
+        "GameDate": "2021-05-22 12:00",
+        "Location": "GMHBA Stadium",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "GCFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "10",
+        "GameDate": "2021-05-22 12:00",
+        "Location": "GIANTS Stadium",
+        "HomeTeam": "GWS",
+        "AwayTeam": "WCE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "10",
+        "GameDate": "2021-05-22 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "WB",
+        "AwayTeam": "STK",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "10",
+        "GameDate": "2021-05-22 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "MELB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "10",
+        "GameDate": "2021-05-22 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "FRE",
+        "AwayTeam": "SYD",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "11",
+        "GameDate": "2021-05-29 12:00",
+        "Location": "Gabba",
+        "HomeTeam": "BL",
+        "AwayTeam": "GWS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "11",
+        "GameDate": "2021-05-29 12:00",
+        "Location": "MCG",
+        "HomeTeam": "COLL",
+        "AwayTeam": "GEEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "11",
+        "GameDate": "2021-05-29 12:00",
+        "Location": "MCG",
+        "HomeTeam": "RICH",
+        "AwayTeam": "ADEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "11",
+        "GameDate": "2021-05-29 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "STK",
+        "AwayTeam": "NMFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "11",
+        "GameDate": "2021-05-29 12:00",
+        "Location": "SCG",
+        "HomeTeam": "SYD",
+        "AwayTeam": "CARL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "11",
+        "GameDate": "2021-05-29 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "WB",
+        "AwayTeam": "MELB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "11",
+        "GameDate": "2021-05-29 12:30",
+        "Location": "TIO Stadium",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "HAW",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "11",
+        "GameDate": "2021-05-29 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "PORT",
+        "AwayTeam": "FRE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "11",
+        "GameDate": "2021-05-29 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "WCE",
+        "AwayTeam": "ESS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "12",
+        "GameDate": "2021-06-05 12:00",
+        "Location": "MCG",
+        "HomeTeam": "CARL",
+        "AwayTeam": "WCE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "12",
+        "GameDate": "2021-06-05 12:00",
+        "Location": "MCG",
+        "HomeTeam": "ESS",
+        "AwayTeam": "RICH",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "12",
+        "GameDate": "2021-06-05 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "STK",
+        "AwayTeam": "SYD",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "12",
+        "GameDate": "2021-06-05 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "COLL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "12",
+        "GameDate": "2021-06-05 12:30",
+        "Location": "TIO Traeger Park",
+        "HomeTeam": "MELB",
+        "AwayTeam": "BL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "12",
+        "GameDate": "2021-06-05 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "FRE",
+        "AwayTeam": "WB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "13",
+        "GameDate": "2021-06-12 12:00",
+        "Location": "MCG",
+        "HomeTeam": "MELB",
+        "AwayTeam": "COLL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "13",
+        "GameDate": "2021-06-12 12:00",
+        "Location": "Blundstone Arena",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "GWS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "13",
+        "GameDate": "2021-06-12 12:00",
+        "Location": "Cazaly's Stadium",
+        "HomeTeam": "STK",
+        "AwayTeam": "ADEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "13",
+        "GameDate": "2021-06-12 12:00",
+        "Location": "SCG",
+        "HomeTeam": "SYD",
+        "AwayTeam": "HAW",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "13",
+        "GameDate": "2021-06-12 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "PORT",
+        "AwayTeam": "GEEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "13",
+        "GameDate": "2021-06-12 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "FRE",
+        "AwayTeam": "GCFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "14",
+        "GameDate": "2021-06-19 12:00",
+        "Location": "GMHBA Stadium",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "WB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "14",
+        "GameDate": "2021-06-19 12:00",
+        "Location": "Metricon Stadium",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "PORT",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "14",
+        "GameDate": "2021-06-19 12:00",
+        "Location": "GIANTS Stadium",
+        "HomeTeam": "GWS",
+        "AwayTeam": "CARL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "14",
+        "GameDate": "2021-06-19 12:00",
+        "Location": "MCG",
+        "HomeTeam": "HAW",
+        "AwayTeam": "ESS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "14",
+        "GameDate": "2021-06-19 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "BL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "14",
+        "GameDate": "2021-06-19 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "WCE",
+        "AwayTeam": "RICH",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "15",
+        "GameDate": "2021-06-26 12:00",
+        "Location": "Gabba",
+        "HomeTeam": "BL",
+        "AwayTeam": "GEEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "15",
+        "GameDate": "2021-06-26 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "CARL",
+        "AwayTeam": "ADEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "15",
+        "GameDate": "2021-06-26 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "COLL",
+        "AwayTeam": "FRE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "15",
+        "GameDate": "2021-06-26 12:00",
+        "Location": "MCG",
+        "HomeTeam": "ESS",
+        "AwayTeam": "MELB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "15",
+        "GameDate": "2021-06-26 12:00",
+        "Location": "GIANTS Stadium",
+        "HomeTeam": "GWS",
+        "AwayTeam": "HAW",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "15",
+        "GameDate": "2021-06-26 12:00",
+        "Location": "Blundstone Arena",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "GCFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "15",
+        "GameDate": "2021-06-26 12:00",
+        "Location": "MCG",
+        "HomeTeam": "RICH",
+        "AwayTeam": "STK",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "15",
+        "GameDate": "2021-06-26 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "PORT",
+        "AwayTeam": "SYD",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "15",
+        "GameDate": "2021-06-26 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "WCE",
+        "AwayTeam": "WB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "16",
+        "GameDate": "2021-07-03 12:00",
+        "Location": "MCG",
+        "HomeTeam": "COLL",
+        "AwayTeam": "STK",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "16",
+        "GameDate": "2021-07-03 12:00",
+        "Location": "GMHBA Stadium",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "ESS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "16",
+        "GameDate": "2021-07-03 12:00",
+        "Location": "Metricon Stadium",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "RICH",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "16",
+        "GameDate": "2021-07-03 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "HAW",
+        "AwayTeam": "PORT",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "16",
+        "GameDate": "2021-07-03 12:00",
+        "Location": "MCG",
+        "HomeTeam": "MELB",
+        "AwayTeam": "GWS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "16",
+        "GameDate": "2021-07-03 12:00",
+        "Location": "SCG",
+        "HomeTeam": "SYD",
+        "AwayTeam": "WCE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "16",
+        "GameDate": "2021-07-03 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "WB",
+        "AwayTeam": "NMFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "16",
+        "GameDate": "2021-07-03 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "BL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "16",
+        "GameDate": "2021-07-03 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "FRE",
+        "AwayTeam": "CARL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "17",
+        "GameDate": "2021-07-10 12:00",
+        "Location": "Gabba",
+        "HomeTeam": "BL",
+        "AwayTeam": "STK",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "17",
+        "GameDate": "2021-07-10 12:00",
+        "Location": "MCG",
+        "HomeTeam": "CARL",
+        "AwayTeam": "GEEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "17",
+        "GameDate": "2021-07-10 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "ESS",
+        "AwayTeam": "ADEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "17",
+        "GameDate": "2021-07-10 12:00",
+        "Location": "GIANTS Stadium",
+        "HomeTeam": "GWS",
+        "AwayTeam": "GCFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "17",
+        "GameDate": "2021-07-10 12:00",
+        "Location": "University of Tasmania Stadium",
+        "HomeTeam": "HAW",
+        "AwayTeam": "FRE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "17",
+        "GameDate": "2021-07-10 12:00",
+        "Location": "MCG",
+        "HomeTeam": "RICH",
+        "AwayTeam": "COLL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "17",
+        "GameDate": "2021-07-10 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "WB",
+        "AwayTeam": "SYD",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "17",
+        "GameDate": "2021-07-10 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "PORT",
+        "AwayTeam": "MELB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "17",
+        "GameDate": "2021-07-10 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "WCE",
+        "AwayTeam": "NMFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "18",
+        "GameDate": "2021-07-17 12:00",
+        "Location": "MCG",
+        "HomeTeam": "COLL",
+        "AwayTeam": "CARL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "18",
+        "GameDate": "2021-07-17 12:00",
+        "Location": "Metricon Stadium",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "WB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "18",
+        "GameDate": "2021-07-17 12:00",
+        "Location": "GIANTS Stadium",
+        "HomeTeam": "GWS",
+        "AwayTeam": "SYD",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "18",
+        "GameDate": "2021-07-17 12:00",
+        "Location": "MCG",
+        "HomeTeam": "MELB",
+        "AwayTeam": "HAW",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "18",
+        "GameDate": "2021-07-17 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "ESS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "18",
+        "GameDate": "2021-07-17 12:00",
+        "Location": "MCG",
+        "HomeTeam": "RICH",
+        "AwayTeam": "BL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "18",
+        "GameDate": "2021-07-17 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "STK",
+        "AwayTeam": "PORT",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "18",
+        "GameDate": "2021-07-17 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "WCE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "18",
+        "GameDate": "2021-07-17 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "FRE",
+        "AwayTeam": "GEEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "19",
+        "GameDate": "2021-07-24 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "CARL",
+        "AwayTeam": "NMFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "19",
+        "GameDate": "2021-07-24 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "ESS",
+        "AwayTeam": "GWS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "19",
+        "GameDate": "2021-07-24 12:00",
+        "Location": "MCG",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "RICH",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "19",
+        "GameDate": "2021-07-24 12:00",
+        "Location": "Metricon Stadium",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "MELB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "19",
+        "GameDate": "2021-07-24 12:00",
+        "Location": "MCG",
+        "HomeTeam": "HAW",
+        "AwayTeam": "BL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "19",
+        "GameDate": "2021-07-24 12:00",
+        "Location": "SCG",
+        "HomeTeam": "SYD",
+        "AwayTeam": "FRE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "19",
+        "GameDate": "2021-07-24 12:00",
+        "Location": "Mars Stadium",
+        "HomeTeam": "WB",
+        "AwayTeam": "ADEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "19",
+        "GameDate": "2021-07-24 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "PORT",
+        "AwayTeam": "COLL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "19",
+        "GameDate": "2021-07-24 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "WCE",
+        "AwayTeam": "STK",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "20",
+        "GameDate": "2021-07-31 12:00",
+        "Location": "Gabba",
+        "HomeTeam": "BL",
+        "AwayTeam": "GCFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "20",
+        "GameDate": "2021-07-31 12:00",
+        "Location": "MCG",
+        "HomeTeam": "COLL",
+        "AwayTeam": "WCE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "20",
+        "GameDate": "2021-07-31 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "ESS",
+        "AwayTeam": "SYD",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "20",
+        "GameDate": "2021-07-31 12:00",
+        "Location": "Manuka Oval",
+        "HomeTeam": "GWS",
+        "AwayTeam": "PORT",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "20",
+        "GameDate": "2021-07-31 12:00",
+        "Location": "MCG",
+        "HomeTeam": "MELB",
+        "AwayTeam": "WB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "20",
+        "GameDate": "2021-07-31 12:00",
+        "Location": "Blundstone Arena",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "GEEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "20",
+        "GameDate": "2021-07-31 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "STK",
+        "AwayTeam": "CARL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "20",
+        "GameDate": "2021-07-31 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "HAW",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "20",
+        "GameDate": "2021-07-31 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "FRE",
+        "AwayTeam": "RICH",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "21",
+        "GameDate": "2021-08-07 12:00",
+        "Location": "Gabba",
+        "HomeTeam": "BL",
+        "AwayTeam": "FRE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "21",
+        "GameDate": "2021-08-07 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "CARL",
+        "AwayTeam": "GCFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "21",
+        "GameDate": "2021-08-07 12:00",
+        "Location": "GMHBA Stadium",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "GWS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "21",
+        "GameDate": "2021-08-07 12:00",
+        "Location": "MCG",
+        "HomeTeam": "HAW",
+        "AwayTeam": "COLL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "21",
+        "GameDate": "2021-08-07 12:00",
+        "Location": "MCG",
+        "HomeTeam": "RICH",
+        "AwayTeam": "NMFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "21",
+        "GameDate": "2021-08-07 12:00",
+        "Location": "SCG",
+        "HomeTeam": "SYD",
+        "AwayTeam": "STK",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "21",
+        "GameDate": "2021-08-07 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "WB",
+        "AwayTeam": "ESS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "21",
+        "GameDate": "2021-08-07 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "PORT",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "21",
+        "GameDate": "2021-08-07 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "WCE",
+        "AwayTeam": "MELB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "22",
+        "GameDate": "2021-08-14 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "COLL",
+        "AwayTeam": "BL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "22",
+        "GameDate": "2021-08-14 12:00",
+        "Location": "GMHBA Stadium",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "STK",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "22",
+        "GameDate": "2021-08-14 12:00",
+        "Location": "Metricon Stadium",
+        "HomeTeam": "GCFC",
+        "AwayTeam": "ESS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "22",
+        "GameDate": "2021-08-14 12:00",
+        "Location": "GIANTS Stadium",
+        "HomeTeam": "GWS",
+        "AwayTeam": "RICH",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "22",
+        "GameDate": "2021-08-14 12:00",
+        "Location": "University of Tasmania Stadium",
+        "HomeTeam": "HAW",
+        "AwayTeam": "WB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "22",
+        "GameDate": "2021-08-14 12:00",
+        "Location": "MCG",
+        "HomeTeam": "MELB",
+        "AwayTeam": "ADEL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "22",
+        "GameDate": "2021-08-14 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "NMFC",
+        "AwayTeam": "SYD",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "22",
+        "GameDate": "2021-08-14 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "PORT",
+        "AwayTeam": "CARL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "22",
+        "GameDate": "2021-08-14 14:00",
+        "Location": "Optus Stadium",
+        "HomeTeam": "FRE",
+        "AwayTeam": "WCE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "23",
+        "GameDate": "2021-08-21 12:00",
+        "Location": "Gabba",
+        "HomeTeam": "BL",
+        "AwayTeam": "WCE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "23",
+        "GameDate": "2021-08-21 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "CARL",
+        "AwayTeam": "GWS",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "23",
+        "GameDate": "2021-08-21 12:00",
+        "Location": "MCG",
+        "HomeTeam": "ESS",
+        "AwayTeam": "COLL",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "23",
+        "GameDate": "2021-08-21 12:00",
+        "Location": "GMHBA Stadium",
+        "HomeTeam": "GEEL",
+        "AwayTeam": "MELB",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "23",
+        "GameDate": "2021-08-21 12:00",
+        "Location": "MCG",
+        "HomeTeam": "RICH",
+        "AwayTeam": "HAW",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "23",
+        "GameDate": "2021-08-21 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "STK",
+        "AwayTeam": "FRE",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "23",
+        "GameDate": "2021-08-21 12:00",
+        "Location": "SCG",
+        "HomeTeam": "SYD",
+        "AwayTeam": "GCFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "23",
+        "GameDate": "2021-08-21 12:00",
+        "Location": "Marvel Stadium",
+        "HomeTeam": "WB",
+        "AwayTeam": "PORT",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
+    },
+    {
+        "Round": "23",
+        "GameDate": "2021-08-21 12:30",
+        "Location": "Adelaide Oval",
+        "HomeTeam": "ADEL",
+        "AwayTeam": "NMFC",
+        "Result": "",
+        "EventType": "schedule",
+        "League": "AFL"
     }
 ]
 

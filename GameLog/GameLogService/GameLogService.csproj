@@ -47,7 +47,12 @@
     <Compile Include="GameLogService.cs" />
     <Compile Include="Model\GameStats.cs" />
     <Compile Include="Model\GameStatsRepository.cs" />
+    <Compile Include="Model\LineUp.cs" />
+    <Compile Include="Model\PlayerContributions.cs" />
     <Compile Include="Model\PlayerReportModel.cs" />
+    <Compile Include="Model\PlayerSet.cs" />
+    <Compile Include="Model\SeasonRoster.cs" />
+    <Compile Include="Model\Starter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

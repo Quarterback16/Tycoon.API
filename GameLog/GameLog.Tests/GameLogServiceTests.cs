@@ -137,9 +137,11 @@ namespace GameLog.Tests
 			var roster = rosterService.GetRoster(
 				fantasyTeam);
 			var teamList = new List<(string, string)>();
-			AddRosterInOrder(roster, teamList);
+			AddRosterInOrder(
+                roster, 
+                teamList);
             //int[] weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-            int[] weeks = new int[] { 1, 3, 4  };
+            int[] weeks = new int[] { 3, 4  };
             //int[] weeks = new int[] { 5, 7, 8  };
             //int[] weeks = new int[] { 10, 11, 12 };
             //int[] weeks = new int[] { 13, 14, 15 };
@@ -174,13 +176,70 @@ namespace GameLog.Tests
 			}
 		}
 
-		[TestMethod]
+        [TestMethod]
+        public void SeasonRosterForEntireTeam()
+        {
+            var fantasyTeam = "CD";
+            var rosterService = new RetroRosters(
+                new RosterEventStore());
+            var roster = rosterService.GetRoster(
+                fantasyTeam);
+            var teamList = new List<(string, string)>();
+            AddRosterInOrder(
+                roster,
+                teamList);
+            //int[] weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+            int[] weeks = new int[] { 3, 4, 5, 7, 8, 10, 11, 12, 13, 14, 15 };
+            //int[] weeks = new int[] { 5 };
+
+            var seasonRoster = new SeasonRoster();
+            foreach (var item in teamList)
+            {
+                var playerModel = new PlayerReportModel(
+                    K_CurrentSeason,
+					playerName: item.Item1,
+                    item.Item2);
+
+                playerModel.GameLog = _sut.GetStats(
+                    playerModel);
+
+                seasonRoster.AddLog(
+                    playerModel);
+            }
+			foreach (var w in weeks)
+			{
+				Console.WriteLine(
+                    "Week {0,2} {1}",
+                    w,
+                    seasonRoster.Points(w));
+				Console.WriteLine(
+                    seasonRoster.Lineup(w));
+			}
+			Console.WriteLine();
+			Console.WriteLine(
+                seasonRoster.ContributionsOut());
+			Console.WriteLine();
+			Console.WriteLine(
+                $"Total Pts: {seasonRoster.TotalPoints}");
+            Console.WriteLine(
+                $"  Avg Pts: {seasonRoster.TotalPoints/weeks.Length}");
+			Console.WriteLine();
+			Console.WriteLine("Non-Contributors");
+			foreach (var player in teamList)
+			{
+                if (seasonRoster.ContributionOf(player.Item1) == 0)
+					Console.WriteLine($"   {player.Item1}");
+			}
+        }
+
+        [TestMethod]
         public void GameStatsRepository_ForKicker_Returns16rows()
         {
             var playerModel = new PlayerReportModel
             {
                 Season = K_CurrentSeason,
-                PlayerName = "Tony Franklin"
+                PlayerName = "Tony Franklin",
+                Position = "K"
             };
 
             var result = _sut.GetKickerStats(

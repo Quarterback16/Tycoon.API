@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GameLogService.Model
+﻿namespace GameLogService.Model
 {
 	public class GameStats
 	{
@@ -26,6 +24,10 @@ namespace GameLogService.Model
 		{
 			return (3 * FieldGoalsMade) + ExtraPointsMade;
 		}
-	}
 
+		public int Scores()
+		{
+			return RushingTds + ReceivingTds + PassingTds + FieldGoalsMade;
+		}
+	}
 }
