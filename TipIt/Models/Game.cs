@@ -146,5 +146,10 @@ namespace TipIt.Models
 
             return $"R{Round,2} {shortResult}";
         }
+
+		internal bool HasBeenPlayed()
+		{
+            return (AwayScore + HomeScore) > 0;
+		}
 	}
 }

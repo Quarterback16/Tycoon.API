@@ -56,6 +56,7 @@ namespace TipIt.TippingStrategies
 				$"Max Score          : {MaxScore}");
 			Console.WriteLine(
 				$"Min Score          : {MinScore}");
+			Console.WriteLine();
 		}
 
 		private void Tip(
@@ -100,6 +101,11 @@ namespace TipIt.TippingStrategies
 			return DumpRatings(
 				leagueCode);
         }
+
+		internal void ClearRatings()
+		{
+			Ratings.Clear();
+		}
 
 		public string DumpRatings(
 			string leagueCode)

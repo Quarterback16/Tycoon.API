@@ -1,8 +1,7 @@
 {
   "profiles": {
     "TipIt": {
-      "commandName": "Project",
-      "commandLineArgs": "-l NRL -r 2"
+      "commandName": "Project"
     }
   }
 }

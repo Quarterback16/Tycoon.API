@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Text.RegularExpressions;
 
 namespace Helpers.Models
@@ -57,7 +58,8 @@ namespace Helpers.Models
 			}
             try
             {
-                if (Logger == null) Logger = LogManager.GetCurrentClassLogger();
+                if (Logger == null) 
+                    Logger = LogManager.GetCurrentClassLogger();
                 FileName = fileName;
                 Logger.Trace($"  >>  fileName:{fileName} ???");
                 Info = new FileInfo(fileName);
@@ -81,31 +83,36 @@ namespace Helpers.Models
             return FileName;
         }
 
-        public void Analyse(bool logIt = true)
+        public MediaInfo Analyse(bool logIt = true)
         {
-            if (Info == null) return;
+            if (Info == null) 
+                return this;
 
             Title = Info.Name;
 
             if (Title.ToUpper().Contains("SAMPLE"))
-                return;
+                return this;
 
             if (Title.ToUpper().Contains("TEST"))
-                return;
+                return this;
 
             if (FileName.ToUpper().Contains("INPROGRESS"))
-                return;
+                return this;
 
             if (FileName.ToUpper().Contains("RARBG.COM"))
-                return;
+                return this;
 
             IsNfl = DetermineNfl();
 
             Format = DetermineFormat();
+            if (Format.Equals("ZIP"))
+                AnalyseZip();  
+
             if (!IsNfl)
             {
                 IsBook = DetermineBook();
-                if (IsBook) DetemineMagazine();
+                if (IsBook) 
+                    DetemineMagazine();
 
                 Title = DetermineTitle();
 
@@ -135,9 +142,50 @@ namespace Helpers.Models
                 TvTitle = Title;
 
             OutputToConsole(logIt);
+            return this;
         }
 
-        private void FixTitle()
+		private void AnalyseZip()
+		{
+            ZipArchive zip = ZipFile.OpenRead(
+                FileName);
+
+			foreach (ZipArchiveEntry entry in zip.Entries)
+			{
+				Console.WriteLine($"{entry.FullName}");
+                if (entry.FullName.EndsWith(".pdf"))
+                {
+                    var folder = Info.Directory;
+                    var name = Info.Name;
+                    var ext = Info.Extension;
+                    var extractedFileName = $"{folder}/{RemoveExtension(name, ext)}.pdf";
+                    if (File.Exists(extractedFileName))
+                        File.Delete(extractedFileName);
+                    entry.ExtractToFile(extractedFileName);
+                }
+                if (entry.FullName.EndsWith(".epub"))
+                {
+                    var folder = Info.Directory;
+                    var name = Info.Name;
+                    var ext = Info.Extension;
+                    var extractedFileName = $"{folder}/{RemoveExtension(name, ext)}.pdf";
+                    if (File.Exists(extractedFileName))
+                        File.Delete(extractedFileName);
+                    entry.ExtractToFile(extractedFileName);
+                }
+            }
+		}
+
+		private string RemoveExtension(
+            string name, 
+            string ext)
+		{
+			return name.Replace(
+                ext,
+                string.Empty);
+		}
+
+		private void FixTitle()
         {
             //  quick and dirty way to purify the Title, 
             //  based on the fac that it is the first part
@@ -599,6 +647,8 @@ namespace Helpers.Models
             else if (Info.Extension.ToUpper().Equals(".CBZ"))
                 isValid = true;
             else if (Info.Extension.ToUpper().Equals(".AZW3"))
+                isValid = true;
+            else if (Info.Extension.ToUpper().Equals(".ZIP"))
                 isValid = true;
             return isValid;
         }

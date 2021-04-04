@@ -1,0 +1,209 @@
+[
+    {
+        "fteam": "DD",
+        "num": "136",
+        "team": "PS",
+        "player": "Gary Anderson",
+        "pos": "KK",
+        "price": "30",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "241",
+        "team": "IC",
+        "player": "Dean Biasucci",
+        "pos": "KK",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "301",
+        "team": "LR",
+        "player": "Charles White",
+        "pos": "RB",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "277",
+        "team": "NG",
+        "player": "Lionel Manuel",
+        "pos": "WR",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "fteam": "LL",
+        "num": "212",
+        "team": "KC",
+        "player": "Todd Blackledge",
+        "pos": "QB",
+        "price": "4",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CG",
+        "num": "251",
+        "team": "NE",
+        "player": "Craig James",
+        "pos": "RB",
+        "price": "4",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CG",
+        "num": "47",
+        "team": "AF",
+        "player": "Gerald Riggs",
+        "pos": "RB",
+        "price": "47",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "147",
+        "team": "CH",
+        "player": "Bob Thomas",
+        "pos": "KK",
+        "price": "9",
+        "trans": "IN"
+    },
+    {
+        "fteam": "RR",
+        "num": "211",
+        "team": "MV",
+        "player": "Steve Jordan",
+        "pos": "TE",
+        "price": "9",
+        "trans": "IN"
+    },
+    {
+        "fteam": "CD",
+        "num": "143",
+        "team": "NE",
+        "player": "Tony Franklin",
+        "pos": "KK",
+        "price": "19",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "43",
+        "team": "DC",
+        "player": "Tony Dorsett",
+        "pos": "RB",
+        "price": "2",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "13",
+        "team": "SD",
+        "player": "Dan Fouts",
+        "pos": "QB",
+        "price": "4",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "LL",
+        "num": "54",
+        "team": "SR",
+        "player": "Ottis Anderson",
+        "pos": "RB",
+        "price": "28",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "261",
+        "team": "TB",
+        "player": "Jimmie Giles",
+        "pos": "TE",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "29",
+        "team": "LA",
+        "player": "Marc Wilson",
+        "pos": "QB",
+        "price": "16",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "146",
+        "team": "DB",
+        "player": "Rich Karlis",
+        "pos": "KK",
+        "price": "41",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "SR",
+        "num": "249",
+        "team": "MV",
+        "player": "Allen Rice",
+        "pos": "RB",
+        "price": "2",
+        "trans": "IN"
+    },
+    {
+        "fteam": "SR",
+        "num": "33",
+        "team": "LR",
+        "player": "Eric Dickerson",
+        "pos": "RB",
+        "price": "15",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "BR",
+        "num": "295",
+        "team": "IC",
+        "player": "John Tice",
+        "pos": "TE",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CG",
+        "num": "144",
+        "team": "GB",
+        "player": "Jan Stenerud",
+        "pos": "KK",
+        "price": "27",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CG",
+        "num": "164",
+        "team": "NS",
+        "player": "Hoby Brenner",
+        "pos": "TE",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CG",
+        "num": "68",
+        "team": "PS",
+        "player": "Walter Abercrombie",
+        "pos": "RB",
+        "price": "8",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "RR",
+        "num": "136",
+        "team": "PS",
+        "player": "Gary Anderson",
+        "pos": "KK",
+        "price": "30",
+        "trans": "OUT"
+    }
+]

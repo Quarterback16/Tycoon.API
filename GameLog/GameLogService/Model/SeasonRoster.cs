@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -48,6 +49,9 @@ namespace GameLogService.Model
 					catchingRbSet.At(0));
 			var (fgs, pats, kicker) = Kicking(week);
 			var tdp = MinOf(passingTouchdowns, receivingTouchdowns);
+			var openReceivers = receivingTouchdowns > passingTouchdowns
+				? receivingTouchdowns - passingTouchdowns : 0;
+			AllocateCatches(receiverSet, tdp);
 			var tds = rushingTouchdowns + tdp;
 			var xp = MinOf(pats, tds);
 			var points = (tds * 6) + (fgs * 3) + xp;
@@ -71,14 +75,34 @@ namespace GameLogService.Model
 				fgs,2
 				} xp:{
 				xp,2
-				} drops: {
+				} {Environment.NewLine}              drops: {
 				DroppedPasses(
 					passingTouchdowns,
 					receivingTouchdowns),2
-				}  rb spots avail: {
+				}  open recvrs: {openReceivers} rb spots avail: {
 				2-runningBackSet.Scorers(),2
 				}";
 		}
+
+		private void AllocateCatches(
+			PlayerSet receiverSet, 
+			int tdp)
+		{
+			var tdpUnallocated = tdp;
+			foreach ( var r in receiverSet.Players)
+			{
+				if (tdpUnallocated <= 0)
+				{
+					r.Stats.ReceivingTds = 0;
+					continue;
+				}
+				r.Stats.ReceivingTds = MinOf(
+					tdpUnallocated,
+					r.Stats.ReceivingTds); 
+				tdpUnallocated -= r.Stats.ReceivingTds;
+			}
+		}
+
 
 		private int DroppedPasses(
 			int passingTouchdowns, 
@@ -296,7 +320,8 @@ namespace GameLogService.Model
 			return (receivingTouchdowns, catchingRbSet);
 		}
 
-		public string ContributionsOut()
+		public string ContributionsOut(
+			Dictionary<string, int> wagesDict)
 		{
 			var sb = new StringBuilder();
 			sb.AppendLine("Total Contributions:");
@@ -306,9 +331,27 @@ namespace GameLogService.Model
 
 			foreach (var item in sortedContributions)
 			{
-				sb.AppendLine($"   {item.Key,-17} ({item.Value.Scores(),2})");
+				var scores = item.Value.Scores();
+				var wages = WagesOut(item.Key, wagesDict);
+				sb.AppendLine($@"   {
+					item.Key,-17
+					} ({
+					scores,2
+					}) {
+					wages,2
+					} {
+					Ratio(scores, wages),4:0.0}");
 			}
 			return sb.ToString();
+		}
+
+		private int WagesOut(
+			string playerName,
+			Dictionary<string, int> wages)
+		{
+			if (wages.ContainsKey(playerName))
+				return wages[playerName];
+			return 1;
 		}
 
 		public int ContributionOf(
@@ -329,6 +372,13 @@ namespace GameLogService.Model
 			int week)
 		{
 			return GameScore[week];
+		}
+		private double Ratio(
+			int scores, 
+			int wages)
+		{
+			var ratio = (double) ((double) scores/ (double) wages);
+			return ratio;
 		}
 	}
 }

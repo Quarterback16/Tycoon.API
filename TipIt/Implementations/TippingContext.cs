@@ -16,6 +16,7 @@ namespace TipIt.Implementations
             LeagueDict = LoadLeagues();
             LeagueSchedule = LoadSchedule();
             LeaguePastResults = LoadLastYearsResults();
+            //LeaguePastResults = LoadThisYearsResults();
             //DumpResults("NRL");
         }
 
@@ -90,7 +91,8 @@ namespace TipIt.Implementations
             return nextRound;
         }
 
-        public int HomeFieldAdvantage(string leagueCode)
+        public int HomeFieldAdvantage(
+            string leagueCode)
         {
             int homefieldAdvantage;
             var totalHomePoints = 0;
@@ -200,7 +202,7 @@ namespace TipIt.Implementations
             var sb = new StringBuilder();
             var teamGameCount = 0;
             var nRounds = LeaguePastResults[leagueCode].Count;
-			for (int r = nRounds; r > 1; r--)
+			for (int r = nRounds+1; r > 1; r--)
 			{
                 if (LeaguePastResults[leagueCode].Count < r - 1)
                     continue;
@@ -461,7 +463,8 @@ namespace TipIt.Implementations
         {
             var leagueDict = new Dictionary<string, List<Team>>();
             var eventStore = new TeamEventStore();
-            var teams = (List<AddTeamEvent>)eventStore.Get<AddTeamEvent>("add-team");
+            var teams = (List<AddTeamEvent>)eventStore.Get<AddTeamEvent>(
+                "add-team");
             foreach (var team in teams)
             {
                 var theTeam = new Team(team);
@@ -509,6 +512,9 @@ namespace TipIt.Implementations
             foreach (var e in events)
             {
                 var theGame = new Game(e);
+                if (!theGame.HasBeenPlayed())
+                    continue;
+
                 if (!leagueResults.ContainsKey(theGame.League))
                     leagueResults.Add(
                         theGame.League,
@@ -527,6 +533,45 @@ namespace TipIt.Implementations
                     && theGame.GameDate.Year == 2020)
 					Console.WriteLine();
 
+                gameList.Add(theGame);
+                roundDict[theGame.Round] = gameList;
+                leagueResults[theGame.League] = roundDict;
+            }
+            return leagueResults;
+        }
+
+        public Dictionary<string, Dictionary<int, List<Game>>> LoadThisYearsResults()
+        {
+            var leagueResults = new Dictionary<
+                string, 
+                Dictionary<
+                    int,
+                    List<Game>>>();
+            var eventStore = new ResultEventStore();
+            var events = (List<ResultEvent>)eventStore.Get<ResultEvent>(
+                "results");
+            foreach (var e in events)
+            {
+                var theGame = new Game(e);
+                if (theGame.GameDate.Year != DateTime.Now.Year)
+                    continue;
+
+                if (!theGame.HasBeenPlayed())
+                    continue;
+
+                if (!leagueResults.ContainsKey(theGame.League))
+                    leagueResults.Add(
+                        theGame.League,
+                        new Dictionary<int, List<Game>>());
+
+                var roundDict = leagueResults[theGame.League];
+
+                if (!roundDict.ContainsKey(theGame.Round))
+                    roundDict.Add(
+                        theGame.Round,
+                        new List<Game>());
+
+                var gameList = roundDict[theGame.Round];
                 gameList.Add(theGame);
                 roundDict[theGame.Round] = gameList;
                 leagueResults[theGame.League] = roundDict;

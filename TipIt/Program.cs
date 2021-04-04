@@ -17,7 +17,8 @@ namespace TipIt
         {
             var context = new TippingContext();
 			//TODO: some validation could go here
-			Console.WriteLine($"There are {context.LeagueCount()} leagues");
+			Console.WriteLine(
+                $"There are {context.LeagueCount()} leagues");
 			Console.WriteLine(
 				$"League NRL has {context.ScheduledRoundCount("NRL")} rounds scheduled");
 			Console.WriteLine(
@@ -32,39 +33,52 @@ namespace TipIt
             if (!string.IsNullOrEmpty(options.Output) 
                 && options.Output.Equals("ps"))
             {
-                PastLeagueStats(options.League, context);
+                PastLeagueStats(
+                    options.League, 
+                    context);
                 return;
             }
             var round = 1;
 //          var tipster = new TableTipster(context);
             var tipster = new NibbleTipster(context);
-            if (string.IsNullOrEmpty(options.League))
+            if (string.IsNullOrEmpty(
+                options.League))
             {
                 Console.WriteLine("=== NRL ==================================================");
                 tipster.ShowTips(
                     "NRL", 
                     context.NextRound("NRL"));
+                Console.WriteLine();
+                Console.WriteLine(
+                    tipster.DumpRatings(
+                        "NRL"));
+                tipster.ClearRatings();
                 Console.WriteLine("=== AFL ==================================================");
                 tipster.ShowTips(
                     "AFL",
                     context.NextRound("AFL"));
+                Console.WriteLine();
+                Console.WriteLine(
+                    tipster.DumpRatings(
+                        "AFL"));
             }
             else
             {
                 if (options.Round == 0)
-                    round = context.NextRound(options.League);
+                    round = context.NextRound(
+                        options.League);
                 else
                     round = options.Round;
-                Console.WriteLine($"Command is TIP {options.League} Round {round}");
+                Console.WriteLine(
+                    $"Command is TIP {options.League} Round {round}");
                 tipster.ShowTips(
                     options.League, 
                     round);
-
+			    Console.WriteLine();
+			    Console.WriteLine(
+                    tipster.DumpRatings(
+                        options.League));
             }
-			Console.WriteLine();
-			Console.WriteLine(
-                tipster.DumpRatings(
-                    options.League));
         }
 
         private static void PastLeagueStats(

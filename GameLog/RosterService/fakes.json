@@ -1,0 +1,108 @@
+[
+    {
+        "fteam": "CD",
+        "num": "305",
+        "team": "NS",
+        "player": "Rueben Mayes",
+        "pos": "RB",
+        "price": "14",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "305",
+        "team": "NS",
+        "player": "Rueben Mayes",
+        "pos": "RB",
+        "price": "14",
+        "trans": "IN"
+    },
+    {
+        "comment": "fake",
+        "fteam": "CD",
+        "num": "256",
+        "team": "PS",
+        "player": "George Rogers",
+        "pos": "QB",
+        "price": "3",
+        "trans": "OUT"
+    },
+    {
+        "comment": "fake",
+        "fteam": "DD",
+        "num": "256",
+        "team": "PS",
+        "player": "George Rogers",
+        "pos": "QB",
+        "price": "3",
+        "trans": "IN"
+    },
+    {
+        "comment": "fake",
+        "fteam": "DD",
+        "num": "191",
+        "team": "NE",
+        "player": "Stanley Morgan",
+        "pos": "WR",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "comment": "fake",
+        "fteam": "CD",
+        "num": "29",
+        "team": "LA",
+        "player": "Marc Wilson",
+        "pos": "QB",
+        "price": "10",
+        "trans": "IN"
+    },
+    {
+        "comment": "fake",
+        "fteam": "CD",
+        "num": "58",
+        "team": "NJ",
+        "player": "Al Toon",
+        "pos": "WR",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "comment": "fake",
+        "fteam": "CD",
+        "num": "150",
+        "team": "SD",
+        "player": "Rolf Benirschke",
+        "pos": "KK",
+        "price": "1",
+        "trans": "IN"
+    },
+    {
+        "comment": "fake",
+        "fteam": "CD",
+        "num": "55",
+        "team": "NG",
+        "player": "Mark Bavaro",
+        "pos": "TE",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "CD",
+        "num": "167",
+        "team": "DC",
+        "player": "Herschel Walker",
+        "pos": "RB",
+        "price": "1",
+        "trans": "OUT"
+    },
+    {
+        "fteam": "DD",
+        "num": "167",
+        "team": "DC",
+        "player": "Herschel Walker",
+        "pos": "RB",
+        "price": "1",
+        "trans": "IN"
+    }
+]

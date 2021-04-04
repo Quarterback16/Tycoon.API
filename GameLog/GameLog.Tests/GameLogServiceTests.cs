@@ -11,14 +11,30 @@ namespace GameLog.Tests
     {
         private GameStatsRepository _sut;
         const string K_CurrentSeason = "1986";
-
+        private int[] weeks;
 		public static List<string> Positions { get; private set; }
+		public Dictionary<string,int> Wages { get; set; }
 
 		[TestInitialize]
         public void Initialise()
 		{
             _sut = new GameStatsRepository();
             Positions = new List<string>{ "QB", "RB", "WR", "TE", "KK"};
+            //weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+            //weeks = new int[] { 3, 4, 5, 8, 11, 12, 14, 15 };
+            //weeks = new int[] { 3,4,5,8 };
+            weeks = new int[] { 11,12,14,15 };
+
+            Wages = new Dictionary<string, int>
+			{
+				{ "Dan Marino", 13 },
+                { "Herschel Walker",  5 },
+                { "Ruben Mayes",  2 },
+                { "Stephone Paige",  4 },
+                { "Tony Franklin",  4 },
+                { "Mark Duper",  3 },
+            };
+
 		}
 
         [TestMethod]
@@ -66,8 +82,8 @@ namespace GameLog.Tests
             var playerModel = new PlayerReportModel
             {
                 Season = "1986",
-                PlayerName = "Calvin Magee",
-                //Position = "RB"
+                PlayerName = "Ernest Givins",
+                Position = "WR"
             };
 
             var result = _sut.GetGameStats(
@@ -145,12 +161,6 @@ namespace GameLog.Tests
 			AddRosterInOrder(
                 roster, 
                 teamList);
-            //int[] weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-            int[] weeks = new int[] { 3, 4  };
-            //int[] weeks = new int[] { 5, 7, 8  };
-            //int[] weeks = new int[] { 10, 11, 12 };
-            //int[] weeks = new int[] { 13, 14, 15 };
-            //int[] weeks = new int[] { 1, 2, 8, 10, 12 };
 
             foreach (var item in teamList)
 			{
@@ -183,68 +193,65 @@ namespace GameLog.Tests
 
         [TestMethod]
         public void SeasonRosterForEntireTeam()
-        {
-            var fantasyTeam = "DD";
-            var rosterService = new RetroRosters(
-                new RosterEventStore());
-            var roster = rosterService.GetRoster(
-                fantasyTeam);
-            var teamList = new List<(string, string)>();
-            AddRosterInOrder(
-                roster,
-                teamList);
-            //int[] weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-            int[] weeks = new int[] { 3, 4, 5, 7, 8, 10, 11, 12, 13, 14, 15 };
-            //int[] weeks = new int[] { 10 };
-
-            var seasonRoster = new SeasonRoster();
-            foreach (var item in teamList)
-            {
-                var playerModel = new PlayerReportModel(
-                    K_CurrentSeason,
+		{
+			var teamList = BuildTeamList("CD");
+			var seasonRoster = new SeasonRoster();
+			foreach (var item in teamList)
+			{
+				var playerModel = new PlayerReportModel(
+					K_CurrentSeason,
 					playerName: item.Item1,
-                    item.Item2);
+					item.Item2);
 
-                playerModel.GameLog = _sut.GetStats(
-                    playerModel);
+				playerModel.GameLog = _sut.GetStats(
+					playerModel);
 
-                seasonRoster.AddLog(
-                    playerModel);
-            }
+				seasonRoster.AddLog(
+					playerModel);
+			}
 			foreach (var w in weeks)
 			{
 				Console.WriteLine(
-                    "Week {0,2} {1}",
-                    w,
-                    seasonRoster.Points(w));
+					"Week {0,2} {1}",
+					w,
+					seasonRoster.Points(w));
 				Console.WriteLine();
 				Console.WriteLine(
-                    seasonRoster.Lineup(w));
+					seasonRoster.Lineup(w));
 			}
+			DisplayContributions(
+                seasonRoster);
+			DisplayTotalPoints(
+				weeks,
+				seasonRoster);
+			DisplayNonContributors(
+				teamList,
+				seasonRoster);
+		}
+
+		private void DisplayContributions(
+            SeasonRoster seasonRoster)
+		{
 			Console.WriteLine();
 			Console.WriteLine(
-                seasonRoster.ContributionsOut());
-			Console.WriteLine();
-			Console.WriteLine(
-                $"Total Pts: {seasonRoster.TotalPoints}");
-            Console.WriteLine(
-                $"  Avg Pts: {seasonRoster.TotalPoints/weeks.Length}");
-			Console.WriteLine();
+				seasonRoster.ContributionsOut(Wages));
+		}
+
+		private static void DisplayNonContributors(
+            List<(string, string)> teamList, 
+            SeasonRoster seasonRoster)
+		{
 			Console.WriteLine("Non-Contributors");
 			foreach (var player in teamList)
 			{
-                if (seasonRoster.ContributionOf(player.Item1) == 0)
+				if (seasonRoster.ContributionOf(player.Item1) == 0)
 					Console.WriteLine($"   {player.Item1}");
 			}
-        }
+		}
 
-        [TestMethod]
+		[TestMethod]
         public void SeasonRosterBattleVsDuckHunters()
 		{
-			//int[] weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-			int[] weeks = new int[] { 3, 4, 5, 7, 8, 10, 11, 12, 13, 14, 15 };
-			//int[] weeks = new int[] { 10 };
-
 			var teamList = BuildTeamList("DD");
 			var seasonRosterHunters = new SeasonRoster();
 			foreach (var item in teamList)
@@ -381,10 +388,6 @@ namespace GameLog.Tests
                 teamList,
                 skipPlayer:"Dorset");
 
-            //int[] weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-            int[] weeks = new int[] { 3, 4, 5, 7, 8, 10, 11, 12, 13, 14, 15 };
-            //int[] weeks = new int[] { 10 };
-
             var seasonRoster = new SeasonRoster();
             foreach (var item in teamList)
             {
@@ -411,7 +414,7 @@ namespace GameLog.Tests
             }
             Console.WriteLine();
             Console.WriteLine(
-                seasonRoster.ContributionsOut());
+                seasonRoster.ContributionsOut(Wages));
             Console.WriteLine();
             Console.WriteLine(
                 $"Total Pts: {seasonRoster.TotalPoints}");

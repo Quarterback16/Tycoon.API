@@ -13,18 +13,23 @@ namespace TipIt.Implementations
 
         public ResultEventStore()
         {
-            using var r = new StreamReader("results.json");
+            using var r = new StreamReader(
+                "results.json");
             var json = r.ReadToEnd();
-            Events = JsonConvert.DeserializeObject<List<ResultEvent>>(json);
+            Events = JsonConvert.DeserializeObject<List<ResultEvent>>(
+                json);
         }
 
         //  Get all events for a specific aggregate (order by version)
-        public IEnumerable<IEvent> Get<T>(Guid aggregateId, int fromVersion)
+        public IEnumerable<IEvent> Get<T>(
+            Guid aggregateId, 
+            int fromVersion)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IEvent> Get<T>(string eventType)
+        public IEnumerable<IEvent> Get<T>(
+            string eventType)
         {
             return Events;
         }
