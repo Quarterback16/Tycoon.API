@@ -11,6 +11,7 @@ namespace RosterService
 
 		public RosterEventStore()
 		{
+			Console.WriteLine($"Using json in {Environment.CurrentDirectory}");
 			using (var r = new StreamReader("RetroEvents.json"))
 			{
 				var json = r.ReadToEnd();

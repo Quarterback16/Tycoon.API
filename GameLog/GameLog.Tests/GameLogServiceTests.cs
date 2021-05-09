@@ -10,7 +10,7 @@ namespace GameLog.Tests
     public class GameLogServiceTests
     {
         private GameStatsRepository _sut;
-        const string K_CurrentSeason = "1986";
+        const string K_CurrentSeason = "1987";
         private int[] weeks;
 		public static List<string> Positions { get; private set; }
 		public Dictionary<string,int> Wages { get; set; }
@@ -20,10 +20,10 @@ namespace GameLog.Tests
 		{
             _sut = new GameStatsRepository();
             Positions = new List<string>{ "QB", "RB", "WR", "TE", "KK"};
-            //weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-            //weeks = new int[] { 3, 4, 5, 8, 11, 12, 14, 15 };
+            //weeks = new int[] { 1, 2, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+            weeks = new int[] { 1, 2, 7, 8, 9, 10 };
             //weeks = new int[] { 3,4,5,8 };
-            weeks = new int[] { 11,12,14,15 };
+            //weeks = new int[] { 11,12,14,15 };
 
             Wages = new Dictionary<string, int>
 			{
@@ -34,7 +34,6 @@ namespace GameLog.Tests
                 { "Tony Franklin",  4 },
                 { "Mark Duper",  3 },
             };
-
 		}
 
         [TestMethod]
@@ -82,8 +81,8 @@ namespace GameLog.Tests
             var playerModel = new PlayerReportModel
             {
                 Season = "1986",
-                PlayerName = "Ernest Givins",
-                Position = "WR"
+                PlayerName = "Lorenzo Hampton",
+                Position = "RB"
             };
 
             var result = _sut.GetGameStats(
@@ -190,6 +189,51 @@ namespace GameLog.Tests
 				}
 			}
 		}
+
+        [TestMethod]
+        public void GameStatsRepoForSinglePlayer()
+        {
+            var fantasyTeam = "CD";
+            var singlePlayer = "Jeff Kemp";
+            var rosterService = new RetroRosters(
+                new RosterEventStore());
+            var roster = rosterService.GetRoster(
+                fantasyTeam);
+            var teamList = new List<(string, string)>();
+            AddRosterInOrder(
+                roster,
+                teamList);
+
+            foreach (var item in teamList)
+            {
+                if (!item.Item1.Equals(singlePlayer))
+                    continue;
+                var playerModel = new PlayerReportModel
+                {
+                    Season = K_CurrentSeason,
+                    PlayerName = item.Item1
+                };
+                if (playerModel.PlayerName.Equals("Gary Anderson"))
+                    playerModel.Position = "RB";
+
+                if (item.Item2.Equals("KK"))
+                {
+                    _sut.GetKickerStats(
+                        model: playerModel);
+                    _sut.SendKickerToConsole(
+                        playerModel,
+                        weeks);
+                }
+                else
+                {
+                    _sut.GetGameStats(
+                        model: playerModel);
+                    _sut.SendToConsole(
+                        playerModel,
+                        weeks);
+                }
+            }
+        }
 
         [TestMethod]
         public void SeasonRosterForEntireTeam()
@@ -586,15 +630,23 @@ namespace GameLog.Tests
 
         #region  Google Sheets
         [TestMethod]
+        public void GameStatsRepository_KnowsOwnerOf()
+        {
+            var rosterService = new RetroRosters(
+                new RosterEventStore());
+            WriteLabel(rosterService, ("Dan Marino","MD"));
+        }
+
+        [TestMethod]
         public void GameStatsRepository_GeneratesTdp_ForQuarterbacks()
         {
             var rosterService = new RetroRosters(
                 new RosterEventStore());
-            var qbList = LoadQuarterbacksFrom1986();
+            var qbList = LoadQuarterbacksFrom1987();
 			foreach (var item in qbList)
 			{
                 WriteLabel(rosterService, item);
-                WriteTdpStats(item,"1986");
+                WriteTdpStats(item,K_CurrentSeason);
                 Console.WriteLine();
 			}
 		}
@@ -604,13 +656,13 @@ namespace GameLog.Tests
         {
             var rosterService = new RetroRosters(
                 new RosterEventStore());
-            var recList = LoadReceiversFrom1986();
+            var recList = LoadReceiversFrom1987();
             foreach (var item in recList)
             {
                 WriteLabel(rosterService, item);
                 WriteTdcStats(
 					item: item,
-					season: "1986");
+					season: K_CurrentSeason);
                 Console.WriteLine();
             }
         }
@@ -620,7 +672,7 @@ namespace GameLog.Tests
         {
             var rosterService = new RetroRosters(
                 new RosterEventStore());
-            var qbList = LoadQuarterbacksFrom1986();
+            var qbList = LoadQuarterbacksFrom1987();
             foreach (var item in qbList)
 			{
 				WriteLabel(rosterService, item);
@@ -634,13 +686,13 @@ namespace GameLog.Tests
         {
             var rosterService = new RetroRosters(
                 new RosterEventStore());
-            var qbList = LoadRunningbacksFrom1986();
+            var qbList = LoadRunningbacksFrom1987();
             foreach (var item in qbList)
             {
                 WriteLabel(rosterService, item);
                 WriteTdrStats(
                     item,
-                    "1986");
+                    K_CurrentSeason);
                 Console.WriteLine();
             }
         }
@@ -650,7 +702,7 @@ namespace GameLog.Tests
         {
             var rosterService = new RetroRosters(
                 new RosterEventStore());
-            var kList = LoadKickersFrom1986();
+            var kList = LoadKickersFrom1987();
             foreach (var item in kList)
             {
                 WriteLabel(
@@ -658,7 +710,7 @@ namespace GameLog.Tests
                     item);
                 WriteKickStats(
                     item,
-                    "1986");
+                    K_CurrentSeason);
                 Console.WriteLine();
             }
         }
@@ -776,7 +828,7 @@ namespace GameLog.Tests
 			WriteSeasonTdp(stats);
 		}
 
-		private static void WriteLabel(
+		public static void WriteLabel(
             RetroRosters rosterService,
             (string, string) item)
 		{
@@ -995,6 +1047,80 @@ namespace GameLog.Tests
             return qbList;
         }
 
+        private List<(string, string)> LoadQuarterbacksFrom1987()
+        {
+            var qbList = new List<(string, string)>
+            {
+                ("Joe Montana","SFO"),
+                ("Dan Marino","MIA"),
+                ("Neil Lomax","STL"),
+                ("Dave Krieg","SEA"),
+                ("Randall Cunningham","PHI"),
+                ("Bernie Kosar","CLE"),
+                ("Warren Moon","HOU"),
+                ("Jim Kelly","BUF"),
+                ("John Elway","DEN"),
+                ("Phil Simms","NYG"),
+                ("Boomer Esiason","CIN"),
+                ("Bill Kenney","KAN"),
+                ("Bobby Hebert","NOR"),
+                ("Wade Wilson","MIN"),
+                ("Steve DeBerg","TAM"),
+                ("Ken O'Brien","NYJ"),
+                ("Marc Wilson","RAI"),
+                ("Danny White","DAL"),
+                ("Jay Schroeder","WAS"),
+                ("Jim McMahon","CHI"),
+                ("Doug Williams","WAS"),
+                ("Chuck Long","DET"),
+                ("Scott Campbell","ATL"),
+                ("Steve Young","SFO"),
+                ("Steve Grogan","NWE"),
+                ("Dan Fouts","SDG"),
+                ("Jim Everett","RAM"),
+                ("Gary Hogeboom","IND"),
+                ("Randy Wright","GNB"),
+                ("Jack Trudeau","IND"),
+                ("Tom Ramsey","NWE"),
+                ("Mark Malone","PIT"),
+                ("Mike Tomczak","CHI"),
+                ("Vinny Testaverde","TAM"),
+                ("Jeff Rutledge","NYG"),
+                ("Don Majkowski","GNB"),
+                ("Jeff Kemp","SEA"),
+                ("Ken Karcher","DEN"),
+                ("Todd Hons","DET"),
+                ("Vince Evans","RAI"),
+                ("Steve Dils","RAM"),
+                ("Steve Bono","PIT"),
+                ("Kevin Sweeney","DAL"),
+                ("Pat Ryan","NYJ"),
+                ("Ed Rubbert","WAS"),
+                ("Tommy Kramer","MIN"),
+                ("Erik Kramer","ATL"),
+                ("Mike Hohensee","CHI"),
+                ("John Fourcade","NOR"),
+                ("Gary Danielson","CLE"),
+                ("Scott Tinsley","PHI"),
+                ("Alan Risher","GNB"),
+                ("Steve Pelluer","DAL"),
+                ("Brent Pease","HOU"),
+                ("Bruce Mathison","SEA"),
+                ("Kyle Mackey","MIA"),
+                ("Tony Eason","NWE"),
+                ("Mike Busch","NYG"),
+                ("Tony Adams","MIN"),
+                ("Dave Wilson","NOR"),
+                ("Willie Totten","BUF"),
+                ("Mike Hold","TAM"),
+                ("Rusty Hilger","RAI"),
+                ("Reggie Collier","PIT"),
+                ("Steve Bradley","CHI"),
+
+            };
+            return qbList;
+        }
+
         private List<(string, string)> LoadQuarterbacksFrom1986()
         {
             var qbList = new List<(string, string)>
@@ -1156,6 +1282,93 @@ namespace GameLog.Tests
                 ("Albert Bentley", "IC"),
                 ("Hokie Gajan", "NO"),
                 ("Modi Tatupu", "NE"),
+            };
+            return rbList;
+        }
+
+        private List<(string, string)> LoadRunningbacksFrom1987()
+        {
+            var rbList = new List<(string, string)>
+            {
+                ("Charles White","RAM"),
+                ("Johnny Hector","NYJ"),
+                ("Curt Warner","SEA"),
+                ("Larry Kinnebrew","CIN"),
+                ("Earnest Byner","CLE"),
+                ("Herschel Walker","DAL"),
+                ("Albert Bentley","IND"),
+                ("Dalton Hilliard","NOR"),
+                ("Earl Ferrell","STL"),
+                ("Eric Dickerson","2TM"),
+                ("Sammy Winder","DEN"),
+                ("George Rogers","WAS"),
+                ("Troy Stradford","MIA"),
+                ("Rueben Mayes","NOR"),
+                ("Kevin Mack","CLE"),
+                ("Marcus Allen","RAI"),
+                ("Anthony Toney","PHI"),
+                ("Brent Fullwood","GNB"),
+                ("D.J. Dozier","MIN"),
+                ("Robb Riddick","BUF"),
+                ("Wade Wilson","MIN"),
+                ("Walter Payton","CHI"),
+                ("Garry James","DET"),
+                ("Bo Jackson","RAI"),
+                ("John Elway","DEN"),
+                ("Mike Rozier","HOU"),
+                ("Roger Craig","SFO"),
+                ("Stump Mitchell","STL"),
+                ("Joe Morris","NYG"),
+                ("Christian Okoye","KAN"),
+                ("Tony Collins","NWE"),
+                ("Neal Anderson","CHI"),
+                ("Frank Pollard","PIT"),
+                ("Keith Byars","PHI"),
+                ("Kenneth Davis","GNB"),
+                ("Reggie Dupard","NWE"),
+                ("Herman Heard","KAN"),
+                ("Gary Anderson","SDG"),
+                ("Randall Cunningham","PHI"),
+                ("Paul Ott","Car"),
+                ("Derrick McAdoo","STL"),
+                ("Gary Ellerson","DET"),
+                ("Ronald Scott","MIA"),
+                ("Alvin Blount","DAL"),
+                ("Mark Malone","PIT"),
+                ("Warren Moon","HOU"),
+                ("Jay Schroeder","WAS"),
+                ("Gerald Riggs","ATL"),
+                ("Darrin Nelson","MIN"),
+                ("Walter Abercrombie","PIT"),
+                ("Ronnie Harmon","BUF"),
+                ("Jeff Smith","TAM"),
+                ("Gene Lang","DEN"),
+                ("Jamie Mueller","BUF"),
+                ("Lionel Vital","WAS"),
+                ("Alfred Anderson","MIN"),
+                ("Dwight Beverly","NOR"),
+                ("Larry Mason","CLE"),
+                ("Karl Bernard","DET"),
+                ("Rick Fenney","MIN"),
+                ("Dave Krieg","SEA"),
+                ("Barry Word","NOR"),
+                ("Joe Dudek","DEN"),
+                ("Craig Ellis","RAI"),
+                ("Allen Pinkett","HOU"),
+                ("Lionel James","SDG"),
+                ("Timmy Newsome","DAL"),
+                ("Chris Brewer","CHI"),
+                ("Jim McMahon","CHI"),
+                ("Scott Campbell","ATL"),
+                ("Steve Grogan","NWE"),
+                ("Steve Sewell","DEN"),
+                ("Wayne Wilson","WAS"),
+                ("Kyle Mackey","MIA"),
+                ("Nuu Faaola","NYJ"),
+                ("Dan Fouts","SDG"),
+                ("Buford Jordan","NOR"),
+                ("Tommy Kramer","MIN"),
+
             };
             return rbList;
         }
@@ -1331,6 +1544,49 @@ namespace GameLog.Tests
             return pkList;
         }
 
+        private List<(string, string)> LoadKickersFrom1987()
+        {
+            var pkList = new List<(string, string)>
+            {
+                ("Morten Andersen","NOR"),
+                ("Dean Biasucci","IND"),
+                ("Jim Breech","CIN"),
+                ("Gary Anderson","PIT"),
+                ("Roger Ruzek","DAL"),
+                ("Eddie Murray","DET"),
+                ("Tony Zendejas","HOU"),
+                ("Kevin Butler","CHI"),
+                ("Nick Lowery","KAN"),
+                ("Chris Bahr","RAI"),
+                ("Rich Karlis","DEN"),
+                ("Pat Leahy","NYJ"),
+                ("Raul Allegre","NYG"),
+                ("Mike Lansford","RAM"),
+                ("Paul McFadden","PHI"),
+                ("Max Zendejas","GNB"),
+                ("Tony Franklin","NWE"),
+                ("Norm Johnson","SEA"),
+                ("Jeff Jaeger","CLE"),
+                ("Donald Igwebuike","TAM"),
+                ("Chuck Nelson","MIN"),
+                ("Vince Abbott","SDG"),
+                ("Ali Haji-Sheikh","WAS"),
+                ("Ray Wersching","SFO"),
+                ("Scott Norwood","BUF"),
+                ("Mick Luckhurst","ATL"),
+                ("Jim Gallery","STL"),
+                ("Al Del Greco","2TM"),
+                ("Fuad Reveiz","MIA"),
+                ("Mike Prindle","DET"),
+                ("John Diettrich","HOU"),
+                ("Van Tiffin","2TM"),
+                ("Matt Bahr","CLE"),
+                ("Florian Kempf","NOR"),
+                ("Luis Zendejas","DAL"),
+            };
+            return pkList;
+        }
+
         private List<(string, string)> LoadReceiversFrom1984Part1()
         {
             var playerList = new List<(string, string)>
@@ -1480,6 +1736,156 @@ namespace GameLog.Tests
 ("Wesley Walker","NYJ"),
 ("Butch Woolfolk","HOU"),
 
+            };
+            return playerList;
+        }
+
+        private List<(string, string)> LoadReceiversFrom1987()
+        {
+            var playerList = new List<(string, string)>
+            {
+        ("Jerry Rice ","SFO"),
+        ("Mike Quick","PHI"),
+        ("J.T. Smith","STL"),
+        ("Steve Largent","SEA"),
+        ("Mark Bavaro","NYG"),
+        ("Mark Duper","MIA"),
+        ("Pete Mandley","DET"),
+        ("Gary Clark","WAS"),
+        ("Carlos Carson","KAN"),
+        ("Webster Slaughter","CLE"),
+        ("Mark Clayton","MIA"),
+        ("Eric Martin","NOR"),
+        ("Vance Johnson","DEN"),
+        ("Anthony Carter","MIN"),
+        ("Willie Gault","CHI"),
+        ("Ernest Givins","HOU"),
+        ("Drew Hill","HOU"),
+        ("Brian Brennan","CLE"),
+        ("Robert Awalt","STL"),
+        ("Art Monk","WAS"),
+        ("Lionel Manuel","NYG"),
+        ("John Tice","NOR"),
+        ("Daryl Turner","SEA"),
+        ("Al Toon","NYJ"),
+        ("Andre Reed","BUF"),
+        ("Kelvin Bryant","WAS"),
+        ("James Lofton","RAI"),
+        ("Gerald Carter","TAM"),
+        ("Floyd Dixon","ATL"),
+        ("Ray Butler","SEA"),
+        ("Irving Fryar","NWE"),
+        ("Mike Wilson","SFO"),
+        ("Dwight Clark","SFO"),
+        ("Dokie Williams","RAI"),
+        ("Curtis Duncan","HOU"),
+        ("Chris Burkett","BUF"),
+        ("Mike Renfro","DAL"),
+        ("Roy Green","STL"),
+        ("Stephone Paige","KAN"),
+        ("Matt Bouza","IND"),
+        ("Rick Massie","DEN"),
+        ("Kellen Winslow","SDG"),
+        ("Bill Brooks","IND"),
+        ("Henry Ellard","RAM"),
+        ("Neal Anderson","CHI"),
+        ("Eddie Brown","CIN"),
+        ("Tony Collins","NWE"),
+        ("Mickey Shuler","NYJ"),
+        ("Lionel James","SDG"),
+        ("Stanley Morgan","NWE"),
+        ("Walter Stanley","GNB"),
+        ("John Williams","SEA"),
+        ("Ricky Sanders","WAS"),
+        ("Doug Cosbie","DAL"),
+        ("Frankie Neal","GNB"),
+        ("Kelvin Edwards","DAL"),
+        ("Calvin Magee","TAM"),
+        ("Aubrey Matthews","ATL"),
+        ("Tom Rathman","SFO"),
+        ("Mike Jones","NOR"),
+        ("Mark Carrier","TAM"),
+        ("John Frank","SFO"),
+        ("James Pruitt","MIA"),
+        ("Cedric Jones","NWE"),
+        ("Kenny Jackson","PHI"),
+        ("Stacey Bailey","ATL"),
+        ("Mike Martin","CIN"),
+        ("Walter Murray","IND"),
+        ("Jay Novacek","STL"),
+        ("Stephen Starring","NWE"),
+        ("Rodney Carter","PIT"),
+        ("Glen Kozlowski","CHI"),
+        ("Robb Riddick","BUF"),
+        ("Anthony Allen","WAS"),
+        ("Jamie Williams","HOU"),
+        ("Ron Heller","SFO"),
+        ("Derek Tennell","CLE"),
+        ("Carl Aikens","RAI"),
+        ("Ronnie Harmon","BUF"),
+        ("Earnest Byner","CLE"),
+        ("Gary Anderson","SDG"),
+        ("Todd Christensen","RAI"),
+        ("Stump Mitchell","STL"),
+        ("John Stallworth","PIT"),
+        ("Wes Chandler","SDG"),
+        ("John Spagnola","PHI"),
+        ("Stanford Jennings","CIN"),
+        ("Steve Jordan","MIN"),
+        ("Albert Bentley","IND"),
+        ("Phil Epps","GNB"),
+        ("Timmy Newsome","DAL"),
+        ("Ricky Nattiel","DEN"),
+        ("Bruce Hardy","MIA"),
+        ("Rodney Holman","CIN"),
+        ("Ron Brown","RAM"),
+        ("Mark Jackson","DEN"),
+        ("Bobby Micho","DEN"),
+        ("Leo Lewis","MIN"),
+        ("Bruce Hill","TAM"),
+        ("Kurt Sohn","NYJ"),
+        ("James Brooks","CIN"),
+        ("Jonathan Hayes","KAN"),
+        ("Damone Johnson","RAM"),
+        ("Hoby Brenner","NOR"),
+        ("Jeff Smith","TAM"),
+        ("Lonzell Hill","NOR"),
+        ("Greg Baty","2TM"),
+        ("James Brim","MIN"),
+        ("Eric Kattus","CIN"),
+        ("Cap Boso","CHI"),
+        ("Gene Lang","DEN"),
+        ("Curt Warner","SEA"),
+        ("Bo Jackson","RAI"),
+        ("Stephen Baker","NYG"),
+        ("Troy Johnson","STL"),
+        ("Trumaine Johnson","BUF"),
+        ("Jimmy Teal","SEA"),
+        ("Mike Tice","SEA"),
+        ("D.J. Dozier","MIN"),
+        ("Gregg Garrity","PHI"),
+        ("Perry Kemp","CLE"),
+        ("Larry Linne","NWE"),
+        ("Clarence Weathers","CLE"),
+        ("Milton Barney","ATL"),
+        ("Edwin Lovelady","NYG"),
+        ("James Noble","IND"),
+        ("Darrell Grymes","DET"),
+        ("Jon Francis","RAM"),
+        ("Phil Freeman","TAM"),
+        ("Gerald McNeil","CLE"),
+        ("Danny Bradley","DET"),
+        ("Cornell Burbage","DAL"),
+        ("Eddie Hunter","2TM"),
+        ("Hassan Jones","MIN"),
+        ("Stacy Robinson","NYG"),
+        ("Cris Carter","PHI"),
+        ("Eric Streater","TAM"),
+        ("Dan Johnson","MIA"),
+        ("James McDonald","RAM"),
+        ("Lyneal Alston","PIT"),
+        ("Carl Hilton","MIN"),
+        ("Butch Rolle","BUF"),
             };
             return playerList;
         }

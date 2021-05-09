@@ -62,6 +62,8 @@ namespace RosterService
 						break;
 					}
 				}
+				if (owner != noOwner)
+					break;
 			}
 			return owner;
 		}

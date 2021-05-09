@@ -15,8 +15,8 @@ namespace TipIt.Implementations
         {
             LeagueDict = LoadLeagues();
             LeagueSchedule = LoadSchedule();
-            LeaguePastResults = LoadLastYearsResults();
-            //LeaguePastResults = LoadThisYearsResults();
+            //LeaguePastResults = LoadLastYearsResults();
+            LeaguePastResults = LoadThisYearsResults();
             //DumpResults("NRL");
         }
 
